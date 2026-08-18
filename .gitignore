@@ -5,6 +5,9 @@ dist/
 .env.local
 .DS_Store
 *.log
+.wrangler/
+.dev.vars
+worker-configuration.d.ts
 
 # Local-only reference doc, not for the public repo
 competitor-analysis.md

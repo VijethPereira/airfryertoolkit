@@ -1,0 +1,19 @@
+name = "airfryertoolkit"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[assets]
+directory = "./dist"
+
+# Create with: wrangler kv namespace create RATE_KV
+# then replace the id below with the one it prints.
+[[kv_namespaces]]
+binding = "RATE_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Requires Email Routing enabled for airfryertoolkit.com in the Cloudflare
+# dashboard, with contact@airfryertoolkit.com verified as a destination/sender.
+[[send_email]]
+name = "EMAIL"
+destination_address = "pereiravijeth@gmail.com"

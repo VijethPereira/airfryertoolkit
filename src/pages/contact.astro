@@ -1,63 +1,390 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
 import siteConfig from '../site.config.ts';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${siteConfig.domain}/contact#page`,
+  url: `${siteConfig.domain}/contact`,
+  name: `Contact — ${siteConfig.siteName}`,
+  description: `Get in touch with ${siteConfig.siteName}. Report a bad conversion, request a food type, or suggest a new tool.`,
+  isPartOf: { '@id': `${siteConfig.domain}/#website` },
+};
 ---
 
 <Layout
   title="Contact"
-  description={`Get in touch with ${siteConfig.siteName}.`}
+  description={`Get in touch with ${siteConfig.siteName}. Report a bad conversion, request a food type or brand, or suggest a new tool.`}
   canonical={`${siteConfig.domain}/contact`}
+  jsonLd={jsonLd}
 >
   <SiteNav currentPath="/contact" />
 
   <main class="page-main">
-    <div class="wrap">
-      <h1>Contact</h1>
-      <p>
-        Found a conversion that doesn't look right, or have a food type or brand you'd like added?
-        Email <a href="mailto:hello@airfryertoolkit.com">hello@airfryertoolkit.com</a> — reports on
-        specific settings are the most useful, since they help tune the underlying multipliers.
-      </p>
+    <div class="page-container">
+
+      <div class="page-header">
+        <div class="page-tag">Contact</div>
+        <h1>Get in Touch</h1>
+        <p class="page-lead">
+          Found a conversion that doesn't look right, or have a food type or brand you'd like
+          added? We read every message.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+
+        <div class="contact-form-wrap">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="field-group">
+              <label for="cf-name">Name</label>
+              <input
+                id="cf-name"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="field-group">
+              <label for="cf-email">Email</label>
+              <input
+                id="cf-email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="field-group">
+              <label for="cf-subject">Subject</label>
+              <select id="cf-subject" name="subject" required>
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="Conversion issue">Conversion issue</option>
+                <option value="Food type request">Food type request</option>
+                <option value="Brand/appliance request">Brand/appliance request</option>
+                <option value="General feedback">General feedback</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="cf-message">Message</label>
+              <textarea
+                id="cf-message"
+                name="message"
+                rows="5"
+                placeholder="Describe the setting, food, or appliance involved…"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Replace with a Turnstile site key created for airfryertoolkit.com -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAAAAAAAAAAAAAAA" data-theme="auto"></div>
+
+            <div class="form-footer">
+              <button type="submit" id="submit-btn" class="submit-btn">Send Message</button>
+              <span id="form-error" class="form-error" style="display:none;">Something went wrong — please try again.</span>
+            </div>
+          </form>
+
+          <div id="success-banner" class="success-banner" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Message sent — thank you! We'll get back to you soon.
+          </div>
+        </div>
+
+        <aside class="contact-aside">
+          <div class="aside-card">
+            <div class="aside-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M9 5v4.5L11.5 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="aside-title">Response time</div>
+              <div class="aside-body">We aim to respond within 2 business days.</div>
+            </div>
+          </div>
+
+          <div class="aside-card">
+            <div class="aside-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3 4h12v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M3 4l6 5 6-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="aside-title">Privacy</div>
+              <div class="aside-body">Your message is delivered directly to us by email. We never share your details.</div>
+            </div>
+          </div>
+
+          <div class="aside-card">
+            <div class="aside-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M2.5 16c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="aside-title">Also try</div>
+              <div class="aside-body">
+                {siteConfig.sisterSites.map((site, i) => (
+                  <>
+                    {i > 0 && ' · '}
+                    <a href={site.href} target="_blank" rel="noopener">{site.label}</a>
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
     </div>
   </main>
 
   <Footer />
 </Layout>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
+<script>
+  const form      = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn')   as HTMLButtonElement;
+  const errorEl   = document.getElementById('form-error')   as HTMLElement;
+  const banner    = document.getElementById('success-banner') as HTMLElement;
+
+  declare const turnstile: { reset: (widget?: string | HTMLElement) => void };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const token = (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value;
+    if (!token) {
+      errorEl.textContent    = 'Please complete the CAPTCHA.';
+      errorEl.style.display  = 'inline';
+      return;
+    }
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+    errorEl.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:           (document.getElementById('cf-name')    as HTMLInputElement).value,
+          email:          (document.getElementById('cf-email')   as HTMLInputElement).value,
+          subject:        (document.getElementById('cf-subject') as HTMLSelectElement).value,
+          message:        (document.getElementById('cf-message') as HTMLTextAreaElement).value,
+          turnstileToken: token,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.ok) {
+        form.style.display   = 'none';
+        banner.style.display = 'flex';
+      } else {
+        throw new Error(data.error || 'Failed');
+      }
+    } catch (err) {
+      errorEl.textContent    = err instanceof Error && err.message !== 'Failed' ? err.message : 'Something went wrong — please try again.';
+      errorEl.style.display  = 'inline';
+      submitBtn.disabled     = false;
+      submitBtn.textContent  = 'Send Message';
+      if (typeof turnstile !== 'undefined') turnstile.reset();
+    }
+  });
+</script>
+
 <style>
   @reference '../styles/global.css';
 
-  .page-main {
-    padding: 48px 0 96px;
+  .page-container {
+    max-width: 900px;
   }
 
-  .wrap {
-    max-width: 720px;
-    margin-inline: auto;
-    padding-inline: 24px;
+  .page-header {
+    max-width: 560px;
   }
 
-  h1 {
-    font-size: var(--text-heading-sm);
-    line-height: var(--text-heading-sm--line-height);
-    letter-spacing: var(--text-heading-sm--letter-spacing);
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field-group label {
+    font-size: 13px;
     font-weight: 600;
     color: var(--site-text);
-    margin: 0 0 20px;
   }
 
-  p {
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
-    letter-spacing: var(--text-body--letter-spacing);
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: var(--font-archivo);
+    background: var(--site-bg-card);
+    border: 1px solid var(--site-border);
+    border-radius: 8px;
+    color: var(--site-text);
+    outline: none;
+    transition: border-color 0.15s ease;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
     color: var(--site-text-muted);
-    margin: 0 0 16px;
-    max-width: 65ch;
   }
 
-  p a {
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--site-accent);
+  }
+
+  .contact-form select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .submit-btn {
+    height: 44px;
+    padding: 0 24px;
+    background: var(--site-text);
+    color: var(--site-bg-card);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-archivo);
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .submit-btn:hover {
+    opacity: 0.85;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-error {
+    font-size: 13px;
+    color: #c0392b;
+  }
+
+  .success-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border: 1px solid #2f9e5c;
+    border-radius: 8px;
+    background: #eefaf1;
+    color: #1f7a44;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .aside-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--site-border);
+    border-radius: 10px;
+    background: var(--site-bg-card);
+  }
+
+  .aside-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--site-bg-hover);
+    color: var(--site-text-muted);
+    flex-shrink: 0;
+  }
+
+  .aside-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--site-text);
+    margin-bottom: 2px;
+  }
+
+  .aside-body {
+    font-size: 13px;
+    color: var(--site-text-muted);
+    line-height: 1.5;
+  }
+
+  .aside-body a {
     color: var(--site-text);
     font-weight: 600;
   }

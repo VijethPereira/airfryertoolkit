@@ -1,74 +1,118 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
 import siteConfig from '../site.config.ts';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${siteConfig.domain}/about#page`,
+      url: `${siteConfig.domain}/about`,
+      name: `About ${siteConfig.siteName}`,
+      description: `Learn how ${siteConfig.siteName} converts oven settings to air fryer settings using food-type multipliers and a ceiling clamp — not a flat 25° rule.`,
+      isPartOf: { '@id': `${siteConfig.domain}/#website` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.domain}/#org`,
+      name: siteConfig.siteName,
+      url: siteConfig.domain,
+      founder: {
+        '@type': 'Person',
+        name: 'Vijeth Pereira',
+        url: 'https://vijeth-portfolio.pages.dev/',
+      },
+    },
+  ],
+};
 ---
 
 <Layout
   title="About"
-  description={`Learn about ${siteConfig.siteName} and our approach to oven-to-air-fryer conversion.`}
+  description={`Learn how ${siteConfig.siteName} converts oven settings to air fryer settings using food-type multipliers and a ceiling clamp, why the flat 25°F rule falls short, and who built it.`}
   canonical={`${siteConfig.domain}/about`}
+  keywords="about air fryer toolkit, oven to air fryer conversion, air fryer conversion calculator"
+  jsonLd={jsonLd}
 >
   <SiteNav currentPath="/about" />
 
   <main class="page-main">
-    <div class="wrap">
-      <h1>About {siteConfig.siteName}</h1>
-      <p>
-        {siteConfig.siteName} is a free set of oven-to-air-fryer conversion tools. Instead of a
-        single flat rule ("subtract 25°F, cut the time by 20%"), the converter accounts for what
-        you're actually cooking — food-type multipliers, basket vs. oven-style airflow, and a
-        ceiling clamp so it never suggests a setting your appliance can't reach.
-      </p>
-      <p>
-        Every tool runs entirely in your browser. There's no account, no sign-up, and no data sent
-        to a server — the calculation happens on your device and nowhere else.
-      </p>
-      <p>
-        {siteConfig.siteName} is part of a small family of free, single-purpose tool sites,
-        including <a href="https://quickmeasuretool.com" target="_blank" rel="noopener">Quick Measure</a> and
-        <a href="https://snapimagetools.com" target="_blank" rel="noopener">Snap Image Tools</a>.
-      </p>
+    <div class="page-container">
+
+      <div class="page-header">
+        <div class="page-tag">About</div>
+        <h1>About {siteConfig.siteName}</h1>
+        <p class="page-lead">
+          A free, browser-based tool for converting oven recipes to air fryer settings — adjusted
+          for what you're actually cooking, not a single flat rule.
+        </p>
+      </div>
+
+      <div class="prose">
+
+        <h2>What Is {siteConfig.siteName}?</h2>
+        <p>
+          {siteConfig.siteName} is a free oven-to-air-fryer conversion calculator. Enter the
+          temperature and time from any recipe and get back the matching air fryer setting — and
+          the reverse, if you want to go from an air fryer setting back to a conventional oven.
+          The tool runs entirely in your browser: nothing is installed, no account is required, and
+          the calculation never touches a server.
+        </p>
+
+        <h2>Why We Built It</h2>
+        <p>
+          The advice you'll find most places is a flat rule: "subtract 25°F and cut the time by
+          20%." That rule is a reasonable average, but it treats fries, chicken breast, and a frozen
+          casserole identically — and it doesn't distinguish between a basket-style air fryer and an
+          oven-style one, which circulate air differently and top out at different temperatures.
+        </p>
+        <p>
+          {siteConfig.siteName} replaces the flat rule with per-food adjustments and a hardware
+          ceiling, so the number you get back is one your appliance can actually reach.
+        </p>
+
+        <h2>How the Conversion Works</h2>
+        <p>
+          Every food type in the converter carries its own temperature offset and time multiplier,
+          tuned from how that food actually behaves in an air fryer:
+        </p>
+        <ul>
+          <li><strong>Food-type adjustment</strong> — fries, wings, chicken breast, steak, fish, bacon, vegetables, baked goods, pizza, and casseroles each use a different temperature offset and time multiplier, instead of one number for everything.</li>
+          <li><strong>Basket vs. oven-style</strong> — basket-style air fryers and oven-style (convection toaster oven) units circulate air differently, so the offset and multiplier shift slightly depending on which one you select.</li>
+          <li><strong>Ceiling clamp</strong> — basket-style units are capped at 400°F and oven-style units at 450°F, matching real hardware limits. If a recipe would convert above that, the result is held at the ceiling and time is added back rather than suggesting a setting your unit can't reach.</li>
+          <li><strong>Gas mark &amp; check-in time</strong> — results also show the nearest UK gas mark and a suggested check-in point at roughly 70% of the cook time, so you can catch food before it's overdone.</li>
+        </ul>
+
+        <h2>Who Uses {siteConfig.siteName}?</h2>
+        <p>
+          Home cooks converting a favorite oven recipe for the first time, air fryer beginners who
+          only have the oven instructions on a box, and anyone meal-prepping who wants a faster
+          appliance without guessing at the settings.
+        </p>
+
+        <h2>What's Coming Next</h2>
+        <p>
+          More food presets and brand-specific notes are in progress. If there's a food type,
+          appliance brand, or feature you'd like to see, <a href="/contact">get in touch</a> — we
+          read every message.
+        </p>
+
+        <h2>Who Made This?</h2>
+        <p>
+          {siteConfig.siteName} is designed and built by <strong>Vijeth Pereira</strong>, an
+          independent developer focused on building fast, free, single-purpose web tools. You can
+          learn more at <a href="https://vijeth-portfolio.pages.dev/" target="_blank" rel="noopener noreferrer">vijeth-portfolio.pages.dev</a>.
+          {siteConfig.siteName} is part of a small family of free tool sites, including
+          {siteConfig.sisterSites.map((site, i) => <>{i > 0 && ' and '}<a href={site.href} target="_blank" rel="noopener">{site.label}</a>{i === siteConfig.sisterSites.length - 1 && '.'}</>)}
+        </p>
+
+      </div>
     </div>
   </main>
 
   <Footer />
 </Layout>
-
-<style>
-  @reference '../styles/global.css';
-
-  .page-main {
-    padding: 48px 0 96px;
-  }
-
-  .wrap {
-    max-width: 720px;
-    margin-inline: auto;
-    padding-inline: 24px;
-  }
-
-  h1 {
-    font-size: var(--text-heading-sm);
-    line-height: var(--text-heading-sm--line-height);
-    letter-spacing: var(--text-heading-sm--letter-spacing);
-    font-weight: 600;
-    color: var(--site-text);
-    margin: 0 0 20px;
-  }
-
-  p {
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
-    letter-spacing: var(--text-body--letter-spacing);
-    color: var(--site-text-muted);
-    margin: 0 0 16px;
-    max-width: 65ch;
-  }
-
-  p a {
-    color: var(--site-text);
-    font-weight: 600;
-  }
-</style>

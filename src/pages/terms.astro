@@ -1,0 +1,158 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+
+const effectiveDate = 'August 18, 2026';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${siteConfig.domain}/terms#page`,
+  url: `${siteConfig.domain}/terms`,
+  name: `Terms & Conditions — ${siteConfig.siteName}`,
+  description: `Terms and conditions for using ${siteConfig.siteName}, the free browser-based oven-to-air-fryer conversion tool.`,
+  isPartOf: { '@id': `${siteConfig.domain}/#website` },
+};
+---
+
+<Layout
+  title="Terms & Conditions"
+  description={`Terms and conditions for using ${siteConfig.siteName} — the free browser-based oven-to-air-fryer conversion tool. Read our usage policy, disclaimer, and limitation of liability.`}
+  canonical={`${siteConfig.domain}/terms`}
+  jsonLd={jsonLd}
+>
+  <SiteNav currentPath="/terms" />
+
+  <main class="page-main">
+    <div class="page-container">
+
+      <div class="page-header">
+        <div class="page-tag">Legal</div>
+        <h1>Terms &amp; Conditions</h1>
+        <p class="page-lead">
+          By using {siteConfig.siteName}, you agree to these terms. Please read them before using
+          the tool.
+        </p>
+        <p class="page-effective-date">Effective date: {effectiveDate}</p>
+      </div>
+
+      <div class="prose">
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing or using {siteConfig.siteName}, you agree to be bound by these
+          Terms &amp; Conditions. If you do not agree to these terms, please do not use the service.
+        </p>
+
+        <h2>2. Description of Service</h2>
+        <p>
+          {siteConfig.siteName} provides free, browser-based tools for converting oven temperatures
+          and times to air fryer settings, and back again. The service is provided free of charge
+          and requires no registration or personal information.
+        </p>
+
+        <h2>3. Permitted Use</h2>
+        <p>
+          {siteConfig.siteName} is provided for personal, educational, and professional use. You may
+          not:
+        </p>
+        <ul>
+          <li>Attempt to reverse-engineer, decompile, or extract the source code for commercial redistribution</li>
+          <li>Use automated tools to scrape or excessively load the service</li>
+          <li>Use the service in any way that violates applicable laws or regulations</li>
+        </ul>
+
+        <h2>4. Conversion Accuracy</h2>
+        <p>
+          {siteConfig.siteName} estimates air fryer settings using food-type multipliers and basket
+          vs. oven-style airflow adjustments, with a ceiling clamp so it never suggests a temperature
+          your unit can't reach. While we aim to make these estimates as reliable as possible,
+          <strong>we cannot guarantee the exact outcome for every appliance, recipe, or food item.</strong>
+        </p>
+        <p>
+          Actual results depend on your specific air fryer model, its calibration, the quantity and
+          starting temperature of the food, and other variables outside our control. Always check
+          food for doneness and safe internal temperature rather than relying solely on a converted
+          setting.
+        </p>
+
+        <h2>5. Disclaimer of Warranties</h2>
+        <p>
+          {siteConfig.siteName} is provided <strong>"as is"</strong> and <strong>"as available"</strong> without
+          warranties of any kind, either express or implied, including but not limited to implied
+          warranties of merchantability, fitness for a particular purpose, or non-infringement.
+        </p>
+        <p>
+          We do not warrant that the service will be uninterrupted, error-free, or free of viruses
+          or other harmful components.
+        </p>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>
+          To the fullest extent permitted by applicable law, {siteConfig.siteName} and its operators
+          shall not be liable for any indirect, incidental, special, consequential, or punitive
+          damages arising from your use of the service, including but not limited to undercooked or
+          overcooked food, appliance damage, or reliance on results provided by the tool.
+        </p>
+
+        <h2>7. Intellectual Property</h2>
+        <p>
+          The {siteConfig.siteName} name, logo, design, and code are the intellectual property of
+          their respective owners. You may not reproduce, distribute, or create derivative works
+          without prior written permission, except as permitted by applicable law (e.g., fair use
+          for educational or editorial purposes).
+        </p>
+
+        <h2>8. Third-Party Services</h2>
+        <p>
+          {siteConfig.siteName} may use the following third-party services, each governed by their
+          own terms and policies:
+        </p>
+        <ul>
+          <li>
+            <strong>Google AdSense</strong> — may serve advertisements on this site. Google's use of
+            advertising cookies is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+          </li>
+          <li>
+            <strong>Google Analytics</strong> — may collect anonymised usage data (page views, device
+            type, country) to help us understand how the tools are used. No personally identifiable
+            information is collected.
+          </li>
+          <li>
+            <strong>Google Fonts</strong> — loads the typeface used on the site, resulting in a
+            request to Google's servers.
+          </li>
+        </ul>
+        <p>
+          We are not responsible for the content or practices of any third-party services. Their
+          respective terms and privacy policies apply to your use of those services.
+        </p>
+
+        <h2>9. Changes to Terms</h2>
+        <p>
+          We reserve the right to update these Terms &amp; Conditions at any time. The effective
+          date at the top of this page will be updated accordingly. Continued use of
+          {siteConfig.siteName} after changes are posted constitutes your acceptance of the new terms.
+        </p>
+
+        <h2>10. Governing Law</h2>
+        <p>
+          These terms are governed by and construed in accordance with applicable law. Any disputes
+          arising under these terms shall be resolved in the applicable courts.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          If you have any questions about these Terms &amp; Conditions, please use the
+          <a href="/contact">contact page</a>.
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
