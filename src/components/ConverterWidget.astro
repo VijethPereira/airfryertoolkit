@@ -181,7 +181,7 @@ const foodEntries = Object.entries(FOODS);
 
   .widget-card {
     flex: 1 1 440px;
-    min-width: 300px;
+    min-width: min(300px, 100%);
     background: var(--site-bg-card);
     border-radius: var(--radius-site-card);
     box-shadow: var(--shadow-site);
@@ -232,17 +232,17 @@ const foodEntries = Object.entries(FOODS);
 
   .field {
     flex: 1 1 200px;
-    min-width: 180px;
+    min-width: min(180px, 100%);
   }
 
   .field.grow {
     flex: 1 1 240px;
-    min-width: 230px;
+    min-width: min(230px, 100%);
   }
 
   .field.narrow {
     flex: 0 1 140px;
-    min-width: 130px;
+    min-width: min(130px, 100%);
   }
 
   .field label,

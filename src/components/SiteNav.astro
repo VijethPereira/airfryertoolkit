@@ -11,11 +11,14 @@ const { currentPath = '/' } = Astro.props;
 <header class="site-nav">
   <div class="nav-inner">
     <a href="/" class="brand" aria-label={`${siteConfig.siteName} home`}>
-      <span class="logo-mark" aria-hidden="true"></span>
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="6" fill="#ee884f"></rect>
+        <path d="M16 7.5 v12.4 M16 23.5 l-6.2-6.6 h12.4 Z" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="square" stroke-linejoin="miter"></path>
+      </svg>
       <span>{siteConfig.siteName}</span>
     </a>
 
-    <nav aria-label="Main navigation">
+    <nav aria-label="Main navigation" id="primary-nav">
       <ul class="nav-links">
         {siteConfig.navLinks.map((link) => (
           <li>
@@ -29,8 +32,37 @@ const { currentPath = '/' } = Astro.props;
         ))}
       </ul>
     </nav>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Toggle menu"
+    >
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
+
+<script>
+  const navEl = document.querySelector('.site-nav');
+  const toggleBtn = navEl?.querySelector('.nav-toggle');
+
+  toggleBtn?.addEventListener('click', () => {
+    const isOpen = navEl?.classList.toggle('nav-open') ?? false;
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navEl?.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      navEl.classList.remove('nav-open');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 <style>
   @reference '../styles/global.css';
@@ -72,11 +104,9 @@ const { currentPath = '/' } = Astro.props;
 
   .logo-mark {
     display: block;
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid var(--site-text);
-    border-radius: 4px;
-    background: linear-gradient(var(--site-accent) 0 45%, transparent 45%);
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
   }
 
   nav {
@@ -104,9 +134,72 @@ const { currentPath = '/' } = Astro.props;
     color: var(--site-text-muted);
   }
 
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-left: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--site-text);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
   @media (max-width: 640px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    nav[aria-label='Main navigation'] {
+      flex: 0;
+    }
+
     .nav-links {
       display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 24px 16px;
+      background: var(--site-nav-bg);
+      border-bottom: 1px solid var(--site-border);
+      box-shadow: var(--shadow-site);
+    }
+
+    .site-nav.nav-open .nav-links {
+      display: flex;
+    }
+
+    .site-nav.nav-open .nav-toggle-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .site-nav.nav-open .nav-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-nav.nav-open .nav-toggle-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-link {
+      line-height: 44px;
     }
   }
 </style>
