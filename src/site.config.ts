@@ -12,6 +12,7 @@ const siteConfig = {
     { label: 'Food presets', href: '/#presets' },
     { label: 'Brands', href: '/#brands' },
     { label: 'Chart', href: '/#chart' },
+    { label: 'Guide', href: '/#guide' },
   ],
   tools: [
     {

@@ -1,6 +1,6 @@
 {
-  "name": "Air Fryer Toolkit",
-  "short_name": "Air Fryer Toolkit",
+  "name": "Oven to Air Fryer Converter",
+  "short_name": "Oven-fryer",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ee884f",
-  "background_color": "#f0e9e5",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

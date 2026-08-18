@@ -67,12 +67,19 @@ const brandCards = [
 ];
 
 const chartStrip = ['Food-type multipliers', 'Basket & oven-style', '°F · °C · gas mark', 'Free — no account'];
+
+const homeDescription =
+  'Free oven to air fryer converter. Convert oven temperature and time to air fryer settings by food type and basket vs. oven-style — no flat 25° guesswork, no sign-up.';
+
+const homeKeywords =
+  'oven to air fryer converter, oven to air fryer conversion, conventional oven to air fryer conversion, convert oven to air fryer, oven to air fryer cooking time conversion, air fryer to oven conversion, convert air fryer to oven, air fryer to oven calculator, air fryer conversion chart, air fryer temperature chart, air fryer cooking times, air fryer calculator';
 ---
 
 <Layout
-  title={siteConfig.siteName}
-  description={siteConfig.tagline}
+  title="Oven to Air Fryer Converter"
+  description={homeDescription}
   canonical={siteConfig.domain}
+  keywords={homeKeywords}
   jsonLd={jsonLd}
 >
   <SiteNav currentPath="/" />
@@ -237,6 +244,115 @@ const chartStrip = ['Food-type multipliers', 'Basket & oven-style', '°F · °C 
         {chartStrip.map((label, i) => (
           <div class:list={['chart-cell', { border: i > 0 }]}>{label}</div>
         ))}
+      </div>
+    </section>
+
+    <!-- SEO guide -->
+    <section id="guide" class="section pad-lg guide">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Guide</h2>
+        <div class="prose">
+          <h3>What Is an Oven to Air Fryer Converter?</h3>
+          <p>
+            An <strong>oven to air fryer converter</strong> takes the temperature and time from a conventional
+            oven recipe and translates it into the matching air fryer setting — so a recipe written for a 425°F
+            oven doesn't come out with burnt edges and a raw center just because it was cooked in a basket
+            instead. It's built for the moment every home cook eventually hits: a favorite recipe lists an oven
+            temperature and bake time, but firing up the whole oven feels like overkill for four chicken thighs
+            or a tray of fries, and the air fryer on the counter can do the job faster and with less energy — if
+            you know what settings to use. That's the gap this tool closes. Enter the oven temperature and time
+            from the recipe, say what you're cooking and whether your unit is a basket or an oven-style air
+            fryer, and it returns a setting that actually matches how air fryers cook.
+          </p>
+
+          <h3>How Oven to Air Fryer Conversion Works</h3>
+          <p>
+            Most <strong>oven to air fryer conversion</strong> advice online reduces to one line: subtract 25°F
+            and cut the time by a fifth. That rule isn't wrong exactly — air fryers are small, forced-air
+            convection ovens, so they transfer heat faster and need both a lower temperature and a shorter cook
+            time than a conventional oven. But treating every food the same way is where flat rules break down.
+            A flat rule assumes a tray of thin-cut fries and a dense loaf of banana bread respond to faster
+            airflow identically. They don't. Thin, high-surface-area foods like fries, bacon, and chicken wings
+            are surrounded by hot air on nearly every side, so they cook dramatically faster — often needing
+            25–30% less time. A dense casserole or a thick cut of meat still has to conduct heat to its center
+            the same way it would in an oven, so the savings are smaller, closer to 10–15%. Apply the fries
+            multiplier to the casserole and you'll pull it out underdone; apply the casserole multiplier to the
+            fries and you'll dry them out. That's why a proper <strong>conventional oven to air fryer
+            conversion</strong> needs a multiplier per food category instead of one number for everything — the
+            converter above looks at what you selected and applies the time reduction that food type actually
+            needs, alongside the standard temperature drop.
+          </p>
+
+          <h3>Step by Step: How to Convert Oven to Air Fryer</h3>
+          <p>
+            To <strong>convert oven to air fryer</strong> settings for any recipe: enter the oven temperature
+            exactly as written, enter the oven bake time, pick the closest food type, then select whether your
+            appliance is a basket-style air fryer or an oven-style unit (an air fryer oven or toaster-oven
+            hybrid). The tool drops the temperature, applies the correct food-type time multiplier, and checks
+            the result against what your specific appliance can actually reach — so you never get a number that
+            doesn't exist on your dial.
+          </p>
+
+          <h3>Oven to Air Fryer Cooking Time Conversion</h3>
+          <p>
+            Temperature is only half the job — <strong>oven to air fryer cooking time conversion</strong>
+            matters just as much, and it's the part flat-rule calculators usually get wrong. Because air fryers
+            circulate hot air directly around food in a small chamber, heat reaches the surface faster and
+            cooking finishes sooner even at a lower temperature. That's why a 45-minute oven bake might become a
+            32-minute air fryer cook rather than a simple percentage of the original number: the time reduction
+            scales with how much surface area the food exposes to that airflow, not just with the temperature
+            change.
+          </p>
+
+          <h3>Air Fryer to Oven Conversion (Going the Other Way)</h3>
+          <p>
+            Conversion works in both directions. Sometimes you have an air fryer recipe or a preset from your
+            appliance's manual and need to <strong>convert air fryer to oven</strong> settings instead — because
+            you're cooking a bigger batch than the basket can hold, the air fryer is already busy with something
+            else, or you're feeding a table using the full-size oven. <strong>Air fryer to oven conversion</strong>
+            generally means raising the temperature and adding back cooking time, since a conventional oven's
+            larger cavity and slower airflow can't match the air fryer's concentrated heat. An
+            <strong>air fryer to oven calculator</strong> applies this in reverse: add roughly 25°F back to the
+            air fryer temperature, then extend the time by the same food-type-aware percentage the forward
+            conversion subtracted. It's the same underlying logic, run backward, and it's just as sensitive to
+            food type — a batch of nuggets scaled up for the oven needs a different time adjustment than a whole
+            chicken would.
+          </p>
+
+          <h3>Basket vs. Oven-Style Air Fryers</h3>
+          <p>
+            Not all air fryers behave the same, which is why this converter asks which type you own before
+            finishing the conversion. Basket-style air fryers pack food into a small, sealed chamber with air
+            moving on every side — that's what makes them fast, but it also means most models cap out around
+            400°F, and pushing past that ceiling isn't realistic no matter what a generic calculator suggests.
+            Oven-style air fryers (including air fryer ovens and toaster-oven-style baskets) have more air
+            volume around the food, so the effect is gentler: temperatures can run a little higher, up to around
+            450°F, before hitting a practical ceiling. Feeding your appliance type into the conversion, instead
+            of ignoring it, is what keeps the output realistic.
+          </p>
+
+          <h3>Tips for Getting the Best Results</h3>
+          <p>
+            A few things help any <strong>oven to air fryer converter</strong> output land closer to right on
+            the first try. Preheat briefly — about 3 minutes for a basket, 4 for oven-style — since air fryers
+            lose more relative heat than an oven does when the door or drawer opens. Don't overcrowd the basket;
+            a single, mostly uncrowded layer is what the food-type multipliers assume, and a packed basket needs
+            extra time closer to what a full oven would. Check food a few minutes before the converted time
+            suggests, especially the first time you're converting a new recipe, since wattage and calibration
+            vary between air fryer models. And treat frozen food differently — it follows the opposite pattern
+            from a fresh recipe, keeping close to the package temperature while still cutting time, since the
+            food needs the initial heat just to thaw before it can cook through.
+          </p>
+
+          <h3>Free, Instant, and Built for Every Recipe</h3>
+          <p>
+            This oven to air fryer converter runs entirely in the browser — there's no account, no email gate,
+            and no data leaves your device. Use it for a one-off recipe with the calculator above, bookmark it
+            for the air fryer conversion chart and food presets throughout this site, or come back any time you
+            need to convert oven to air fryer or air fryer to oven settings, so every conventional recipe has a
+            fast, accurate path to the basket.
+          </p>
+        </div>
       </div>
     </section>
   </main>
@@ -542,6 +658,36 @@ const chartStrip = ['Food-type multipliers', 'Basket & oven-style', '°F · °C 
   .go-btn:hover {
     background: var(--site-accent-hover);
     color: var(--site-text);
+  }
+
+  /* Guide */
+  .guide .prose {
+    max-width: 76ch;
+  }
+
+  .guide h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 32px 0 8px;
+  }
+
+  .guide h3:first-child {
+    margin-top: 0;
+  }
+
+  .guide p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+  }
+
+  .guide strong {
+    color: var(--site-text);
+    font-weight: 600;
   }
 
   /* Chart strip */
