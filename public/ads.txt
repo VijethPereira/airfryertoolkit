@@ -1,0 +1,2 @@
+# ads.txt — add your AdSense publisher line once site.config.ts adsenseId is set.
+# Example: google.com, pub-XXXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

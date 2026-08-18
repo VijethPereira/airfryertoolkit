@@ -1,0 +1,317 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import AdSlot from '../components/AdSlot.astro';
+import ConverterWidget from '../components/ConverterWidget.astro';
+import siteConfig from '../site.config.ts';
+
+const toolName = 'Oven to Air Fryer Converter';
+const toolDesc =
+  'Enter the oven temperature and time from any recipe. Get the matching air fryer setting, adjusted for food type and basket vs. oven-style — with a ceiling clamp so it never suggests a temperature your unit can’t reach.';
+
+const faqs = [
+  {
+    q: 'Why not just subtract 25°F and cut the time by 20% for everything?',
+    a: 'Because different foods respond differently to the air fryer’s faster airflow. Thin, high-surface-area food like fries needs a bigger time cut (about 30%) or it dries out; a dense casserole barely needs one (about 15%). This converter applies a separate multiplier per food type instead of one flat rule.',
+  },
+  {
+    q: 'What happens if the converted temperature is higher than my air fryer can reach?',
+    a: 'The result is clamped to your unit’s realistic ceiling — 400°F for a basket-style air fryer, 450°F for oven-style — and a few extra minutes are added back to compensate, with a note explaining why. Most calculators silently return a number your appliance can’t actually hit.',
+  },
+  {
+    q: 'What’s the difference between basket and oven-style settings?',
+    a: 'A basket air fryer surrounds food with hot air on all sides in a small chamber, so it cooks faster and has a lower practical temperature ceiling. Oven-style units (air fryer ovens, toaster-oven-style baskets) have more air volume around the food, so they run a touch cooler relative to the oven and can go a little hotter before clamping.',
+  },
+  {
+    q: 'Does this work for food straight from the freezer?',
+    a: 'Frozen food follows different logic than a fresh-from-the-fridge recipe — keep the package temperature roughly as-is and cut the time by about 30%, the opposite of the usual rule, since the food needs the full heat just to thaw before it can cook through.',
+  },
+  {
+    q: 'How precise is the result?',
+    a: 'Temperatures round to the nearest 5° to match how air fryer dials and digital controls actually step. Treat the result as a starting point, not a guarantee — check food a little before the suggested time, especially the first time you cook something in a new appliance.',
+  },
+  {
+    q: 'Do I need to preheat?',
+    a: 'A short preheat helps the result land on target: about 3 minutes for a basket-style unit, 4 minutes for oven-style (shown in the result panel above). Skipping preheat generally just means adding a minute or two to the cook time.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${siteConfig.domain}/oven-to-air-fryer#app`,
+      name: `${toolName} — ${siteConfig.siteName}`,
+      description: toolDesc,
+      url: `${siteConfig.domain}/oven-to-air-fryer`,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={toolName}
+  description={toolDesc}
+  canonical={`${siteConfig.domain}/oven-to-air-fryer`}
+  keywords="oven to air fryer conversion, oven to air fryer calculator, air fryer conversion calculator, air fryer conversion chart"
+  jsonLd={jsonLd}
+>
+  <SiteNav currentPath="/oven-to-air-fryer" />
+
+  <main class="page-main">
+    <div class="wrap">
+
+      <header class="tool-header">
+        <a href="/" class="back-link" aria-label="Back to home">&larr; All tools</a>
+        <h1>{toolName}</h1>
+        <p class="tool-desc">{toolDesc}</p>
+      </header>
+
+      <section class="tool-area" aria-label="Converter">
+        <ConverterWidget />
+      </section>
+
+      <AdSlot slot="1234567890" />
+
+      <section class="content-section">
+        <h2>About oven-to-air-fryer conversion</h2>
+        <p>
+          Most oven-to-air-fryer calculators apply one flat rule to every food: subtract 25°F, cut the time by
+          20%. It's a reasonable starting point, but it treats a tray of thin fries the same as a dense
+          casserole, and it never checks whether the result is a temperature your air fryer can actually reach.
+          This tool does two things differently: it adjusts the multiplier per food type, and it clamps the
+          output to your unit's real ceiling instead of returning a number that doesn't exist on your dial.
+        </p>
+
+        <h3>How the food-type multipliers work</h3>
+        <p>
+          An air fryer's compact chamber and forced air move heat onto food far faster than a full-size oven,
+          so cook times always drop — but by how much depends on the food's surface area and density. Thin,
+          high-surface-area foods like fries or bacon lose the most time (roughly a 30% cut) because the hot air
+          reaches every side almost immediately. Dense foods like casseroles or baked goods lose the least
+          (roughly 15%) because heat still has to work its way to the center. Chicken, fish, and vegetables fall
+          in between. The converter looks up the right multiplier for your selected food instead of applying one
+          number to everything.
+        </p>
+
+        <h3>Basket vs. oven-style airflow</h3>
+        <p>
+          A basket-style air fryer packs food into a small chamber with air circulating on every side, which
+          cooks fast but has a lower safe ceiling — most baskets top out around 400°F. Oven-style units (air
+          fryer ovens and toaster-oven-style baskets) have more air volume around the food, so the effect is
+          slightly gentler: this tool cuts 5°F less off the oven temperature and adds a small time bump for
+          oven-style units, and allows the result to run up to 450°F before clamping.
+        </p>
+
+        <h3>What happens when a recipe runs hotter than your air fryer can go</h3>
+        <p>
+          A 450°F recipe converted with a flat rule on a 400°F-max basket air fryer would return 425°F — a
+          setting that doesn't exist on the dial. This tool clamps the result to the unit's real ceiling (400°F
+          basket, 450°F oven-style) and adds time back to compensate for the lower heat, with a plain-language
+          note explaining what happened and what to expect (a slightly softer surface, so check a little early).
+          It's the single most common gap across other air fryer calculators, and the reason this tool exists.
+        </p>
+      </section>
+
+      <AdSlot slot="0987654321" />
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <dl class="faq-list">
+          {faqs.map(({ q, a }) => (
+            <div class="faq-item">
+              <dt class="faq-q">
+                <button type="button" aria-expanded="false" class="faq-toggle">
+                  {q}
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </dt>
+              <dd class="faq-a" hidden>
+                <p>{a}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const dd = btn.closest('.faq-item')?.querySelector('.faq-a') as HTMLElement | null;
+      const icon = btn.querySelector('.faq-icon');
+      if (dd) dd.hidden = expanded;
+      if (icon) icon.textContent = expanded ? '+' : '−';
+    });
+  });
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 860px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .page-main {
+    padding: 40px 0 80px;
+  }
+
+  .tool-header {
+    margin-bottom: 32px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 16px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--site-text);
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-text);
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .tool-desc {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .tool-area {
+    margin-bottom: 32px;
+  }
+
+  .content-section,
+  .faq-section {
+    margin: 40px 0;
+  }
+
+  .content-section h2,
+  .faq-section h2 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 16px;
+  }
+
+  .content-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 28px 0 8px;
+  }
+
+  .content-section p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .faq-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    overflow: hidden;
+  }
+
+  .faq-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .faq-toggle:hover {
+    background: var(--site-bg-hover);
+  }
+
+  .faq-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--site-text-muted);
+  }
+
+  .faq-a {
+    margin: 0;
+    padding: 0 20px 16px;
+  }
+
+  .faq-a p {
+    margin: 0;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+</style>

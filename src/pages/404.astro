@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+---
+
+<Layout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist."
+>
+  <SiteNav />
+
+  <main class="page-main">
+    <div class="wrap">
+      <p class="code">404</p>
+      <h1>Page Not Found</h1>
+      <p class="lede">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="home-link">&larr; Back to {siteConfig.siteName}</a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .page-main {
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .code {
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-border);
+    margin: 0 0 8px;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: var(--text-heading-sm);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 12px;
+  }
+
+  .lede {
+    font-size: var(--text-body);
+    color: var(--site-text-muted);
+    margin: 0 0 32px;
+  }
+
+  .home-link {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .home-link:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+</style>

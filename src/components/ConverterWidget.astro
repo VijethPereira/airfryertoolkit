@@ -1,0 +1,426 @@
+---
+import { FOODS } from '../lib/converter';
+
+const foodEntries = Object.entries(FOODS);
+---
+
+<div class="widget-card">
+  <div class="widget-head">
+    <span>Oven → Air fryer</span>
+    <span class="live-badge"><span class="dot"></span>Live</span>
+  </div>
+
+  <div class="field-row">
+    <div class="field grow">
+      <label for="afk-temp">Oven temperature</label>
+      <div class="input-with-toggle">
+        <input id="afk-temp" type="number" inputmode="numeric" value="400" />
+        <button type="button" id="afk-unit-f" class="seg-btn">°F</button>
+        <button type="button" id="afk-unit-c" class="seg-btn">°C</button>
+      </div>
+    </div>
+    <div class="field narrow">
+      <label for="afk-time">Oven time</label>
+      <div class="input-with-suffix">
+        <input id="afk-time" type="number" inputmode="numeric" value="25" />
+        <span class="suffix">min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for="afk-food">Food type</label>
+      <select id="afk-food">
+        {foodEntries.map(([key, food]) => (
+          <option value={key} selected={key === 'general'}>{food.label}</option>
+        ))}
+      </select>
+    </div>
+    <div class="field">
+      <span class="field-label">Air fryer style</span>
+      <div class="input-with-toggle wide">
+        <button type="button" id="afk-style-basket" class="seg-btn wide">Basket</button>
+        <button type="button" id="afk-style-oven" class="seg-btn wide">Oven-style</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-block">
+    <p class="eyebrow">Air fryer setting</p>
+    <div class="result-row">
+      <span id="afk-out-main" class="result-main">—</span>
+      <span id="afk-out-alt" class="result-alt">/ —</span>
+      <span class="spacer"></span>
+      <span id="afk-out-time" class="result-main">—</span>
+      <span class="result-alt">min</span>
+    </div>
+    <div class="result-meta">
+      <span>Check at <span id="afk-check-at">—</span> min</span>
+      <span>Preheat <span id="afk-preheat">—</span></span>
+      <span id="afk-gas-mark">Gas mark —</span>
+    </div>
+  </div>
+
+  <p id="afk-tip" class="tip"></p>
+  <p id="afk-capped" class="capped-note" hidden>
+    <span class="capped-dot"></span>
+    <span id="afk-capped-text"></span>
+  </p>
+
+  <slot />
+</div>
+
+<script>
+  import { computeAirFryerSetting, cappedNote, type FoodKey, type FryerStyle, type TempUnit } from '../lib/converter';
+
+  const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
+  const timeInput = document.getElementById('afk-time') as HTMLInputElement;
+  const foodSelect = document.getElementById('afk-food') as HTMLSelectElement;
+  const unitFBtn = document.getElementById('afk-unit-f') as HTMLButtonElement;
+  const unitCBtn = document.getElementById('afk-unit-c') as HTMLButtonElement;
+  const styleBasketBtn = document.getElementById('afk-style-basket') as HTMLButtonElement;
+  const styleOvenBtn = document.getElementById('afk-style-oven') as HTMLButtonElement;
+  const outMain = document.getElementById('afk-out-main')!;
+  const outAlt = document.getElementById('afk-out-alt')!;
+  const outTime = document.getElementById('afk-out-time')!;
+  const checkAt = document.getElementById('afk-check-at')!;
+  const preheat = document.getElementById('afk-preheat')!;
+  const gasMarkEl = document.getElementById('afk-gas-mark')!;
+  const tipEl = document.getElementById('afk-tip')!;
+  const cappedEl = document.getElementById('afk-capped') as HTMLElement;
+  const cappedTextEl = document.getElementById('afk-capped-text')!;
+
+  const state: { unit: TempUnit; style: FryerStyle } = { unit: 'F', style: 'basket' };
+
+  function flash(el: HTMLElement) {
+    el.classList.remove('flash');
+    // eslint-disable-next-line no-void
+    void el.offsetWidth;
+    el.classList.add('flash');
+  }
+
+  function render() {
+    const ovenTemp = parseFloat(tempInput.value);
+    const ovenMinutes = parseFloat(timeInput.value);
+    const food = foodSelect.value as FoodKey;
+
+    const result = computeAirFryerSetting({ ovenTemp, unit: state.unit, ovenMinutes, food, style: state.style });
+
+    const ok = result.outF !== null;
+    const okT = result.outMinutes !== null;
+
+    outMain.textContent = ok ? `${state.unit === 'C' ? result.outC : result.outF}°${state.unit}` : '—';
+    outAlt.textContent = ok ? `/ ${state.unit === 'C' ? result.outF : result.outC}°${state.unit === 'C' ? 'F' : 'C'}` : '/ —';
+    outTime.textContent = okT ? String(result.outMinutes) : '—';
+    checkAt.textContent = okT ? String(result.checkAtMinutes) : '—';
+    preheat.textContent = `${result.preheatMinutes} min`;
+    gasMarkEl.textContent = result.gasMark ? `Gas mark ${result.gasMark}` : 'Gas mark —';
+    tipEl.textContent = result.tip;
+
+    if (result.capped) {
+      cappedEl.hidden = false;
+      cappedTextEl.textContent = cappedNote(result, state.style);
+    } else {
+      cappedEl.hidden = true;
+    }
+
+    unitFBtn.classList.toggle('active', state.unit === 'F');
+    unitCBtn.classList.toggle('active', state.unit === 'C');
+    styleBasketBtn.classList.toggle('active', state.style === 'basket');
+    styleOvenBtn.classList.toggle('active', state.style === 'oven');
+
+    flash(outMain);
+    flash(outTime);
+  }
+
+  tempInput.addEventListener('input', render);
+  timeInput.addEventListener('input', render);
+  foodSelect.addEventListener('change', render);
+
+  unitFBtn.addEventListener('click', () => {
+    if (state.unit === 'F') return;
+    const v = parseFloat(tempInput.value);
+    if (Number.isFinite(v)) tempInput.value = String(Math.round(((v * 9) / 5 + 32) / 5) * 5);
+    state.unit = 'F';
+    render();
+  });
+
+  unitCBtn.addEventListener('click', () => {
+    if (state.unit === 'C') return;
+    const v = parseFloat(tempInput.value);
+    if (Number.isFinite(v)) tempInput.value = String(Math.round(((v - 32) * 5) / 9 / 5) * 5);
+    state.unit = 'C';
+    render();
+  });
+
+  styleBasketBtn.addEventListener('click', () => {
+    state.style = 'basket';
+    render();
+  });
+  styleOvenBtn.addEventListener('click', () => {
+    state.style = 'oven';
+    render();
+  });
+
+  render();
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .eyebrow {
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    letter-spacing: var(--text-caption--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 0 0 24px;
+  }
+
+  .widget-card {
+    flex: 1 1 440px;
+    min-width: 300px;
+    background: var(--site-bg-card);
+    border-radius: var(--radius-site-card);
+    box-shadow: var(--shadow-site);
+    padding: 24px;
+  }
+
+  .widget-card .eyebrow {
+    margin: 0 0 20px;
+  }
+
+  .widget-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-caption);
+    letter-spacing: var(--text-caption--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 20px;
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--site-text);
+  }
+
+  .dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--site-accent);
+  }
+
+  .field-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .field-row:first-of-type {
+    margin-top: 0;
+  }
+
+  .field {
+    flex: 1 1 200px;
+    min-width: 180px;
+  }
+
+  .field.grow {
+    flex: 1 1 240px;
+    min-width: 230px;
+  }
+
+  .field.narrow {
+    flex: 0 1 140px;
+    min-width: 130px;
+  }
+
+  .field label,
+  .field-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--site-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .field input,
+  .field select {
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--site-border);
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .field input {
+    font-size: 18px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .field select {
+    cursor: pointer;
+  }
+
+  .input-with-toggle,
+  .input-with-suffix {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .input-with-toggle input {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .input-with-toggle.wide {
+    width: 100%;
+  }
+
+  .input-with-suffix input {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .suffix {
+    font-size: 13px;
+    color: var(--site-text-muted);
+  }
+
+  .seg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: var(--radius-site-card);
+    font-family: var(--font-archivo);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 0 0 auto;
+    background: var(--site-bg-card);
+    border: 1px solid var(--site-border);
+    color: var(--site-text);
+    transition: background 0.12s ease;
+  }
+
+  .seg-btn.wide {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .seg-btn.active {
+    background: var(--site-text);
+    border-color: var(--site-text);
+    color: var(--site-bg-card);
+  }
+
+  .result-block {
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg);
+  }
+
+  .result-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+  }
+
+  .result-main {
+    font-size: clamp(2.5rem, 8vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    transition: color 0.32s ease;
+  }
+
+  .result-main.flash {
+    animation: flash-color 0.32s ease;
+  }
+
+  @keyframes flash-color {
+    0% {
+      color: var(--site-accent);
+    }
+    100% {
+      color: var(--site-text);
+    }
+  }
+
+  .result-alt {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.18px;
+    color: var(--site-text-muted);
+    line-height: 1;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .result-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--site-border);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+  }
+
+  .tip {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 16px 0 0;
+    min-height: 1.5em;
+  }
+
+  .capped-note {
+    display: flex;
+    gap: 10px;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text);
+    margin: 12px 0 0;
+    animation: afk-rise 0.22s ease both;
+  }
+
+  .capped-dot {
+    flex: 0 0 auto;
+    margin-top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--site-accent);
+    border-radius: 999px;
+  }
+</style>

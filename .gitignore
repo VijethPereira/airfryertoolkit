@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.local
+.DS_Store
+*.log
+
+# Local-only reference doc, not for the public repo
+competitor-analysis.md

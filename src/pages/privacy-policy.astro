@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+
+const year = new Date().getFullYear();
+---
+
+<Layout
+  title="Privacy Policy"
+  description={`Privacy policy for ${siteConfig.siteName}.`}
+  canonical={`${siteConfig.domain}/privacy-policy`}
+>
+  <SiteNav currentPath="/privacy-policy" />
+
+  <main class="page-main">
+    <div class="wrap">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: {year}</p>
+
+      <p>
+        {siteConfig.siteName} is built to work without collecting anything from you. This page
+        explains exactly what data we handle, if any.
+      </p>
+
+      <h2>Data collected</h2>
+      <p>
+        All conversions run entirely in your browser. The temperature, time, food type, and air
+        fryer style you enter are never sent to a server — there's nothing to store, because
+        nothing leaves your device.
+      </p>
+      {siteConfig.gaId && (
+        <p>
+          We use Google Analytics to understand traffic patterns. Analytics data is anonymous and
+          subject to Google's privacy policy.
+        </p>
+      )}
+      {siteConfig.adsenseId && (
+        <p>
+          We display ads through Google AdSense. Google may use cookies to serve relevant ads. See
+          Google's privacy policy for details.
+        </p>
+      )}
+
+      <h2>Cookies</h2>
+      <p>
+        {siteConfig.siteName} does not set any cookies or use <code>localStorage</code> of its own.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy-related questions, please use the <a href="/contact">contact page</a>.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .page-main {
+    padding: 48px 0 96px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  h1 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 8px;
+  }
+
+  .updated {
+    font-size: 13px;
+    color: var(--site-text-muted);
+    margin: 0 0 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 32px 0 8px;
+  }
+
+  p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 65ch;
+  }
+
+  p a {
+    color: var(--site-text);
+    font-weight: 600;
+  }
+
+  code {
+    font-family: var(--font-archivo);
+    font-size: 0.9em;
+    background: var(--site-bg-hover);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+</style>

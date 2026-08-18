@@ -1,0 +1,575 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import ConverterWidget from '../components/ConverterWidget.astro';
+import siteConfig from '../site.config.ts';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.domain}/#website`,
+      url: siteConfig.domain,
+      name: siteConfig.siteName,
+      description: siteConfig.tagline,
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.domain}/#organization`,
+      name: siteConfig.siteName,
+      url: siteConfig.domain,
+    },
+  ],
+};
+
+const commonConversions = [
+  { href: '/350-to-air-fryer', from: '350°F', to: '325°F', note: '−20% time' },
+  { href: '/375-to-air-fryer', from: '375°F', to: '350°F', note: '−20% time' },
+  { href: '/400-to-air-fryer', from: '400°F', to: '375°F', note: '−20% time' },
+  { href: '/425-to-air-fryer', from: '425°F', to: '400°F', note: 'basket ceiling' },
+];
+
+const convertCards = [
+  { href: '/oven-to-air-fryer', title: 'Oven → Air Fryer', dot: true, desc: 'The flagship. Food-type multipliers, basket vs. oven-style, max-temp ceiling, °F/°C/gas mark.' },
+  { href: '/convection-to-air-fryer', title: 'Convection → Air Fryer', desc: 'Convection recipes are already fan-adjusted, so they need a gentler cut. Most tools get this wrong.' },
+  { href: '/batch-scaler', title: 'Batch & serving scaler', desc: 'Adjust time when the basket is crowded or you are cooking in two loads.' },
+  { href: '/wattage-adjustment', title: 'Wattage adjustment', desc: 'Compact 1,200 W baskets run slower than 1,700 W models. Correct for yours.' },
+];
+
+const reverseCards = [
+  { href: '/air-fryer-to-oven', title: 'Air Fryer → Oven', desc: 'Cooking for a crowd, or the basket is busy. Go back the other way.' },
+  { href: '/air-fryer-to-convection', title: 'Air Fryer → Convection', desc: 'Same fan principle, larger cavity. Adds back time, not temperature.' },
+  { href: '/fahrenheit-celsius-gas-mark', title: '°F / °C / gas mark', desc: 'Straight temperature conversion for UK, EU, and US recipes.' },
+  { href: '/#chart', title: 'Printable conversion chart', desc: 'Full °F and °C table for the fridge door. One page, no email, no ads.' },
+];
+
+const frozenCards = [
+  { href: '/frozen-fries', title: 'Frozen fries', spec: '400°F · 15 min · shake ×2', desc: 'Single layer, no oil needed.' },
+  { href: '/frozen-chicken-nuggets', title: 'Frozen nuggets', spec: '380°F · 10 min · flip once', desc: 'Breaded coating browns fast.' },
+  { href: '/frozen-chicken', title: 'Frozen chicken breast', spec: '360°F · 22 min · 165°F core', desc: 'Lower and slower than you expect.' },
+  { href: '/frozen-pizza', title: 'Frozen pizza', spec: '375°F · 8 min · no preheat', desc: 'Personal size only in a basket.' },
+];
+
+const presetCards = [
+  { href: '/chicken-breast', title: 'Chicken breast', spec: '375°F · 16 min · flip at 8', desc: 'Highest-volume preset. Pull at 165°F internal.' },
+  { href: '/chicken-wings', title: 'Chicken wings', spec: '400°F · 22 min · flip at 12', desc: 'Pat dry first. Two-stage temp option.' },
+  { href: '/salmon', title: 'Salmon fillet', spec: '390°F · 9 min · no flip', desc: 'Skin down. Thickness table included.' },
+  { href: '/bacon', title: 'Bacon', spec: '350°F · 9 min · drain at 5', desc: 'Lower temp stops the fat smoking.' },
+];
+
+const brandCards = [
+  { href: '/ninja', title: 'Ninja', spec: 'Max 400°F · basket & dual', desc: 'AF101, AF161, DZ201 and Foodi settings.' },
+  { href: '/cosori', title: 'Cosori', spec: 'Max 450°F · 11 presets', desc: 'Maps the built-in preset buttons to real times.' },
+  { href: '/philips', title: 'Philips', spec: 'Max 390°F · Rapid Air', desc: 'Lower ceiling than most — times run longer.' },
+  { href: '/model-max-temp', title: 'Model max-temp reference', spec: '60+ models', desc: 'The ceiling table that feeds the converter above.' },
+];
+
+const chartStrip = ['Food-type multipliers', 'Basket & oven-style', '°F · °C · gas mark', 'Free — no account'];
+---
+
+<Layout
+  title={siteConfig.siteName}
+  description={siteConfig.tagline}
+  canonical={siteConfig.domain}
+  jsonLd={jsonLd}
+>
+  <SiteNav currentPath="/" />
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Free / No sign-up / Works offline</p>
+        <h1 class="hero-title">Oven to Air Fryer Converter</h1>
+        <p class="hero-sub">
+          Enter the temperature and time on the recipe. Get the air fryer setting for your food,
+          adjusted for basket or oven-style — not a flat 25° rule.
+        </p>
+
+        <div class="hero-grid">
+          <!-- Live widget -->
+          <ConverterWidget>
+            <a href="/oven-to-air-fryer" class="cta">Open the full converter <span aria-hidden="true">&rarr;</span></a>
+          </ConverterWidget>
+
+          <!-- Common conversions rail -->
+          <div class="rail">
+            <p class="eyebrow">Common conversions</p>
+            <div class="rail-list">
+              {commonConversions.map((c, i) => (
+                <a href={c.href} class:list={['rail-item', { first: i === 0 }]}>
+                  <span class="rail-num">{c.from}</span>
+                  <span class="rail-arrow">&rarr;</span>
+                  <span class="rail-num">{c.to}</span>
+                  <span class="rail-note">{c.note}</span>
+                </a>
+              ))}
+            </div>
+            <p class="rail-footnote">Multipliers tuned for basket and oven-style air fryers, per food type.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Convert -->
+    <section id="convert" class="section">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Convert</h2>
+        <div class="card-grid">
+          {convertCards.map((c) => (
+            <a href={c.href} class="card">
+              <span class="card-title">{c.dot && <span class="title-dot inline"></span>}{c.title}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Reverse -->
+    <section id="reverse" class="section">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Reverse convert</h2>
+        <div class="card-grid">
+          {reverseCards.map((c) => (
+            <a href={c.href} class="card">
+              <span class="card-title">{c.title}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Frozen -->
+    <section id="frozen" class="section">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Frozen food mode</h2>
+        <div class="teaser">
+          <div class="teaser-row">
+            <div class="teaser-copy">
+              <span class="teaser-heading">Frozen straight from the bag</span>
+              <span class="teaser-desc">Keep the package temperature, cut about 30% of the time — the opposite of the standard rule. Pick what you are cooking.</span>
+            </div>
+            <div class="teaser-action">
+              <select aria-label="Select a frozen food">
+                <option>Frozen french fries</option>
+                <option>Frozen chicken nuggets</option>
+                <option>Frozen chicken breast</option>
+                <option>Frozen pizza</option>
+                <option>Frozen fish sticks</option>
+              </select>
+              <a href="/frozen" class="go-btn">Go</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-grid">
+          {frozenCards.map((c) => (
+            <a href={c.href} class="card">
+              <span class="card-title small">{c.title}</span>
+              <span class="card-spec">{c.spec}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Presets -->
+    <section id="presets" class="section">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Food presets</h2>
+        <div class="teaser">
+          <div class="teaser-row">
+            <div class="teaser-copy">
+              <span class="teaser-heading">Time and temperature for one specific food</span>
+              <span class="teaser-desc">Every preset gives temperature, time, shake or flip points, and doneness cues. No recipe blog to scroll.</span>
+            </div>
+            <div class="teaser-action">
+              <select aria-label="Select a food preset">
+                <option>Chicken breast</option>
+                <option>Chicken wings</option>
+                <option>Salmon fillet</option>
+                <option>Bacon</option>
+                <option>Steak</option>
+              </select>
+              <a href="/presets" class="go-btn">Go</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-grid">
+          {presetCards.map((c) => (
+            <a href={c.href} class="card">
+              <span class="card-title small">{c.title}</span>
+              <span class="card-spec">{c.spec}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+          <a href="/presets" class="card outline">
+            <span class="card-title small">All 40 presets &rarr;</span>
+            <span class="card-desc">Meat, fish, vegetables, baking, reheating.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section id="brands" class="section pad-lg">
+      <div class="wrap">
+        <h2 class="section-title"><span class="title-dot"></span>Brand presets</h2>
+        <div class="card-grid">
+          {brandCards.map((c) => (
+            <a href={c.href} class="card">
+              <span class="card-title small">{c.title}</span>
+              <span class="card-spec">{c.spec}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart strip -->
+    <section id="chart" class="chart-strip">
+      <div class="chart-grid">
+        {chartStrip.map((label, i) => (
+          <div class:list={['chart-cell', { border: i > 0 }]}>{label}</div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .eyebrow {
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    letter-spacing: var(--text-caption--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 0 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--site-bg);
+    padding: 64px 0 80px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 5.6vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+    color: var(--site-text);
+    margin: 0 0 20px;
+    max-width: 20ch;
+  }
+
+  .hero-sub {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text);
+    margin: 0 0 40px;
+    max-width: 56ch;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    margin-top: 24px;
+    border-radius: 6px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .cta:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+
+  /* Rail */
+  .rail {
+    flex: 0 1 320px;
+    min-width: 260px;
+  }
+
+  .rail-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 4px;
+    border-top: 1px solid var(--site-border);
+    border-bottom: 1px solid var(--site-border);
+    margin-bottom: -1px;
+    color: var(--site-text);
+    transition: background 0.15s ease;
+  }
+
+  .rail-item.first {
+    border-top: 1px solid var(--site-text);
+  }
+
+  .rail-item:hover {
+    background: var(--site-bg-hover);
+    color: var(--site-text);
+  }
+
+  .rail-num {
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rail-arrow {
+    color: var(--site-text-muted);
+  }
+
+  .rail-note {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--site-text-muted);
+  }
+
+  .rail-footnote {
+    font-size: var(--text-caption);
+    font-weight: 600;
+    line-height: 1.7;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 20px 0 0;
+  }
+
+  /* Sections */
+  .section {
+    background: var(--site-bg);
+    padding: 0 0 48px;
+    scroll-margin-top: 80px;
+  }
+
+  .section.pad-lg {
+    padding-bottom: 80px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text);
+    margin: 0 0 20px;
+  }
+
+  .title-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--site-accent);
+  }
+
+  .title-dot.inline {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    display: block;
+    padding: 24px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    color: var(--site-text);
+    transition: background 0.15s ease;
+  }
+
+  .card:hover {
+    background: var(--site-bg-hover);
+    color: var(--site-text);
+  }
+
+  .card.outline {
+    background: var(--site-bg);
+    border: 1px solid var(--site-border);
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .card-title.small {
+    margin-bottom: 6px;
+  }
+
+  .card-spec {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    margin-bottom: 6px;
+  }
+
+  .card-desc {
+    display: block;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  /* Teaser */
+  .teaser {
+    padding: 24px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-deep);
+    margin-bottom: 16px;
+  }
+
+  .teaser-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .teaser-copy {
+    flex: 1 1 280px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teaser-heading {
+    font-size: var(--text-subheading);
+    font-weight: 600;
+    letter-spacing: var(--text-subheading--letter-spacing);
+  }
+
+  .teaser-desc {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  .teaser-action {
+    display: flex;
+    flex: 1 1 320px;
+    min-width: 260px;
+    gap: 8px;
+  }
+
+  .teaser-action select {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--site-border);
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .go-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 44px;
+    border-radius: 6px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .go-btn:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+
+  /* Chart strip */
+  .chart-strip {
+    background: var(--site-bg-deep);
+    border-top: 1px solid var(--site-border);
+    border-bottom: 1px solid var(--site-border);
+    scroll-margin-top: 80px;
+  }
+
+  .chart-grid {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .chart-cell {
+    padding: 24px 16px;
+    text-align: center;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text);
+  }
+
+  .chart-cell.border {
+    border-left: 1px solid var(--site-border);
+  }
+</style>

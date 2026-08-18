@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+---
+
+<Layout
+  title="About"
+  description={`Learn about ${siteConfig.siteName} and our approach to oven-to-air-fryer conversion.`}
+  canonical={`${siteConfig.domain}/about`}
+>
+  <SiteNav currentPath="/about" />
+
+  <main class="page-main">
+    <div class="wrap">
+      <h1>About {siteConfig.siteName}</h1>
+      <p>
+        {siteConfig.siteName} is a free set of oven-to-air-fryer conversion tools. Instead of a
+        single flat rule ("subtract 25°F, cut the time by 20%"), the converter accounts for what
+        you're actually cooking — food-type multipliers, basket vs. oven-style airflow, and a
+        ceiling clamp so it never suggests a setting your appliance can't reach.
+      </p>
+      <p>
+        Every tool runs entirely in your browser. There's no account, no sign-up, and no data sent
+        to a server — the calculation happens on your device and nowhere else.
+      </p>
+      <p>
+        {siteConfig.siteName} is part of a small family of free, single-purpose tool sites,
+        including <a href="https://quickmeasuretool.com" target="_blank" rel="noopener">Quick Measure</a> and
+        <a href="https://snapimagetools.com" target="_blank" rel="noopener">Snap Image Tools</a>.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .page-main {
+    padding: 48px 0 96px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  h1 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 20px;
+  }
+
+  p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 65ch;
+  }
+
+  p a {
+    color: var(--site-text);
+    font-weight: 600;
+  }
+</style>

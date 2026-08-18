@@ -1,0 +1,121 @@
+---
+import siteConfig from '../site.config.ts';
+
+const footerLinks = [
+  { label: 'Converter', href: '/oven-to-air-fryer' },
+  { label: 'Food presets', href: '/#presets' },
+  { label: 'Conversion chart', href: '/#chart' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-brand">{siteConfig.siteName}</p>
+
+    <nav aria-label="Footer navigation">
+      <ul class="footer-links">
+        {footerLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="sister-pill">
+      <span>Also try:</span>
+      {siteConfig.sisterSites.map((site, i) => (
+        <>
+          {i > 0 && <span class="sep">&middot;</span>}
+          <a href={site.href} target="_blank" rel="noopener">{site.label}</a>
+        </>
+      ))}
+    </div>
+
+    <p class="copyright">&copy; 2026 {siteConfig.siteName} — free browser-based cooking conversion tools</p>
+  </div>
+</footer>
+
+<style>
+  @reference '../styles/global.css';
+
+  .site-footer {
+    background: var(--site-bg-deep);
+    border-top: 1px solid var(--site-border);
+    padding: 64px 0;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.45px;
+    color: var(--site-text);
+    margin: 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: var(--site-text);
+    transition: color 0.15s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--site-text-muted);
+  }
+
+  .sister-pill {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--site-bg);
+    border-radius: 999px;
+    font-size: 13px;
+  }
+
+  .sister-pill > span:first-child {
+    color: var(--site-text-muted);
+  }
+
+  .sister-pill a {
+    color: var(--site-text);
+    font-weight: 600;
+  }
+
+  .sep {
+    color: var(--site-border);
+  }
+
+  .copyright {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.66px;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 0;
+  }
+</style>
