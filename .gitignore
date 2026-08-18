@@ -8,3 +8,6 @@ dist/
 
 # Local-only reference doc, not for the public repo
 competitor-analysis.md
+
+# Agent tooling cache, not project source
+.agents/
