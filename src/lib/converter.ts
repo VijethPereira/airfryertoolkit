@@ -26,23 +26,21 @@ export interface FoodProfile {
   dT: number;
   /** Time multiplier applied to the oven minutes (basket baseline). */
   f: number;
-  label: string;
-  tip: string;
 }
 
 export const FOODS: Record<FoodKey, FoodProfile> = {
-  general: { dT: 25, f: 0.8, label: 'General / mixed', tip: 'Shake or flip at the halfway mark.' },
-  fries: { dT: 25, f: 0.7, label: 'Fries & potatoes', tip: 'Shake twice — once early, once at halfway. Keep to a single layer.' },
-  wings: { dT: 25, f: 0.8, label: 'Chicken wings', tip: 'Pat dry before cooking and flip at halfway for even skin.' },
-  breast: { dT: 25, f: 0.75, label: 'Chicken breast (boneless)', tip: 'Pull at 165°F internal — the temperature climbs while it rests.' },
-  thigh: { dT: 25, f: 0.8, label: 'Chicken thighs / bone-in', tip: 'Skin side up the whole way. No flip needed.' },
-  steak: { dT: 20, f: 0.8, label: 'Steak & thick cuts', tip: 'Flip once, then rest 5 minutes before slicing.' },
-  fish: { dT: 20, f: 0.8, label: 'Fish & salmon', tip: 'No flip. Check at the low end — fish overcooks in under a minute.' },
-  bacon: { dT: 25, f: 0.7, label: 'Bacon', tip: 'Single layer. Drain the fat at halfway if it starts to smoke.' },
-  veg: { dT: 25, f: 0.75, label: 'Vegetables', tip: 'Cut pieces to an even size and toss at halfway.' },
-  baked: { dT: 20, f: 0.85, label: 'Baked goods & cookies', tip: 'A gentler cut — batter sets more slowly than the top browns.' },
-  pizza: { dT: 25, f: 0.75, label: 'Pizza & reheating', tip: 'No preheat needed for reheating. Watch the crust, not the clock.' },
-  casserole: { dT: 20, f: 0.85, label: 'Casseroles & thick bakes', tip: 'Cover with foil if the top browns before the middle is hot.' },
+  general: { dT: 25, f: 0.8 },
+  fries: { dT: 25, f: 0.7 },
+  wings: { dT: 25, f: 0.8 },
+  breast: { dT: 25, f: 0.75 },
+  thigh: { dT: 25, f: 0.8 },
+  steak: { dT: 20, f: 0.8 },
+  fish: { dT: 20, f: 0.8 },
+  bacon: { dT: 25, f: 0.7 },
+  veg: { dT: 25, f: 0.75 },
+  baked: { dT: 20, f: 0.85 },
+  pizza: { dT: 25, f: 0.75 },
+  casserole: { dT: 20, f: 0.85 },
 };
 
 /** [air-fryer °F, UK gas mark] — used to surface the nearest gas mark for a result. */
@@ -79,7 +77,6 @@ export interface ConversionResult {
   checkAtMinutes: number | null;
   preheatMinutes: number;
   gasMark: number | null;
-  tip: string;
 }
 
 /** Rounds an °F/°C conversion to the nearest 5, matching the design's display rounding. */
@@ -121,11 +118,14 @@ export function computeAirFryerSetting(input: ConversionInput): ConversionResult
     checkAtMinutes: outMinutes !== null ? Math.max(2, Math.round(outMinutes * 0.7)) : null,
     preheatMinutes: ovenStyle ? 4 : 3,
     gasMark: gasEntry ? gasEntry[1] : null,
-    tip: food.tip,
   };
 }
 
-export function cappedNote(result: ConversionResult, style: FryerStyle): string {
-  const unitLabel = style === 'oven' ? 'oven-style unit' : 'basket model';
-  return `Your recipe runs hotter than a ${unitLabel} can go. Held at ${result.ceiling}°F with time added back — check early and expect a slightly softer surface.`;
+/** Fills a locale's cappedNoteTemplate ("...{unit}...{ceiling}...") with the resolved unit label and ceiling value. */
+export function cappedNote(
+  template: string,
+  unitLabel: string,
+  result: ConversionResult,
+): string {
+  return template.replace('{unit}', unitLabel).replace('{ceiling}', String(result.ceiling));
 }

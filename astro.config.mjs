@@ -6,6 +6,13 @@ export default defineConfig({
   site: 'https://airfryertoolkit.com',
   output: 'server',
   adapter: cloudflare({ session: false }),
+  i18n: {
+    locales: ['en', 'es', 'pt', 'fr', 'de'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

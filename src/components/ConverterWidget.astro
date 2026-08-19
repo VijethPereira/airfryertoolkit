@@ -1,18 +1,26 @@
 ---
-import { FOODS } from '../lib/converter';
+import { FOODS, type FoodKey } from '../lib/converter';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 
-const foodEntries = Object.entries(FOODS);
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale).converter;
+const foodKeys = Object.keys(FOODS) as FoodKey[];
 ---
 
 <div class="widget-card">
   <div class="widget-head">
-    <span>Oven → Air fryer</span>
-    <span class="live-badge"><span class="dot"></span>Live</span>
+    <span>{dict.widgetLabel}</span>
+    <span class="live-badge"><span class="dot"></span>{dict.live}</span>
   </div>
 
   <div class="field-row">
     <div class="field grow">
-      <label for="afk-temp">Oven temperature</label>
+      <label for="afk-temp">{dict.ovenTemperature}</label>
       <div class="input-with-toggle">
         <input id="afk-temp" type="number" inputmode="numeric" value="400" />
         <button type="button" id="afk-unit-f" class="seg-btn">°F</button>
@@ -20,45 +28,45 @@ const foodEntries = Object.entries(FOODS);
       </div>
     </div>
     <div class="field narrow">
-      <label for="afk-time">Oven time</label>
+      <label for="afk-time">{dict.ovenTime}</label>
       <div class="input-with-suffix">
         <input id="afk-time" type="number" inputmode="numeric" value="25" />
-        <span class="suffix">min</span>
+        <span class="suffix">{dict.min}</span>
       </div>
     </div>
   </div>
 
   <div class="field-row">
     <div class="field">
-      <label for="afk-food">Food type</label>
+      <label for="afk-food">{dict.foodType}</label>
       <select id="afk-food">
-        {foodEntries.map(([key, food]) => (
-          <option value={key} selected={key === 'general'}>{food.label}</option>
+        {foodKeys.map((key) => (
+          <option value={key} selected={key === 'general'}>{dict.foods[key].label}</option>
         ))}
       </select>
     </div>
     <div class="field">
-      <span class="field-label">Air fryer style</span>
+      <span class="field-label">{dict.airFryerStyle}</span>
       <div class="input-with-toggle wide">
-        <button type="button" id="afk-style-basket" class="seg-btn wide">Basket</button>
-        <button type="button" id="afk-style-oven" class="seg-btn wide">Oven-style</button>
+        <button type="button" id="afk-style-basket" class="seg-btn wide">{dict.basket}</button>
+        <button type="button" id="afk-style-oven" class="seg-btn wide">{dict.ovenStyle}</button>
       </div>
     </div>
   </div>
 
   <div class="result-block">
-    <p class="eyebrow">Air fryer setting</p>
+    <p class="eyebrow">{dict.airFryerSetting}</p>
     <div class="result-row">
       <span id="afk-out-main" class="result-main">—</span>
       <span id="afk-out-alt" class="result-alt">/ —</span>
       <span class="spacer"></span>
       <span id="afk-out-time" class="result-main">—</span>
-      <span class="result-alt">min</span>
+      <span class="result-alt">{dict.min}</span>
     </div>
     <div class="result-meta">
-      <span>Check at <span id="afk-check-at">—</span> min</span>
-      <span>Preheat <span id="afk-preheat">—</span></span>
-      <span id="afk-gas-mark">Gas mark —</span>
+      <span>{dict.checkAt} <span id="afk-check-at">—</span> {dict.min}</span>
+      <span>{dict.preheat} <span id="afk-preheat">—</span></span>
+      <span id="afk-gas-mark">{dict.gasMarkDash}</span>
     </div>
   </div>
 
@@ -71,8 +79,15 @@ const foodEntries = Object.entries(FOODS);
   <slot />
 </div>
 
+<script is:inline define:vars={{ dict }}>
+  window.__afkDict = dict;
+</script>
+
 <script>
   import { computeAirFryerSetting, cappedNote, type FoodKey, type FryerStyle, type TempUnit } from '../lib/converter';
+  import type { Dictionary } from '../i18n/types';
+
+  const dict = (window as unknown as { __afkDict: Dictionary['converter'] }).__afkDict;
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
   const timeInput = document.getElementById('afk-time') as HTMLInputElement;
@@ -114,13 +129,14 @@ const foodEntries = Object.entries(FOODS);
     outAlt.textContent = ok ? `/ ${state.unit === 'C' ? result.outF : result.outC}°${state.unit === 'C' ? 'F' : 'C'}` : '/ —';
     outTime.textContent = okT ? String(result.outMinutes) : '—';
     checkAt.textContent = okT ? String(result.checkAtMinutes) : '—';
-    preheat.textContent = `${result.preheatMinutes} min`;
-    gasMarkEl.textContent = result.gasMark ? `Gas mark ${result.gasMark}` : 'Gas mark —';
-    tipEl.textContent = result.tip;
+    preheat.textContent = `${result.preheatMinutes} ${dict.min}`;
+    gasMarkEl.textContent = result.gasMark ? `${dict.gasMark} ${result.gasMark}` : dict.gasMarkDash;
+    tipEl.textContent = dict.foods[food]?.tip ?? '';
 
     if (result.capped) {
       cappedEl.hidden = false;
-      cappedTextEl.textContent = cappedNote(result, state.style);
+      const unitLabel = state.style === 'oven' ? dict.unitOven : dict.unitBasket;
+      cappedTextEl.textContent = cappedNote(dict.cappedNoteTemplate, unitLabel, result);
     } else {
       cappedEl.hidden = true;
     }

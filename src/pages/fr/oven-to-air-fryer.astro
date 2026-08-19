@@ -1,13 +1,14 @@
 ---
 export const prerender = true;
-import Layout from '../layouts/Layout.astro';
-import SiteNav from '../components/SiteNav.astro';
-import Footer from '../components/Footer.astro';
-import ToolBody from '../components/ToolBody.astro';
-import siteConfig from '../site.config.ts';
-import { getDictionary } from '../i18n/dictionaries';
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import ToolBody from '../../components/ToolBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
 
-const locale = 'en' as const;
+const locale = 'fr' as const;
 const dict = getDictionary(locale).tool;
 
 const jsonLd = {
@@ -15,10 +16,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      '@id': `${siteConfig.domain}/oven-to-air-fryer#app`,
+      '@id': `${localizedUrl(locale, '/oven-to-air-fryer')}#app`,
       name: `${dict.heading} — ${siteConfig.siteName}`,
       description: dict.metaDescription,
-      url: `${siteConfig.domain}/oven-to-air-fryer`,
+      url: localizedUrl(locale, '/oven-to-air-fryer'),
       applicationCategory: 'UtilitiesApplication',
       operatingSystem: 'Any',
       offers: {
@@ -42,7 +43,7 @@ const jsonLd = {
 <Layout
   title={dict.metaTitle}
   description={dict.metaDescription}
-  canonical={`${siteConfig.domain}/oven-to-air-fryer`}
+  canonical={localizedUrl(locale, '/oven-to-air-fryer')}
   keywords={dict.metaKeywords}
   jsonLd={jsonLd}
   locale={locale}

@@ -1,14 +1,25 @@
 ---
 import siteConfig from '../site.config.ts';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
 
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale).footer;
+
+/** `translated: true` links point at the 2 pages this launch translates (home + tool page) and get a locale prefix; the rest stay English-only. */
 const footerLinks = [
-  { label: 'Converter', href: '/oven-to-air-fryer' },
-  { label: 'Food presets', href: '/#presets' },
-  { label: 'Conversion chart', href: '/#chart' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms & Conditions', href: '/terms' },
+  { label: dict.converter, href: '/oven-to-air-fryer', translated: true },
+  { label: dict.foodPresets, href: '/#presets', translated: true },
+  { label: dict.conversionChart, href: '/#chart', translated: true },
+  { label: dict.about, href: '/about', translated: false },
+  { label: dict.contact, href: '/contact', translated: false },
+  { label: dict.privacyPolicy, href: '/privacy-policy', translated: false },
+  { label: dict.termsConditions, href: '/terms', translated: false },
 ];
 ---
 
@@ -19,13 +30,13 @@ const footerLinks = [
     <nav aria-label="Footer navigation">
       <ul class="footer-links">
         {footerLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
+          <li><a href={link.translated ? localizedPath(locale, link.href) : link.href}>{link.label}</a></li>
         ))}
       </ul>
     </nav>
 
     <div class="sister-pill">
-      <span>More free tools:</span>
+      <span>{dict.moreFreeTools}</span>
       {siteConfig.sisterSites.map((site, i) => (
         <>
           {i > 0 && <span class="sep">&middot;</span>}
@@ -34,7 +45,7 @@ const footerLinks = [
       ))}
     </div>
 
-    <p class="copyright">&copy; 2026 {siteConfig.siteName} — free browser-based cooking conversion tools</p>
+    <p class="copyright">&copy; 2026 {siteConfig.siteName} — {dict.copyrightSuffix}</p>
   </div>
 </footer>
 

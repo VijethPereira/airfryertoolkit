@@ -1,0 +1,557 @@
+---
+import ConverterWidget from './ConverterWidget.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale).home;
+
+/** Hrefs point at future roadmap pages that don't exist yet in any locale (out of scope here) — left as-is, matching current English-site behavior. */
+const commonConversions = [
+  { href: '/350-to-air-fryer', from: '350°F', to: '325°F' },
+  { href: '/375-to-air-fryer', from: '375°F', to: '350°F' },
+  { href: '/400-to-air-fryer', from: '400°F', to: '375°F' },
+  { href: '/425-to-air-fryer', from: '425°F', to: '400°F' },
+];
+
+const convertHrefs = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'];
+const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/#chart'];
+const frozenHrefs = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicken', '/frozen-pizza'];
+const presetHrefs = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'];
+const brandHrefs = ['/ninja', '/cosori', '/philips', '/model-max-temp'];
+
+const toolHref = localizedPath(locale, '/oven-to-air-fryer');
+---
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{dict.eyebrow}</p>
+      <h1 class="hero-title">{dict.heroTitle}</h1>
+      <p class="hero-sub">{dict.heroSub}</p>
+
+      <div class="hero-grid">
+        <!-- Live widget -->
+        <ConverterWidget locale={locale}>
+          <a href={toolHref} class="cta">{dict.ctaLabel} <span aria-hidden="true">&rarr;</span></a>
+        </ConverterWidget>
+
+        <!-- Common conversions rail -->
+        <div class="rail">
+          <p class="eyebrow">{dict.commonConversionsHeading}</p>
+          <div class="rail-list">
+            {commonConversions.map((c, i) => (
+              <a href={c.href} class:list={['rail-item', { first: i === 0 }]}>
+                <span class="rail-num">{c.from}</span>
+                <span class="rail-arrow">&rarr;</span>
+                <span class="rail-num">{c.to}</span>
+                <span class="rail-note">{dict.commonConversions[i]}</span>
+              </a>
+            ))}
+          </div>
+          <p class="rail-footnote">{dict.railFootnote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Convert -->
+  <section id="convert" class="section">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.convert}</h2>
+      <div class="card-grid">
+        {dict.convertCards.map((c, i) => (
+          <a href={i === 0 ? toolHref : convertHrefs[i]} class="card">
+            <span class="card-title">{i === 0 && <span class="title-dot inline"></span>}{c.title}</span>
+            <span class="card-desc">{c.desc}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reverse -->
+  <section id="reverse" class="section">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.reverse}</h2>
+      <div class="card-grid">
+        {dict.reverseCards.map((c, i) => (
+          <a href={reverseHrefs[i] === '/#chart' ? localizedPath(locale, '/#chart') : reverseHrefs[i]} class="card">
+            <span class="card-title">{c.title}</span>
+            <span class="card-desc">{c.desc}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Frozen -->
+  <section id="frozen" class="section">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.frozen}</h2>
+      <div class="teaser">
+        <div class="teaser-row">
+          <div class="teaser-copy">
+            <span class="teaser-heading">{dict.frozenTeaser.heading}</span>
+            <span class="teaser-desc">{dict.frozenTeaser.desc}</span>
+          </div>
+          <div class="teaser-action">
+            <select aria-label={dict.frozenTeaser.selectLabel}>
+              {dict.frozenTeaser.options.map((opt) => <option>{opt}</option>)}
+            </select>
+            <a href="/frozen" class="go-btn">{dict.frozenTeaser.goLabel}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-grid">
+        {dict.frozenCards.map((c, i) => (
+          <a href={frozenHrefs[i]} class="card">
+            <span class="card-title small">{c.title}</span>
+            <span class="card-spec">{c.spec}</span>
+            <span class="card-desc">{c.desc}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Presets -->
+  <section id="presets" class="section">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.presets}</h2>
+      <div class="teaser">
+        <div class="teaser-row">
+          <div class="teaser-copy">
+            <span class="teaser-heading">{dict.presetsTeaser.heading}</span>
+            <span class="teaser-desc">{dict.presetsTeaser.desc}</span>
+          </div>
+          <div class="teaser-action">
+            <select aria-label={dict.presetsTeaser.selectLabel}>
+              {dict.presetsTeaser.options.map((opt) => <option>{opt}</option>)}
+            </select>
+            <a href="/presets" class="go-btn">{dict.presetsTeaser.goLabel}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-grid">
+        {dict.presetCards.map((c, i) => (
+          <a href={presetHrefs[i]} class="card">
+            <span class="card-title small">{c.title}</span>
+            <span class="card-spec">{c.spec}</span>
+            <span class="card-desc">{c.desc}</span>
+          </a>
+        ))}
+        <a href="/presets" class="card outline">
+          <span class="card-title small">{dict.allPresetsCard.title}</span>
+          <span class="card-desc">{dict.allPresetsCard.desc}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section id="brands" class="section pad-lg">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.brands}</h2>
+      <div class="card-grid">
+        {dict.brandCards.map((c, i) => (
+          <a href={brandHrefs[i]} class="card">
+            <span class="card-title small">{c.title}</span>
+            <span class="card-spec">{c.spec}</span>
+            <span class="card-desc">{c.desc}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart strip -->
+  <section id="chart" class="chart-strip">
+    <div class="chart-grid">
+      {dict.chartStrip.map((label, i) => (
+        <div class:list={['chart-cell', { border: i > 0 }]}>{label}</div>
+      ))}
+    </div>
+  </section>
+
+  <!-- SEO guide -->
+  <section id="guide" class="section pad-lg guide">
+    <div class="wrap">
+      <h2 class="section-title"><span class="title-dot"></span>{getDictionary(locale).nav.guide}</h2>
+      <div class="prose">
+        {dict.guide.map((g) => (
+          <>
+            <h3>{g.heading}</h3>
+            <p>{g.body}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .eyebrow {
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    letter-spacing: var(--text-caption--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 0 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--site-bg);
+    padding: 64px 0 80px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 5.6vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+    color: var(--site-text);
+    margin: 0 0 20px;
+    max-width: 20ch;
+  }
+
+  .hero-sub {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text);
+    margin: 0 0 40px;
+    max-width: 56ch;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    margin-top: 24px;
+    border-radius: 6px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .cta:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+
+  /* Rail */
+  .rail {
+    flex: 0 1 320px;
+    min-width: min(260px, 100%);
+  }
+
+  .rail-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 4px;
+    border-top: 1px solid var(--site-border);
+    border-bottom: 1px solid var(--site-border);
+    margin-bottom: -1px;
+    color: var(--site-text);
+    transition: background 0.15s ease;
+  }
+
+  .rail-item.first {
+    border-top: 1px solid var(--site-text);
+  }
+
+  .rail-item:hover {
+    background: var(--site-bg-hover);
+    color: var(--site-text);
+  }
+
+  .rail-num {
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rail-arrow {
+    color: var(--site-text-muted);
+  }
+
+  .rail-note {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--site-text-muted);
+  }
+
+  .rail-footnote {
+    font-size: var(--text-caption);
+    font-weight: 600;
+    line-height: 1.7;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin: 20px 0 0;
+  }
+
+  /* Sections */
+  .section {
+    background: var(--site-bg);
+    padding: 0 0 48px;
+    scroll-margin-top: 80px;
+  }
+
+  .section.pad-lg {
+    padding-bottom: 80px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text);
+    margin: 0 0 20px;
+  }
+
+  .title-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--site-accent);
+  }
+
+  .title-dot.inline {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    display: block;
+    padding: 24px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    color: var(--site-text);
+    transition: background 0.15s ease;
+  }
+
+  .card:hover {
+    background: var(--site-bg-hover);
+    color: var(--site-text);
+  }
+
+  .card.outline {
+    background: var(--site-bg);
+    border: 1px solid var(--site-border);
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .card-title.small {
+    margin-bottom: 6px;
+  }
+
+  .card-spec {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    margin-bottom: 6px;
+  }
+
+  .card-desc {
+    display: block;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  /* Teaser */
+  .teaser {
+    padding: 24px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-deep);
+    margin-bottom: 16px;
+  }
+
+  .teaser-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .teaser-copy {
+    flex: 1 1 280px;
+    min-width: min(240px, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teaser-heading {
+    font-size: var(--text-subheading);
+    font-weight: 600;
+    letter-spacing: var(--text-subheading--letter-spacing);
+  }
+
+  .teaser-desc {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  .teaser-action {
+    display: flex;
+    flex: 1 1 320px;
+    min-width: min(260px, 100%);
+    gap: 8px;
+  }
+
+  .teaser-action select {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--site-border);
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .go-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 44px;
+    border-radius: 6px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .go-btn:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+
+  /* Guide */
+  .guide .prose {
+    max-width: 76ch;
+  }
+
+  .guide h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 32px 0 8px;
+  }
+
+  .guide h3:first-child {
+    margin-top: 0;
+  }
+
+  .guide p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+  }
+
+  .guide strong {
+    color: var(--site-text);
+    font-weight: 600;
+  }
+
+  /* Chart strip */
+  .chart-strip {
+    background: var(--site-bg-deep);
+    border-top: 1px solid var(--site-border);
+    border-bottom: 1px solid var(--site-border);
+    scroll-margin-top: 80px;
+  }
+
+  .chart-grid {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .chart-cell {
+    padding: 24px 16px;
+    text-align: center;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text);
+  }
+
+  .chart-cell.border {
+    border-left: 1px solid var(--site-border);
+  }
+</style>

@@ -1,13 +1,14 @@
 ---
 export const prerender = true;
-import Layout from '../layouts/Layout.astro';
-import SiteNav from '../components/SiteNav.astro';
-import Footer from '../components/Footer.astro';
-import HomeBody from '../components/HomeBody.astro';
-import siteConfig from '../site.config.ts';
-import { getDictionary } from '../i18n/dictionaries';
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import HomeBody from '../../components/HomeBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
 
-const locale = 'en' as const;
+const locale = 'fr' as const;
 const dict = getDictionary(locale).home;
 
 const jsonLd = {
@@ -15,8 +16,8 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': `${siteConfig.domain}/#website`,
-      url: siteConfig.domain,
+      '@id': `${localizedUrl(locale, '/')}#website`,
+      url: localizedUrl(locale, '/'),
       name: siteConfig.siteName,
       description: dict.metaDescription,
     },
@@ -33,7 +34,7 @@ const jsonLd = {
 <Layout
   title={dict.metaTitle}
   description={dict.metaDescription}
-  canonical={siteConfig.domain}
+  canonical={localizedUrl(locale, '/')}
   keywords={dict.metaKeywords}
   jsonLd={jsonLd}
   locale={locale}

@@ -7,12 +7,12 @@ const siteConfig = {
   gaId: 'G-6Q4VTZQ021',
   adsenseId: 'ca-pub-9882918126611424',
   navLinks: [
-    { label: 'Convert', href: '/#convert' },
-    { label: 'Reverse', href: '/#reverse' },
-    { label: 'Food presets', href: '/#presets' },
-    { label: 'Brands', href: '/#brands' },
-    { label: 'Chart', href: '/#chart' },
-    { label: 'Guide', href: '/#guide' },
+    { key: 'convert', href: '/#convert' },
+    { key: 'reverse', href: '/#reverse' },
+    { key: 'foodPresets', href: '/#presets' },
+    { key: 'brands', href: '/#brands' },
+    { key: 'chart', href: '/#chart' },
+    { key: 'guide', href: '/#guide' },
   ],
   tools: [
     {

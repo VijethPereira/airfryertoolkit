@@ -1,0 +1,226 @@
+---
+import ConverterWidget from './ConverterWidget.astro';
+import AdSlot from './AdSlot.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale).tool;
+---
+
+<main class="page-main">
+  <div class="wrap">
+
+    <header class="tool-header">
+      <a href={localizedPath(locale, '/')} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+      <h1>{dict.heading}</h1>
+      <p class="tool-desc">{dict.subDesc}</p>
+    </header>
+
+    <section class="tool-area" aria-label="Converter">
+      <ConverterWidget locale={locale} />
+    </section>
+
+    <AdSlot slot="1234567890" />
+
+    <section class="content-section">
+      <h2>{dict.aboutHeading}</h2>
+      <p>{dict.aboutBody}</p>
+
+      <h3>{dict.multipliersHeading}</h3>
+      <p>{dict.multipliersBody}</p>
+
+      <h3>{dict.basketVsOvenHeading}</h3>
+      <p>{dict.basketVsOvenBody}</p>
+
+      <h3>{dict.whatHappensHeading}</h3>
+      <p>{dict.whatHappensBody}</p>
+    </section>
+
+    <AdSlot slot="0987654321" />
+
+    <section class="faq-section">
+      <h2>{dict.faqHeading}</h2>
+      <dl class="faq-list">
+        {dict.faqs.map(({ q, a }) => (
+          <div class="faq-item">
+            <dt class="faq-q">
+              <button type="button" aria-expanded="false" class="faq-toggle">
+                {q}
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd class="faq-a" hidden>
+              <p>{a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const dd = btn.closest('.faq-item')?.querySelector('.faq-a') as HTMLElement | null;
+      const icon = btn.querySelector('.faq-icon');
+      if (dd) dd.hidden = expanded;
+      if (icon) icon.textContent = expanded ? '+' : '−';
+    });
+  });
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 860px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .page-main {
+    padding: 40px 0 80px;
+  }
+
+  .tool-header {
+    margin-bottom: 32px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 16px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--site-text);
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-text);
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .tool-desc {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .tool-area {
+    margin-bottom: 32px;
+  }
+
+  .content-section,
+  .faq-section {
+    margin: 40px 0;
+  }
+
+  .content-section h2,
+  .faq-section h2 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 16px;
+  }
+
+  .content-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 28px 0 8px;
+  }
+
+  .content-section p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .faq-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    overflow: hidden;
+  }
+
+  .faq-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .faq-toggle:hover {
+    background: var(--site-bg-hover);
+  }
+
+  .faq-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--site-text-muted);
+  }
+
+  .faq-a {
+    margin: 0;
+    padding: 0 20px 16px;
+  }
+
+  .faq-a p {
+    margin: 0;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+</style>
