@@ -24,8 +24,16 @@ const siteConfig = {
     },
   ],
   sisterSites: [
-    { label: 'Quick Measure', href: 'https://quickmeasuretool.com' },
-    { label: 'Snap Image Tools', href: 'https://snapimagetools.com' },
+    {
+      label: 'Quick Measure Tool',
+      href: 'https://quickmeasuretool.com',
+      title: 'Quick Measure Tool — free online unit and measurement converter',
+    },
+    {
+      label: 'Snap Image Tools',
+      href: 'https://snapimagetools.com',
+      title: 'Snap Image Tools — free online image editing, resize, and compression',
+    },
   ],
 } as const;
 

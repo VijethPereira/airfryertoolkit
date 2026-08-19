@@ -25,11 +25,11 @@ const footerLinks = [
     </nav>
 
     <div class="sister-pill">
-      <span>Also try:</span>
+      <span>More free tools:</span>
       {siteConfig.sisterSites.map((site, i) => (
         <>
           {i > 0 && <span class="sep">&middot;</span>}
-          <a href={site.href} target="_blank" rel="noopener">{site.label}</a>
+          <a href={site.href} title={site.title} target="_blank" rel="noopener noreferrer">{site.label}</a>
         </>
       ))}
     </div>
