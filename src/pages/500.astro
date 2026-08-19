@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+
+interface Props {
+  error: unknown;
+}
+
+const { error } = Astro.props;
+const isDev = import.meta.env.DEV;
+const message = error instanceof Error ? error.message : String(error);
+---
+
+<Layout
+  title="Server Error"
+  description="Something went wrong on our end. Please try again shortly."
+>
+  <SiteNav />
+
+  <main class="page-main">
+    <div class="wrap">
+      <p class="code">500</p>
+      <h1>Something Went Wrong</h1>
+      <p class="lede">
+        We hit an unexpected error on our end. It's not you — please try again
+        in a moment.
+      </p>
+      {isDev && message && (
+        <pre class="dev-error">{message}</pre>
+      )}
+      <a href="/" class="home-link">&larr; Back to {siteConfig.siteName}</a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .page-main {
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .code {
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-border);
+    margin: 0 0 8px;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: var(--text-heading-sm);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 12px;
+  }
+
+  .lede {
+    font-size: var(--text-body);
+    color: var(--site-text-muted);
+    margin: 0 0 32px;
+  }
+
+  .dev-error {
+    text-align: left;
+    background: color-mix(in srgb, var(--site-bg) 70%, transparent);
+    border: 1px solid var(--site-border);
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: var(--site-text-muted);
+    overflow-x: auto;
+    margin: 0 0 32px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .home-link {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--site-accent);
+    color: var(--site-text);
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .home-link:hover {
+    background: var(--site-accent-hover);
+    color: var(--site-text);
+  }
+</style>

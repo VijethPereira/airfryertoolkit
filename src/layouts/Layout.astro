@@ -76,12 +76,12 @@ const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : null;
     <meta name="twitter:image:alt" content={fullTitle} />
 
     <!-- JSON-LD structured data -->
-    {jsonLdStr && <script type="application/ld+json" set:html={jsonLdStr} />}
+    {jsonLdStr && <script is:inline type="application/ld+json" set:html={jsonLdStr} />}
 
     <!-- Google Analytics -->
     {siteConfig.gaId && (
       <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}></script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}></script>
         <script is:inline define:vars={{ gaId: siteConfig.gaId }}>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -94,6 +94,7 @@ const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : null;
     <!-- Google AdSense -->
     {siteConfig.adsenseId && (
       <script
+        is:inline
         async
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.adsenseId}`}
         crossorigin="anonymous"

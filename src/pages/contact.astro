@@ -192,13 +192,13 @@ const jsonLd = {
         body: JSON.stringify({
           name:           (document.getElementById('cf-name')    as HTMLInputElement).value,
           email:          (document.getElementById('cf-email')   as HTMLInputElement).value,
-          subject:        (document.getElementById('cf-subject') as HTMLSelectElement).value,
+          subject:        (document.getElementById('cf-subject') as unknown as HTMLSelectElement).value,
           message:        (document.getElementById('cf-message') as HTMLTextAreaElement).value,
           turnstileToken: token,
         }),
       });
 
-      const data = await res.json();
+      const data = await res.json() as { ok?: boolean; error?: string };
       if (data.ok) {
         form.style.display   = 'none';
         banner.style.display = 'flex';

@@ -76,7 +76,7 @@ const foodEntries = Object.entries(FOODS);
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
   const timeInput = document.getElementById('afk-time') as HTMLInputElement;
-  const foodSelect = document.getElementById('afk-food') as HTMLSelectElement;
+  const foodSelect = document.getElementById('afk-food') as unknown as HTMLSelectElement;
   const unitFBtn = document.getElementById('afk-unit-f') as HTMLButtonElement;
   const unitCBtn = document.getElementById('afk-unit-c') as HTMLButtonElement;
   const styleBasketBtn = document.getElementById('afk-style-basket') as HTMLButtonElement;
