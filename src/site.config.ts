@@ -5,7 +5,7 @@ const siteConfig = {
     'Free, no sign-up oven-to-air-fryer conversion, adjusted for food type and basket vs. oven-style — not a flat 25° rule.',
   primaryColor: '#ee884f',
   gaId: 'G-6Q4VTZQ021',
-  adsenseId: '', // AdSense publisher ID, e.g. 'ca-pub-XXXXXXXXXXXXXXXX' — fill in later
+  adsenseId: 'ca-pub-9882918126611424',
   navLinks: [
     { label: 'Convert', href: '/#convert' },
     { label: 'Reverse', href: '/#reverse' },
