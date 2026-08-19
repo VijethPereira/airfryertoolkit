@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://airfryertoolkit.com',
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({ session: false }),
   vite: {
     plugins: [tailwindcss()],
   },
