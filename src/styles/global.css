@@ -46,7 +46,7 @@
   --shadow-site: 0px 1px 1px 0px rgba(0, 0, 0, 0.06), 0px 2px 1px 0px rgba(0, 0, 0, 0.04), 0px 4px 1px 0px rgba(0, 0, 0, 0.01);
 }
 
-/* Site tokens: plain CSS variables, not Tailwind utilities (per DESIGN.md — light theme only) */
+/* Site tokens: plain CSS variables, not Tailwind utilities */
 :root {
   --site-bg: #f0e9e5;
   --site-bg-deep: #e3d7cd;
@@ -58,6 +58,34 @@
   --site-accent: #ee884f;
   --site-accent-hover: #e57d42;
   --site-nav-bg: #f0e9e5;
+}
+
+html.dark {
+  --site-bg: #1b1614;
+  --site-bg-deep: #131110;
+  --site-bg-card: #252120;
+  --site-bg-hover: #2e2a27;
+  --site-text: #f0e9e5;
+  --site-text-muted: #9c9390;
+  --site-border: #373230;
+  --site-accent: #ee884f;
+  --site-accent-hover: #f49960;
+  --site-nav-bg: #1b1614;
+}
+
+/* Smooth color transitions — applied only during theme toggle to avoid blocking initial paint */
+.theme-transitioning,
+.theme-transitioning * {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+html.dark ::selection {
+  background: var(--site-text);
+  color: var(--site-bg);
 }
 
 * {
