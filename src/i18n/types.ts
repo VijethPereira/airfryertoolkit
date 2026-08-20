@@ -51,6 +51,7 @@ export interface Dictionary {
     commonConversionsHeading: string;
     commonConversions: [string, string, string, string];
     railFootnote: string;
+    comingSoon: string;
     sectionTitles: {
       convert: string;
       reverse: string;

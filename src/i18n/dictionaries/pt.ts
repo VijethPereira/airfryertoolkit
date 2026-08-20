@@ -68,6 +68,7 @@ const pt: Dictionary = {
     commonConversionsHeading: 'Conversões comuns',
     commonConversions: ['−20% de tempo', '−20% de tempo', '−20% de tempo', 'limite do cesto'],
     railFootnote: 'Multiplicadores ajustados para air fryers de cesto e tipo forno, por tipo de alimento.',
+    comingSoon: 'Em breve',
     sectionTitles: {
       convert: 'Converter',
       reverse: 'Conversão inversa',

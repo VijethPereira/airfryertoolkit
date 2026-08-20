@@ -68,6 +68,7 @@ const es: Dictionary = {
     commonConversionsHeading: 'Conversiones comunes',
     commonConversions: ['−20% de tiempo', '−20% de tiempo', '−20% de tiempo', 'límite de cesta'],
     railFootnote: 'Multiplicadores ajustados para freidoras de aire de cesta y tipo horno, según el alimento.',
+    comingSoon: 'Próximamente',
     sectionTitles: {
       convert: 'Convertir',
       reverse: 'Conversión inversa',

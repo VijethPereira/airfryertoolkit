@@ -68,6 +68,7 @@ const de: Dictionary = {
     commonConversionsHeading: 'Häufige Umrechnungen',
     commonConversions: ['−20 % Zeit', '−20 % Zeit', '−20 % Zeit', 'Korb-Obergrenze'],
     railFootnote: 'Multiplikatoren abgestimmt auf Korb- und Ofen-Heißluftfritteusen, je nach Lebensmittelart.',
+    comingSoon: 'Demnächst',
     sectionTitles: {
       convert: 'Umrechnen',
       reverse: 'Umgekehrt umrechnen',

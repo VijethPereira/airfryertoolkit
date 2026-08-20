@@ -68,6 +68,7 @@ const en: Dictionary = {
     commonConversionsHeading: 'Common conversions',
     commonConversions: ['−20% time', '−20% time', '−20% time', 'basket ceiling'],
     railFootnote: 'Multipliers tuned for basket and oven-style air fryers, per food type.',
+    comingSoon: 'Coming soon',
     sectionTitles: {
       convert: 'Convert',
       reverse: 'Reverse convert',

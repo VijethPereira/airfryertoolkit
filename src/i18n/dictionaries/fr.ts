@@ -68,6 +68,7 @@ const fr: Dictionary = {
     commonConversionsHeading: 'Conversions courantes',
     commonConversions: ['−20 % de temps', '−20 % de temps', '−20 % de temps', 'plafond panier'],
     railFootnote: 'Multiplicateurs ajustés pour les friteuses à air à panier et de type four, par type d’aliment.',
+    comingSoon: 'Bientôt disponible',
     sectionTitles: {
       convert: 'Convertir',
       reverse: 'Conversion inverse',
