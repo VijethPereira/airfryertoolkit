@@ -14,3 +14,8 @@ competitor-analysis.md
 
 # Agent tooling cache, not project source
 .agents/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/

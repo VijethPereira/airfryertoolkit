@@ -86,7 +86,7 @@ const pt: Dictionary = {
       { title: 'Air fryer → Forno', desc: 'Cozinhando para muitas pessoas, ou o cesto está ocupado. Volte para o forno.' },
       { title: 'Air fryer → Convecção', desc: 'Mesmo princípio de ventilação, cavidade maior. Adiciona tempo, não temperatura.' },
       { title: '°F / °C / nível de gás', desc: 'Conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.' },
-      { title: 'Tabela de conversão para imprimir', desc: 'Tabela completa em °F e °C para colar na geladeira. Uma página, sem e-mail, sem anúncios.' },
+      { title: 'Tabela de conversão para imprimir', desc: 'Tabela completa em °F e °C para colar na geladeira. Uma página, sem cadastro por e-mail.' },
     ],
     frozenTeaser: {
       heading: 'Direto do congelador para a air fryer',
@@ -174,6 +174,7 @@ const pt: Dictionary = {
     whatHappensHeading: 'O que acontece quando uma receita pede mais calor do que a sua air fryer consegue dar',
     whatHappensBody:
       'Uma receita de 450°F convertida com uma regra fixa em uma air fryer de cesto com máximo de 400°F retornaria 425°F — um ajuste que não existe no mostrador. Esta ferramenta limita o resultado ao teto real do aparelho (400°F cesto, 450°F tipo forno) e adiciona tempo de volta para compensar o calor menor, com uma nota em linguagem simples explicando o que aconteceu e o que esperar (uma superfície um pouco menos crocante, então verifique um pouco antes). É a lacuna mais comum entre as demais calculadoras de air fryer, e o motivo desta ferramenta existir.',
+    relatedChartLink: 'Tabela de conversão para imprimir',
     faqHeading: 'Perguntas frequentes',
     faqs: [
       {
@@ -257,6 +258,70 @@ const pt: Dictionary = {
         a: 'Sim, desde que seja próprio para forno e caiba no cesto ou na bandeja com espaço para o ar circular por todos os lados. Metal, vidro próprio para forno e cerâmica funcionam bem; evite qualquer coisa que bloqueie o fluxo de ar ou seja alta demais para o cesto fechar direito.',
       },
     ],
+  },
+  chart: {
+    metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',
+    metaDescription:
+      'Uma tabela para imprimir de temperatura, tempo e multiplicadores por alimento para converter forno em air fryer — uma página, °F e °C, sem e-mail, sem pop-up.',
+    metaKeywords:
+      'tabela de conversão air fryer, tabela de temperatura air fryer, tabela para imprimir air fryer, tabela de forno para air fryer, tabela de tempos de cozimento air fryer, tabela de conversão air fryer para imprimir',
+    backLink: 'Conversor completo',
+    pageTag: 'Para imprimir · Sem e-mail · Sem pop-up',
+    heading: 'Tabela de conversão de air fryer',
+    lead:
+      'Tabelas de temperatura, tempo e multiplicadores por alimento para converter forno em air fryer, em uma única página para imprimir. Todo site de tabela dedicado desse nicho bloqueia sua versão para imprimir atrás de um cadastro por e-mail — este não.',
+    printButton: 'Imprimir esta tabela',
+    tempTableHeading: 'Temperatura — Forno → Air fryer (cesto)',
+    tempHeaders: { ovenF: 'Forno °F', airFryerF: 'Air fryer °F', airFryerC: 'Air fryer °C', gasMark: 'Nível de gás' },
+    tempFootnote: '† Mantido no limite de 400°F do cesto — veja a nota abaixo.',
+    timeTableHeading: 'Tempo — Geral / variado, cesto',
+    timeHeaders: { ovenTime: 'Tempo de forno', airFryerTime: 'Tempo de air fryer' },
+    foodTableHeading: 'Multiplicadores por tipo de alimento',
+    foodHeaders: { food: 'Alimento', tempAdjustment: 'Ajuste de temp.', timeMultiplier: 'Multiplicador de tempo', note: 'Nota' },
+    ceilingNoteTemplate:
+      'Air fryers de cesto chegam a cerca de 400°F; unidades tipo forno chegam a cerca de 450°F. Se esta tabela mostrar uma temperatura que seu aparelho não alcança, use o {link} — ele limita o resultado ao teto real do seu aparelho e adiciona o tempo de volta automaticamente.',
+    liveConverterLabel: 'conversor ao vivo',
+    howToReadHeading: 'Como ler esta tabela',
+    howToReadBody:
+      'Cada tabela acima assume uma air fryer de cesto no ajuste "geral / variado", a mesma base usada pelo conversor ao vivo. Encontre sua temperatura ou tempo de forno na coluna da esquerda e leia à direita para o equivalente na air fryer, em Fahrenheit, Celsius e nível de gás do Reino Unido. A tabela por tipo de alimento ajusta essa base para doze categorias, de batata frita a gratinados, porque um único ajuste fixo não reflete o quanto esses alimentos se comportam de forma diferente numa câmara com ar forçado. Um símbolo de cruz ao lado de uma temperatura significa que a conversão passou do que uma unidade de cesto alcança — a tabela mantém no limite em vez de imprimir um ajuste que não existe no seu aparelho.',
+    whyFlatRuleHeading: 'Por que a regra fixa de −25°F / −20% falha com massas úmidas e assados',
+    whyFlatRuleBody:
+      'A maioria das tabelas para imprimir desse nicho aplica uma única regra para todo alimento: tire 25°F, corte o tempo em um quinto. É uma boa média para legumes, mas falha para qualquer coisa com interior úmido que ainda precisa firmar antes de ficar pronta — massa de bolo, muffins, gratinados, assados densos. O ar forçado de uma air fryer de cesto doura a superfície da massa quase de imediato, e um corte fixo de 20% confunde esse douramento precoce com "pronto" bem antes do centro ter firmado, deixando uma crosta cozida sobre um centro cru.',
+    workedExampleTemplate:
+      'Pegue uma receita de assado de 350°F por 30 minutos. A regra fixa a converte para {FLAT_F}°F por {FLAT_MIN} minutos. O multiplicador de assados desta tabela a mantém mais perto do calor original, em {BAKED_F}°F por {BAKED_MIN} minutos — um corte de tempo menor e alguns graus a mais, porque a massa precisa desses minutos extras para terminar de firmar enquanto a superfície doura rápido. A mesma lógica vale para cada categoria: alimentos finos e com muita superfície, como batata frita e bacon, perdem perto de 30% do tempo, enquanto alimentos densos, como gratinados e assados, perdem mais perto de 15%, já que o calor ainda precisa chegar ao centro antes de estar pronto.',
+    faqHeading: 'Perguntas frequentes',
+    faqs: [
+      {
+        q: 'Preciso dar um e-mail para imprimir esta tabela?',
+        a: 'Não. Todo site de tabela dedicado desse nicho bloqueia sua versão para imprimir atrás de um cadastro por e-mail ou um pop-up. Este não — as tabelas acima são a tabela inteira, e o botão de imprimir as envia direto para sua impressora.',
+      },
+      {
+        q: 'Por que a tabela mostra 400°F tanto para um forno a 425°F quanto a 450°F?',
+        a: 'Uma air fryer de cesto chega a cerca de 400°F, então assim que a conversão bruta passa disso, a tabela mantém o resultado no limite em vez de imprimir um ajuste que seu aparelho não alcança. A cruz marca quais linhas foram mantidas assim.',
+      },
+      {
+        q: 'Esta tabela vale também para air fryers tipo forno?',
+        a: 'Estas tabelas são ajustadas para unidades de cesto, que chegam a cerca de 400°F. Unidades tipo forno circulam o ar de forma mais suave e podem chegar a cerca de 450°F antes de limitar — para números exatos tipo forno, use o conversor ao vivo e troque a chave de tipo.',
+      },
+      {
+        q: 'Por que o corte de tempo é diferente para batata frita e para um gratinado?',
+        a: 'A economia de tempo depende da superfície e da densidade, não só da categoria. Batata frita e bacon recebem ar quente em quase todos os lados de uma vez, então perdem perto de 30% do tempo de forno; um gratinado denso perde mais perto de 15%.',
+      },
+      {
+        q: 'Posso usar esta tabela para alimentos direto do congelador?',
+        a: 'Não diretamente. Alimentos congelados seguem uma lógica invertida — mantenha a temperatura da embalagem e corte o tempo em cerca de 30%, já que o alimento precisa de todo o calor só para descongelar antes de poder cozinhar.',
+      },
+      {
+        q: 'E se minha temperatura ou tempo exato de forno não estiver na tabela?',
+        a: 'Esta tabela cobre valores comuns em passos de 25°F e tempos redondos para caber em uma página. Para um número exato, o conversor ao vivo aceita qualquer temperatura e tempo de forno e se ajusta a cada tecla.',
+      },
+    ],
+    relatedHeading: 'Ferramentas relacionadas',
+    relatedConverterLabel: 'Conversor de forno para air fryer',
+    relatedConverterDesc:
+      '— a ferramenta ao vivo, ajusta por tipo de alimento e cesto vs. tipo forno, com o limite máximo para o qual as linhas com cruz desta tabela apontam.',
+    relatedGasMarkLabel: 'Conversor de °F / °C / nível de gás',
+    relatedGasMarkDesc: '— uma conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.',
   },
 };
 

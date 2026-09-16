@@ -148,6 +148,35 @@ input[type='number']::-webkit-inner-spin-button {
   }
 }
 
+/* Print: force light-theme tokens regardless of the viewer's dark-mode toggle.
+   Component styles read backgrounds/text from these --site-* variables, and
+   html.dark's dark values otherwise survive into the print stylesheet, which
+   printed dark text on a dark card background as a solid black page. */
+@media print {
+  :root,
+  html.dark {
+    --site-bg: #ffffff;
+    --site-bg-deep: #ffffff;
+    --site-bg-card: #ffffff;
+    --site-bg-hover: #ffffff;
+    --site-text: #000000;
+    --site-text-muted: #333333;
+    --site-border: #000000;
+    --site-nav-bg: #ffffff;
+  }
+
+  .site-nav,
+  .site-footer,
+  .ad-wrapper {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
+
 /* Shared layout for content pages (About, Contact, Privacy Policy, Terms) */
 .page-main {
   padding: 48px 0 96px;

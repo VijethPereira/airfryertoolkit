@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "test:e2e": "playwright test",
     "deploy": "astro build && wrangler deploy && npm run indexnow",
     "indexnow": "node scripts/submit-indexnow.mjs"
   },
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/cloudflare": "^13.7.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^26.2.0",
     "wrangler": "^4.112.0"
   }

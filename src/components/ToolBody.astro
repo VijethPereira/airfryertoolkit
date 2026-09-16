@@ -40,6 +40,8 @@ const dict = getDictionary(locale).tool;
 
       <h3>{dict.whatHappensHeading}</h3>
       <p>{dict.whatHappensBody}</p>
+
+      <p class="related-link"><a href={localizedPath(locale, '/chart')}>{dict.relatedChartLink} &rarr;</a></p>
     </section>
 
     <AdSlot slot="0987654321" />
@@ -165,6 +167,19 @@ const dict = getDictionary(locale).tool;
     color: var(--site-text-muted);
     margin: 0 0 16px;
     max-width: 72ch;
+  }
+
+  .related-link {
+    margin: 24px 0 0 !important;
+  }
+
+  .related-link a {
+    font-weight: 600;
+    color: var(--site-text);
+  }
+
+  .related-link a:hover {
+    color: var(--site-accent);
   }
 
   .faq-list {

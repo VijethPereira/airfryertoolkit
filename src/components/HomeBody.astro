@@ -3,7 +3,7 @@ import ConverterWidget from './ConverterWidget.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import siteConfig from '../site.config';
+import { LIVE_PAGES } from '../site.config';
 
 interface Props {
   locale?: LocaleCode;
@@ -12,8 +12,8 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale).home;
 
-const LIVE_PATHS = new Set<string>(siteConfig.tools.map((t) => t.href));
-const isLive = (href: string) => href.startsWith('/#') || LIVE_PATHS.has(href);
+// Same-page anchors (/#section) always resolve — they scroll the homepage, never a separate URL.
+const isLive = (href: string) => href.startsWith('/#') || LIVE_PAGES.has(href);
 
 const commonConversions = [
   { href: '/350-to-air-fryer', from: '350°F', to: '325°F' },
@@ -23,7 +23,7 @@ const commonConversions = [
 ];
 
 const convertHrefs = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'];
-const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/#chart'];
+const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'];
 const frozenHrefs = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicken', '/frozen-pizza'];
 const presetHrefs = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'];
 const brandHrefs = ['/ninja', '/cosori', '/philips', '/model-max-temp'];
@@ -105,7 +105,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
         {dict.reverseCards.map((c, i) => {
           const raw = reverseHrefs[i];
           return isLive(raw) ? (
-            <a href={raw === '/#chart' ? localizedPath(locale, '/#chart') : raw} class="card">
+            <a href={raw === '/chart' ? localizedPath(locale, '/chart') : raw} class="card">
               <span class="card-title">{c.title}</span>
               <span class="card-desc">{c.desc}</span>
             </a>

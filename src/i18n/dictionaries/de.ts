@@ -86,7 +86,7 @@ const de: Dictionary = {
       { title: 'Heißluftfritteuse → Ofen', desc: 'Du kochst für viele Leute, oder der Korb ist besetzt. Zurück zum Ofen.' },
       { title: 'Heißluftfritteuse → Umluft', desc: 'Gleiches Ventilatorprinzip, größerer Innenraum. Fügt Zeit hinzu, nicht Temperatur.' },
       { title: '°F / °C / Gasstufe', desc: 'Direkte Temperaturumrechnung für britische, EU- und US-Rezepte.' },
-      { title: 'Druckbare Umrechnungstabelle', desc: 'Vollständige °F- und °C-Tabelle für die Kühlschranktür. Eine Seite, keine E-Mail, keine Werbung.' },
+      { title: 'Druckbare Umrechnungstabelle', desc: 'Vollständige °F- und °C-Tabelle für die Kühlschranktür. Eine Seite, keine E-Mail-Anmeldung.' },
     ],
     frozenTeaser: {
       heading: 'Direkt aus der Tüte in die Heißluftfritteuse',
@@ -174,6 +174,7 @@ const de: Dictionary = {
     whatHappensHeading: 'Was passiert, wenn ein Rezept mehr Hitze braucht, als deine Heißluftfritteuse geben kann',
     whatHappensBody:
       'Ein 450°F-Rezept, das mit einer pauschalen Regel für eine Korb-Heißluftfritteuse mit maximal 400°F umgerechnet wird, würde 425°F ergeben — eine Einstellung, die es auf dem Regler gar nicht gibt. Dieses Tool begrenzt das Ergebnis auf die reale Obergrenze des Geräts (400°F Korb, 450°F Ofen-Typ) und fügt Zeit hinzu, um die niedrigere Hitze auszugleichen, mit einem klar formulierten Hinweis, was passiert ist und was zu erwarten ist (eine etwas weniger knusprige Oberfläche, also etwas früher prüfen). Es ist die häufigste Lücke bei anderen Heißluftfritteusen-Rechnern und der Grund, warum es dieses Tool gibt.',
+    relatedChartLink: 'Druckbare Umrechnungstabelle',
     faqHeading: 'Häufig gestellte Fragen',
     faqs: [
       {
@@ -257,6 +258,70 @@ const de: Dictionary = {
         a: 'Ja, solange es ofenfest ist und mit genug Platz für die Luftzirkulation von allen Seiten in den Korb oder die Schale passt. Metall, ofenfestes Glas und Keramik funktionieren alle gut; vermeide alles, was die Luftzirkulation blockiert oder zu hoch ist, damit sich der Korb richtig schließen lässt.',
       },
     ],
+  },
+  chart: {
+    metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',
+    metaDescription:
+      'Eine druckbare Tabelle mit Temperatur-, Zeit- und Lebensmittel-Multiplikatorwerten für die Umrechnung von Ofen zu Heißluftfritteuse — eine Seite, °F und °C, keine E-Mail-Adresse, kein Pop-up.',
+    metaKeywords:
+      'Umrechnungstabelle Heißluftfritteuse, Temperaturtabelle Heißluftfritteuse, druckbare Tabelle Heißluftfritteuse, Tabelle Ofen zu Heißluftfritteuse, Garzeiten-Tabelle Heißluftfritteuse, druckbare Umrechnungstabelle Heißluftfritteuse',
+    backLink: 'Vollständiger Umrechner',
+    pageTag: 'Druckbar · Keine E-Mail · Kein Pop-up',
+    heading: 'Umrechnungstabelle für die Heißluftfritteuse',
+    lead:
+      'Temperatur-, Zeit- und Lebensmittel-Multiplikatortabellen für die Umrechnung von Ofen zu Heißluftfritteuse auf einer druckbaren Seite. Jede spezialisierte Tabellen-Website in diesem Bereich sperrt ihre druckbare Version hinter eine E-Mail-Anmeldung — diese nicht.',
+    printButton: 'Diese Tabelle drucken',
+    tempTableHeading: 'Temperatur — Ofen → Heißluftfritteuse (Korb)',
+    tempHeaders: { ovenF: 'Ofen °F', airFryerF: 'Fritteuse °F', airFryerC: 'Fritteuse °C', gasMark: 'Gasstufe' },
+    tempFootnote: '† Auf die 400°F-Korbgrenze begrenzt — siehe Hinweis unten.',
+    timeTableHeading: 'Zeit — Allgemein / gemischt, Korb',
+    timeHeaders: { ovenTime: 'Ofenzeit', airFryerTime: 'Fritteusenzeit' },
+    foodTableHeading: 'Multiplikatoren nach Lebensmittelart',
+    foodHeaders: { food: 'Lebensmittel', tempAdjustment: 'Temp.-Anpassung', timeMultiplier: 'Zeit-Multiplikator', note: 'Hinweis' },
+    ceilingNoteTemplate:
+      'Korb-Heißluftfritteusen erreichen maximal etwa 400°F; Ofen-artige Geräte etwa 450°F. Wenn diese Tabelle eine Temperatur zeigt, die dein Gerät nicht erreicht, nutze den {link} — er begrenzt das Ergebnis auf die reale Obergrenze deines Geräts und gleicht die Zeit automatisch aus.',
+    liveConverterLabel: 'Live-Umrechner',
+    howToReadHeading: 'So liest du diese Tabelle',
+    howToReadBody:
+      'Jede Tabelle oben geht von einer Korb-Heißluftfritteuse mit der Einstellung „Allgemein / gemischt" aus, derselben Basis, von der auch der Live-Umrechner ausgeht. Finde deine Ofentemperatur oder -zeit in der linken Spalte und lies nach rechts für das Äquivalent in Fahrenheit, Celsius und britischer Gasstufe. Die Tabelle nach Lebensmittelart passt diese Basis für zwölf Kategorien an, von Pommes bis Aufläufe, weil ein einziger fester Abzug nicht wiedergibt, wie unterschiedlich sich diese Lebensmittel in einer Kammer mit forcierter Luft verhalten. Ein Kreuz neben einer Temperatur bedeutet, dass die Umrechnung über das hinausging, was ein Korbgerät erreichen kann — die Tabelle hält sie an der Obergrenze, statt eine Einstellung zu drucken, die es an deinem Gerät nicht gibt.',
+    whyFlatRuleHeading: 'Warum die feste Regel von −25°F / −20% bei flüssigem Teig und Gebäck versagt',
+    whyFlatRuleBody:
+      'Die meisten druckbaren Tabellen in diesem Bereich wenden eine einzige Regel auf jedes Lebensmittel an: 25°F abziehen, die Zeit um ein Fünftel kürzen. Das ist ein guter Durchschnitt für Gemüse, versagt aber bei allem mit feuchtem Inneren, das erst noch fest werden muss, bevor es fertig ist — Kuchenteig, Muffins, Aufläufe, dichtes Gebäck. Die forcierte Luft einer Korb-Heißluftfritteuse bräunt die Oberfläche von Teig fast sofort, und ein fester Zeitabzug von 20% verwechselt diese frühe Bräunung mit „fertig", lange bevor die Mitte fest geworden ist — die Kruste ist gar, die Mitte roh.',
+    workedExampleTemplate:
+      'Nimm ein Gebäckrezept mit 350°F für 30 Minuten. Die feste Regel rechnet es auf {FLAT_F}°F für {FLAT_MIN} Minuten um. Der Gebäck-Multiplikator dieser Tabelle hält es näher an der ursprünglichen Hitze, bei {BAKED_F}°F für {BAKED_MIN} Minuten — ein kleinerer Zeitabzug und ein paar Grad wärmer, weil der Teig diese zusätzlichen Minuten braucht, um fest zu werden, während die Oberfläche schnell bräunt. Dieselbe Logik gilt für jede Kategorie: dünne Lebensmittel mit großer Oberfläche wie Pommes und Bacon verlieren fast 30% ihrer Zeit, während dichte Lebensmittel wie Aufläufe und Gebäck eher 15% verlieren, weil die Hitze erst noch die Mitte erreichen muss, bevor es fertig ist.',
+    faqHeading: 'Häufig gestellte Fragen',
+    faqs: [
+      {
+        q: 'Muss ich eine E-Mail-Adresse angeben, um diese Tabelle zu drucken?',
+        a: 'Nein. Jede spezialisierte Tabellen-Website in diesem Bereich sperrt ihre druckbare Version hinter eine E-Mail-Anmeldung oder ein Pop-up. Diese nicht — die Tabellen oben sind die ganze Tabelle, und der Drucken-Button schickt sie direkt an deinen Drucker.',
+      },
+      {
+        q: 'Warum zeigt die Tabelle sowohl bei 425°F als auch bei 450°F Ofentemperatur 400°F an?',
+        a: 'Eine Korb-Heißluftfritteuse erreicht maximal etwa 400°F. Sobald die rohe Umrechnung darüber liegt, hält die Tabelle das Ergebnis an der Obergrenze, statt eine Einstellung zu drucken, die dein Gerät nicht erreicht. Das Kreuz markiert, welche Zeilen so begrenzt wurden.',
+      },
+      {
+        q: 'Gilt diese Tabelle auch für Ofen-artige Heißluftfritteusen?',
+        a: 'Diese Tabellen sind auf Korbgeräte abgestimmt, die bei etwa 400°F liegen. Ofen-artige Geräte lassen die Luft sanfter zirkulieren und können bis etwa 450°F erreichen, bevor sie begrenzen — für genaue Werte für Ofen-artige Geräte nutze den Live-Umrechner und wechsle den Gerätetyp.',
+      },
+      {
+        q: 'Warum ist der Zeitabzug bei Pommes anders als bei einem Auflauf?',
+        a: 'Die Zeitersparnis hängt von Oberfläche und Dichte ab, nicht nur von der Kategorie. Pommes und Bacon bekommen heiße Luft fast von allen Seiten gleichzeitig, verlieren also fast 30% der Ofenzeit; ein dichter Auflauf verliert eher 15%.',
+      },
+      {
+        q: 'Kann ich diese Tabelle für Lebensmittel direkt aus dem Gefrierfach nutzen?',
+        a: 'Nicht direkt. Tiefgekühlte Lebensmittel folgen einer umgekehrten Logik — die Verpackungstemperatur beibehalten und die Zeit um etwa 30% kürzen, da das Lebensmittel die volle Hitze erst zum Auftauen braucht, bevor es garen kann.',
+      },
+      {
+        q: 'Was, wenn meine genaue Ofentemperatur oder -zeit nicht in der Tabelle steht?',
+        a: 'Diese Tabelle deckt gängige Werte in 25°F-Schritten und runden Zeitangaben ab, um auf eine Seite zu passen. Für eine genaue Zahl übernimmt der Live-Umrechner jede Ofentemperatur und -zeit und passt sich bei jedem Tastendruck an.',
+      },
+    ],
+    relatedHeading: 'Verwandte Tools',
+    relatedConverterLabel: 'Ofen → Heißluftfritteuse Umrechner',
+    relatedConverterDesc:
+      '— das Live-Tool, passt sich an Lebensmittelart und Korb vs. Ofen-Typ an, mit der Obergrenze, auf die die Kreuz-Zeilen dieser Tabelle verweisen.',
+    relatedGasMarkLabel: '°F / °C / Gasstufe Umrechner',
+    relatedGasMarkDesc: '— eine direkte Temperaturumrechnung für britische, EU- und US-Rezepte.',
   },
 };
 

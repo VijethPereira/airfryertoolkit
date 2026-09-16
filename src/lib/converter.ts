@@ -129,3 +129,17 @@ export function cappedNote(
 ): string {
   return template.replace('{unit}', unitLabel).replace('{ceiling}', String(result.ceiling));
 }
+
+/**
+ * Formats a FoodProfile.dT (degrees subtracted from the oven temperature) as a
+ * signed display string for the food-multiplier table, e.g. 25 -> "−25°F",
+ * 0 -> "0°F", -10 -> "+10°F" (a negative dT means the air fryer runs hotter,
+ * not cooler, than the oven). Always uses the real minus sign (U+2212), never
+ * a hyphen, and never double-signs a negative dT.
+ */
+export function formatTempAdjustment(dT: number): string {
+  const adjustment = -dT;
+  if (adjustment === 0) return '0°F';
+  const sign = adjustment > 0 ? '+' : '−';
+  return `${sign}${Math.abs(adjustment)}°F`;
+}

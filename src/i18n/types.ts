@@ -85,7 +85,41 @@ export interface Dictionary {
     basketVsOvenBody: string;
     whatHappensHeading: string;
     whatHappensBody: string;
+    relatedChartLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
+  };
+  chart: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    pageTag: string;
+    heading: string;
+    lead: string;
+    printButton: string;
+    tempTableHeading: string;
+    tempHeaders: { ovenF: string; airFryerF: string; airFryerC: string; gasMark: string };
+    tempFootnote: string;
+    timeTableHeading: string;
+    timeHeaders: { ovenTime: string; airFryerTime: string };
+    foodTableHeading: string;
+    foodHeaders: { food: string; tempAdjustment: string; timeMultiplier: string; note: string };
+    /** {link} is replaced with an anchor to /oven-to-air-fryer using liveConverterLabel as its text. */
+    ceilingNoteTemplate: string;
+    liveConverterLabel: string;
+    howToReadHeading: string;
+    howToReadBody: string;
+    whyFlatRuleHeading: string;
+    whyFlatRuleBody: string;
+    /** {FLAT_F}, {FLAT_MIN}, {BAKED_F}, {BAKED_MIN} are replaced with computeAirFryerSetting() output. */
+    workedExampleTemplate: string;
+    faqHeading: string;
+    faqs: { q: string; a: string }[];
+    relatedHeading: string;
+    relatedConverterLabel: string;
+    relatedConverterDesc: string;
+    relatedGasMarkLabel: string;
+    relatedGasMarkDesc: string;
   };
 }
