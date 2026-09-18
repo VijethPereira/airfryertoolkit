@@ -119,17 +119,28 @@ test.describe('/chart', () => {
     await expect(page.locator('.related-links a[href*="fahrenheit-celsius-gas-mark"]')).toHaveCount(0);
   });
 
-  test('homepage renders unbuilt tool cards with no <a> and a Coming soon tag', async ({ page }) => {
+  test('homepage gates every tool card on LIVE_PAGES, not a hardcoded slug', async ({ page }) => {
     await page.goto('/');
 
-    // /air-fryer-to-oven is not in LIVE_PAGES — nothing on the page may link to it.
-    await expect(page.locator('a[href="/air-fryer-to-oven"]')).toHaveCount(0);
+    // Every live card is a real link, and its href must actually be in LIVE_PAGES.
+    const liveHrefs = await page.locator('a.card').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
+    expect(liveHrefs.length).toBeGreaterThan(0);
+    for (const href of liveHrefs) {
+      expect(href).not.toBeNull();
+      expect(LIVE_PAGES.has(href!)).toBe(true);
+    }
 
-    const card = page.locator('.card', { hasText: 'Air Fryer → Oven' });
-    await expect(card).toHaveCount(1);
-    expect(await card.evaluate((el) => el.tagName)).toBe('DIV');
-    await expect(card).toHaveAttribute('aria-disabled', 'true');
-    await expect(card).toContainText('Coming soon');
+    // Every not-yet-live card renders as an inert div with the Coming soon stub — never an <a>.
+    const disabledCards = page.locator('.card.disabled');
+    const disabledCount = await disabledCards.count();
+    expect(disabledCount).toBeGreaterThan(0); // the roadmap still has unbuilt pages; this shouldn't ever be vacuous
+    for (let i = 0; i < disabledCount; i++) {
+      const card = disabledCards.nth(i);
+      expect(await card.evaluate((el) => el.tagName)).toBe('DIV');
+      await expect(card).toHaveAttribute('aria-disabled', 'true');
+      await expect(card).toContainText('Coming soon');
+      await expect(card.locator('a')).toHaveCount(0);
+    }
   });
 
   test('print stays white-on-black even when the site is in dark mode', async ({ page }) => {

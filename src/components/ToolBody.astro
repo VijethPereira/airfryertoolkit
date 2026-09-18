@@ -4,6 +4,7 @@ import AdSlot from './AdSlot.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
+import { LIVE_PAGES } from '../site.config';
 
 interface Props {
   locale?: LocaleCode;
@@ -11,6 +12,7 @@ interface Props {
 
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale).tool;
+const reverseLive = LIVE_PAGES.has('/air-fryer-to-oven');
 ---
 
 <main class="page-main">
@@ -42,6 +44,9 @@ const dict = getDictionary(locale).tool;
       <p>{dict.whatHappensBody}</p>
 
       <p class="related-link"><a href={localizedPath(locale, '/chart')}>{dict.relatedChartLink} &rarr;</a></p>
+      {reverseLive && (
+        <p class="related-link"><a href={localizedPath(locale, '/air-fryer-to-oven')}>{dict.relatedReverseLink} &rarr;</a></p>
+      )}
     </section>
 
     <AdSlot slot="0987654321" />

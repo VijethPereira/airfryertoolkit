@@ -125,9 +125,79 @@ export function computeAirFryerSetting(input: ConversionInput): ConversionResult
 export function cappedNote(
   template: string,
   unitLabel: string,
-  result: ConversionResult,
+  result: { ceiling: number },
 ): string {
   return template.replace('{unit}', unitLabel).replace('{ceiling}', String(result.ceiling));
+}
+
+/** Real oven dials/digital controls step in 25°F increments, not the 5°F an air fryer uses. */
+const OVEN_TEMP_STEP = 25;
+
+export interface ReverseConversionInput {
+  /** Air fryer temperature, in `unit`. */
+  airFryerTemp: number;
+  unit: TempUnit;
+  /** Air fryer time in minutes. */
+  airFryerMinutes: number;
+  food: FoodKey;
+  style: FryerStyle;
+}
+
+export interface ReverseConversionResult {
+  outF: number | null;
+  outC: number | null;
+  outMinutes: number | null;
+  gasMark: number | null;
+  /** The unit-style ceiling this input is being checked against (400°F basket / 450°F oven-style) — same ceiling the forward function clamps to. */
+  ceiling: number;
+  /**
+   * True when the air fryer input is at or above `ceiling`. An air fryer reading at its
+   * own ceiling is ambiguous: it could be a genuine recipe at that temperature, or the
+   * clamped result of a hotter oven recipe whose time was already inflated by the
+   * forward function's capped bonus (+0.08 to `f`). This function can't tell those
+   * apart, so it flags the ambiguity instead of guessing — the UI shows a note.
+   */
+  ceilingAmbiguous: boolean;
+}
+
+/**
+ * Named inverse of `computeAirFryerSetting`: air fryer temperature/time in, oven
+ * temperature/time out. Uses the same per-food/style `dT` and `f` as the forward
+ * function, minus the ceiling-clamp adjustment — ovens run hotter than any air
+ * fryer, so there is no ceiling to clamp against in this direction.
+ *
+ * The oven output is snapped to 25°F (real oven-dial steps), not the 5°F an air
+ * fryer uses, so round-tripping oven -> air fryer -> oven lands back on a value
+ * an oven dial can actually show instead of drifting off it.
+ */
+export function computeOvenSetting(input: ReverseConversionInput): ReverseConversionResult {
+  const food = FOODS[input.food] ?? FOODS.general;
+  const airFryerF = input.unit === 'C' ? (input.airFryerTemp * 9) / 5 + 32 : input.airFryerTemp;
+  const ovenStyle = input.style === 'oven';
+  const ceiling = ovenStyle ? 450 : 400;
+  const dT = Math.max(10, food.dT - (ovenStyle ? 5 : 0));
+  const f = food.f + (ovenStyle ? 0.05 : 0);
+
+  const outF: number | null = Number.isFinite(airFryerF)
+    ? Math.round((airFryerF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP
+    : null;
+
+  const outMinutes: number | null = Number.isFinite(input.airFryerMinutes)
+    ? Math.max(1, Math.round(input.airFryerMinutes / f))
+    : null;
+
+  const outC: number | null = outF !== null ? Math.round(((outF - 32) * 5) / 9 / 5) * 5 : null;
+
+  const gasEntry = outF !== null ? GAS_MARKS.find(([tempF]) => Math.abs(tempF - outF!) <= 12) : undefined;
+
+  return {
+    outF,
+    outC,
+    outMinutes,
+    gasMark: gasEntry ? gasEntry[1] : null,
+    ceiling,
+    ceilingAmbiguous: Number.isFinite(airFryerF) && airFryerF >= ceiling,
+  };
 }
 
 /**

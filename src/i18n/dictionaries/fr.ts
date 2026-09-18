@@ -54,6 +54,17 @@ const fr: Dictionary = {
       casserole: { label: 'Gratins et plats épais', tip: 'Couvrez de papier aluminium si le dessus dore avant que le centre soit chaud.' },
     },
   },
+  reverseConverter: {
+    widgetLabel: 'Friteuse à air → Four',
+    airFryerTemperature: 'Température de la friteuse à air',
+    airFryerTime: 'Temps de friteuse à air',
+    ovenSetting: 'Réglage du four',
+    stepNote: 'Arrondi aux paliers de 25°F d’un four',
+    ovenCaveat:
+      'Un four classique ne fait pas circuler l’air comme le panier d’une friteuse à air — préchauffez-le complètement avant d’enfourner, et attendez-vous à ce qu’une seule couche d’aliments croustille un peu moins qu’à la friteuse à air.',
+    ambiguousCeilingNoteTemplate:
+      'Ceci est au plafond de votre {unit} ({ceiling}°F). Si ce réglage vient de la conversion à la baisse d’une recette de four plus chaude, le temps inclut déjà environ 8 % en plus — retirez-le pour un résultat plus précis.',
+  },
   home: {
     metaTitle: 'Convertisseur four vers friteuse à air',
     metaDescription:
@@ -175,6 +186,7 @@ const fr: Dictionary = {
     whatHappensBody:
       'Une recette à 450°F convertie avec une règle fixe sur une friteuse à panier plafonnée à 400°F donnerait 425°F — un réglage qui n’existe pas sur le cadran. Cet outil plafonne le résultat au vrai maximum de l’appareil (400°F panier, 450°F type four) et rajoute du temps pour compenser la chaleur plus faible, avec une note en langage clair expliquant ce qui s’est passé et à quoi s’attendre (une surface légèrement moins croustillante, donc vérifiez un peu plus tôt). C’est la lacune la plus fréquente chez les autres calculateurs de friteuse à air, et la raison d’être de cet outil.',
     relatedChartLink: 'Tableau de conversion imprimable',
+    relatedReverseLink: 'Convertisseur friteuse à air vers four',
     faqHeading: 'Questions fréquentes',
     faqs: [
       {
@@ -259,6 +271,61 @@ const fr: Dictionary = {
       },
     ],
   },
+  reverseTool: {
+    metaTitle: 'Convertisseur friteuse à air vers four',
+    metaDescription:
+      'Entrez la température et le temps de friteuse à air d’une recette, d’un préréglage ou du manuel de votre appareil. Obtenez le réglage de four équivalent, adapté au type d’aliment et au panier vs. type four, arrondi aux paliers de 25° d’un vrai four.',
+    metaKeywords:
+      'conversion friteuse à air vers four, calculateur friteuse à air vers four, convertir friteuse à air vers four, conversion du temps de cuisson friteuse à air vers four, friteuse à air vers four classique, réglage friteuse à air vers température de four',
+    backLink: 'Tous les outils',
+    heading: 'Convertisseur friteuse à air vers four',
+    subDesc:
+      'Entrez la température et le temps de friteuse à air d’une recette, d’un préréglage ou du manuel de votre appareil. Obtenez le réglage de four équivalent, adapté au type d’aliment et au panier vs. type four, arrondi aux paliers de 25° d’un vrai four.',
+    aboutHeading: 'À propos de la conversion friteuse à air vers four',
+    aboutBody:
+      'La plupart des outils four vers friteuse à air ne fonctionnent que dans un sens, mais le trajet inverse se présente tout aussi souvent. Une fiche recette, un préréglage tiré du manuel de votre friteuse à air, ou le conseil d’un ami vous donne une température et un temps de friteuse à air, et vous avez besoin des chiffres du four classique à la place — parce que vous cuisinez pour plus de monde que le panier n’en contient, que la friteuse à air est déjà occupée par autre chose, ou que le four est tout simplement le bon outil pour ce que vous préparez aujourd’hui. Ce convertisseur fait fonctionner à l’envers le moteur du convertisseur principal four vers friteuse à air : entrez la température et le temps de friteuse à air, choisissez le type d’aliment et si votre appareil est de type panier ou type four, et vous obtenez le réglage de four que cette recette demanderait — avec les mêmes multiplicateurs par aliment que le convertisseur direct, pas un chiffre fixe inversé.',
+    roundingHeading: 'Pourquoi le résultat du four est arrondi à 25°F, pas à 5°F',
+    roundingBody:
+      'L’écran numérique d’une friteuse à air peut afficher n’importe quel palier de 5°, mais un vrai cadran ou bouton de four n’avance que par paliers de 25° — 325, 350, 375, 400, et ainsi de suite. Arrondir une conversion inverse à la grille plus fine de 5° de la friteuse à air donnerait des chiffres comme 405°F ou 415°F qui n’existent pas sur un cadran de four, et convertir une recette dans les deux sens — du four vers la friteuse à air, puis retour au four — s’éloignerait un peu plus du chiffre d’origine à chaque changement de sens. Arrondir plutôt le résultat du four au 25° le plus proche garde chaque résultat comme un réglage que l’on peut vraiment afficher sur un cadran, et c’est pour cela que convertir la même recette dans les deux sens revient près de son point de départ au lieu de dériver.',
+    workedExampleHeading: 'Exemple concret',
+    workedExampleTemplate:
+      'Prenez une recette de friteuse à panier avec un aliment général à 375°F pendant 20 minutes : convertissez-la à l’envers et le réglage de four ressort à {GENERAL_OVEN_F}°F pendant {GENERAL_OVEN_MIN} minutes — la baisse habituelle de 25° et le gain de temps de 20 % de la friteuse à air, rajoutés. Les frites se comportent différemment : 400°F pendant 12 minutes dans un panier deviennent {FRIES_OVEN_F}°F pendant {FRIES_OVEN_MIN} minutes au four, une hausse de temps plus importante, car les frites perdent plus de temps que la moyenne en entrant dans la friteuse à air et doivent en récupérer davantage en sortant.',
+    whenOvenBetterHeading: 'Quand le four est vraiment le meilleur choix',
+    whenOvenBetterBody:
+      'La friteuse à air gagne en rapidité pour une seule couche d’aliments non tassés, mais le four reste le meilleur outil dans plusieurs situations courantes : cuisiner plus que ce que le panier contient en une seule fournée, préparer deux plats sur des grilles différentes en même temps, une friteuse à air déjà occupée en plein cycle, ou une pièce trop grande pour tenir dans un panier — un poulet entier, une plaque entière de biscuits, un grand plateau de légumes pour beaucoup de monde. Dans tous ces cas, reconvertir le réglage de friteuse à air que vous connaissez déjà vers un chiffre de four est plus rapide que de deviner à partir de zéro, et cela garde intacte la logique par type d’aliment — les frites doivent récupérer plus de temps qu’un gratin — dans les deux sens.',
+    ovenCaveatHeading: 'À savoir : un four standard n’est pas fait pour frire',
+    ovenCaveatBody:
+      'Un four classique n’a pas la circulation d’air pulsé d’un panier de friteuse à air, donc deux choses changent. Le préchauffage compte davantage, car le four a besoin de tout son temps de montée en température pour l’atteindre uniformément, contrairement aux 3 à 4 minutes que demande une friteuse à air. Et une seule couche d’aliments ne croustillera pas aussi fort qu’au panier, faute d’un flux d’air aussi concentré frappant chaque face à la fois. Aucun des deux n’est un problème à contourner — attendez-vous simplement à ce qu’une plaque d’ailes au four ne soit pas identique à la version faite à la friteuse à air, et misez sur un réglage convection ou « air fry » du four si le vôtre en a un, car cela comble l’essentiel de l’écart.',
+    relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
+    relatedChartLink: 'Tableau de conversion imprimable',
+    faqHeading: 'Questions fréquentes',
+    faqs: [
+      {
+        q: 'Comment convertir les réglages de la friteuse à air vers un four classique ?',
+        a: 'Rajoutez le même écart de température par type d’aliment à la température de la friteuse à air (25°F pour la plupart des aliments, 20°F pour le steak, le poisson, la pâtisserie et les gratins), et divisez le temps de friteuse à air par le multiplicateur de temps de cet aliment au lieu de le multiplier. Le calculateur ci-dessus le fait automatiquement et arrondit la température du four à un vrai palier de 25° du cadran.',
+      },
+      {
+        q: 'Pourquoi la température du four est-elle arrondie à un palier de 25° plutôt qu’à un chiffre exact ?',
+        a: 'Parce qu’un vrai cadran ou contrôle numérique de four n’avance que par paliers de 25°F — 350, 375, 400 — pas par les paliers de 5° plus fins d’une friteuse à air. Arrondir à ce que le cadran peut réellement afficher est aussi ce qui garde une recette convertie dans les deux sens (four vers friteuse à air, puis retour au four) proche du chiffre de départ au lieu de dériver.',
+      },
+      {
+        q: 'Le four donnera-t-il exactement le même résultat que la friteuse à air ?',
+        a: 'Proche, mais pas identique. Un four classique n’a pas la circulation d’air pulsé d’un panier de friteuse à air, donc le préchauffage compte davantage et une seule couche d’aliments ne croustillera pas autant. Si votre four a un réglage de ventilation par convection ou « air fry », utilisez-le — cela comble l’essentiel de l’écart.',
+      },
+      {
+        q: 'Quand faut-il utiliser le four plutôt que la friteuse à air ?',
+        a: 'Dès que le panier ne peut pas faire le travail en une seule fournée : une quantité plus grande que ce que le panier contient, deux plats qui cuisent sur des grilles séparées en même temps, une friteuse à air déjà occupée, ou un aliment trop grand pour tenir dans un panier, comme un poulet entier ou une plaque entière de biscuits.',
+      },
+      {
+        q: 'Le multiplicateur par type d’aliment compte-t-il encore dans ce sens ?',
+        a: 'Oui — il s’inverse au lieu de disparaître. Les aliments fins à grande surface comme les frites et le bacon avaient besoin de la plus grande réduction de temps en entrant dans la friteuse à air, ils ont donc besoin de la plus grande augmentation de temps en revenant au four. Les aliments denses comme les gratins ont besoin du plus petit ajustement dans les deux sens.',
+      },
+      {
+        q: 'Quelle température à cœur dois-je encore vérifier, quel que soit l’appareil ?',
+        a: 'Les températures à cœur visées ne changent pas entre une friteuse à air et un four — retirez la volaille à 165°F à cœur, et le poisson, le steak ou les côtelettes à 145°F. L’appareil change le temps et le réglage du cadran pour y arriver ; il ne change pas ce que « cuit » veut dire.',
+      },
+    ],
+  },
   chart: {
     metaTitle: 'Tableau de conversion friteuse à air imprimable gratuit',
     metaDescription:
@@ -322,6 +389,8 @@ const fr: Dictionary = {
       '— l’outil en direct, s’ajuste selon le type d’aliment et panier vs. type four, avec le plafond que les lignes marquées d’une croix de ce tableau renvoient.',
     relatedGasMarkLabel: 'Convertisseur °F / °C / thermostat',
     relatedGasMarkDesc: '— une conversion de température directe pour les recettes du Royaume-Uni, de l’UE et des États-Unis.',
+    relatedReverseLabel: 'Convertisseur friteuse à air vers four',
+    relatedReverseDesc: '— le sens inverse, pour les cas où le four est le meilleur choix.',
   },
 };
 

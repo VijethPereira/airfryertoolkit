@@ -56,6 +56,7 @@ export default siteConfig;
 export const LIVE_PAGES = new Set<string>([
   '/',
   '/oven-to-air-fryer',
+  '/air-fryer-to-oven',
   '/chart',
   '/about',
   '/contact',

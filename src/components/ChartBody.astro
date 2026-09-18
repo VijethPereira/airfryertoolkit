@@ -50,6 +50,9 @@ const converterHref = localizedPath(locale, '/oven-to-air-fryer');
 const gasMarkSlug = '/fahrenheit-celsius-gas-mark';
 const gasMarkLive = LIVE_PAGES.has(gasMarkSlug);
 const gasMarkHref = localizedPath(locale, gasMarkSlug);
+const reverseSlug = '/air-fryer-to-oven';
+const reverseLive = LIVE_PAGES.has(reverseSlug);
+const reverseHref = localizedPath(locale, reverseSlug);
 ---
 
 <main class="page-main">
@@ -158,6 +161,9 @@ const gasMarkHref = localizedPath(locale, gasMarkSlug);
         <li><a href={converterHref}>{dict.relatedConverterLabel}</a> {dict.relatedConverterDesc}</li>
         {gasMarkLive && (
           <li><a href={gasMarkHref}>{dict.relatedGasMarkLabel}</a> {dict.relatedGasMarkDesc}</li>
+        )}
+        {reverseLive && (
+          <li><a href={reverseHref}>{dict.relatedReverseLabel}</a> {dict.relatedReverseDesc}</li>
         )}
       </ul>
     </section>

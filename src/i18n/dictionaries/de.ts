@@ -54,6 +54,17 @@ const de: Dictionary = {
       casserole: { label: 'Aufläufe & dicke Backwaren', tip: 'Mit Alufolie abdecken, wenn die Oberseite bräunt, bevor die Mitte heiß ist.' },
     },
   },
+  reverseConverter: {
+    widgetLabel: 'Heißluftfritteuse → Ofen',
+    airFryerTemperature: 'Temperatur der Heißluftfritteuse',
+    airFryerTime: 'Zeit der Heißluftfritteuse',
+    ovenSetting: 'Ofen-Einstellung',
+    stepNote: 'Auf 25°F-Ofenstufen gerundet',
+    ovenCaveat:
+      'Ein normaler Ofen lässt die Luft nicht wie der Korb einer Heißluftfritteuse zirkulieren — heize ihn vollständig vor, bevor du das Essen hineingibst, und rechne damit, dass eine einzelne Schicht etwas weniger knusprig wird als in der Heißluftfritteuse.',
+    ambiguousCeilingNoteTemplate:
+      'Das liegt an der Obergrenze deiner {unit} ({ceiling}°F). Wenn diese Einstellung selbst aus einem heißeren Ofenrezept nach unten umgerechnet wurde, enthält die Zeit bereits etwa 8 % extra — ziehe das für ein genaueres Ergebnis wieder ab.',
+  },
   home: {
     metaTitle: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     metaDescription:
@@ -175,6 +186,7 @@ const de: Dictionary = {
     whatHappensBody:
       'Ein 450°F-Rezept, das mit einer pauschalen Regel für eine Korb-Heißluftfritteuse mit maximal 400°F umgerechnet wird, würde 425°F ergeben — eine Einstellung, die es auf dem Regler gar nicht gibt. Dieses Tool begrenzt das Ergebnis auf die reale Obergrenze des Geräts (400°F Korb, 450°F Ofen-Typ) und fügt Zeit hinzu, um die niedrigere Hitze auszugleichen, mit einem klar formulierten Hinweis, was passiert ist und was zu erwarten ist (eine etwas weniger knusprige Oberfläche, also etwas früher prüfen). Es ist die häufigste Lücke bei anderen Heißluftfritteusen-Rechnern und der Grund, warum es dieses Tool gibt.',
     relatedChartLink: 'Druckbare Umrechnungstabelle',
+    relatedReverseLink: 'Heißluftfritteuse-zu-Ofen-Umrechner',
     faqHeading: 'Häufig gestellte Fragen',
     faqs: [
       {
@@ -259,6 +271,61 @@ const de: Dictionary = {
       },
     ],
   },
+  reverseTool: {
+    metaTitle: 'Heißluftfritteuse-zu-Ofen-Umrechner',
+    metaDescription:
+      'Gib Temperatur und Zeit der Heißluftfritteuse aus einem Rezept, einer Voreinstellung oder der Bedienungsanleitung deines Geräts ein. Erhalte die passende Ofen-Einstellung, angepasst an Lebensmittelart und Korb- vs. Ofentyp, gerundet auf die 25°-Stufen eines echten Ofens.',
+    metaKeywords:
+      'Heißluftfritteuse zu Ofen umrechnen, Heißluftfritteuse zu Ofen Rechner, Heißluftfritteuse in Ofen umrechnen, Heißluftfritteuse zu Ofen Garzeit umrechnen, Heißluftfritteuse zu herkömmlichem Ofen, Heißluftfritteusen-Einstellung zu Ofentemperatur',
+    backLink: 'Alle Tools',
+    heading: 'Heißluftfritteuse-zu-Ofen-Umrechner',
+    subDesc:
+      'Gib Temperatur und Zeit der Heißluftfritteuse aus einem Rezept, einer Voreinstellung oder der Bedienungsanleitung deines Geräts ein. Erhalte die passende Ofen-Einstellung, angepasst an Lebensmittelart und Korb- vs. Ofentyp, gerundet auf die 25°-Stufen eines echten Ofens.',
+    aboutHeading: 'Über die Umrechnung von Heißluftfritteuse zu Ofen',
+    aboutBody:
+      'Die meisten Ofen-zu-Heißluftfritteuse-Tools funktionieren nur in eine Richtung, aber der umgekehrte Weg kommt genauso oft vor. Eine Rezeptkarte, eine Voreinstellung aus der Bedienungsanleitung deiner Heißluftfritteuse oder ein Tipp von einem Freund gibt dir eine Temperatur und Zeit für die Heißluftfritteuse, und du brauchst stattdessen die Werte für den normalen Ofen — weil du für mehr Leute kochst, als der Korb fasst, die Heißluftfritteuse schon mit etwas anderem beschäftigt ist, oder der Ofen für das, was du heute zubereitest, einfach das richtige Werkzeug ist. Dieser Umrechner lässt die Engine des Haupt-Umrechners von Ofen zu Heißluftfritteuse rückwärts laufen: Gib Temperatur und Zeit der Heißluftfritteuse ein, wähle die Lebensmittelart und ob dein Gerät ein Korb- oder Ofen-Typ ist, und du erhältst die Ofen-Einstellung, die dieses Rezept bräuchte — mit denselben Multiplikatoren je Lebensmittel wie beim Umrechner in die andere Richtung, nicht mit einer einfach umgekehrten Pauschalzahl.',
+    roundingHeading: 'Warum das Ofen-Ergebnis auf 25°F gerundet wird, nicht auf 5°F',
+    roundingBody:
+      'Das digitale Display einer Heißluftfritteuse kann jede 5°-Stufe anzeigen, aber ein echter Ofenregler oder -knopf rastet nur in 25°-Schritten ein — 325, 350, 375, 400 und so weiter. Rundet man eine umgekehrte Umrechnung auf das feinere 5°-Raster der Heißluftfritteuse, bekommt man Zahlen wie 405°F oder 415°F, die es auf einem Ofenregler gar nicht gibt, und ein Rezept, das man in beide Richtungen umrechnet — vom Ofen zur Heißluftfritteuse und zurück zum Ofen —, würde bei jedem Richtungswechsel ein Stück weiter vom ursprünglichen Wert abdriften. Rundet man das Ofen-Ergebnis stattdessen auf die nächsten 25°, bleibt jedes Ergebnis eine Einstellung, die man tatsächlich am Regler einstellen kann, und deshalb landet dasselbe Rezept, in beide Richtungen umgerechnet, wieder in der Nähe seines Ausgangswerts, statt abzudriften.',
+    workedExampleHeading: 'Durchgerechnetes Beispiel',
+    workedExampleTemplate:
+      'Nimm ein Korb-Heißluftfritteusen-Rezept mit allgemeinem Lebensmittel bei 375°F für 20 Minuten: rechnet man es zurück, ergibt sich eine Ofen-Einstellung von {GENERAL_OVEN_F}°F für {GENERAL_OVEN_MIN} Minuten — der übliche 25°-Temperaturabzug und die 20 % Zeitersparnis der Heißluftfritteuse wieder hinzugerechnet. Pommes verhalten sich anders: 400°F für 12 Minuten im Korb werden zu {FRIES_OVEN_F}°F für {FRIES_OVEN_MIN} Minuten im Ofen, eine größere Zeiterhöhung, weil Pommes beim Wechsel in die Heißluftfritteuse überdurchschnittlich viel Zeit verlieren und beim Zurückwechseln entsprechend mehr davon zurückbekommen müssen.',
+    whenOvenBetterHeading: 'Wann der Ofen wirklich die bessere Wahl ist',
+    whenOvenBetterBody:
+      'Die Heißluftfritteuse gewinnt bei der Geschwindigkeit für eine einzelne, nicht überfüllte Schicht Essen, aber der Ofen ist in einigen häufigen Situationen weiterhin das bessere Werkzeug: mehr kochen, als der Korb in einer Ladung fasst, zwei Gerichte gleichzeitig auf verschiedenen Einschüben garen, eine Heißluftfritteuse, die gerade mit etwas anderem beschäftigt ist, oder ein Stück, das gar nicht in einen Korb passt — ein ganzes Hähnchen, ein volles Blech Kekse, ein großes Tablett Gemüse für viele Leute. In all diesen Fällen ist es schneller, die bereits bekannte Heißluftfritteusen-Einstellung zurück in eine Ofen-Zahl umzurechnen, als von vorne zu raten, und die Logik je Lebensmittelart — Pommes brauchen mehr Zeit zurück als ein Auflauf — bleibt dabei in beide Richtungen erhalten.',
+    ovenCaveatHeading: 'Eine Sache, die man wissen sollte: Ein normaler Ofen ist nicht zum Frittieren gebaut',
+    ovenCaveatBody:
+      'Ein herkömmlicher Ofen hat nicht die forcierte Luftzirkulation eines Heißluftfritteusen-Korbs, deshalb ändern sich zwei Dinge. Vorheizen wird wichtiger, weil der Ofen seine volle Aufheizzeit braucht, um die Zieltemperatur gleichmäßig zu erreichen, statt der 3–4 Minuten Vorsprung, die eine Heißluftfritteuse benötigt. Und eine einzelne Schicht Essen wird nicht ganz so stark knusprig wie im Korb, weil weniger konzentrierter Luftstrom gleichzeitig jede Seite trifft. Beides ist kein Problem, das man umgehen muss — erwarte nur nicht, dass ein Blech Chicken Wings aus dem Ofen genauso aussieht wie die Version aus der Heißluftfritteuse, und nutze eine Umluft- oder „Air Fry“-Einstellung deines Ofens, falls vorhanden, denn das gleicht den größten Teil des Unterschieds aus.',
+    relatedFlagshipLink: 'Ofen-zu-Heißluftfritteuse-Umrechner',
+    relatedChartLink: 'Druckbare Umrechnungstabelle',
+    faqHeading: 'Häufig gestellte Fragen',
+    faqs: [
+      {
+        q: 'Wie rechne ich Heißluftfritteusen-Einstellungen in einen normalen Ofen um?',
+        a: 'Addiere denselben lebensmittelabhängigen Temperaturunterschied wieder zur Heißluftfritteusen-Temperatur (25°F für die meisten Lebensmittel, 20°F für Steak, Fisch, Gebäck und Aufläufe), und teile die Heißluftfritteusen-Zeit durch den Zeitmultiplikator dieses Lebensmittels, statt damit zu multiplizieren. Der Rechner oben macht das automatisch und rundet die Ofentemperatur auf eine echte 25°-Reglerstufe.',
+      },
+      {
+        q: 'Warum wird die Ofentemperatur auf eine 25°-Stufe gerundet statt auf eine genaue Zahl?',
+        a: 'Weil ein echter Ofenregler oder eine digitale Steuerung nur in 25°F-Schritten einrastet — 350, 375, 400 —, nicht in den feineren 5°-Schritten einer Heißluftfritteuse. Auf das zu runden, was der Regler tatsächlich anzeigen kann, sorgt außerdem dafür, dass ein in beide Richtungen umgerechnetes Rezept (Ofen zu Heißluftfritteuse und zurück zum Ofen) nahe am Ausgangswert bleibt, statt abzudriften.',
+      },
+      {
+        q: 'Liefert der Ofen genau das gleiche Ergebnis wie die Heißluftfritteuse?',
+        a: 'Nah dran, aber nicht identisch. Ein herkömmlicher Ofen hat nicht die forcierte Luftzirkulation eines Heißluftfritteusen-Korbs, daher wird Vorheizen wichtiger und eine einzelne Schicht Essen wird nicht ganz so knusprig. Falls dein Ofen eine Umluft- oder „Air Fry“-Einstellung hat, nutze sie — das gleicht den größten Teil des Unterschieds aus.',
+      },
+      {
+        q: 'Wann sollte ich den Ofen statt der Heißluftfritteuse verwenden?',
+        a: 'Immer wenn der Korb die Aufgabe nicht in einer Ladung schafft: eine größere Menge, als der Korb fasst, zwei Gerichte, die gleichzeitig auf getrennten Einschüben garen, eine bereits beschäftigte Heißluftfritteuse, oder Essen, das gar nicht in einen Korb passt, wie ein ganzes Hähnchen oder ein volles Blech Kekse.',
+      },
+      {
+        q: 'Spielt der Lebensmittel-Multiplikator in dieser Richtung noch eine Rolle?',
+        a: 'Ja — er kehrt sich um, statt zu verschwinden. Dünne Lebensmittel mit großer Oberfläche wie Pommes und Bacon brauchten beim Wechsel in die Heißluftfritteuse den größten Zeitabzug, deshalb brauchen sie beim Zurückwechseln zum Ofen die größte Zeiterhöhung. Dichte Lebensmittel wie Aufläufe brauchen in beide Richtungen die kleinste Anpassung.',
+      },
+      {
+        q: 'Welche Kerntemperatur sollte ich unabhängig vom Gerät weiterhin prüfen?',
+        a: 'Die Ziel-Kerntemperaturen ändern sich zwischen Heißluftfritteuse und Ofen nicht — nimm Geflügel bei 165°F Kerntemperatur heraus und Fisch, Steak oder Koteletts bei 145°F. Das Gerät ändert Zeit und Reglereinstellung, um dorthin zu kommen; es ändert nicht, was „gar“ bedeutet.',
+      },
+    ],
+  },
   chart: {
     metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',
     metaDescription:
@@ -322,6 +389,8 @@ const de: Dictionary = {
       '— das Live-Tool, passt sich an Lebensmittelart und Korb vs. Ofen-Typ an, mit der Obergrenze, auf die die Kreuz-Zeilen dieser Tabelle verweisen.',
     relatedGasMarkLabel: '°F / °C / Gasstufe Umrechner',
     relatedGasMarkDesc: '— eine direkte Temperaturumrechnung für britische, EU- und US-Rezepte.',
+    relatedReverseLabel: 'Heißluftfritteuse-zu-Ofen-Umrechner',
+    relatedReverseDesc: '— die umgekehrte Richtung, für die Fälle, in denen der Ofen die bessere Wahl ist.',
   },
 };
 

@@ -54,6 +54,17 @@ const es: Dictionary = {
       casserole: { label: 'Guisos y horneados gruesos', tip: 'Cubre con papel aluminio si la superficie dora antes de que el centro esté caliente.' },
     },
   },
+  reverseConverter: {
+    widgetLabel: 'Freidora de aire → Horno',
+    airFryerTemperature: 'Temperatura de la freidora de aire',
+    airFryerTime: 'Tiempo de freidora de aire',
+    ovenSetting: 'Ajuste del horno',
+    stepNote: 'Redondeado a pasos de horno de 25°F',
+    ovenCaveat:
+      'Un horno convencional no hace circular el aire como una cesta de freidora — precalienta por completo antes de meter el alimento, y espera que una sola capa quede un poco menos crujiente que en la freidora de aire.',
+    ambiguousCeilingNoteTemplate:
+      'Esto está en el límite de tu {unit} ({ceiling}°F). Si este ajuste vino de convertir hacia abajo una receta de horno más caliente, el tiempo ya incluye cerca de un 8% extra — réstalo para un resultado más preciso.',
+  },
   home: {
     metaTitle: 'Conversor de horno a freidora de aire',
     metaDescription:
@@ -175,6 +186,7 @@ const es: Dictionary = {
     whatHappensBody:
       'Una receta de 450°F convertida con una regla fija en una freidora de aire de cesta con máximo de 400°F devolvería 425°F — un ajuste que no existe en la perilla. Esta herramienta limita el resultado al techo real del equipo (400°F cesta, 450°F tipo horno) y añade tiempo de vuelta para compensar el menor calor, con una nota en lenguaje claro que explica qué pasó y qué esperar (una superficie un poco menos crujiente, así que revisa un poco antes). Es el vacío más común entre las demás calculadoras de freidora de aire, y la razón de ser de esta herramienta.',
     relatedChartLink: 'Tabla de conversión imprimible',
+    relatedReverseLink: 'Conversor de freidora de aire a horno',
     faqHeading: 'Preguntas frecuentes',
     faqs: [
       {
@@ -259,6 +271,61 @@ const es: Dictionary = {
       },
     ],
   },
+  reverseTool: {
+    metaTitle: 'Conversor de freidora de aire a horno',
+    metaDescription:
+      'Ingresa la temperatura y el tiempo de la freidora de aire de una receta, una preconfiguración o el manual de tu equipo. Obtén el ajuste equivalente de horno, adaptado al tipo de alimento y a cesta vs. tipo horno, redondeado a los pasos de 25° que usa un horno real.',
+    metaKeywords:
+      'conversión de freidora de aire a horno, calculadora de freidora de aire a horno, convertir freidora de aire a horno, conversión de tiempo de cocción freidora de aire a horno, freidora de aire a horno convencional, ajuste de freidora de aire a temperatura de horno',
+    backLink: 'Todas las herramientas',
+    heading: 'Conversor de freidora de aire a horno',
+    subDesc:
+      'Ingresa la temperatura y el tiempo de la freidora de aire de una receta, una preconfiguración o el manual de tu equipo. Obtén el ajuste equivalente de horno, adaptado al tipo de alimento y a cesta vs. tipo horno, redondeado a los pasos de 25° que usa un horno real.',
+    aboutHeading: 'Sobre la conversión de freidora de aire a horno',
+    aboutBody:
+      'La mayoría de las herramientas de horno a freidora de aire solo funcionan en una dirección, pero el camino inverso surge igual de seguido. Una receta, una preconfiguración del manual de tu freidora de aire, o un consejo de un amigo te da una temperatura y un tiempo de freidora de aire, y necesitas los números del horno convencional en su lugar — porque cocinas para más personas de las que caben en la cesta, la freidora de aire ya está ocupada con otra cosa, o el horno es simplemente la herramienta adecuada para lo que preparas hoy. Este conversor hace funcionar el motor del conversor principal de horno a freidora de aire al revés: ingresa la temperatura y el tiempo de la freidora de aire, elige el tipo de alimento y si tu equipo es de cesta o tipo horno, y obtendrás el ajuste de horno que esa receta necesitaría — usando los mismos multiplicadores por alimento que el conversor hacia adelante, no un número fijo invertido.',
+    roundingHeading: 'Por qué el resultado del horno redondea a 25°F, no a 5°F',
+    roundingBody:
+      'La pantalla digital de una freidora de aire puede mostrar cualquier paso de 5°, pero una perilla o control de horno real solo avanza en incrementos de 25° — 325, 350, 375, 400, y así sucesivamente. Si redondeas una conversión inversa a la cuadrícula más fina de 5° de la freidora de aire, obtendrías números como 405°F o 415°F que no existen en la perilla de un horno, y convertir una receta en ambos sentidos — de horno a freidora de aire y de vuelta al horno — se alejaría un poco más del número original cada vez que cambiara de dirección. Redondear el resultado del horno al 25° más cercano en cambio mantiene cada resultado como un ajuste que realmente puedes marcar en una perilla, y por eso convertir la misma receta en ambas direcciones vuelve cerca de donde empezó en lugar de irse a la deriva.',
+    workedExampleHeading: 'Ejemplo práctico',
+    workedExampleTemplate:
+      'Toma una receta de freidora de aire de cesta con alimento general a 375°F por 20 minutos: conviértela de vuelta y el ajuste de horno resulta en {GENERAL_OVEN_F}°F por {GENERAL_OVEN_MIN} minutos — la reducción habitual de 25° de temperatura y el ahorro del 20% de tiempo de la freidora de aire, añadidos de vuelta. Las papas fritas se comportan distinto: 400°F por 12 minutos en una cesta se convierten en {FRIES_OVEN_F}°F por {FRIES_OVEN_MIN} minutos en el horno, un aumento de tiempo mayor, porque las papas fritas pierden más tiempo que el promedio al entrar a la freidora de aire y necesitan recuperar más al salir.',
+    whenOvenBetterHeading: 'Cuándo el horno es realmente la mejor opción',
+    whenOvenBetterBody:
+      'La freidora de aire gana en velocidad para una sola capa de alimento sin apretar, pero el horno sigue siendo la mejor herramienta en algunas situaciones comunes: cocinar más de lo que cabe en la cesta en una sola tanda, preparar dos platillos en rejillas distintas al mismo tiempo, una freidora de aire ocupada a mitad de otro ciclo, o un corte demasiado grande para caber en una cesta — un pollo entero, una bandeja completa de galletas, una gran bandeja de verduras para muchos comensales. En cualquiera de esos casos, convertir el ajuste de freidora de aire que ya conoces de vuelta a un número de horno es más rápido que adivinar desde cero, y mantiene intacta la lógica por tipo de alimento — las papas fritas necesitan recuperar más tiempo que un guiso — en ambas direcciones.',
+    ovenCaveatHeading: 'Algo que debes saber: un horno estándar no está hecho para freír',
+    ovenCaveatBody:
+      'Un horno convencional no tiene la circulación de aire forzado que sí tiene una cesta de freidora, así que dos cosas cambian. El precalentado importa más, ya que el horno necesita todo su tiempo de calentamiento para llegar a la temperatura objetivo de forma pareja, en lugar de los 3–4 minutos que necesita una freidora de aire. Y una sola capa de alimento no quedará tan crujiente como en la cesta, ya que hay menos flujo de aire concentrado golpeando cada lado a la vez. Ninguno de los dos es un problema que evitar — solo no esperes que una bandeja de alitas al horno se vea idéntica a la versión hecha en freidora de aire, y apóyate en un ajuste de convección o "air fry" del horno si el tuyo lo tiene, ya que eso cierra la mayor parte de la diferencia.',
+    relatedFlagshipLink: 'Conversor de horno a freidora de aire',
+    relatedChartLink: 'Tabla de conversión imprimible',
+    faqHeading: 'Preguntas frecuentes',
+    faqs: [
+      {
+        q: '¿Cómo convierto los ajustes de la freidora de aire a un horno convencional?',
+        a: 'Suma de vuelta el mismo ajuste de temperatura por tipo de alimento a la temperatura de la freidora de aire (25°F para la mayoría de los alimentos, 20°F para bistec, pescado, repostería y guisos), y divide el tiempo de la freidora de aire entre el multiplicador de tiempo de ese alimento en vez de multiplicarlo. La calculadora de arriba hace esto automáticamente y redondea la temperatura del horno a un paso real de 25° de la perilla.',
+      },
+      {
+        q: '¿Por qué la temperatura del horno redondea a un paso de 25° en vez de un número exacto?',
+        a: 'Porque una perilla o control digital de horno real solo avanza en incrementos de 25°F — 350, 375, 400 — no en los pasos más finos de 5° que usa una freidora de aire. Redondear a lo que la perilla realmente puede mostrar es también lo que mantiene una receta convertida en ambas direcciones (de horno a freidora de aire y de vuelta al horno) cerca del número donde empezó en lugar de alejarse.',
+      },
+      {
+        q: '¿El horno dará exactamente el mismo resultado que la freidora de aire?',
+        a: 'Cercano, pero no idéntico. Un horno convencional no tiene la circulación de aire forzado de una cesta de freidora, así que el precalentado importa más y una sola capa de alimento no quedará tan crujiente. Si tu horno tiene un ajuste de ventilador de convección o "air fry", úsalo — eso cierra la mayor parte de la diferencia.',
+      },
+      {
+        q: '¿Cuándo debería usar el horno en vez de la freidora de aire?',
+        a: 'Cuando la cesta no puede hacer el trabajo en una sola tanda: un lote más grande de lo que cabe en la cesta, dos platillos cocinándose en rejillas separadas a la vez, una freidora de aire ya ocupada, o un alimento demasiado grande para caber en una cesta, como un pollo entero o una bandeja completa de galletas.',
+      },
+      {
+        q: '¿El multiplicador por tipo de alimento sigue importando en esta dirección?',
+        a: 'Sí — se invierte en vez de desaparecer. Los alimentos delgados y de mucha superficie, como las papas fritas y el tocino, necesitaron el mayor recorte de tiempo al entrar a la freidora de aire, así que necesitan el mayor aumento de tiempo al volver al horno. Los alimentos densos, como los guisos, necesitan el ajuste más pequeño en ambos sentidos.',
+      },
+      {
+        q: '¿Qué temperatura interna debo seguir revisando, sin importar el equipo?',
+        a: 'Los objetivos de temperatura interna no cambian entre una freidora de aire y un horno — retira las aves a 165°F internos y el pescado, bistec o chuletas a 145°F. El equipo cambia el tiempo y el ajuste de la perilla para llegar ahí; no cambia lo que significa "listo".',
+      },
+    ],
+  },
   chart: {
     metaTitle: 'Tabla de conversión de freidora de aire imprimible gratis',
     metaDescription:
@@ -322,6 +389,8 @@ const es: Dictionary = {
       '— la herramienta en vivo, se ajusta por tipo de alimento y cesta vs. tipo horno, con el límite máximo al que apuntan las filas con cruz de esta tabla.',
     relatedGasMarkLabel: 'Conversor de °F / °C / nivel de gas',
     relatedGasMarkDesc: '— una conversión directa de temperatura para recetas del Reino Unido, la UE y EE. UU.',
+    relatedReverseLabel: 'Conversor de freidora de aire a horno',
+    relatedReverseDesc: '— la dirección inversa, para cuando el horno es la mejor opción.',
   },
 };
 

@@ -1,0 +1,55 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import ReverseToolBody from '../../components/ReverseToolBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
+
+const locale = 'de' as const;
+const dict = getDictionary(locale).reverseTool;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${localizedUrl(locale, '/air-fryer-to-oven')}#app`,
+      name: `${dict.heading} — ${siteConfig.siteName}`,
+      description: dict.metaDescription,
+      url: localizedUrl(locale, '/air-fryer-to-oven'),
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: dict.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={dict.metaTitle}
+  description={dict.metaDescription}
+  canonical={localizedUrl(locale, '/air-fryer-to-oven')}
+  keywords={dict.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug="/air-fryer-to-oven"
+>
+  <SiteNav currentPath="/air-fryer-to-oven" locale={locale} translatedSlug="/air-fryer-to-oven" />
+  <ReverseToolBody locale={locale} />
+  <Footer locale={locale} />
+</Layout>

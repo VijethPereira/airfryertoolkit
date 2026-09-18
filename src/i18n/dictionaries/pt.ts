@@ -54,6 +54,17 @@ const pt: Dictionary = {
       casserole: { label: 'Gratinados e assados espessos', tip: 'Cubra com papel-alumínio se o topo dourar antes do centro esquentar.' },
     },
   },
+  reverseConverter: {
+    widgetLabel: 'Air fryer → Forno',
+    airFryerTemperature: 'Temperatura da air fryer',
+    airFryerTime: 'Tempo de air fryer',
+    ovenSetting: 'Ajuste do forno',
+    stepNote: 'Arredondado a passos de 25°F do forno',
+    ovenCaveat:
+      'Um forno convencional não faz o ar circular como o cesto de uma air fryer — pré-aqueça por completo antes de colocar o alimento, e espere que uma única camada fique um pouco menos crocante do que na air fryer.',
+    ambiguousCeilingNoteTemplate:
+      'Isso está no limite da sua {unit} ({ceiling}°F). Se este ajuste veio de converter para baixo uma receita de forno mais quente, o tempo já inclui cerca de 8% a mais — subtraia isso para um resultado mais preciso.',
+  },
   home: {
     metaTitle: 'Conversor de forno para air fryer',
     metaDescription:
@@ -175,6 +186,7 @@ const pt: Dictionary = {
     whatHappensBody:
       'Uma receita de 450°F convertida com uma regra fixa em uma air fryer de cesto com máximo de 400°F retornaria 425°F — um ajuste que não existe no mostrador. Esta ferramenta limita o resultado ao teto real do aparelho (400°F cesto, 450°F tipo forno) e adiciona tempo de volta para compensar o calor menor, com uma nota em linguagem simples explicando o que aconteceu e o que esperar (uma superfície um pouco menos crocante, então verifique um pouco antes). É a lacuna mais comum entre as demais calculadoras de air fryer, e o motivo desta ferramenta existir.',
     relatedChartLink: 'Tabela de conversão para imprimir',
+    relatedReverseLink: 'Conversor de air fryer para forno',
     faqHeading: 'Perguntas frequentes',
     faqs: [
       {
@@ -259,6 +271,61 @@ const pt: Dictionary = {
       },
     ],
   },
+  reverseTool: {
+    metaTitle: 'Conversor de air fryer para forno',
+    metaDescription:
+      'Digite a temperatura e o tempo da air fryer de uma receita, um ajuste predefinido ou o manual do seu aparelho. Receba o ajuste equivalente de forno, adaptado por tipo de alimento e cesto vs. tipo forno, arredondado aos passos de 25° que um forno real usa.',
+    metaKeywords:
+      'conversão de air fryer para forno, calculadora de air fryer para forno, converter air fryer para forno, conversão de tempo de cozimento air fryer para forno, air fryer para forno convencional, ajuste de air fryer para temperatura de forno',
+    backLink: 'Todas as ferramentas',
+    heading: 'Conversor de air fryer para forno',
+    subDesc:
+      'Digite a temperatura e o tempo da air fryer de uma receita, um ajuste predefinido ou o manual do seu aparelho. Receba o ajuste equivalente de forno, adaptado por tipo de alimento e cesto vs. tipo forno, arredondado aos passos de 25° que um forno real usa.',
+    aboutHeading: 'Sobre a conversão de air fryer para forno',
+    aboutBody:
+      'A maioria das ferramentas de forno para air fryer funciona só em uma direção, mas o caminho inverso aparece com a mesma frequência. Uma receita, um ajuste predefinido do manual da sua air fryer, ou uma dica de um amigo te dá uma temperatura e um tempo de air fryer, e você precisa dos números do forno convencional em vez disso — porque está cozinhando para mais gente do que o cesto comporta, a air fryer já está ocupada com outra coisa, ou o forno é simplesmente a ferramenta certa para o que você está preparando hoje. Este conversor roda o motor do conversor principal de forno para air fryer ao contrário: digite a temperatura e o tempo da air fryer, escolha o tipo de alimento e se o seu aparelho é de cesto ou tipo forno, e você recebe o ajuste de forno que essa receita precisaria — usando os mesmos multiplicadores por alimento do conversor direto, não um número fixo invertido.',
+    roundingHeading: 'Por que o resultado do forno arredonda para 25°F, não para 5°F',
+    roundingBody:
+      'O visor digital de uma air fryer pode mostrar qualquer passo de 5°, mas um mostrador ou controle de forno real avança apenas em incrementos de 25° — 325, 350, 375, 400, e assim por diante. Arredondar uma conversão inversa à grade mais fina de 5° da air fryer daria números como 405°F ou 415°F que não existem no mostrador de um forno, e converter uma receita nos dois sentidos — de forno para air fryer e de volta para o forno — se afastaria um pouco mais do número original a cada troca de direção. Arredondar o resultado do forno para o 25° mais próximo, em vez disso, mantém cada resultado como um ajuste que dá para realmente marcar no mostrador, e é por isso que converter a mesma receita nas duas direções volta perto de onde começou em vez de se distanciar.',
+    workedExampleHeading: 'Exemplo prático',
+    workedExampleTemplate:
+      'Pegue uma receita de air fryer de cesto com alimento geral a 375°F por 20 minutos: converta de volta e o ajuste de forno sai em {GENERAL_OVEN_F}°F por {GENERAL_OVEN_MIN} minutos — o corte habitual de 25° de temperatura e a economia de 20% de tempo da air fryer, somados de volta. A batata frita se comporta diferente: 400°F por 12 minutos em um cesto vira {FRIES_OVEN_F}°F por {FRIES_OVEN_MIN} minutos no forno, um aumento de tempo maior, porque a batata frita perde mais tempo do que a média ao entrar na air fryer e precisa recuperar mais ao sair.',
+    whenOvenBetterHeading: 'Quando o forno é realmente a melhor escolha',
+    whenOvenBetterBody:
+      'A air fryer ganha em velocidade para uma única camada de alimento sem apertar, mas o forno ainda é a melhor ferramenta em algumas situações comuns: cozinhar mais do que o cesto comporta em uma única leva, preparar dois pratos em grades diferentes ao mesmo tempo, uma air fryer ocupada no meio de outro ciclo, ou um corte grande demais para caber em um cesto — um frango inteiro, uma assadeira cheia de biscoitos, uma bandeja grande de legumes para muita gente. Em qualquer um desses casos, converter o ajuste de air fryer que você já conhece de volta para um número de forno é mais rápido do que chutar do zero, e mantém intacta a lógica por tipo de alimento — a batata frita precisa recuperar mais tempo do que um gratinado — nas duas direções.',
+    ovenCaveatHeading: 'Uma coisa para saber: um forno padrão não foi feito para fritar',
+    ovenCaveatBody:
+      'Um forno convencional não tem a circulação de ar forçado que o cesto de uma air fryer tem, então duas coisas mudam. O pré-aquecimento importa mais, já que o forno precisa de todo o seu tempo de aquecimento para chegar à temperatura alvo de forma uniforme, em vez dos 3–4 minutos que uma air fryer precisa. E uma única camada de alimento não vai ficar tão crocante quanto no cesto, já que há menos fluxo de ar concentrado batendo em cada lado ao mesmo tempo. Nenhum dos dois é um problema para contornar — só não espere que uma assadeira de asinhas no forno fique idêntica à versão feita na air fryer, e use um ajuste de convecção ou "air fry" do forno se o seu tiver, já que isso fecha a maior parte da diferença.',
+    relatedFlagshipLink: 'Conversor de forno para air fryer',
+    relatedChartLink: 'Tabela de conversão para imprimir',
+    faqHeading: 'Perguntas frequentes',
+    faqs: [
+      {
+        q: 'Como converto os ajustes da air fryer para um forno convencional?',
+        a: 'Some de volta o mesmo ajuste de temperatura por tipo de alimento à temperatura da air fryer (25°F para a maioria dos alimentos, 20°F para bife, peixe, assados e gratinados), e divida o tempo da air fryer pelo multiplicador de tempo daquele alimento em vez de multiplicar. A calculadora acima faz isso automaticamente e arredonda a temperatura do forno para um passo real de 25° do mostrador.',
+      },
+      {
+        q: 'Por que a temperatura do forno arredonda para um passo de 25° em vez de um número exato?',
+        a: 'Porque um mostrador ou controle digital de forno real só avança em incrementos de 25°F — 350, 375, 400 — não nos passos mais finos de 5° que uma air fryer usa. Arredondar para o que o mostrador realmente consegue exibir também é o que mantém uma receita convertida nas duas direções (de forno para air fryer e de volta para o forno) perto do número onde começou, em vez de se afastar.',
+      },
+      {
+        q: 'O forno vai dar exatamente o mesmo resultado que a air fryer?',
+        a: 'Perto, mas não idêntico. Um forno convencional não tem a circulação de ar forçado de um cesto de air fryer, então o pré-aquecimento importa mais e uma única camada de alimento não vai ficar tão crocante. Se o seu forno tiver um ajuste de ventilação por convecção ou "air fry", use-o — isso fecha a maior parte da diferença.',
+      },
+      {
+        q: 'Quando devo usar o forno em vez da air fryer?',
+        a: 'Sempre que o cesto não conseguir fazer o trabalho em uma única leva: um lote maior do que o cesto comporta, dois pratos cozinhando em grades separadas ao mesmo tempo, uma air fryer já ocupada, ou um alimento grande demais para caber em um cesto, como um frango inteiro ou uma assadeira cheia de biscoitos.',
+      },
+      {
+        q: 'O multiplicador por tipo de alimento ainda importa nessa direção?',
+        a: 'Sim — ele se inverte em vez de desaparecer. Alimentos finos e com muita superfície, como batata frita e bacon, precisaram do maior corte de tempo ao entrar na air fryer, então precisam do maior aumento de tempo ao voltar para o forno. Alimentos densos, como gratinados, precisam do menor ajuste nos dois sentidos.',
+      },
+      {
+        q: 'Qual temperatura interna eu ainda devo verificar, independentemente do aparelho?',
+        a: 'Os alvos de temperatura interna não mudam entre uma air fryer e um forno — retire aves a 165°F internos e peixe, bife ou costeletas a 145°F. O aparelho muda o tempo e o ajuste do mostrador para chegar lá; não muda o que significa "pronto".',
+      },
+    ],
+  },
   chart: {
     metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',
     metaDescription:
@@ -322,6 +389,8 @@ const pt: Dictionary = {
       '— a ferramenta ao vivo, ajusta por tipo de alimento e cesto vs. tipo forno, com o limite máximo para o qual as linhas com cruz desta tabela apontam.',
     relatedGasMarkLabel: 'Conversor de °F / °C / nível de gás',
     relatedGasMarkDesc: '— uma conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.',
+    relatedReverseLabel: 'Conversor de air fryer para forno',
+    relatedReverseDesc: '— o sentido inverso, para quando o forno é a melhor escolha.',
   },
 };
 

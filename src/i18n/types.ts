@@ -40,6 +40,16 @@ export interface Dictionary {
     cappedNoteTemplate: string;
     foods: Record<FoodKey, { label: string; tip: string }>;
   };
+  reverseConverter: {
+    widgetLabel: string;
+    airFryerTemperature: string;
+    airFryerTime: string;
+    ovenSetting: string;
+    stepNote: string;
+    ovenCaveat: string;
+    /** {unit} and {ceiling} are replaced the same way as converter.cappedNoteTemplate, via cappedNote(). */
+    ambiguousCeilingNoteTemplate: string;
+  };
   home: {
     metaTitle: string;
     metaDescription: string;
@@ -86,6 +96,30 @@ export interface Dictionary {
     whatHappensHeading: string;
     whatHappensBody: string;
     relatedChartLink: string;
+    relatedReverseLink: string;
+    faqHeading: string;
+    faqs: { q: string; a: string }[];
+  };
+  reverseTool: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    heading: string;
+    subDesc: string;
+    aboutHeading: string;
+    aboutBody: string;
+    roundingHeading: string;
+    roundingBody: string;
+    workedExampleHeading: string;
+    /** {GENERAL_OVEN_F}, {GENERAL_OVEN_MIN}, {FRIES_OVEN_F}, {FRIES_OVEN_MIN} are replaced with computeOvenSetting() output. */
+    workedExampleTemplate: string;
+    whenOvenBetterHeading: string;
+    whenOvenBetterBody: string;
+    ovenCaveatHeading: string;
+    ovenCaveatBody: string;
+    relatedFlagshipLink: string;
+    relatedChartLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
   };
@@ -121,5 +155,7 @@ export interface Dictionary {
     relatedConverterDesc: string;
     relatedGasMarkLabel: string;
     relatedGasMarkDesc: string;
+    relatedReverseLabel: string;
+    relatedReverseDesc: string;
   };
 }

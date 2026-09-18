@@ -16,6 +16,7 @@ const STATIC_PAGES: { path: string; priority: string; changefreq: string }[] = [
 const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: string }[] = [
   { slug: '/', priority: '1.0', changefreq: 'weekly' },
   { slug: '/oven-to-air-fryer', priority: '0.9', changefreq: 'monthly' },
+  { slug: '/air-fryer-to-oven', priority: '0.8', changefreq: 'monthly' },
   { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
 ];
 
