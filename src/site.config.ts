@@ -6,6 +6,9 @@ const siteConfig = {
   primaryColor: '#ee884f',
   gaId: 'G-6Q4VTZQ021',
   adsenseId: 'ca-pub-9882918126611424',
+  // Manual <AdSlot> units render only when true. The slot IDs in the components are still placeholders;
+  // set this once they are real AdSense unit IDs. Auto ads (on in AdSense) need no code change.
+  adsReady: false,
   navLinks: [
     { key: 'convert', href: '/#convert' },
     { key: 'reverse', href: '/#reverse' },

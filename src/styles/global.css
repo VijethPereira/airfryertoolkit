@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* An AdSense unit with no ad to show must not leave a blank box (Auto ads included). */
+ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+
 @theme {
   /* Colors */
   --color-ink: #1e1e1e;

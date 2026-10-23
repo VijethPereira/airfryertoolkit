@@ -9,8 +9,11 @@ interface Props {
 
 const { slot: adSlot, format = 'auto', layout } = Astro.props;
 
-// Render nothing when AdSense publisher ID is not configured
-const show = Boolean(siteConfig.adsenseId);
+// Placeholder IDs from the starter template; AdSense can never fill them.
+const PLACEHOLDER_SLOTS = new Set(['1234567890', '0987654321', '2233445566', '4455667788', '6655443322']);
+
+// Render nothing until AdSense is configured, units are switched on, and the slot is a real one
+const show = Boolean(siteConfig.adsenseId) && siteConfig.adsReady && !PLACEHOLDER_SLOTS.has(adSlot);
 ---
 
 {show && (
