@@ -79,6 +79,63 @@ const pt: Dictionary = {
     ovenCaveat: "Mantenha o ventilador ligado e espalhe o alimento numa única camada, com espaço em volta de cada pedaço — uma assadeira de convecção lotada perde o fluxo de ar que estes tempos supõem.",
     ambiguousCeilingNoteTemplate: "Isto está no limite do {unit} ({ceiling}°F). Se foi convertido para baixo a partir de uma receita de convecção mais quente, o tempo já inclui cerca de 8% extra — desconte isso, ou volte à receita original.",
   },
+  frozenConverter: {
+    widgetLabel: "Embalagem congelada → Air fryer",
+    ovenTemperature: "Temperatura da embalagem",
+    ovenTime: "Tempo da embalagem",
+    packType: "As instruções da embalagem são para",
+    packConventional: "Forno convencional",
+    packFan: "Forno ventilado",
+    shake: "Agitar",
+    flip: "Virar",
+    turnAtTemplate: "{action} aos {times} min",
+    noTurn: "Não precisa virar",
+    listJoin: " e ",
+    internalTemplate: "Interno {f}°F / {c}°C",
+    rawWarningTemplate: "Frango cru direto do congelador: confira com um termômetro se o pedaço mais grosso chega a {f}°F ({c}°C) antes de comer. O lado de fora doura bem antes de um centro congelado ficar seguro.",
+    foods: {
+      fries: {
+        label: "Batata frita",
+        tip: "Uma camada só, ou quase, e solte ao agitar os pedaços que congelaram grudados.",
+      },
+      nuggets: {
+        label: "Nuggets de frango",
+        tip: "Espalhe bem: pedaços que se encostam cozinham no vapor em vez de ficar crocantes.",
+      },
+      tenders: {
+        label: "Frango empanado, tiras e Kiev",
+        tip: "Confira a embalagem: muitos produtos de frango empanado são vendidos crus, não só para reaquecer.",
+      },
+      fish: {
+        label: "Iscas de peixe e filés empanados",
+        tip: "Vire com cuidado usando uma pinça: a casquinha firma antes do peixe.",
+      },
+      pizza: {
+        label: "Pizza (individual)",
+        tip: "Só uma pizza que caiba deitada no cesto. Confira a massa no começo da faixa de tempo.",
+      },
+      springRolls: {
+        label: "Rolinhos primavera e samosas",
+        tip: "Um leve spray de óleo ajuda a massa a dourar por igual.",
+      },
+      hashBrowns: {
+        label: "Hash browns e batatas em formato",
+        tip: "Pedaços achatados douram um lado por vez: vire uma vez na metade.",
+      },
+      veg: {
+        label: "Legumes congelados",
+        tip: "Não descongele antes. Agitar deixa o vapor sair; sem isso, ficam moles.",
+      },
+      wings: {
+        label: "Asinhas de frango (cruas, congeladas)",
+        tip: "Separe na primeira agitada as asinhas que congelaram juntas.",
+      },
+      rawChicken: {
+        label: "Peito de frango cru (direto do congelador)",
+        tip: "Mais baixo e mais devagar que o fresco: o centro precisa descongelar e cozinhar.",
+      },
+    },
+  },
   home: {
     metaTitle: 'Conversor de forno para air fryer',
     metaDescription:
@@ -202,6 +259,7 @@ const pt: Dictionary = {
     relatedChartLink: 'Tabela de conversão para imprimir',
     relatedReverseLink: 'Conversor de air fryer para forno',
     relatedConvectionLink: "Conversor de convecção para air fryer",
+    relatedFrozenLink: "Modo de congelados (instruções da embalagem)",
     faqHeading: 'Perguntas frequentes',
     faqs: [
       {
@@ -363,6 +421,7 @@ const pt: Dictionary = {
     relatedReverseLink: "Conversor de air fryer para forno",
     relatedSiblingLink: "Conversor de air fryer para convecção",
     relatedChartLink: "Tabela de conversão para imprimir",
+    relatedFrozenLink: "Modo de congelados (instruções da embalagem)",
     faqHeading: "Perguntas frequentes",
     faqs: [
       {
@@ -412,6 +471,7 @@ const pt: Dictionary = {
     relatedReverseLink: "Conversor de air fryer para forno (forno convencional)",
     relatedSiblingLink: "Conversor de convecção para air fryer",
     relatedChartLink: "Tabela de conversão para imprimir",
+    relatedFrozenLink: "Modo de congelados (instruções da embalagem)",
     faqHeading: "Perguntas frequentes",
     faqs: [
       {
@@ -437,6 +497,56 @@ const pt: Dictionary = {
       {
         q: "As temperaturas internas de referência mudam?",
         a: "Não. Aves ficam prontas a 165°F internos e peixe, bife ou costeletas a 145°F, na air fryer ou no forno de convecção.",
+      },
+    ],
+  },
+  frozenTool: {
+    metaTitle: "Conversor de congelados para air fryer",
+    metaDescription: "Converta as instruções da embalagem congelada para tempo e temperatura de air fryer. Mantenha quase todo o calor, corte cerca de 30% do tempo e agite na hora certa — embalagem para forno convencional ou ventilado, cesto ou tipo forno.",
+    metaKeywords: "instruções da embalagem para air fryer, batata frita congelada air fryer tempo, frango congelado air fryer tempo, conversor de congelados air fryer",
+    backLink: "Todas as ferramentas",
+    heading: "Conversor de congelados para air fryer",
+    subDesc: "Digite a temperatura e o tempo de forno da embalagem. Receba o ajuste de air fryer para comida direto do congelador, com os momentos de agitar ou virar e a temperatura interna onde ela importa.",
+    aboutHeading: "Por que congelados se convertem de outro jeito",
+    aboutBody: "A maioria dos conversores trata congelado como mais um tipo de alimento e aplica a regra de sempre: tirar 25°F e cortar o tempo em um quinto. Para comida que sai do congelador isso é o contrário. As instruções de forno da embalagem foram escritas para alimentos que entram congelados, então a temperatura da caixa já é a que a casquinha precisa para ficar crocante antes de o interior passar do ponto. O que a air fryer muda é a velocidade: uma cavidade pequena e ar rápido tiram o gelo da superfície logo. Por isso este conversor mantém quase toda a temperatura da embalagem — geralmente 10°F a menos — e faz o grande corte no tempo, cerca de 30%. Frango cru congelado é a exceção e vai mais baixo e mais devagar.",
+    packHeading: "Como ler uma embalagem europeia e uma americana",
+    packBody: "Embalagens dos EUA dão uma só temperatura de forno em °F, pensada para forno convencional. Embalagens britânicas e europeias costumam dar °C e muitas vezes dois números: uma temperatura convencional e outra mais baixa \"ventilada\", em geral 20°C a menos, com o mesmo tempo para as duas. Escolha a linha que você está lendo no seletor da embalagem. Uma temperatura ventilada já está ajustada ao ventilador, então o conversor devolve a diferença entre forno convencional e ventilado para aquele alimento em vez de cortar de novo — a mesma diferença por alimento que o conversor de convecção usa. Embalagens com gas mark são convencionais: converta a marca em temperatura primeiro, ou use o gas mark mostrado em cada resultado para conferir que está perto.",
+    workedExampleHeading: "Exemplo prático",
+    workedExampleTemplate: "Um pacote americano de batata frita congelada diz 425°F por 20 minutos. Uma air fryer de cesto chega no máximo a 400°F, então o conversor segura nela e devolve um pouco de tempo: {US_AF_F}°F por {US_AF_MIN} minutos, com duas agitadas. Um pacote britânico da mesma batata diz 200°C ventilado por 20 minutos; com o seletor ventilado vira {UK_AF_F}°F ({UK_AF_C}°C) por {UK_AF_MIN} minutos — um pouco menos, porque já não precisa do tempo que o limite de temperatura acrescentava.",
+    crowdingHeading: "Não lote o cesto",
+    crowdingBody: "Congelados soltam água ao descongelar, e num cesto cheio essa água não tem para onde ir. Pedaços empilhados cozinham no vapor em vez de ficar crocantes, e a camada de baixo continua pálida por mais que você cozinhe. Deixe batata, nuggets e asinhas numa camada só, ou quase, e faça um pacote grande em duas rodadas — a segunda costuma levar um ou dois minutos a menos porque o cesto já está quente. As agitadas indicadas no resultado soltam os pedaços congelados juntos e levam a camada de baixo para o ar.",
+    rawHeading: "Frango cru direto do congelador",
+    rawBody: "Peito cru congelado, asinhas e muitos produtos de frango empanado precisam chegar a 165°F (74°C) na parte mais grossa, não só parecer dourados. Por isso recebem um corte de tempo menor e uma temperatura mais baixa, para o centro alcançar o lado de fora, e o resultado mostra um lembrete para conferir com um termômetro. Produtos já cozidos, como a maioria dos nuggets, só precisam esquentar por dentro, então mostram a temperatura alvo sem o aviso.",
+    relatedFlagshipLink: "Conversor de forno para air fryer (receitas frescas)",
+    relatedConvectionLink: "Conversor de convecção para air fryer",
+    relatedReverseConvectionLink: "Conversor de air fryer para convecção",
+    relatedChartLink: "Tabela de conversão para imprimir",
+    presetsHeading: "Ajustes para congelados",
+    faqHeading: "Perguntas frequentes",
+    faqs: [
+      {
+        q: "Como converter as instruções de uma embalagem congelada para air fryer?",
+        a: "Mantenha a temperatura da embalagem ou tire uns 10°F, corte o tempo em cerca de 30% e agite ou vire nos momentos que o conversor mostra. Se a temperatura da embalagem passar do que sua air fryer alcança, o conversor segura no máximo e devolve um pouco de tempo.",
+      },
+      {
+        q: "Quanto tempo leva batata frita congelada na air fryer?",
+        a: "Normalmente 12–16 minutos a 400°F para um pacote padrão que diz 425°F por 20 minutos no forno, agitando duas vezes. Batata grossa leva mais que a fina. Digite os números da sua embalagem acima para o ajuste exato.",
+      },
+      {
+        q: "Quanto tempo leva frango cru congelado na air fryer?",
+        a: "Mais do que a regra dos 30% sugere. Peito cru congelado cozinha a uma temperatura menor e com só cerca de 15% a menos do tempo da embalagem, para o centro chegar a 165°F antes de o lado de fora ressecar. Confira sempre com um termômetro.",
+      },
+      {
+        q: "Devo descongelar antes de usar a air fryer?",
+        a: "Não. As instruções da embalagem e este conversor supõem que o alimento entra congelado. Descongelar antes amolece a casquinha e muda os tempos. A exceção é uma peça grande de carne crua, que deve descongelar na geladeira.",
+      },
+      {
+        q: "Minha embalagem dá uma temperatura para forno ventilado. Qual eu digito?",
+        a: "Qualquer uma serve: só ajuste o seletor da embalagem. Se digitar a temperatura ventilada, escolha \"Forno ventilado\" e o conversor devolve a quantidade certa para aquele alimento.",
+      },
+      {
+        q: "Preciso preaquecer a air fryer para congelados?",
+        a: "Um preaquecimento curto de 3 minutos no cesto, ou 4 no tipo forno, dá um dourado mais uniforme à batata e aos empanados. Pizza congelada e itens reaquecidos vão bem sem ele.",
       },
     ],
   },
@@ -509,6 +619,8 @@ const pt: Dictionary = {
     relatedConvectionDesc: "— um corte mais suave para receitas de forno ventilado que já vêm ajustadas.",
     relatedReverseConvectionLabel: "Conversor de air fryer para convecção",
     relatedReverseConvectionDesc: "— leve um ajuste de air fryer para um forno ventilado em porções maiores.",
+    relatedFrozenLabel: "Modo de congelados",
+    relatedFrozenDesc: "— das instruções da embalagem para a air fryer: mantenha o calor, corte o tempo, agite na hora certa.",
   },
 };
 

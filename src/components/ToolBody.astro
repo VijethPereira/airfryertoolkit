@@ -14,6 +14,7 @@ const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale).tool;
 const reverseLive = LIVE_PAGES.has('/air-fryer-to-oven');
 const convectionLive = LIVE_PAGES.has('/convection-to-air-fryer');
+const frozenLive = LIVE_PAGES.has('/frozen');
 ---
 
 <main class="page-main">
@@ -50,6 +51,9 @@ const convectionLive = LIVE_PAGES.has('/convection-to-air-fryer');
       )}
       {convectionLive && (
         <p class="related-link"><a href={localizedPath(locale, '/convection-to-air-fryer')}>{dict.relatedConvectionLink} &rarr;</a></p>
+      )}
+      {frozenLive && (
+        <p class="related-link"><a href={localizedPath(locale, '/frozen')}>{dict.relatedFrozenLink} &rarr;</a></p>
       )}
     </section>
 

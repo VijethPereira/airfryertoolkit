@@ -1,4 +1,4 @@
-import type { FoodKey } from '../lib/converter';
+import type { FoodKey, FrozenFoodKey } from '../lib/converter';
 
 export interface Dictionary {
   nav: {
@@ -54,6 +54,24 @@ export interface Dictionary {
   convectionConverter: Pick<Dictionary['converter'], 'widgetLabel' | 'ovenTemperature' | 'ovenTime'>;
   /** Same shape as `reverseConverter`, used when ReverseConverterWidget runs in convection mode. */
   reverseConvectionConverter: Dictionary['reverseConverter'];
+  /** Widget labels when ConverterWidget runs in frozen-pack mode. */
+  frozenConverter: Pick<Dictionary['converter'], 'widgetLabel' | 'ovenTemperature' | 'ovenTime'> & {
+    packType: string;
+    packConventional: string;
+    packFan: string;
+    shake: string;
+    flip: string;
+    /** {action} is shake/flip, {times} the joined minute marks. */
+    turnAtTemplate: string;
+    noTurn: string;
+    /** Joins the last two minute marks, e.g. " and ". */
+    listJoin: string;
+    /** {f} and {c} are the internal target. */
+    internalTemplate: string;
+    /** {f} and {c} are the internal target; shown for raw chicken. */
+    rawWarningTemplate: string;
+    foods: Record<FrozenFoodKey, { label: string; tip: string }>;
+  };
   home: {
     metaTitle: string;
     metaDescription: string;
@@ -102,6 +120,7 @@ export interface Dictionary {
     relatedChartLink: string;
     relatedReverseLink: string;
     relatedConvectionLink: string;
+    relatedFrozenLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
   };
@@ -155,6 +174,7 @@ export interface Dictionary {
     relatedReverseLink: string;
     relatedSiblingLink: string;
     relatedChartLink: string;
+    relatedFrozenLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
   };
@@ -180,6 +200,36 @@ export interface Dictionary {
     relatedReverseLink: string;
     relatedSiblingLink: string;
     relatedChartLink: string;
+    relatedFrozenLink: string;
+    faqHeading: string;
+    faqs: { q: string; a: string }[];
+  };
+  frozenTool: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    heading: string;
+    subDesc: string;
+    aboutHeading: string;
+    aboutBody: string;
+    packHeading: string;
+    packBody: string;
+    workedExampleHeading: string;
+    /**
+     * {US_AF_F}, {US_AF_MIN} (computeAirFryerSettingFromFrozen: fries, 425°F conventional pack, 20 min, basket — capped);
+     * {UK_AF_F}, {UK_AF_C}, {UK_AF_MIN} (fries, 200°C fan pack, 20 min, basket).
+     */
+    workedExampleTemplate: string;
+    crowdingHeading: string;
+    crowdingBody: string;
+    rawHeading: string;
+    rawBody: string;
+    relatedFlagshipLink: string;
+    relatedConvectionLink: string;
+    relatedReverseConvectionLink: string;
+    relatedChartLink: string;
+    presetsHeading: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
   };
@@ -221,5 +271,7 @@ export interface Dictionary {
     relatedConvectionDesc: string;
     relatedReverseConvectionLabel: string;
     relatedReverseConvectionDesc: string;
+    relatedFrozenLabel: string;
+    relatedFrozenDesc: string;
   };
 }

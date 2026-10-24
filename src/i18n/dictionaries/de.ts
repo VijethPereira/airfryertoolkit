@@ -79,6 +79,63 @@ const de: Dictionary = {
     ovenCaveat: "Lass den Ventilator an und verteile das Essen in einer Schicht mit Platz um jedes Stück — ein überladenes Umluftblech verliert die Luftzirkulation, von der diese Zeiten ausgehen.",
     ambiguousCeilingNoteTemplate: "Dieser Wert liegt an der Obergrenze des {unit} ({ceiling}°F). Wurde er aus einem heißeren Umluftrezept heruntergerechnet, enthält die Zeit bereits etwa 8 % extra — zieh die wieder ab oder geh zum Originalrezept zurück.",
   },
+  frozenConverter: {
+    widgetLabel: "Tiefkühlpackung → Heißluftfritteuse",
+    ovenTemperature: "Temperatur laut Packung",
+    ovenTime: "Zeit laut Packung",
+    packType: "Packungsangabe gilt für",
+    packConventional: "Ober-/Unterhitze",
+    packFan: "Umluft",
+    shake: "Schütteln",
+    flip: "Wenden",
+    turnAtTemplate: "{action} nach {times} min",
+    noTurn: "Kein Wenden nötig",
+    listJoin: " und ",
+    internalTemplate: "Kern {f}°F / {c}°C",
+    rawWarningTemplate: "Rohes Hähnchen aus dem Tiefkühler: Prüfe mit einem Thermometer, dass das dickste Stück {f}°F ({c}°C) erreicht, bevor du es isst. Außen bräunt es lange bevor ein gefrorener Kern sicher ist.",
+    foods: {
+      fries: {
+        label: "Pommes",
+        tip: "Möglichst in einer Schicht, und beim Schütteln zusammengefrorene Stücke trennen.",
+      },
+      nuggets: {
+        label: "Chicken Nuggets",
+        tip: "Gut verteilen — Stücke, die sich berühren, dämpfen statt knusprig zu werden.",
+      },
+      tenders: {
+        label: "Paniertes Hähnchen, Streifen & Kiew",
+        tip: "Lies die Packung: Viele panierte Hähnchenprodukte werden roh verkauft, nicht nur zum Aufwärmen.",
+      },
+      fish: {
+        label: "Fischstäbchen & panierte Filets",
+        tip: "Vorsichtig mit der Zange wenden — die Panade wird fest, bevor der Fisch es ist.",
+      },
+      pizza: {
+        label: "Pizza (Einzelgröße)",
+        tip: "Nur eine Pizza, die flach in den Korb passt. Den Boden am unteren Ende der Zeit prüfen.",
+      },
+      springRolls: {
+        label: "Frühlingsrollen & Samosas",
+        tip: "Ein leichter Ölfilm hilft dem Teig, gleichmäßig zu bräunen.",
+      },
+      hashBrowns: {
+        label: "Rösti & Kartoffelprodukte",
+        tip: "Flache Stücke bräunen eine Seite nach der anderen — einmal zur Hälfte wenden.",
+      },
+      veg: {
+        label: "Tiefkühlgemüse",
+        tip: "Nicht vorher auftauen. Schütteln lässt den Dampf raus; sonst wird es matschig.",
+      },
+      wings: {
+        label: "Chicken Wings (roh, tiefgekühlt)",
+        tip: "Zusammengefrorene Wings beim ersten Schütteln trennen.",
+      },
+      rawChicken: {
+        label: "Rohe Hähnchenbrust (aus dem Tiefkühler)",
+        tip: "Niedriger und langsamer als frisch — der Kern muss auftauen und durchgaren.",
+      },
+    },
+  },
   home: {
     metaTitle: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     metaDescription:
@@ -202,6 +259,7 @@ const de: Dictionary = {
     relatedChartLink: 'Druckbare Umrechnungstabelle',
     relatedReverseLink: 'Heißluftfritteuse-zu-Ofen-Umrechner',
     relatedConvectionLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
+    relatedFrozenLink: "Tiefkühl-Modus (Packungsangaben)",
     faqHeading: 'Häufig gestellte Fragen',
     faqs: [
       {
@@ -363,6 +421,7 @@ const de: Dictionary = {
     relatedReverseLink: "Heißluftfritteuse-zu-Ofen-Umrechner",
     relatedSiblingLink: "Heißluftfritteuse-zu-Umluft-Umrechner",
     relatedChartLink: "Druckbare Umrechnungstabelle",
+    relatedFrozenLink: "Tiefkühl-Modus (Packungsangaben)",
     faqHeading: "Häufig gestellte Fragen",
     faqs: [
       {
@@ -412,6 +471,7 @@ const de: Dictionary = {
     relatedReverseLink: "Heißluftfritteuse-zu-Ofen-Umrechner (Ober-/Unterhitze)",
     relatedSiblingLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
     relatedChartLink: "Druckbare Umrechnungstabelle",
+    relatedFrozenLink: "Tiefkühl-Modus (Packungsangaben)",
     faqHeading: "Häufig gestellte Fragen",
     faqs: [
       {
@@ -437,6 +497,56 @@ const de: Dictionary = {
       {
         q: "Ändern sich die Ziel-Kerntemperaturen?",
         a: "Nein. Geflügel ist bei 165°F Kerntemperatur gar, Fisch, Steak oder Koteletts bei 145°F — in der Heißluftfritteuse wie im Umluftofen.",
+      },
+    ],
+  },
+  frozenTool: {
+    metaTitle: "Tiefkühlkost für die Heißluftfritteuse umrechnen",
+    metaDescription: "Rechne die Packungsangaben von Tiefkühlkost in Zeit und Temperatur für die Heißluftfritteuse um. Hitze weitgehend halten, etwa 30 % Zeit sparen, im richtigen Moment schütteln — Packung für Ober-/Unterhitze oder Umluft, Korb oder Ofen-Typ.",
+    metaKeywords: "packungsangabe heißluftfritteuse umrechnen, tiefkühl pommes heißluftfritteuse zeit, tiefgekühltes hähnchen heißluftfritteuse, tiefkühlkost airfryer umrechnen",
+    backLink: "Alle Tools",
+    heading: "Tiefkühl-Umrechner für die Heißluftfritteuse",
+    subDesc: "Gib Ofentemperatur und Zeit von der Packung ein. Du bekommst die Einstellung für die Heißluftfritteuse für Essen direkt aus dem Tiefkühler, mit Zeitpunkten zum Schütteln oder Wenden und der Kerntemperatur, wo sie zählt.",
+    aboutHeading: "Warum Tiefkühlkost anders umgerechnet wird",
+    aboutBody: "Die meisten Umrechner behandeln Tiefkühlkost als weiteres Lebensmittel und wenden die übliche Regel an: 25°F abziehen und die Zeit um ein Fünftel kürzen. Für Essen direkt aus dem Tiefkühler ist das verkehrt herum. Die Ofenangaben auf der Packung wurden für Lebensmittel geschrieben, die gefroren in den Ofen kommen — die Temperatur auf dem Karton ist also schon die, die die Panade braucht, um knusprig zu werden, bevor das Innere übergart. Was die Heißluftfritteuse ändert, ist das Tempo: Ein kleiner Garraum und schnelle Luft treiben das Eis rasch aus der Oberfläche. Deshalb hält dieser Umrechner die Packungstemperatur fast ganz — meist 10°F weniger — und kürzt kräftig bei der Zeit, um etwa 30 %. Rohes tiefgekühltes Hähnchen ist die Ausnahme und gart niedriger und langsamer.",
+    packHeading: "Packungen aus Deutschland, Großbritannien und den USA lesen",
+    packBody: "US-Packungen nennen eine einzige Ofentemperatur in °F, gedacht für Ober-/Unterhitze. Deutsche, britische und andere europäische Packungen nennen meist °C und oft zwei Werte: Ober-/Unterhitze und einen niedrigeren Umluftwert, typischerweise 20°C darunter, mit derselben Zeit für beide. Wähle mit dem Packungsschalter die Zeile, die du gerade liest. Ein Umluftwert ist schon an den Ventilator angepasst, deshalb gibt der Umrechner für dieses Lebensmittel den Abstand zwischen Ober-/Unterhitze und Umluft zurück, statt noch einmal abzuziehen — derselbe Abstand pro Lebensmittel, den auch der Umluft-Umrechner verwendet. Packungen mit Gasstufe gelten für Ober-/Unterhitze: Rechne die Stufe zuerst in eine Temperatur um, oder nutze die Gasstufe unter jedem Ergebnis zur Kontrolle.",
+    workedExampleHeading: "Rechenbeispiel",
+    workedExampleTemplate: "Ein US-Beutel Tiefkühl-Pommes nennt 425°F für 20 Minuten. Eine Korb-Heißluftfritteuse schafft höchstens 400°F, also hält der Umrechner sie dort und gibt etwas Zeit zurück: {US_AF_F}°F für {US_AF_MIN} Minuten, zweimal schütteln. Ein britischer oder deutscher Beutel derselben Pommes nennt 200°C Umluft für 20 Minuten; mit dem Umluft-Schalter wird daraus {UK_AF_F}°F ({UK_AF_C}°C) für {UK_AF_MIN} Minuten — etwas kürzer, weil die Zeit, die die Temperaturgrenze zurückgegeben hat, nicht mehr nötig ist.",
+    crowdingHeading: "Den Korb nicht überladen",
+    crowdingBody: "Tiefkühlkost gibt beim Auftauen Wasser ab, und in einem vollen Korb kann dieses Wasser nirgendwohin. Übereinanderliegende Stücke dämpfen, statt knusprig zu werden, und die unterste Schicht bleibt blass, egal wie lange du garst. Pommes, Nuggets und Wings möglichst in einer Schicht garen und eine große Packung in zwei Durchgängen — der zweite ist meist ein bis zwei Minuten schneller, weil der Korb schon heiß ist. Die Schüttelzeiten im Ergebnis lösen zusammengefrorene Stücke und bringen die untere Schicht nach oben in die Luft.",
+    rawHeading: "Rohes Hähnchen aus dem Tiefkühler",
+    rawBody: "Rohe tiefgekühlte Hähnchenbrust, Wings und viele panierte Hähnchenprodukte müssen an der dicksten Stelle 165°F (74°C) erreichen, nicht nur braun aussehen. Sie bekommen deshalb eine kleinere Zeitkürzung und eine niedrigere Temperatur, damit der Kern mit der Außenseite mithält, und das Ergebnis zeigt einen Hinweis, mit dem Thermometer nachzumessen. Fertig gegarte Produkte wie die meisten Nuggets müssen nur durchgewärmt werden und zeigen die Zieltemperatur ohne Warnung.",
+    relatedFlagshipLink: "Ofen-zu-Heißluftfritteuse-Umrechner (frische Rezepte)",
+    relatedConvectionLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
+    relatedReverseConvectionLink: "Heißluftfritteuse-zu-Umluft-Umrechner",
+    relatedChartLink: "Druckbare Umrechnungstabelle",
+    presetsHeading: "Tiefkühl-Voreinstellungen",
+    faqHeading: "Häufig gestellte Fragen",
+    faqs: [
+      {
+        q: "Wie rechne ich Packungsangaben von Tiefkühlkost für die Heißluftfritteuse um?",
+        a: "Behalte die Packungstemperatur oder zieh etwa 10°F ab, kürze die Zeit um rund 30 % und schüttle oder wende zu den Zeitpunkten, die der Umrechner zeigt. Liegt die Packungstemperatur über dem, was deine Heißluftfritteuse schafft, hält der Umrechner sie am Maximum und gibt etwas Zeit zurück.",
+      },
+      {
+        q: "Wie lange brauchen Tiefkühl-Pommes in der Heißluftfritteuse?",
+        a: "Meist 12–16 Minuten bei 400°F für einen Standardbeutel, der 425°F für 20 Minuten im Ofen angibt, zweimal geschüttelt. Dicke Pommes brauchen länger als dünne. Gib oben die Werte deiner Packung ein, um die genaue Einstellung zu bekommen.",
+      },
+      {
+        q: "Wie lange braucht rohes tiefgekühltes Hähnchen in der Heißluftfritteuse?",
+        a: "Länger, als die 30-%-Regel vermuten lässt. Rohe tiefgekühlte Brust gart bei niedrigerer Temperatur und nur etwa 15 % kürzer als auf der Packung, damit der Kern 165°F erreicht, bevor die Außenseite austrocknet. Immer mit dem Thermometer prüfen.",
+      },
+      {
+        q: "Muss ich Tiefkühlkost vor der Heißluftfritteuse auftauen?",
+        a: "Nein. Packungsangaben und dieser Umrechner gehen davon aus, dass das Essen gefroren hineinkommt. Vorheriges Auftauen macht die Panade weich und verändert die Zeiten. Ausnahme ist ein großes Stück rohes Fleisch, das im Kühlschrank auftauen sollte.",
+      },
+      {
+        q: "Meine Packung nennt einen Umluftwert. Welchen gebe ich ein?",
+        a: "Beide funktionieren — stell nur den Packungsschalter passend ein. Gibst du den Umluftwert ein, wähle „Umluft“, und der Umrechner gibt für dieses Lebensmittel den richtigen Betrag zurück.",
+      },
+      {
+        q: "Muss ich die Heißluftfritteuse für Tiefkühlkost vorheizen?",
+        a: "Kurzes Vorheizen, 3 Minuten beim Korb oder 4 beim Ofen-Typ, sorgt bei Pommes und Paniertem für gleichmäßigere Bräune. Tiefkühlpizza und Aufgewärmtes klappen auch ohne.",
       },
     ],
   },
@@ -509,6 +619,8 @@ const de: Dictionary = {
     relatedConvectionDesc: "— ein sanfterer Abzug für Umluftrezepte, die schon angepasst sind.",
     relatedReverseConvectionLabel: "Heißluftfritteuse-zu-Umluft-Umrechner",
     relatedReverseConvectionDesc: "— bring eine Fritteuseneinstellung für größere Mengen in den Umluftofen.",
+    relatedFrozenLabel: "Tiefkühl-Modus",
+    relatedFrozenDesc: "— von der Packungsangabe zur Heißluftfritteuse: Hitze halten, Zeit kürzen, rechtzeitig schütteln.",
   },
 };
 

@@ -62,6 +62,7 @@ export const LIVE_PAGES = new Set<string>([
   '/air-fryer-to-oven',
   '/convection-to-air-fryer',
   '/air-fryer-to-convection',
+  '/frozen',
   '/chart',
   '/about',
   '/contact',
@@ -80,5 +81,6 @@ export const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: str
   { slug: '/air-fryer-to-oven', priority: '0.8', changefreq: 'monthly' },
   { slug: '/convection-to-air-fryer', priority: '0.8', changefreq: 'monthly' },
   { slug: '/air-fryer-to-convection', priority: '0.7', changefreq: 'monthly' },
+  { slug: '/frozen', priority: '0.8', changefreq: 'monthly' },
   { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
 ];

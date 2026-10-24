@@ -1,18 +1,36 @@
 ---
-import { FOODS, type FoodKey } from '../lib/converter';
+import { FOODS, FROZEN_FOODS, type FoodKey, type FrozenFoodKey } from '../lib/converter';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 
 interface Props {
   locale?: LocaleCode;
-  /** 'convection' converts a fan-oven recipe with the gentler CONVECTION_FOODS table. */
-  source?: 'oven' | 'convection';
+  /**
+   * 'convection' converts a fan-oven recipe with the gentler CONVECTION_FOODS table;
+   * 'frozen' converts frozen-pack instructions with FROZEN_FOODS and adds the pack-type
+   * toggle, shake/flip marks, internal temperature and raw-chicken warning.
+   */
+  source?: 'oven' | 'convection' | 'frozen';
 }
 
 const { locale = DEFAULT_LOCALE, source = 'oven' } = Astro.props;
-const baseDict = getDictionary(locale).converter;
-const dict = source === 'convection' ? { ...baseDict, ...getDictionary(locale).convectionConverter } : baseDict;
-const foodKeys = Object.keys(FOODS) as FoodKey[];
+const all = getDictionary(locale);
+const baseDict = all.converter;
+const frozenDict = source === 'frozen' ? all.frozenConverter : null;
+const dict =
+  source === 'convection'
+    ? { ...baseDict, ...all.convectionConverter }
+    : frozenDict
+      ? { ...baseDict, widgetLabel: frozenDict.widgetLabel, ovenTemperature: frozenDict.ovenTemperature, ovenTime: frozenDict.ovenTime }
+      : baseDict;
+
+const foodOptions = frozenDict
+  ? (Object.keys(FROZEN_FOODS) as FrozenFoodKey[]).map((key) => ({ key, ...frozenDict.foods[key] }))
+  : (Object.keys(FOODS) as FoodKey[]).map((key) => ({ key, ...baseDict.foods[key] }));
+const tips = Object.fromEntries(foodOptions.map(({ key, tip }) => [key, tip]));
+const defaultFood = frozenDict ? 'fries' : 'general';
+// A typical US frozen-fries pack (425°F / 20 min) vs. the flagship's 400°F / 25 min oven recipe.
+const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: 400, time: 25 };
 ---
 
 <div class="widget-card">
@@ -25,7 +43,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     <div class="field grow">
       <label for="afk-temp">{dict.ovenTemperature}</label>
       <div class="input-with-toggle">
-        <input id="afk-temp" type="number" inputmode="numeric" value="400" />
+        <input id="afk-temp" type="number" inputmode="numeric" value={defaults.temp} />
         <button type="button" id="afk-unit-f" class="seg-btn">°F</button>
         <button type="button" id="afk-unit-c" class="seg-btn">°C</button>
       </div>
@@ -33,18 +51,30 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     <div class="field narrow">
       <label for="afk-time">{dict.ovenTime}</label>
       <div class="input-with-suffix">
-        <input id="afk-time" type="number" inputmode="numeric" value="25" />
+        <input id="afk-time" type="number" inputmode="numeric" value={defaults.time} />
         <span class="suffix">{dict.min}</span>
       </div>
     </div>
   </div>
 
+  {frozenDict && (
+    <div class="field-row">
+      <div class="field">
+        <span class="field-label">{frozenDict.packType}</span>
+        <div class="input-with-toggle wide">
+          <button type="button" id="afk-pack-conventional" class="seg-btn wide">{frozenDict.packConventional}</button>
+          <button type="button" id="afk-pack-fan" class="seg-btn wide">{frozenDict.packFan}</button>
+        </div>
+      </div>
+    </div>
+  )}
+
   <div class="field-row">
     <div class="field">
       <label for="afk-food">{dict.foodType}</label>
       <select id="afk-food">
-        {foodKeys.map((key) => (
-          <option value={key} selected={key === 'general'}>{dict.foods[key].label}</option>
+        {foodOptions.map(({ key, label }) => (
+          <option value={key} selected={key === defaultFood}>{label}</option>
         ))}
       </select>
     </div>
@@ -70,6 +100,8 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
       <span>{dict.checkAt} <span id="afk-check-at">—</span> {dict.min}</span>
       <span>{dict.preheat} <span id="afk-preheat">—</span></span>
       <span id="afk-gas-mark">{dict.gasMarkDash}</span>
+      {frozenDict && <span id="afk-turns"></span>}
+      {frozenDict && <span id="afk-internal" hidden></span>}
     </div>
   </div>
 
@@ -78,31 +110,50 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     <span class="capped-dot"></span>
     <span id="afk-capped-text"></span>
   </p>
+  {frozenDict && (
+    <p id="afk-raw" class="capped-note" hidden>
+      <span class="capped-dot"></span>
+      <span id="afk-raw-text"></span>
+    </p>
+  )}
 
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, source }}>
+<script is:inline define:vars={{ dict, source, frozenDict, tips }}>
   window.__afkDict = dict;
   window.__afkSource = source;
+  window.__afkFrozenDict = frozenDict;
+  window.__afkTips = tips;
 </script>
 
 <script>
   import {
     computeAirFryerSetting,
     computeAirFryerSettingFromConvection,
+    computeAirFryerSettingFromFrozen,
     cappedNote,
+    type ConversionResult,
     type FoodKey,
+    type FrozenConversionResult,
+    type FrozenFoodKey,
     type FryerStyle,
+    type PackType,
     type TempUnit,
   } from '../lib/converter';
   import type { Dictionary } from '../i18n/types';
 
-  const { __afkDict: dict, __afkSource: source } = window as unknown as {
+  const {
+    __afkDict: dict,
+    __afkSource: source,
+    __afkFrozenDict: frozenDict,
+    __afkTips: tips,
+  } = window as unknown as {
     __afkDict: Dictionary['converter'];
-    __afkSource: 'oven' | 'convection';
+    __afkSource: 'oven' | 'convection' | 'frozen';
+    __afkFrozenDict: Dictionary['frozenConverter'] | null;
+    __afkTips: Record<string, string>;
   };
-  const compute = source === 'convection' ? computeAirFryerSettingFromConvection : computeAirFryerSetting;
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
   const timeInput = document.getElementById('afk-time') as HTMLInputElement;
@@ -120,8 +171,46 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   const tipEl = document.getElementById('afk-tip')!;
   const cappedEl = document.getElementById('afk-capped') as HTMLElement;
   const cappedTextEl = document.getElementById('afk-capped-text')!;
+  const packConventionalBtn = document.getElementById('afk-pack-conventional');
+  const packFanBtn = document.getElementById('afk-pack-fan');
+  const turnsEl = document.getElementById('afk-turns');
+  const internalEl = document.getElementById('afk-internal');
+  const rawEl = document.getElementById('afk-raw');
+  const rawTextEl = document.getElementById('afk-raw-text');
 
-  const state: { unit: TempUnit; style: FryerStyle } = { unit: 'F', style: 'basket' };
+  const state: { unit: TempUnit; style: FryerStyle; pack: PackType } = { unit: 'F', style: 'basket', pack: 'conventional' };
+
+  // /frozen?food=wings (the homepage teaser's Go button) opens with that food selected.
+  const requestedFood = new URLSearchParams(window.location.search).get('food');
+  if (requestedFood && [...foodSelect.options].some((o) => o.value === requestedFood)) foodSelect.value = requestedFood;
+
+  function joinTimes(times: number[], listJoin: string): string {
+    if (times.length <= 1) return times.join('');
+    return `${times.slice(0, -1).join(', ')}${listJoin}${times[times.length - 1]}`;
+  }
+
+  function renderFrozen(result: FrozenConversionResult, fd: Dictionary['frozenConverter']) {
+    if (turnsEl) {
+      turnsEl.textContent =
+        result.turns === 0 || result.turnAtMinutes.length === 0
+          ? fd.noTurn
+          : fd.turnAtTemplate
+              .replace('{action}', result.turn === 'shake' ? fd.shake : fd.flip)
+              .replace('{times}', joinTimes(result.turnAtMinutes, fd.listJoin));
+    }
+    const hasInternal = result.internalF !== null;
+    const fill = (template: string) => template.replace('{f}', String(result.internalF)).replace('{c}', String(result.internalC));
+    if (internalEl) {
+      internalEl.hidden = !hasInternal;
+      internalEl.textContent = hasInternal ? fill(fd.internalTemplate) : '';
+    }
+    if (rawEl && rawTextEl) {
+      rawEl.hidden = !(result.raw && hasInternal);
+      rawTextEl.textContent = result.raw && hasInternal ? fill(fd.rawWarningTemplate) : '';
+    }
+    packConventionalBtn?.classList.toggle('active', state.pack === 'conventional');
+    packFanBtn?.classList.toggle('active', state.pack === 'fan');
+  }
 
   function flash(el: HTMLElement) {
     el.classList.remove('flash');
@@ -133,9 +222,18 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   function render() {
     const ovenTemp = parseFloat(tempInput.value);
     const ovenMinutes = parseFloat(timeInput.value);
-    const food = foodSelect.value as FoodKey;
+    const food = foodSelect.value;
+    const base = { ovenTemp, unit: state.unit, ovenMinutes, style: state.style };
 
-    const result = compute({ ovenTemp, unit: state.unit, ovenMinutes, food, style: state.style });
+    let result: ConversionResult;
+    if (source === 'frozen' && frozenDict) {
+      const frozen = computeAirFryerSettingFromFrozen({ ...base, food: food as FrozenFoodKey, pack: state.pack });
+      renderFrozen(frozen, frozenDict);
+      result = frozen;
+    } else {
+      const compute = source === 'convection' ? computeAirFryerSettingFromConvection : computeAirFryerSetting;
+      result = compute({ ...base, food: food as FoodKey });
+    }
 
     const ok = result.outF !== null;
     const okT = result.outMinutes !== null;
@@ -146,7 +244,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     checkAt.textContent = okT ? String(result.checkAtMinutes) : '—';
     preheat.textContent = `${result.preheatMinutes} ${dict.min}`;
     gasMarkEl.textContent = result.gasMark ? `${dict.gasMark} ${result.gasMark}` : dict.gasMarkDash;
-    tipEl.textContent = dict.foods[food]?.tip ?? '';
+    tipEl.textContent = tips[food] ?? '';
 
     if (result.capped) {
       cappedEl.hidden = false;
@@ -191,6 +289,14 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   });
   styleOvenBtn.addEventListener('click', () => {
     state.style = 'oven';
+    render();
+  });
+  packConventionalBtn?.addEventListener('click', () => {
+    state.pack = 'conventional';
+    render();
+  });
+  packFanBtn?.addEventListener('click', () => {
+    state.pack = 'fan';
     render();
   });
 

@@ -4,6 +4,7 @@ import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
+import type { FrozenFoodKey } from '../lib/converter';
 
 interface Props {
   locale?: LocaleCode;
@@ -28,6 +29,8 @@ const commonConversions = [
 const convertHrefs = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'];
 const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'];
 const frozenHrefs = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicken', '/frozen-pizza'];
+// FROZEN_FOODS key for each frozenTeaser.options entry, in order — sent to /frozen as ?food= to preselect it.
+const frozenTeaserFoods: FrozenFoodKey[] = ['fries', 'nuggets', 'rawChicken', 'pizza', 'fish'];
 const presetHrefs = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'];
 const brandHrefs = ['/ninja', '/cosori', '/philips', '/model-max-temp'];
 
@@ -133,16 +136,21 @@ const toolHref = hrefFor('/oven-to-air-fryer');
             <span class="teaser-heading">{dict.frozenTeaser.heading}</span>
             <span class="teaser-desc">{dict.frozenTeaser.desc}</span>
           </div>
-          <div class="teaser-action">
-            <select aria-label={dict.frozenTeaser.selectLabel}>
-              {dict.frozenTeaser.options.map((opt) => <option>{opt}</option>)}
-            </select>
-            {isLive('/frozen') ? (
-              <a href="/frozen" class="go-btn">{dict.frozenTeaser.goLabel}</a>
-            ) : (
+          {isLive('/frozen') ? (
+            <form class="teaser-action" action={hrefFor('/frozen')} method="get">
+              <select name="food" aria-label={dict.frozenTeaser.selectLabel}>
+                {dict.frozenTeaser.options.map((opt, i) => <option value={frozenTeaserFoods[i]}>{opt}</option>)}
+              </select>
+              <button type="submit" class="go-btn">{dict.frozenTeaser.goLabel}</button>
+            </form>
+          ) : (
+            <div class="teaser-action">
+              <select aria-label={dict.frozenTeaser.selectLabel}>
+                {dict.frozenTeaser.options.map((opt) => <option>{opt}</option>)}
+              </select>
               <span class="go-btn disabled" aria-disabled="true">{dict.comingSoon}</span>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       <div class="card-grid">
@@ -606,6 +614,9 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     color: var(--site-text);
     font-size: 15px;
     font-weight: 600;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
     transition: background 0.15s ease;
   }
 

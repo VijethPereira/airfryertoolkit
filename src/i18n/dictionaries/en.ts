@@ -79,6 +79,63 @@ const en: Dictionary = {
     ovenCaveat: "Keep the fan on and spread the food in a single layer with space around each piece — a crowded convection tray loses the airflow these times assume.",
     ambiguousCeilingNoteTemplate: "This is at the {unit} ceiling ({ceiling}°F). If it was converted down from a hotter convection recipe, the time already includes about 8% extra — subtract that back out, or go back to the original recipe.",
   },
+  frozenConverter: {
+    widgetLabel: "Frozen pack → Air fryer",
+    ovenTemperature: "Pack temperature",
+    ovenTime: "Pack time",
+    packType: "Pack instructions are for",
+    packConventional: "Conventional oven",
+    packFan: "Fan oven",
+    shake: "Shake",
+    flip: "Flip",
+    turnAtTemplate: "{action} at {times} min",
+    noTurn: "No turning needed",
+    listJoin: " and ",
+    internalTemplate: "Internal {f}°F / {c}°C",
+    rawWarningTemplate: "Cooking raw chicken from frozen: check the thickest piece reaches {f}°F ({c}°C) with a thermometer before eating. The outside browns well before a frozen center is safe.",
+    foods: {
+      fries: {
+        label: "Fries & chips",
+        tip: "Keep it to a single layer or close to it, and shake apart any pieces frozen together.",
+      },
+      nuggets: {
+        label: "Chicken nuggets",
+        tip: "Spread them out — pieces that touch steam instead of crisping.",
+      },
+      tenders: {
+        label: "Breaded chicken, tenders & Kievs",
+        tip: "Check the pack: many breaded chicken products are sold uncooked, not just reheated.",
+      },
+      fish: {
+        label: "Fish fingers & breaded fillets",
+        tip: "Flip gently with tongs — the coating sets before the fish is firm.",
+      },
+      pizza: {
+        label: "Pizza (personal size)",
+        tip: "Only a pizza that lies flat in the basket. Check the base at the low end of the time.",
+      },
+      springRolls: {
+        label: "Spring rolls & samosas",
+        tip: "A light spray of oil helps the pastry blister evenly.",
+      },
+      hashBrowns: {
+        label: "Hash browns & potato shapes",
+        tip: "Flat pieces brown one side at a time — flip once at halfway.",
+      },
+      veg: {
+        label: "Frozen vegetables",
+        tip: "Don't thaw first. Shaking lets the steam out; skip it and they go soggy.",
+      },
+      wings: {
+        label: "Chicken wings (raw, frozen)",
+        tip: "Pull apart wings frozen together at the first shake.",
+      },
+      rawChicken: {
+        label: "Raw chicken breast (from frozen)",
+        tip: "Lower and slower than fresh — the center has to thaw and cook through.",
+      },
+    },
+  },
   home: {
     metaTitle: 'Oven to Air Fryer Converter',
     metaDescription:
@@ -202,6 +259,7 @@ const en: Dictionary = {
     relatedChartLink: 'Printable conversion chart',
     relatedReverseLink: 'Air Fryer → Oven converter',
     relatedConvectionLink: "Convection → Air Fryer converter",
+    relatedFrozenLink: "Frozen food mode (packaging instructions)",
     faqHeading: 'Frequently Asked Questions',
     faqs: [
       {
@@ -363,6 +421,7 @@ const en: Dictionary = {
     relatedReverseLink: "Air Fryer → Oven converter",
     relatedSiblingLink: "Air Fryer → Convection converter",
     relatedChartLink: "Printable conversion chart",
+    relatedFrozenLink: "Frozen food mode (packaging instructions)",
     faqHeading: "Frequently Asked Questions",
     faqs: [
       {
@@ -412,6 +471,7 @@ const en: Dictionary = {
     relatedReverseLink: "Air Fryer → Oven converter (conventional oven)",
     relatedSiblingLink: "Convection → Air Fryer converter",
     relatedChartLink: "Printable conversion chart",
+    relatedFrozenLink: "Frozen food mode (packaging instructions)",
     faqHeading: "Frequently Asked Questions",
     faqs: [
       {
@@ -437,6 +497,56 @@ const en: Dictionary = {
       {
         q: "Do internal temperature targets change?",
         a: "No. Poultry is done at 165°F internal and fish, steak, or chops at 145°F, in an air fryer or a convection oven.",
+      },
+    ],
+  },
+  frozenTool: {
+    metaTitle: "Frozen Food Air Fryer Converter",
+    metaDescription: "Convert frozen packaging instructions to air fryer time and temperature. Keep most of the heat, cut about 30% of the time, shake on schedule — conventional or fan-oven pack, basket or oven-style.",
+    metaKeywords: "packaging instructions to air fryer, air fryer frozen fries time, frozen chicken air fryer time, frozen food air fryer converter, frozen chips air fryer, oven instructions to air fryer frozen",
+    backLink: "All tools",
+    heading: "Frozen Food Air Fryer Converter",
+    subDesc: "Enter the oven temperature and time from the pack. Get the air fryer setting for food straight from the freezer, with shake or flip times and an internal-temperature check where it matters.",
+    aboutHeading: "Why frozen food converts differently",
+    aboutBody: "Most converters treat frozen as one more food type and apply the usual rule: take 25°F off and cut the time by a fifth. That is backwards for food straight from the freezer. The pack's oven instructions were written for food that goes in frozen, so the temperature on the box is already the one the coating needs to crisp before the inside overcooks. What the air fryer changes is speed: a small cavity and fast air drive the ice out of the surface quickly. So this converter keeps most of the pack temperature — usually 10°F off — and takes the big cut on time, around 30%. Raw frozen chicken is the exception and goes lower and slower.",
+    packHeading: "Reading a UK pack vs. a US pack",
+    packBody: "US packs give one oven temperature in °F, written for a conventional oven. UK and European packs usually give °C and often two numbers: a conventional temperature and a lower \"fan\" temperature, typically 20°C apart, with the same time for both. Pick the line you are reading from with the pack toggle. A fan temperature is already fan-adjusted, so the converter adds back the gap between conventional and fan cooking for that food instead of cutting again — the same per-food gap the convection converter uses. Gas mark packs are conventional: convert the mark to a temperature first, or use the gas mark shown under each result to check you are close.",
+    workedExampleHeading: "Worked example",
+    workedExampleTemplate: "A US bag of frozen fries says 425°F for 20 minutes. A basket air fryer tops out at 400°F, so the converter holds it there and adds a little time back: {US_AF_F}°F for {US_AF_MIN} minutes, with two shakes. A UK bag of the same fries reads 200°C fan for 20 minutes; with the fan toggle that becomes {UK_AF_F}°F ({UK_AF_C}°C) for {UK_AF_MIN} minutes — slightly shorter, because it no longer needs the time the ceiling clamp added back.",
+    crowdingHeading: "Don't overcrowd the basket",
+    crowdingBody: "Frozen food releases water as it thaws, and in a full basket that water has nowhere to go. Pieces stacked on each other steam instead of crisping, and the bottom layer stays pale however long you cook it. Keep fries, nuggets, and wings to one layer, or close to it, and cook a large bag in two batches — the second batch is usually a minute or two faster because the basket is already hot. The shake times in the result break up pieces frozen together and turn the bottom layer up into the air.",
+    rawHeading: "Raw chicken from frozen",
+    rawBody: "Raw frozen breasts, wings, and many breaded chicken products have to reach 165°F (74°C) in the thickest part, not just look brown. These get a smaller time cut and a lower temperature so the center catches up with the outside, and the result shows a reminder to check with a thermometer. Fully cooked products, like most nuggets, only need heating through, so they show the target without the warning.",
+    relatedFlagshipLink: "Oven → Air Fryer converter (fresh recipes)",
+    relatedConvectionLink: "Convection → Air Fryer converter",
+    relatedReverseConvectionLink: "Air Fryer → Convection converter",
+    relatedChartLink: "Printable conversion chart",
+    presetsHeading: "Frozen food presets",
+    faqHeading: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "How do I convert frozen packaging instructions to an air fryer?",
+        a: "Keep the pack temperature or take about 10°F off, cut the time by around 30%, and shake or flip at the marks the converter shows. If the pack temperature is above what your air fryer can reach, the converter holds it at the maximum and adds a little time back.",
+      },
+      {
+        q: "How long do frozen fries take in an air fryer?",
+        a: "Usually 12–16 minutes at 400°F for a standard bag that says 425°F for 20 minutes in the oven, shaken twice. Thick-cut fries take longer than shoestring. Enter your pack numbers above for the exact setting.",
+      },
+      {
+        q: "How long does frozen raw chicken take in an air fryer?",
+        a: "Longer than you would expect from the 30% rule. Raw frozen breast cooks at a lower temperature with only about 15% off the pack time, so the center reaches 165°F before the outside dries. Always check with a thermometer.",
+      },
+      {
+        q: "Should I thaw frozen food before air frying?",
+        a: "No. Pack instructions and this converter both assume the food goes in frozen. Thawing first makes coatings soggy and changes the timing. The exception is a large raw roast, which should be thawed in the fridge.",
+      },
+      {
+        q: "My pack gives a fan oven temperature. Which one do I enter?",
+        a: "Either works — just set the pack toggle to match. If you enter the fan temperature, choose \"Fan oven\" and the converter adds back the right amount for that food.",
+      },
+      {
+        q: "Do I need to preheat the air fryer for frozen food?",
+        a: "A short preheat of 3 minutes for a basket, or 4 for oven-style, gives more even browning on fries and breaded food. Frozen pizza and reheated items do fine without one.",
       },
     ],
   },
@@ -509,6 +619,8 @@ const en: Dictionary = {
     relatedConvectionDesc: "— a gentler cut for fan-oven recipes that are already adjusted.",
     relatedReverseConvectionLabel: "Air Fryer → Convection converter",
     relatedReverseConvectionDesc: "— scale an air fryer setting up to a fan oven for bigger batches.",
+    relatedFrozenLabel: "Frozen food mode",
+    relatedFrozenDesc: "— packaging instructions to air fryer: keep the heat, cut the time, shake on schedule.",
   },
 };
 

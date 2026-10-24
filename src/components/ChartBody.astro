@@ -59,6 +59,9 @@ const convectionHref = localizedPath(locale, convectionSlug);
 const reverseConvectionSlug = '/air-fryer-to-convection';
 const reverseConvectionLive = LIVE_PAGES.has(reverseConvectionSlug);
 const reverseConvectionHref = localizedPath(locale, reverseConvectionSlug);
+const frozenSlug = '/frozen';
+const frozenLive = LIVE_PAGES.has(frozenSlug);
+const frozenHref = localizedPath(locale, frozenSlug);
 ---
 
 <main class="page-main">
@@ -176,6 +179,9 @@ const reverseConvectionHref = localizedPath(locale, reverseConvectionSlug);
         )}
         {reverseConvectionLive && (
           <li><a href={reverseConvectionHref}>{dict.relatedReverseConvectionLabel}</a> {dict.relatedReverseConvectionDesc}</li>
+        )}
+        {frozenLive && (
+          <li><a href={frozenHref}>{dict.relatedFrozenLabel}</a> {dict.relatedFrozenDesc}</li>
         )}
       </ul>
     </section>

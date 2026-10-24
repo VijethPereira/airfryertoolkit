@@ -79,6 +79,63 @@ const fr: Dictionary = {
     ovenCaveat: "Gardez la chaleur tournante activée et étalez les aliments en une seule couche, avec de l’espace autour de chaque morceau — une plaque surchargée perd la circulation d’air sur laquelle reposent ces temps.",
     ambiguousCeilingNoteTemplate: "Cette valeur est au plafond du {unit} ({ceiling}°F). Si elle a été obtenue en convertissant une recette à chaleur tournante plus chaude, le temps inclut déjà environ 8 % de plus — retirez-les, ou repartez de la recette d’origine.",
   },
+  frozenConverter: {
+    widgetLabel: "Emballage surgelé → Friteuse à air",
+    ovenTemperature: "Température de l’emballage",
+    ovenTime: "Temps de l’emballage",
+    packType: "Les instructions de l’emballage sont pour",
+    packConventional: "Four classique",
+    packFan: "Chaleur tournante",
+    shake: "Secouer",
+    flip: "Retourner",
+    turnAtTemplate: "{action} à {times} min",
+    noTurn: "Pas besoin de retourner",
+    listJoin: " et ",
+    internalTemplate: "À cœur {f}°F / {c}°C",
+    rawWarningTemplate: "Poulet cru cuit depuis le congélateur : vérifiez au thermomètre que le morceau le plus épais atteint {f}°F ({c}°C) avant de manger. L’extérieur dore bien avant qu’un cœur surgelé soit sûr.",
+    foods: {
+      fries: {
+        label: "Frites",
+        tip: "Une seule couche ou presque, et séparez en secouant les morceaux collés par le gel.",
+      },
+      nuggets: {
+        label: "Nuggets de poulet",
+        tip: "Espacez-les : les morceaux qui se touchent cuisent à la vapeur au lieu de croustiller.",
+      },
+      tenders: {
+        label: "Poulet pané, aiguillettes et Kiev",
+        tip: "Lisez l’emballage : beaucoup de produits de poulet pané sont vendus crus, pas seulement à réchauffer.",
+      },
+      fish: {
+        label: "Bâtonnets de poisson et filets panés",
+        tip: "Retournez délicatement à la pince : la panure prend avant que le poisson soit ferme.",
+      },
+      pizza: {
+        label: "Pizza (individuelle)",
+        tip: "Seulement une pizza qui tient à plat dans le panier. Vérifiez la pâte au début de la plage de temps.",
+      },
+      springRolls: {
+        label: "Nems, rouleaux et samoussas",
+        tip: "Un léger voile d’huile aide la pâte à dorer uniformément.",
+      },
+      hashBrowns: {
+        label: "Galettes de pommes de terre",
+        tip: "Les pièces plates dorent une face à la fois : retournez une fois à mi-cuisson.",
+      },
+      veg: {
+        label: "Légumes surgelés",
+        tip: "Ne les décongelez pas avant. Secouer laisse sortir la vapeur ; sinon ils ramollissent.",
+      },
+      wings: {
+        label: "Ailes de poulet (crues, surgelées)",
+        tip: "Séparez dès la première secousse les ailes collées par le gel.",
+      },
+      rawChicken: {
+        label: "Blanc de poulet cru (surgelé)",
+        tip: "Plus bas et plus lent que frais : le cœur doit décongeler puis cuire.",
+      },
+    },
+  },
   home: {
     metaTitle: 'Convertisseur four vers friteuse à air',
     metaDescription:
@@ -202,6 +259,7 @@ const fr: Dictionary = {
     relatedChartLink: 'Tableau de conversion imprimable',
     relatedReverseLink: 'Convertisseur friteuse à air vers four',
     relatedConvectionLink: "Convertisseur convection vers friteuse à air",
+    relatedFrozenLink: "Mode surgelés (instructions de l’emballage)",
     faqHeading: 'Questions fréquentes',
     faqs: [
       {
@@ -363,6 +421,7 @@ const fr: Dictionary = {
     relatedReverseLink: "Convertisseur friteuse à air vers four",
     relatedSiblingLink: "Convertisseur friteuse à air vers convection",
     relatedChartLink: "Tableau de conversion imprimable",
+    relatedFrozenLink: "Mode surgelés (instructions de l’emballage)",
     faqHeading: "Questions fréquentes",
     faqs: [
       {
@@ -412,6 +471,7 @@ const fr: Dictionary = {
     relatedReverseLink: "Convertisseur friteuse à air vers four (chaleur statique)",
     relatedSiblingLink: "Convertisseur convection vers friteuse à air",
     relatedChartLink: "Tableau de conversion imprimable",
+    relatedFrozenLink: "Mode surgelés (instructions de l’emballage)",
     faqHeading: "Questions fréquentes",
     faqs: [
       {
@@ -437,6 +497,56 @@ const fr: Dictionary = {
       {
         q: "Les températures à cœur changent-elles ?",
         a: "Non. La volaille est cuite à 165°F à cœur et le poisson, le steak ou les côtelettes à 145°F, en friteuse à air comme au four à chaleur tournante.",
+      },
+    ],
+  },
+  frozenTool: {
+    metaTitle: "Convertisseur surgelés pour friteuse à air",
+    metaDescription: "Convertissez les instructions d’un emballage surgelé en temps et température de friteuse à air. Gardez presque toute la chaleur, réduisez le temps d’environ 30 % et secouez au bon moment — emballage four classique ou chaleur tournante, panier ou type four.",
+    metaKeywords: "instructions emballage friteuse à air, frites surgelées friteuse à air temps, poulet surgelé friteuse à air temps, convertisseur surgelés air fryer",
+    backLink: "Tous les outils",
+    heading: "Convertisseur surgelés pour friteuse à air",
+    subDesc: "Saisissez la température et le temps de four indiqués sur l’emballage. Obtenez le réglage de friteuse à air pour un aliment sorti du congélateur, avec les moments où secouer ou retourner et la température à cœur quand elle compte.",
+    aboutHeading: "Pourquoi les surgelés se convertissent autrement",
+    aboutBody: "La plupart des convertisseurs traitent le surgelé comme un type d’aliment de plus et appliquent la règle habituelle : retirer 25°F et réduire le temps d’un cinquième. Pour un aliment qui sort du congélateur, c’est l’inverse. Les instructions de four de l’emballage ont été écrites pour un aliment qui entre surgelé : la température de la boîte est déjà celle dont la panure a besoin pour croustiller avant que l’intérieur soit trop cuit. Ce que change la friteuse à air, c’est la vitesse : une petite cavité et un air rapide chassent vite la glace de la surface. Ce convertisseur garde donc presque toute la température de l’emballage — en général 10°F de moins — et fait la grosse coupe sur le temps, environ 30 %. Le poulet cru surgelé fait exception et cuit plus bas et plus lentement.",
+    packHeading: "Lire un emballage européen ou américain",
+    packBody: "Les emballages américains donnent une seule température de four en °F, prévue pour un four classique. Les emballages britanniques et européens donnent plutôt des °C et souvent deux valeurs : une température en chaleur statique et une plus basse en chaleur tournante, en général 20°C d’écart, avec le même temps pour les deux. Choisissez la ligne que vous lisez avec le sélecteur d’emballage. Une température chaleur tournante est déjà ajustée au ventilateur : le convertisseur rajoute l’écart entre chaleur statique et chaleur tournante pour cet aliment au lieu de couper à nouveau — le même écart par aliment que celui du convertisseur convection. Les emballages en thermostat ou gas mark sont en chaleur statique : convertissez d’abord la valeur en température, ou servez-vous du gas mark affiché sous chaque résultat pour vérifier.",
+    workedExampleHeading: "Exemple concret",
+    workedExampleTemplate: "Un sachet américain de frites surgelées indique 425°F pendant 20 minutes. Une friteuse à panier plafonne à 400°F : le convertisseur la maintient là et rajoute un peu de temps, {US_AF_F}°F pendant {US_AF_MIN} minutes, avec deux secousses. Un sachet britannique des mêmes frites indique 200°C chaleur tournante pendant 20 minutes ; avec le sélecteur chaleur tournante, cela donne {UK_AF_F}°F ({UK_AF_C}°C) pendant {UK_AF_MIN} minutes — un peu moins, car il n’a plus besoin du temps que le plafond de température rajoutait.",
+    crowdingHeading: "Ne surchargez pas le panier",
+    crowdingBody: "Les surgelés rejettent de l’eau en décongelant, et dans un panier plein cette eau ne peut aller nulle part. Les morceaux empilés cuisent à la vapeur au lieu de croustiller, et la couche du fond reste pâle quel que soit le temps de cuisson. Gardez frites, nuggets et ailes en une seule couche, ou presque, et cuisez un grand sachet en deux fois — la seconde fournée est souvent plus rapide d’une ou deux minutes car le panier est déjà chaud. Les secousses indiquées dans le résultat séparent les morceaux collés et remontent la couche du fond dans l’air.",
+    rawHeading: "Poulet cru depuis le congélateur",
+    rawBody: "Les blancs crus surgelés, les ailes et beaucoup de produits de poulet pané doivent atteindre 165°F (74°C) au cœur de la partie la plus épaisse, pas seulement paraître dorés. Ils reçoivent donc une réduction de temps plus faible et une température plus basse, pour que le cœur rattrape l’extérieur, et le résultat affiche un rappel pour vérifier au thermomètre. Les produits déjà cuits, comme la plupart des nuggets, n’ont qu’à être réchauffés à cœur : ils affichent la température cible sans l’avertissement.",
+    relatedFlagshipLink: "Convertisseur four vers friteuse à air (recettes fraîches)",
+    relatedConvectionLink: "Convertisseur convection vers friteuse à air",
+    relatedReverseConvectionLink: "Convertisseur friteuse à air vers convection",
+    relatedChartLink: "Tableau de conversion imprimable",
+    presetsHeading: "Réglages surgelés",
+    faqHeading: "Questions fréquentes",
+    faqs: [
+      {
+        q: "Comment convertir les instructions d’un emballage surgelé pour la friteuse à air ?",
+        a: "Gardez la température de l’emballage ou retirez environ 10°F, réduisez le temps d’environ 30 % et secouez ou retournez aux moments indiqués par le convertisseur. Si la température de l’emballage dépasse ce que votre friteuse peut atteindre, le convertisseur la maintient au maximum et rajoute un peu de temps.",
+      },
+      {
+        q: "Combien de temps pour des frites surgelées à la friteuse à air ?",
+        a: "En général 12 à 16 minutes à 400°F pour un sachet standard qui indique 425°F pendant 20 minutes au four, en secouant deux fois. Les grosses frites demandent plus de temps que les fines. Saisissez les valeurs de votre emballage ci-dessus pour le réglage exact.",
+      },
+      {
+        q: "Combien de temps pour du poulet cru surgelé à la friteuse à air ?",
+        a: "Plus que ne le laisse penser la règle des 30 %. Le blanc cru surgelé cuit à une température plus basse avec seulement environ 15 % de moins que le temps de l’emballage, pour que le cœur atteigne 165°F avant que l’extérieur sèche. Vérifiez toujours au thermomètre.",
+      },
+      {
+        q: "Faut-il décongeler avant la friteuse à air ?",
+        a: "Non. Les instructions de l’emballage comme ce convertisseur supposent que l’aliment entre surgelé. Décongeler avant ramollit la panure et change les temps. L’exception est une grosse pièce de viande crue, à décongeler au réfrigérateur.",
+      },
+      {
+        q: "Mon emballage donne une température chaleur tournante. Laquelle saisir ?",
+        a: "Les deux conviennent : réglez simplement le sélecteur d’emballage. Si vous saisissez la température chaleur tournante, choisissez « Chaleur tournante » et le convertisseur rajoute la bonne valeur pour cet aliment.",
+      },
+      {
+        q: "Faut-il préchauffer la friteuse à air pour les surgelés ?",
+        a: "Un court préchauffage de 3 minutes pour un panier, ou 4 pour un type four, donne une coloration plus régulière aux frites et aux panés. La pizza surgelée et les plats réchauffés s’en passent très bien.",
       },
     ],
   },
@@ -509,6 +619,8 @@ const fr: Dictionary = {
     relatedConvectionDesc: "— une réduction plus douce pour les recettes à chaleur tournante, déjà ajustées.",
     relatedReverseConvectionLabel: "Convertisseur friteuse à air vers convection",
     relatedReverseConvectionDesc: "— passez d’un réglage de friteuse à un four à chaleur tournante pour de plus grandes quantités.",
+    relatedFrozenLabel: "Mode surgelés",
+    relatedFrozenDesc: "— des instructions de l’emballage à la friteuse à air : gardez la chaleur, réduisez le temps, secouez au bon moment.",
   },
 };
 

@@ -1,5 +1,5 @@
 /**
- * Shared oven/convection <-> air fryer conversion engine.
+ * Shared oven/convection/frozen-pack <-> air fryer conversion engine.
  * Ported 1:1 from the approved design's compute() logic — every page that
  * needs a conversion imports from here. Never duplicate this math elsewhere.
  */
@@ -65,21 +65,71 @@ export const CONVECTION_FOODS: Record<FoodKey, FoodProfile> = {
   casserole: { dT: 15, f: 0.95 },
 };
 
+export type FrozenFoodKey =
+  | 'fries'
+  | 'nuggets'
+  | 'tenders'
+  | 'fish'
+  | 'pizza'
+  | 'springRolls'
+  | 'hashBrowns'
+  | 'veg'
+  | 'wings'
+  | 'rawChicken';
+
+/** What the pack's temperature is written for. UK/EU packs often print a separate, lower fan temperature. */
+export type PackType = 'conventional' | 'fan';
+
+export interface FrozenProfile extends FoodProfile {
+  /** How many times to turn the food during the cook; 0 = leave it. */
+  turns: number;
+  turn: 'shake' | 'flip';
+  /** Safe internal temperature to check, °F; null when the item only needs heating through. */
+  internalF: number | null;
+  /** Sold raw (or often sold uncooked): the UI warns to check `internalF` with a thermometer. */
+  raw: boolean;
+  /** Closest FOODS / CONVECTION_FOODS key — supplies the fan-pack offset. */
+  like: FoodKey;
+}
+
+/**
+ * Frozen packaging -> air fryer (conventional-oven pack, basket baseline). Inverted
+ * relative to FOODS: the pack already assumes the food goes in frozen, so the
+ * temperature mostly stays (0–15°F off) and the time takes the big cut (~30%).
+ * Raw chicken breast is the exception — lower and slower, so the frozen centre is
+ * safe before the outside dries.
+ */
+export const FROZEN_FOODS: Record<FrozenFoodKey, FrozenProfile> = {
+  fries: { dT: 10, f: 0.65, turns: 2, turn: 'shake', internalF: null, raw: false, like: 'fries' },
+  nuggets: { dT: 10, f: 0.65, turns: 1, turn: 'shake', internalF: 165, raw: false, like: 'general' },
+  tenders: { dT: 10, f: 0.7, turns: 1, turn: 'flip', internalF: 165, raw: true, like: 'breast' },
+  fish: { dT: 10, f: 0.7, turns: 1, turn: 'flip', internalF: 145, raw: false, like: 'fish' },
+  pizza: { dT: 15, f: 0.75, turns: 0, turn: 'flip', internalF: null, raw: false, like: 'pizza' },
+  springRolls: { dT: 10, f: 0.7, turns: 1, turn: 'flip', internalF: null, raw: false, like: 'general' },
+  hashBrowns: { dT: 10, f: 0.7, turns: 1, turn: 'flip', internalF: null, raw: false, like: 'fries' },
+  veg: { dT: 10, f: 0.75, turns: 2, turn: 'shake', internalF: null, raw: false, like: 'veg' },
+  wings: { dT: 0, f: 0.75, turns: 2, turn: 'shake', internalF: 165, raw: true, like: 'wings' },
+  rawChicken: { dT: 25, f: 0.85, turns: 1, turn: 'flip', internalF: 165, raw: true, like: 'breast' },
+};
+
 /** Per-table style rules: oven-style units take 5°F less off and 0.05 more time than basket. */
 interface ProfileRules {
-  profiles: Record<FoodKey, FoodProfile>;
   /** Smallest temperature cut an oven-style unit can end up with. */
   dTFloor: number;
   /** Largest time multiplier an oven-style unit can end up with. */
   fCap: number;
 }
 
-const OVEN_RULES: ProfileRules = { profiles: FOODS, dTFloor: 10, fCap: Infinity };
+const OVEN_RULES: ProfileRules = { dTFloor: 10, fCap: Infinity };
 // An oven-style air fryer is close to a small convection oven, so the cut can reach 0°F / 1:1 time.
-const CONVECTION_RULES: ProfileRules = { profiles: CONVECTION_FOODS, dTFloor: 0, fCap: 1 };
+const CONVECTION_RULES: ProfileRules = { dTFloor: 0, fCap: 1 };
+const FROZEN_RULES: ProfileRules = { dTFloor: 0, fCap: 1 };
 
-function styleProfile(rules: ProfileRules, foodKey: FoodKey, style: FryerStyle): FoodProfile & { ceiling: number } {
-  const food = rules.profiles[foodKey] ?? rules.profiles.general;
+interface StyledProfile extends FoodProfile {
+  ceiling: number;
+}
+
+function styleProfile(rules: ProfileRules, food: FoodProfile, style: FryerStyle): StyledProfile {
   const ovenStyle = style === 'oven';
   return {
     dT: Math.max(rules.dTFloor, food.dT - (ovenStyle ? 5 : 0)),
@@ -131,10 +181,10 @@ export function convertTempUnit(value: number, from: TempUnit): number {
     : Math.round(((value * 9) / 5 + 32) / 5) * 5;
 }
 
-function toAirFryer(rules: ProfileRules, input: ConversionInput): ConversionResult {
+function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>): ConversionResult {
   const ovenF = input.unit === 'C' ? (input.ovenTemp * 9) / 5 + 32 : input.ovenTemp;
   const ovenStyle = input.style === 'oven';
-  const { dT, f: baseF, ceiling } = styleProfile(rules, input.food, input.style);
+  const { dT, f: baseF, ceiling } = profile;
   let f = baseF;
 
   let outF: number | null = Number.isFinite(ovenF) ? Math.round((ovenF - dT) / 5) * 5 : null;
@@ -165,7 +215,7 @@ function toAirFryer(rules: ProfileRules, input: ConversionInput): ConversionResu
 }
 
 export function computeAirFryerSetting(input: ConversionInput): ConversionResult {
-  return toAirFryer(OVEN_RULES, input);
+  return toAirFryer(styleProfile(OVEN_RULES, FOODS[input.food] ?? FOODS.general, input.style), input);
 }
 
 /**
@@ -174,7 +224,61 @@ export function computeAirFryerSetting(input: ConversionInput): ConversionResult
  * `input.ovenTemp` / `input.ovenMinutes` are the convection recipe's settings.
  */
 export function computeAirFryerSettingFromConvection(input: ConversionInput): ConversionResult {
-  return toAirFryer(CONVECTION_RULES, input);
+  return toAirFryer(styleProfile(CONVECTION_RULES, CONVECTION_FOODS[input.food] ?? CONVECTION_FOODS.general, input.style), input);
+}
+
+export interface FrozenConversionInput extends Omit<ConversionInput, 'food'> {
+  /** `ovenTemp` / `ovenMinutes` are the pack's oven instructions. */
+  food: FrozenFoodKey;
+  pack: PackType;
+}
+
+export interface FrozenConversionResult extends ConversionResult {
+  turns: number;
+  turn: 'shake' | 'flip';
+  /** Minutes into the air fryer cook at which to shake/flip, evenly spaced. */
+  turnAtMinutes: number[];
+  internalF: number | null;
+  internalC: number | null;
+  raw: boolean;
+}
+
+/**
+ * The extra °F a fan-oven pack needs added back for this food: the gap between the
+ * conventional and convection tables for its closest FOODS key. A fan temperature is
+ * already fan-adjusted, so the conventional-pack cut would count the fan twice.
+ */
+export function fanPackOffset(food: FrozenFoodKey): number {
+  const like = (FROZEN_FOODS[food] ?? FROZEN_FOODS.fries).like;
+  return FOODS[like].dT - CONVECTION_FOODS[like].dT;
+}
+
+/**
+ * Frozen packaging -> air fryer. Pack temperature/time in (conventional or fan), air
+ * fryer setting out, through the same clamp/capped-bonus pipeline as the other
+ * directions. A fan pack takes the conventional profile minus `fanPackOffset`, so
+ * its dT can go negative (air fryer hotter than the printed fan temperature). The
+ * time factor is the same for both pack types: UK/EU packs print one time for both.
+ */
+export function computeAirFryerSettingFromFrozen(input: FrozenConversionInput): FrozenConversionResult {
+  const food = FROZEN_FOODS[input.food] ?? FROZEN_FOODS.fries;
+  const styled = styleProfile(FROZEN_RULES, food, input.style);
+  const profile = input.pack === 'fan' ? { ...styled, dT: styled.dT - fanPackOffset(input.food) } : styled;
+  const result = toAirFryer(profile, input);
+  const outMinutes = result.outMinutes;
+
+  return {
+    ...result,
+    turns: food.turns,
+    turn: food.turn,
+    turnAtMinutes:
+      outMinutes !== null
+        ? Array.from({ length: food.turns }, (_, i) => Math.max(1, Math.round((outMinutes * (i + 1)) / (food.turns + 1))))
+        : [],
+    internalF: food.internalF,
+    internalC: food.internalF !== null ? Math.round(((food.internalF - 32) * 5) / 9) : null,
+    raw: food.raw,
+  };
 }
 
 /** Fills a locale's cappedNoteTemplate ("...{unit}...{ceiling}...") with the resolved unit label and ceiling value. */
@@ -227,7 +331,7 @@ export interface ReverseConversionResult {
  * an oven dial can actually show instead of drifting off it.
  */
 export function computeOvenSetting(input: ReverseConversionInput): ReverseConversionResult {
-  return fromAirFryer(OVEN_RULES, input);
+  return fromAirFryer(styleProfile(OVEN_RULES, FOODS[input.food] ?? FOODS.general, input.style), input);
 }
 
 /**
@@ -237,12 +341,12 @@ export function computeOvenSetting(input: ReverseConversionInput): ReverseConver
  * the time grows — that is the expected result, not a rounding bug.
  */
 export function computeConvectionSetting(input: ReverseConversionInput): ReverseConversionResult {
-  return fromAirFryer(CONVECTION_RULES, input);
+  return fromAirFryer(styleProfile(CONVECTION_RULES, CONVECTION_FOODS[input.food] ?? CONVECTION_FOODS.general, input.style), input);
 }
 
-function fromAirFryer(rules: ProfileRules, input: ReverseConversionInput): ReverseConversionResult {
+function fromAirFryer(profile: StyledProfile, input: ReverseConversionInput): ReverseConversionResult {
   const airFryerF = input.unit === 'C' ? (input.airFryerTemp * 9) / 5 + 32 : input.airFryerTemp;
-  const { dT, f, ceiling } = styleProfile(rules, input.food, input.style);
+  const { dT, f, ceiling } = profile;
 
   const outF: number | null = Number.isFinite(airFryerF)
     ? Math.round((airFryerF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP

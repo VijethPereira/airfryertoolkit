@@ -79,6 +79,63 @@ const es: Dictionary = {
     ovenCaveat: "Deja el ventilador encendido y reparte el alimento en una sola capa con espacio alrededor de cada pieza — una bandeja de convección llena pierde el flujo de aire que suponen estos tiempos.",
     ambiguousCeilingNoteTemplate: "Esto está en el límite del {unit} ({ceiling}°F). Si se convirtió a la baja desde una receta de convección más caliente, el tiempo ya incluye cerca de un 8% extra — réstalo, o vuelve a la receta original.",
   },
+  frozenConverter: {
+    widgetLabel: "Envase congelado → Freidora de aire",
+    ovenTemperature: "Temperatura del envase",
+    ovenTime: "Tiempo del envase",
+    packType: "Las instrucciones del envase son para",
+    packConventional: "Horno convencional",
+    packFan: "Horno con ventilador",
+    shake: "Agitar",
+    flip: "Voltear",
+    turnAtTemplate: "{action} a los {times} min",
+    noTurn: "No hace falta voltear",
+    listJoin: " y ",
+    internalTemplate: "Interior {f}°F / {c}°C",
+    rawWarningTemplate: "Pollo crudo desde congelado: comprueba con un termómetro que la pieza más gruesa llega a {f}°F ({c}°C) antes de comer. El exterior se dora mucho antes de que un centro congelado sea seguro.",
+    foods: {
+      fries: {
+        label: "Papas fritas",
+        tip: "Una sola capa o casi, y separa al agitar las piezas que se congelaron juntas.",
+      },
+      nuggets: {
+        label: "Nuggets de pollo",
+        tip: "Repártelos bien: las piezas que se tocan se cuecen al vapor en lugar de quedar crujientes.",
+      },
+      tenders: {
+        label: "Pollo empanizado, tiras y Kiev",
+        tip: "Revisa el envase: muchos productos de pollo empanizado se venden crudos, no solo para recalentar.",
+      },
+      fish: {
+        label: "Palitos de pescado y filetes empanizados",
+        tip: "Voltea con cuidado con pinzas: el rebozado cuaja antes de que el pescado esté firme.",
+      },
+      pizza: {
+        label: "Pizza (individual)",
+        tip: "Solo una pizza que quepa plana en la cesta. Revisa la base al inicio del rango de tiempo.",
+      },
+      springRolls: {
+        label: "Rollitos primavera y samosas",
+        tip: "Un ligero rocío de aceite ayuda a que la masa se dore de forma pareja.",
+      },
+      hashBrowns: {
+        label: "Hash browns y formas de papa",
+        tip: "Las piezas planas se doran de un lado a la vez: voltea una vez a la mitad.",
+      },
+      veg: {
+        label: "Verduras congeladas",
+        tip: "No las descongeles antes. Agitar deja salir el vapor; si no, quedan blandas.",
+      },
+      wings: {
+        label: "Alitas de pollo (crudas, congeladas)",
+        tip: "Separa en la primera agitada las alitas que se congelaron juntas.",
+      },
+      rawChicken: {
+        label: "Pechuga de pollo cruda (desde congelado)",
+        tip: "Más baja y más lenta que fresca: el centro tiene que descongelarse y cocinarse.",
+      },
+    },
+  },
   home: {
     metaTitle: 'Conversor de horno a freidora de aire',
     metaDescription:
@@ -202,6 +259,7 @@ const es: Dictionary = {
     relatedChartLink: 'Tabla de conversión imprimible',
     relatedReverseLink: 'Conversor de freidora de aire a horno',
     relatedConvectionLink: "Conversor de convección a freidora de aire",
+    relatedFrozenLink: "Modo de alimentos congelados (instrucciones del envase)",
     faqHeading: 'Preguntas frecuentes',
     faqs: [
       {
@@ -363,6 +421,7 @@ const es: Dictionary = {
     relatedReverseLink: "Conversor de freidora de aire a horno",
     relatedSiblingLink: "Conversor de freidora de aire a convección",
     relatedChartLink: "Tabla de conversión imprimible",
+    relatedFrozenLink: "Modo de alimentos congelados (instrucciones del envase)",
     faqHeading: "Preguntas frecuentes",
     faqs: [
       {
@@ -412,6 +471,7 @@ const es: Dictionary = {
     relatedReverseLink: "Conversor de freidora de aire a horno (horno convencional)",
     relatedSiblingLink: "Conversor de convección a freidora de aire",
     relatedChartLink: "Tabla de conversión imprimible",
+    relatedFrozenLink: "Modo de alimentos congelados (instrucciones del envase)",
     faqHeading: "Preguntas frecuentes",
     faqs: [
       {
@@ -437,6 +497,56 @@ const es: Dictionary = {
       {
         q: "¿Cambian las temperaturas internas objetivo?",
         a: "No. Las aves están hechas a 165°F internos y el pescado, el filete o las chuletas a 145°F, en freidora de aire o en horno de convección.",
+      },
+    ],
+  },
+  frozenTool: {
+    metaTitle: "Conversor de alimentos congelados para freidora de aire",
+    metaDescription: "Convierte las instrucciones del envase congelado a tiempo y temperatura de freidora de aire. Mantén casi todo el calor, recorta cerca de un 30% del tiempo y agita a su hora — envase para horno convencional o con ventilador, cesta o tipo horno.",
+    metaKeywords: "instrucciones del envase a freidora de aire, papas fritas congeladas freidora de aire tiempo, pollo congelado freidora de aire tiempo, conversor de congelados freidora de aire",
+    backLink: "Todas las herramientas",
+    heading: "Conversor de congelados para freidora de aire",
+    subDesc: "Introduce la temperatura y el tiempo de horno del envase. Obtén el ajuste de freidora de aire para comida directa del congelador, con los momentos de agitar o voltear y la temperatura interior donde importa.",
+    aboutHeading: "Por qué los congelados se convierten de otra forma",
+    aboutBody: "La mayoría de los conversores tratan lo congelado como un tipo de alimento más y aplican la regla de siempre: restar 25°F y recortar el tiempo una quinta parte. Para la comida que sale del congelador eso va al revés. Las instrucciones de horno del envase se escribieron para alimentos que entran congelados, así que la temperatura de la caja ya es la que necesita el rebozado para quedar crujiente antes de que el interior se pase. Lo que cambia la freidora de aire es la velocidad: una cavidad pequeña y aire rápido sacan el hielo de la superficie enseguida. Por eso este conversor mantiene casi toda la temperatura del envase — normalmente 10°F menos — y hace el gran recorte en el tiempo, alrededor de un 30%. El pollo crudo congelado es la excepción y va más bajo y más lento.",
+    packHeading: "Cómo leer un envase británico frente a uno estadounidense",
+    packBody: "Los envases de EE. UU. dan una sola temperatura de horno en °F, pensada para horno convencional. Los envases británicos y europeos suelen dar °C y a menudo dos números: una temperatura convencional y otra más baja \"con ventilador\", normalmente 20°C menos, con el mismo tiempo para ambas. Elige la línea que estás leyendo con el selector del envase. Una temperatura con ventilador ya está ajustada al ventilador, así que el conversor devuelve la diferencia entre horno convencional y con ventilador para ese alimento en lugar de recortar otra vez — la misma diferencia por alimento que usa el conversor de convección. Los envases con gas mark son convencionales: convierte primero la marca a temperatura, o usa el gas mark que aparece bajo cada resultado para comprobar que te acercas.",
+    workedExampleHeading: "Ejemplo práctico",
+    workedExampleTemplate: "Una bolsa estadounidense de papas fritas congeladas indica 425°F durante 20 minutos. Una freidora de cesta llega como máximo a 400°F, así que el conversor la mantiene ahí y devuelve algo de tiempo: {US_AF_F}°F durante {US_AF_MIN} minutos, con dos agitadas. Una bolsa británica de las mismas papas indica 200°C con ventilador durante 20 minutos; con el selector de ventilador queda en {UK_AF_F}°F ({UK_AF_C}°C) durante {UK_AF_MIN} minutos — algo menos, porque ya no necesita el tiempo que añadía el límite de temperatura.",
+    crowdingHeading: "No llenes demasiado la cesta",
+    crowdingBody: "Los congelados sueltan agua al descongelarse, y en una cesta llena esa agua no tiene a dónde ir. Las piezas amontonadas se cuecen al vapor en lugar de quedar crujientes, y la capa de abajo sigue pálida por mucho que la cocines. Deja las papas, los nuggets y las alitas en una sola capa, o casi, y cocina una bolsa grande en dos tandas — la segunda suele tardar uno o dos minutos menos porque la cesta ya está caliente. Las agitadas que indica el resultado separan las piezas congeladas juntas y suben la capa de abajo hacia el aire.",
+    rawHeading: "Pollo crudo desde congelado",
+    rawBody: "Las pechugas crudas congeladas, las alitas y muchos productos de pollo empanizado tienen que llegar a 165°F (74°C) en la parte más gruesa, no solo verse dorados. Por eso reciben un recorte de tiempo menor y una temperatura más baja, para que el centro alcance al exterior, y el resultado muestra un recordatorio para comprobarlo con un termómetro. Los productos ya cocinados, como la mayoría de los nuggets, solo necesitan calentarse por dentro, así que muestran la temperatura objetivo sin la advertencia.",
+    relatedFlagshipLink: "Conversor de horno a freidora de aire (recetas frescas)",
+    relatedConvectionLink: "Conversor de convección a freidora de aire",
+    relatedReverseConvectionLink: "Conversor de freidora de aire a convección",
+    relatedChartLink: "Tabla de conversión imprimible",
+    presetsHeading: "Ajustes para congelados",
+    faqHeading: "Preguntas frecuentes",
+    faqs: [
+      {
+        q: "¿Cómo convierto las instrucciones de un envase congelado a freidora de aire?",
+        a: "Mantén la temperatura del envase o resta unos 10°F, recorta el tiempo alrededor de un 30% y agita o voltea en los momentos que muestra el conversor. Si la temperatura del envase supera lo que alcanza tu freidora, el conversor la mantiene en el máximo y devuelve un poco de tiempo.",
+      },
+      {
+        q: "¿Cuánto tardan las papas fritas congeladas en la freidora de aire?",
+        a: "Normalmente 12–16 minutos a 400°F para una bolsa estándar que indica 425°F durante 20 minutos en el horno, agitando dos veces. Las papas gruesas tardan más que las finas. Introduce los números de tu envase arriba para el ajuste exacto.",
+      },
+      {
+        q: "¿Cuánto tarda el pollo crudo congelado en la freidora de aire?",
+        a: "Más de lo que esperarías con la regla del 30%. La pechuga cruda congelada se cocina a menor temperatura y con solo un 15% menos del tiempo del envase, para que el centro llegue a 165°F antes de que el exterior se seque. Compruébalo siempre con un termómetro.",
+      },
+      {
+        q: "¿Debo descongelar los alimentos antes de usar la freidora de aire?",
+        a: "No. Las instrucciones del envase y este conversor suponen que el alimento entra congelado. Descongelar antes ablanda el rebozado y cambia los tiempos. La excepción es una pieza grande de carne cruda, que debe descongelarse en el refrigerador.",
+      },
+      {
+        q: "Mi envase da una temperatura para horno con ventilador. ¿Cuál introduzco?",
+        a: "Cualquiera sirve: solo ajusta el selector del envase. Si introduces la temperatura con ventilador, elige \"Horno con ventilador\" y el conversor devuelve la cantidad adecuada para ese alimento.",
+      },
+      {
+        q: "¿Hay que precalentar la freidora de aire para congelados?",
+        a: "Un precalentado corto de 3 minutos en cesta, o 4 en tipo horno, da un dorado más parejo a las papas y a lo empanizado. La pizza congelada y lo recalentado van bien sin él.",
       },
     ],
   },
@@ -509,6 +619,8 @@ const es: Dictionary = {
     relatedConvectionDesc: "— un recorte más suave para recetas de horno con ventilador que ya están ajustadas.",
     relatedReverseConvectionLabel: "Conversor de freidora de aire a convección",
     relatedReverseConvectionDesc: "— lleva un ajuste de freidora a un horno con ventilador para tandas más grandes.",
+    relatedFrozenLabel: "Modo de alimentos congelados",
+    relatedFrozenDesc: "— de las instrucciones del envase a la freidora: mantén el calor, recorta el tiempo, agita a su hora.",
   },
 };
 

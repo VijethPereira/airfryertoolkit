@@ -32,6 +32,7 @@ const links = [
   { slug: '/air-fryer-to-convection', label: dict.relatedSiblingLink },
   { slug: '/air-fryer-to-oven', label: dict.relatedReverseLink },
   { slug: '/chart', label: dict.relatedChartLink },
+  { slug: '/frozen', label: dict.relatedFrozenLink },
 ]
   .filter(({ slug }) => LIVE_PAGES.has(slug))
   .map(({ slug, label }) => ({ href: localizedPath(locale, slug), label }));
