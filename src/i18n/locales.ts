@@ -1,3 +1,5 @@
+import type { OvenMarkScale } from '../lib/converter';
+
 export const LOCALES = [
   { code: 'en', label: 'English' },
   { code: 'es', label: 'Español' },
@@ -16,4 +18,13 @@ export const OG_LOCALE_MAP: Record<LocaleCode, string> = {
   pt: 'pt_BR',
   fr: 'fr_FR',
   de: 'de_DE',
+};
+
+/** Oven-dial scale shown beside every °F/°C result: French readers get the thermostat (°C ÷ 30), everyone else the UK gas mark. */
+export const OVEN_MARK_SCALE: Record<LocaleCode, OvenMarkScale> = {
+  en: 'gasMark',
+  es: 'gasMark',
+  pt: 'gasMark',
+  fr: 'thermostat',
+  de: 'gasMark',
 };

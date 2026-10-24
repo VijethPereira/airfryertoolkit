@@ -151,6 +151,30 @@ export const GAS_MARKS: [number, number][] = [
   [475, 9],
 ];
 
+/** Nearest UK gas mark for a °F value (±12°F), or null outside the gas-mark range. */
+export function gasMarkFor(tempF: number): number | null {
+  const entry = GAS_MARKS.find(([f]) => Math.abs(f - tempF) <= 12);
+  return entry ? entry[1] : null;
+}
+
+/**
+ * French oven thermostat for a °F value: exact °C ÷ 30, rounded (180°C = Th. 6),
+ * clamped to the 1–10 range French dials print. Not the UK gas mark: gas mark 6 is ~200°C.
+ */
+export function thermostatFor(tempF: number): number {
+  const c = ((tempF - 32) * 5) / 9;
+  return Math.min(10, Math.max(1, Math.round(c / 30)));
+}
+
+/** Which oven-dial scale a locale reads: UK gas mark, or the French thermostat. */
+export type OvenMarkScale = 'gasMark' | 'thermostat';
+
+/** The oven-dial number for a °F value on the given scale (null when that scale has no mark for it). */
+export function ovenMarkFor(tempF: number | null, scale: OvenMarkScale): number | null {
+  if (tempF === null || !Number.isFinite(tempF)) return null;
+  return scale === 'thermostat' ? thermostatFor(tempF) : gasMarkFor(tempF);
+}
+
 export interface ConversionInput {
   /** Oven temperature, in `unit`. */
   ovenTemp: number;
@@ -200,7 +224,6 @@ function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>
     : null;
   const outC: number | null = outF !== null ? Math.round(((outF - 32) * 5) / 9 / 5) * 5 : null;
 
-  const gasEntry = outF !== null ? GAS_MARKS.find(([tempF]) => Math.abs(tempF - outF!) <= 12) : undefined;
 
   return {
     outF,
@@ -210,7 +233,7 @@ function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>
     ceiling,
     checkAtMinutes: outMinutes !== null ? Math.max(2, Math.round(outMinutes * 0.7)) : null,
     preheatMinutes: ovenStyle ? 4 : 3,
-    gasMark: gasEntry ? gasEntry[1] : null,
+    gasMark: outF !== null ? gasMarkFor(outF) : null,
   };
 }
 
@@ -358,13 +381,12 @@ function fromAirFryer(profile: StyledProfile, input: ReverseConversionInput): Re
 
   const outC: number | null = outF !== null ? Math.round(((outF - 32) * 5) / 9 / 5) * 5 : null;
 
-  const gasEntry = outF !== null ? GAS_MARKS.find(([tempF]) => Math.abs(tempF - outF!) <= 12) : undefined;
 
   return {
     outF,
     outC,
     outMinutes,
-    gasMark: gasEntry ? gasEntry[1] : null,
+    gasMark: outF !== null ? gasMarkFor(outF) : null,
     ceiling,
     ceilingAmbiguous: Number.isFinite(airFryerF) && airFryerF >= ceiling,
   };

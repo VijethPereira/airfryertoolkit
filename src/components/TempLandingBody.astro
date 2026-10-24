@@ -2,8 +2,9 @@
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
 import { getDictionary } from '../i18n/dictionaries';
-import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
+import { ovenMarkFor } from '../lib/converter';
 import {
   fillPlaceholders,
   tempLandingNeighbours,
@@ -24,7 +25,7 @@ const { locale = DEFAULT_LOCALE, landing } = Astro.props;
 const all = getDictionary(locale);
 const dict = all.tempLanding;
 const copy = dict.pages[landing.tempF as TempLandingF];
-const values = tempLandingValues(landing);
+const values = tempLandingValues(landing, locale);
 const fill = (text: string) => fillPlaceholders(text, values);
 
 const rows = tempLandingRows(landing.tempF);
@@ -32,13 +33,17 @@ const generalCapped = rows.find((r) => r.food === 'general')!.basket.capped;
 const answer = fill(generalCapped ? dict.answerCappedTemplate : dict.answerTemplate);
 const anyCapped = rows.some((r) => r.basket.capped || r.oven.capped);
 
-const cell = (r: (typeof rows)[number]['basket']) => ({
-  temp: `${r.outF}°F / ${r.outC}°C`,
-  meta: [r.gasMark ? `${all.converter.gasMark} ${r.gasMark}` : null, fillPlaceholders(dict.timeLessTemplate, { PCT: String(r.pct) })]
-    .filter(Boolean)
-    .join(' · '),
-  capped: r.capped,
-});
+const markScale = OVEN_MARK_SCALE[locale];
+const cell = (r: (typeof rows)[number]['basket']) => {
+  const mark = ovenMarkFor(r.outF, markScale);
+  return {
+    temp: `${r.outF}°F / ${r.outC}°C`,
+    meta: [mark ? `${all.converter.gasMark} ${mark}` : null, fillPlaceholders(dict.timeLessTemplate, { PCT: String(r.pct) })]
+      .filter(Boolean)
+      .join(' · '),
+    capped: r.capped,
+  };
+};
 const tableRows = rows.map((r) => ({
   food: r.food,
   label: all.converter.foods[r.food].label,

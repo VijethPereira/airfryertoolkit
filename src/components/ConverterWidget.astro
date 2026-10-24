@@ -1,7 +1,7 @@
 ---
 import { FOODS, FROZEN_FOODS, type FoodKey, type FrozenFoodKey } from '../lib/converter';
 import { getDictionary } from '../i18n/dictionaries';
-import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 
 interface Props {
   locale?: LocaleCode;
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp } = Astro.props;
+const markScale = OVEN_MARK_SCALE[locale];
 const all = getDictionary(locale);
 const baseDict = all.converter;
 const frozenDict = source === 'frozen' ? all.frozenConverter : null;
@@ -122,11 +123,12 @@ const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 4
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, source, frozenDict, tips }}>
+<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale }}>
   window.__afkDict = dict;
   window.__afkSource = source;
   window.__afkFrozenDict = frozenDict;
   window.__afkTips = tips;
+  window.__afkMarkScale = markScale;
 </script>
 
 <script>
@@ -135,11 +137,13 @@ const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 4
     computeAirFryerSettingFromConvection,
     computeAirFryerSettingFromFrozen,
     cappedNote,
+    ovenMarkFor,
     type ConversionResult,
     type FoodKey,
     type FrozenConversionResult,
     type FrozenFoodKey,
     type FryerStyle,
+    type OvenMarkScale,
     type PackType,
     type TempUnit,
   } from '../lib/converter';
@@ -150,11 +154,13 @@ const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 4
     __afkSource: source,
     __afkFrozenDict: frozenDict,
     __afkTips: tips,
+    __afkMarkScale: markScale,
   } = window as unknown as {
     __afkDict: Dictionary['converter'];
     __afkSource: 'oven' | 'convection' | 'frozen';
     __afkFrozenDict: Dictionary['frozenConverter'] | null;
     __afkTips: Record<string, string>;
+    __afkMarkScale: OvenMarkScale;
   };
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
@@ -245,7 +251,8 @@ const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 4
     outTime.textContent = okT ? String(result.outMinutes) : '—';
     checkAt.textContent = okT ? String(result.checkAtMinutes) : '—';
     preheat.textContent = `${result.preheatMinutes} ${dict.min}`;
-    gasMarkEl.textContent = result.gasMark ? `${dict.gasMark} ${result.gasMark}` : dict.gasMarkDash;
+    const mark = ovenMarkFor(result.outF, markScale);
+    gasMarkEl.textContent = mark ? `${dict.gasMark} ${mark}` : dict.gasMarkDash;
     tipEl.textContent = tips[food] ?? '';
 
     if (result.capped) {

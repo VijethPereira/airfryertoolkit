@@ -27,13 +27,33 @@ const commonConversions = TEMP_LANDINGS.slice(0, dict.commonConversions.length).
   to: `${tempLandingValues(landing).AF_F}°F`,
 }));
 
-const convertHrefs = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'];
-const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'];
-const frozenHrefs = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicken', '/frozen-pizza'];
+/** A card's own page, plus an optional live page to send people to until it ships (may carry a ?query). */
+interface CardTarget {
+  href: string;
+  fallback?: string;
+}
+// A card links to its own page once that is live; until then to its fallback if that page is live;
+// otherwise it renders disabled. So a card never links to a page that doesn't exist yet.
+function cardHref({ href, fallback }: CardTarget): string | null {
+  if (isLive(href)) return hrefFor(href);
+  if (!fallback) return null;
+  const [path, query] = fallback.split('?');
+  return isLive(path) ? `${hrefFor(path)}${query ? `?${query}` : ''}` : null;
+}
+
+const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'].map((href) => ({ href }));
+const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'].map((href) => ({ href }));
+// Until each /frozen-[food] page (row 8) ships, its card opens /frozen with that food preselected.
+const frozenTargets: CardTarget[] = [
+  { href: '/frozen-fries', fallback: '/frozen?food=fries' },
+  { href: '/frozen-chicken-nuggets', fallback: '/frozen?food=nuggets' },
+  { href: '/frozen-chicken', fallback: '/frozen?food=rawChicken' },
+  { href: '/frozen-pizza', fallback: '/frozen?food=pizza' },
+];
 // FROZEN_FOODS key for each frozenTeaser.options entry, in order — sent to /frozen as ?food= to preselect it.
 const frozenTeaserFoods: FrozenFoodKey[] = ['fries', 'nuggets', 'rawChicken', 'pizza', 'fish'];
-const presetHrefs = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'];
-const brandHrefs = ['/ninja', '/cosori', '/philips', '/model-max-temp'];
+const presetTargets: CardTarget[] = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'].map((href) => ({ href }));
+const brandTargets: CardTarget[] = ['/ninja', '/cosori', '/philips', '/model-max-temp'].map((href) => ({ href }));
 
 const toolHref = hrefFor('/oven-to-air-fryer');
 ---
@@ -86,8 +106,9 @@ const toolHref = hrefFor('/oven-to-air-fryer');
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.convert}</h2>
       <div class="card-grid">
         {dict.convertCards.map((c, i) => {
-          return isLive(convertHrefs[i]) ? (
-            <a href={hrefFor(convertHrefs[i])} class="card">
+          const href = cardHref(convertTargets[i]);
+          return href ? (
+            <a href={href} class="card">
               <span class="card-title">{i === 0 && <span class="title-dot inline"></span>}{c.title}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
@@ -109,9 +130,9 @@ const toolHref = hrefFor('/oven-to-air-fryer');
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.reverse}</h2>
       <div class="card-grid">
         {dict.reverseCards.map((c, i) => {
-          const raw = reverseHrefs[i];
-          return isLive(raw) ? (
-            <a href={hrefFor(raw)} class="card">
+          const href = cardHref(reverseTargets[i]);
+          return href ? (
+            <a href={href} class="card">
               <span class="card-title">{c.title}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
@@ -155,9 +176,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
         </div>
       </div>
       <div class="card-grid">
-        {dict.frozenCards.map((c, i) =>
-          isLive(frozenHrefs[i]) ? (
-            <a href={hrefFor(frozenHrefs[i])} class="card">
+        {dict.frozenCards.map((c, i) => {
+          const href = cardHref(frozenTargets[i]);
+          return href ? (
+            <a href={href} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
@@ -169,8 +191,8 @@ const toolHref = hrefFor('/oven-to-air-fryer');
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
             </div>
-          )
-        )}
+          );
+        })}
       </div>
     </div>
   </section>
@@ -198,9 +220,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
         </div>
       </div>
       <div class="card-grid">
-        {dict.presetCards.map((c, i) =>
-          isLive(presetHrefs[i]) ? (
-            <a href={hrefFor(presetHrefs[i])} class="card">
+        {dict.presetCards.map((c, i) => {
+          const href = cardHref(presetTargets[i]);
+          return href ? (
+            <a href={href} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
@@ -212,8 +235,8 @@ const toolHref = hrefFor('/oven-to-air-fryer');
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
             </div>
-          )
-        )}
+          );
+        })}
         {isLive('/presets') ? (
           <a href="/presets" class="card outline">
             <span class="card-title small">{dict.allPresetsCard.title}</span>
@@ -235,9 +258,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.brands}</h2>
       <div class="card-grid">
-        {dict.brandCards.map((c, i) =>
-          isLive(brandHrefs[i]) ? (
-            <a href={hrefFor(brandHrefs[i])} class="card">
+        {dict.brandCards.map((c, i) => {
+          const href = cardHref(brandTargets[i]);
+          return href ? (
+            <a href={href} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
@@ -249,8 +273,8 @@ const toolHref = hrefFor('/oven-to-air-fryer');
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
             </div>
-          )
-        )}
+          );
+        })}
       </div>
     </div>
   </section>

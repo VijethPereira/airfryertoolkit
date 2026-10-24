@@ -1,9 +1,9 @@
 ---
 import AdSlot from './AdSlot.astro';
 import { getDictionary } from '../i18n/dictionaries';
-import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import { FOODS, computeAirFryerSetting, formatTempAdjustment, type FoodKey } from '../lib/converter';
+import { FOODS, computeAirFryerSetting, formatTempAdjustment, ovenMarkFor, type FoodKey } from '../lib/converter';
 import { TEMP_STEPS, TIME_STEPS } from '../lib/chart-data';
 import { tempLandingSlug } from '../lib/temp-landings';
 import { LIVE_PAGES } from '../site.config';
@@ -99,7 +99,7 @@ const frozenHref = localizedPath(locale, frozenSlug);
                   <td>{r.landingHref ? <a href={r.landingHref} class="temp-link">{r.ovenF}°F</a> : `${r.ovenF}°F`}</td>
                   <td>{r.outF}°F{r.capped && <sup>&dagger;</sup>}</td>
                   <td>{r.outC}°C</td>
-                  <td>{r.gasMark ?? '—'}</td>
+                  <td>{ovenMarkFor(r.outF, OVEN_MARK_SCALE[locale]) ?? '—'}</td>
                 </tr>
               ))}
             </tbody>

@@ -4,11 +4,12 @@
  * (LIVE_PAGES / TRANSLATED_PAGES), ChartBody's row links, HomeBody's rail, and the e2e
  * suite. Every number a page shows comes from `tempLandingValues`, never from copy.
  */
+import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import {
   FOODS,
-  GAS_MARKS,
   computeAirFryerSetting,
   convertTempUnit,
+  ovenMarkFor,
   type ConversionResult,
   type FoodKey,
   type FryerStyle,
@@ -38,12 +39,6 @@ export const tempLandingSlug = (tempF: number) => `/${tempF}-to-air-fryer`;
 
 export const TEMP_LANDING_SLUGS = TEMP_LANDINGS.map((l) => tempLandingSlug(l.tempF));
 
-/** Nearest UK gas mark for an oven °F, same ±12°F match the engine uses for results. */
-export function gasMarkFor(tempF: number): number | null {
-  const entry = GAS_MARKS.find(([f]) => Math.abs(f - tempF) <= 12);
-  return entry ? entry[1] : null;
-}
-
 /** Percentage of the oven time the air fryer saves for this food/style at this temperature. */
 export function timeCutPercent(tempF: number, food: FoodKey, style: FryerStyle): number {
   // f has two decimals, so a 100-minute reference reads the multiplier back exactly (incl. the capped bonus).
@@ -67,10 +62,11 @@ export function tempLandingRows(tempF: number): TempLandingRow[] {
 }
 
 /**
- * Placeholder values for one page's copy. Every {KEY} in a temp landing dictionary
+ * Placeholder values for one page's copy, in `locale` (which sets the oven-dial scale of {OVEN_MARK}/{AF_MARK}). Every {KEY} in a temp landing dictionary
  * entry is filled from here, so copy never carries an engine number of its own.
  */
-export function tempLandingValues(landing: TempLanding): Record<string, string> {
+export function tempLandingValues(landing: TempLanding, locale: LocaleCode = DEFAULT_LOCALE): Record<string, string> {
+  const scale = OVEN_MARK_SCALE[locale];
   const { tempF, example } = landing;
   const general = (style: FryerStyle) =>
     computeAirFryerSetting({ ovenTemp: tempF, unit: 'F', ovenMinutes: TEMP_LANDING_MINUTES, food: 'general', style });
@@ -85,10 +81,10 @@ export function tempLandingValues(landing: TempLanding): Record<string, string> 
     OVEN_F: String(tempF),
     OVEN_C: String(convertTempUnit(tempF, 'F')),
     OVEN_C_EXACT: String(Math.round(((tempF - 32) * 5) / 9)),
-    OVEN_GAS: String(gasMarkFor(tempF) ?? '—'),
+    OVEN_MARK: String(ovenMarkFor(tempF, scale) ?? '—'),
     AF_F: String(basket.outF),
     AF_C: String(basket.outC),
-    AF_GAS: String(basket.gasMark ?? '—'),
+    AF_MARK: String(ovenMarkFor(basket.outF, scale) ?? '—'),
     PCT: String(timeCutPercent(tempF, 'general', 'basket')),
     OS_F: String(oven.outF),
     OS_C: String(oven.outC),

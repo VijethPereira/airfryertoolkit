@@ -122,12 +122,12 @@ test.describe('/chart', () => {
   test('homepage gates every tool card on LIVE_PAGES, not a hardcoded slug', async ({ page }) => {
     await page.goto('/');
 
-    // Every live card is a real link, and its href must actually be in LIVE_PAGES.
+    // Every card link — its own page or a fallback such as /frozen?food=fries — points at a page in LIVE_PAGES.
     const liveHrefs = await page.locator('a.card').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
     expect(liveHrefs.length).toBeGreaterThan(0);
     for (const href of liveHrefs) {
       expect(href).not.toBeNull();
-      expect(LIVE_PAGES.has(href!)).toBe(true);
+      expect(LIVE_PAGES.has(href!.split('?')[0])).toBe(true);
     }
 
     // Every not-yet-live card renders as an inert div with the Coming soon stub — never an <a>.

@@ -1,7 +1,7 @@
 ---
 import { FOODS, type FoodKey } from '../lib/converter';
 import { getDictionary } from '../i18n/dictionaries';
-import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 
 interface Props {
   locale?: LocaleCode;
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { locale = DEFAULT_LOCALE, target = 'oven' } = Astro.props;
+const markScale = OVEN_MARK_SCALE[locale];
 const dict = target === 'convection' ? getDictionary(locale).reverseConvectionConverter : getDictionary(locale).reverseConverter;
 const converterDict = getDictionary(locale).converter;
 const foodKeys = Object.keys(FOODS) as FoodKey[];
@@ -82,10 +83,11 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, converterDict, target }}>
+<script is:inline define:vars={{ dict, converterDict, target, markScale }}>
   window.__afoDict = dict;
   window.__afoConverterDict = converterDict;
   window.__afoTarget = target;
+  window.__afoMarkScale = markScale;
 </script>
 
 <script>
@@ -93,8 +95,10 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     computeOvenSetting,
     computeConvectionSetting,
     cappedNote,
+    ovenMarkFor,
     type FoodKey,
     type FryerStyle,
+    type OvenMarkScale,
     type TempUnit,
   } from '../lib/converter';
   import type { Dictionary } from '../i18n/types';
@@ -103,10 +107,12 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     __afoDict: dict,
     __afoConverterDict: converterDict,
     __afoTarget: target,
+    __afoMarkScale: markScale,
   } = window as unknown as {
     __afoDict: Dictionary['reverseConverter'];
     __afoConverterDict: Dictionary['converter'];
     __afoTarget: 'oven' | 'convection';
+    __afoMarkScale: OvenMarkScale;
   };
   const compute = target === 'convection' ? computeConvectionSetting : computeOvenSetting;
 
@@ -147,7 +153,8 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     outMain.textContent = ok ? `${state.unit === 'C' ? result.outC : result.outF}°${state.unit}` : '—';
     outAlt.textContent = ok ? `/ ${state.unit === 'C' ? result.outF : result.outC}°${state.unit === 'C' ? 'F' : 'C'}` : '/ —';
     outTime.textContent = okT ? String(result.outMinutes) : '—';
-    gasMarkEl.textContent = result.gasMark ? `${converterDict.gasMark} ${result.gasMark}` : converterDict.gasMarkDash;
+    const mark = ovenMarkFor(result.outF, markScale);
+    gasMarkEl.textContent = mark ? `${converterDict.gasMark} ${mark}` : converterDict.gasMarkDash;
     tipEl.textContent = converterDict.foods[food]?.tip ?? '';
 
     if (result.ceilingAmbiguous) {

@@ -23,7 +23,7 @@ export function getStaticPaths() {
 const { landing } = Astro.props as { landing: TempLanding };
 const locale = 'en' as const;
 const copy = getDictionary(locale).tempLanding.pages[landing.tempF as TempLandingF];
-const fill = (text: string) => fillPlaceholders(text, tempLandingValues(landing));
+const fill = (text: string) => fillPlaceholders(text, tempLandingValues(landing, locale));
 const slug = tempLandingSlug(landing.tempF);
 const url = localizedUrl(locale, slug);
 
