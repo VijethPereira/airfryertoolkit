@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
 import type { FrozenFoodKey } from '../lib/converter';
+import { TEMP_LANDINGS, tempLandingSlug, tempLandingValues } from '../lib/temp-landings';
 
 interface Props {
   locale?: LocaleCode;
@@ -19,12 +20,12 @@ const isLive = (href: string) => href.startsWith('/#') || LIVE_PAGES.has(href);
 const translatedSlugs = new Set(TRANSLATED_PAGES.map((p) => p.slug));
 const hrefFor = (href: string) => (translatedSlugs.has(href) ? localizedPath(locale, href) : href);
 
-const commonConversions = [
-  { href: '/350-to-air-fryer', from: '350°F', to: '325°F' },
-  { href: '/375-to-air-fryer', from: '375°F', to: '350°F' },
-  { href: '/400-to-air-fryer', from: '400°F', to: '375°F' },
-  { href: '/425-to-air-fryer', from: '425°F', to: '400°F' },
-];
+// One rail row per dict.commonConversions note (the first landing temperatures); values from the engine.
+const commonConversions = TEMP_LANDINGS.slice(0, dict.commonConversions.length).map((landing) => ({
+  href: tempLandingSlug(landing.tempF),
+  from: `${landing.tempF}°F`,
+  to: `${tempLandingValues(landing).AF_F}°F`,
+}));
 
 const convertHrefs = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'];
 const reverseHrefs = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'];

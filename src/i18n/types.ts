@@ -1,4 +1,24 @@
 import type { FoodKey, FrozenFoodKey } from '../lib/converter';
+import type { TempLandingF } from '../lib/temp-landings';
+
+/** One temperature landing page's own copy (Dictionary['tempLanding'].pages). */
+export interface TempLandingCopy {
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
+  heading: string;
+  subDesc: string;
+  recipesHeading: string;
+  recipesBody: string;
+  failureHeading: string;
+  failureBody: string;
+  workedExampleHeading: string;
+  /** {EX_OVEN_MIN}, {EX_F}, {EX_C}, {EX_MIN}, {EX_CHECK}, {EX_OS_F}, {EX_OS_MIN}: TEMP_LANDINGS example food, basket and oven-style. */
+  workedExampleTemplate: string;
+  styleHeading: string;
+  styleBody: string;
+  faqs: { q: string; a: string }[];
+}
 
 export interface Dictionary {
   nav: {
@@ -232,6 +252,34 @@ export interface Dictionary {
     presetsHeading: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
+  };
+  tempLanding: {
+    backLink: string;
+    pageTag: string;
+    /** Direct answer above the widget. {OVEN_F}, {AF_F}, {AF_C}, {PCT} from tempLandingValues (general, basket). */
+    answerTemplate: string;
+    /** Same, when the basket result is clamped: adds {CEILING}. */
+    answerCappedTemplate: string;
+    /** {OS_F}, {OS_C}, {OS_PCT} (general, oven-style). */
+    answerOvenStyleTemplate: string;
+    /** {OVEN_F}. */
+    tableHeading: string;
+    tableIntro: string;
+    tableHeaders: { food: string; basket: string; ovenStyle: string };
+    /** {PCT}: share of the oven time saved for that cell. */
+    timeLessTemplate: string;
+    cappedCell: string;
+    /** Shown under the table when any cell is clamped. {CEILING}, {OS_CEILING}. */
+    cappedFootnote: string;
+    neighboursHeading: string;
+    /** {OVEN_F} is the neighbouring page's temperature. */
+    neighbourLinkTemplate: string;
+    relatedFlagshipLink: string;
+    relatedChartLink: string;
+    relatedFrozenLink: string;
+    faqHeading: string;
+    /** Copy written per temperature; every engine number is a {KEY} placeholder filled by tempLandingValues. */
+    pages: Record<TempLandingF, TempLandingCopy>;
   };
   chart: {
     metaTitle: string;

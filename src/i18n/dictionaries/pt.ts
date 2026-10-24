@@ -1,4 +1,5 @@
 import type { Dictionary } from '../types';
+import tempLanding from './temp-landings/pt';
 
 const pt: Dictionary = {
   nav: {
@@ -550,6 +551,7 @@ const pt: Dictionary = {
       },
     ],
   },
+  tempLanding,
   chart: {
     metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',
     metaDescription:

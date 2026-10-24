@@ -1,0 +1,71 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import TempLandingBody from '../components/TempLandingBody.astro';
+import siteConfig from '../site.config.ts';
+import { getDictionary } from '../i18n/dictionaries';
+import { localizedUrl } from '../i18n/utils';
+import {
+  TEMP_LANDINGS,
+  fillPlaceholders,
+  tempLandingSlug,
+  tempLandingValues,
+  type TempLanding,
+  type TempLandingF,
+} from '../lib/temp-landings';
+
+export function getStaticPaths() {
+  return TEMP_LANDINGS.map((landing) => ({ params: { temp: String(landing.tempF) }, props: { landing } }));
+}
+
+const { landing } = Astro.props as { landing: TempLanding };
+const locale = 'en' as const;
+const copy = getDictionary(locale).tempLanding.pages[landing.tempF as TempLandingF];
+const fill = (text: string) => fillPlaceholders(text, tempLandingValues(landing));
+const slug = tempLandingSlug(landing.tempF);
+const url = localizedUrl(locale, slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: `${fill(copy.heading)} — ${siteConfig.siteName}`,
+      description: fill(copy.metaDescription),
+      url,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: copy.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: fill(q),
+        acceptedAnswer: { '@type': 'Answer', text: fill(a) },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={fill(copy.metaTitle)}
+  description={fill(copy.metaDescription)}
+  canonical={url}
+  keywords={copy.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug={slug}
+>
+  <SiteNav currentPath={slug} locale={locale} translatedSlug={slug} />
+  <TempLandingBody locale={locale} landing={landing} />
+  <Footer locale={locale} />
+</Layout>

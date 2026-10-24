@@ -1,4 +1,5 @@
 import type { Dictionary } from '../types';
+import tempLanding from './temp-landings/de';
 
 const de: Dictionary = {
   nav: {
@@ -550,6 +551,7 @@ const de: Dictionary = {
       },
     ],
   },
+  tempLanding,
   chart: {
     metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',
     metaDescription:

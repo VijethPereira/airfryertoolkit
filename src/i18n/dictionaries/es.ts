@@ -1,4 +1,5 @@
 import type { Dictionary } from '../types';
+import tempLanding from './temp-landings/es';
 
 const es: Dictionary = {
   nav: {
@@ -550,6 +551,7 @@ const es: Dictionary = {
       },
     ],
   },
+  tempLanding,
   chart: {
     metaTitle: 'Tabla de conversión de freidora de aire imprimible gratis',
     metaDescription:

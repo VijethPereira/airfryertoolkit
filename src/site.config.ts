@@ -1,3 +1,5 @@
+import { TEMP_LANDING_SLUGS } from './lib/temp-landings';
+
 const siteConfig = {
   siteName: 'Air Fryer Toolkit',
   domain: 'https://airfryertoolkit.com',
@@ -63,6 +65,7 @@ export const LIVE_PAGES = new Set<string>([
   '/convection-to-air-fryer',
   '/air-fryer-to-convection',
   '/frozen',
+  ...TEMP_LANDING_SLUGS,
   '/chart',
   '/about',
   '/contact',
@@ -82,5 +85,6 @@ export const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: str
   { slug: '/convection-to-air-fryer', priority: '0.8', changefreq: 'monthly' },
   { slug: '/air-fryer-to-convection', priority: '0.7', changefreq: 'monthly' },
   { slug: '/frozen', priority: '0.8', changefreq: 'monthly' },
+  ...TEMP_LANDING_SLUGS.map((slug) => ({ slug, priority: '0.7', changefreq: 'monthly' })),
   { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
 ];

@@ -11,9 +11,11 @@ interface Props {
    * toggle, shake/flip marks, internal temperature and raw-chicken warning.
    */
   source?: 'oven' | 'convection' | 'frozen';
+  /** Oven °F the temperature input starts at (the /[temp]-to-air-fryer landing pages); still fully editable. */
+  initialTemp?: number;
 }
 
-const { locale = DEFAULT_LOCALE, source = 'oven' } = Astro.props;
+const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp } = Astro.props;
 const all = getDictionary(locale);
 const baseDict = all.converter;
 const frozenDict = source === 'frozen' ? all.frozenConverter : null;
@@ -30,7 +32,7 @@ const foodOptions = frozenDict
 const tips = Object.fromEntries(foodOptions.map(({ key, tip }) => [key, tip]));
 const defaultFood = frozenDict ? 'fries' : 'general';
 // A typical US frozen-fries pack (425°F / 20 min) vs. the flagship's 400°F / 25 min oven recipe.
-const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: 400, time: 25 };
+const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 400, time: 25 };
 ---
 
 <div class="widget-card">

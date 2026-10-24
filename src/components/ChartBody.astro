@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { FOODS, computeAirFryerSetting, formatTempAdjustment, type FoodKey } from '../lib/converter';
 import { TEMP_STEPS, TIME_STEPS } from '../lib/chart-data';
+import { tempLandingSlug } from '../lib/temp-landings';
 import { LIVE_PAGES } from '../site.config';
 
 interface Props {
@@ -17,6 +18,8 @@ const converterDict = getDictionary(locale).converter;
 
 const tempRows = TEMP_STEPS.map((ovenF) => ({
   ovenF,
+  // Each row links to its /{temp}-to-air-fryer landing page once that page is live.
+  landingHref: LIVE_PAGES.has(tempLandingSlug(ovenF)) ? localizedPath(locale, tempLandingSlug(ovenF)) : null,
   ...computeAirFryerSetting({ ovenTemp: ovenF, unit: 'F', ovenMinutes: 20, food: 'general', style: 'basket' }),
 }));
 
@@ -93,7 +96,7 @@ const frozenHref = localizedPath(locale, frozenSlug);
             <tbody>
               {tempRows.map((r) => (
                 <tr>
-                  <td>{r.ovenF}°F</td>
+                  <td>{r.landingHref ? <a href={r.landingHref} class="temp-link">{r.ovenF}°F</a> : `${r.ovenF}°F`}</td>
                   <td>{r.outF}°F{r.capped && <sup>&dagger;</sup>}</td>
                   <td>{r.outC}°C</td>
                   <td>{r.gasMark ?? '—'}</td>
@@ -335,6 +338,23 @@ const frozenHref = localizedPath(locale, frozenSlug);
 
   tbody tr:last-child td {
     border-bottom: none;
+  }
+
+  /* 44px tap target without making the printed rows taller. */
+  .temp-link {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    margin: -14px 0;
+    font-weight: 600;
+    color: var(--site-text);
+    text-decoration: underline;
+    text-decoration-color: var(--site-accent);
+    text-underline-offset: 3px;
+  }
+
+  .temp-link:hover {
+    color: var(--site-accent);
   }
 
   .food-table td:last-child,
