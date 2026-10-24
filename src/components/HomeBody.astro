@@ -6,6 +6,8 @@ import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
 import type { FrozenFoodKey } from '../lib/converter';
 import { TEMP_LANDINGS, tempLandingSlug, tempLandingValues } from '../lib/temp-landings';
+import { PRESETS } from '../data/presets';
+import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
 
 interface Props {
   locale?: LocaleCode;
@@ -52,7 +54,14 @@ const frozenTargets: CardTarget[] = [
 ];
 // FROZEN_FOODS key for each frozenTeaser.options entry, in order — sent to /frozen as ?food= to preselect it.
 const frozenTeaserFoods: FrozenFoodKey[] = ['fries', 'nuggets', 'rawChicken', 'pizza', 'fish'];
-const presetTargets: CardTarget[] = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'].map((href) => ({ href }));
+// Homepage shows the first four presets; each falls back to the flagship with its food preselected.
+const presetCards = PRESETS.slice(0, 4).map((preset) => {
+  const card = presetCard(preset, locale);
+  return { ...card, href: cardHref({ href: card.path, fallback: `/oven-to-air-fryer?food=${presetFood(preset)}` }) };
+});
+// Every preset in the teaser dropdown; Go opens the chosen one (falls back to /presets without JS).
+const presetOptions = PRESETS.filter((p) => isLive(presetCard(p).path)).map((p) => presetCard(p, locale));
+const presetsIndexHref = isLive(PRESETS_INDEX_PATH) ? hrefFor(PRESETS_INDEX_PATH) : null;
 const brandTargets: CardTarget[] = ['/ninja', '/cosori', '/philips', '/model-max-temp'].map((href) => ({ href }));
 
 const toolHref = hrefFor('/oven-to-air-fryer');
@@ -207,38 +216,40 @@ const toolHref = hrefFor('/oven-to-air-fryer');
             <span class="teaser-heading">{dict.presetsTeaser.heading}</span>
             <span class="teaser-desc">{dict.presetsTeaser.desc}</span>
           </div>
-          <div class="teaser-action">
-            <select aria-label={dict.presetsTeaser.selectLabel}>
-              {dict.presetsTeaser.options.map((opt) => <option>{opt}</option>)}
-            </select>
-            {isLive('/presets') ? (
-              <a href="/presets" class="go-btn">{dict.presetsTeaser.goLabel}</a>
-            ) : (
+          {presetsIndexHref && presetOptions.length > 0 ? (
+            <form id="preset-teaser" class="teaser-action" action={presetsIndexHref} method="get">
+              <select aria-label={dict.presetsTeaser.selectLabel}>
+                {presetOptions.map((o) => <option value={o.href}>{o.label}</option>)}
+              </select>
+              <button type="submit" class="go-btn">{dict.presetsTeaser.goLabel}</button>
+            </form>
+          ) : (
+            <div class="teaser-action">
               <span class="go-btn disabled" aria-disabled="true">{dict.comingSoon}</span>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       <div class="card-grid">
-        {dict.presetCards.map((c, i) => {
-          const href = cardHref(presetTargets[i]);
+        {presetCards.map((c) => {
+          const href = c.href;
           return href ? (
             <a href={href} class="card">
-              <span class="card-title small">{c.title}</span>
+              <span class="card-title small">{c.label}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
           ) : (
             <div class="card disabled" aria-disabled="true">
-              <span class="card-title small">{c.title}</span>
+              <span class="card-title small">{c.label}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
             </div>
           );
         })}
-        {isLive('/presets') ? (
-          <a href="/presets" class="card outline">
+        {presetsIndexHref ? (
+          <a href={presetsIndexHref} class="card outline">
             <span class="card-title small">{dict.allPresetsCard.title}</span>
             <span class="card-desc">{dict.allPresetsCard.desc}</span>
           </a>
@@ -303,6 +314,17 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     </div>
   </section>
 </main>
+
+<script>
+  // The preset dropdown's values are page URLs: Go opens the chosen preset (without JS the form opens /presets).
+  const presetTeaser = document.getElementById('preset-teaser') as HTMLFormElement | null;
+  presetTeaser?.addEventListener('submit', (e) => {
+    const select = presetTeaser.querySelector('select');
+    if (!select?.value) return;
+    e.preventDefault();
+    window.location.href = select.value;
+  });
+</script>
 
 <style>
   @reference '../styles/global.css';

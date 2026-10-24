@@ -13,9 +13,13 @@ interface Props {
   source?: 'oven' | 'convection' | 'frozen';
   /** Oven °F the temperature input starts at (the /[temp]-to-air-fryer landing pages); still fully editable. */
   initialTemp?: number;
+  /** Oven minutes the time input starts at (the /air-fryer/[food] presets); still fully editable. */
+  initialTime?: number;
+  /** Food preselected in the dropdown (the /air-fryer/[food] presets); still fully editable. */
+  initialFood?: FoodKey;
 }
 
-const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp } = Astro.props;
+const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood } = Astro.props;
 const markScale = OVEN_MARK_SCALE[locale];
 const all = getDictionary(locale);
 const baseDict = all.converter;
@@ -31,9 +35,9 @@ const foodOptions = frozenDict
   ? (Object.keys(FROZEN_FOODS) as FrozenFoodKey[]).map((key) => ({ key, ...frozenDict.foods[key] }))
   : (Object.keys(FOODS) as FoodKey[]).map((key) => ({ key, ...baseDict.foods[key] }));
 const tips = Object.fromEntries(foodOptions.map(({ key, tip }) => [key, tip]));
-const defaultFood = frozenDict ? 'fries' : 'general';
+const defaultFood = frozenDict ? 'fries' : (initialFood ?? 'general');
 // A typical US frozen-fries pack (425°F / 20 min) vs. the flagship's 400°F / 25 min oven recipe.
-const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 400, time: 25 };
+const defaults = frozenDict ? { temp: 425, time: 20 } : { temp: initialTemp ?? 400, time: initialTime ?? 25 };
 ---
 
 <div class="widget-card">

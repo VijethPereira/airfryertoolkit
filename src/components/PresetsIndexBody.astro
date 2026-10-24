@@ -1,0 +1,207 @@
+---
+import AdSlot from './AdSlot.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import { PRESETS } from '../data/presets';
+import { PRESET_CATEGORY_ORDER, presetCard } from '../lib/presets';
+import { LIVE_PAGES } from '../site.config';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const all = getDictionary(locale);
+const dict = all.presetsIndex;
+
+// Generated from PRESETS: one group per category that has at least one preset, in PRESET_CATEGORY_ORDER.
+const groups = PRESET_CATEGORY_ORDER.map((category) => ({
+  category,
+  heading: dict.categories[category],
+  cards: PRESETS.filter((p) => p.category === category)
+    .map((p) => presetCard(p, locale))
+    .filter((c) => LIVE_PAGES.has(c.path)),
+})).filter((g) => g.cards.length > 0);
+
+const links = [
+  { slug: '/oven-to-air-fryer', label: dict.relatedFlagshipLink },
+  { slug: '/chart', label: dict.relatedChartLink },
+]
+  .filter(({ slug }) => LIVE_PAGES.has(slug))
+  .map(({ slug, label }) => ({ href: localizedPath(locale, slug), label }));
+---
+
+<main class="page-main">
+  <div class="wrap">
+
+    <header class="tool-header">
+      <a href={localizedPath(locale, '/')} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+      <h1>{dict.heading}</h1>
+      <p class="tool-desc">{dict.intro}</p>
+    </header>
+
+    {groups.map((g) => (
+      <section class="group" data-category={g.category}>
+        <h2>{g.heading}</h2>
+        <div class="card-grid">
+          {g.cards.map((c) => (
+            <a href={c.href} class="card" data-slug={c.slug}>
+              <span class="card-title">{c.label}</span>
+              <span class="card-spec">{c.spec}</span>
+              <span class="card-desc">{c.desc}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <AdSlot slot="2211009988" />
+
+    <section class="content-section">
+      <h2>{dict.howHeading}</h2>
+      <p>{dict.howBody}</p>
+      {links.map(({ href, label }) => (
+        <p class="related-link"><a href={href}>{label}</a> &rarr;</p>
+      ))}
+    </section>
+
+  </div>
+</main>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 860px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .page-main {
+    padding: 40px 0 80px;
+  }
+
+  .tool-header {
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 16px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--site-text);
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-text);
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .tool-desc {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .group {
+    margin: 32px 0;
+  }
+
+  .group h2,
+  .content-section h2 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 12px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 44px;
+    padding: 16px 18px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    color: var(--site-text);
+    transition: background 0.15s ease;
+  }
+
+  .card:hover {
+    background: var(--site-bg-hover);
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .card-spec {
+    font-size: 13px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-accent);
+  }
+
+  .card-desc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--site-text-muted);
+  }
+
+  .content-section {
+    margin: 40px 0;
+  }
+
+  .content-section p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .related-link {
+    margin: 24px 0 0 !important;
+  }
+
+  .related-link a {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    font-weight: 600;
+    color: var(--site-text);
+  }
+
+  .related-link a:hover {
+    color: var(--site-accent);
+  }
+</style>

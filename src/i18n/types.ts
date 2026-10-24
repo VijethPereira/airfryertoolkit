@@ -1,5 +1,30 @@
 import type { FoodKey, FrozenFoodKey } from '../lib/converter';
 import type { TempLandingF } from '../lib/temp-landings';
+import type { PresetCategory, PresetSizeId, PresetSlug } from '../data/presets';
+
+/** One food preset page's own copy (Dictionary['presets'].pages). Numbers are {KEY} placeholders from presetValues. */
+export interface PresetCopy {
+  /** Food name as used in the answer line, cards and links. */
+  label: string;
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
+  heading: string;
+  subDesc: string;
+  /** One line under the card on the homepage and /presets. */
+  cardDesc: string;
+  /** Sizing-table row labels for this preset's PresetSizeIds. */
+  sizeLabels: Partial<Record<PresetSizeId, string>>;
+  failureHeading: string;
+  failureBody: string;
+  workedExampleHeading: string;
+  workedExampleTemplate: string;
+  donenessHeading: string;
+  donenessBody: string;
+  prepHeading: string;
+  prepBody: string;
+  faqs: { q: string; a: string }[];
+}
 
 /** One temperature landing page's own copy (Dictionary['tempLanding'].pages). */
 export interface TempLandingCopy {
@@ -115,8 +140,7 @@ export interface Dictionary {
     reverseCards: { title: string; desc: string }[];
     frozenTeaser: { heading: string; desc: string; selectLabel: string; options: string[]; goLabel: string };
     frozenCards: { title: string; spec: string; desc: string }[];
-    presetsTeaser: { heading: string; desc: string; selectLabel: string; options: string[]; goLabel: string };
-    presetCards: { title: string; spec: string; desc: string }[];
+    presetsTeaser: { heading: string; desc: string; selectLabel: string; goLabel: string };
     allPresetsCard: { title: string; desc: string };
     brandCards: { title: string; spec: string; desc: string }[];
     chartStrip: [string, string, string, string];
@@ -252,6 +276,54 @@ export interface Dictionary {
     presetsHeading: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
+  };
+  presets: {
+    backLink: string;
+    pageTag: string;
+    /** {LABEL}, {AF_F}, {AF_C}, {MIN}; followed by answerFlipSuffix / answerShakeSuffix when the preset has them. */
+    answerTemplate: string;
+    answerFlipSuffix: string;
+    answerShakeSuffix: string;
+    /** {INT_F}, {INT_C}. */
+    internalTemplate: string;
+    /** Shown instead of internalTemplate for doneBy: 'crisp'. */
+    internalCrisp: string;
+    ovenHeading: string;
+    /** {OVEN_F}, {OVEN_C}, {OVEN_MARK}, {OVEN_MIN}. */
+    ovenTemplate: string;
+    /** {FAN_F}, {FAN_C}, {FAN_MIN}. */
+    fanTemplate: string;
+    ovenNote: string;
+    sizingHeading: string;
+    sizingIntro: string;
+    sizingHeaders: { size: string; airFryer: string; oven: string };
+    /** {MIN}. */
+    minutesTemplate: string;
+    /** Card / index spec line: {AF_F}, {MIN}, plus the flip/shake suffix. */
+    specTemplate: string;
+    specFlipSuffix: string;
+    specShakeSuffix: string;
+    relatedPresetsHeading: string;
+    /** {OVEN_F}: link to the nearest /[temp]-to-air-fryer page. */
+    tempLandingLinkTemplate: string;
+    relatedFlagshipLink: string;
+    relatedIndexLink: string;
+    relatedChartLink: string;
+    faqHeading: string;
+    pages: Record<PresetSlug, PresetCopy>;
+  };
+  presetsIndex: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    heading: string;
+    intro: string;
+    categories: Record<PresetCategory, string>;
+    howHeading: string;
+    howBody: string;
+    relatedFlagshipLink: string;
+    relatedChartLink: string;
   };
   tempLanding: {
     backLink: string;

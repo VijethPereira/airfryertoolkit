@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/pt';
+import { presets, presetsIndex } from './presets/pt';
 
 const pt: Dictionary = {
   nav: {
@@ -188,16 +189,9 @@ const pt: Dictionary = {
       heading: 'Tempo e temperatura para um alimento específico',
       desc: 'Cada predefinição traz temperatura, tempo, pontos de agitar ou virar, e sinais de ponto certo. Sem blog de receita para rolar a página.',
       selectLabel: 'Selecione um alimento predefinido',
-      options: ['Peito de frango', 'Asinhas de frango', 'Filé de salmão', 'Bacon', 'Bife'],
       goLabel: 'Ir',
     },
-    presetCards: [
-      { title: 'Peito de frango', spec: '375°F · 16 min · virar aos 8', desc: 'Predefinição mais usada. Retire a 165°F internos.' },
-      { title: 'Asinhas de frango', spec: '400°F · 22 min · virar aos 12', desc: 'Seque bem antes. Opção de temperatura em duas etapas.' },
-      { title: 'Filé de salmão', spec: '390°F · 9 min · sem virar', desc: 'Pele para baixo. Inclui tabela de espessura.' },
-      { title: 'Bacon', spec: '350°F · 9 min · escorrer aos 5', desc: 'Temperatura mais baixa evita que a gordura solte fumaça.' },
-    ],
-    allPresetsCard: { title: 'Todas as 40 predefinições →', desc: 'Carne, peixe, legumes, assados, reaquecimento.' },
+    allPresetsCard: { title: 'Todas as predefinições →', desc: 'Carne, peixe, legumes, assados, reaquecimento.' },
     brandCards: [
       { title: 'Ninja', spec: 'Máx. 400°F · cesto e duplo', desc: 'Ajustes para AF101, AF161, DZ201 e Foodi.' },
       { title: 'Cosori', spec: 'Máx. 450°F · 11 predefinições', desc: 'Traduz os botões predefinidos em tempos reais.' },
@@ -551,6 +545,8 @@ const pt: Dictionary = {
       },
     ],
   },
+  presets,
+  presetsIndex,
   tempLanding,
   chart: {
     metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',

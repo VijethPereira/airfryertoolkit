@@ -1,0 +1,47 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import PresetsIndexBody from '../../components/PresetsIndexBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
+import { PRESETS } from '../../data/presets';
+import { PRESETS_INDEX_PATH, presetCard } from '../../lib/presets';
+
+const locale = 'es' as const;
+const dict = getDictionary(locale).presetsIndex;
+const slug = PRESETS_INDEX_PATH;
+const url = localizedUrl(locale, slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${url}#page`,
+  name: `${dict.heading} — ${siteConfig.siteName}`,
+  description: dict.metaDescription,
+  url,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: PRESETS.map((preset, i) => {
+      const card = presetCard(preset, locale);
+      return { '@type': 'ListItem', position: i + 1, name: card.label, url: localizedUrl(locale, card.path) };
+    }),
+  },
+};
+---
+
+<Layout
+  title={dict.metaTitle}
+  description={dict.metaDescription}
+  canonical={url}
+  keywords={dict.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug={slug}
+>
+  <SiteNav currentPath={slug} locale={locale} translatedSlug={slug} />
+  <PresetsIndexBody locale={locale} />
+  <Footer locale={locale} />
+</Layout>

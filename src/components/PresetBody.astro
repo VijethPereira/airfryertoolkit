@@ -1,0 +1,511 @@
+---
+import ConverterWidget from './ConverterWidget.astro';
+import AdSlot from './AdSlot.astro';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import type { FoodPreset } from '../data/presets';
+import {
+  PRESETS_INDEX_PATH,
+  presetAnswer,
+  presetCard,
+  presetCopy,
+  presetFood,
+  presetOven,
+  presetSizeRows,
+  presetTempLanding,
+  relatedPresets,
+} from '../lib/presets';
+import { fillPlaceholders, tempLandingSlug } from '../lib/temp-landings';
+import { LIVE_PAGES } from '../site.config';
+
+interface Props {
+  locale?: LocaleCode;
+  preset: FoodPreset;
+}
+
+const { locale = DEFAULT_LOCALE, preset } = Astro.props;
+const { dict, copy, fill } = presetCopy(preset, locale);
+const answer = presetAnswer(preset, locale);
+const internal =
+  preset.internalF !== undefined ? fill(dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
+
+// The widget starts on the oven equivalent, so its live result is this preset's setting run back through the engine.
+const oven = presetOven(preset);
+
+const minutes = (n: number | null) => fillPlaceholders(dict.minutesTemplate, { MIN: String(n) });
+const sizeRows = presetSizeRows(preset).map((r) => ({
+  id: r.id,
+  label: copy.sizeLabels[r.id] ?? r.id,
+  airFryer: `${r.tempF}°F / ${r.tempC}°C · ${minutes(r.minutes)}`,
+  oven: `${r.oven.outF}°F / ${r.oven.outC}°C · ${minutes(r.oven.outMinutes)}`,
+}));
+
+const related = relatedPresets(preset, 3)
+  .map((p) => presetCard(p, locale))
+  .filter((c) => LIVE_PAGES.has(c.path));
+
+const landing = presetTempLanding(preset);
+const landingSlug = tempLandingSlug(landing.tempF);
+const links = [
+  ...(LIVE_PAGES.has(landingSlug)
+    ? [
+        {
+          href: localizedPath(locale, landingSlug),
+          label: fillPlaceholders(dict.tempLandingLinkTemplate, { OVEN_F: String(landing.tempF) }),
+          cls: 'landing-link',
+        },
+      ]
+    : []),
+  ...[
+    { slug: '/oven-to-air-fryer', label: dict.relatedFlagshipLink },
+    { slug: PRESETS_INDEX_PATH, label: dict.relatedIndexLink },
+    { slug: '/chart', label: dict.relatedChartLink },
+  ]
+    .filter(({ slug }) => LIVE_PAGES.has(slug))
+    .map(({ slug, label }) => ({ href: localizedPath(locale, slug), label, cls: '' })),
+];
+const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRESETS_INDEX_PATH : '/');
+---
+
+<main class="page-main">
+  <div class="wrap">
+
+    <header class="tool-header">
+      <a href={backHref} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+      <p class="page-tag">{dict.pageTag}</p>
+      <h1>{fill(copy.heading)}</h1>
+      <p class="tool-desc">{fill(copy.subDesc)}</p>
+    </header>
+
+    <div class="direct-answer">
+      <p id="pr-answer" class="answer-main">{answer}</p>
+      {internal && <p id="pr-internal" class="answer-internal">{internal}</p>}
+    </div>
+
+    <section id="pr-oven" class="oven-box" aria-labelledby="pr-oven-heading">
+      <h2 id="pr-oven-heading">{dict.ovenHeading}</h2>
+      <p id="pr-oven-conventional">{fill(dict.ovenTemplate)}</p>
+      <p id="pr-oven-fan">{fill(dict.fanTemplate)}</p>
+      <p class="oven-note">{dict.ovenNote}</p>
+    </section>
+
+    <section class="tool-area" aria-label="Converter">
+      <ConverterWidget locale={locale} initialTemp={oven.outF!} initialTime={oven.outMinutes!} initialFood={presetFood(preset)} />
+    </section>
+
+    <AdSlot slot="7788990011" />
+
+    <section class="table-section">
+      <h2>{dict.sizingHeading}</h2>
+      <p class="table-intro">{dict.sizingIntro}</p>
+      <div class="table-card">
+        <table id="pr-sizes">
+          <thead>
+            <tr><th>{dict.sizingHeaders.size}</th><th>{dict.sizingHeaders.airFryer}</th><th>{dict.sizingHeaders.oven}</th></tr>
+          </thead>
+          <tbody>
+            {sizeRows.map((r) => (
+              <tr data-size={r.id}>
+                <td class="food-cell">{r.label}</td>
+                <td data-style="air-fryer">{r.airFryer}</td>
+                <td data-style="oven">{r.oven}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>{copy.failureHeading}</h2>
+      <p>{fill(copy.failureBody)}</p>
+
+      <h3>{copy.workedExampleHeading}</h3>
+      <p>{fill(copy.workedExampleTemplate)}</p>
+
+      <h3>{copy.donenessHeading}</h3>
+      <p>{fill(copy.donenessBody)}</p>
+
+      <h3>{copy.prepHeading}</h3>
+      <p>{fill(copy.prepBody)}</p>
+
+      {related.length > 0 && (
+        <>
+          <h3>{dict.relatedPresetsHeading}</h3>
+          <ul class="related-presets">
+            {related.map((c) => (
+              <li>
+                <a href={c.href} class="related-preset" data-slug={c.slug}>
+                  <span class="rp-label">{c.label}</span>
+                  <span class="rp-spec">{c.spec}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {links.map(({ href, label, cls }) => (
+        <p class:list={['related-link', cls]}><a href={href}>{label}</a> &rarr;</p>
+      ))}
+    </section>
+
+    <AdSlot slot="1100998877" />
+
+    <section class="faq-section">
+      <h2>{dict.faqHeading}</h2>
+      <dl class="faq-list">
+        {copy.faqs.map(({ q, a }) => (
+          <div class="faq-item">
+            <dt class="faq-q">
+              <button type="button" aria-expanded="false" class="faq-toggle">
+                {fill(q)}
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd class="faq-a" hidden>
+              <p>{fill(a)}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const dd = btn.closest('.faq-item')?.querySelector('.faq-a') as HTMLElement | null;
+      const icon = btn.querySelector('.faq-icon');
+      if (dd) dd.hidden = expanded;
+      if (icon) icon.textContent = expanded ? '+' : '−';
+    });
+  });
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap {
+    max-width: 860px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .page-main {
+    padding: 40px 0 80px;
+  }
+
+  .tool-header {
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 16px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--site-text);
+  }
+
+  .page-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--site-accent);
+    margin: 0 0 12px;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-text);
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .tool-desc {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .direct-answer {
+    border-left: 3px solid var(--site-accent);
+    padding: 4px 0 4px 16px;
+    margin-bottom: 24px;
+  }
+
+  .answer-main {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--site-text);
+    margin: 0 0 4px;
+  }
+
+  .answer-alt {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--site-text-muted);
+    margin: 0;
+  }
+
+  .tool-area {
+    margin-bottom: 32px;
+  }
+
+  .table-section,
+  .content-section,
+  .faq-section {
+    margin: 40px 0;
+  }
+
+  .table-section h2,
+  .content-section h2,
+  .faq-section h2 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 16px;
+  }
+
+  .table-intro {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .table-card {
+    background: var(--site-bg-card);
+    border-radius: var(--radius-site-card);
+    box-shadow: var(--shadow-site);
+    padding: 12px 16px;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 6px;
+    border-bottom: 1px solid var(--site-border);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    word-break: break-word;
+  }
+
+  th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+  }
+
+  th:first-child,
+  .food-cell {
+    width: 32%;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+
+
+
+
+  .content-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    color: var(--site-text);
+    margin: 28px 0 8px;
+  }
+
+  .content-section p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .related-link {
+    margin: 24px 0 0 !important;
+  }
+
+  .related-link a {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    font-weight: 600;
+    color: var(--site-text);
+  }
+
+  .related-link a:hover {
+    color: var(--site-accent);
+  }
+
+  .faq-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    overflow: hidden;
+  }
+
+  .faq-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .faq-toggle:hover {
+    background: var(--site-bg-hover);
+  }
+
+  .faq-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--site-text-muted);
+  }
+
+  .faq-a {
+    margin: 0;
+    padding: 0 20px 16px;
+  }
+
+  .faq-a p {
+    margin: 0;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  .answer-internal {
+    display: inline-block;
+    margin: 6px 0 0;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--site-accent);
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--site-text);
+  }
+
+  .oven-box {
+    background: var(--site-bg-card);
+    border-radius: var(--radius-site-card);
+    box-shadow: var(--shadow-site);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+
+  .oven-box h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 8px;
+  }
+
+  .oven-box p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--site-text);
+    margin: 0 0 4px;
+  }
+
+  .oven-box .oven-note {
+    color: var(--site-text-muted);
+    margin: 8px 0 0;
+  }
+
+  .related-presets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  .related-preset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px 12px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: var(--radius-site-card);
+    background: var(--site-bg-card);
+    box-shadow: var(--shadow-site);
+    color: var(--site-text);
+  }
+
+  .related-preset:hover .rp-label {
+    color: var(--site-accent);
+  }
+
+  .rp-label {
+    font-weight: 600;
+  }
+
+  .rp-spec {
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text-muted);
+  }
+</style>

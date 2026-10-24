@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/es';
+import { presets, presetsIndex } from './presets/es';
 
 const es: Dictionary = {
   nav: {
@@ -188,16 +189,9 @@ const es: Dictionary = {
       heading: 'Tiempo y temperatura para un alimento específico',
       desc: 'Cada preconfiguración da temperatura, tiempo, puntos de agitado o volteo, y señales de cocción. Sin blog de recetas que desplazar.',
       selectLabel: 'Selecciona un alimento preconfigurado',
-      options: ['Pechuga de pollo', 'Alitas de pollo', 'Filete de salmón', 'Tocino', 'Bistec'],
       goLabel: 'Ir',
     },
-    presetCards: [
-      { title: 'Pechuga de pollo', spec: '375°F · 16 min · voltear a los 8', desc: 'La preconfiguración más usada. Retira a 165°F internos.' },
-      { title: 'Alitas de pollo', spec: '400°F · 22 min · voltear a los 12', desc: 'Sécalas primero. Opción de temperatura en dos etapas.' },
-      { title: 'Filete de salmón', spec: '390°F · 9 min · sin voltear', desc: 'Piel hacia abajo. Incluye tabla de grosor.' },
-      { title: 'Tocino', spec: '350°F · 9 min · escurrir a los 5', desc: 'La temperatura más baja evita que la grasa humee.' },
-    ],
-    allPresetsCard: { title: 'Las 40 preconfiguraciones →', desc: 'Carne, pescado, verduras, repostería, recalentado.' },
+    allPresetsCard: { title: 'Todas las preconfiguraciones →', desc: 'Carne, pescado, verduras, repostería, recalentado.' },
     brandCards: [
       { title: 'Ninja', spec: 'Máx. 400°F · cesta y doble', desc: 'Ajustes para AF101, AF161, DZ201 y Foodi.' },
       { title: 'Cosori', spec: 'Máx. 450°F · 11 preconfiguraciones', desc: 'Traduce los botones preconfigurados a tiempos reales.' },
@@ -551,6 +545,8 @@ const es: Dictionary = {
       },
     ],
   },
+  presets,
+  presetsIndex,
   tempLanding,
   chart: {
     metaTitle: 'Tabla de conversión de freidora de aire imprimible gratis',

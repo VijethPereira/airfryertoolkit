@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/en';
+import { presets, presetsIndex } from './presets/en';
 
 const en: Dictionary = {
   nav: {
@@ -188,16 +189,9 @@ const en: Dictionary = {
       heading: 'Time and temperature for one specific food',
       desc: 'Every preset gives temperature, time, shake or flip points, and doneness cues. No recipe blog to scroll.',
       selectLabel: 'Select a food preset',
-      options: ['Chicken breast', 'Chicken wings', 'Salmon fillet', 'Bacon', 'Steak'],
       goLabel: 'Go',
     },
-    presetCards: [
-      { title: 'Chicken breast', spec: '375°F · 16 min · flip at 8', desc: 'Highest-volume preset. Pull at 165°F internal.' },
-      { title: 'Chicken wings', spec: '400°F · 22 min · flip at 12', desc: 'Pat dry first. Two-stage temp option.' },
-      { title: 'Salmon fillet', spec: '390°F · 9 min · no flip', desc: 'Skin down. Thickness table included.' },
-      { title: 'Bacon', spec: '350°F · 9 min · drain at 5', desc: 'Lower temp stops the fat smoking.' },
-    ],
-    allPresetsCard: { title: 'All 40 presets →', desc: 'Meat, fish, vegetables, baking, reheating.' },
+    allPresetsCard: { title: 'All presets →', desc: 'Meat, fish, vegetables, baking, reheating.' },
     brandCards: [
       { title: 'Ninja', spec: 'Max 400°F · basket & dual', desc: 'AF101, AF161, DZ201 and Foodi settings.' },
       { title: 'Cosori', spec: 'Max 450°F · 11 presets', desc: 'Maps the built-in preset buttons to real times.' },
@@ -551,6 +545,8 @@ const en: Dictionary = {
       },
     ],
   },
+  presets,
+  presetsIndex,
   tempLanding,
   chart: {
     metaTitle: 'Free Printable Air Fryer Conversion Chart',

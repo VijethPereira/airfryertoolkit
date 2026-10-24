@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/de';
+import { presets, presetsIndex } from './presets/de';
 
 const de: Dictionary = {
   nav: {
@@ -188,16 +189,9 @@ const de: Dictionary = {
       heading: 'Zeit und Temperatur für ein bestimmtes Lebensmittel',
       desc: 'Jede Voreinstellung gibt Temperatur, Zeit, Schüttel- oder Wendepunkte sowie Garpunkte an. Kein Rezeptblog zum Durchscrollen.',
       selectLabel: 'Voreingestelltes Lebensmittel auswählen',
-      options: ['Hähnchenbrust', 'Chicken Wings', 'Lachsfilet', 'Bacon', 'Steak'],
       goLabel: 'Los',
     },
-    presetCards: [
-      { title: 'Hähnchenbrust', spec: '375°F · 16 Min · Wenden bei 8', desc: 'Meistgenutzte Voreinstellung. Bei 165°F Kerntemperatur herausnehmen.' },
-      { title: 'Chicken Wings', spec: '400°F · 22 Min · Wenden bei 12', desc: 'Zuerst trocken tupfen. Option für zweistufige Temperatur.' },
-      { title: 'Lachsfilet', spec: '390°F · 9 Min · nicht wenden', desc: 'Haut nach unten. Inklusive Dickentabelle.' },
-      { title: 'Bacon', spec: '350°F · 9 Min · Abgießen bei 5', desc: 'Niedrigere Temperatur verhindert, dass das Fett raucht.' },
-    ],
-    allPresetsCard: { title: 'Alle 40 Voreinstellungen →', desc: 'Fleisch, Fisch, Gemüse, Backen, Aufwärmen.' },
+    allPresetsCard: { title: 'Alle Voreinstellungen →', desc: 'Fleisch, Fisch, Gemüse, Backen, Aufwärmen.' },
     brandCards: [
       { title: 'Ninja', spec: 'Max. 400°F · Korb & doppelt', desc: 'Einstellungen für AF101, AF161, DZ201 und Foodi.' },
       { title: 'Cosori', spec: 'Max. 450°F · 11 Voreinstellungen', desc: 'Übersetzt die eingebauten Voreinstellungstasten in reale Zeiten.' },
@@ -551,6 +545,8 @@ const de: Dictionary = {
       },
     ],
   },
+  presets,
+  presetsIndex,
   tempLanding,
   chart: {
     metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',

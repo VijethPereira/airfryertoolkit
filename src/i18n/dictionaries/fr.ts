@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/fr';
+import { presets, presetsIndex } from './presets/fr';
 
 const fr: Dictionary = {
   nav: {
@@ -188,16 +189,9 @@ const fr: Dictionary = {
       heading: 'Temps et température pour un aliment précis',
       desc: 'Chaque préréglage donne la température, le temps, les moments de secouer ou retourner, et les signes de cuisson. Pas de blog de recettes à faire défiler.',
       selectLabel: 'Sélectionnez un aliment préréglé',
-      options: ['Blanc de poulet', 'Ailes de poulet', 'Filet de saumon', 'Lard / bacon', 'Steak'],
       goLabel: 'Aller',
     },
-    presetCards: [
-      { title: 'Blanc de poulet', spec: '375°F · 16 min · retourner à 8', desc: 'Préréglage le plus utilisé. Retirez à 165°F à cœur.' },
-      { title: 'Ailes de poulet', spec: '400°F · 22 min · retourner à 12', desc: 'Séchez-les d’abord. Option température en deux étapes.' },
-      { title: 'Filet de saumon', spec: '390°F · 9 min · sans retourner', desc: 'Peau vers le bas. Tableau d’épaisseur inclus.' },
-      { title: 'Lard / bacon', spec: '350°F · 9 min · égoutter à 5', desc: 'Une température plus basse évite que la graisse ne fume.' },
-    ],
-    allPresetsCard: { title: 'Les 40 préréglages →', desc: 'Viande, poisson, légumes, pâtisserie, réchauffage.' },
+    allPresetsCard: { title: 'Tous les préréglages →', desc: 'Viande, poisson, légumes, pâtisserie, réchauffage.' },
     brandCards: [
       { title: 'Ninja', spec: 'Max 400°F · panier et double', desc: 'Réglages pour AF101, AF161, DZ201 et Foodi.' },
       { title: 'Cosori', spec: 'Max 450°F · 11 préréglages', desc: 'Traduit les boutons préréglés en temps réels.' },
@@ -551,6 +545,8 @@ const fr: Dictionary = {
       },
     ],
   },
+  presets,
+  presetsIndex,
   tempLanding,
   chart: {
     metaTitle: 'Tableau de conversion friteuse à air imprimable gratuit',

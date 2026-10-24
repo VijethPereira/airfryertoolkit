@@ -106,7 +106,7 @@ export function tempLandingValues(landing: TempLanding, locale: LocaleCode = DEF
 /** Replaces every {KEY} in `text` with `values[KEY]`; throws on an unknown key so a typo can't ship. */
 export function fillPlaceholders(text: string, values: Record<string, string>): string {
   return text.replace(/\{([A-Z_]+)\}/g, (_, key: string) => {
-    if (!(key in values)) throw new Error(`Unknown temp landing placeholder {${key}}`);
+    if (!(key in values)) throw new Error(`Unknown placeholder {${key}}`);
     return values[key];
   });
 }
