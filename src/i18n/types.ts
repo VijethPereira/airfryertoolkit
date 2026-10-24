@@ -50,6 +50,10 @@ export interface Dictionary {
     /** {unit} and {ceiling} are replaced the same way as converter.cappedNoteTemplate, via cappedNote(). */
     ambiguousCeilingNoteTemplate: string;
   };
+  /** Overrides merged over `converter` when ConverterWidget runs in convection mode. */
+  convectionConverter: Pick<Dictionary['converter'], 'widgetLabel' | 'ovenTemperature' | 'ovenTime'>;
+  /** Same shape as `reverseConverter`, used when ReverseConverterWidget runs in convection mode. */
+  reverseConvectionConverter: Dictionary['reverseConverter'];
   home: {
     metaTitle: string;
     metaDescription: string;
@@ -97,6 +101,7 @@ export interface Dictionary {
     whatHappensBody: string;
     relatedChartLink: string;
     relatedReverseLink: string;
+    relatedConvectionLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
   };
@@ -119,6 +124,61 @@ export interface Dictionary {
     ovenCaveatHeading: string;
     ovenCaveatBody: string;
     relatedFlagshipLink: string;
+    relatedChartLink: string;
+    relatedConvectionLink: string;
+    faqHeading: string;
+    faqs: { q: string; a: string }[];
+  };
+  convectionTool: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    heading: string;
+    subDesc: string;
+    aboutHeading: string;
+    aboutBody: string;
+    whyGentlerHeading: string;
+    whyGentlerBody: string;
+    workedExampleHeading: string;
+    /**
+     * {GENERAL_AF_F}, {GENERAL_AF_MIN} (computeAirFryerSettingFromConvection, general 350°F/30 min),
+     * {FLAGSHIP_AF_F}, {FLAGSHIP_AF_MIN} (computeAirFryerSetting, same input),
+     * {WINGS_AF_F}, {WINGS_AF_MIN} (computeAirFryerSettingFromConvection, wings 425°F/40 min, capped).
+     */
+    workedExampleTemplate: string;
+    spotHeading: string;
+    spotBody: string;
+    conventionalHeading: string;
+    conventionalBody: string;
+    relatedFlagshipLink: string;
+    relatedReverseLink: string;
+    relatedSiblingLink: string;
+    relatedChartLink: string;
+    faqHeading: string;
+    faqs: { q: string; a: string }[];
+  };
+  reverseConvectionTool: {
+    metaTitle: string;
+    metaDescription: string;
+    metaKeywords: string;
+    backLink: string;
+    heading: string;
+    subDesc: string;
+    aboutHeading: string;
+    aboutBody: string;
+    whenConvectionHeading: string;
+    whenConvectionBody: string;
+    roundingHeading: string;
+    roundingBody: string;
+    workedExampleHeading: string;
+    /** {GENERAL_CONV_F}, {GENERAL_CONV_MIN} (general 340°F/27 min), {FRIES_CONV_F}, {FRIES_CONV_MIN} (fries 390°F/18 min) from computeConvectionSetting(). */
+    workedExampleTemplate: string;
+    ceilingHeading: string;
+    ceilingBody: string;
+    relatedFlagshipLink: string;
+    relatedReverseLink: string;
+    relatedSiblingLink: string;
     relatedChartLink: string;
     faqHeading: string;
     faqs: { q: string; a: string }[];
@@ -157,5 +217,9 @@ export interface Dictionary {
     relatedGasMarkDesc: string;
     relatedReverseLabel: string;
     relatedReverseDesc: string;
+    relatedConvectionLabel: string;
+    relatedConvectionDesc: string;
+    relatedReverseConvectionLabel: string;
+    relatedReverseConvectionDesc: string;
   };
 }

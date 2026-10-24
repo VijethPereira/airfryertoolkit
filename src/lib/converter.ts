@@ -1,5 +1,5 @@
 /**
- * Shared oven-to-air-fryer conversion engine.
+ * Shared oven/convection <-> air fryer conversion engine.
  * Ported 1:1 from the approved design's compute() logic — every page that
  * needs a conversion imports from here. Never duplicate this math elsewhere.
  */
@@ -42,6 +42,51 @@ export const FOODS: Record<FoodKey, FoodProfile> = {
   pizza: { dT: 25, f: 0.75 },
   casserole: { dT: 20, f: 0.85 },
 };
+
+/**
+ * Convection oven -> air fryer profiles (basket baseline). A convection recipe is
+ * already fan-adjusted (roughly 25°F below a conventional oven), so the remaining
+ * gap to an air fryer is the smaller cavity and the food sitting closer to the fan
+ * and element: a 0–15°F temperature cut and a 5–10% time cut, not the 20–25°F /
+ * 15–30% the conventional-oven table above applies.
+ */
+export const CONVECTION_FOODS: Record<FoodKey, FoodProfile> = {
+  general: { dT: 10, f: 0.9 },
+  fries: { dT: 5, f: 0.9 },
+  wings: { dT: 5, f: 0.9 },
+  breast: { dT: 10, f: 0.9 },
+  thigh: { dT: 10, f: 0.9 },
+  steak: { dT: 5, f: 0.95 },
+  fish: { dT: 10, f: 0.95 },
+  bacon: { dT: 10, f: 0.9 },
+  veg: { dT: 10, f: 0.9 },
+  baked: { dT: 15, f: 0.95 },
+  pizza: { dT: 10, f: 0.9 },
+  casserole: { dT: 15, f: 0.95 },
+};
+
+/** Per-table style rules: oven-style units take 5°F less off and 0.05 more time than basket. */
+interface ProfileRules {
+  profiles: Record<FoodKey, FoodProfile>;
+  /** Smallest temperature cut an oven-style unit can end up with. */
+  dTFloor: number;
+  /** Largest time multiplier an oven-style unit can end up with. */
+  fCap: number;
+}
+
+const OVEN_RULES: ProfileRules = { profiles: FOODS, dTFloor: 10, fCap: Infinity };
+// An oven-style air fryer is close to a small convection oven, so the cut can reach 0°F / 1:1 time.
+const CONVECTION_RULES: ProfileRules = { profiles: CONVECTION_FOODS, dTFloor: 0, fCap: 1 };
+
+function styleProfile(rules: ProfileRules, foodKey: FoodKey, style: FryerStyle): FoodProfile & { ceiling: number } {
+  const food = rules.profiles[foodKey] ?? rules.profiles.general;
+  const ovenStyle = style === 'oven';
+  return {
+    dT: Math.max(rules.dTFloor, food.dT - (ovenStyle ? 5 : 0)),
+    f: Math.min(rules.fCap, food.f + (ovenStyle ? 0.05 : 0)),
+    ceiling: ovenStyle ? 450 : 400,
+  };
+}
 
 /** [air-fryer °F, UK gas mark] — used to surface the nearest gas mark for a result. */
 export const GAS_MARKS: [number, number][] = [
@@ -86,13 +131,11 @@ export function convertTempUnit(value: number, from: TempUnit): number {
     : Math.round(((value * 9) / 5 + 32) / 5) * 5;
 }
 
-export function computeAirFryerSetting(input: ConversionInput): ConversionResult {
-  const food = FOODS[input.food] ?? FOODS.general;
+function toAirFryer(rules: ProfileRules, input: ConversionInput): ConversionResult {
   const ovenF = input.unit === 'C' ? (input.ovenTemp * 9) / 5 + 32 : input.ovenTemp;
   const ovenStyle = input.style === 'oven';
-  const ceiling = ovenStyle ? 450 : 400;
-  const dT = Math.max(10, food.dT - (ovenStyle ? 5 : 0));
-  let f = food.f + (ovenStyle ? 0.05 : 0);
+  const { dT, f: baseF, ceiling } = styleProfile(rules, input.food, input.style);
+  let f = baseF;
 
   let outF: number | null = Number.isFinite(ovenF) ? Math.round((ovenF - dT) / 5) * 5 : null;
   let capped = false;
@@ -119,6 +162,19 @@ export function computeAirFryerSetting(input: ConversionInput): ConversionResult
     preheatMinutes: ovenStyle ? 4 : 3,
     gasMark: gasEntry ? gasEntry[1] : null,
   };
+}
+
+export function computeAirFryerSetting(input: ConversionInput): ConversionResult {
+  return toAirFryer(OVEN_RULES, input);
+}
+
+/**
+ * Convection oven -> air fryer. Same pipeline as `computeAirFryerSetting` (ceiling
+ * clamp, capped time bonus, °C, gas mark) on the gentler `CONVECTION_FOODS` table.
+ * `input.ovenTemp` / `input.ovenMinutes` are the convection recipe's settings.
+ */
+export function computeAirFryerSettingFromConvection(input: ConversionInput): ConversionResult {
+  return toAirFryer(CONVECTION_RULES, input);
 }
 
 /** Fills a locale's cappedNoteTemplate ("...{unit}...{ceiling}...") with the resolved unit label and ceiling value. */
@@ -171,12 +227,22 @@ export interface ReverseConversionResult {
  * an oven dial can actually show instead of drifting off it.
  */
 export function computeOvenSetting(input: ReverseConversionInput): ReverseConversionResult {
-  const food = FOODS[input.food] ?? FOODS.general;
+  return fromAirFryer(OVEN_RULES, input);
+}
+
+/**
+ * Air fryer -> convection oven: the inverse of `computeAirFryerSettingFromConvection`.
+ * Same 25°F dial snap and `ceilingAmbiguous` flag as `computeOvenSetting`. With a
+ * 0–15°F cut, the snap often returns the air fryer temperature unchanged and only
+ * the time grows — that is the expected result, not a rounding bug.
+ */
+export function computeConvectionSetting(input: ReverseConversionInput): ReverseConversionResult {
+  return fromAirFryer(CONVECTION_RULES, input);
+}
+
+function fromAirFryer(rules: ProfileRules, input: ReverseConversionInput): ReverseConversionResult {
   const airFryerF = input.unit === 'C' ? (input.airFryerTemp * 9) / 5 + 32 : input.airFryerTemp;
-  const ovenStyle = input.style === 'oven';
-  const ceiling = ovenStyle ? 450 : 400;
-  const dT = Math.max(10, food.dT - (ovenStyle ? 5 : 0));
-  const f = food.f + (ovenStyle ? 0.05 : 0);
+  const { dT, f, ceiling } = styleProfile(rules, input.food, input.style);
 
   const outF: number | null = Number.isFinite(airFryerF)
     ? Math.round((airFryerF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP

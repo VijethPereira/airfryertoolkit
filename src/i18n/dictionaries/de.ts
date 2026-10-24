@@ -65,6 +65,20 @@ const de: Dictionary = {
     ambiguousCeilingNoteTemplate:
       'Das liegt an der Obergrenze deiner {unit} ({ceiling}°F). Wenn diese Einstellung selbst aus einem heißeren Ofenrezept nach unten umgerechnet wurde, enthält die Zeit bereits etwa 8 % extra — ziehe das für ein genaueres Ergebnis wieder ab.',
   },
+  convectionConverter: {
+    widgetLabel: "Umluft → Heißluftfritteuse",
+    ovenTemperature: "Umlufttemperatur",
+    ovenTime: "Umluftzeit",
+  },
+  reverseConvectionConverter: {
+    widgetLabel: "Heißluftfritteuse → Umluft",
+    airFryerTemperature: "Temperatur der Heißluftfritteuse",
+    airFryerTime: "Zeit der Heißluftfritteuse",
+    ovenSetting: "Umluft-Einstellung",
+    stepNote: "Auf 25°F-Ofenstufen gerundet",
+    ovenCaveat: "Lass den Ventilator an und verteile das Essen in einer Schicht mit Platz um jedes Stück — ein überladenes Umluftblech verliert die Luftzirkulation, von der diese Zeiten ausgehen.",
+    ambiguousCeilingNoteTemplate: "Dieser Wert liegt an der Obergrenze des {unit} ({ceiling}°F). Wurde er aus einem heißeren Umluftrezept heruntergerechnet, enthält die Zeit bereits etwa 8 % extra — zieh die wieder ab oder geh zum Originalrezept zurück.",
+  },
   home: {
     metaTitle: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     metaDescription:
@@ -187,6 +201,7 @@ const de: Dictionary = {
       'Ein 450°F-Rezept, das mit einer pauschalen Regel für eine Korb-Heißluftfritteuse mit maximal 400°F umgerechnet wird, würde 425°F ergeben — eine Einstellung, die es auf dem Regler gar nicht gibt. Dieses Tool begrenzt das Ergebnis auf die reale Obergrenze des Geräts (400°F Korb, 450°F Ofen-Typ) und fügt Zeit hinzu, um die niedrigere Hitze auszugleichen, mit einem klar formulierten Hinweis, was passiert ist und was zu erwarten ist (eine etwas weniger knusprige Oberfläche, also etwas früher prüfen). Es ist die häufigste Lücke bei anderen Heißluftfritteusen-Rechnern und der Grund, warum es dieses Tool gibt.',
     relatedChartLink: 'Druckbare Umrechnungstabelle',
     relatedReverseLink: 'Heißluftfritteuse-zu-Ofen-Umrechner',
+    relatedConvectionLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
     faqHeading: 'Häufig gestellte Fragen',
     faqs: [
       {
@@ -298,6 +313,7 @@ const de: Dictionary = {
       'Ein herkömmlicher Ofen hat nicht die forcierte Luftzirkulation eines Heißluftfritteusen-Korbs, deshalb ändern sich zwei Dinge. Vorheizen wird wichtiger, weil der Ofen seine volle Aufheizzeit braucht, um die Zieltemperatur gleichmäßig zu erreichen, statt der 3–4 Minuten Vorsprung, die eine Heißluftfritteuse benötigt. Und eine einzelne Schicht Essen wird nicht ganz so stark knusprig wie im Korb, weil weniger konzentrierter Luftstrom gleichzeitig jede Seite trifft. Beides ist kein Problem, das man umgehen muss — erwarte nur nicht, dass ein Blech Chicken Wings aus dem Ofen genauso aussieht wie die Version aus der Heißluftfritteuse, und nutze eine Umluft- oder „Air Fry“-Einstellung deines Ofens, falls vorhanden, denn das gleicht den größten Teil des Unterschieds aus.',
     relatedFlagshipLink: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     relatedChartLink: 'Druckbare Umrechnungstabelle',
+    relatedConvectionLink: "Heißluftfritteuse-zu-Umluft-Umrechner",
     faqHeading: 'Häufig gestellte Fragen',
     faqs: [
       {
@@ -323,6 +339,104 @@ const de: Dictionary = {
       {
         q: 'Welche Kerntemperatur sollte ich unabhängig vom Gerät weiterhin prüfen?',
         a: 'Die Ziel-Kerntemperaturen ändern sich zwischen Heißluftfritteuse und Ofen nicht — nimm Geflügel bei 165°F Kerntemperatur heraus und Fisch, Steak oder Koteletts bei 145°F. Das Gerät ändert Zeit und Reglereinstellung, um dorthin zu kommen; es ändert nicht, was „gar“ bedeutet.',
+      },
+    ],
+  },
+  convectionTool: {
+    metaTitle: "Umluft zu Heißluftfritteuse umrechnen",
+    metaDescription: "Rechne ein Umluftrezept in Einstellungen für die Heißluftfritteuse um. Ein sanfterer Abzug als die Ofenregel — Umluftrezepte sind bereits angepasst — nach Lebensmittel und Korb- oder Ofen-Typ.",
+    metaKeywords: "umluft heißluftfritteuse umrechnen, umluft in heißluftfritteuse, umluftofen zu heißluftfritteuse, umluftrezept airfryer, umluft airfryer temperatur",
+    backLink: "Alle Tools",
+    heading: "Umluft-zu-Heißluftfritteuse-Umrechner",
+    subDesc: "Gib Temperatur und Zeit eines Umluftrezepts ein. Du bekommst die Einstellung für die Heißluftfritteuse mit dem kleineren Abzug, den ein bereits ventilatorangepasstes Rezept braucht — nach Lebensmittel und Korb- oder Ofen-Typ.",
+    aboutHeading: "Warum Umluftrezepte eine eigene Umrechnung brauchen",
+    aboutBody: "Ein Umluftofen und eine Heißluftfritteuse arbeiten nach demselben Prinzip: Ein Ventilator bewegt heiße Luft um das Essen, damit die Wärme schneller ankommt als in stehender Luft. Ein Rezept für Umluft hat den Großteil des Fritteusen-Vorteils also schon eingebaut — es liegt meist etwa 25°F unter der Ober-/Unterhitze-Version desselben Gerichts und ist oft etwas kürzer. Schickst du dieses Rezept durch eine normale Ofen-zu-Heißluftfritteuse-Umrechnung, ziehst du die 25°F ein zweites Mal ab — so kommen Umluftrezepte blass und nicht durchgegart aus dem Korb. Dieser Umrechner startet beim Umluftwert und wendet nur den Abstand an, der tatsächlich übrig ist.",
+    whyGentlerHeading: "Warum der Abzug kleiner ist",
+    whyGentlerBody: "Was zwischen Umluftofen und Heißluftfritteuse noch bleibt, sind Größe und Abstand. Der Garraum einer Heißluftfritteuse hat nur einen Bruchteil des Volumens, und das Essen liegt wenige Zentimeter von Ventilator und Heizelement entfernt — die Luft erreicht es schneller, die Oberfläche bräunt früher. Das entspricht etwa 0–15°F und 5–10 % der Zeit, je nach Lebensmittel. Pommes und Chicken Wings behalten fast ihre ganze Hitze — sie brauchen sie, um knusprig zu werden und Fett auszulassen — und sparen stattdessen Zeit. Gebäck und Aufläufe bekommen den größten Temperaturabzug, 15°F, weil in einem kleinen Garraum die Oberfläche bräunt, bevor die Mitte fest wird. Heißluftfritteusen im Ofen-Typ sind einem Umluftofen noch näher, ihr Abzug sinkt daher um weitere 5°F.",
+    workedExampleHeading: "Rechenbeispiel",
+    workedExampleTemplate: "Ein Umluftrezept mit 350°F für 30 Minuten, allgemeines Lebensmittel, in einer Korb-Heißluftfritteuse ergibt {GENERAL_AF_F}°F für {GENERAL_AF_MIN} Minuten. Mit denselben Werten im Umrechner für Ober-/Unterhitze bekämst du {FLAGSHIP_AF_F}°F für {FLAGSHIP_AF_MIN} Minuten — zu niedrig und zu kurz für ein Rezept, das schon für den Ventilator angepasst war. Chicken Wings mit 425°F Umluft für 40 Minuten liegen über dem, was ein 400°F-Korb schafft, also hält der Umrechner sie bei {WINGS_AF_F}°F und gibt Zeit zurück: {WINGS_AF_MIN} Minuten, mit einem Hinweis, dass er das getan hat.",
+    spotHeading: "So erkennst du, ob ein Rezept für Umluft geschrieben ist",
+    spotBody: "Achte zuerst auf die Wörter: „Umluft“, „Heißluft“, „Ventilator“, „Konvektion“ oder eine Temperatur wie „180°C Umluft“. Deutsche Rezepte und viele Verpackungen nennen oft zwei Werte, Ober-/Unterhitze und Umluft, und der Umluftwert ist der niedrigere. Steht nichts dabei, vergleiche die Temperatur mit dem, was das Gericht sonst braucht: Ofenkartoffeln bei 400°F statt 425°F oder Plätzchen bei 325°F statt 350°F deuten darauf hin, dass das Rezept schon einen Ventilator voraussetzt. Rezeptbücher, die einem Backofen beiliegen, sind meist für dessen Umluftstufe geschrieben.",
+    conventionalHeading: "Wenn das Rezept kein Umluftrezept ist",
+    conventionalBody: "Ein Rezept für Ober-/Unterhitze, ohne Ventilator, braucht die volle Umrechnung — den größeren Temperaturabzug und die stärkere Zeitkürzung, die der Ofen-zu-Heißluftfritteuse-Umrechner anwendet. Nutzt du diese Seite für ein Ober-/Unterhitze-Rezept, wird das Essen etwas zu heiß und zu lange gegart; nutzt du den normalen Umrechner für ein Umluftrezept, bleibt es zu roh. Wähle den Umrechner nach dem Rezept, nicht nach deinem Gerät.",
+    relatedFlagshipLink: "Ofen-zu-Heißluftfritteuse-Umrechner (Ober-/Unterhitze)",
+    relatedReverseLink: "Heißluftfritteuse-zu-Ofen-Umrechner",
+    relatedSiblingLink: "Heißluftfritteuse-zu-Umluft-Umrechner",
+    relatedChartLink: "Druckbare Umrechnungstabelle",
+    faqHeading: "Häufig gestellte Fragen",
+    faqs: [
+      {
+        q: "Wie rechne ich ein Umluftrezept für die Heißluftfritteuse um?",
+        a: "Senke die Temperatur je nach Lebensmittel um 0–15°F und kürze die Zeit um 5–10 %. Alles, was knusprig werden soll, wie Pommes und Chicken Wings, behält die Hitze und verliert etwas Zeit; Gebäck und Aufläufe bekommen den größten Temperaturabzug. Der Umrechner oben wendet die Werte pro Lebensmittel an und prüft das Ergebnis gegen die Höchsttemperatur deiner Heißluftfritteuse.",
+      },
+      {
+        q: "Ziehe ich bei einem Umluftrezept 25°F für die Heißluftfritteuse ab?",
+        a: "Nein. Diese 25°F sind die übliche Anpassung von Ober-/Unterhitze auf Umluft, und ein Umluftrezept hat sie schon gemacht. Ziehst du sie noch einmal ab, zählst du den Ventilator doppelt und das Essen bleibt zu roh. Ab Umluft bleibt höchstens ein Abzug von 15°F.",
+      },
+      {
+        q: "Ist Heißluft dasselbe wie Umluft?",
+        a: "Im Backofen ja: „Heißluft“, „Umluft“ und „Konvektion“ meinen alle den Betrieb mit Ventilator. Nennt die Verpackung einen Wert für Ober-/Unterhitze und einen für Umluft, gib hier den Umluftwert ein.",
+      },
+      {
+        q: "Was, wenn das Umluftrezept heißer ist, als meine Heißluftfritteuse kann?",
+        a: "Der Umrechner hält die Temperatur an der Obergrenze deines Geräts — 400°F bei den meisten Korbmodellen, 450°F bei Geräten im Ofen-Typ — und gibt etwa 8 % Zeit zum Ausgleich zurück, mit einem Hinweis unter dem Ergebnis. Schau früher nach; die Oberfläche bräunt eventuell etwas weniger.",
+      },
+      {
+        q: "Kann ich Umluftwerte in einer Heißluftfritteuse im Ofen-Typ einfach übernehmen?",
+        a: "Fast. Eine Heißluftfritteuse im Ofen-Typ ist im Grunde ein kleiner Umluftofen, der Abzug wird also kleiner: 0–10°F und eine Zeit nahe am Original. Pommes und Chicken Wings können bei der Umlufttemperatur bleiben, mit nur ein paar Minuten weniger.",
+      },
+      {
+        q: "Ändern sich die Kerntemperaturen zwischen Umluft und Heißluftfritteuse?",
+        a: "Nein. Geflügel ist bei 165°F Kerntemperatur fertig, Fisch, Steak oder Koteletts bei 145°F — egal in welchem Gerät. Der Umrechner ändert Einstellung und Zeit, um dorthin zu kommen, nicht, was „gar“ bedeutet.",
+      },
+    ],
+  },
+  reverseConvectionTool: {
+    metaTitle: "Heißluftfritteuse zu Umluft umrechnen",
+    metaDescription: "Rechne Temperatur und Zeit der Heißluftfritteuse in eine Umluft-Einstellung für den Backofen um, nach Lebensmittel und Korb- oder Ofen-Typ, gerundet auf 25°-Stufen. Für Mengen, die nicht in den Korb passen.",
+    metaKeywords: "heißluftfritteuse zu umluft, airfryer in umluft umrechnen, heißluftfritteuse rezept im umluftofen, airfryer zeit umluft backofen",
+    backLink: "Alle Tools",
+    heading: "Heißluftfritteuse-zu-Umluft-Umrechner",
+    subDesc: "Gib eine Temperatur und Zeit der Heißluftfritteuse ein. Du bekommst die Umluft-Einstellung für den Backofen, angepasst an Lebensmittel und Korb- oder Ofen-Typ, gerundet auf die 25°-Stufen eines echten Ofenreglers.",
+    aboutHeading: "Über die Umrechnung von Heißluftfritteuse zu Umluft",
+    aboutBody: "Ein Heißluftfritteusen-Rezept lässt sich schlecht vergrößern. Der Korb fasst eine Schicht, und sobald du für sechs statt für zwei kochst, ist ein Umluftofen — dieselbe ventilatorgetriebene Hitze in einem Garraum für zwei Bleche — der schnellere Weg. Weil beide Geräte heiße Luft mit einem Ventilator bewegen, ist der Schritt von der Heißluftfritteuse zum Umluftofen eine kleine Anpassung, nicht der ganze Weg zurück zu Ober-/Unterhitze. Dieser Umrechner gibt nur den Abstand pro Lebensmittel zwischen beiden zurück: ein paar Grad und etwas Zeit, mit derselben Tabelle wie der Umluft-zu-Heißluftfritteuse-Umrechner, nur rückwärts.",
+    whenConvectionHeading: "Wann der Umluftofen den Korb schlägt",
+    whenConvectionBody: "Die Menge ist der Hauptgrund: Ein Umluftofen gart zwei oder drei Bleche gleichzeitig, wobei der Ventilator jede Schiene nahezu auf derselben Temperatur hält, während eine Heißluftfritteuse drei Durchgänge hintereinander bräuchte. Große Stücke — ein ganzes Hähnchen, ein Blech Plätzchen, ein Blechgericht — passen in einen Ofen, nicht in einen Korb. Und wenn die Heißluftfritteuse mit einer Beilage belegt ist, kommen beide gleichzeitig auf den Tisch, wenn das Hauptgericht in den Umluftofen wandert. Blechgerichte, bei denen Gemüse und Fleisch sich ein Blech teilen und zusammen fertig werden, lassen sich im Ofen ebenfalls leichter timen. Für eine Portion Pommes oder Chicken Wings gewinnt die Heißluftfritteuse aber weiter bei Tempo und Knusprigkeit.",
+    roundingHeading: "Warum sich die Temperatur oft nicht ändert",
+    roundingBody: "Der Abstand zwischen Heißluftfritteuse und Umluftofen beträgt 0–15°F, und ein Ofenregler rastet in 25°F-Stufen. Rechne 10°F auf eine Fritteuseneinstellung von 375°F, und die nächste Stufe am Regler ist immer noch 375°F. Für viele Lebensmittel gibt dieser Umrechner deshalb dieselbe Temperatur zurück und steckt die ganze Anpassung in die Zeit. Das ist die ehrliche Antwort: Der Unterschied zwischen beiden Geräten liegt vor allem darin, wie schnell die Luft das Essen erreicht, und eine etwas längere Garzeit im größeren Garraum ist der Weg, wie der Ofen das ausgleicht. Das Runden auf Reglerstufen sorgt außerdem dafür, dass ein hin und zurück umgerechnetes Rezept wieder beim Ausgangswert landet.",
+    workedExampleHeading: "Rechenbeispiel",
+    workedExampleTemplate: "Eine allgemeine Korb-Einstellung von 340°F für 27 Minuten wird im Umluftofen zu {GENERAL_CONV_F}°F für {GENERAL_CONV_MIN} Minuten — wahrscheinlich genau das Umluftrezept, aus dem sie stammt. Pommes mit 390°F für 18 Minuten werden zu {FRIES_CONV_F}°F für {FRIES_CONV_MIN} Minuten: Der Regler landet auf der nächsten Stufe, und der Ofen bekommt ein paar Minuten mehr, weil die Luft über ein volles Blech langsamer strömt als durch einen Korb.",
+    ceilingHeading: "Einstellungen am Maximum deiner Heißluftfritteuse",
+    ceilingBody: "Liegt die Fritteuseneinstellung an der Obergrenze des Geräts — 400°F bei den meisten Körben, 450°F bei Geräten im Ofen-Typ —, kann sie selbst schon ein umgerechneter Wert sein: ein heißeres Umluftrezept, heruntergehalten auf das, was die Fritteuse schafft, mit etwa 8 % zusätzlicher Zeit. Der Umrechner kann das nicht unterscheiden und zeigt deshalb einen Hinweis. Weißt du, dass das Rezept heißer angefangen hat, nimm die ursprüngliche Umluft-Einstellung, statt zurückzurechnen.",
+    relatedFlagshipLink: "Ofen-zu-Heißluftfritteuse-Umrechner",
+    relatedReverseLink: "Heißluftfritteuse-zu-Ofen-Umrechner (Ober-/Unterhitze)",
+    relatedSiblingLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
+    relatedChartLink: "Druckbare Umrechnungstabelle",
+    faqHeading: "Häufig gestellte Fragen",
+    faqs: [
+      {
+        q: "Wie rechne ich Zeit und Temperatur der Heißluftfritteuse auf Umluft um?",
+        a: "Rechne je nach Lebensmittel 0–15°F dazu, runde auf die nächste 25°F-Reglerstufe und verlängere die Zeit um 5–10 %. Der Umrechner oben macht alle drei Schritte mit derselben Lebensmitteltabelle wie der Umluft-zu-Heißluftfritteuse-Umrechner, damit beide Richtungen übereinstimmen.",
+      },
+      {
+        q: "Ist Heißluftfritteuse zu Umluft dasselbe wie Heißluftfritteuse zu Ofen?",
+        a: "Nein. Ober-/Unterhitze ohne Ventilator braucht 20–25°F und 15–30 % der Zeit zurück. Ein Umluftofen hat schon einen Ventilator und braucht daher deutlich weniger. Hat dein Ofen keine Umluft, nimm den Heißluftfritteuse-zu-Ofen-Umrechner.",
+      },
+      {
+        q: "Warum kommt dieselbe Temperatur wie in meiner Heißluftfritteuse heraus?",
+        a: "Weil der Abstand zwischen beiden Geräten kleiner ist als eine 25°F-Stufe am Ofenregler. Rundet man auf eine Einstellung, die der Ofen anzeigen kann, landet man oft wieder beim Fritteusenwert — die Anpassung wandert dann in die Zeit.",
+      },
+      {
+        q: "Umluft oder Umluft mit Grill?",
+        a: "Normale Umluft passt für die meisten Lebensmittel. Umluft mit Grill, die das obere Heizelement dazunimmt, hilft bei Chicken Wings, Kartoffeln und allem, was knusprig werden soll. Nimm in beiden Fällen die Temperatur, die der Umrechner ausgibt.",
+      },
+      {
+        q: "Brauche ich mit zwei Blechen im Ofen mehr Zeit?",
+        a: "Oft ein paar Minuten, ja. Die umgerechnete Zeit geht von einem Blech mit Platz drumherum aus. Bei zwei oder mehr Blechen tausche sie zur Hälfte der Zeit und schau ein bis zwei Minuten nach der umgerechneten Zeit nach.",
+      },
+      {
+        q: "Ändern sich die Ziel-Kerntemperaturen?",
+        a: "Nein. Geflügel ist bei 165°F Kerntemperatur gar, Fisch, Steak oder Koteletts bei 145°F — in der Heißluftfritteuse wie im Umluftofen.",
       },
     ],
   },
@@ -391,6 +505,10 @@ const de: Dictionary = {
     relatedGasMarkDesc: '— eine direkte Temperaturumrechnung für britische, EU- und US-Rezepte.',
     relatedReverseLabel: 'Heißluftfritteuse-zu-Ofen-Umrechner',
     relatedReverseDesc: '— die umgekehrte Richtung, für die Fälle, in denen der Ofen die bessere Wahl ist.',
+    relatedConvectionLabel: "Umluft-zu-Heißluftfritteuse-Umrechner",
+    relatedConvectionDesc: "— ein sanfterer Abzug für Umluftrezepte, die schon angepasst sind.",
+    relatedReverseConvectionLabel: "Heißluftfritteuse-zu-Umluft-Umrechner",
+    relatedReverseConvectionDesc: "— bring eine Fritteuseneinstellung für größere Mengen in den Umluftofen.",
   },
 };
 

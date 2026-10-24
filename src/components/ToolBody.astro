@@ -13,6 +13,7 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale).tool;
 const reverseLive = LIVE_PAGES.has('/air-fryer-to-oven');
+const convectionLive = LIVE_PAGES.has('/convection-to-air-fryer');
 ---
 
 <main class="page-main">
@@ -46,6 +47,9 @@ const reverseLive = LIVE_PAGES.has('/air-fryer-to-oven');
       <p class="related-link"><a href={localizedPath(locale, '/chart')}>{dict.relatedChartLink} &rarr;</a></p>
       {reverseLive && (
         <p class="related-link"><a href={localizedPath(locale, '/air-fryer-to-oven')}>{dict.relatedReverseLink} &rarr;</a></p>
+      )}
+      {convectionLive && (
+        <p class="related-link"><a href={localizedPath(locale, '/convection-to-air-fryer')}>{dict.relatedConvectionLink} &rarr;</a></p>
       )}
     </section>
 

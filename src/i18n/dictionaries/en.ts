@@ -65,6 +65,20 @@ const en: Dictionary = {
     ambiguousCeilingNoteTemplate:
       'This is at the {unit} ceiling ({ceiling}°F). If it was itself converted down from a hotter oven, the time already includes about 8% extra — subtract that back out for a more accurate result.',
   },
+  convectionConverter: {
+    widgetLabel: "Convection → Air fryer",
+    ovenTemperature: "Convection temperature",
+    ovenTime: "Convection time",
+  },
+  reverseConvectionConverter: {
+    widgetLabel: "Air fryer → Convection",
+    airFryerTemperature: "Air fryer temperature",
+    airFryerTime: "Air fryer time",
+    ovenSetting: "Convection oven setting",
+    stepNote: "Rounded to 25°F oven-dial steps",
+    ovenCaveat: "Keep the fan on and spread the food in a single layer with space around each piece — a crowded convection tray loses the airflow these times assume.",
+    ambiguousCeilingNoteTemplate: "This is at the {unit} ceiling ({ceiling}°F). If it was converted down from a hotter convection recipe, the time already includes about 8% extra — subtract that back out, or go back to the original recipe.",
+  },
   home: {
     metaTitle: 'Oven to Air Fryer Converter',
     metaDescription:
@@ -187,6 +201,7 @@ const en: Dictionary = {
       "A 450°F recipe converted with a flat rule on a 400°F-max basket air fryer would return 425°F — a setting that doesn't exist on the dial. This tool clamps the result to the unit's real ceiling (400°F basket, 450°F oven-style) and adds time back to compensate for the lower heat, with a plain-language note explaining what happened and what to expect (a slightly softer surface, so check a little early). It's the single most common gap across other air fryer calculators, and the reason this tool exists.",
     relatedChartLink: 'Printable conversion chart',
     relatedReverseLink: 'Air Fryer → Oven converter',
+    relatedConvectionLink: "Convection → Air Fryer converter",
     faqHeading: 'Frequently Asked Questions',
     faqs: [
       {
@@ -298,6 +313,7 @@ const en: Dictionary = {
       "A conventional oven doesn't have the forced-air circulation a fryer basket does, so two things change. Preheat matters more, since the oven needs its full ramp-up time to reach the target temperature evenly rather than the 3–4 minute head start an air fryer needs. And a single layer of food won't crisp quite as aggressively as it did in the basket, since there's less concentrated airflow hitting every side at once. Neither is a problem to work around — just don't expect an oven tray of wings to look identical to the air-fried version, and lean on a convection or \"air fry\" oven setting if yours has one, since that closes most of the gap.",
     relatedFlagshipLink: 'Oven → Air Fryer converter',
     relatedChartLink: 'Printable conversion chart',
+    relatedConvectionLink: "Air Fryer → Convection converter",
     faqHeading: 'Frequently Asked Questions',
     faqs: [
       {
@@ -323,6 +339,104 @@ const en: Dictionary = {
       {
         q: 'What internal temperature should I still check for, regardless of appliance?',
         a: 'Internal temperature targets don\'t change between an air fryer and an oven — pull poultry at 165°F internal and fish, steak, or chops at 145°F. The appliance changes the time and dial setting to get there; it doesn\'t change what "done" means.',
+      },
+    ],
+  },
+  convectionTool: {
+    metaTitle: "Convection Oven to Air Fryer Converter",
+    metaDescription: "Convert a convection or fan-oven recipe to air fryer settings. A gentler cut than the oven rule — fan recipes are already adjusted — by food type and basket vs. oven-style.",
+    metaKeywords: "convection to air fryer, convection oven to air fryer conversion, fan oven to air fryer, convert convection recipe to air fryer, convection bake to air fryer, fan forced to air fryer",
+    backLink: "All tools",
+    heading: "Convection to Air Fryer Converter",
+    subDesc: "Enter the temperature and time from a convection or fan-oven recipe. Get the air fryer setting with the smaller cut a fan-adjusted recipe needs, by food type and basket vs. oven-style.",
+    aboutHeading: "Why convection recipes need their own conversion",
+    aboutBody: "A convection oven and an air fryer work on the same principle: a fan pushes hot air around the food so heat reaches it faster than it would in still air. That means a recipe written for convection already has most of the air fryer's advantage built in — it is usually set about 25°F lower than the conventional-oven version of the same dish, and often runs a little shorter. Put that recipe through a standard oven-to-air-fryer conversion and you take the 25°F off a second time, which is how fan-oven recipes come out of an air fryer basket pale and underdone. This converter starts from the convection number and applies only the gap that is actually left.",
+    whyGentlerHeading: "Why the cut is smaller",
+    whyGentlerBody: "What remains between a convection oven and an air fryer is size and distance. An air fryer's cavity is a fraction of the volume, and the food sits a few inches from both the fan and the heating element, so the air reaches it faster and the surface browns sooner. That is worth roughly 0–15°F and 5–10% of the time, depending on the food. Fries and wings keep almost all of their heat — they need it to crisp and render fat — and save time instead. Baked goods and casseroles take the biggest temperature cut, 15°F, because in a small cavity the top browns before the center sets. Oven-style air fryers are closer still to a convection oven, so their cut shrinks by another 5°F.",
+    workedExampleHeading: "Worked example",
+    workedExampleTemplate: "A fan-oven recipe at 350°F for 30 minutes, general food, in a basket air fryer, comes out at {GENERAL_AF_F}°F for {GENERAL_AF_MIN} minutes. Put the same numbers through the conventional oven-to-air-fryer converter and you would get {FLAGSHIP_AF_F}°F for {FLAGSHIP_AF_MIN} minutes — too low and too short for a recipe that was already fan-adjusted. Wings at 425°F convection for 40 minutes run hotter than a 400°F basket can go, so the converter holds them at {WINGS_AF_F}°F and adds time back: {WINGS_AF_MIN} minutes, with a note telling you it did.",
+    spotHeading: "How to tell if a recipe is written for convection",
+    spotBody: "Look for the words first: \"fan\", \"fan-forced\", \"fan oven\", \"convection bake\", \"convection roast\", or a temperature written as \"180°C fan\". UK and Australian recipes and food packaging often print two numbers, one conventional and one fan, and the fan one is the lower. If there is no label, compare the temperature with what the dish usually takes: roast potatoes at 400°F rather than 425°F, or cookies at 325°F rather than 350°F, suggest the recipe already assumes a fan. Recipe books that come with an oven are usually written for its convection setting.",
+    conventionalHeading: "If the recipe isn't convection",
+    conventionalBody: "A recipe for a standard, fan-off oven needs the full conversion — the larger temperature drop and bigger time cut the oven-to-air-fryer converter applies. Using this page for a conventional recipe leaves food slightly hot and long; using the conventional converter for a convection recipe leaves it underdone. Match the converter to the recipe, not to your appliance.",
+    relatedFlagshipLink: "Oven → Air Fryer converter (conventional recipes)",
+    relatedReverseLink: "Air Fryer → Oven converter",
+    relatedSiblingLink: "Air Fryer → Convection converter",
+    relatedChartLink: "Printable conversion chart",
+    faqHeading: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "How do I convert a convection oven recipe to an air fryer?",
+        a: "Lower the temperature by 0–15°F depending on the food and cut the time by 5–10%. Crisping foods like fries and wings keep their heat and lose a little time; baked goods and casseroles take the biggest temperature cut. The converter above applies the per-food numbers and checks the result against your air fryer's maximum temperature.",
+      },
+      {
+        q: "Do I subtract 25°F from a convection recipe for the air fryer?",
+        a: "No. That 25°F is the usual conventional-to-convection adjustment, and a convection recipe has already made it. Subtracting it again double-counts the fan and leaves food underdone. From convection, the remaining cut is 15°F at most.",
+      },
+      {
+        q: "Is a fan oven the same as a convection oven?",
+        a: "Yes. \"Fan oven\" and \"fan-forced\" are the UK and Australian names for a convection oven. When packaging lists a conventional and a fan temperature, enter the fan one here.",
+      },
+      {
+        q: "What if the convection recipe is hotter than my air fryer can go?",
+        a: "The converter holds the temperature at your unit's ceiling — 400°F for most basket models, 450°F for oven-style units — and adds about 8% of the time back to make up the difference, with a note under the result. Check early; the surface may brown a little less.",
+      },
+      {
+        q: "Can I use convection settings unchanged in an oven-style air fryer?",
+        a: "Almost. An oven-style air fryer is essentially a small convection oven, so the cut shrinks: 0–10°F and close to the original time. Fries and wings can run at the convection temperature with only a few minutes off.",
+      },
+      {
+        q: "Do internal temperature targets change between convection and air frying?",
+        a: "No. Pull poultry at 165°F internal and fish, steak, or chops at 145°F, whichever appliance you use. The converter changes the setting and time to get there, not what done means.",
+      },
+    ],
+  },
+  reverseConvectionTool: {
+    metaTitle: "Air Fryer to Convection Oven Converter",
+    metaDescription: "Convert air fryer temperature and time to a convection (fan) oven setting, by food type and basket vs. oven-style, rounded to 25° dial steps. For batches the basket cannot hold.",
+    metaKeywords: "air fryer to convection, air fryer to convection oven conversion, air fryer to fan oven, convert air fryer recipe to convection oven, air fryer time to convection oven time",
+    backLink: "All tools",
+    heading: "Air Fryer to Convection Oven Converter",
+    subDesc: "Enter an air fryer temperature and time. Get the convection (fan) oven setting, adjusted for food type and basket vs. oven-style, rounded to the 25° steps a real oven dial uses.",
+    aboutHeading: "About air-fryer-to-convection conversion",
+    aboutBody: "An air fryer recipe scales badly. The basket holds one layer, and the moment you are feeding six instead of two, a convection oven — the same fan-driven heat in a cavity big enough for two sheet pans — is the faster route. Because both appliances move hot air with a fan, going from an air fryer to a convection oven is a small adjustment, not the full trip back to a conventional oven. This converter adds back only the per-food gap between the two: a few degrees and a little time, using the same table as the convection-to-air-fryer converter, run backward.",
+    whenConvectionHeading: "When a convection oven beats the basket",
+    whenConvectionBody: "Batch size is the main one: a convection oven cooks two or three trays at once, with the fan keeping every rack close to the same temperature, where an air fryer would need three loads back to back. Large items — a whole chicken, a sheet of cookies, a tray bake — fit an oven and not a basket. And when the air fryer is busy with a side dish, moving the main to the fan oven gets both to the table at the same time. Sheet-pan dinners, where vegetables and a protein share one tray and finish together, are easier to time in an oven too. For one portion of fries or wings, the air fryer still wins on speed and crispness.",
+    roundingHeading: "Why the temperature often doesn't change",
+    roundingBody: "The gap between an air fryer and a convection oven is 0–15°F, and an oven dial clicks in 25°F steps. Add 10°F to a 375°F air fryer setting and the nearest step on the dial is still 375°F. So for many foods this converter gives the same temperature back and puts the whole adjustment into time. That is the honest answer: the difference between the two appliances is mostly how fast the air reaches the food, and a slightly longer cook in the bigger cavity is how the oven makes it up. Snapping to dial steps also means a recipe converted there and back lands on the number it started from.",
+    workedExampleHeading: "Worked example",
+    workedExampleTemplate: "A general air fryer setting of 340°F for 27 minutes in a basket becomes {GENERAL_CONV_F}°F for {GENERAL_CONV_MIN} minutes in a convection oven — the fan-oven recipe it most likely started as. Fries at 390°F for 18 minutes become {FRIES_CONV_F}°F for {FRIES_CONV_MIN} minutes: the dial lands on the next step up, and the oven gets a couple of extra minutes because air moves more slowly across a full tray than through a basket.",
+    ceilingHeading: "Settings at your air fryer's maximum",
+    ceilingBody: "If the air fryer setting sits at the unit's ceiling — 400°F on most baskets, 450°F on oven-style units — it may itself be a converted number: a hotter convection recipe held down to what the air fryer can reach, with about 8% extra time added. The converter can't tell which, so it shows a note. If you know the recipe started out hotter, use the original convection setting instead of converting back.",
+    relatedFlagshipLink: "Oven → Air Fryer converter",
+    relatedReverseLink: "Air Fryer → Oven converter (conventional oven)",
+    relatedSiblingLink: "Convection → Air Fryer converter",
+    relatedChartLink: "Printable conversion chart",
+    faqHeading: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "How do I convert air fryer time and temperature to a convection oven?",
+        a: "Add 0–15°F depending on the food, round to the nearest 25°F dial step, and add 5–10% to the time. The converter above does all three, using the same per-food table as the convection-to-air-fryer converter so the two directions agree.",
+      },
+      {
+        q: "Is air fryer to convection the same as air fryer to oven?",
+        a: "No. A conventional, fan-off oven needs 20–25°F and 15–30% of the time added back. A convection oven already has a fan, so it needs much less. If your oven has no fan setting, use the Air Fryer → Oven converter instead.",
+      },
+      {
+        q: "Why did the temperature come out the same as my air fryer setting?",
+        a: "Because the gap between the two appliances is smaller than one 25°F step on an oven dial. Rounding to a setting your oven can actually show often lands back on the air fryer number, so the adjustment goes into the time instead.",
+      },
+      {
+        q: "Should I use convection bake or convection roast?",
+        a: "Convection bake suits most foods. Convection roast, which adds the top element, helps wings, potatoes, and anything you want crisp. Use the temperature the converter gives either way.",
+      },
+      {
+        q: "Do I need extra time with two trays in the oven?",
+        a: "Often a few minutes, yes. The converted time assumes one tray with room around it. With two or more, rotate the trays halfway and check a minute or two after the converted time.",
+      },
+      {
+        q: "Do internal temperature targets change?",
+        a: "No. Poultry is done at 165°F internal and fish, steak, or chops at 145°F, in an air fryer or a convection oven.",
       },
     ],
   },
@@ -391,6 +505,10 @@ const en: Dictionary = {
     relatedGasMarkDesc: '— a straight temperature conversion for UK, EU, and US recipes.',
     relatedReverseLabel: 'Air Fryer → Oven converter',
     relatedReverseDesc: '— the reverse direction, for when the oven is the better choice.',
+    relatedConvectionLabel: "Convection → Air Fryer converter",
+    relatedConvectionDesc: "— a gentler cut for fan-oven recipes that are already adjusted.",
+    relatedReverseConvectionLabel: "Air Fryer → Convection converter",
+    relatedReverseConvectionDesc: "— scale an air fryer setting up to a fan oven for bigger batches.",
   },
 };
 

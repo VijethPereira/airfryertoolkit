@@ -5,10 +5,13 @@ import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 
 interface Props {
   locale?: LocaleCode;
+  /** 'convection' converts a fan-oven recipe with the gentler CONVECTION_FOODS table. */
+  source?: 'oven' | 'convection';
 }
 
-const { locale = DEFAULT_LOCALE } = Astro.props;
-const dict = getDictionary(locale).converter;
+const { locale = DEFAULT_LOCALE, source = 'oven' } = Astro.props;
+const baseDict = getDictionary(locale).converter;
+const dict = source === 'convection' ? { ...baseDict, ...getDictionary(locale).convectionConverter } : baseDict;
 const foodKeys = Object.keys(FOODS) as FoodKey[];
 ---
 
@@ -79,15 +82,27 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict }}>
+<script is:inline define:vars={{ dict, source }}>
   window.__afkDict = dict;
+  window.__afkSource = source;
 </script>
 
 <script>
-  import { computeAirFryerSetting, cappedNote, type FoodKey, type FryerStyle, type TempUnit } from '../lib/converter';
+  import {
+    computeAirFryerSetting,
+    computeAirFryerSettingFromConvection,
+    cappedNote,
+    type FoodKey,
+    type FryerStyle,
+    type TempUnit,
+  } from '../lib/converter';
   import type { Dictionary } from '../i18n/types';
 
-  const dict = (window as unknown as { __afkDict: Dictionary['converter'] }).__afkDict;
+  const { __afkDict: dict, __afkSource: source } = window as unknown as {
+    __afkDict: Dictionary['converter'];
+    __afkSource: 'oven' | 'convection';
+  };
+  const compute = source === 'convection' ? computeAirFryerSettingFromConvection : computeAirFryerSetting;
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
   const timeInput = document.getElementById('afk-time') as HTMLInputElement;
@@ -120,7 +135,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     const ovenMinutes = parseFloat(timeInput.value);
     const food = foodSelect.value as FoodKey;
 
-    const result = computeAirFryerSetting({ ovenTemp, unit: state.unit, ovenMinutes, food, style: state.style });
+    const result = compute({ ovenTemp, unit: state.unit, ovenMinutes, food, style: state.style });
 
     const ok = result.outF !== null;
     const okT = result.outMinutes !== null;

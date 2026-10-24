@@ -1,0 +1,55 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import ConvectionToolBody from '../../components/ConvectionToolBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
+
+const locale = 'es' as const;
+const dict = getDictionary(locale).convectionTool;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${localizedUrl(locale, '/convection-to-air-fryer')}#app`,
+      name: `${dict.heading} — ${siteConfig.siteName}`,
+      description: dict.metaDescription,
+      url: localizedUrl(locale, '/convection-to-air-fryer'),
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: dict.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={dict.metaTitle}
+  description={dict.metaDescription}
+  canonical={localizedUrl(locale, '/convection-to-air-fryer')}
+  keywords={dict.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug="/convection-to-air-fryer"
+>
+  <SiteNav currentPath="/convection-to-air-fryer" locale={locale} translatedSlug="/convection-to-air-fryer" />
+  <ConvectionToolBody locale={locale} />
+  <Footer locale={locale} />
+</Layout>

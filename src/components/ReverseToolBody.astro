@@ -25,6 +25,7 @@ const workedExampleBody = dict.workedExampleTemplate
 
 const flagshipLive = LIVE_PAGES.has('/oven-to-air-fryer');
 const chartLive = LIVE_PAGES.has('/chart');
+const convectionLive = LIVE_PAGES.has('/air-fryer-to-convection');
 const flagshipHref = localizedPath(locale, '/oven-to-air-fryer');
 const chartHref = localizedPath(locale, '/chart');
 ---
@@ -65,6 +66,9 @@ const chartHref = localizedPath(locale, '/chart');
       )}
       {chartLive && (
         <p class="related-link"><a href={chartHref}>{dict.relatedChartLink}</a> &rarr;</p>
+      )}
+      {convectionLive && (
+        <p class="related-link"><a href={localizedPath(locale, '/air-fryer-to-convection')}>{dict.relatedConvectionLink}</a> &rarr;</p>
       )}
     </section>
 

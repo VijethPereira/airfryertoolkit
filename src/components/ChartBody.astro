@@ -53,6 +53,12 @@ const gasMarkHref = localizedPath(locale, gasMarkSlug);
 const reverseSlug = '/air-fryer-to-oven';
 const reverseLive = LIVE_PAGES.has(reverseSlug);
 const reverseHref = localizedPath(locale, reverseSlug);
+const convectionSlug = '/convection-to-air-fryer';
+const convectionLive = LIVE_PAGES.has(convectionSlug);
+const convectionHref = localizedPath(locale, convectionSlug);
+const reverseConvectionSlug = '/air-fryer-to-convection';
+const reverseConvectionLive = LIVE_PAGES.has(reverseConvectionSlug);
+const reverseConvectionHref = localizedPath(locale, reverseConvectionSlug);
 ---
 
 <main class="page-main">
@@ -164,6 +170,12 @@ const reverseHref = localizedPath(locale, reverseSlug);
         )}
         {reverseLive && (
           <li><a href={reverseHref}>{dict.relatedReverseLabel}</a> {dict.relatedReverseDesc}</li>
+        )}
+        {convectionLive && (
+          <li><a href={convectionHref}>{dict.relatedConvectionLabel}</a> {dict.relatedConvectionDesc}</li>
+        )}
+        {reverseConvectionLive && (
+          <li><a href={reverseConvectionHref}>{dict.relatedReverseConvectionLabel}</a> {dict.relatedReverseConvectionDesc}</li>
         )}
       </ul>
     </section>

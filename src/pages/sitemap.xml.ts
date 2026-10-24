@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import siteConfig from '../site.config.ts';
+import siteConfig, { TRANSLATED_PAGES } from '../site.config.ts';
 import { LOCALES, DEFAULT_LOCALE } from '../i18n/locales';
 import { localizedUrl } from '../i18n/utils';
 
@@ -10,14 +10,6 @@ const STATIC_PAGES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/contact', priority: '0.3', changefreq: 'monthly' },
   { path: '/privacy-policy', priority: '0.2', changefreq: 'yearly' },
   { path: '/terms', priority: '0.2', changefreq: 'yearly' },
-];
-
-/** Pages with real translated content at /es, /pt, /fr, /de as well as the English root. */
-const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: string }[] = [
-  { slug: '/', priority: '1.0', changefreq: 'weekly' },
-  { slug: '/oven-to-air-fryer', priority: '0.9', changefreq: 'monthly' },
-  { slug: '/air-fryer-to-oven', priority: '0.8', changefreq: 'monthly' },
-  { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
 ];
 
 function urlBlock(path: string, priority: string, changefreq: string): string {

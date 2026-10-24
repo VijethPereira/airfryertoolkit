@@ -65,6 +65,20 @@ const fr: Dictionary = {
     ambiguousCeilingNoteTemplate:
       'Ceci est au plafond de votre {unit} ({ceiling}°F). Si ce réglage vient de la conversion à la baisse d’une recette de four plus chaude, le temps inclut déjà environ 8 % en plus — retirez-le pour un résultat plus précis.',
   },
+  convectionConverter: {
+    widgetLabel: "Convection → Friteuse à air",
+    ovenTemperature: "Température chaleur tournante",
+    ovenTime: "Temps chaleur tournante",
+  },
+  reverseConvectionConverter: {
+    widgetLabel: "Friteuse à air → Convection",
+    airFryerTemperature: "Température de la friteuse à air",
+    airFryerTime: "Temps de friteuse à air",
+    ovenSetting: "Réglage chaleur tournante",
+    stepNote: "Arrondi aux paliers de 25°F d’un four",
+    ovenCaveat: "Gardez la chaleur tournante activée et étalez les aliments en une seule couche, avec de l’espace autour de chaque morceau — une plaque surchargée perd la circulation d’air sur laquelle reposent ces temps.",
+    ambiguousCeilingNoteTemplate: "Cette valeur est au plafond du {unit} ({ceiling}°F). Si elle a été obtenue en convertissant une recette à chaleur tournante plus chaude, le temps inclut déjà environ 8 % de plus — retirez-les, ou repartez de la recette d’origine.",
+  },
   home: {
     metaTitle: 'Convertisseur four vers friteuse à air',
     metaDescription:
@@ -187,6 +201,7 @@ const fr: Dictionary = {
       'Une recette à 450°F convertie avec une règle fixe sur une friteuse à panier plafonnée à 400°F donnerait 425°F — un réglage qui n’existe pas sur le cadran. Cet outil plafonne le résultat au vrai maximum de l’appareil (400°F panier, 450°F type four) et rajoute du temps pour compenser la chaleur plus faible, avec une note en langage clair expliquant ce qui s’est passé et à quoi s’attendre (une surface légèrement moins croustillante, donc vérifiez un peu plus tôt). C’est la lacune la plus fréquente chez les autres calculateurs de friteuse à air, et la raison d’être de cet outil.',
     relatedChartLink: 'Tableau de conversion imprimable',
     relatedReverseLink: 'Convertisseur friteuse à air vers four',
+    relatedConvectionLink: "Convertisseur convection vers friteuse à air",
     faqHeading: 'Questions fréquentes',
     faqs: [
       {
@@ -298,6 +313,7 @@ const fr: Dictionary = {
       'Un four classique n’a pas la circulation d’air pulsé d’un panier de friteuse à air, donc deux choses changent. Le préchauffage compte davantage, car le four a besoin de tout son temps de montée en température pour l’atteindre uniformément, contrairement aux 3 à 4 minutes que demande une friteuse à air. Et une seule couche d’aliments ne croustillera pas aussi fort qu’au panier, faute d’un flux d’air aussi concentré frappant chaque face à la fois. Aucun des deux n’est un problème à contourner — attendez-vous simplement à ce qu’une plaque d’ailes au four ne soit pas identique à la version faite à la friteuse à air, et misez sur un réglage convection ou « air fry » du four si le vôtre en a un, car cela comble l’essentiel de l’écart.',
     relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
     relatedChartLink: 'Tableau de conversion imprimable',
+    relatedConvectionLink: "Convertisseur friteuse à air vers convection",
     faqHeading: 'Questions fréquentes',
     faqs: [
       {
@@ -323,6 +339,104 @@ const fr: Dictionary = {
       {
         q: 'Quelle température à cœur dois-je encore vérifier, quel que soit l’appareil ?',
         a: 'Les températures à cœur visées ne changent pas entre une friteuse à air et un four — retirez la volaille à 165°F à cœur, et le poisson, le steak ou les côtelettes à 145°F. L’appareil change le temps et le réglage du cadran pour y arriver ; il ne change pas ce que « cuit » veut dire.',
+      },
+    ],
+  },
+  convectionTool: {
+    metaTitle: "Convertisseur four à chaleur tournante vers friteuse à air",
+    metaDescription: "Convertissez une recette au four à chaleur tournante (convection) en réglages de friteuse à air. Une réduction plus douce que la règle du four — ces recettes sont déjà ajustées — selon l’aliment et le type panier ou four.",
+    metaKeywords: "chaleur tournante friteuse à air, convection vers friteuse à air, four à chaleur tournante vers friteuse à air, convertir recette chaleur tournante air fryer, four ventilé friteuse à air",
+    backLink: "Tous les outils",
+    heading: "Convertisseur convection vers friteuse à air",
+    subDesc: "Saisissez la température et le temps d’une recette au four à chaleur tournante. Obtenez le réglage de friteuse à air avec la réduction plus faible qu’exige une recette déjà ajustée au ventilateur, selon l’aliment et le type panier ou four.",
+    aboutHeading: "Pourquoi les recettes à chaleur tournante ont besoin de leur propre conversion",
+    aboutBody: "Un four à chaleur tournante et une friteuse à air reposent sur le même principe : un ventilateur fait circuler l’air chaud autour des aliments pour que la chaleur les atteigne plus vite qu’en air immobile. Une recette écrite pour la chaleur tournante intègre donc déjà l’essentiel de l’avantage de la friteuse à air — elle est en général réglée environ 25°F plus bas que la version chaleur statique du même plat, et souvent un peu plus courte. Passez cette recette dans une conversion four vers friteuse classique et vous retirez ces 25°F une seconde fois : c’est ainsi que les recettes à chaleur tournante sortent du panier pâles et pas assez cuites. Ce convertisseur part de la valeur chaleur tournante et n’applique que l’écart qui reste vraiment.",
+    whyGentlerHeading: "Pourquoi la réduction est plus faible",
+    whyGentlerBody: "Ce qui sépare encore un four à chaleur tournante d’une friteuse à air, c’est la taille et la distance. La cavité d’une friteuse à air ne fait qu’une fraction du volume, et les aliments se trouvent à quelques centimètres du ventilateur et de la résistance : l’air les atteint plus vite et la surface dore plus tôt. Cela représente environ 0–15°F et 5–10 % du temps, selon l’aliment. Les frites et les ailes de poulet gardent presque toute leur chaleur — elles en ont besoin pour croustiller et rendre leur gras — et gagnent du temps à la place. Les pâtisseries et les gratins reçoivent la plus forte baisse de température, 15°F, car dans une petite cavité le dessus dore avant que le centre ne prenne. Les friteuses de type four ressemblent encore plus à un four à chaleur tournante, leur réduction diminue donc encore de 5°F.",
+    workedExampleHeading: "Exemple concret",
+    workedExampleTemplate: "Une recette à chaleur tournante à 350°F pendant 30 minutes, aliment général, dans une friteuse à panier, donne {GENERAL_AF_F}°F pendant {GENERAL_AF_MIN} minutes. Avec les mêmes valeurs dans le convertisseur four classique vers friteuse, vous obtiendriez {FLAGSHIP_AF_F}°F pendant {FLAGSHIP_AF_MIN} minutes — trop bas et trop court pour une recette déjà ajustée au ventilateur. Des ailes de poulet à 425°F en chaleur tournante pendant 40 minutes dépassent ce qu’un panier à 400°F peut atteindre : le convertisseur les maintient à {WINGS_AF_F}°F et rajoute du temps, {WINGS_AF_MIN} minutes, avec une note qui vous le signale.",
+    spotHeading: "Comment savoir si une recette est écrite pour la chaleur tournante",
+    spotBody: "Cherchez d’abord les mots : « chaleur tournante », « four ventilé », « air pulsé », « convection », ou une température notée « 180°C chaleur tournante ». Les recettes britanniques et australiennes et beaucoup d’emballages indiquent deux valeurs, l’une en chaleur statique et l’autre en chaleur tournante, et c’est la seconde la plus basse. Sans indication, comparez la température à celle que le plat demande d’habitude : des pommes de terre rôties à 400°F au lieu de 425°F, ou des biscuits à 325°F au lieu de 350°F, laissent penser que la recette suppose déjà un ventilateur. Les livres de recettes fournis avec un four sont généralement écrits pour son mode chaleur tournante.",
+    conventionalHeading: "Si la recette n’est pas en chaleur tournante",
+    conventionalBody: "Une recette pour un four en chaleur statique, sans ventilateur, a besoin de la conversion complète — la baisse de température plus forte et la réduction de temps plus grande qu’applique le convertisseur four vers friteuse à air. Utiliser cette page pour une recette classique donne des aliments un peu trop chauds et trop longs ; utiliser le convertisseur classique pour une recette à chaleur tournante les laisse pas assez cuits. Choisissez le convertisseur selon la recette, pas selon votre appareil.",
+    relatedFlagshipLink: "Convertisseur four vers friteuse à air (recettes classiques)",
+    relatedReverseLink: "Convertisseur friteuse à air vers four",
+    relatedSiblingLink: "Convertisseur friteuse à air vers convection",
+    relatedChartLink: "Tableau de conversion imprimable",
+    faqHeading: "Questions fréquentes",
+    faqs: [
+      {
+        q: "Comment convertir une recette à chaleur tournante pour la friteuse à air ?",
+        a: "Baissez la température de 0 à 15°F selon l’aliment et réduisez le temps de 5 à 10 %. Les aliments qui doivent croustiller, comme les frites et les ailes de poulet, gardent leur chaleur et perdent un peu de temps ; les pâtisseries et les gratins reçoivent la plus forte baisse de température. Le convertisseur ci-dessus applique les valeurs par aliment et vérifie le résultat par rapport à la température maximale de votre friteuse.",
+      },
+      {
+        q: "Faut-il retirer 25°F à une recette à chaleur tournante pour la friteuse à air ?",
+        a: "Non. Ces 25°F correspondent à l’ajustement habituel entre chaleur statique et chaleur tournante, et une recette à chaleur tournante l’a déjà fait. Les retirer à nouveau compte le ventilateur deux fois et laisse les aliments pas assez cuits. Depuis la chaleur tournante, la réduction restante est de 15°F au maximum.",
+      },
+      {
+        q: "Un four à chaleur tournante est-il la même chose qu’un four à convection ?",
+        a: "Oui. « Chaleur tournante », « four ventilé » et « air pulsé » désignent tous un four à convection. Quand l’emballage indique une température statique et une température chaleur tournante, saisissez ici la seconde.",
+      },
+      {
+        q: "Et si la recette est plus chaude que ce que ma friteuse peut atteindre ?",
+        a: "Le convertisseur maintient la température au plafond de votre appareil — 400°F pour la plupart des modèles à panier, 450°F pour les modèles de type four — et rajoute environ 8 % de temps pour compenser, avec une note sous le résultat. Vérifiez plus tôt ; la surface peut dorer un peu moins.",
+      },
+      {
+        q: "Puis-je garder les réglages chaleur tournante dans une friteuse de type four ?",
+        a: "Presque. Une friteuse de type four est en pratique un petit four à chaleur tournante, la réduction est donc plus faible : 0–10°F et un temps proche de l’original. Les frites et les ailes de poulet peuvent rester à la température chaleur tournante avec seulement quelques minutes de moins.",
+      },
+      {
+        q: "Les températures à cœur changent-elles entre chaleur tournante et friteuse à air ?",
+        a: "Non. Retirez la volaille à 165°F à cœur et le poisson, le steak ou les côtelettes à 145°F, quel que soit l’appareil. Le convertisseur change le réglage et le temps pour y arriver, pas ce que « cuit » veut dire.",
+      },
+    ],
+  },
+  reverseConvectionTool: {
+    metaTitle: "Convertisseur friteuse à air vers four à chaleur tournante",
+    metaDescription: "Convertissez la température et le temps de la friteuse à air en réglage de four à chaleur tournante (convection), selon l’aliment et le type panier ou four, arrondi aux paliers de 25°. Pour les quantités que le panier ne peut pas contenir.",
+    metaKeywords: "friteuse à air vers chaleur tournante, friteuse à air vers convection, air fryer four à chaleur tournante, convertir recette friteuse à air four ventilé",
+    backLink: "Tous les outils",
+    heading: "Convertisseur friteuse à air vers convection",
+    subDesc: "Saisissez une température et un temps de friteuse à air. Obtenez le réglage du four à chaleur tournante, adapté à l’aliment et au type panier ou four, arrondi aux paliers de 25° d’un vrai bouton de four.",
+    aboutHeading: "À propos de la conversion friteuse à air vers chaleur tournante",
+    aboutBody: "Une recette de friteuse à air passe mal à l’échelle. Le panier ne contient qu’une couche, et dès que vous cuisinez pour six au lieu de deux, un four à chaleur tournante — la même chaleur ventilée dans une cavité qui accueille deux plaques — est le chemin le plus rapide. Comme les deux appareils font circuler l’air chaud avec un ventilateur, passer de la friteuse à air au four à chaleur tournante est un petit ajustement, pas le retour complet vers un four en chaleur statique. Ce convertisseur ne rajoute que l’écart par aliment entre les deux : quelques degrés et un peu de temps, avec le même tableau que le convertisseur convection vers friteuse à air, appliqué à l’envers.",
+    whenConvectionHeading: "Quand le four à chaleur tournante bat le panier",
+    whenConvectionBody: "La quantité est la raison principale : un four à chaleur tournante cuit deux ou trois plaques à la fois, le ventilateur gardant chaque grille presque à la même température, là où une friteuse à air demanderait trois fournées à la suite. Les grosses pièces — un poulet entier, une plaque de biscuits, un plat au four — entrent dans un four et pas dans un panier. Et quand la friteuse est occupée par un accompagnement, passer le plat principal au four ventilé permet de servir les deux en même temps. Les repas sur une seule plaque, où légumes et protéine partagent la même plaque et finissent ensemble, sont aussi plus simples à minuter au four. Pour une portion de frites ou d’ailes de poulet, la friteuse à air reste plus rapide et plus croustillante.",
+    roundingHeading: "Pourquoi la température ne change souvent pas",
+    roundingBody: "L’écart entre une friteuse à air et un four à chaleur tournante est de 0–15°F, et le bouton d’un four avance par paliers de 25°F. Ajoutez 10°F à un réglage de friteuse de 375°F et le palier le plus proche reste 375°F. Pour beaucoup d’aliments, ce convertisseur rend donc la même température et met tout l’ajustement dans le temps. C’est la réponse honnête : la différence entre les deux appareils tient surtout à la vitesse à laquelle l’air atteint l’aliment, et une cuisson un peu plus longue dans la grande cavité est la façon dont le four compense. Arrondir aux paliers du bouton permet aussi qu’une recette convertie dans un sens puis dans l’autre retombe sur sa valeur de départ.",
+    workedExampleHeading: "Exemple concret",
+    workedExampleTemplate: "Un réglage général de friteuse à panier de 340°F pendant 27 minutes devient {GENERAL_CONV_F}°F pendant {GENERAL_CONV_MIN} minutes au four à chaleur tournante — sans doute la recette ventilée dont il est issu. Des frites à 390°F pendant 18 minutes deviennent {FRIES_CONV_F}°F pendant {FRIES_CONV_MIN} minutes : le bouton tombe sur le palier suivant, et le four reçoit quelques minutes de plus parce que l’air circule plus lentement sur une plaque pleine que dans un panier.",
+    ceilingHeading: "Réglages au maximum de votre friteuse à air",
+    ceilingBody: "Si le réglage de la friteuse est au plafond de l’appareil — 400°F sur la plupart des paniers, 450°F sur les modèles de type four — il peut être lui-même une valeur convertie : une recette à chaleur tournante plus chaude ramenée à ce que la friteuse peut atteindre, avec environ 8 % de temps en plus. Le convertisseur ne peut pas le savoir, il affiche donc une note. Si vous savez que la recette partait plus chaude, utilisez le réglage chaleur tournante d’origine au lieu de reconvertir.",
+    relatedFlagshipLink: "Convertisseur four vers friteuse à air",
+    relatedReverseLink: "Convertisseur friteuse à air vers four (chaleur statique)",
+    relatedSiblingLink: "Convertisseur convection vers friteuse à air",
+    relatedChartLink: "Tableau de conversion imprimable",
+    faqHeading: "Questions fréquentes",
+    faqs: [
+      {
+        q: "Comment convertir le temps et la température de la friteuse à air pour un four à chaleur tournante ?",
+        a: "Ajoutez 0 à 15°F selon l’aliment, arrondissez au palier de 25°F le plus proche et ajoutez 5 à 10 % au temps. Le convertisseur ci-dessus fait les trois avec le même tableau par aliment que le convertisseur convection vers friteuse à air, pour que les deux sens concordent.",
+      },
+      {
+        q: "Friteuse à air vers chaleur tournante, est-ce la même chose que friteuse à air vers four ?",
+        a: "Non. Un four en chaleur statique, sans ventilateur, demande de rajouter 20–25°F et 15–30 % du temps. Un four à chaleur tournante a déjà un ventilateur, il en demande donc bien moins. Si votre four n’a pas de mode chaleur tournante, utilisez le convertisseur friteuse à air vers four.",
+      },
+      {
+        q: "Pourquoi la température est-elle la même que mon réglage de friteuse ?",
+        a: "Parce que l’écart entre les deux appareils est plus petit qu’un palier de 25°F sur le bouton du four. Arrondir à un réglage que le four peut afficher retombe souvent sur la valeur de la friteuse, et l’ajustement passe donc dans le temps.",
+      },
+      {
+        q: "Chaleur tournante simple ou chaleur tournante avec gril ?",
+        a: "La chaleur tournante simple convient à la plupart des aliments. La chaleur tournante avec gril, qui ajoute la résistance du haut, aide les ailes de poulet, les pommes de terre et tout ce que vous voulez croustillant. Utilisez la température donnée par le convertisseur dans les deux cas.",
+      },
+      {
+        q: "Faut-il plus de temps avec deux plaques au four ?",
+        a: "Souvent quelques minutes, oui. Le temps converti suppose une plaque avec de l’espace autour. Avec deux plaques ou plus, intervertissez-les à mi-cuisson et vérifiez une ou deux minutes après le temps converti.",
+      },
+      {
+        q: "Les températures à cœur changent-elles ?",
+        a: "Non. La volaille est cuite à 165°F à cœur et le poisson, le steak ou les côtelettes à 145°F, en friteuse à air comme au four à chaleur tournante.",
       },
     ],
   },
@@ -391,6 +505,10 @@ const fr: Dictionary = {
     relatedGasMarkDesc: '— une conversion de température directe pour les recettes du Royaume-Uni, de l’UE et des États-Unis.',
     relatedReverseLabel: 'Convertisseur friteuse à air vers four',
     relatedReverseDesc: '— le sens inverse, pour les cas où le four est le meilleur choix.',
+    relatedConvectionLabel: "Convertisseur convection vers friteuse à air",
+    relatedConvectionDesc: "— une réduction plus douce pour les recettes à chaleur tournante, déjà ajustées.",
+    relatedReverseConvectionLabel: "Convertisseur friteuse à air vers convection",
+    relatedReverseConvectionDesc: "— passez d’un réglage de friteuse à un four à chaleur tournante pour de plus grandes quantités.",
   },
 };
 

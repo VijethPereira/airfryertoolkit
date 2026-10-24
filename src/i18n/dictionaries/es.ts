@@ -65,6 +65,20 @@ const es: Dictionary = {
     ambiguousCeilingNoteTemplate:
       'Esto está en el límite de tu {unit} ({ceiling}°F). Si este ajuste vino de convertir hacia abajo una receta de horno más caliente, el tiempo ya incluye cerca de un 8% extra — réstalo para un resultado más preciso.',
   },
+  convectionConverter: {
+    widgetLabel: "Convección → Freidora de aire",
+    ovenTemperature: "Temperatura de convección",
+    ovenTime: "Tiempo de convección",
+  },
+  reverseConvectionConverter: {
+    widgetLabel: "Freidora de aire → Convección",
+    airFryerTemperature: "Temperatura de la freidora de aire",
+    airFryerTime: "Tiempo de freidora de aire",
+    ovenSetting: "Ajuste del horno de convección",
+    stepNote: "Redondeado a pasos de horno de 25°F",
+    ovenCaveat: "Deja el ventilador encendido y reparte el alimento en una sola capa con espacio alrededor de cada pieza — una bandeja de convección llena pierde el flujo de aire que suponen estos tiempos.",
+    ambiguousCeilingNoteTemplate: "Esto está en el límite del {unit} ({ceiling}°F). Si se convirtió a la baja desde una receta de convección más caliente, el tiempo ya incluye cerca de un 8% extra — réstalo, o vuelve a la receta original.",
+  },
   home: {
     metaTitle: 'Conversor de horno a freidora de aire',
     metaDescription:
@@ -187,6 +201,7 @@ const es: Dictionary = {
       'Una receta de 450°F convertida con una regla fija en una freidora de aire de cesta con máximo de 400°F devolvería 425°F — un ajuste que no existe en la perilla. Esta herramienta limita el resultado al techo real del equipo (400°F cesta, 450°F tipo horno) y añade tiempo de vuelta para compensar el menor calor, con una nota en lenguaje claro que explica qué pasó y qué esperar (una superficie un poco menos crujiente, así que revisa un poco antes). Es el vacío más común entre las demás calculadoras de freidora de aire, y la razón de ser de esta herramienta.',
     relatedChartLink: 'Tabla de conversión imprimible',
     relatedReverseLink: 'Conversor de freidora de aire a horno',
+    relatedConvectionLink: "Conversor de convección a freidora de aire",
     faqHeading: 'Preguntas frecuentes',
     faqs: [
       {
@@ -298,6 +313,7 @@ const es: Dictionary = {
       'Un horno convencional no tiene la circulación de aire forzado que sí tiene una cesta de freidora, así que dos cosas cambian. El precalentado importa más, ya que el horno necesita todo su tiempo de calentamiento para llegar a la temperatura objetivo de forma pareja, en lugar de los 3–4 minutos que necesita una freidora de aire. Y una sola capa de alimento no quedará tan crujiente como en la cesta, ya que hay menos flujo de aire concentrado golpeando cada lado a la vez. Ninguno de los dos es un problema que evitar — solo no esperes que una bandeja de alitas al horno se vea idéntica a la versión hecha en freidora de aire, y apóyate en un ajuste de convección o "air fry" del horno si el tuyo lo tiene, ya que eso cierra la mayor parte de la diferencia.',
     relatedFlagshipLink: 'Conversor de horno a freidora de aire',
     relatedChartLink: 'Tabla de conversión imprimible',
+    relatedConvectionLink: "Conversor de freidora de aire a convección",
     faqHeading: 'Preguntas frecuentes',
     faqs: [
       {
@@ -323,6 +339,104 @@ const es: Dictionary = {
       {
         q: '¿Qué temperatura interna debo seguir revisando, sin importar el equipo?',
         a: 'Los objetivos de temperatura interna no cambian entre una freidora de aire y un horno — retira las aves a 165°F internos y el pescado, bistec o chuletas a 145°F. El equipo cambia el tiempo y el ajuste de la perilla para llegar ahí; no cambia lo que significa "listo".',
+      },
+    ],
+  },
+  convectionTool: {
+    metaTitle: "Conversor de horno de convección a freidora de aire",
+    metaDescription: "Convierte una receta de horno de convección o con ventilador a ajustes de freidora de aire. Un recorte más suave que la regla del horno — las recetas con ventilador ya están ajustadas — por tipo de alimento y cesta o tipo horno.",
+    metaKeywords: "convección a freidora de aire, horno de convección a freidora de aire, horno con ventilador a freidora de aire, convertir receta de convección a freidora de aire, aire caliente a freidora de aire",
+    backLink: "Todas las herramientas",
+    heading: "Conversor de convección a freidora de aire",
+    subDesc: "Introduce la temperatura y el tiempo de una receta de horno de convección o con ventilador. Obtén el ajuste de freidora de aire con el recorte más pequeño que necesita una receta ya ajustada por ventilador, según el alimento y si es de cesta o tipo horno.",
+    aboutHeading: "Por qué las recetas de convección necesitan su propia conversión",
+    aboutBody: "Un horno de convección y una freidora de aire funcionan con el mismo principio: un ventilador mueve el aire caliente alrededor del alimento para que el calor llegue más rápido que con el aire quieto. Por eso una receta escrita para convección ya trae incorporada la mayor parte de la ventaja de la freidora de aire — suele estar unos 25°F por debajo de la versión para horno convencional del mismo plato, y a menudo es algo más corta. Si pasas esa receta por una conversión estándar de horno a freidora de aire, quitas esos 25°F por segunda vez, y así es como las recetas de horno con ventilador salen de la cesta pálidas y poco hechas. Este conversor parte del número de convección y aplica solo la diferencia que realmente queda.",
+    whyGentlerHeading: "Por qué el recorte es menor",
+    whyGentlerBody: "Lo que queda entre un horno de convección y una freidora de aire es el tamaño y la distancia. La cavidad de una freidora de aire es una fracción del volumen, y el alimento está a pocos centímetros del ventilador y de la resistencia, así que el aire lo alcanza antes y la superficie se dora antes. Eso equivale a unos 0–15°F y un 5–10% del tiempo, según el alimento. Las papas fritas y las alitas conservan casi todo el calor — lo necesitan para quedar crujientes y soltar la grasa — y ahorran tiempo en su lugar. La repostería y los guisos al horno reciben el mayor recorte de temperatura, 15°F, porque en una cavidad pequeña la superficie se dora antes de que cuaje el centro. Las freidoras tipo horno se parecen aún más a un horno de convección, así que su recorte baja otros 5°F.",
+    workedExampleHeading: "Ejemplo práctico",
+    workedExampleTemplate: "Una receta de horno con ventilador a 350°F durante 30 minutos, alimento general, en una freidora de cesta, da {GENERAL_AF_F}°F durante {GENERAL_AF_MIN} minutos. Con los mismos números en el conversor de horno convencional a freidora obtendrías {FLAGSHIP_AF_F}°F durante {FLAGSHIP_AF_MIN} minutos — demasiado bajo y demasiado corto para una receta que ya estaba ajustada por ventilador. Unas alitas a 425°F en convección durante 40 minutos superan lo que alcanza una cesta de 400°F, así que el conversor las mantiene en {WINGS_AF_F}°F y añade tiempo: {WINGS_AF_MIN} minutos, con una nota que te lo indica.",
+    spotHeading: "Cómo saber si una receta está escrita para convección",
+    spotBody: "Busca primero las palabras: \"ventilador\", \"aire caliente\", \"horno con ventilador\", \"convección\", \"hornear con convección\" o una temperatura escrita como \"180°C ventilador\". Las recetas británicas y australianas y muchos envases imprimen dos números, uno convencional y otro con ventilador, y el de ventilador es el más bajo. Si no hay etiqueta, compara la temperatura con la que suele llevar el plato: papas asadas a 400°F en lugar de 425°F, o galletas a 325°F en lugar de 350°F, indican que la receta ya da por hecho un ventilador. Los recetarios que vienen con un horno suelen estar escritos para su modo de convección.",
+    conventionalHeading: "Si la receta no es de convección",
+    conventionalBody: "Una receta para horno estándar, sin ventilador, necesita la conversión completa — la bajada de temperatura mayor y el recorte de tiempo más grande que aplica el conversor de horno a freidora de aire. Usar esta página para una receta convencional deja el alimento algo caliente y largo; usar el conversor convencional para una receta de convección lo deja poco hecho. Elige el conversor según la receta, no según tu aparato.",
+    relatedFlagshipLink: "Conversor de horno a freidora de aire (recetas convencionales)",
+    relatedReverseLink: "Conversor de freidora de aire a horno",
+    relatedSiblingLink: "Conversor de freidora de aire a convección",
+    relatedChartLink: "Tabla de conversión imprimible",
+    faqHeading: "Preguntas frecuentes",
+    faqs: [
+      {
+        q: "¿Cómo convierto una receta de horno de convección a freidora de aire?",
+        a: "Baja la temperatura entre 0 y 15°F según el alimento y recorta el tiempo un 5–10%. Los alimentos que deben quedar crujientes, como papas fritas y alitas, conservan el calor y pierden un poco de tiempo; la repostería y los guisos reciben el mayor recorte de temperatura. El conversor de arriba aplica los números por alimento y comprueba el resultado contra la temperatura máxima de tu freidora.",
+      },
+      {
+        q: "¿Resto 25°F a una receta de convección para la freidora de aire?",
+        a: "No. Esos 25°F son el ajuste habitual de horno convencional a convección, y una receta de convección ya lo ha hecho. Restarlo otra vez cuenta el ventilador dos veces y deja el alimento poco hecho. Desde convección, el recorte que queda es de 15°F como máximo.",
+      },
+      {
+        q: "¿Un horno con ventilador es lo mismo que un horno de convección?",
+        a: "Sí. \"Horno con ventilador\" y \"aire caliente\" son otros nombres del horno de convección. Cuando el envase indica una temperatura convencional y otra con ventilador, introduce aquí la de ventilador.",
+      },
+      {
+        q: "¿Y si la receta de convección está más caliente de lo que alcanza mi freidora?",
+        a: "El conversor mantiene la temperatura en el límite de tu aparato — 400°F en la mayoría de los modelos de cesta, 450°F en los de tipo horno — y añade cerca de un 8% de tiempo para compensar, con una nota bajo el resultado. Revisa antes; la superficie puede dorarse un poco menos.",
+      },
+      {
+        q: "¿Puedo usar los ajustes de convección sin cambios en una freidora tipo horno?",
+        a: "Casi. Una freidora tipo horno es básicamente un pequeño horno de convección, así que el recorte se reduce: 0–10°F y un tiempo cercano al original. Las papas fritas y las alitas pueden ir a la temperatura de convección con solo unos minutos menos.",
+      },
+      {
+        q: "¿Cambian las temperaturas internas entre convección y freidora de aire?",
+        a: "No. Retira las aves a 165°F internos y el pescado, el filete o las chuletas a 145°F, uses el aparato que uses. El conversor cambia el ajuste y el tiempo para llegar ahí, no lo que significa estar hecho.",
+      },
+    ],
+  },
+  reverseConvectionTool: {
+    metaTitle: "Conversor de freidora de aire a horno de convección",
+    metaDescription: "Convierte la temperatura y el tiempo de la freidora de aire a un ajuste de horno de convección (con ventilador), por tipo de alimento y cesta o tipo horno, redondeado a pasos de 25°. Para tandas que no caben en la cesta.",
+    metaKeywords: "freidora de aire a convección, freidora de aire a horno de convección, freidora de aire a horno con ventilador, convertir receta de freidora de aire a horno de convección",
+    backLink: "Todas las herramientas",
+    heading: "Conversor de freidora de aire a horno de convección",
+    subDesc: "Introduce una temperatura y un tiempo de freidora de aire. Obtén el ajuste del horno de convección (con ventilador), adaptado al alimento y a si es de cesta o tipo horno, redondeado a los pasos de 25° de un dial de horno real.",
+    aboutHeading: "Sobre la conversión de freidora de aire a convección",
+    aboutBody: "Una receta de freidora de aire escala mal. La cesta admite una sola capa, y en cuanto cocinas para seis en lugar de dos, un horno de convección — el mismo calor movido por ventilador en una cavidad donde caben dos bandejas — es el camino más rápido. Como los dos aparatos mueven aire caliente con un ventilador, pasar de la freidora de aire a un horno de convección es un ajuste pequeño, no el viaje completo de vuelta a un horno convencional. Este conversor devuelve solo la diferencia por alimento entre ambos: unos pocos grados y algo de tiempo, con la misma tabla que el conversor de convección a freidora de aire, aplicada a la inversa.",
+    whenConvectionHeading: "Cuándo un horno de convección gana a la cesta",
+    whenConvectionBody: "El tamaño de la tanda es lo principal: un horno de convección cocina dos o tres bandejas a la vez, con el ventilador manteniendo cada rejilla a casi la misma temperatura, donde una freidora de aire necesitaría tres tandas seguidas. Las piezas grandes — un pollo entero, una bandeja de galletas, un asado en bandeja — caben en un horno y no en una cesta. Y cuando la freidora está ocupada con una guarnición, pasar el plato principal al horno con ventilador hace que ambos lleguen a la mesa a la vez. Las cenas en una sola bandeja, donde verduras y proteína comparten bandeja y terminan juntas, también son más fáciles de calcular en un horno. Para una ración de papas fritas o alitas, la freidora sigue ganando en rapidez y textura crujiente.",
+    roundingHeading: "Por qué la temperatura a menudo no cambia",
+    roundingBody: "La diferencia entre una freidora de aire y un horno de convección es de 0–15°F, y el dial de un horno avanza en pasos de 25°F. Suma 10°F a un ajuste de freidora de 375°F y el paso más cercano del dial sigue siendo 375°F. Por eso, para muchos alimentos, este conversor devuelve la misma temperatura y pone todo el ajuste en el tiempo. Es la respuesta honesta: la diferencia entre los dos aparatos es sobre todo la rapidez con que el aire llega al alimento, y una cocción algo más larga en la cavidad grande es como el horno lo compensa. Redondear a pasos del dial también hace que una receta convertida de ida y vuelta vuelva al número del que partió.",
+    workedExampleHeading: "Ejemplo práctico",
+    workedExampleTemplate: "Un ajuste general de freidora de 340°F durante 27 minutos en cesta pasa a {GENERAL_CONV_F}°F durante {GENERAL_CONV_MIN} minutos en un horno de convección — probablemente la receta con ventilador de la que salió. Unas papas fritas a 390°F durante 18 minutos pasan a {FRIES_CONV_F}°F durante {FRIES_CONV_MIN} minutos: el dial cae en el siguiente paso, y el horno recibe un par de minutos más porque el aire se mueve más despacio sobre una bandeja llena que a través de una cesta.",
+    ceilingHeading: "Ajustes en el máximo de tu freidora de aire",
+    ceilingBody: "Si el ajuste de la freidora está en el límite del aparato — 400°F en la mayoría de las cestas, 450°F en los modelos tipo horno — puede ser en sí un número convertido: una receta de convección más caliente limitada a lo que alcanza la freidora, con cerca de un 8% de tiempo extra. El conversor no puede distinguirlo, así que muestra una nota. Si sabes que la receta partía más caliente, usa el ajuste de convección original en lugar de convertir de vuelta.",
+    relatedFlagshipLink: "Conversor de horno a freidora de aire",
+    relatedReverseLink: "Conversor de freidora de aire a horno (horno convencional)",
+    relatedSiblingLink: "Conversor de convección a freidora de aire",
+    relatedChartLink: "Tabla de conversión imprimible",
+    faqHeading: "Preguntas frecuentes",
+    faqs: [
+      {
+        q: "¿Cómo convierto el tiempo y la temperatura de la freidora de aire a un horno de convección?",
+        a: "Suma 0–15°F según el alimento, redondea al paso de 25°F más cercano del dial y añade un 5–10% al tiempo. El conversor de arriba hace las tres cosas con la misma tabla por alimento que el conversor de convección a freidora, para que ambas direcciones coincidan.",
+      },
+      {
+        q: "¿Es lo mismo freidora de aire a convección que freidora de aire a horno?",
+        a: "No. Un horno convencional, sin ventilador, necesita devolver 20–25°F y un 15–30% del tiempo. Un horno de convección ya tiene ventilador, así que necesita mucho menos. Si tu horno no tiene modo ventilador, usa el conversor de freidora de aire a horno.",
+      },
+      {
+        q: "¿Por qué la temperatura salió igual que mi ajuste de freidora?",
+        a: "Porque la diferencia entre los dos aparatos es menor que un paso de 25°F en el dial del horno. Redondear a un ajuste que tu horno pueda mostrar suele volver al número de la freidora, así que el ajuste va al tiempo.",
+      },
+      {
+        q: "¿Uso convección para hornear o convección para asar?",
+        a: "La convección para hornear sirve para la mayoría de los alimentos. La de asar, que añade la resistencia superior, ayuda con alitas, papas y todo lo que quieras crujiente. Usa la temperatura que da el conversor en ambos casos.",
+      },
+      {
+        q: "¿Necesito más tiempo con dos bandejas en el horno?",
+        a: "A menudo unos minutos, sí. El tiempo convertido supone una bandeja con espacio alrededor. Con dos o más, gíralas a mitad de cocción y revisa uno o dos minutos después del tiempo convertido.",
+      },
+      {
+        q: "¿Cambian las temperaturas internas objetivo?",
+        a: "No. Las aves están hechas a 165°F internos y el pescado, el filete o las chuletas a 145°F, en freidora de aire o en horno de convección.",
       },
     ],
   },
@@ -391,6 +505,10 @@ const es: Dictionary = {
     relatedGasMarkDesc: '— una conversión directa de temperatura para recetas del Reino Unido, la UE y EE. UU.',
     relatedReverseLabel: 'Conversor de freidora de aire a horno',
     relatedReverseDesc: '— la dirección inversa, para cuando el horno es la mejor opción.',
+    relatedConvectionLabel: "Conversor de convección a freidora de aire",
+    relatedConvectionDesc: "— un recorte más suave para recetas de horno con ventilador que ya están ajustadas.",
+    relatedReverseConvectionLabel: "Conversor de freidora de aire a convección",
+    relatedReverseConvectionDesc: "— lleva un ajuste de freidora a un horno con ventilador para tandas más grandes.",
   },
 };
 

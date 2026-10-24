@@ -3,7 +3,7 @@ import ConverterWidget from './ConverterWidget.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import { LIVE_PAGES } from '../site.config';
+import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
 
 interface Props {
   locale?: LocaleCode;
@@ -14,6 +14,9 @@ const dict = getDictionary(locale).home;
 
 // Same-page anchors (/#section) always resolve — they scroll the homepage, never a separate URL.
 const isLive = (href: string) => href.startsWith('/#') || LIVE_PAGES.has(href);
+// English-only pages have no /es, /pt, ... copy, so only translated slugs get a locale prefix.
+const translatedSlugs = new Set(TRANSLATED_PAGES.map((p) => p.slug));
+const hrefFor = (href: string) => (translatedSlugs.has(href) ? localizedPath(locale, href) : href);
 
 const commonConversions = [
   { href: '/350-to-air-fryer', from: '350°F', to: '325°F' },
@@ -28,7 +31,7 @@ const frozenHrefs = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicke
 const presetHrefs = ['/chicken-breast', '/chicken-wings', '/salmon', '/bacon'];
 const brandHrefs = ['/ninja', '/cosori', '/philips', '/model-max-temp'];
 
-const toolHref = localizedPath(locale, '/oven-to-air-fryer');
+const toolHref = hrefFor('/oven-to-air-fryer');
 ---
 
 <main>
@@ -51,7 +54,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
           <div class="rail-list">
             {commonConversions.map((c, i) =>
               isLive(c.href) ? (
-                <a href={c.href} class:list={['rail-item', { first: i === 0 }]}>
+                <a href={hrefFor(c.href)} class:list={['rail-item', { first: i === 0 }]}>
                   <span class="rail-num">{c.from}</span>
                   <span class="rail-arrow">&rarr;</span>
                   <span class="rail-num">{c.to}</span>
@@ -79,9 +82,8 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.convert}</h2>
       <div class="card-grid">
         {dict.convertCards.map((c, i) => {
-          const href = i === 0 ? toolHref : convertHrefs[i];
           return isLive(convertHrefs[i]) ? (
-            <a href={href} class="card">
+            <a href={hrefFor(convertHrefs[i])} class="card">
               <span class="card-title">{i === 0 && <span class="title-dot inline"></span>}{c.title}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
@@ -105,7 +107,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
         {dict.reverseCards.map((c, i) => {
           const raw = reverseHrefs[i];
           return isLive(raw) ? (
-            <a href={raw === '/chart' ? localizedPath(locale, '/chart') : raw} class="card">
+            <a href={hrefFor(raw)} class="card">
               <span class="card-title">{c.title}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
@@ -146,7 +148,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
       <div class="card-grid">
         {dict.frozenCards.map((c, i) =>
           isLive(frozenHrefs[i]) ? (
-            <a href={frozenHrefs[i]} class="card">
+            <a href={hrefFor(frozenHrefs[i])} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
@@ -189,7 +191,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
       <div class="card-grid">
         {dict.presetCards.map((c, i) =>
           isLive(presetHrefs[i]) ? (
-            <a href={presetHrefs[i]} class="card">
+            <a href={hrefFor(presetHrefs[i])} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>
@@ -226,7 +228,7 @@ const toolHref = localizedPath(locale, '/oven-to-air-fryer');
       <div class="card-grid">
         {dict.brandCards.map((c, i) =>
           isLive(brandHrefs[i]) ? (
-            <a href={brandHrefs[i]} class="card">
+            <a href={hrefFor(brandHrefs[i])} class="card">
               <span class="card-title small">{c.title}</span>
               <span class="card-spec">{c.spec}</span>
               <span class="card-desc">{c.desc}</span>

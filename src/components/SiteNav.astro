@@ -100,8 +100,8 @@ const dict = getDictionary(locale).nav;
 
   // Dark mode toggle
   const themeBtn = document.getElementById('theme-toggle-btn') as HTMLButtonElement;
-  const iconMoon = document.getElementById('icon-moon') as SVGElement;
-  const iconSun = document.getElementById('icon-sun') as SVGElement;
+  const iconMoon = document.querySelector<SVGElement>('#icon-moon')!;
+  const iconSun = document.querySelector<SVGElement>('#icon-sun')!;
   const html = document.documentElement;
 
   function syncIcons(isDark: boolean) {

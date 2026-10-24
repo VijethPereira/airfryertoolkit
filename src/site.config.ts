@@ -60,9 +60,25 @@ export const LIVE_PAGES = new Set<string>([
   '/',
   '/oven-to-air-fryer',
   '/air-fryer-to-oven',
+  '/convection-to-air-fryer',
+  '/air-fryer-to-convection',
   '/chart',
   '/about',
   '/contact',
   '/privacy-policy',
   '/terms',
 ]);
+
+/**
+ * Pages with real translated content at /es, /pt, /fr, /de as well as the English root.
+ * Read by sitemap.xml.ts (one <url> per locale + hreflang) and by HomeBody (which
+ * localizes a card's href only when the slug is listed here).
+ */
+export const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: string }[] = [
+  { slug: '/', priority: '1.0', changefreq: 'weekly' },
+  { slug: '/oven-to-air-fryer', priority: '0.9', changefreq: 'monthly' },
+  { slug: '/air-fryer-to-oven', priority: '0.8', changefreq: 'monthly' },
+  { slug: '/convection-to-air-fryer', priority: '0.8', changefreq: 'monthly' },
+  { slug: '/air-fryer-to-convection', priority: '0.7', changefreq: 'monthly' },
+  { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
+];

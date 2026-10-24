@@ -5,10 +5,12 @@ import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 
 interface Props {
   locale?: LocaleCode;
+  /** 'convection' converts to a fan-oven setting with the gentler CONVECTION_FOODS table. */
+  target?: 'oven' | 'convection';
 }
 
-const { locale = DEFAULT_LOCALE } = Astro.props;
-const dict = getDictionary(locale).reverseConverter;
+const { locale = DEFAULT_LOCALE, target = 'oven' } = Astro.props;
+const dict = target === 'convection' ? getDictionary(locale).reverseConvectionConverter : getDictionary(locale).reverseConverter;
 const converterDict = getDictionary(locale).converter;
 const foodKeys = Object.keys(FOODS) as FoodKey[];
 ---
@@ -80,17 +82,33 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, converterDict }}>
+<script is:inline define:vars={{ dict, converterDict, target }}>
   window.__afoDict = dict;
   window.__afoConverterDict = converterDict;
+  window.__afoTarget = target;
 </script>
 
 <script>
-  import { computeOvenSetting, cappedNote, type FoodKey, type FryerStyle, type TempUnit } from '../lib/converter';
+  import {
+    computeOvenSetting,
+    computeConvectionSetting,
+    cappedNote,
+    type FoodKey,
+    type FryerStyle,
+    type TempUnit,
+  } from '../lib/converter';
   import type { Dictionary } from '../i18n/types';
 
-  const dict = (window as unknown as { __afoDict: Dictionary['reverseConverter'] }).__afoDict;
-  const converterDict = (window as unknown as { __afoConverterDict: Dictionary['converter'] }).__afoConverterDict;
+  const {
+    __afoDict: dict,
+    __afoConverterDict: converterDict,
+    __afoTarget: target,
+  } = window as unknown as {
+    __afoDict: Dictionary['reverseConverter'];
+    __afoConverterDict: Dictionary['converter'];
+    __afoTarget: 'oven' | 'convection';
+  };
+  const compute = target === 'convection' ? computeConvectionSetting : computeOvenSetting;
 
   const tempInput = document.getElementById('afo-temp') as HTMLInputElement;
   const timeInput = document.getElementById('afo-time') as HTMLInputElement;
@@ -121,7 +139,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     const airFryerMinutes = parseFloat(timeInput.value);
     const food = foodSelect.value as FoodKey;
 
-    const result = computeOvenSetting({ airFryerTemp, unit: state.unit, airFryerMinutes, food, style: state.style });
+    const result = compute({ airFryerTemp, unit: state.unit, airFryerMinutes, food, style: state.style });
 
     const ok = result.outF !== null;
     const okT = result.outMinutes !== null;

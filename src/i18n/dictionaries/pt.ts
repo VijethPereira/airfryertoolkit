@@ -65,6 +65,20 @@ const pt: Dictionary = {
     ambiguousCeilingNoteTemplate:
       'Isso está no limite da sua {unit} ({ceiling}°F). Se este ajuste veio de converter para baixo uma receita de forno mais quente, o tempo já inclui cerca de 8% a mais — subtraia isso para um resultado mais preciso.',
   },
+  convectionConverter: {
+    widgetLabel: "Convecção → Air fryer",
+    ovenTemperature: "Temperatura de convecção",
+    ovenTime: "Tempo de convecção",
+  },
+  reverseConvectionConverter: {
+    widgetLabel: "Air fryer → Convecção",
+    airFryerTemperature: "Temperatura da air fryer",
+    airFryerTime: "Tempo de air fryer",
+    ovenSetting: "Ajuste do forno de convecção",
+    stepNote: "Arredondado a passos de 25°F do forno",
+    ovenCaveat: "Mantenha o ventilador ligado e espalhe o alimento numa única camada, com espaço em volta de cada pedaço — uma assadeira de convecção lotada perde o fluxo de ar que estes tempos supõem.",
+    ambiguousCeilingNoteTemplate: "Isto está no limite do {unit} ({ceiling}°F). Se foi convertido para baixo a partir de uma receita de convecção mais quente, o tempo já inclui cerca de 8% extra — desconte isso, ou volte à receita original.",
+  },
   home: {
     metaTitle: 'Conversor de forno para air fryer',
     metaDescription:
@@ -187,6 +201,7 @@ const pt: Dictionary = {
       'Uma receita de 450°F convertida com uma regra fixa em uma air fryer de cesto com máximo de 400°F retornaria 425°F — um ajuste que não existe no mostrador. Esta ferramenta limita o resultado ao teto real do aparelho (400°F cesto, 450°F tipo forno) e adiciona tempo de volta para compensar o calor menor, com uma nota em linguagem simples explicando o que aconteceu e o que esperar (uma superfície um pouco menos crocante, então verifique um pouco antes). É a lacuna mais comum entre as demais calculadoras de air fryer, e o motivo desta ferramenta existir.',
     relatedChartLink: 'Tabela de conversão para imprimir',
     relatedReverseLink: 'Conversor de air fryer para forno',
+    relatedConvectionLink: "Conversor de convecção para air fryer",
     faqHeading: 'Perguntas frequentes',
     faqs: [
       {
@@ -298,6 +313,7 @@ const pt: Dictionary = {
       'Um forno convencional não tem a circulação de ar forçado que o cesto de uma air fryer tem, então duas coisas mudam. O pré-aquecimento importa mais, já que o forno precisa de todo o seu tempo de aquecimento para chegar à temperatura alvo de forma uniforme, em vez dos 3–4 minutos que uma air fryer precisa. E uma única camada de alimento não vai ficar tão crocante quanto no cesto, já que há menos fluxo de ar concentrado batendo em cada lado ao mesmo tempo. Nenhum dos dois é um problema para contornar — só não espere que uma assadeira de asinhas no forno fique idêntica à versão feita na air fryer, e use um ajuste de convecção ou "air fry" do forno se o seu tiver, já que isso fecha a maior parte da diferença.',
     relatedFlagshipLink: 'Conversor de forno para air fryer',
     relatedChartLink: 'Tabela de conversão para imprimir',
+    relatedConvectionLink: "Conversor de air fryer para convecção",
     faqHeading: 'Perguntas frequentes',
     faqs: [
       {
@@ -323,6 +339,104 @@ const pt: Dictionary = {
       {
         q: 'Qual temperatura interna eu ainda devo verificar, independentemente do aparelho?',
         a: 'Os alvos de temperatura interna não mudam entre uma air fryer e um forno — retire aves a 165°F internos e peixe, bife ou costeletas a 145°F. O aparelho muda o tempo e o ajuste do mostrador para chegar lá; não muda o que significa "pronto".',
+      },
+    ],
+  },
+  convectionTool: {
+    metaTitle: "Conversor de forno de convecção para air fryer",
+    metaDescription: "Converta uma receita de forno de convecção ou com ventilação para ajustes de air fryer. Um corte mais suave que a regra do forno — receitas com ventilador já vêm ajustadas — por tipo de alimento e cesto ou tipo forno.",
+    metaKeywords: "convecção para air fryer, forno de convecção para air fryer, forno com ventilação para air fryer, converter receita de convecção para air fryer, forno turbo para air fryer",
+    backLink: "Todas as ferramentas",
+    heading: "Conversor de convecção para air fryer",
+    subDesc: "Digite a temperatura e o tempo de uma receita de forno de convecção ou com ventilação. Receba o ajuste de air fryer com o corte menor de que uma receita já ajustada pelo ventilador precisa, por tipo de alimento e cesto ou tipo forno.",
+    aboutHeading: "Por que receitas de convecção precisam de uma conversão própria",
+    aboutBody: "Um forno de convecção e uma air fryer funcionam pelo mesmo princípio: um ventilador movimenta o ar quente em volta do alimento para que o calor chegue mais rápido do que chegaria com o ar parado. Por isso uma receita escrita para convecção já traz embutida a maior parte da vantagem da air fryer — costuma estar cerca de 25°F abaixo da versão para forno convencional do mesmo prato, e muitas vezes é um pouco mais curta. Passe essa receita por uma conversão padrão de forno para air fryer e você tira os 25°F pela segunda vez, e é assim que receitas de forno com ventilação saem do cesto pálidas e cruas por dentro. Este conversor parte do número de convecção e aplica apenas a diferença que realmente sobra.",
+    whyGentlerHeading: "Por que o corte é menor",
+    whyGentlerBody: "O que sobra entre um forno de convecção e uma air fryer é tamanho e distância. A cavidade de uma air fryer é uma fração do volume, e o alimento fica a poucos centímetros do ventilador e da resistência, então o ar chega mais rápido e a superfície doura antes. Isso vale cerca de 0–15°F e 5–10% do tempo, conforme o alimento. Batata frita e asinhas mantêm quase todo o calor — precisam dele para ficar crocantes e soltar a gordura — e economizam tempo no lugar. Bolos, biscoitos e gratinados levam o maior corte de temperatura, 15°F, porque numa cavidade pequena a superfície doura antes de o centro firmar. As air fryers tipo forno são ainda mais parecidas com um forno de convecção, então o corte delas diminui mais 5°F.",
+    workedExampleHeading: "Exemplo prático",
+    workedExampleTemplate: "Uma receita de forno com ventilação a 350°F por 30 minutos, alimento geral, numa air fryer de cesto, sai a {GENERAL_AF_F}°F por {GENERAL_AF_MIN} minutos. Com os mesmos números no conversor de forno convencional para air fryer você teria {FLAGSHIP_AF_F}°F por {FLAGSHIP_AF_MIN} minutos — baixo demais e curto demais para uma receita que já vinha ajustada pelo ventilador. Asinhas a 425°F em convecção por 40 minutos passam do que um cesto de 400°F alcança, então o conversor as segura em {WINGS_AF_F}°F e devolve tempo: {WINGS_AF_MIN} minutos, com uma nota avisando.",
+    spotHeading: "Como saber se uma receita foi escrita para convecção",
+    spotBody: "Procure primeiro as palavras: \"ventilação\", \"ventilador\", \"forno turbo\", \"convecção\", \"assar com convecção\" ou uma temperatura escrita como \"180°C ventilado\". Receitas britânicas e australianas e muitas embalagens trazem dois números, um convencional e outro com ventilador, e o com ventilador é o menor. Se não houver indicação, compare a temperatura com a que o prato costuma levar: batatas assadas a 400°F em vez de 425°F, ou biscoitos a 325°F em vez de 350°F, sugerem que a receita já pressupõe um ventilador. Livros de receitas que acompanham um forno costumam ser escritos para o modo de convecção dele.",
+    conventionalHeading: "Se a receita não for de convecção",
+    conventionalBody: "Uma receita para forno comum, sem ventilador, precisa da conversão completa — a queda de temperatura maior e o corte de tempo maior que o conversor de forno para air fryer aplica. Usar esta página para uma receita convencional deixa o alimento um pouco quente e longo demais; usar o conversor convencional para uma receita de convecção o deixa cru. Escolha o conversor pela receita, não pelo aparelho.",
+    relatedFlagshipLink: "Conversor de forno para air fryer (receitas convencionais)",
+    relatedReverseLink: "Conversor de air fryer para forno",
+    relatedSiblingLink: "Conversor de air fryer para convecção",
+    relatedChartLink: "Tabela de conversão para imprimir",
+    faqHeading: "Perguntas frequentes",
+    faqs: [
+      {
+        q: "Como converter uma receita de forno de convecção para air fryer?",
+        a: "Baixe a temperatura de 0 a 15°F conforme o alimento e corte o tempo em 5–10%. Alimentos que precisam ficar crocantes, como batata frita e asinhas, mantêm o calor e perdem um pouco de tempo; bolos e gratinados levam o maior corte de temperatura. O conversor acima aplica os números por alimento e confere o resultado com a temperatura máxima da sua air fryer.",
+      },
+      {
+        q: "Devo tirar 25°F de uma receita de convecção para a air fryer?",
+        a: "Não. Esses 25°F são o ajuste usual de forno convencional para convecção, e uma receita de convecção já o fez. Tirar de novo conta o ventilador duas vezes e deixa o alimento cru. A partir da convecção, o corte que sobra é de no máximo 15°F.",
+      },
+      {
+        q: "Forno com ventilação é o mesmo que forno de convecção?",
+        a: "Sim. \"Forno com ventilação\", \"forno turbo\" e \"fan oven\" são nomes do forno de convecção. Quando a embalagem traz uma temperatura convencional e outra ventilada, digite aqui a ventilada.",
+      },
+      {
+        q: "E se a receita de convecção for mais quente do que minha air fryer alcança?",
+        a: "O conversor segura a temperatura no limite do aparelho — 400°F na maioria dos modelos de cesto, 450°F nos de tipo forno — e devolve cerca de 8% do tempo para compensar, com uma nota abaixo do resultado. Confira antes; a superfície pode dourar um pouco menos.",
+      },
+      {
+        q: "Posso usar os ajustes de convecção sem mudar numa air fryer tipo forno?",
+        a: "Quase. Uma air fryer tipo forno é basicamente um pequeno forno de convecção, então o corte diminui: 0–10°F e tempo próximo do original. Batata frita e asinhas podem ir à temperatura de convecção com só alguns minutos a menos.",
+      },
+      {
+        q: "As temperaturas internas mudam entre convecção e air fryer?",
+        a: "Não. Retire aves a 165°F internos e peixe, bife ou costeletas a 145°F, seja qual for o aparelho. O conversor muda o ajuste e o tempo para chegar lá, não o que significa estar pronto.",
+      },
+    ],
+  },
+  reverseConvectionTool: {
+    metaTitle: "Conversor de air fryer para forno de convecção",
+    metaDescription: "Converta temperatura e tempo da air fryer para um ajuste de forno de convecção (com ventilação), por tipo de alimento e cesto ou tipo forno, arredondado a passos de 25°. Para porções que não cabem no cesto.",
+    metaKeywords: "air fryer para convecção, air fryer para forno de convecção, air fryer para forno com ventilação, converter receita de air fryer para forno de convecção, air fryer para forno turbo",
+    backLink: "Todas as ferramentas",
+    heading: "Conversor de air fryer para forno de convecção",
+    subDesc: "Digite uma temperatura e um tempo de air fryer. Receba o ajuste do forno de convecção (com ventilação), adaptado ao alimento e ao tipo cesto ou forno, arredondado aos passos de 25° de um botão de forno real.",
+    aboutHeading: "Sobre a conversão de air fryer para convecção",
+    aboutBody: "Uma receita de air fryer escala mal. O cesto comporta uma camada, e assim que você cozinha para seis em vez de dois, um forno de convecção — o mesmo calor movido por ventilador numa cavidade onde cabem duas assadeiras — é o caminho mais rápido. Como os dois aparelhos movem ar quente com um ventilador, passar da air fryer para um forno de convecção é um ajuste pequeno, não a volta inteira a um forno convencional. Este conversor devolve só a diferença por alimento entre os dois: alguns graus e um pouco de tempo, com a mesma tabela do conversor de convecção para air fryer, aplicada ao contrário.",
+    whenConvectionHeading: "Quando um forno de convecção vence o cesto",
+    whenConvectionBody: "O tamanho da porção é o principal: um forno de convecção cozinha duas ou três assadeiras de uma vez, com o ventilador mantendo cada grade quase na mesma temperatura, enquanto uma air fryer precisaria de três rodadas seguidas. Peças grandes — um frango inteiro, uma assadeira de biscoitos, um assado de travessa — cabem num forno e não num cesto. E quando a air fryer está ocupada com um acompanhamento, levar o prato principal para o forno ventilado faz os dois chegarem à mesa ao mesmo tempo. Jantares de uma assadeira só, em que legumes e proteína dividem a mesma bandeja e terminam juntos, também são mais fáceis de acertar no forno. Para uma porção de batata frita ou asinhas, a air fryer ainda ganha em rapidez e crocância.",
+    roundingHeading: "Por que a temperatura muitas vezes não muda",
+    roundingBody: "A diferença entre uma air fryer e um forno de convecção é de 0–15°F, e o botão de um forno avança em passos de 25°F. Some 10°F a um ajuste de air fryer de 375°F e o passo mais próximo do botão continua sendo 375°F. Por isso, para muitos alimentos, este conversor devolve a mesma temperatura e põe todo o ajuste no tempo. É a resposta honesta: a diferença entre os dois aparelhos é sobretudo a rapidez com que o ar chega ao alimento, e um cozimento um pouco mais longo na cavidade maior é como o forno compensa. Arredondar a passos do botão também faz uma receita convertida de ida e volta cair no número de onde partiu.",
+    workedExampleHeading: "Exemplo prático",
+    workedExampleTemplate: "Um ajuste geral de air fryer de 340°F por 27 minutos no cesto vira {GENERAL_CONV_F}°F por {GENERAL_CONV_MIN} minutos num forno de convecção — provavelmente a receita ventilada de onde ele veio. Batata frita a 390°F por 18 minutos vira {FRIES_CONV_F}°F por {FRIES_CONV_MIN} minutos: o botão cai no passo seguinte, e o forno ganha alguns minutos a mais porque o ar se move mais devagar sobre uma assadeira cheia do que dentro de um cesto.",
+    ceilingHeading: "Ajustes no máximo da sua air fryer",
+    ceilingBody: "Se o ajuste da air fryer está no limite do aparelho — 400°F na maioria dos cestos, 450°F nos modelos tipo forno — ele pode ser um número já convertido: uma receita de convecção mais quente segurada no que a air fryer alcança, com cerca de 8% de tempo extra. O conversor não consegue saber qual é o caso, então mostra uma nota. Se você sabe que a receita começou mais quente, use o ajuste de convecção original em vez de converter de volta.",
+    relatedFlagshipLink: "Conversor de forno para air fryer",
+    relatedReverseLink: "Conversor de air fryer para forno (forno convencional)",
+    relatedSiblingLink: "Conversor de convecção para air fryer",
+    relatedChartLink: "Tabela de conversão para imprimir",
+    faqHeading: "Perguntas frequentes",
+    faqs: [
+      {
+        q: "Como converter tempo e temperatura da air fryer para um forno de convecção?",
+        a: "Some 0–15°F conforme o alimento, arredonde para o passo de 25°F mais próximo do botão e acrescente 5–10% ao tempo. O conversor acima faz as três coisas com a mesma tabela por alimento do conversor de convecção para air fryer, para que os dois sentidos concordem.",
+      },
+      {
+        q: "Air fryer para convecção é o mesmo que air fryer para forno?",
+        a: "Não. Um forno convencional, sem ventilador, precisa de 20–25°F e 15–30% do tempo de volta. Um forno de convecção já tem ventilador, então precisa de bem menos. Se o seu forno não tem modo ventilado, use o conversor de air fryer para forno.",
+      },
+      {
+        q: "Por que a temperatura saiu igual ao meu ajuste de air fryer?",
+        a: "Porque a diferença entre os dois aparelhos é menor que um passo de 25°F no botão do forno. Arredondar para um ajuste que o forno consegue mostrar muitas vezes volta ao número da air fryer, então o ajuste vai para o tempo.",
+      },
+      {
+        q: "Uso convecção para assar bolos ou convecção para grelhar?",
+        a: "A convecção comum serve para a maioria dos alimentos. A convecção com resistência superior ajuda asinhas, batatas e tudo o que você quer crocante. Use a temperatura que o conversor dá em qualquer um dos casos.",
+      },
+      {
+        q: "Preciso de mais tempo com duas assadeiras no forno?",
+        a: "Muitas vezes alguns minutos, sim. O tempo convertido supõe uma assadeira com espaço em volta. Com duas ou mais, troque-as de posição na metade e confira um ou dois minutos depois do tempo convertido.",
+      },
+      {
+        q: "As temperaturas internas de referência mudam?",
+        a: "Não. Aves ficam prontas a 165°F internos e peixe, bife ou costeletas a 145°F, na air fryer ou no forno de convecção.",
       },
     ],
   },
@@ -391,6 +505,10 @@ const pt: Dictionary = {
     relatedGasMarkDesc: '— uma conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.',
     relatedReverseLabel: 'Conversor de air fryer para forno',
     relatedReverseDesc: '— o sentido inverso, para quando o forno é a melhor escolha.',
+    relatedConvectionLabel: "Conversor de convecção para air fryer",
+    relatedConvectionDesc: "— um corte mais suave para receitas de forno ventilado que já vêm ajustadas.",
+    relatedReverseConvectionLabel: "Conversor de air fryer para convecção",
+    relatedReverseConvectionDesc: "— leve um ajuste de air fryer para um forno ventilado em porções maiores.",
   },
 };
 
