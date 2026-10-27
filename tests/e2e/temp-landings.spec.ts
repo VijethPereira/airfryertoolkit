@@ -77,8 +77,8 @@ test.describe('temperature landing pages', () => {
         await expect(page.locator(`link[rel="alternate"][hreflang="${alt.code}"]`)).toHaveAttribute('href', localizedUrl(alt.code, slug));
       }
       // Every {KEY} was filled — none leak into the rendered page or its meta.
-      expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z_]+\}/);
-      expect(await page.title()).not.toMatch(/\{[A-Z_]+\}/);
+      expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
+      expect(await page.title()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       expect(pageErrors).toEqual([]);
     });
 
@@ -153,7 +153,7 @@ test.describe('temperature landing pages', () => {
     test(`${slug} emits WebApplication + FAQPage JSON-LD with every FAQ filled`, async ({ page }) => {
       await page.goto(slug);
       const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
-      expect(raw).not.toMatch(/\{[A-Z_]+\}/);
+      expect(raw).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       const graph = JSON.parse(raw!)['@graph'] as { '@type': string; url?: string; mainEntity?: { name: string }[] }[];
       expect(graph.map((n) => n['@type'])).toEqual(['WebApplication', 'FAQPage']);
       expect(graph[0].url).toBe(localizedUrl('en', slug));
@@ -273,7 +273,7 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
         await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', localizedUrl(l.code, slug));
         await expect(page.locator(`link[rel="alternate"][hreflang="${DEFAULT_LOCALE}"]`)).toHaveAttribute('href', localizedUrl(DEFAULT_LOCALE, slug));
         await expect(page.locator(`.related-link a[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
-        expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z_]+\}/);
+        expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       }
       expect(pageErrors).toEqual([]);
     });

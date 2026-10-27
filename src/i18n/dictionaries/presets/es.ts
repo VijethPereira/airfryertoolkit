@@ -486,6 +486,468 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'chicken-drumsticks': {
+      label: 'Jamoncitos de pollo',
+      metaTitle: 'Jamoncitos de pollo en la freidora de aire: tiempo, temperatura y carne tierna',
+      metaDescription:
+        'Jamoncitos de pollo en la freidora de aire: {AF_F}°F durante {MIN} minutos, voltear a los {FLIP}, seguros a {INT_F}°F. Por qué hay que pasar de ese punto, tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'jamoncitos de pollo freidora de aire, muslitos de pollo air fryer tiempo, drumsticks freidora de aire',
+      heading: 'Jamoncitos de pollo en la freidora de aire',
+      subDesc:
+        'Jamoncitos frescos, con hueso y piel. El ajuste, cuándo voltearlos y por qué un jamoncito que solo es seguro todavía no está terminado.',
+      cardDesc: 'Seguro a {INT_F}°F, tierno cerca de {INT_ALT_TO_F}°F.',
+      sizeLabels: { small: 'Pequeños, unos 90 g', medium: 'Medianos, unos 130 g', large: 'Grandes, desde 170 g' },
+      internalAltLine: 'Más tiernos a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), medido junto al hueso',
+      failureHeading: 'Seguro pero correoso: la trampa del jamoncito',
+      failureBody:
+        'El jamoncito es el músculo que más trabaja en el ave y está envuelto en tendones y tejido conectivo. A {INT_F}°F ya es seguro, pero ese tejido sigue tenso: la carne se pega al hueso, se nota elástica y puede verse algo rosada junto a la articulación aunque esté totalmente cocinada. Quien los saca a la temperatura de la pechuga cree que han quedado crudos; quien sigue hasta que la piel está muy oscura suele encontrarlos secos por fuera. La solución es pasar a propósito del número de seguridad. El colágeno empieza a convertirse en gelatina hacia los {INT_ALT_F}°F, y entre ese punto y {INT_ALT_TO_F}°F la carne se afloja, se vuelve sedosa y se separa del hueso sin esfuerzo.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Seis jamoncitos medianos, unos 700 g en total, secados y untados con aceite, ajo en polvo y pimentón ahumado. Precalienta {PREHEAT} minutos, colócalos en una sola capa con espacio entre ellos y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando a los {FLIP}. Mide el más grueso junto al hueso. Los pequeños están en unos {SMALL_MIN} minutos y los grandes necesitan unos {LARGE_MIN}. En horno convencional la misma bandeja tarda unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'Introduce el termómetro por la parte carnosa de arriba hasta que toque el hueso y retíralo un poco. {INT_F}°F ({INT_C}°C) es el límite de seguridad; {INT_ALT_F}–{INT_ALT_TO_F}°F es donde los jamoncitos saben mejor. A la vista, la piel está tensa y bien dorada, la carne se ha retraído y deja ver un poco de hueso en el extremo estrecho, y la pieza gira con facilidad en la articulación. El rosa junto al hueso a la temperatura correcta es pigmento, no carne cruda.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Seca bien la piel y sazona con generosidad; los jamoncitos son lo bastante gruesos para salarlos una hora antes. Haz uno o dos cortes hasta el hueso en el lado más grueso para que el calor llegue antes al centro. Colócalos alternando el extremo grueso y el fino para que encajen sin tocarse. La salsa barbacoa o cualquier glaseado se añade solo en los últimos dos o tres minutos.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los jamoncitos de pollo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para jamoncitos frescos medianos, volteados a los {FLIP} minutos. Los pequeños tardan unos {SMALL_MIN} minutos y los grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Qué temperatura interna deben alcanzar los jamoncitos?',
+          a: 'Son seguros a {INT_F}°F ({INT_C}°C), pero la mayoría los lleva a {INT_ALT_F}–{INT_ALT_TO_F}°F, cuando el tejido conectivo se ablanda y la carne se suelta del hueso.',
+        },
+        {
+          q: '¿Por qué mi jamoncito está rosado junto al hueso?',
+          a: 'Los huesos de los pollos jóvenes sueltan algo de pigmento en la carne de alrededor. Si el termómetro marca {INT_F}°F o más, el color es inofensivo.',
+        },
+        {
+          q: '¿Cuándo pongo la salsa barbacoa?',
+          a: 'En los últimos dos o tres minutos. El azúcar de la salsa se quema mucho antes de que los jamoncitos estén hechos si va desde el principio.',
+        },
+        {
+          q: '¿Cómo se compara con el horno?',
+          a: 'Un horno convencional necesita {OVEN_F}°F durante unos {OVEN_MIN} minutos, y uno con ventilador {FAN_F}°F durante unos {FAN_MIN}. La freidora de aire deja la piel bastante más crujiente.',
+        },
+      ],
+    },
+    'chicken-tenders': {
+      label: 'Tiras de pollo',
+      metaTitle: 'Tiras de pollo en la freidora de aire: tiempo y temperatura (frescas)',
+      metaDescription:
+        'Tiras de pollo frescas y solomillos de pollo en la freidora de aire: {AF_F}°F durante {MIN} minutos, voltear a los {FLIP}, listas a {INT_F}°F. Al natural o empanadas, tiempos por tamaño.',
+      metaKeywords: 'tiras de pollo freidora de aire, solomillo de pollo air fryer, tenders de pollo freidora de aire tiempo',
+      heading: 'Tiras de pollo en la freidora de aire',
+      subDesc:
+        'Solomillos de pollo frescos o tiras cortadas de la pechuga, al natural o empanadas en casa. El ajuste corto, el volteo y cómo evitar que se sequen.',
+      cardDesc: 'Pequeñas y rápidas: pon el temporizador al mínimo.',
+      sizeLabels: { small: 'Tiras finas, unos 30 g', medium: 'Solomillos enteros, unos 60 g', large: 'Tiras gruesas, desde 90 g' },
+      failureHeading: 'Hechas un minuto, secas al siguiente',
+      failureBody:
+        'Una tira de pollo es una pieza estrecha, casi sin grasa y con mucha superficie. El aire caliente llega a todos los lados a la vez, así que la pieza entera se hace en pocos minutos y no hay un centro grueso que amortigüe un error. Si dejas una cesta de tiras dos minutos de más mientras preparas la salsa, encogen, se endurecen y quedan fibrosas. El tendón blanco que recorre el solomillo empeora las cosas, porque se contrae con el calor y curva la tira. Trata las tiras como una cocción rápida y no como un asado: quita el tendón, corta todas del mismo grosor, empieza a comprobar un minuto antes del tiempo y sácalas en cuanto la más gruesa esté hecha. Las empanadas protegen algo la carne, pero necesitan un poco de aceite en spray para que el rebozado se dore antes de que el interior se pase.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        '450 g de solomillos enteros sin tendón, pasados por huevo y panko y rociados con un poco de aceite. Precalienta {PREHEAT} minutos, colócalos planos sin solaparse y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando a los {FLIP}. Las tiras finas cortadas de la pechuga están en unos {SMALL_MIN} minutos y las gruesas en unos {LARGE_MIN}. Sobre una rejilla en horno convencional, la misma tanda tarda unos {OVEN_MIN} minutos a {OVEN_F}°F y sale más pálida.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Mide la tira más gruesa desde el extremo, metiendo la sonda a lo largo hasta el centro: a {INT_F}°F ({INT_C}°C) está hecha. Las tiras son demasiado finas para guardar mucho calor residual, así que apenas suben al sacarlas. Sin termómetro, parte la más gruesa por la mitad; debe estar blanca, sin centro vidrioso, y con jugos claros. El empanado debe quedar dorado por todas partes, no pálido donde se tocaban las piezas.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Quita el tendón blanco sujetando su extremo con un tenedor y deslizando la carne. Para empanar, prepara harina, huevo batido y panko, y presiona bien el pan rallado para que el ventilador no lo levante. Quince minutos en suero de leche con sal mantienen más jugosas las tiras al natural. Deja un dedo de espacio entre tiras.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las tiras de pollo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para solomillos frescos enteros, volteados a los {FLIP} minutos. Las tiras finas tardan unos {SMALL_MIN} minutos y las gruesas unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura están hechas las tiras de pollo?',
+          a: 'A {INT_F}°F ({INT_C}°C) en la pieza más gruesa. Como son finas, sácalas justo al llegar a esa lectura.',
+        },
+        {
+          q: '¿Las tiras empanadas necesitan aceite?',
+          a: 'Un poco en spray, sí. El pan rallado seco queda pálido y harinoso sin algo de grasa que lo ayude a dorarse.',
+        },
+        {
+          q: '¿Sirve este ajuste para tiras empanadas congeladas?',
+          a: 'No. Las tiras congeladas de supermercado vienen precocinadas y siguen las instrucciones del paquete; usa el modo congelados.',
+        },
+        {
+          q: '¿Cuál sería el ajuste en el horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    sausages: {
+      label: 'Salchichas',
+      metaTitle: 'Salchichas en la freidora de aire: tiempo, temperatura y sin reventar',
+      metaDescription:
+        'Salchichas frescas en la freidora de aire: {AF_F}°F durante {MIN} minutos, voltear a los {FLIP}, listas a {INT_F}°F las de cerdo o ternera. Bratwurst, salchichas finas y precocinadas.',
+      metaKeywords: 'salchichas freidora de aire tiempo, bratwurst freidora de aire, salchichas frescas air fryer',
+      heading: 'Salchichas en la freidora de aire',
+      subDesc:
+        'Salchichas frescas de cerdo, ternera o pollo, desde las finas de desayuno hasta la bratwurst, además de las precocinadas. El ajuste y cómo mantener la piel entera.',
+      cardDesc: 'Calor moderado para que la tripa no reviente.',
+      sizeLabels: { thin: 'Salchichas finas o de desayuno', medium: 'Salchichas normales, unos 2,5 cm', thick: 'Bratwurst o salchichas gruesas' },
+      internalAltLine: 'Salchichas de pollo o pavo: {INT_ALT_F}°F ({INT_ALT_C}°C). Las precocinadas solo necesitan calentarse hasta {INT_ALT_F}°F.',
+      failureHeading: 'Por qué revientan las salchichas en la freidora de aire',
+      failureBody:
+        'Una salchicha es un tubo cerrado de grasa, agua y especias. Al calentarse, el agua se convierte en vapor y la grasa se funde, y la presión interior sube más deprisa de lo que la tripa puede estirarse. Con demasiado calor, la piel se abre a lo largo, la grasa cae al cajón y humea, y la carne de dentro se seca. Mucha gente las pincha para evitarlo, pero así los jugos solo se escapan antes. Es mejor una temperatura moderada, con la que la tripa se tensa y se dora al mismo ritmo que se cocina el relleno, más un volteo a mitad para que ambos lados cojan color. Las salchichas recién sacadas de la nevera revientan con más facilidad que las que han reposado diez minutos, y las que se tocan en la cesta suelen romperse justo donde se pegan.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Seis salchichas frescas de cerdo de grosor normal, fuera de la nevera diez minutos. Colócalas en la cesta con espacio, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos y dales la vuelta a los {FLIP}. Las salchichas finas de desayuno necesitan unos {THIN_MIN} minutos; una bratwurst fresca, unos {THICK_MIN}. Las bratwurst precocinadas ya son seguras y solo hay que calentarlas, lo que lleva unos minutos menos. En horno convencional las mismas salchichas frescas tardan unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Introduce el termómetro por un extremo hacia el centro. Las de cerdo y ternera están hechas a {INT_F}°F ({INT_C}°C); las de pollo y pavo necesitan {INT_ALT_F}°F ({INT_ALT_C}°C). Las precocinadas, como la mayoría de bratwurst de supermercado y las salchichas tipo Frankfurt, ya vienen cocinadas de fábrica, así que solo hay que calentarlas hasta {INT_ALT_F}°F. A la vista, una salchicha fresca está firme al tacto, dorada por ambos lados y sin rosa al cortarla.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Separa las salchichas unidas con tijeras en lugar de tirar de ellas. No las pinches. No hace falta aceite: sueltan grasa de sobra, y una hoja de papel de horno perforado debajo evita que humee si tu cajón se calienta mucho. Si quieres cebolla con la bratwurst, añade cebolla en tiras al cajón durante la segunda mitad del tiempo.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las salchichas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para salchichas frescas normales, volteadas a los {FLIP} minutos. Las finas tardan unos {THIN_MIN} minutos y la bratwurst unos {THICK_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura están hechas las salchichas?',
+          a: 'A {INT_F}°F ({INT_C}°C) las de cerdo y ternera. Las de pollo y pavo necesitan {INT_ALT_F}°F ({INT_ALT_C}°C).',
+        },
+        {
+          q: '¿Cómo hago bratwurst precocinadas en la freidora de aire?',
+          a: 'A la misma temperatura, pero estarán listas unos minutos antes. Ya vienen cocinadas, así que caliéntalas hasta que el centro llegue a {INT_ALT_F}°F y la piel esté dorada.',
+        },
+        {
+          q: '¿Hay que pinchar las salchichas antes de hacerlas?',
+          a: 'No. Al pincharlas se escapan la grasa y los jugos y la salchicha se seca. Una temperatura moderada evita que la piel reviente sin necesidad de pincharlas.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para salchichas?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional, dándoles la vuelta una vez.',
+        },
+      ],
+    },
+    burgers: {
+      label: 'Hamburguesas',
+      metaTitle: 'Hamburguesas en la freidora de aire: tiempo, temperatura y punto',
+      metaDescription:
+        'Hamburguesas de ternera en la freidora de aire: {AF_F}°F durante {MIN} minutos, voltear a los {FLIP}, listas a {INT_F}°F. Tiempos por grosor, hamburguesas congeladas y equivalente en horno.',
+      metaKeywords: 'hamburguesas freidora de aire, hamburguesa air fryer tiempo, hamburguesas congeladas freidora de aire',
+      heading: 'Hamburguesas en la freidora de aire',
+      subDesc:
+        'Hamburguesas frescas de carne picada de ternera, caseras o de la tienda. El ajuste, el volteo y por qué la carne picada no tiene el mismo punto que un filete.',
+      cardDesc: 'Carne picada: {INT_F}°F, no el punto del filete.',
+      sizeLabels: { thin: 'Finas, unos 8 mm', medium: 'Normales, unos 1,3 cm', thick: 'Gruesas, unos 2 cm' },
+      failureHeading: 'Abombadas, encogidas y con humo',
+      failureBody:
+        'La carne picada no se comporta como un filete. Al calentarse, sus proteínas se contraen y tiran de los bordes hacia dentro, de modo que el centro se abomba, se cocina de forma desigual y luego no queda plano en el pan. Mientras tanto la grasa se funde, gotea sobre el cajón caliente y puede echar humo. Hacer un hoyo poco profundo en el centro de cada hamburguesa cruda la mantiene plana mientras encoge; limpiar el cajón entre tandas, y en algunos modelos echar un chorrito de agua bajo la cesta, reduce el humo. El otro error es copiar el punto del filete. Al picar la carne, las bacterias de la superficie se reparten por toda la pieza, así que una hamburguesa tiene que llegar a {INT_F}°F en el centro, no a la cifra de poco hecho que sirve para un filete entero.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Cuatro hamburguesas de 1,3 cm de carne picada con un 20 % de grasa, unos 150 g cada una, con un hoyo en el centro y saladas justo antes. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando a los {FLIP}. Las finas tipo smash tardan unos {THIN_MIN} minutos y las gruesas de 2 cm unos {THICK_MIN}. Pon el queso en el último minuto. En horno convencional las mismas hamburguesas necesitan unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Mete el termómetro por un lado hasta el centro: {INT_F}°F ({INT_C}°C) es el objetivo de seguridad para la carne picada de ternera, y en ese punto los jugos salen claros y el centro está marrón, sin rojo. El color por sí solo puede engañar, porque hay carne que se dora pronto y otra que sigue rosada estando hecha. Una hamburguesa que se ha abombado se cocina antes en los bordes que en el centro, así que mide en el punto más grueso.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Elige carne con un 20 % de grasa más o menos; la más magra queda seca. Trabájala poco y forma las hamburguesas algo más anchas que el pan, porque encogen. Haz el hoyo con el pulgar, de la mitad de profundidad de la hamburguesa. Sala solo el exterior y justo antes de cocinar, o la carne queda con textura de salchicha. No hace falta aceite.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las hamburguesas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para hamburguesas frescas de 1,3 cm, volteadas a los {FLIP} minutos. Las finas tardan unos {THIN_MIN} minutos y las gruesas de 2 cm unos {THICK_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura hay que cocinar una hamburguesa?',
+          a: 'A {INT_F}°F ({INT_C}°C) en el centro. Es más que un filete porque al picar la carne las bacterias de la superficie pasan al interior.',
+        },
+        {
+          q: '¿Puedo hacer hamburguesas congeladas en la freidora de aire?',
+          a: 'Sí, a la misma temperatura. Suma unos 4–6 minutos al tiempo de las frescas, dales la vuelta a mitad y comprueba igualmente {INT_F}°F en el centro. Separa antes las que se hayan congelado juntas.',
+        },
+        {
+          q: '¿Por qué se abomban mis hamburguesas en la freidora de aire?',
+          a: 'Los bordes encogen más deprisa que el centro y lo empujan hacia arriba. Un hoyo hecho con el pulgar en cada hamburguesa cruda las mantiene planas.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para hamburguesas?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos sobre una rejilla en horno convencional, volteadas una vez.',
+        },
+      ],
+    },
+    'pork-tenderloin': {
+      label: 'Solomillo de cerdo',
+      metaTitle: 'Solomillo de cerdo en la freidora de aire: tiempo, temperatura y reposo',
+      metaDescription:
+        'Solomillo de cerdo entero en la freidora de aire: {AF_F}°F durante {MIN} minutos, voltear a los {FLIP}, {INT_F}°F tras el reposo. Tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'solomillo de cerdo freidora de aire, solomillo de cerdo air fryer tiempo, solomillo de cerdo temperatura interna',
+      heading: 'Solomillo de cerdo en la freidora de aire',
+      subDesc:
+        'Un solomillo de cerdo entero, asado en una pieza. El ajuste, el volteo y cómo el reposo termina el trabajo.',
+      cardDesc: 'Dobla la punta y deja que el reposo lo termine.',
+      sizeLabels: { small: 'Pequeño, unos 340 g', medium: 'Mediano, unos 450 g', large: 'Grande, desde 570 g' },
+      failureHeading: 'Punta seca, centro crudo',
+      failureBody:
+        'Un solomillo se estrecha desde una cabeza gruesa hasta una punta fina de apenas dos o tres centímetros. En la freidora de aire la punta se hace mucho antes que la cabeza, y cuando la parte más gruesa por fin es segura, el extremo estrecho está gris y seco. Doblar los últimos centímetros de la punta bajo la pieza y sujetarlos con hilo o un palillo da a todo el solomillo un grosor más uniforme. La otra mitad de la solución es el reposo. Saca el solomillo un poco antes de {INT_F}°F y déjalo tres minutos sobre una tabla; el calor acumulado en las capas exteriores sigue avanzando hacia dentro y el centro sube unos 5°F mientras reposa. Ese reposo forma parte de llegar a la temperatura segura, no es un extra opcional, y además asienta los jugos para que se queden en la carne al cortarla.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Un solomillo de 450 g, sin la membrana plateada, con la punta doblada y untado con aceite, mostaza y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando a los {FLIP}. Sácalo cuando la parte gruesa marque unos 140°F y déjalo reposar tres minutos hasta llegar a {INT_F}°F. Uno pequeño de 340 g tarda unos {SMALL_MIN} minutos y uno grande unos {LARGE_MIN}. El equivalente en horno convencional es {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber si está listo',
+      donenessBody:
+        'Mide en la parte más gruesa de la cabeza, por un lado. Tras los tres minutos de reposo, el centro debe marcar {INT_F}°F ({INT_C}°C): rosado claro, jugoso y seguro. Si al sacarlo de la cesta ya marca bastante más de 145°F, quedará firme y seco después del reposo, así que la próxima vez sácalo antes. Córtalo en contra de la fibra en medallones de algo más de 1 cm.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Pasa un cuchillo fino bajo la membrana plateada, la capa brillante de un lado, y retírala; encoge con el calor y curva la pieza. Sécalo, úntalo con un poco de aceite y una mezcla de especias. Si tu cesta es pequeña, corta el solomillo por la mitad en lugar de curvarlo. Un glaseado dulce se añade solo en los últimos minutos.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el solomillo de cerdo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para un solomillo de 450 g, volteado a los {FLIP} minutos, más tres minutos de reposo. Los pequeños tardan unos {SMALL_MIN} minutos y los grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura está hecho el solomillo de cerdo?',
+          a: 'A {INT_F}°F ({INT_C}°C) tras tres minutos de reposo. Sácalo unos 5°F antes, porque sube mientras reposa.',
+        },
+        {
+          q: '¿Por qué hay que dejar reposar el solomillo?',
+          a: 'El exterior guarda calor que sigue cocinando el centro unos minutos, y los jugos se asientan para quedarse en las rodajas.',
+        },
+        {
+          q: '¿Hay que quitar la membrana plateada?',
+          a: 'Sí. No se ablanda al cocinarse y se contrae, curvando el solomillo y dejándolo correoso por un lado.',
+        },
+        {
+          q: '¿Cuál es el equivalente en un horno normal?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    'white-fish': {
+      label: 'Pescado blanco',
+      metaTitle: 'Bacalao y merluza en la freidora de aire: pescado blanco, tiempo y temperatura',
+      metaDescription:
+        'Filetes de pescado blanco en la freidora de aire: {AF_F}°F durante {MIN} minutos sin voltear, listos a {INT_F}°F. Bacalao, merluza, tilapia y abadejo, tiempos por grosor.',
+      metaKeywords: 'bacalao freidora de aire, merluza freidora de aire tiempo, pescado blanco air fryer',
+      heading: 'Pescado blanco en la freidora de aire',
+      subDesc:
+        'Bacalao, merluza, abadejo, tilapia y filetes parecidos, frescos o descongelados. El ajuste, por qué no conviene voltearlo y cómo sacarlo entero.',
+      cardDesc: 'No lo voltees: sácalo entero sobre papel.',
+      sizeLabels: { thin: 'Filetes finos, tilapia o lenguado', medium: 'Filetes normales, unos 2,5 cm', thick: 'Lomos gruesos de bacalao o merluza' },
+      failureHeading: 'Pegado a la cesta, roto al voltear',
+      failureBody:
+        'El pescado blanco tiene lascas grandes y sueltas unidas por muy poca grasa y tejido conectivo. Una vez hecho, esas lascas se separan con solo tocarlas: es la textura que quieres en el plato y la razón de que se deshaga por el camino. Los filetes sin protección además se pegan a la rejilla, porque las proteínas de la cara inferior se adhieren al metal caliente antes de cuajar. Intentar voltear un filete a mitad de cocción es donde falla casi todo el mundo: se rompe, deja la piel o la base pegada a la cesta y termina en trozos. Así que no lo voltees. El aire que circula cocina la parte de arriba y el calor de la cesta basta para la de abajo en filetes de grosor normal. Cocínalo sobre papel de horno perforado o una base aceitada y saca la hoja entera al final.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Dos filetes de bacalao de unos 170 g y 2,5 cm de grosor, secados, pincelados con mantequilla derretida y cubiertos con ralladura de limón y pimentón. Precalienta {PREHEAT} minutos, colócalos sobre papel perforado y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos sin darles la vuelta. La tilapia fina necesita unos {THIN_MIN} minutos y un lomo grueso de bacalao unos {THICK_MIN}. En horno convencional los mismos filetes tardan unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si está listo',
+      donenessBody:
+        'Presiona con suavidad la parte más gruesa con un tenedor: el pescado blanco hecho pasa de translúcido a un blanco opaco y brillante y se separa en lascas jugosas. La temperatura interna segura es de {INT_F}°F ({INT_C}°C). Los filetes finos pasan de hechos a secos muy rápido, así que compruébalos dos minutos antes del tiempo. Si las lascas se ven calcáreas y secas en los bordes, el pescado se ha pasado.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Descongela los filetes congelados por completo en la nevera y sécalos bien, porque el pescado descongelado suelta mucha agua. Dobla la cola fina hacia abajo para que el filete tenga un grosor uniforme. Un poco de grasa por encima ayuda al color y al sabor: algo de mantequilla, aceite o mayonesa con hierbas. Para un rebozado, presiona el panko solo por la parte de arriba.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el pescado blanco en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para filetes de bacalao o merluza de 2,5 cm, sin voltear. La tilapia fina tarda unos {THIN_MIN} minutos y los lomos gruesos unos {THICK_MIN}.',
+        },
+        {
+          q: '¿Hay que voltear el pescado en la freidora de aire?',
+          a: 'No. Los filetes delicados se rompen al girarlos, y el aire caliente cocina bien la parte de arriba por sí solo.',
+        },
+        {
+          q: '¿Cómo evito que el pescado se pegue a la cesta?',
+          a: 'Cocínalo sobre papel de horno perforado o una base aceitada y saca la hoja entera. Secar bien el pescado y aceitar la parte de abajo también ayuda.',
+        },
+        {
+          q: '¿A qué temperatura está hecho el bacalao?',
+          a: 'A {INT_F}°F ({INT_C}°C) en la parte más gruesa, cuando la carne está opaca y se separa en lascas con facilidad.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para pescado blanco?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    broccoli: {
+      label: 'Brócoli',
+      metaTitle: 'Brócoli en la freidora de aire: tiempo, temperatura y ramilletes crujientes',
+      metaDescription:
+        'Brócoli fresco en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando una vez. Puntas crujientes y tallos tiernos, tiempos por tamaño de ramillete y equivalente en horno.',
+      metaKeywords: 'brócoli freidora de aire, brócoli air fryer tiempo, brócoli asado freidora de aire',
+      heading: 'Brócoli en la freidora de aire',
+      subDesc:
+        'Ramilletes de brócoli fresco, asados hasta que los bordes crujen. El ajuste corto, cuándo agitar y cómo cortarlo para que puntas y tallos terminen a la vez.',
+      cardDesc: 'Corta los tallos finos para que no se quemen las puntas.',
+      sizeLabels: { small: 'Ramilletes pequeños, de un bocado', medium: 'Ramilletes medianos, unos 4 cm', large: 'Ramilletes grandes o cabezas en mitades' },
+      failureHeading: 'Puntas quemadas, tallos duros',
+      failureBody:
+        'Un ramillete de brócoli son dos alimentos unidos. Arriba hay un racimo de yemas diminutas y secas con muchísima superficie, y en el aire caliente en movimiento esas yemas pierden el agua en pocos minutos, se vuelven crujientes, luego negras y amargas. El tallo de abajo es denso y húmedo y necesita varios minutos más para ablandarse. Si cocinas el ramillete entero tienes que elegir entre puntas carbonizadas con un tallo crudo o un tallo tierno bajo migas quemadas. La solución está en el cuchillo. Corta ramilletes con tallos cortos y parte los tallos gruesos a lo largo, para que cada pieza tenga un tallo fino. Pela el tronco principal y córtalo en rodajas; una vez hecho es dulce. El otro problema es el peso: los ramilletes secos son tan ligeros que el ventilador puede levantar los trozos pequeños hasta la resistencia, así que mézclalos antes con aceite.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Una cabeza mediana de brócoli cortada en ramilletes de unos 4 cm con los tallos partidos, mezclada con una cucharada de aceite de oliva, sal y ajo. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos y agita una vez a mitad. Los ramilletes de un bocado están en unos {SMALL_MIN} minutos y los grandes en unos {LARGE_MIN}. Asada en bandeja en horno convencional, la misma cabeza tarda unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si está listo',
+      donenessBody:
+        'Las puntas deben estar doradas en los bordes, con algunos puntos oscuros y crujientes, mientras el resto del ramillete sigue de un verde intenso. Pincha un tallo con un cuchillo: debe entrar con una ligera resistencia. Los ramilletes de color verde grisáceo y blandos estaban demasiado juntos y se han cocido al vapor; las puntas negras y amargas indican que los trozos eran demasiado grandes para el tiempo o no llevaban aceite.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Lava el brócoli con antelación y deja que se seque del todo, o pásalo por una centrifugadora de ensalada; los ramilletes mojados se cuecen al vapor en lugar de asarse. Cubre cada pieza de aceite de forma uniforme, porque protege las puntas y les da peso. El queso rallado o el zumo de limón van después de cocinar. No llenes la cesta más de una capa.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el brócoli en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para ramilletes frescos medianos, agitando una vez. Los pequeños tardan unos {SMALL_MIN} minutos y los grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Por qué se quema el brócoli en la freidora de aire?',
+          a: 'Las yemas finas de arriba se secan mucho antes de que el tallo se ablande. Corta ramilletes más pequeños con tallos finos y cúbrelos de aceite.',
+        },
+        {
+          q: '¿Se puede hacer brócoli congelado en la freidora de aire?',
+          a: 'Sí, pero suelta mucha agua y queda más blando. Usa el modo congelados, que tiene en cuenta esa humedad extra, en lugar de este ajuste para fresco.',
+        },
+        {
+          q: '¿Por qué el brócoli sale volando en la freidora de aire?',
+          a: 'Los ramilletes secos son lo bastante ligeros para que el ventilador los levante. Una capa de aceite les da peso y los mantiene en la cesta.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para el brócoli?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional.',
+        },
+      ],
+    },
+    'brussels-sprouts': {
+      label: 'Coles de Bruselas',
+      metaTitle: 'Coles de Bruselas en la freidora de aire: tiempo, temperatura y hojas crujientes',
+      metaDescription:
+        'Coles de Bruselas en mitades en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando dos veces. Centro tierno, cara caramelizada, tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'coles de bruselas freidora de aire, coles de bruselas air fryer tiempo, coles de bruselas crujientes',
+      heading: 'Coles de Bruselas en la freidora de aire',
+      subDesc:
+        'Coles de Bruselas frescas, cortadas por la mitad y asadas. El ajuste, las dos agitadas y cómo lograr un centro tierno con la cara caramelizada.',
+      cardDesc: 'Córtalas por la mitad y empieza con el corte abajo.',
+      sizeLabels: { small: 'Pequeñas, en mitades', medium: 'Medianas, unos 2,5 cm, en mitades', large: 'Grandes, en cuartos' },
+      failureHeading: 'Centro crudo y hojas quemadas',
+      failureBody:
+        'Una col de Bruselas es un manojo apretado de hojas alrededor de un corazón denso y macizo. Las hojas exteriores, sueltas, se secan y se tuestan casi al instante en la freidora de aire, pero el calor tiene que abrirse paso capa a capa hasta el centro, así que una col entera puede estar chamuscada por fuera y todavía dura y con sabor a azufre por dentro. Cortarlas por la mitad es la solución principal, porque deja el corazón al descubierto y reduce a la mitad el camino del calor. Después importa la cara del corte. Apoyada plana sobre la cesta caliente, esa cara se carameliza en una costra dulce y con sabor a fruto seco, mientras el lado redondeado gana hojas crujientes con el aire. Ponlas con el corte hacia abajo durante el primer tramo y solo entonces empieza a agitar. Las grandes conviene cortarlas en cuartos, o el centro seguirá rezagado.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        '450 g de coles medianas, limpias y en mitades, mezcladas con cucharada y media de aceite y sal. Precalienta {PREHEAT} minutos, colócalas con el corte hacia abajo y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, agitando dos veces en la segunda mitad. Las pequeñas en mitades necesitan unos {SMALL_MIN} minutos y las grandes en cuartos unos {LARGE_MIN}. En horno convencional la misma bandeja tarda unos {OVEN_MIN} minutos a {OVEN_F}°F.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Clava un cuchillo en la parte más gruesa del corazón: debe entrar con facilidad, como en una patata cocida. La cara del corte debe estar entre dorada intensa y marrón oscuro, y algunas hojas exteriores se habrán soltado y estarán crujientes y casi negras; son lo mejor. Un color gris o un olor fuerte a col indican que se cocinaron demasiado tiempo a poco calor, o al vapor en una cesta llena.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Recorta la base seca del tallo y quita las hojas amarillas. Corta a través del tallo para que cada mitad se mantenga unida. Mézclalas con aceite hasta que todas las caras del corte brillen. La crema de balsámico, la miel o un chorrito de limón van después de cocinar, porque el azúcar se quema al final de una cocción fuerte.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las coles de Bruselas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para coles medianas en mitades, agitando dos veces. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes en cuartos unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que cortar las coles de Bruselas por la mitad?',
+          a: 'Sí. Enteras se queman por fuera antes de que el corazón denso se haga; en mitades el corazón queda expuesto y tienen una cara plana que se dora.',
+        },
+        {
+          q: '¿Por qué mis coles siguen duras por dentro?',
+          a: 'Eran demasiado grandes para el tiempo. Corta las grandes en cuartos y comprueba el corazón con un cuchillo antes de sacarlas.',
+        },
+        {
+          q: '¿Empiezo con el corte hacia arriba o hacia abajo?',
+          a: 'Hacia abajo. La cara plana se carameliza contra la cesta caliente y luego las agitadas tuestan las hojas.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para las coles de Bruselas?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    'sweet-potato-fries': {
+      label: 'Boniato frito',
+      metaTitle: 'Boniato frito en la freidora de aire: tiempo, temperatura y crujiente',
+      metaDescription:
+        'Bastones de boniato caseros en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando dos veces. Por qué se queman y quedan blandos, el truco de la maicena y tiempos por grosor.',
+      metaKeywords: 'boniato freidora de aire, patatas de boniato air fryer, batata frita freidora de aire',
+      heading: 'Boniato frito en la freidora de aire',
+      subDesc:
+        'Bastones de boniato fresco. Un ajuste más bajo que el de las patatas fritas, el rebozado que ayuda a que crujan y los tiempos por grosor.',
+      cardDesc: 'Más bajo que las patatas: el azúcar se quema antes.',
+      sizeLabels: { thin: 'Finos, 6 mm', medium: 'Normales, 1 cm', thick: 'Gruesos, 1,3 cm' },
+      failureHeading: 'Bordes oscuros, centro blando',
+      failureBody:
+        'El boniato no es una patata de color naranja. Tiene mucho más azúcar y mucho menos del almidón que hace crujir una patata frita. Con el calor, ese azúcar se carameliza y luego se quema a una temperatura más baja de la que necesita el almidón para dorarse, así que las puntas se ponen oscuras y amargas mientras el resto sigue blando. La blandura es la otra mitad del problema: con poco almidón que pueda formar una costra rígida, el bastón de boniato tiende a quedar lacio por mucho que se cocine. Por eso este ajuste va más bajo que el de las patatas fritas y algo más corto, y por eso una capa fina de maicena cambia tanto el resultado. La maicena aporta la capa de almidón seco que le falta al boniato y se vuelve crujiente con el aire antes de que el azúcar de debajo tenga tiempo de quemarse.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Dos boniatos medianos cortados en bastones de 1 cm, secados y mezclados primero con una cucharada de maicena y luego con una cucharada de aceite y una pizca de sal. Cocina en una sola capa a {AF_F}°F durante {MEDIUM_MIN} minutos, agitando dos veces. Los finos tardan unos {THIN_MIN} minutos y los gruesos unos {THICK_MIN}. Hazlos por tandas; al enfriarse un minuto crujen un poco más. En bandeja en horno convencional: {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'Busca bordes dorados y con alguna ampolla, pero no negros, y bastones que mantengan la forma al levantarlos por un extremo en lugar de doblarse. Por dentro seguirán más blandos que una patata frita; es su naturaleza. Si las puntas se oscurecen antes de que el centro se haga, corta la siguiente tanda un poco más gruesa y más uniforme en lugar de subir el calor.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Pelarlos es opcional; la piel queda crujiente. Corta los bastones de un grosor uniforme y sáltate el remojo largo de las patatas, porque apenas hay almidón en la superficie que eliminar. Sécalos, espolvorea primero la maicena y después el aceite, para que el polvo se adhiera. Condimenta con pimentón ahumado o canela y vuelve a salar al terminar.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el boniato frito en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para bastones de 1 cm, agitando dos veces. Los finos tardan unos {THIN_MIN} minutos y los gruesos unos {THICK_MIN}.',
+        },
+        {
+          q: '¿Por qué el boniato va a menos temperatura que las patatas?',
+          a: 'Tiene mucho más azúcar, que se quema a una temperatura más baja de la que necesita el almidón de la patata para dorarse. Un ajuste algo más bajo deja que se haga el interior antes de que los bordes se pongan negros.',
+        },
+        {
+          q: '¿Cómo consigo que el boniato quede crujiente?',
+          a: 'Espolvoréalo con maicena antes del aceite, cocínalo en una sola capa y déjalo reposar un minuto al sacarlo. Nunca queda tan rígido como una patata frita.',
+        },
+        {
+          q: '¿Hay que poner el boniato en remojo?',
+          a: 'No. El remojo de las patatas elimina el almidón de la superficie, y el boniato tiene muy poco.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para el boniato frito?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    'potato-wedges': {
+      label: 'Patatas gajo',
+      metaTitle: 'Patatas gajo en la freidora de aire: tiempo, temperatura y centro esponjoso',
+      metaDescription:
+        'Patatas gajo con piel en la freidora de aire: {AF_F}°F durante {MIN} minutos, girándolas una vez. Crujientes por fuera, esponjosas por dentro, tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'patatas gajo freidora de aire, patatas deluxe air fryer, gajos de patata freidora de aire tiempo',
+      heading: 'Patatas gajo en la freidora de aire',
+      subDesc:
+        'Gajos gruesos con piel cortados de patatas frescas. El ajuste, el único giro y cómo lograr que el centro se haga antes de que el exterior se oscurezca demasiado.',
+      cardDesc: 'Piezas gruesas: repártelas y gíralas una vez.',
+      sizeLabels: { small: 'Gajos pequeños, de patatas pequeñas', medium: 'Medianos, patata en 8 gajos', large: 'Grandes, patata en 6 gajos' },
+      failureHeading: 'Dorados por fuera, densos por dentro',
+      failureBody:
+        'Un gajo es grueso por el lado de la piel y afilado por el borde interior, así que se cocina de forma desigual solo por su forma. La arista fina se dora primero mientras el corazón del gajo, a menudo de más de dos centímetros, sigue firme y céreo. A diferencia de una patata frita fina, el gajo tiene tanta masa que el exterior puede parecer hecho mucho antes que el centro. Hay dos soluciones. Primero, deja espacio a cada gajo: amontonados en la cesta se dan sombra, las caras ocultas se cuecen al vapor y el exterior queda blando en unos sitios y quemado en otros. Segundo, gíralos una vez sobre la otra cara cortada, para que ambas caras planas cojan color contra la cesta mientras la piel mira al ventilador. Para un centro muy esponjoso, hiérvelos cinco minutos antes de meterlos.',
+      workedExampleHeading: 'Ejemplo práctico',
+      workedExampleTemplate:
+        'Dos patatas harinosas medianas, cada una cortada a lo largo en ocho gajos, secadas y mezcladas con una cucharada de aceite, sal, ajo en polvo y pimentón. Cocina en una sola capa, con la piel hacia abajo, a {AF_F}°F durante {MEDIUM_MIN} minutos, girándolas una vez a mitad. Los gajos de patatas pequeñas tardan unos {SMALL_MIN} minutos; los sextos gruesos, unos {LARGE_MIN}. En una bandeja en horno convencional, cuenta con {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Clava un cuchillo en la parte más gruesa, cerca de la piel: debe entrar sin resistencia, y el interior debe verse blanco y esponjoso, no vidrioso. Las caras cortadas deben estar doradas con bordes más oscuros y la piel arrugada y crujiente. Si el exterior está listo y el centro no, baja un poco el calor en los últimos minutos en lugar de renunciar a la costra.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Usa patatas harinosas para un centro esponjoso; las de piel fina y textura firme dan un gajo más cremoso. Frótalas pero no las peles. Corta cada patata en el mismo número de gajos para que terminen a la vez. Basta con un enjuague breve; sécalas bien. Un poco de parmesano rallado en los dos últimos minutos va muy bien.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las patatas gajo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para gajos medianos, girados una vez. Los pequeños tardan unos {SMALL_MIN} minutos y los grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que hervir los gajos antes de la freidora?',
+          a: 'Es opcional. Cinco minutos en agua hirviendo dan un centro más esponjoso y una superficie más rugosa que cruje mejor; sécalos bien después.',
+        },
+        {
+          q: '¿En qué se diferencian los gajos de las patatas fritas?',
+          a: 'Los gajos son mucho más gruesos, así que el reto es hacer el centro antes de que el exterior se dore demasiado. Necesitan más tiempo y un solo giro.',
+        },
+        {
+          q: '¿Qué patatas son mejores para gajos?',
+          a: 'Las harinosas para un interior esponjoso; las de carne amarilla y firme para uno más cremoso.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno para las patatas gajo?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
   },
 };
 

@@ -486,6 +486,468 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'chicken-drumsticks': {
+      label: 'Chicken drumsticks',
+      metaTitle: 'Chicken Drumsticks in the Air Fryer: Time, Temp & Tender Meat',
+      metaDescription:
+        'Chicken drumsticks in the air fryer: {AF_F}°F for {MIN} minutes, turned at {FLIP}, safe at {INT_F}°F. Why legs need to go further, times by size and the oven equivalent.',
+      metaKeywords: 'chicken drumsticks air fryer time, air fryer drumsticks temp, how long to cook chicken legs in air fryer',
+      heading: 'Chicken drumsticks in the air fryer',
+      subDesc:
+        'Fresh, bone-in, skin-on drumsticks. The setting, the turn, and why a drumstick that is merely safe is not yet finished.',
+      cardDesc: 'Safe at {INT_F}°F, tender closer to {INT_ALT_TO_F}°F.',
+      sizeLabels: { small: 'Small, about 3 oz (90 g)', medium: 'Medium, 4–5 oz (130 g)', large: 'Large, 6 oz (170 g) and over' },
+      internalAltLine: 'Most tender at {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), measured next to the bone',
+      failureHeading: 'Safe but chewy: the drumstick trap',
+      failureBody:
+        'A drumstick is the hardest-working muscle on the bird, wrapped in tendons and connective tissue. At {INT_F}°F it is safe to eat, but that tissue is still tight, so the meat clings to the bone, feels springy and can show a pink tinge at the joint even when it is fully cooked. Cooks who pull drumsticks at the breast temperature think they have undercooked them; cooks who keep going until the skin is dark often find them dry outside. The answer is to aim past the safe number on purpose. Collagen starts to melt into gelatine at about {INT_ALT_F}°F, and between there and {INT_ALT_TO_F}°F the meat loosens, turns silky and slides off the bone.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Six medium drumsticks, about 1½ lb in total, dried, rubbed with oil, garlic powder and smoked paprika. Preheat for {PREHEAT} minutes, stand them in one layer with space between, and cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. Small legs are ready in about {SMALL_MIN} minutes and big ones need about {LARGE_MIN}. A tray of the same drumsticks takes {OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Slide the thermometer in from the meaty top until it just touches the bone, then pull back a little. {INT_F}°F ({INT_C}°C) is the safety line; {INT_ALT_F}–{INT_ALT_TO_F}°F is where drumsticks taste best. By eye, the skin should be taut and deep brown, the meat should have shrunk back to show a little of the bone at the narrow end, and the leg should twist easily at the knuckle. Pink near the bone at the right temperature is pigment, not rawness.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Dry the skin well and season generously; drumsticks are thick enough to take salt an hour ahead. Score the meat once or twice down to the bone on the thickest side so heat reaches the middle sooner. Arrange them alternating thick and thin ends. A glaze or barbecue sauce goes on only for the last two or three minutes.',
+      faqs: [
+        {
+          q: 'How long do chicken drumsticks take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium fresh drumsticks, turned at {FLIP} minutes. Small ones take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'What internal temperature should drumsticks reach?',
+          a: 'They are safe at {INT_F}°F ({INT_C}°C), but most cooks take them to {INT_ALT_F}–{INT_ALT_TO_F}°F, where the connective tissue softens and the meat comes away from the bone.',
+        },
+        {
+          q: 'Why is my drumstick pink near the bone?',
+          a: 'Young chicken bones leak a little pigment into the surrounding meat. If the thermometer reads {INT_F}°F or more, the colour is harmless.',
+        },
+        {
+          q: 'When do I add barbecue sauce to drumsticks?',
+          a: 'In the last two or three minutes. Sugar in the sauce burns long before the legs are cooked if it goes on at the start.',
+        },
+        {
+          q: 'How does this compare with an oven?',
+          a: 'A conventional oven needs {OVEN_F}°F for about {OVEN_MIN} minutes, and a fan oven {FAN_F}°F for about {FAN_MIN}. The air fryer crisps the skin noticeably more.',
+        },
+      ],
+    },
+    'chicken-tenders': {
+      label: 'Chicken tenders',
+      metaTitle: 'Chicken Tenders in the Air Fryer: Time & Temp (Fresh)',
+      metaDescription:
+        'Fresh chicken tenders in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Plain or breaded, times by size and oven equivalent.',
+      metaKeywords: 'chicken tenders air fryer time, air fryer chicken tenderloins, homemade chicken strips air fryer',
+      heading: 'Chicken tenders in the air fryer',
+      subDesc:
+        'Fresh tenderloins or breast strips, plain or breaded at home. The short setting, the flip, and how to stop them going dry.',
+      cardDesc: 'Small and quick: set a timer for the low end.',
+      sizeLabels: { small: 'Thin strips, about 1 oz each', medium: 'Whole tenderloins, about 2 oz', large: 'Thick strips, 3 oz and over' },
+      failureHeading: 'Done one minute, dry the next',
+      failureBody:
+        'A tender is a narrow strip with almost no fat and a lot of surface. Hot air reaches every side at once, so the whole piece heats through in a few minutes, and there is no thick middle to buffer a mistake. Leave a basket of tenders for two extra minutes while you mix a dip and they shrink, tighten and turn stringy. The white tendon running through a whole tenderloin makes it worse, because it contracts in the heat and curls the strip. Treat tenders like a quick cook rather than a roast: pull the tendon, cut strips to one thickness, start checking a minute before the time, and lift them out as soon as the thickest strip is done. Breaded tenders protect the meat a little but need a light spray of oil so the crumb browns before the inside overcooks.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'A pound of whole tenderloins, tendons removed, dipped in egg and panko and sprayed lightly with oil. Preheat {PREHEAT} minutes, lay them flat without overlapping and cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP}. Thin strips cut from a breast are done in about {SMALL_MIN} minutes and fat ones in about {LARGE_MIN}. On a rack in a conventional oven the same batch takes {OVEN_F}°F for roughly {OVEN_MIN} minutes and comes out paler.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Measure the thickest tender from the end, pushing the probe lengthways into the middle: {INT_F}°F ({INT_C}°C) is done. Strips are too thin to hold a lot of carryover heat, so they will not climb much after they come out. Without a thermometer, break the fattest one in half; it should be white with no glassy centre and the juices should run clear. A breaded coating should be golden all over, not pale where pieces touched.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Pull out the white tendon by pinning its end with a fork and sliding the meat away. For breading, set up flour, beaten egg and panko, and press the crumbs on firmly so they do not blow around the fan. A 15-minute soak in salted buttermilk keeps plain tenders juicier. Leave a finger-width gap between strips.',
+      faqs: [
+        {
+          q: 'How long do chicken tenders take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for whole fresh tenderloins, flipped at {FLIP} minutes. Thin strips take around {SMALL_MIN} minutes and thick ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'What temperature are chicken tenders done at?',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest piece. Because they are thin, take them out right at that reading.',
+        },
+        {
+          q: 'Do breaded tenders need oil in the air fryer?',
+          a: 'A light spray, yes. Dry crumbs stay pale and dusty without a little fat to help them brown.',
+        },
+        {
+          q: 'Can I cook frozen breaded tenders with this setting?',
+          a: 'No. Shop-bought frozen tenders are par-cooked and follow the pack instructions; use frozen mode for those.',
+        },
+        {
+          q: 'What would the oven setting be?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes with the fan on.',
+        },
+      ],
+    },
+    sausages: {
+      label: 'Sausages',
+      metaTitle: 'Sausages in the Air Fryer: Time, Temp & No Split Casings',
+      metaDescription:
+        'Fresh sausages in the air fryer: {AF_F}°F for {MIN} minutes, turned at {FLIP}, done at {INT_F}°F for pork or beef. Bratwurst, links and pre-cooked sausages.',
+      metaKeywords: 'sausages air fryer time, air fryer brats, how long to cook sausages in air fryer, air fryer sausage links',
+      heading: 'Sausages in the air fryer',
+      subDesc:
+        'Fresh pork, beef or chicken sausages, from breakfast links to bratwurst, plus pre-cooked ones. The setting and how to keep the skins whole.',
+      cardDesc: 'Moderate heat keeps the casings from bursting.',
+      sizeLabels: { thin: 'Breakfast links or chipolatas', medium: 'Standard sausages, about 1 inch thick', thick: 'Bratwurst or jumbo sausages' },
+      internalAltLine: 'Chicken or turkey sausages: {INT_ALT_F}°F ({INT_ALT_C}°C). Pre-cooked sausages only need heating through to {INT_ALT_F}°F.',
+      failureHeading: 'Why sausages split in the air fryer',
+      failureBody:
+        'A sausage is a sealed tube of fat, water and seasoning. As it heats, the water turns to steam and the fat melts, and the pressure inside builds faster than the casing can stretch. Too much heat and the skin bursts along its length, the fat pours into the drawer and smokes, and the meat inside dries out. Many people prick sausages to stop this, but that only lets the juices escape earlier. The better fix is a moderate temperature, which lets the casing tighten and brown at the same pace as the filling cooks, plus a turn halfway so both sides colour. Sausages straight from the fridge split more easily than ones that have stood for ten minutes, and crowded sausages that touch tend to tear where they stick together.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Six fresh pork sausages of standard thickness, left out for ten minutes. Lay them in the basket with gaps, cook at {AF_F}°F for {MEDIUM_MIN} minutes and roll them over at {FLIP} minutes. Breakfast links need about {THIN_MIN} minutes; fresh bratwurst about {THICK_MIN}. Pre-cooked brats are already safe and only need heating through, which takes a few minutes less. In a conventional oven the same fresh sausages take {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Push a thermometer in from one end towards the centre. Pork and beef sausages are done at {INT_F}°F ({INT_C}°C); chicken and turkey sausages need {INT_ALT_F}°F ({INT_ALT_C}°C). Pre-cooked sausages, including most supermarket brats and frankfurters, are cooked at the factory, so the only goal is to heat them through to {INT_ALT_F}°F. Visually, a fresh sausage is firm to the touch, browned on both sides and shows no pink when cut.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Separate linked sausages with scissors rather than tearing them. Do not prick them. Skip the oil: sausages release more than enough fat, and a sheet of perforated parchment under them keeps it from smoking if your drawer runs hot. If you want onions with your brats, add sliced onion to the drawer for the last half of the cooking time.',
+      faqs: [
+        {
+          q: 'How long do sausages take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for standard fresh sausages, turned at {FLIP} minutes. Breakfast links take around {THIN_MIN} minutes and bratwurst around {THICK_MIN}.',
+        },
+        {
+          q: 'What temperature are sausages done at?',
+          a: '{INT_F}°F ({INT_C}°C) for pork and beef. Chicken and turkey sausages need {INT_ALT_F}°F ({INT_ALT_C}°C).',
+        },
+        {
+          q: 'How do I cook pre-cooked brats in the air fryer?',
+          a: 'Use the same temperature but expect them to be ready a few minutes sooner. They are already cooked, so heat them until the centre reaches {INT_ALT_F}°F and the skin is browned.',
+        },
+        {
+          q: 'Should I prick sausages before air frying?',
+          a: 'No. Pricking lets the fat and juices run out, so the sausage dries. A moderate temperature stops the skins from bursting without it.',
+        },
+        {
+          q: 'What is the oven equivalent for sausages?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, turned once.',
+        },
+      ],
+    },
+    burgers: {
+      label: 'Burgers',
+      metaTitle: 'Burgers in the Air Fryer: Time, Temp & Doneness',
+      metaDescription:
+        'Beef burgers in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Times by thickness, frozen patties, and the oven equivalent.',
+      metaKeywords: 'burgers air fryer time, air fryer hamburgers, how long to cook burgers in air fryer, frozen burgers air fryer',
+      heading: 'Burgers in the air fryer',
+      subDesc:
+        'Fresh beef patties, homemade or from the shop. The setting, the flip, and why ground beef needs a different target from steak.',
+      cardDesc: 'Ground beef: {INT_F}°F, not steak doneness.',
+      sizeLabels: { thin: 'Thin, about ⅓ inch (8 mm)', medium: 'Standard, about ½ inch (1.3 cm)', thick: 'Thick, about ¾ inch (2 cm)' },
+      failureHeading: 'Domed, shrunken and smoky',
+      failureBody:
+        'Ground beef behaves nothing like a steak. As a patty heats, its proteins contract and pull the edges inwards, so the middle bulges into a dome that cooks unevenly and will not sit flat in a bun. Meanwhile the fat melts out and drips onto the hot drawer, where it can smoke. Pressing a shallow dimple into the centre of each raw patty keeps it flat as it shrinks; a drawer that is cleaned between batches, with a splash of water under the basket on some models, keeps the smoke down. The other mistake is borrowing steak doneness. Mincing spreads surface bacteria all through the meat, so a burger has to reach {INT_F}°F in the middle, not the medium-rare figure that is fine for a whole steak.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Four ½-inch patties of 80/20 beef, about 5 oz each, with a dimple pressed into each and salted just before cooking. Preheat for {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, flipping at {FLIP}. Thin smash-style patties take about {THIN_MIN} minutes and thick ¾-inch ones about {THICK_MIN}. Add cheese for the final minute. Under a conventional oven setting the same patties need {OVEN_F}°F for about {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Insert the thermometer from the side into the middle of the patty: {INT_F}°F ({INT_C}°C) is the food-safety target for ground beef, and at that point the juices run clear and the centre is brown with no red. Colour alone can mislead, because some beef browns early and some stays pink when fully cooked. A burger that bulged in the middle will be done at the edges before the centre, so measure in the thickest point.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Choose beef with around 20% fat; leaner mince turns dry. Handle it lightly and shape patties slightly wider than the bun, since they shrink. Make the dimple with your thumb, about half the depth of the patty. Salt only the outside, right before cooking, or the meat turns sausage-like. No oil needed.',
+      faqs: [
+        {
+          q: 'How long do burgers take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for ½-inch fresh patties, flipped at {FLIP} minutes. Thin patties take around {THIN_MIN} minutes and thick ¾-inch ones around {THICK_MIN}.',
+        },
+        {
+          q: 'What temperature should a burger be cooked to?',
+          a: '{INT_F}°F ({INT_C}°C) in the centre. That is higher than steak because grinding mixes surface bacteria into the meat.',
+        },
+        {
+          q: 'Can I cook frozen burger patties in the air fryer?',
+          a: 'Yes, at the same temperature. Add about 4–6 minutes to the fresh time, flip halfway, and still check for {INT_F}°F in the middle. Separate patties that froze together first.',
+        },
+        {
+          q: 'Why do my burgers puff up in the air fryer?',
+          a: 'The edges shrink faster than the middle, which pushes the centre up. A thumb dimple in each raw patty keeps them flat.',
+        },
+        {
+          q: 'What is the oven equivalent for burgers?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a rack in a conventional oven, flipped once.',
+        },
+      ],
+    },
+    'pork-tenderloin': {
+      label: 'Pork tenderloin',
+      metaTitle: 'Pork Tenderloin in the Air Fryer: Time, Temp & Resting',
+      metaDescription:
+        'Whole pork tenderloin in the air fryer: {AF_F}°F for {MIN} minutes, turned at {FLIP}, {INT_F}°F after a rest. Times by size and the oven equivalent.',
+      metaKeywords: 'pork tenderloin air fryer time, air fryer pork tenderloin temp, how long to cook pork tenderloin in air fryer',
+      heading: 'Pork tenderloin in the air fryer',
+      subDesc:
+        'A whole tenderloin, roasted in one piece. The setting, the turn, and how the rest finishes the job.',
+      cardDesc: 'Tuck the tail, then let the rest finish it.',
+      sizeLabels: { small: 'Small, about ¾ lb (340 g)', medium: 'Medium, about 1 lb (450 g)', large: 'Large, 1¼ lb (570 g) and over' },
+      failureHeading: 'Dry tail, underdone middle',
+      failureBody:
+        'A tenderloin tapers from a thick head to a thin tail only an inch or so across. In the air fryer the tail is cooked through long before the head, and by the time the thickest part is safe the narrow end is grey and dry. Folding the last few inches of tail back underneath the loin and tying or skewering it gives the whole piece a more even thickness. The second half of the answer is the rest. Take the tenderloin out a little short of {INT_F}°F and leave it on a board for three minutes; heat stored in the outer layers keeps moving inwards and the centre rises about 5°F while it rests. That rest is part of reaching the safe temperature, not an optional extra, and it lets the juices settle so they stay in the meat when you slice.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'A 1 lb tenderloin, silver skin trimmed, tail folded under, rubbed with oil, mustard and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP}. Pull it when the thick end reads about 140°F, then rest it for three minutes to reach {INT_F}°F. A small ¾ lb loin takes about {SMALL_MIN} minutes and a large one about {LARGE_MIN}. The conventional oven equivalent is {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Measure in the thickest part of the head, from the side. After the three-minute rest the centre should read {INT_F}°F ({INT_C}°C): blush pink, moist and safe. If it reads well above 145°F straight out of the basket, it will be firm and dry after resting, so next time take it out sooner. Slice across the grain into rounds about half an inch thick.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Slide a thin knife under the silver skin, the shiny membrane along one side, and trim it off; it shrinks in the heat and bends the loin. Pat dry, rub with a little oil and a spice mix. If your basket is small, cut the tenderloin in half crossways rather than curling it. A sweet glaze goes on in the last few minutes.',
+      faqs: [
+        {
+          q: 'How long does pork tenderloin take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a 1 lb tenderloin, turned at {FLIP} minutes, plus a three-minute rest. Small ones take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'What temperature is pork tenderloin done at?',
+          a: '{INT_F}°F ({INT_C}°C) after a three-minute rest. Take it out about 5°F early; it rises while it rests.',
+        },
+        {
+          q: 'Why does pork tenderloin need to rest?',
+          a: 'The outside holds extra heat that keeps cooking the centre for a few minutes, and the juices settle so they stay in the slices.',
+        },
+        {
+          q: 'Should I remove the silver skin?',
+          a: 'Yes. It does not soften as it cooks and it tightens, curling the loin and making it chewy along one side.',
+        },
+        {
+          q: 'What is the equivalent in a regular oven?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'white-fish': {
+      label: 'White fish',
+      metaTitle: 'Cod & Tilapia in the Air Fryer: White Fish Time & Temp',
+      metaDescription:
+        'White fish fillets in the air fryer: {AF_F}°F for {MIN} minutes with no flip, done at {INT_F}°F. Cod, tilapia, haddock and pollock, times by thickness.',
+      metaKeywords: 'cod air fryer time, tilapia air fryer, white fish air fryer temp, air fryer haddock',
+      heading: 'White fish in the air fryer',
+      subDesc:
+        'Cod, tilapia, haddock, pollock and similar fillets, fresh or thawed. The setting, why you should not flip it, and how to keep it in one piece.',
+      cardDesc: 'Do not flip: lift it out whole on parchment.',
+      sizeLabels: { thin: 'Thin fillets, tilapia or sole', medium: 'Standard fillets, about 1 inch (2.5 cm)', thick: 'Thick loins of cod or haddock' },
+      failureHeading: 'Stuck to the basket, broken on the turn',
+      failureBody:
+        'White fish has big, loose flakes held together by very little fat or connective tissue. Once it is cooked those flakes separate at a touch, which is the texture you want on the plate and the reason it falls apart on the way there. Bare fillets also stick to the mesh, because the proteins on the underside bond to hot metal before they firm up. Trying to flip a fillet halfway is where most go wrong: it tears, leaves its underside on the basket and ends up as pieces. So do not flip it. The circulating air cooks the top and the heat of the basket cooks the bottom well enough for fillets of normal thickness. Cook it on a sheet of perforated parchment or an oiled liner and lift the whole sheet out at the end.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Two 6 oz cod fillets about an inch thick, patted dry, brushed with melted butter and topped with lemon zest and paprika. Preheat {PREHEAT} minutes, set them on perforated parchment and cook at {AF_F}°F for {MEDIUM_MIN} minutes without turning. Thin tilapia needs about {THIN_MIN} minutes and a thick cod loin about {THICK_MIN}. In a conventional oven the same fillets take {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Press the thickest point gently with a fork: cooked white fish turns from translucent to bright, opaque white and separates into moist flakes. The safe internal temperature is {INT_F}°F ({INT_C}°C). Thin fillets go from done to dry quickly, so check two minutes before the time. If the flakes look chalky and dry at the edges, the fish has gone too far.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Thaw frozen fillets fully in the fridge and dry them well, since thawed fish carries a lot of water. Tuck any thin tail under so the fillet is an even thickness. Fat on top helps colour and flavour: a little butter, oil or mayonnaise mixed with herbs. For a crumb coating, press panko onto the top only.',
+      faqs: [
+        {
+          q: 'How long does white fish take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for inch-thick fillets of cod or haddock, without flipping. Thin tilapia takes around {THIN_MIN} minutes and thick loins around {THICK_MIN}.',
+        },
+        {
+          q: 'Do I need to flip fish in the air fryer?',
+          a: 'No. Delicate fillets break when turned, and the hot air cooks the top well enough on its own.',
+        },
+        {
+          q: 'How do I stop fish sticking to the air fryer basket?',
+          a: 'Cook it on perforated parchment or an oiled liner and lift the sheet out. Patting the fish dry and oiling the underside helps too.',
+        },
+        {
+          q: 'What temperature is cooked cod?',
+          a: '{INT_F}°F ({INT_C}°C) at the thickest point, when the flesh is opaque and flakes easily.',
+        },
+        {
+          q: 'What is the oven equivalent for white fish?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    broccoli: {
+      label: 'Broccoli',
+      metaTitle: 'Broccoli in the Air Fryer: Time, Temp & Crispy Florets',
+      metaDescription:
+        'Fresh broccoli in the air fryer: {AF_F}°F for {MIN} minutes, shaken once. How to get crisp tips and tender stems, times by floret size and the oven equivalent.',
+      metaKeywords: 'broccoli air fryer time, air fryer broccoli temp, roasted broccoli air fryer',
+      heading: 'Broccoli in the air fryer',
+      subDesc:
+        'Fresh broccoli florets, roasted until the edges crisp. The short setting, the shake, and how to cut it so tips and stems finish together.',
+      cardDesc: 'Cut stems thin so the tips do not burn first.',
+      sizeLabels: { small: 'Small florets, bite-size', medium: 'Medium florets, about 1½ inches', large: 'Large florets or halved heads' },
+      failureHeading: 'Burnt tips, hard stems',
+      failureBody:
+        'A broccoli floret is two foods joined together. The top is a cluster of tiny, dry buds with a huge surface area, and in moving hot air those buds lose their water in minutes, crisp, then blacken and taste bitter. The stem below is dense and wet, and it needs several minutes more to go tender. Cook a floret whole and you end up choosing between charred tips with a crunchy raw stalk or a soft stalk under burnt crumbs. The fix is in the knife work. Cut florets with short stems, and split thick stems lengthways so every piece has a thin stalk. Peel and slice the main stalk into coins; it is sweet once cooked. The other problem is weight: dry florets are so light that the fan can lift small pieces into the heating element, so toss them in oil first.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'One medium head of broccoli cut into 1½-inch florets with the stems split, tossed with a tablespoon of olive oil, salt and garlic. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes and shake once halfway. Bite-size florets are done in about {SMALL_MIN} minutes; large ones in about {LARGE_MIN}. Roasted on a tray in a conventional oven, the same head takes {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'The tips should be browned at the edges, with a few crisp dark spots, while the rest of the floret stays bright green. Pierce a stem with a knife: it should slide in with slight resistance. Grey-green florets that have gone soft were overcrowded and steamed; black, bitter tips mean the pieces were too big for the time or sat without oil.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Wash the broccoli well ahead of time and let it dry completely, or spin it in a salad spinner; wet florets steam instead of roasting. Coat every piece evenly with oil, which protects the tips and weighs them down. Add grated cheese or lemon juice after cooking. Do not fill the basket more than one layer deep.',
+      faqs: [
+        {
+          q: 'How long does broccoli take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium fresh florets, shaken once. Small florets take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'Why does my air fryer broccoli burn?',
+          a: 'The fine buds on top dry out much faster than the stem softens. Cut smaller florets with thin stems and coat them in oil.',
+        },
+        {
+          q: 'Can I air fry frozen broccoli?',
+          a: 'Yes, but it releases a lot of water and comes out softer. Use frozen mode, which accounts for the extra moisture, rather than this fresh setting.',
+        },
+        {
+          q: 'Why did broccoli fly around my air fryer?',
+          a: 'Dry florets are light enough for the fan to lift. A coat of oil weighs them down and keeps them in the basket.',
+        },
+        {
+          q: 'What is the oven equivalent for broccoli?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven.',
+        },
+      ],
+    },
+    'brussels-sprouts': {
+      label: 'Brussels sprouts',
+      metaTitle: 'Brussels Sprouts in the Air Fryer: Time, Temp & Crispy Leaves',
+      metaDescription:
+        'Halved Brussels sprouts in the air fryer: {AF_F}°F for {MIN} minutes, shaken twice. Tender centres, caramelised cut sides, times by size and oven equivalent.',
+      metaKeywords: 'brussels sprouts air fryer time, air fryer brussels sprouts temp, crispy brussels sprouts air fryer',
+      heading: 'Brussels sprouts in the air fryer',
+      subDesc:
+        'Fresh sprouts, halved and roasted. The setting, the two shakes, and how to get a soft centre with a caramelised face.',
+      cardDesc: 'Halve them and start cut side down.',
+      sizeLabels: { small: 'Small sprouts, halved', medium: 'Medium sprouts, about 1 inch, halved', large: 'Large sprouts, quartered' },
+      failureHeading: 'Raw cores and burnt leaves',
+      failureBody:
+        'A Brussels sprout is a tight bundle of leaves wrapped around a dense, solid core. The loose outer leaves dry and crisp almost at once in an air fryer, but heat has to work its way through layer after layer to reach the middle, so a whole sprout can be scorched outside and still hard and sulphurous at the heart. Halving them is the main fix, because it exposes the core and halves the distance the heat has to travel. Then the cut face matters. Laid flat against the hot basket, that face caramelises into a sweet, nutty crust, while the domed side gets crisp leaves from the moving air. Turn them cut side down for the first stretch, and only then start shaking. Large sprouts should be quartered, or the centre still lags.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'A pound of medium sprouts, trimmed and halved, tossed with a tablespoon and a half of oil and salt. Preheat {PREHEAT} minutes, set them cut side down and cook at {AF_F}°F for {MEDIUM_MIN} minutes, shaking twice in the second half. Small halved sprouts need about {SMALL_MIN} minutes and quartered large ones about {LARGE_MIN}. In a conventional oven the same tray takes {OVEN_F}°F for about {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Push a knife into the thickest part of the core: it should go in easily, like a cooked potato. The cut face should be deep golden to dark brown, and some outer leaves will have come loose and turned crisp and almost black; those are the best part. A grey colour or a strong cabbage smell means they cooked too long at too low a heat, or were steamed in a crowded basket.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Trim the dry stalk end and pull off any yellow leaves. Cut through the stalk so each half holds together. Toss with oil until every cut face is glossy. Balsamic glaze, honey or a squeeze of lemon goes on after cooking, since sugar burns at the end of a hot cook.',
+      faqs: [
+        {
+          q: 'How long do Brussels sprouts take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for halved medium sprouts, shaken twice. Small ones take around {SMALL_MIN} minutes and quartered large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'Should I cut Brussels sprouts in half for the air fryer?',
+          a: 'Yes. Whole sprouts burn outside before the dense core cooks; halving them exposes the core and gives a flat face that browns.',
+        },
+        {
+          q: 'Why are my sprouts still hard in the middle?',
+          a: 'They were too large for the time. Quarter big sprouts, and check the core with a knife before taking them out.',
+        },
+        {
+          q: 'Do I start sprouts cut side up or down?',
+          a: 'Down. The flat face caramelises against the hot basket, then the shakes crisp the leaves.',
+        },
+        {
+          q: 'What is the oven equivalent for Brussels sprouts?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'sweet-potato-fries': {
+      label: 'Sweet potato fries',
+      metaTitle: 'Sweet Potato Fries in the Air Fryer: Time, Temp & Crisp',
+      metaDescription:
+        'Homemade sweet potato fries in the air fryer: {AF_F}°F for {MIN} minutes, shaken twice. Why they burn and stay limp, the cornstarch trick, times by thickness.',
+      metaKeywords: 'sweet potato fries air fryer time, air fryer sweet potato fries temp, crispy sweet potato fries air fryer',
+      heading: 'Sweet potato fries in the air fryer',
+      subDesc:
+        'Fries cut from fresh sweet potatoes. A lower setting than white fries, the coating that helps them crisp, and times by thickness.',
+      cardDesc: 'Cooler than white fries: sugar burns first.',
+      sizeLabels: { thin: 'Thin, ¼ inch (6 mm)', medium: 'Standard, ⅜ inch (1 cm)', thick: 'Thick, ½ inch (1.3 cm)' },
+      failureHeading: 'Dark edges, soft middles',
+      failureBody:
+        'Sweet potatoes are not just orange potatoes. They contain far more sugar and much less of the starch that makes a white fry crisp. In the heat, that sugar caramelises and then burns at a lower temperature than starch browns, so the tips go dark and bitter while the rest is still soft. The soft part is the other half of the problem: with little starch to set into a rigid crust, a sweet potato fry tends to stay floppy however long it cooks. That is why this preset runs cooler than the white fry setting and for slightly less time, and why a light coat of cornstarch makes such a difference. The cornstarch supplies the dry starch layer the potato lacks, and it crisps in the air before the sugars underneath have time to scorch.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Two medium sweet potatoes cut into ⅜-inch sticks, patted dry, tossed with a tablespoon of cornstarch, then a tablespoon of oil and a pinch of salt. Cook in one layer at {AF_F}°F for {MEDIUM_MIN} minutes, shaking twice. Thin fries take about {THIN_MIN} minutes and thick ones about {THICK_MIN}. Cook in batches; they crisp a little more as they cool for a minute. On a tray in a conventional oven: {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Look for edges that are browned and blistered but not black, and fries that hold their shape when lifted by one end rather than drooping. They will still be softer inside than a white fry; that is their nature. If the tips darken before the middles cook, cut the next batch a little thicker and more even rather than turning the heat up.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Peeling is optional; the skin crisps well. Cut sticks to an even thickness and skip the long soak used for white potatoes, since there is little surface starch to rinse off. Dry them, dust with cornstarch first and oil second, so the powder sticks. Season with smoked paprika or cinnamon, and salt again after cooking.',
+      faqs: [
+        {
+          q: 'How long do sweet potato fries take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for ⅜-inch fries, shaken twice. Thin fries take around {THIN_MIN} minutes and thick ones around {THICK_MIN}.',
+        },
+        {
+          q: 'Why cook sweet potato fries cooler than regular fries?',
+          a: 'They contain much more sugar, which burns at a lower temperature than potato starch browns. A slightly cooler setting lets the inside cook before the edges blacken.',
+        },
+        {
+          q: 'How do I make sweet potato fries crispy?',
+          a: 'Dust them with cornstarch before the oil, cook in one layer and let them rest a minute after cooking. They never get quite as rigid as white fries.',
+        },
+        {
+          q: 'Do I need to soak sweet potato fries?',
+          a: 'No. The soak for white fries rinses off surface starch, and sweet potatoes have very little to remove.',
+        },
+        {
+          q: 'What is the oven equivalent for sweet potato fries?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'potato-wedges': {
+      label: 'Potato wedges',
+      metaTitle: 'Potato Wedges in the Air Fryer: Time, Temp & Fluffy Centres',
+      metaDescription:
+        'Skin-on potato wedges in the air fryer: {AF_F}°F for {MIN} minutes, turned once. Crisp outsides, fluffy middles, times by size and the oven equivalent.',
+      metaKeywords: 'potato wedges air fryer time, air fryer wedges temp, homemade potato wedges air fryer',
+      heading: 'Potato wedges in the air fryer',
+      subDesc:
+        'Thick, skin-on wedges cut from fresh potatoes. The setting, the single turn, and how to get the centre cooked before the outside overbrowns.',
+      cardDesc: 'Thick cuts: spread them out and turn once.',
+      sizeLabels: { small: 'Small wedges, from small potatoes', medium: 'Medium, potato cut in 8', large: 'Large, potato cut in 6' },
+      failureHeading: 'Brown outside, dense inside',
+      failureBody:
+        'A wedge is thick at the skin side and sharp at the inner edge, so it cooks unevenly by shape alone. The thin point browns first while the heart of the wedge, often more than an inch across, is still firm and waxy. Unlike a thin fry, a wedge has enough bulk that the outside can look done long before the middle is. Two things fix it. First, give each wedge room: wedges stacked in a basket shade each other and the hidden faces steam, so the outside is soft in some places and burnt in others. Second, turn them once onto the other cut face, so both flat sides colour against the basket while the skin side faces the fan. For a really fluffy centre, simmer the wedges for five minutes before they go in.',
+      workedExampleHeading: 'Worked example',
+      workedExampleTemplate:
+        'Two medium russets, each cut lengthways into eight wedges, dried, tossed with a tablespoon of oil, salt, garlic powder and paprika. Cook in a single layer, skin side down, at {AF_F}°F for {MEDIUM_MIN} minutes, turning once halfway. Wedges cut from small potatoes take about {SMALL_MIN} minutes; chunky sixths about {LARGE_MIN}. On a baking tray in a conventional oven, plan on {OVEN_F}°F for about {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Push a knife into the thickest part, near the skin: it should slide in with no resistance, and the inside should look white and fluffy rather than glassy. The cut faces should be golden with darker edges and the skin wrinkled and crisp. If the outside is ready and the centre is not, lower the heat a little for the last few minutes rather than giving up the crust.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Use floury potatoes for a fluffy middle; waxy ones give a firmer, creamier wedge. Scrub but do not peel. Cut every potato into the same number of wedges so they finish together. A short rinse is enough; dry them well. Grated parmesan in the last two minutes is a good addition.',
+      faqs: [
+        {
+          q: 'How long do potato wedges take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium wedges, turned once. Small wedges take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'Should I parboil wedges before air frying?',
+          a: 'It is optional. Five minutes in simmering water gives a fluffier centre and a rougher surface that crisps more; dry them well afterwards.',
+        },
+        {
+          q: 'How are wedges different from fries in the air fryer?',
+          a: 'Wedges are much thicker, so the challenge is cooking the centre before the outside overbrowns. They need more time and only one turn.',
+        },
+        {
+          q: 'Which potatoes make the best wedges?',
+          a: 'Russets or other floury potatoes for a fluffy inside; Yukon Gold for a creamier one.',
+        },
+        {
+          q: 'What is the oven equivalent for potato wedges?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
   },
 };
 

@@ -28,6 +28,8 @@ const { dict, copy, fill } = presetCopy(preset, locale);
 const answer = presetAnswer(preset, locale);
 const internal =
   preset.internalF !== undefined ? fill(dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
+// Display only; the answer line and JSON-LD stay on internalF.
+const internalAlt = preset.internalAlt !== undefined && copy.internalAltLine ? fill(copy.internalAltLine) : null;
 
 // The widget starts on the oven equivalent, so its live result is this preset's setting run back through the engine.
 const oven = presetOven(preset);
@@ -80,6 +82,7 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
     <div class="direct-answer">
       <p id="pr-answer" class="answer-main">{answer}</p>
       {internal && <p id="pr-internal" class="answer-internal">{internal}</p>}
+      {internalAlt && <p id="pr-internal-alt" class="answer-internal-alt">{internalAlt}</p>}
     </div>
 
     <section id="pr-oven" class="oven-box" aria-labelledby="pr-oven-heading">
@@ -444,6 +447,12 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
     font-size: var(--text-body);
     font-weight: 600;
     color: var(--site-text);
+  }
+
+  .answer-internal-alt {
+    margin: 8px 0 0;
+    font-size: var(--text-body);
+    color: var(--site-text-muted);
   }
 
   .oven-box {

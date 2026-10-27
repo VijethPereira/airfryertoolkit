@@ -22,6 +22,12 @@ export interface FoodPreset {
   shakes?: number;
   /** Safe or target internal temperature, °F. */
   internalF?: number;
+  /**
+   * A second internal temperature shown under the main one (chicken sausages, the drumstick
+   * texture range). Display only: the engine, converter, answer line and JSON-LD use internalF.
+   * The page's dictionary `internalAltLine` says what it means.
+   */
+  internalAlt?: { f: number; toF?: number };
   /** Doneness is judged by eye instead of a thermometer (bacon). */
   doneBy?: 'crisp';
   /** Sizing table rows; `minutes` is the air fryer time at `tempF` unless the row sets its own `tempF`. */
@@ -164,6 +170,143 @@ export const PRESETS = [
       { id: 'thin', minutes: 14 },
       { id: 'medium', minutes: 18 },
       { id: 'thick', minutes: 22 },
+    ],
+  },
+  {
+    slug: 'chicken-drumsticks',
+    category: 'poultry',
+    engine: { kind: 'oven', food: 'thigh' },
+    tempF: 380,
+    minutes: 22,
+    flipAt: 11,
+    internalF: 165,
+    internalAlt: { f: 175, toF: 185 },
+    sizes: [
+      { id: 'small', minutes: 18 },
+      { id: 'medium', minutes: 22 },
+      { id: 'large', minutes: 26 },
+    ],
+  },
+  {
+    slug: 'chicken-tenders',
+    category: 'poultry',
+    engine: { kind: 'oven', food: 'breast' },
+    tempF: 400,
+    minutes: 10,
+    flipAt: 5,
+    internalF: 165,
+    sizes: [
+      { id: 'small', minutes: 8 },
+      { id: 'medium', minutes: 10 },
+      { id: 'large', minutes: 12 },
+    ],
+  },
+  {
+    slug: 'sausages',
+    category: 'meat',
+    engine: { kind: 'oven', food: 'thigh' },
+    tempF: 370,
+    minutes: 12,
+    flipAt: 6,
+    internalF: 160,
+    internalAlt: { f: 165 },
+    sizes: [
+      { id: 'thin', minutes: 8 },
+      { id: 'medium', minutes: 12 },
+      { id: 'thick', minutes: 16 },
+    ],
+  },
+  {
+    slug: 'burgers',
+    category: 'meat',
+    engine: { kind: 'oven', food: 'steak' },
+    tempF: 375,
+    minutes: 10,
+    flipAt: 5,
+    internalF: 160,
+    sizes: [
+      { id: 'thin', minutes: 8 },
+      { id: 'medium', minutes: 10 },
+      { id: 'thick', minutes: 14 },
+    ],
+  },
+  {
+    slug: 'pork-tenderloin',
+    category: 'meat',
+    engine: { kind: 'oven', food: 'steak' },
+    tempF: 400,
+    minutes: 20,
+    flipAt: 10,
+    internalF: 145,
+    sizes: [
+      { id: 'small', minutes: 16 },
+      { id: 'medium', minutes: 20 },
+      { id: 'large', minutes: 24 },
+    ],
+  },
+  {
+    slug: 'white-fish',
+    category: 'fish',
+    engine: { kind: 'oven', food: 'fish' },
+    tempF: 400,
+    minutes: 10,
+    internalF: 145,
+    sizes: [
+      { id: 'thin', minutes: 7 },
+      { id: 'medium', minutes: 10 },
+      { id: 'thick', minutes: 13 },
+    ],
+  },
+  {
+    slug: 'broccoli',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'veg' },
+    tempF: 375,
+    minutes: 8,
+    shakes: 1,
+    sizes: [
+      { id: 'small', minutes: 6 },
+      { id: 'medium', minutes: 8 },
+      { id: 'large', minutes: 10 },
+    ],
+  },
+  {
+    slug: 'brussels-sprouts',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'veg' },
+    tempF: 375,
+    minutes: 15,
+    shakes: 2,
+    sizes: [
+      { id: 'small', minutes: 12 },
+      { id: 'medium', minutes: 15 },
+      { id: 'large', minutes: 18 },
+    ],
+  },
+  {
+    slug: 'sweet-potato-fries',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'fries' },
+    tempF: 375,
+    minutes: 16,
+    shakes: 2,
+    sizes: [
+      { id: 'thin', minutes: 12 },
+      { id: 'medium', minutes: 16 },
+      { id: 'thick', minutes: 20 },
+    ],
+  },
+  {
+    slug: 'potato-wedges',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'fries' },
+    tempF: 390,
+    minutes: 20,
+    shakes: 1,
+    sizes: [
+      { id: 'small', minutes: 16 },
+      { id: 'medium', minutes: 20 },
+      { id: 'large', minutes: 25 },
     ],
   },
 ] as const satisfies readonly FoodPreset[];

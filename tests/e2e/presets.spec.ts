@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import {
   computeAirFryerSetting,
   computeConvectionSetting,
@@ -63,7 +64,7 @@ function copyStrings(code: LocaleCode, p: FoodPreset): string[] {
   const c = getDictionary(code).presets.pages[p.slug as PresetSlug];
   return [
     c.metaTitle, c.metaDescription, c.heading, c.subDesc, c.cardDesc, c.failureBody, c.workedExampleTemplate,
-    c.donenessBody, c.prepBody, ...c.faqs.flatMap((f) => [f.q, f.a]),
+    c.donenessBody, c.prepBody, ...c.faqs.flatMap((f) => [f.q, f.a]), ...(c.internalAltLine ? [c.internalAltLine] : []),
   ];
 }
 
@@ -101,6 +102,31 @@ test.describe('food presets: data and copy', () => {
     expect(ALL.filter((p) => p.internalF !== undefined).length).toBeGreaterThan(0);
   });
 
+  test('ground meat is never given steak doneness: burgers target 160°F', () => {
+    const burgers = ALL.find((p) => p.slug === 'burgers')!;
+    const steak = ALL.find((p) => p.slug === 'steak')!;
+    expect(burgers.engine).toEqual(steak.engine); // same engine food…
+    expect(burgers.internalF).toBe(160); // …but its own doneness, from presets.ts
+    expect(presetValues(burgers).INT_F).toBe('160');
+  });
+
+  test('internalAlt is display only: every locale has its line, and the engine, answer and JSON-LD description never use it', () => {
+    const withAlt = ALL.filter((p) => p.internalAlt !== undefined);
+    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'sausages']);
+    for (const l of LOCALES) {
+      const d = getDictionary(l.code).presets;
+      expect(d.answerTemplate + d.answerFlipSuffix + d.answerShakeSuffix).not.toMatch(/INT_ALT_/);
+      for (const p of ALL) {
+        const c = d.pages[p.slug as PresetSlug];
+        expect(Boolean(c.internalAltLine), `${l.code} ${p.slug} internalAltLine`).toBe(p.internalAlt !== undefined);
+        expect(c.metaDescription, `${l.code} ${p.slug} metaDescription`).not.toMatch(/INT_ALT_/);
+      }
+    }
+    for (const file of ['src/lib/converter.ts', 'src/components/ConverterWidget.astro', 'src/pages/air-fryer/[food].astro']) {
+      expect(readFileSync(file, 'utf8'), file).not.toContain('internalAlt');
+    }
+  });
+
   test('every preset has a medium/standard size row equal to its own setting', () => {
     for (const p of ALL) {
       const medium = p.sizes.find((s) => s.id === 'medium');
@@ -124,7 +150,7 @@ test.describe('food presets: data and copy', () => {
   test('no engine number is typed into the copy: every °F in the prose comes from a placeholder or is a doneness range', () => {
     // Stripping placeholders leaves only fixed food-science figures (175–190°F wings, 145°F USDA, etc.), never the setting.
     for (const p of ALL) {
-      const prose = copyStrings('en', p).join(' ').replace(/\{[A-Z_]+\}/g, '');
+      const prose = copyStrings('en', p).join(' ').replace(/\{[A-Z][A-Z0-9_]*\}/g, '');
       for (const n of [p.tempF, ovenOf(p).outF!]) expect(prose, `${p.slug} ${n}`).not.toContain(`${n}°F`);
     }
   });
@@ -175,8 +201,8 @@ test.describe('food preset pages', () => {
       for (const alt of LOCALES) {
         await expect(page.locator(`link[rel="alternate"][hreflang="${alt.code}"]`)).toHaveAttribute('href', localizedUrl(alt.code, slug));
       }
-      expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z_]+\}/);
-      expect(await page.title()).not.toMatch(/\{[A-Z_]+\}/);
+      expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
+      expect(await page.title()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       expect(pageErrors).toEqual([]);
     });
 
@@ -192,6 +218,14 @@ test.describe('food preset pages', () => {
       } else {
         await expect(internal).toHaveCount(0);
       }
+      const alt = page.locator('#pr-internal-alt');
+      if (p.internalAlt !== undefined) {
+        await expect(alt).toHaveText(fillPlaceholders(copy.internalAltLine!, values));
+        await expect(alt).toContainText(`${p.internalAlt.f}`);
+      } else {
+        await expect(alt).toHaveCount(0);
+      }
+      if (p.slug === 'burgers') await expect(internal).not.toContainText('130°F');
       const oven = ovenOf(p);
       await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outF}°F (${oven.outC}°C`);
       await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outMinutes} min`);
@@ -253,7 +287,7 @@ test.describe('food preset pages', () => {
     test(`${slug} emits WebApplication + FAQPage JSON-LD with every FAQ filled`, async ({ page }) => {
       await page.goto(slug);
       const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
-      expect(raw).not.toMatch(/\{[A-Z_]+\}/);
+      expect(raw).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       const graph = JSON.parse(raw!)['@graph'] as { '@type': string; url?: string; mainEntity?: { name: string }[] }[];
       expect(graph.map((n) => n['@type'])).toEqual(['WebApplication', 'FAQPage']);
       expect(graph[0].url).toBe(localizedUrl('en', slug));
@@ -348,7 +382,7 @@ test.describe('food presets: index, homepage and locales', () => {
         await expect(page.locator(`link[rel="alternate"][hreflang="${DEFAULT_LOCALE}"]`)).toHaveAttribute('href', localizedUrl(DEFAULT_LOCALE, slug));
         await expect(page.locator(`.related-link a[href="${localizedPath(l.code, PRESETS_INDEX_PATH)}"]`)).toHaveCount(1);
         const text = await page.locator('body').innerText();
-        expect(text).not.toMatch(/\{[A-Z_]+\}/);
+        expect(text).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
         if (l.code === 'fr') expect(text, p.slug).not.toMatch(/gas mark|nivel de gas/i);
       }
       expect(pageErrors).toEqual([]);

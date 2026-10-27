@@ -106,6 +106,14 @@ export function presetValues(preset: FoodPreset, locale: LocaleCode = DEFAULT_LO
     values.INT_F = String(preset.internalF);
     values.INT_C = String(toC(preset.internalF));
   }
+  if (preset.internalAlt !== undefined) {
+    values.INT_ALT_F = String(preset.internalAlt.f);
+    values.INT_ALT_C = String(toC(preset.internalAlt.f));
+    if (preset.internalAlt.toF !== undefined) {
+      values.INT_ALT_TO_F = String(preset.internalAlt.toF);
+      values.INT_ALT_TO_C = String(toC(preset.internalAlt.toF));
+    }
+  }
   for (const row of presetSizeRows(preset)) {
     const id = row.id.toUpperCase();
     values[`${id}_MIN`] = String(row.minutes);

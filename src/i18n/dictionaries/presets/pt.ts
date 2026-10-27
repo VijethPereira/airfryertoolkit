@@ -486,6 +486,468 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'chicken-drumsticks': {
+      label: 'Coxa de frango',
+      metaTitle: 'Coxa de frango na air fryer: tempo, temperatura e carne macia',
+      metaDescription:
+        'Coxa de frango (drumstick) na air fryer: {AF_F}°F por {MIN} minutos, virar aos {FLIP}, segura a {INT_F}°F. Por que a coxa precisa ir além, tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'coxa de frango air fryer tempo, drumstick air fryer, coxa de frango na air fryer quanto tempo',
+      heading: 'Coxa de frango na air fryer',
+      subDesc:
+        'Coxas frescas, com osso e pele. O ajuste, a virada e por que uma coxa que só está segura ainda não está pronta.',
+      cardDesc: 'Segura a {INT_F}°F, macia perto de {INT_ALT_TO_F}°F.',
+      sizeLabels: { small: 'Pequena, cerca de 90 g', medium: 'Média, cerca de 130 g', large: 'Grande, a partir de 170 g' },
+      internalAltLine: 'Mais macia a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), medida junto ao osso',
+      failureHeading: 'Segura, mas borrachuda: a armadilha da coxa',
+      failureBody:
+        'A coxa é o músculo que mais trabalha na ave e vem envolvida em tendões e tecido conjuntivo. A {INT_F}°F ela já é segura, mas esse tecido ainda está tenso: a carne gruda no osso, parece elástica e pode ficar levemente rosada na articulação mesmo totalmente cozida. Quem tira a coxa na temperatura do peito acha que ela ficou crua; quem continua até a pele ficar muito escura costuma encontrar a parte de fora seca. A saída é passar de propósito do número de segurança. O colágeno começa a virar gelatina por volta de {INT_ALT_F}°F, e entre esse ponto e {INT_ALT_TO_F}°F a carne se solta, fica sedosa e desliza do osso.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Seis coxas médias, cerca de 700 g no total, secas e esfregadas com óleo, alho em pó e páprica defumada. Preaqueça por {PREHEAT} minutos, coloque em uma camada com espaço entre elas e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Meça a mais grossa junto ao osso. As pequenas ficam prontas em cerca de {SMALL_MIN} minutos e as grandes precisam de uns {LARGE_MIN}. No forno convencional, a mesma assadeira leva {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se está pronta',
+      donenessBody:
+        'Insira o termômetro pela parte carnuda de cima até encostar no osso e puxe um pouco para trás. {INT_F}°F ({INT_C}°C) é o limite de segurança; {INT_ALT_F}–{INT_ALT_TO_F}°F é onde a coxa fica mais saborosa. Visualmente, a pele está esticada e bem dourada, a carne recuou e mostra um pouco do osso na ponta fina, e a coxa gira com facilidade na articulação. Rosado junto ao osso na temperatura certa é pigmento, não carne crua.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Seque bem a pele e tempere com generosidade; as coxas são grossas o bastante para receber sal uma hora antes. Faça um ou dois cortes até o osso no lado mais grosso, para o calor chegar mais rápido ao centro. Arrume alternando a ponta grossa e a fina para que encaixem sem se tocar. Molho barbecue ou qualquer glaçado só entra nos últimos dois ou três minutos.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a coxa de frango na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para coxas frescas médias, viradas aos {FLIP} minutos. As pequenas levam uns {SMALL_MIN} minutos e as grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Qual temperatura interna a coxa deve atingir?',
+          a: 'Ela é segura a {INT_F}°F ({INT_C}°C), mas a maioria das pessoas leva a {INT_ALT_F}–{INT_ALT_TO_F}°F, quando o tecido conjuntivo amolece e a carne se solta do osso.',
+        },
+        {
+          q: 'Por que minha coxa está rosada perto do osso?',
+          a: 'Os ossos de frangos jovens liberam um pouco de pigmento na carne ao redor. Se o termômetro marca {INT_F}°F ou mais, a cor é inofensiva.',
+        },
+        {
+          q: 'Quando passo o molho barbecue?',
+          a: 'Nos últimos dois ou três minutos. O açúcar do molho queima muito antes de as coxas ficarem prontas se for colocado no início.',
+        },
+        {
+          q: 'Como fica a comparação com o forno?',
+          a: 'O forno convencional precisa de {OVEN_F}°F por cerca de {OVEN_MIN} minutos, e o forno com ventilação {FAN_F}°F por cerca de {FAN_MIN}. A air fryer deixa a pele bem mais crocante.',
+        },
+      ],
+    },
+    'chicken-tenders': {
+      label: 'Tiras de frango',
+      metaTitle: 'Tiras de frango na air fryer: tempo e temperatura (frescas)',
+      metaDescription:
+        'Tiras de frango e filezinhos frescos na air fryer: {AF_F}°F por {MIN} minutos, virar aos {FLIP}, prontas a {INT_F}°F. Ao natural ou empanadas, tempos por tamanho.',
+      metaKeywords: 'tiras de frango air fryer, filezinho de frango air fryer, iscas de frango air fryer tempo',
+      heading: 'Tiras de frango na air fryer',
+      subDesc:
+        'Filezinhos (sassami) frescos ou tiras cortadas do peito, ao natural ou empanadas em casa. O ajuste curto, a virada e como evitar que ressequem.',
+      cardDesc: 'Pequenas e rápidas: ponha o timer no mínimo.',
+      sizeLabels: { small: 'Tiras finas, cerca de 30 g', medium: 'Filezinhos inteiros, cerca de 60 g', large: 'Tiras grossas, a partir de 90 g' },
+      failureHeading: 'Pronta num minuto, seca no seguinte',
+      failureBody:
+        'Uma tira de frango é um pedaço estreito, quase sem gordura e com muita superfície. O ar quente chega a todos os lados ao mesmo tempo, então o pedaço inteiro cozinha em poucos minutos, e não existe um centro grosso que amorteça um erro. Deixe um cesto de tiras dois minutos a mais enquanto prepara o molho e elas encolhem, endurecem e ficam fibrosas. O tendão branco que corre pelo filezinho piora tudo, porque se contrai no calor e entorta a tira. Trate as tiras como um preparo rápido, não como um assado: tire o tendão, corte tudo na mesma espessura, comece a conferir um minuto antes do tempo e retire assim que a mais grossa estiver pronta. As empanadas protegem um pouco a carne, mas precisam de um leve spray de óleo para a farinha dourar antes de o interior passar do ponto.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        '450 g de filezinhos inteiros, sem tendão, passados no ovo e no panko e borrifados com um pouco de óleo. Preaqueça por {PREHEAT} minutos, arrume-os deitados sem sobrepor e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Tiras finas cortadas do peito ficam prontas em cerca de {SMALL_MIN} minutos e as grossas em uns {LARGE_MIN}. Numa grade no forno convencional, a mesma porção leva {OVEN_F}°F por cerca de {OVEN_MIN} minutos e sai mais pálida.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Meça a tira mais grossa pela ponta, empurrando a sonda no sentido do comprimento até o centro: a {INT_F}°F ({INT_C}°C) está pronta. As tiras são finas demais para guardar muito calor residual, então quase não sobem depois de sair. Sem termômetro, parta a mais grossa ao meio; ela deve estar branca, sem centro vítreo, com o suco claro. A cobertura empanada deve estar dourada por inteiro, não pálida onde os pedaços se encostavam.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Tire o tendão branco segurando a ponta com um garfo e deslizando a carne. Para empanar, separe farinha de trigo, ovo batido e panko, e pressione bem a farinha para o ventilador não espalhá-la. Quinze minutos em leitelho com sal deixam as tiras ao natural mais suculentas. Deixe um dedo de espaço entre as tiras.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam as tiras de frango na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para filezinhos frescos inteiros, virados aos {FLIP} minutos. Tiras finas levam uns {SMALL_MIN} minutos e as grossas uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Com que temperatura as tiras de frango ficam prontas?',
+          a: '{INT_F}°F ({INT_C}°C) no pedaço mais grosso. Como são finas, retire exatamente nessa leitura.',
+        },
+        {
+          q: 'Tiras empanadas precisam de óleo na air fryer?',
+          a: 'Um leve spray, sim. A farinha seca fica pálida e com aspecto de pó sem um pouco de gordura para ajudar a dourar.',
+        },
+        {
+          q: 'Este ajuste serve para tiras empanadas congeladas?',
+          a: 'Não. As tiras congeladas de mercado vêm pré-cozidas e seguem a embalagem; use o modo congelados.',
+        },
+        {
+          q: 'Como seria o ajuste no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    sausages: {
+      label: 'Linguiças e salsichas',
+      metaTitle: 'Linguiça na air fryer: tempo, temperatura e sem estourar',
+      metaDescription:
+        'Linguiças frescas na air fryer: {AF_F}°F por {MIN} minutos, virar aos {FLIP}, prontas a {INT_F}°F as de porco ou boi. Linguiça fina, bratwurst e salsichas pré-cozidas.',
+      metaKeywords: 'linguiça na air fryer tempo, linguiça toscana air fryer, salsicha air fryer, bratwurst air fryer',
+      heading: 'Linguiças na air fryer',
+      subDesc:
+        'Linguiças frescas de porco, boi ou frango, da fininha à bratwurst, além das pré-cozidas. O ajuste e como manter a pele inteira.',
+      cardDesc: 'Calor moderado para a pele não estourar.',
+      sizeLabels: { thin: 'Linguiças finas ou de café da manhã', medium: 'Linguiça toscana, cerca de 2,5 cm', thick: 'Bratwurst ou linguiças grossas' },
+      internalAltLine: 'Linguiças de frango ou peru: {INT_ALT_F}°F ({INT_ALT_C}°C). As pré-cozidas só precisam ser aquecidas até {INT_ALT_F}°F.',
+      failureHeading: 'Por que a linguiça estoura na air fryer',
+      failureBody:
+        'Uma linguiça é um tubo fechado de gordura, água e tempero. Ao aquecer, a água vira vapor e a gordura derrete, e a pressão interna sobe mais rápido do que a pele consegue esticar. Com calor demais, a pele racha no comprimento, a gordura escorre para a gaveta e solta fumaça, e o recheio resseca. Muita gente fura a linguiça para evitar isso, mas só faz o suco escapar mais cedo. O melhor é uma temperatura moderada, em que a pele firma e doura no mesmo ritmo em que o recheio cozinha, mais uma virada no meio para os dois lados pegarem cor. Linguiças que saem direto da geladeira estouram com mais facilidade do que as que descansaram dez minutos, e as que se encostam no cesto costumam rasgar justamente onde grudam.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Seis linguiças toscanas frescas de espessura normal, fora da geladeira por dez minutos. Coloque no cesto com espaço, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos e vire aos {FLIP}. Linguiças finas precisam de uns {THIN_MIN} minutos; uma bratwurst fresca, uns {THICK_MIN}. Salsichas e bratwursts pré-cozidas já são seguras e só precisam aquecer, o que leva alguns minutos a menos. No forno convencional, as mesmas linguiças frescas levam {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Insira o termômetro por uma ponta em direção ao centro. Linguiças de porco e de boi ficam prontas a {INT_F}°F ({INT_C}°C); as de frango e peru precisam de {INT_ALT_F}°F ({INT_ALT_C}°C). As pré-cozidas, como a maioria das salsichas e de muitas bratwursts de mercado, já vêm cozidas da fábrica, então o objetivo é só aquecê-las até {INT_ALT_F}°F. Visualmente, uma linguiça fresca fica firme ao toque, dourada dos dois lados e sem rosado ao cortar.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Separe as linguiças emendadas com tesoura em vez de puxar. Não fure. Dispense o óleo: elas soltam gordura de sobra, e uma folha de papel-manteiga perfurado por baixo evita fumaça se a sua gaveta esquenta muito. Se quiser cebola com a linguiça, coloque cebola fatiada na gaveta na segunda metade do tempo.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a linguiça na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para linguiças frescas normais, viradas aos {FLIP} minutos. As finas levam uns {THIN_MIN} minutos e a bratwurst uns {THICK_MIN}.',
+        },
+        {
+          q: 'Com que temperatura a linguiça fica pronta?',
+          a: '{INT_F}°F ({INT_C}°C) para porco e boi. Linguiças de frango e peru precisam de {INT_ALT_F}°F ({INT_ALT_C}°C).',
+        },
+        {
+          q: 'Como faço bratwurst pré-cozida na air fryer?',
+          a: 'Na mesma temperatura, mas ela fica pronta alguns minutos antes. Já vem cozida, então aqueça até o centro chegar a {INT_ALT_F}°F e a pele dourar.',
+        },
+        {
+          q: 'Devo furar a linguiça antes da air fryer?',
+          a: 'Não. Furar deixa a gordura e o suco escaparem, e a linguiça resseca. Uma temperatura moderada evita que a pele estoure sem precisar furar.',
+        },
+        {
+          q: 'Qual o equivalente no forno para linguiças?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional, virando uma vez.',
+        },
+      ],
+    },
+    burgers: {
+      label: 'Hambúrgueres',
+      metaTitle: 'Hambúrguer na air fryer: tempo, temperatura e ponto',
+      metaDescription:
+        'Hambúrguer de carne bovina na air fryer: {AF_F}°F por {MIN} minutos, virar aos {FLIP}, pronto a {INT_F}°F. Tempos por espessura, hambúrguer congelado e equivalente no forno.',
+      metaKeywords: 'hambúrguer na air fryer tempo, hambúrguer caseiro air fryer, hambúrguer congelado air fryer',
+      heading: 'Hambúrguer na air fryer',
+      subDesc:
+        'Hambúrgueres frescos de carne moída, caseiros ou de mercado. O ajuste, a virada e por que carne moída tem um ponto diferente do bife.',
+      cardDesc: 'Carne moída: {INT_F}°F, não o ponto do bife.',
+      sizeLabels: { thin: 'Fino, cerca de 8 mm', medium: 'Normal, cerca de 1,3 cm', thick: 'Grosso, cerca de 2 cm' },
+      failureHeading: 'Estufado, encolhido e com fumaça',
+      failureBody:
+        'Carne moída não se comporta como um bife. Ao esquentar, as proteínas se contraem e puxam as bordas para dentro, então o centro estufa num domo que cozinha de forma desigual e depois não fica reto no pão. Ao mesmo tempo, a gordura derrete, pinga na gaveta quente e pode soltar fumaça. Fazer uma cavidade rasa no centro de cada hambúrguer cru o mantém reto enquanto encolhe; limpar a gaveta entre as levas, e em alguns modelos pôr um pouco de água sob o cesto, diminui a fumaça. O outro erro é copiar o ponto do bife. Ao moer a carne, as bactérias da superfície se espalham por tudo, então o hambúrguer precisa chegar a {INT_F}°F no centro, não ao número de malpassado que serve para um bife inteiro.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Quatro hambúrgueres de 1,3 cm de carne moída com 20 % de gordura, cerca de 150 g cada, com uma cavidade no centro e sal só na hora. Preaqueça por {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Os finos estilo smash levam uns {THIN_MIN} minutos e os grossos de 2 cm uns {THICK_MIN}. Coloque o queijo no último minuto. No forno convencional, os mesmos hambúrgueres precisam de {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se está pronto',
+      donenessBody:
+        'Insira o termômetro pela lateral até o centro: {INT_F}°F ({INT_C}°C) é a meta de segurança para carne bovina moída, e nesse ponto o suco sai claro e o meio fica marrom, sem vermelho. A cor sozinha engana, porque há carne que escurece cedo e carne que continua rosada mesmo pronta. Um hambúrguer que estufou no meio cozinha antes nas bordas que no centro, então meça no ponto mais grosso.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Escolha carne com uns 20 % de gordura; a mais magra fica seca. Manuseie pouco e modele os hambúrgueres um pouco mais largos que o pão, porque encolhem. Faça a cavidade com o polegar, com metade da altura do hambúrguer. Salgue só por fora e só na hora de cozinhar, senão a carne fica com textura de linguiça. Não precisa de óleo.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva o hambúrguer na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para hambúrgueres frescos de 1,3 cm, virados aos {FLIP} minutos. Os finos levam uns {THIN_MIN} minutos e os grossos de 2 cm uns {THICK_MIN}.',
+        },
+        {
+          q: 'Em que temperatura o hambúrguer deve ficar?',
+          a: '{INT_F}°F ({INT_C}°C) no centro. É mais que o bife porque, ao moer a carne, as bactérias da superfície vão para dentro.',
+        },
+        {
+          q: 'Posso fazer hambúrguer congelado na air fryer?',
+          a: 'Sim, na mesma temperatura. Acrescente uns 4–6 minutos ao tempo do fresco, vire na metade e confira mesmo assim {INT_F}°F no centro. Separe antes os que congelaram grudados.',
+        },
+        {
+          q: 'Por que meu hambúrguer estufa na air fryer?',
+          a: 'As bordas encolhem mais rápido que o centro e o empurram para cima. Uma cavidade feita com o polegar em cada hambúrguer cru o mantém reto.',
+        },
+        {
+          q: 'Qual o equivalente no forno para hambúrguer?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa grade no forno convencional, virando uma vez.',
+        },
+      ],
+    },
+    'pork-tenderloin': {
+      label: 'Filé-mignon suíno',
+      metaTitle: 'Filé-mignon suíno na air fryer: tempo, temperatura e descanso',
+      metaDescription:
+        'Filé-mignon suíno inteiro na air fryer: {AF_F}°F por {MIN} minutos, virar aos {FLIP}, {INT_F}°F após o descanso. Tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'filé mignon suíno air fryer, lombinho na air fryer tempo, filé suíno air fryer temperatura',
+      heading: 'Filé-mignon suíno na air fryer',
+      subDesc:
+        'Um filé-mignon suíno inteiro, assado numa peça só. O ajuste, a virada e como o descanso termina o trabalho.',
+      cardDesc: 'Dobre a ponta e deixe o descanso terminar.',
+      sizeLabels: { small: 'Pequeno, cerca de 340 g', medium: 'Médio, cerca de 450 g', large: 'Grande, a partir de 570 g' },
+      failureHeading: 'Ponta seca, centro cru',
+      failureBody:
+        'O filé-mignon suíno afina de uma cabeça grossa até uma ponta fina de dois ou três centímetros. Na air fryer, a ponta cozinha muito antes da cabeça, e quando a parte mais grossa finalmente fica segura, a extremidade estreita já está cinza e seca. Dobrar os últimos centímetros da ponta por baixo da peça e prender com barbante ou palito dá ao filé uma espessura mais uniforme. A outra metade da solução é o descanso. Retire o filé um pouco antes de {INT_F}°F e deixe-o três minutos numa tábua; o calor guardado nas camadas de fora continua avançando para dentro e o centro sobe uns 5°F enquanto descansa. Esse descanso faz parte de chegar à temperatura segura, não é um extra opcional, e ainda acomoda o suco para que ele fique na carne na hora de fatiar.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Um filé de 450 g, sem a membrana prateada, com a ponta dobrada, esfregado com óleo, mostarda e ervas. Preaqueça por {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Retire quando a parte grossa marcar uns 140°F e deixe descansar três minutos até chegar a {INT_F}°F. Um pequeno de 340 g leva uns {SMALL_MIN} minutos e um grande uns {LARGE_MIN}. O equivalente no forno convencional é {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se está pronto',
+      donenessBody:
+        'Meça na parte mais grossa da cabeça, pela lateral. Depois dos três minutos de descanso, o centro deve marcar {INT_F}°F ({INT_C}°C): rosado claro, suculento e seguro. Se já marcar bem mais que 145°F ao sair do cesto, vai ficar firme e seco depois do descanso, então da próxima vez retire antes. Fatie contra a fibra em medalhões de pouco mais de 1 cm.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Passe uma faca fina por baixo da membrana prateada, a película brilhante de um dos lados, e retire; ela encolhe no calor e entorta a peça. Seque, passe um pouco de óleo e uma mistura de temperos. Se o cesto for pequeno, corte o filé ao meio em vez de curvá-lo. Um glaçado doce entra só nos últimos minutos.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva o filé-mignon suíno na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para um filé de 450 g, virado aos {FLIP} minutos, mais três minutos de descanso. Os pequenos levam uns {SMALL_MIN} minutos e os grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Com que temperatura o filé suíno fica pronto?',
+          a: '{INT_F}°F ({INT_C}°C) após três minutos de descanso. Retire uns 5°F antes, porque a temperatura sobe enquanto descansa.',
+        },
+        {
+          q: 'Por que o filé suíno precisa descansar?',
+          a: 'A parte de fora guarda calor que continua cozinhando o centro por alguns minutos, e o suco se acomoda para ficar nas fatias.',
+        },
+        {
+          q: 'Preciso tirar a membrana prateada?',
+          a: 'Sim. Ela não amolece no cozimento e se contrai, entortando o filé e deixando um dos lados borrachudo.',
+        },
+        {
+          q: 'Qual o equivalente num forno comum?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    'white-fish': {
+      label: 'Peixe branco',
+      metaTitle: 'Tilápia e merluza na air fryer: peixe branco, tempo e temperatura',
+      metaDescription:
+        'Filés de peixe branco na air fryer: {AF_F}°F por {MIN} minutos sem virar, prontos a {INT_F}°F. Tilápia, merluza, pescada e bacalhau fresco, tempos por espessura.',
+      metaKeywords: 'tilápia na air fryer tempo, filé de peixe air fryer, merluza air fryer, pescada air fryer',
+      heading: 'Peixe branco na air fryer',
+      subDesc:
+        'Tilápia, merluza, pescada, bacalhau fresco e filés parecidos, frescos ou descongelados. O ajuste, por que não virar e como tirá-lo inteiro.',
+      cardDesc: 'Não vire: retire inteiro sobre o papel.',
+      sizeLabels: { thin: 'Filés finos, tilápia ou linguado', medium: 'Filés normais, cerca de 2,5 cm', thick: 'Postas grossas de bacalhau fresco ou pescada' },
+      failureHeading: 'Grudado no cesto, quebrado na virada',
+      failureBody:
+        'O peixe branco tem lascas grandes e soltas, presas por muito pouca gordura e tecido conjuntivo. Depois de cozido, essas lascas se separam com um toque: é a textura que você quer no prato e o motivo de ele se desmanchar no caminho. Filés sem proteção também grudam na grade, porque as proteínas da face de baixo se prendem ao metal quente antes de firmar. Tentar virar o filé no meio do preparo é onde quase todo mundo erra: ele rasga, deixa a parte de baixo no cesto e vira pedaços. Então não vire. O ar circulando cozinha a parte de cima e o calor do cesto basta para a de baixo em filés de espessura normal. Cozinhe sobre papel-manteiga perfurado ou uma base untada e retire a folha inteira no fim.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Dois filés de merluza de cerca de 170 g e 2,5 cm de espessura, secos, pincelados com manteiga derretida e cobertos com raspas de limão e páprica. Preaqueça por {PREHEAT} minutos, coloque sobre papel perfurado e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos sem virar. Tilápia fina precisa de uns {THIN_MIN} minutos e uma posta grossa uns {THICK_MIN}. No forno convencional, os mesmos filés levam {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se está pronto',
+      donenessBody:
+        'Pressione de leve a parte mais grossa com um garfo: o peixe branco cozido passa de translúcido para um branco opaco e brilhante e se separa em lascas úmidas. A temperatura interna segura é {INT_F}°F ({INT_C}°C). Filés finos passam de prontos a secos muito rápido, então confira dois minutos antes do tempo. Se as lascas parecerem esbranquiçadas e secas nas bordas, o peixe passou do ponto.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Descongele os filés congelados por completo na geladeira e seque bem, porque peixe descongelado solta muita água. Dobre a ponta fina por baixo para o filé ficar com espessura uniforme. Um pouco de gordura por cima ajuda na cor e no sabor: um pouco de manteiga, azeite ou maionese com ervas. Para uma crosta, pressione o panko só na parte de cima.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva o peixe branco na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para filés de merluza ou pescada de 2,5 cm, sem virar. Tilápia fina leva uns {THIN_MIN} minutos e postas grossas uns {THICK_MIN}.',
+        },
+        {
+          q: 'Preciso virar o peixe na air fryer?',
+          a: 'Não. Filés delicados quebram ao virar, e o ar quente cozinha bem a parte de cima sozinho.',
+        },
+        {
+          q: 'Como evito que o peixe grude no cesto?',
+          a: 'Cozinhe sobre papel-manteiga perfurado ou uma base untada e retire a folha inteira. Secar bem o peixe e untar a parte de baixo também ajuda.',
+        },
+        {
+          q: 'Com que temperatura a tilápia fica pronta?',
+          a: '{INT_F}°F ({INT_C}°C) na parte mais grossa, quando a carne fica opaca e se separa em lascas com facilidade.',
+        },
+        {
+          q: 'Qual o equivalente no forno para peixe branco?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    broccoli: {
+      label: 'Brócolis',
+      metaTitle: 'Brócolis na air fryer: tempo, temperatura e floretes crocantes',
+      metaDescription:
+        'Brócolis fresco na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando uma vez. Pontas crocantes e talos macios, tempos por tamanho de florete e equivalente no forno.',
+      metaKeywords: 'brócolis na air fryer, brócolis air fryer tempo, brócolis assado air fryer',
+      heading: 'Brócolis na air fryer',
+      subDesc:
+        'Floretes de brócolis fresco, assados até as bordas ficarem crocantes. O ajuste curto, a chacoalhada e como cortar para pontas e talos ficarem prontos juntos.',
+      cardDesc: 'Corte os talos finos para as pontas não queimarem.',
+      sizeLabels: { small: 'Floretes pequenos, de um bocado', medium: 'Floretes médios, cerca de 4 cm', large: 'Floretes grandes ou cabeças em metades' },
+      failureHeading: 'Pontas queimadas, talos duros',
+      failureBody:
+        'Um florete de brócolis são dois alimentos grudados. Em cima há um cacho de botõezinhos secos com uma superfície enorme, e no ar quente em movimento esses botões perdem a água em poucos minutos, ficam crocantes, depois pretos e amargos. O talo de baixo é denso e úmido e precisa de vários minutos a mais para amaciar. Se você cozinha o florete inteiro, tem que escolher entre pontas carbonizadas com talo cru ou talo macio sob farelos queimados. A solução está na faca. Corte floretes com talos curtos e divida os talos grossos no comprimento, para cada pedaço ter um talo fino. Descasque o talo principal e corte em rodelas; cozido, ele é doce. O outro problema é o peso: floretes secos são tão leves que o ventilador pode levantar os pedaços pequenos até a resistência, então misture-os antes com óleo.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Uma cabeça média de brócolis cortada em floretes de cerca de 4 cm com os talos divididos, misturada com uma colher de sopa de azeite, sal e alho. Preaqueça por {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos e chacoalhe uma vez na metade. Floretes de um bocado ficam prontos em uns {SMALL_MIN} minutos e os grandes em uns {LARGE_MIN}. Assada numa assadeira no forno convencional, a mesma cabeça leva {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se está pronto',
+      donenessBody:
+        'As pontas devem estar douradas nas bordas, com alguns pontos escuros e crocantes, enquanto o resto do florete continua verde vivo. Espete um talo com uma faca: ela deve entrar com uma leve resistência. Floretes verde-acinzentados e moles ficaram apertados demais e cozinharam no vapor; pontas pretas e amargas indicam que os pedaços eram grandes demais para o tempo ou ficaram sem óleo.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Lave o brócolis com antecedência e deixe secar por completo, ou passe numa centrífuga de salada; floretes molhados cozinham no vapor em vez de assar. Cubra cada pedaço de óleo por igual, o que protege as pontas e dá peso. Queijo ralado ou suco de limão entram depois de cozinhar. Não encha o cesto com mais de uma camada.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva o brócolis na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para floretes frescos médios, chacoalhando uma vez. Os pequenos levam uns {SMALL_MIN} minutos e os grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Por que meu brócolis queima na air fryer?',
+          a: 'Os botões finos de cima secam muito antes de o talo amaciar. Corte floretes menores com talos finos e cubra-os de óleo.',
+        },
+        {
+          q: 'Dá para fazer brócolis congelado na air fryer?',
+          a: 'Dá, mas ele solta muita água e fica mais mole. Use o modo congelados, que considera essa umidade extra, em vez deste ajuste para fresco.',
+        },
+        {
+          q: 'Por que o brócolis voa dentro da air fryer?',
+          a: 'Floretes secos são leves o suficiente para o ventilador levantá-los. Uma camada de óleo dá peso e os mantém no cesto.',
+        },
+        {
+          q: 'Qual o equivalente no forno para brócolis?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional.',
+        },
+      ],
+    },
+    'brussels-sprouts': {
+      label: 'Couve-de-bruxelas',
+      metaTitle: 'Couve-de-bruxelas na air fryer: tempo, temperatura e folhas crocantes',
+      metaDescription:
+        'Couve-de-bruxelas em metades na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando duas vezes. Miolo macio, face caramelizada, tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'couve de bruxelas air fryer, couve de bruxelas na air fryer tempo, couve de bruxelas crocante',
+      heading: 'Couve-de-bruxelas na air fryer',
+      subDesc:
+        'Couves-de-bruxelas frescas, cortadas ao meio e assadas. O ajuste, as duas chacoalhadas e como chegar a um miolo macio com a face caramelizada.',
+      cardDesc: 'Corte ao meio e comece com o corte para baixo.',
+      sizeLabels: { small: 'Pequenas, em metades', medium: 'Médias, cerca de 2,5 cm, em metades', large: 'Grandes, em quartos' },
+      failureHeading: 'Miolo cru e folhas queimadas',
+      failureBody:
+        'Uma couve-de-bruxelas é um feixe apertado de folhas em volta de um miolo denso e maciço. As folhas de fora, soltas, secam e tostam quase na hora na air fryer, mas o calor precisa atravessar camada por camada até o centro, então uma couve inteira pode estar chamuscada por fora e ainda dura e com gosto de enxofre por dentro. Cortar ao meio é a principal solução, porque expõe o miolo e reduz pela metade o caminho do calor. Depois, a face do corte faz diferença. Apoiada reta no cesto quente, essa face carameliza numa crosta doce, com sabor de castanha, enquanto o lado arredondado ganha folhas crocantes com o ar. Coloque com o corte para baixo no primeiro trecho e só então comece a chacoalhar. As grandes devem ser cortadas em quartos, senão o centro continua atrasado.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        '450 g de couves médias, limpas e em metades, misturadas com uma colher e meia de sopa de óleo e sal. Preaqueça por {PREHEAT} minutos, coloque com o corte para baixo e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, chacoalhando duas vezes na segunda metade. As pequenas em metades precisam de uns {SMALL_MIN} minutos e as grandes em quartos de uns {LARGE_MIN}. No forno convencional, a mesma assadeira leva {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Espete uma faca na parte mais grossa do miolo: ela deve entrar fácil, como numa batata cozida. A face do corte deve estar de dourado intenso a marrom-escuro, e algumas folhas de fora terão se soltado e ficado crocantes e quase pretas; é a melhor parte. Cor acinzentada ou cheiro forte de repolho indicam que cozinharam tempo demais em calor baixo, ou no vapor num cesto cheio.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Apare a base seca do talo e retire as folhas amareladas. Corte atravessando o talo para cada metade ficar inteira. Misture com óleo até todas as faces cortadas brilharem. Redução de balsâmico, mel ou um pouco de limão entram depois de cozinhar, porque o açúcar queima no fim de um preparo em calor alto.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a couve-de-bruxelas na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para couves médias em metades, chacoalhando duas vezes. As pequenas levam uns {SMALL_MIN} minutos e as grandes em quartos uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso cortar a couve-de-bruxelas ao meio?',
+          a: 'Sim. Inteiras, elas queimam por fora antes de o miolo denso cozinhar; em metades o miolo fica exposto e há uma face reta que doura.',
+        },
+        {
+          q: 'Por que minhas couves continuam duras no meio?',
+          a: 'Eram grandes demais para o tempo. Corte as grandes em quartos e confira o miolo com uma faca antes de tirar.',
+        },
+        {
+          q: 'Começo com o corte para cima ou para baixo?',
+          a: 'Para baixo. A face reta carameliza no cesto quente, e depois as chacoalhadas deixam as folhas crocantes.',
+        },
+        {
+          q: 'Qual o equivalente no forno para couve-de-bruxelas?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    'sweet-potato-fries': {
+      label: 'Batata-doce frita',
+      metaTitle: 'Batata-doce frita na air fryer: tempo, temperatura e crocância',
+      metaDescription:
+        'Batata-doce em palitos caseira na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando duas vezes. Por que queima e fica mole, o truque do amido de milho, tempos por espessura.',
+      metaKeywords: 'batata doce na air fryer, batata doce frita air fryer tempo, batata doce crocante air fryer',
+      heading: 'Batata-doce frita na air fryer',
+      subDesc:
+        'Palitos de batata-doce fresca. Um ajuste mais baixo que o da batata frita comum, a cobertura que ajuda a crocância e tempos por espessura.',
+      cardDesc: 'Mais baixo que a batata comum: o açúcar queima antes.',
+      sizeLabels: { thin: 'Finos, 6 mm', medium: 'Normais, 1 cm', thick: 'Grossos, 1,3 cm' },
+      failureHeading: 'Bordas escuras, meio mole',
+      failureBody:
+        'Batata-doce não é uma batata laranja. Ela tem muito mais açúcar e bem menos do amido que deixa a batata frita crocante. No calor, esse açúcar carameliza e depois queima numa temperatura mais baixa do que a que o amido precisa para dourar, então as pontas escurecem e amargam enquanto o resto continua mole. A moleza é a outra metade do problema: com pouco amido para formar uma casca firme, o palito de batata-doce tende a ficar murcho, por mais que cozinhe. Por isso este ajuste é mais baixo que o da batata comum e um pouco mais curto, e por isso uma camada fina de amido de milho faz tanta diferença. O amido fornece a camada seca que falta à batata-doce e fica crocante no ar antes de o açúcar por baixo ter tempo de queimar.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Duas batatas-doces médias cortadas em palitos de 1 cm, secas e misturadas primeiro com uma colher de sopa de amido de milho e depois com uma colher de sopa de óleo e uma pitada de sal. Cozinhe em uma camada a {AF_F}°F por {MEDIUM_MIN} minutos, chacoalhando duas vezes. Os finos levam uns {THIN_MIN} minutos e os grossos uns {THICK_MIN}. Faça em levas; ao esfriar um minuto ficam um pouco mais crocantes. Numa assadeira no forno convencional: {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Procure bordas douradas e com algumas bolhinhas, mas não pretas, e palitos que mantenham a forma quando levantados por uma ponta, sem dobrar. Por dentro continuam mais macios que a batata comum; é da natureza deles. Se as pontas escurecem antes de o meio cozinhar, corte a próxima leva um pouco mais grossa e mais uniforme em vez de aumentar o calor.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Descascar é opcional; a casca fica crocante. Corte os palitos com espessura uniforme e pule o molho longo usado para a batata comum, porque quase não há amido na superfície para tirar. Seque, polvilhe primeiro o amido de milho e depois o óleo, para o pó aderir. Tempere com páprica defumada ou canela e salgue de novo no fim.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a batata-doce frita na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para palitos de 1 cm, chacoalhando duas vezes. Os finos levam uns {THIN_MIN} minutos e os grossos uns {THICK_MIN}.',
+        },
+        {
+          q: 'Por que a batata-doce vai em temperatura mais baixa que a batata comum?',
+          a: 'Ela tem muito mais açúcar, que queima numa temperatura mais baixa do que a que o amido da batata precisa para dourar. Um ajuste um pouco mais baixo deixa o interior cozinhar antes de as bordas escurecerem.',
+        },
+        {
+          q: 'Como deixar a batata-doce crocante?',
+          a: 'Polvilhe amido de milho antes do óleo, cozinhe em uma camada e deixe descansar um minuto depois. Ela nunca fica tão firme quanto a batata comum.',
+        },
+        {
+          q: 'Preciso deixar a batata-doce de molho?',
+          a: 'Não. O molho da batata comum tira o amido da superfície, e a batata-doce tem muito pouco.',
+        },
+        {
+          q: 'Qual o equivalente no forno para batata-doce frita?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    'potato-wedges': {
+      label: 'Batatas rústicas',
+      metaTitle: 'Batata rústica na air fryer: tempo, temperatura e miolo macio',
+      metaDescription:
+        'Batata rústica com casca na air fryer: {AF_F}°F por {MIN} minutos, virando uma vez. Crocante por fora, macia por dentro, tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'batata rústica air fryer, batata em gomos air fryer tempo, batata canoa air fryer',
+      heading: 'Batata rústica na air fryer',
+      subDesc:
+        'Gomos grossos com casca, cortados de batatas frescas. O ajuste, a única virada e como cozinhar o miolo antes de o lado de fora escurecer demais.',
+      cardDesc: 'Pedaços grossos: espalhe e vire uma vez.',
+      sizeLabels: { small: 'Gomos pequenos, de batatas pequenas', medium: 'Médios, batata em 8 gomos', large: 'Grandes, batata em 6 gomos' },
+      failureHeading: 'Dourada por fora, densa por dentro',
+      failureBody:
+        'Um gomo é grosso do lado da casca e afiado na borda interna, então cozinha de forma desigual só pelo formato. A aresta fina doura primeiro, enquanto o coração do gomo, muitas vezes com mais de dois centímetros, continua firme e com textura de cera. Diferente de uma batata frita fina, o gomo tem tanta massa que o lado de fora pode parecer pronto muito antes do meio. Duas coisas resolvem. Primeiro, dê espaço a cada gomo: amontoados no cesto, eles fazem sombra uns nos outros, as faces escondidas cozinham no vapor e o lado de fora fica mole em alguns pontos e queimado em outros. Segundo, vire uma vez para a outra face cortada, para as duas faces retas pegarem cor no cesto enquanto a casca fica voltada para o ventilador. Para um miolo bem macio, ferva os gomos por cinco minutos antes.',
+      workedExampleHeading: 'Exemplo prático',
+      workedExampleTemplate:
+        'Duas batatas médias farinhentas, cada uma cortada no comprimento em oito gomos, secas e misturadas com uma colher de sopa de óleo, sal, alho em pó e páprica. Cozinhe em uma camada, com a casca para baixo, a {AF_F}°F por {MEDIUM_MIN} minutos, virando uma vez na metade. Gomos de batatas pequenas levam uns {SMALL_MIN} minutos; sextos mais grossos, uns {LARGE_MIN}. Numa assadeira no forno convencional, conte com {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Espete uma faca na parte mais grossa, perto da casca: ela deve entrar sem resistência, e o interior deve parecer branco e fofo, não vítreo. As faces cortadas devem estar douradas com bordas mais escuras e a casca enrugada e crocante. Se o lado de fora está pronto e o meio não, baixe um pouco o calor nos últimos minutos em vez de abrir mão da crosta.',
+      prepHeading: 'Antes de ir para o cesto',
+      prepBody:
+        'Use batatas farinhentas para um miolo fofo; as mais firmes dão um gomo mais cremoso. Esfregue, mas não descasque. Corte cada batata no mesmo número de gomos para ficarem prontos juntos. Uma lavada rápida basta; seque bem. Parmesão ralado nos dois últimos minutos combina muito.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a batata rústica na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para gomos médios, virados uma vez. Os pequenos levam uns {SMALL_MIN} minutos e os grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso pré-cozinhar os gomos antes da air fryer?',
+          a: 'É opcional. Cinco minutos em água fervente dão um miolo mais fofo e uma superfície mais áspera que fica mais crocante; seque bem depois.',
+        },
+        {
+          q: 'Qual a diferença entre batata rústica e batata frita na air fryer?',
+          a: 'Os gomos são bem mais grossos, então o desafio é cozinhar o miolo antes de o lado de fora dourar demais. Precisam de mais tempo e de uma só virada.',
+        },
+        {
+          q: 'Quais batatas são melhores para gomos?',
+          a: 'As farinhentas, como a asterix, para um interior fofo; as mais firmes, como a ágata, para um interior mais cremoso.',
+        },
+        {
+          q: 'Qual o equivalente no forno para batata rústica?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
   },
 };
 

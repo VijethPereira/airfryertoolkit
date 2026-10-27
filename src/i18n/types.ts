@@ -15,6 +15,8 @@ export interface PresetCopy {
   cardDesc: string;
   /** Sizing-table row labels for this preset's PresetSizeIds. */
   sizeLabels: Partial<Record<PresetSizeId, string>>;
+  /** Second internal-temperature line, required when the preset has internalAlt ({INT_ALT_F}, {INT_ALT_C}, {INT_ALT_TO_F}, {INT_ALT_TO_C}). */
+  internalAltLine?: string;
   failureHeading: string;
   failureBody: string;
   workedExampleHeading: string;
