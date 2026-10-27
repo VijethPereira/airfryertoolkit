@@ -1,0 +1,4 @@
+# Canonical URLs have no trailing slash (astro.config.mjs trailingSlash: 'never').
+# html_handling = "drop-trailing-slash" alone answers the slashed form with a 307;
+# this rule runs first and makes it one permanent 308. "/" is not matched.
+/*/ /:splat 308

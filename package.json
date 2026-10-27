@@ -9,6 +9,7 @@
     "astro": "astro",
     "check": "astro check",
     "test:e2e": "playwright test",
+    "test:urls": "astro build && playwright test -c playwright.urls.config.ts",
     "deploy": "astro build && wrangler deploy && npm run indexnow",
     "indexnow": "node scripts/submit-indexnow.mjs"
   },

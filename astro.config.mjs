@@ -5,6 +5,8 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://airfryertoolkit.com',
   output: 'server',
+  trailingSlash: 'never',
+  build: { format: 'file' },
   adapter: cloudflare({ session: false }),
   i18n: {
     locales: ['en', 'es', 'pt', 'fr', 'de'],

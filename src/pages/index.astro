@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import HomeBody from '../components/HomeBody.astro';
 import siteConfig from '../site.config.ts';
 import { getDictionary } from '../i18n/dictionaries';
+import { localizedUrl } from '../i18n/utils';
 
 const locale = 'en' as const;
 const dict = getDictionary(locale).home;
@@ -16,7 +17,7 @@ const jsonLd = {
     {
       '@type': 'WebSite',
       '@id': `${siteConfig.domain}/#website`,
-      url: siteConfig.domain,
+      url: localizedUrl(locale, '/'),
       name: siteConfig.siteName,
       description: dict.metaDescription,
     },
@@ -24,7 +25,7 @@ const jsonLd = {
       '@type': 'Organization',
       '@id': `${siteConfig.domain}/#organization`,
       name: siteConfig.siteName,
-      url: siteConfig.domain,
+      url: localizedUrl(locale, '/'),
     },
   ],
 };
@@ -33,7 +34,7 @@ const jsonLd = {
 <Layout
   title={dict.metaTitle}
   description={dict.metaDescription}
-  canonical={siteConfig.domain}
+  canonical={localizedUrl(locale, '/')}
   keywords={dict.metaKeywords}
   jsonLd={jsonLd}
   locale={locale}

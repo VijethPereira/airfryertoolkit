@@ -263,7 +263,7 @@ test.describe('food preset pages', () => {
 });
 
 test.describe('food presets: index, homepage and locales', () => {
-  for (const code of [DEFAULT_LOCALE, 'fr'] as const) {
+  for (const { code } of LOCALES) {
     test(`/presets (${code}) lists every preset once, grouped by category in order`, async ({ page }) => {
       const pageErrors = await collectPageErrors(page);
       const dict = getDictionary(code).presetsIndex;
@@ -287,6 +287,12 @@ test.describe('food presets: index, homepage and locales', () => {
         }
       }
       await expect(page.locator('main .card')).toHaveCount(ALL.length);
+      // Empty categories (reheat, baked until batch 3) render no heading anywhere on the page.
+      for (const g of await groups.all()) expect(await g.locator('.card').count()).toBeGreaterThan(0);
+      const headings = await page.locator('main h2').allTextContents();
+      for (const empty of PRESET_CATEGORY_ORDER.filter((c) => !expectedGroups.includes(c))) {
+        expect(headings).not.toContain(dict.categories[empty]);
+      }
       const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent())!);
       expect(ld.mainEntity.itemListElement).toHaveLength(ALL.length);
       expect(pageErrors).toEqual([]);

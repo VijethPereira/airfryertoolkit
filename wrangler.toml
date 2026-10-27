@@ -7,6 +7,7 @@ workers_dev = true
 directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "404-page"
+html_handling = "drop-trailing-slash"
 
 [[kv_namespaces]]
 binding = "RATE_KV"
