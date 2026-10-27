@@ -25,6 +25,13 @@ export const presets: Dictionary['presets'] = {
   relatedIndexLink: 'Alle Lebensmittel-Voreinstellungen',
   relatedChartLink: 'Umrechnungstabelle zum Ausdrucken',
   faqHeading: 'Häufige Fragen',
+  frozen: {
+    ovenHeading: 'Was auf der Packung steht',
+    ovenTemplate: 'Packung für Ober-/Unterhitze: {OVEN_F}°F ({OVEN_C}°C, britische Gasstufe {OVEN_MARK}) für {OVEN_MIN} Min.',
+    fanTemplate: 'Packung für Umluft: {FAN_F}°F ({FAN_C}°C) für {FAN_MIN} Min.',
+    ovenNote: 'Auf deiner Packung stehen andere Werte? Der Umrechner unten ist schon auf dieses Lebensmittel eingestellt – gib Temperatur und Zeit von der Packung ein.',
+    sizingHeaders: { size: 'Größe', airFryer: 'Heißluftfritteuse', oven: 'Laut Packung' },
+  },
   pages: {
     'chicken-breast': {
       label: 'Hähnchenbrust',

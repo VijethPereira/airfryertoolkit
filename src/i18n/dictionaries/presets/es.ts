@@ -25,6 +25,13 @@ export const presets: Dictionary['presets'] = {
   relatedIndexLink: 'Todas las preconfiguraciones de alimentos',
   relatedChartLink: 'Tabla de conversión imprimible',
   faqHeading: 'Preguntas frecuentes',
+  frozen: {
+    ovenHeading: 'Lo que dice el paquete',
+    ovenTemplate: 'Paquete para horno convencional: {OVEN_F}°F ({OVEN_C}°C, nivel de gas {OVEN_MARK}) durante {OVEN_MIN} min',
+    fanTemplate: 'Paquete para horno con ventilador: {FAN_F}°F ({FAN_C}°C) durante {FAN_MIN} min',
+    ovenNote: '¿Tu bolsa trae otras cifras? El conversor de abajo ya tiene este alimento elegido: escribe la temperatura y el tiempo del paquete.',
+    sizingHeaders: { size: 'Tamaño', airFryer: 'Freidora de aire', oven: 'Dice el paquete' },
+  },
   pages: {
     'chicken-breast': {
       label: 'Pechuga de pollo',

@@ -25,6 +25,13 @@ export const presets: Dictionary['presets'] = {
   relatedIndexLink: 'All food presets',
   relatedChartLink: 'Printable conversion chart',
   faqHeading: 'Frequently asked questions',
+  frozen: {
+    ovenHeading: 'What the pack says',
+    ovenTemplate: 'Conventional oven pack: {OVEN_F}°F ({OVEN_C}°C, gas mark {OVEN_MARK}) for {OVEN_MIN} min',
+    fanTemplate: 'Fan oven pack: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
+    ovenNote: 'Your bag prints different numbers? The converter below is set to this food — enter the pack’s temperature and time.',
+    sizingHeaders: { size: 'Size', airFryer: 'Air fryer', oven: 'Pack says' },
+  },
   pages: {
     'chicken-breast': {
       label: 'Chicken breast',

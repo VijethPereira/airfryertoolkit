@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
 import type { FrozenFoodKey } from '../lib/converter';
+import { HOME_FROZEN_CARDS, frozenCardSpec } from '../lib/home-cards';
 import { TEMP_LANDINGS, tempLandingSlug, tempLandingValues } from '../lib/temp-landings';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
@@ -45,13 +46,8 @@ function cardHref({ href, fallback }: CardTarget): string | null {
 
 const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'].map((href) => ({ href }));
 const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'].map((href) => ({ href }));
-// Until each /frozen-[food] page (row 8) ships, its card opens /frozen with that food preselected.
-const frozenTargets: CardTarget[] = [
-  { href: '/frozen-fries', fallback: '/frozen?food=fries' },
-  { href: '/frozen-chicken-nuggets', fallback: '/frozen?food=nuggets' },
-  { href: '/frozen-chicken', fallback: '/frozen?food=rawChicken' },
-  { href: '/frozen-pizza', fallback: '/frozen?food=pizza' },
-];
+const frozenTargets: CardTarget[] = HOME_FROZEN_CARDS;
+const frozenCardSpecs = HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, locale));
 // FROZEN_FOODS key for each frozenTeaser.options entry, in order — sent to /frozen as ?food= to preselect it.
 const frozenTeaserFoods: FrozenFoodKey[] = ['fries', 'nuggets', 'rawChicken', 'pizza', 'fish'];
 // Homepage shows the first four presets; each falls back to the flagship with its food preselected.
@@ -190,13 +186,13 @@ const toolHref = hrefFor('/oven-to-air-fryer');
           return href ? (
             <a href={href} class="card">
               <span class="card-title small">{c.title}</span>
-              <span class="card-spec">{c.spec}</span>
+              <span class="card-spec">{frozenCardSpecs[i]}</span>
               <span class="card-desc">{c.desc}</span>
             </a>
           ) : (
             <div class="card disabled" aria-disabled="true">
               <span class="card-title small">{c.title}</span>
-              <span class="card-spec">{c.spec}</span>
+              <span class="card-spec">{frozenCardSpecs[i]}</span>
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
             </div>

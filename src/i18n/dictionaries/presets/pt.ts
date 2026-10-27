@@ -25,6 +25,13 @@ export const presets: Dictionary['presets'] = {
   relatedIndexLink: 'Todas as predefinições de alimentos',
   relatedChartLink: 'Tabela de conversão para imprimir',
   faqHeading: 'Perguntas frequentes',
+  frozen: {
+    ovenHeading: 'O que diz a embalagem',
+    ovenTemplate: 'Embalagem para forno convencional: {OVEN_F}°F ({OVEN_C}°C, nível de gás {OVEN_MARK}) por {OVEN_MIN} min',
+    fanTemplate: 'Embalagem para forno ventilado: {FAN_F}°F ({FAN_C}°C) por {FAN_MIN} min',
+    ovenNote: 'Sua embalagem traz outros números? O conversor abaixo já está com este alimento: digite a temperatura e o tempo da embalagem.',
+    sizingHeaders: { size: 'Tamanho', airFryer: 'Air fryer', oven: 'Diz a embalagem' },
+  },
   pages: {
     'chicken-breast': {
       label: 'Peito de frango',

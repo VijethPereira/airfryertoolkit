@@ -25,6 +25,13 @@ export const presets: Dictionary['presets'] = {
   relatedIndexLink: 'Tous les préréglages d’aliments',
   relatedChartLink: 'Tableau de conversion à imprimer',
   faqHeading: 'Questions fréquentes',
+  frozen: {
+    ovenHeading: 'Ce que dit l’emballage',
+    ovenTemplate: 'Emballage four traditionnel : {OVEN_F}°F ({OVEN_C}°C, Th. {OVEN_MARK}) pendant {OVEN_MIN} min',
+    fanTemplate: 'Emballage chaleur tournante : {FAN_F}°F ({FAN_C}°C) pendant {FAN_MIN} min',
+    ovenNote: 'Votre sachet indique d’autres valeurs ? Le convertisseur ci-dessous est déjà réglé sur cet aliment : saisissez la température et la durée de l’emballage.',
+    sizingHeaders: { size: 'Taille', airFryer: 'Friteuse à air', oven: 'L’emballage dit' },
+  },
   pages: {
     'chicken-breast': {
       label: 'Blanc de poulet',

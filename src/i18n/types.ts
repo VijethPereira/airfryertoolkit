@@ -141,7 +141,12 @@ export interface Dictionary {
     convertCards: { title: string; desc: string }[];
     reverseCards: { title: string; desc: string }[];
     frozenTeaser: { heading: string; desc: string; selectLabel: string; options: string[]; goLabel: string };
-    frozenCards: { title: string; spec: string; desc: string }[];
+    frozenCards: { title: string; desc: string }[];
+    /**
+     * Frozen card spec line, filled from the engine: template {AF_F}, {MIN}, {EXTRA}. EXTRA is
+     * `internal` ({INT_F}) for raw foods, else the turn phrase ({N} = count) or noTurn.
+     */
+    frozenCardSpec: { template: string; shake: string; shakeOnce: string; flip: string; flipOnce: string; noTurn: string; internal: string };
     presetsTeaser: { heading: string; desc: string; selectLabel: string; goLabel: string };
     allPresetsCard: { title: string; desc: string };
     brandCards: { title: string; spec: string; desc: string }[];
@@ -312,6 +317,8 @@ export interface Dictionary {
     relatedIndexLink: string;
     relatedChartLink: string;
     faqHeading: string;
+    /** Frozen presets (engine.kind 'frozen') read these instead: the equivalent is the pack instruction, not an oven recipe. Same placeholders. */
+    frozen: { ovenHeading: string; ovenTemplate: string; fanTemplate: string; ovenNote: string; sizingHeaders: { size: string; airFryer: string; oven: string } };
     pages: Record<PresetSlug, PresetCopy>;
   };
   presetsIndex: {

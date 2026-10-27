@@ -1,6 +1,7 @@
 ---
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
+import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import type { FoodPreset } from '../data/presets';
@@ -9,10 +10,12 @@ import {
   presetAnswer,
   presetCard,
   presetCopy,
-  presetFood,
-  presetOven,
+  presetInternalF,
+  presetRaw,
   presetSizeRows,
   presetTempLanding,
+  presetValues,
+  presetWidget,
   relatedPresets,
 } from '../lib/presets';
 import { fillPlaceholders, tempLandingSlug } from '../lib/temp-landings';
@@ -24,15 +27,19 @@ interface Props {
 }
 
 const { locale = DEFAULT_LOCALE, preset } = Astro.props;
-const { dict, copy, fill } = presetCopy(preset, locale);
+const { dict, labels, copy, fill } = presetCopy(preset, locale);
 const answer = presetAnswer(preset, locale);
 const internal =
-  preset.internalF !== undefined ? fill(dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
+  presetInternalF(preset) !== undefined ? fill(dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
 // Display only; the answer line and JSON-LD stay on internalF.
 const internalAlt = preset.internalAlt !== undefined && copy.internalAltLine ? fill(copy.internalAltLine) : null;
 
-// The widget starts on the oven equivalent, so its live result is this preset's setting run back through the engine.
-const oven = presetOven(preset);
+// Frozen presets sold raw get the frozen converter's thermometer warning, word for word.
+const { INT_F, INT_C } = presetValues(preset, locale);
+const rawWarning = presetRaw(preset) ? getDictionary(locale).frozenConverter.rawWarningTemplate.replace('{f}', INT_F).replace('{c}', INT_C) : null;
+
+// The widget starts on the oven (or pack) equivalent, so its live result is this preset's setting run back through the engine.
+const widget = presetWidget(preset);
 
 const minutes = (n: number | null) => fillPlaceholders(dict.minutesTemplate, { MIN: String(n) });
 const sizeRows = presetSizeRows(preset).map((r) => ({
@@ -83,17 +90,18 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
       <p id="pr-answer" class="answer-main">{answer}</p>
       {internal && <p id="pr-internal" class="answer-internal">{internal}</p>}
       {internalAlt && <p id="pr-internal-alt" class="answer-internal-alt">{internalAlt}</p>}
+      {rawWarning && <p id="pr-raw" class="answer-raw">{rawWarning}</p>}
     </div>
 
     <section id="pr-oven" class="oven-box" aria-labelledby="pr-oven-heading">
-      <h2 id="pr-oven-heading">{dict.ovenHeading}</h2>
-      <p id="pr-oven-conventional">{fill(dict.ovenTemplate)}</p>
-      <p id="pr-oven-fan">{fill(dict.fanTemplate)}</p>
-      <p class="oven-note">{dict.ovenNote}</p>
+      <h2 id="pr-oven-heading">{labels.ovenHeading}</h2>
+      <p id="pr-oven-conventional">{fill(labels.ovenTemplate)}</p>
+      <p id="pr-oven-fan">{fill(labels.fanTemplate)}</p>
+      <p class="oven-note">{labels.ovenNote}</p>
     </section>
 
     <section class="tool-area" aria-label="Converter">
-      <ConverterWidget locale={locale} initialTemp={oven.outF!} initialTime={oven.outMinutes!} initialFood={presetFood(preset)} />
+      <ConverterWidget locale={locale} {...widget} />
     </section>
 
     <AdSlot slot="7788990011" />
@@ -104,7 +112,7 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
       <div class="table-card">
         <table id="pr-sizes">
           <thead>
-            <tr><th>{dict.sizingHeaders.size}</th><th>{dict.sizingHeaders.airFryer}</th><th>{dict.sizingHeaders.oven}</th></tr>
+            <tr><th>{labels.sizingHeaders.size}</th><th>{labels.sizingHeaders.airFryer}</th><th>{labels.sizingHeaders.oven}</th></tr>
           </thead>
           <tbody>
             {sizeRows.map((r) => (
@@ -453,6 +461,13 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
     margin: 8px 0 0;
     font-size: var(--text-body);
     color: var(--site-text-muted);
+  }
+
+  .answer-raw {
+    margin: 8px 0 0;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--site-text);
   }
 
   .oven-box {

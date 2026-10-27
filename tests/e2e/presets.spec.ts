@@ -1,18 +1,29 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import {
+  FROZEN_FOODS,
   computeAirFryerSetting,
+  computeAirFryerSettingFromFrozen,
   computeConvectionSetting,
   computeOvenSetting,
+  computePackSetting,
   convertTempUnit,
   type FoodKey,
+  type FrozenFoodKey,
 } from '../../src/lib/converter';
 import { PRESETS, type FoodPreset, type PresetSlug } from '../../src/data/presets';
 import {
   PRESETS_INDEX_PATH,
   PRESET_CATEGORY_ORDER,
+  presetFan,
+  presetInternalF,
+  presetOven,
   presetPath,
+  presetRaw,
+  presetRoundTrip,
+  presetTurns,
   presetValues,
+  presetWidget,
   relatedPresets,
 } from '../../src/lib/presets';
 import { TEMP_LANDINGS, fillPlaceholders, tempLandingSlug } from '../../src/lib/temp-landings';
@@ -182,6 +193,74 @@ test.describe('food presets: data and copy', () => {
     const xml = await (await request.get('/sitemap.xml')).text();
     for (const slug of [PRESETS_INDEX_PATH, ...ALL.map((p) => presetPath(p.slug))]) {
       for (const l of LOCALES) expect(xml).toContain(`<loc>${localizedUrl(l.code, slug)}</loc>`);
+    }
+  });
+});
+
+test.describe('food presets: frozen engine branch', () => {
+  // Synthetic entries: one per FROZEN_FOODS key, so the branch is covered before any frozen preset ships.
+  const frozenPreset = (food: FrozenFoodKey): FoodPreset => ({
+    slug: `frozen-${food}`,
+    category: 'frozen',
+    engine: { kind: 'frozen', food },
+    tempF: 380,
+    minutes: 14,
+    sizes: [{ id: 'medium', minutes: 14 }],
+  });
+  const FROZEN_KEYS = Object.keys(FROZEN_FOODS) as FrozenFoodKey[];
+
+  test('the equivalent is the pack instruction, conventional and fan, from computePackSetting', () => {
+    for (const food of FROZEN_KEYS) {
+      const p = frozenPreset(food);
+      expect(presetOven(p), food).toEqual(computePackSetting({ tempF: 380, minutes: 14, food, pack: 'conventional', style: 'basket' }));
+      expect(presetFan(p), food).toEqual(computePackSetting({ tempF: 380, minutes: 14, food, pack: 'fan', style: 'basket' }));
+      const pack = presetOven(p);
+      expect(presetRoundTrip(p), food).toEqual(
+        computeAirFryerSettingFromFrozen({ ovenTemp: pack.outF!, unit: 'F', ovenMinutes: pack.outMinutes!, food, pack: 'conventional', style: 'basket' }),
+      );
+      expect(presetWidget(p), food).toEqual({ source: 'frozen', initialFood: food, initialTemp: pack.outF, initialTime: pack.outMinutes });
+    }
+  });
+
+  test('turns and internal temperature come from FROZEN_FOODS unless the preset overrides them', () => {
+    for (const food of FROZEN_KEYS) {
+      const p = frozenPreset(food);
+      const profile = FROZEN_FOODS[food];
+      const turns = presetTurns(p);
+      if (profile.turns === 0) expect(turns, food).toEqual({});
+      else if (profile.turn === 'shake') expect(turns, food).toEqual({ shakes: profile.turns });
+      else expect(turns, food).toEqual({ flipAt: Math.round(14 / (profile.turns + 1)) });
+      expect(presetInternalF(p), food).toBe(profile.internalF ?? undefined);
+      expect(presetRaw(p), food).toBe(profile.raw && profile.internalF !== null);
+      const v = presetValues(p);
+      expect(v.INT_F, food).toBe(profile.internalF === null ? undefined : String(profile.internalF));
+    }
+    const override = { ...frozenPreset('nuggets'), flipAt: 6, internalF: 170 };
+    expect(presetTurns(override)).toEqual({ flipAt: 6, shakes: undefined });
+    expect(presetInternalF(override)).toBe(170);
+  });
+
+  test('oven presets are unchanged: same oven/fan equivalents and turns as before the branch', () => {
+    for (const p of ALL.filter((x) => x.engine.kind === 'oven')) {
+      const food = p.engine.food as FoodKey;
+      const input = { airFryerTemp: p.tempF, unit: 'F' as const, airFryerMinutes: p.minutes, food, style: 'basket' as const };
+      expect(presetOven(p), p.slug).toEqual(computeOvenSetting(input));
+      expect(presetFan(p), p.slug).toEqual(computeConvectionSetting(input));
+      expect(presetTurns(p), p.slug).toEqual({ flipAt: p.flipAt, shakes: p.shakes });
+      expect(presetInternalF(p), p.slug).toBe(p.internalF);
+      expect(presetRaw(p), p.slug).toBe(false);
+      expect(presetWidget(p).source, p.slug).toBe('oven');
+    }
+  });
+
+  test('frozen labels exist in every locale and keep the oven templates’ placeholders', () => {
+    for (const { code } of LOCALES) {
+      const d = getDictionary(code).presets;
+      const keys = (t: string) => [...t.matchAll(/\{([A-Z_]+)\}/g)].map((m) => m[1]).sort();
+      expect(keys(d.frozen.ovenTemplate), code).toEqual(keys(d.ovenTemplate));
+      expect(keys(d.frozen.fanTemplate), code).toEqual(keys(d.fanTemplate));
+      expect(d.frozen.ovenHeading, code).not.toBe(d.ovenHeading);
+      expect(d.frozen.sizingHeaders.oven, code).not.toBe(d.sizingHeaders.oven);
     }
   });
 });

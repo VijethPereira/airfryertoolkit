@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { computeAirFryerSetting, gasMarkFor, GAS_MARKS, thermostatFor } from '../../src/lib/converter';
 import { TEMP_STEPS } from '../../src/lib/chart-data';
 import { TEMP_LANDINGS, tempLandingSlug } from '../../src/lib/temp-landings';
+import { HOME_FROZEN_CARDS, frozenCardSpec } from '../../src/lib/home-cards';
 import { LIVE_PAGES } from '../../src/site.config';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, OVEN_MARK_SCALE } from '../../src/i18n/locales';
@@ -65,12 +66,18 @@ test.describe('oven-dial marks per locale', () => {
 });
 
 test.describe('homepage card fallbacks', () => {
-  const frozenCards = [
-    { slug: '/frozen-fries', food: 'fries' },
-    { slug: '/frozen-chicken-nuggets', food: 'nuggets' },
-    { slug: '/frozen-chicken', food: 'rawChicken' },
-    { slug: '/frozen-pizza', food: 'pizza' },
-  ];
+  const frozenCards = HOME_FROZEN_CARDS.map((c) => ({ slug: c.href, food: c.food }));
+
+  test('frozen card specs come from the engine in every locale', async ({ page }) => {
+    // Pinned against the old hand-typed text for the card whose numbers did not change.
+    expect(frozenCardSpec(HOME_FROZEN_CARDS[0], 'en')).toBe('400°F · 15 min · shake ×2');
+    expect(frozenCardSpec(HOME_FROZEN_CARDS[2], 'en')).toMatch(/· 165°F core$/);
+    for (const { code } of LOCALES) {
+      await page.goto(localizedPath(code, '/'));
+      const specs = page.locator('#frozen .card-grid > .card .card-spec');
+      await expect(specs).toHaveText(HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, code)));
+    }
+  });
 
   for (const code of ['en', 'es'] as const) {
     test(`frozen cards (${code}) link to their page when live, else to /frozen?food=, never Coming soon`, async ({ page }) => {

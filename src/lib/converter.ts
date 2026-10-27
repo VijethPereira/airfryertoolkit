@@ -304,6 +304,43 @@ export function computeAirFryerSettingFromFrozen(input: FrozenConversionInput): 
   };
 }
 
+export interface PackSettingInput {
+  /** Air fryer setting, °F, and its time in minutes. */
+  tempF: number;
+  minutes: number;
+  food: FrozenFoodKey;
+  pack: PackType;
+  style: FryerStyle;
+}
+
+/**
+ * Air fryer -> frozen pack: the inverse of `computeAirFryerSettingFromFrozen`. Returns
+ * the pack instruction (conventional or fan) that converts to this air fryer setting,
+ * snapped to 25°F oven-dial steps like the other reverse directions. When the snapped
+ * pack temperature would hit the forward ceiling clamp, the time divides by the capped
+ * multiplier (f + 0.08) so the forward trip lands back on `minutes`.
+ */
+export function computePackSetting(input: PackSettingInput): ReverseConversionResult {
+  const food = FROZEN_FOODS[input.food] ?? FROZEN_FOODS.fries;
+  const styled = styleProfile(FROZEN_RULES, food, input.style);
+  const dT = input.pack === 'fan' ? styled.dT - fanPackOffset(input.food) : styled.dT;
+  const { f, ceiling } = styled;
+
+  const outF: number | null = Number.isFinite(input.tempF) ? Math.round((input.tempF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP : null;
+  const capped = outF !== null && Math.round((outF - dT) / 5) * 5 > ceiling;
+  const outMinutes: number | null = Number.isFinite(input.minutes) ? Math.max(1, Math.round(input.minutes / (capped ? f + 0.08 : f))) : null;
+  const outC: number | null = outF !== null ? Math.round(((outF - 32) * 5) / 9 / 5) * 5 : null;
+
+  return {
+    outF,
+    outC,
+    outMinutes,
+    gasMark: outF !== null ? gasMarkFor(outF) : null,
+    ceiling,
+    ceilingAmbiguous: Number.isFinite(input.tempF) && input.tempF >= ceiling,
+  };
+}
+
 /** Fills a locale's cappedNoteTemplate ("...{unit}...{ceiling}...") with the resolved unit label and ceiling value. */
 export function cappedNote(
   template: string,

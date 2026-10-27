@@ -1,6 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import {
   computeAirFryerSettingFromFrozen,
+  computePackSetting,
   cappedNote,
   fanPackOffset,
   CONVECTION_FOODS,
@@ -174,6 +175,36 @@ test.describe('/frozen', () => {
 
     await page.fill('#afk-temp', '375');
     await expect(page.locator('#afk-capped')).toBeHidden();
+  });
+
+  test('computePackSetting inverts the frozen engine: forward(reverse(x)) within 25°F and 10% of the minutes', () => {
+    const failures: string[] = [];
+    for (const food of FOOD_KEYS) {
+      for (const pack of PACKS) {
+        for (const style of STYLES) {
+          const ceiling = style === 'oven' ? 450 : 400;
+          for (let tempF = 300; tempF <= ceiling; tempF += 5) {
+            for (let minutes = 8; minutes <= 40; minutes++) {
+              const p = computePackSetting({ tempF, minutes, food, pack, style });
+              const r = computeAirFryerSettingFromFrozen({ ovenTemp: p.outF!, unit: 'F', ovenMinutes: p.outMinutes!, food, pack, style });
+              if (p.outF! % 25 !== 0 || Math.abs(r.outF! - tempF) > 25 || Math.abs(r.outMinutes! - minutes) / minutes > 0.1) {
+                failures.push(`${food}/${pack}/${style} ${tempF}°F ${minutes} min -> pack ${p.outF}°F ${p.outMinutes} min -> ${r.outF}°F ${r.outMinutes} min`);
+              }
+            }
+          }
+        }
+      }
+    }
+    expect(failures).toEqual([]);
+  });
+
+  test('computePackSetting: a fan pack prints lower than a conventional pack for the same air fryer setting', () => {
+    for (const food of FOOD_KEYS) {
+      const conv = computePackSetting({ tempF: 380, minutes: 15, food, pack: 'conventional', style: 'basket' });
+      const fan = computePackSetting({ tempF: 380, minutes: 15, food, pack: 'fan', style: 'basket' });
+      expect(fan.outF!, food).toBeLessThanOrEqual(conv.outF!);
+      expect(fan.outMinutes, food).toBe(conv.outMinutes);
+    }
   });
 
   test('turn marks are evenly spaced inside the cook, one per FROZEN_FOODS turn', () => {

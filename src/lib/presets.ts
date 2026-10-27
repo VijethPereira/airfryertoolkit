@@ -8,12 +8,17 @@ import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import {
+  FROZEN_FOODS,
   computeAirFryerSetting,
+  computeAirFryerSettingFromFrozen,
   computeConvectionSetting,
   computeOvenSetting,
+  computePackSetting,
   convertTempUnit,
   ovenMarkFor,
+  type ConversionResult,
   type FoodKey,
+  type FrozenFoodKey,
   type FryerStyle,
   type ReverseConversionResult,
 } from './converter';
@@ -25,31 +30,79 @@ export { PRESETS_INDEX_PATH, PRESET_PATHS, presetPath } from './preset-paths';
 /** Index page grouping order. */
 export const PRESET_CATEGORY_ORDER: PresetCategory[] = ['poultry', 'meat', 'fish', 'veg', 'baked', 'reheat', 'frozen'];
 
-/** The FOODS key a preset converts through. Frozen presets (row 8) are not wired in yet. */
-export function presetFood(preset: FoodPreset): FoodKey {
-  if (preset.engine.kind !== 'oven') throw new Error(`Preset ${preset.slug}: frozen presets need the frozen engine`);
+/** The engine food a preset converts through: a FOODS key, or a FROZEN_FOODS key for frozen presets. */
+export function presetFood(preset: FoodPreset): FoodKey | FrozenFoodKey {
   return preset.engine.food;
 }
 
-const reverse = (preset: FoodPreset, tempF: number, minutes: number, target: 'oven' | 'convection'): ReverseConversionResult =>
-  (target === 'oven' ? computeOvenSetting : computeConvectionSetting)({
+/**
+ * The "equivalent" a preset's air fryer setting converts back to. Oven presets: the
+ * oven recipe (conventional or fan). Frozen presets: the pack instruction (conventional
+ * or fan pack), through computePackSetting.
+ */
+const reverse = (preset: FoodPreset, tempF: number, minutes: number, target: 'oven' | 'convection'): ReverseConversionResult => {
+  const { engine } = preset;
+  if (engine.kind === 'frozen') {
+    return computePackSetting({ tempF, minutes, food: engine.food, pack: target === 'oven' ? 'conventional' : 'fan', style: 'basket' });
+  }
+  return (target === 'oven' ? computeOvenSetting : computeConvectionSetting)({
     airFryerTemp: tempF,
     unit: 'F',
     airFryerMinutes: minutes,
-    food: presetFood(preset),
+    food: engine.food,
     style: 'basket',
   });
+};
 
-/** Conventional-oven equivalent of the preset's air fryer baseline. */
+/** Conventional-oven equivalent of the preset's air fryer baseline (a frozen preset: the conventional-oven pack). */
 export const presetOven = (preset: FoodPreset) => reverse(preset, preset.tempF, preset.minutes, 'oven');
-/** Fan / convection-oven equivalent. */
+/** Fan / convection-oven equivalent (a frozen preset: the fan-oven pack). */
 export const presetFan = (preset: FoodPreset) => reverse(preset, preset.tempF, preset.minutes, 'convection');
 
-/** Oven equivalent run back through the forward converter — what the pre-filled widget shows. */
-export function presetRoundTrip(preset: FoodPreset, style: FryerStyle = 'basket') {
+/** Oven (or pack) equivalent run back through the forward converter — what the pre-filled widget shows. */
+export function presetRoundTrip(preset: FoodPreset, style: FryerStyle = 'basket'): ConversionResult {
   const oven = presetOven(preset);
-  return computeAirFryerSetting({ ovenTemp: oven.outF!, unit: 'F', ovenMinutes: oven.outMinutes!, food: presetFood(preset), style });
+  const { engine } = preset;
+  const input = { ovenTemp: oven.outF!, unit: 'F' as const, ovenMinutes: oven.outMinutes!, style };
+  return engine.kind === 'frozen'
+    ? computeAirFryerSettingFromFrozen({ ...input, food: engine.food, pack: 'conventional' })
+    : computeAirFryerSetting({ ...input, food: engine.food });
 }
+
+/** The converter widget a preset page embeds, pre-filled with the oven (or pack) equivalent. */
+export function presetWidget(preset: FoodPreset) {
+  const oven = presetOven(preset);
+  return {
+    source: preset.engine.kind === 'frozen' ? ('frozen' as const) : ('oven' as const),
+    initialFood: preset.engine.food,
+    initialTemp: oven.outF!,
+    initialTime: oven.outMinutes!,
+  };
+}
+
+/** The frozen profile behind a frozen preset, or null for an oven preset. */
+const frozenProfile = (preset: FoodPreset) => (preset.engine.kind === 'frozen' ? FROZEN_FOODS[preset.engine.food] : null);
+
+/**
+ * Flip point / shake count: the preset's own, else (frozen presets) from FROZEN_FOODS —
+ * a flip lands at the halfway mark, shakes are counted.
+ */
+export function presetTurns(preset: FoodPreset): { flipAt?: number; shakes?: number } {
+  if (preset.flipAt !== undefined || preset.shakes !== undefined) return { flipAt: preset.flipAt, shakes: preset.shakes };
+  const profile = frozenProfile(preset);
+  if (!profile || profile.turns === 0) return {};
+  return profile.turn === 'flip'
+    ? { flipAt: Math.max(1, Math.round(preset.minutes / (profile.turns + 1))) }
+    : { shakes: profile.turns };
+}
+
+/** Internal temperature, °F: the preset's own, else (frozen presets) FROZEN_FOODS'. */
+export function presetInternalF(preset: FoodPreset): number | undefined {
+  return preset.internalF ?? frozenProfile(preset)?.internalF ?? undefined;
+}
+
+/** True for a frozen preset sold raw: the page shows the frozen converter's thermometer warning. */
+export const presetRaw = (preset: FoodPreset) => (frozenProfile(preset)?.raw ?? false) && presetInternalF(preset) !== undefined;
 
 export interface PresetSizeRow {
   id: FoodPreset['sizes'][number]['id'];
@@ -98,13 +151,15 @@ export function presetValues(preset: FoodPreset, locale: LocaleCode = DEFAULT_LO
     FAN_MIN: String(fan.outMinutes),
     OS_F: String(ovenStyle.outF),
     OS_MIN: String(ovenStyle.outMinutes),
-    PREHEAT: String(computeAirFryerSetting({ ovenTemp: oven.outF!, unit: 'F', ovenMinutes: 1, food: presetFood(preset), style: 'basket' }).preheatMinutes),
+    PREHEAT: String(presetRoundTrip(preset).preheatMinutes),
   };
-  if (preset.flipAt !== undefined) values.FLIP = String(preset.flipAt);
-  if (preset.shakes !== undefined) values.SHAKES = String(preset.shakes);
-  if (preset.internalF !== undefined) {
-    values.INT_F = String(preset.internalF);
-    values.INT_C = String(toC(preset.internalF));
+  const { flipAt, shakes } = presetTurns(preset);
+  if (flipAt !== undefined) values.FLIP = String(flipAt);
+  if (shakes !== undefined) values.SHAKES = String(shakes);
+  const internalF = presetInternalF(preset);
+  if (internalF !== undefined) {
+    values.INT_F = String(internalF);
+    values.INT_C = String(toC(internalF));
   }
   if (preset.internalAlt !== undefined) {
     values.INT_ALT_F = String(preset.internalAlt.f);
@@ -128,20 +183,24 @@ export function presetCopy(preset: FoodPreset, locale: LocaleCode = DEFAULT_LOCA
   const dict = getDictionary(locale).presets;
   const values = presetValues(preset, locale);
   const copy = dict.pages[preset.slug as PresetSlug];
-  return { dict, copy, values: { ...values, LABEL: copy.label }, fill: (text: string) => fillPlaceholders(text, { ...values, LABEL: copy.label }) };
+  // A frozen preset's equivalent is the pack instruction, so it reads the pack-side labels; every other key is shared.
+  const labels = preset.engine.kind === 'frozen' ? { ...dict, ...dict.frozen } : dict;
+  return { dict, labels, copy, values: { ...values, LABEL: copy.label }, fill: (text: string) => fillPlaceholders(text, { ...values, LABEL: copy.label }) };
 }
 
 /** The direct-answer line: "{food} in the air fryer: 375°F / 190°C for 16 min, flip at 8 min". */
 export function presetAnswer(preset: FoodPreset, locale: LocaleCode = DEFAULT_LOCALE): string {
   const { dict, fill } = presetCopy(preset, locale);
-  const suffix = preset.flipAt !== undefined ? dict.answerFlipSuffix : preset.shakes !== undefined ? dict.answerShakeSuffix : '';
+  const { flipAt, shakes } = presetTurns(preset);
+  const suffix = flipAt !== undefined ? dict.answerFlipSuffix : shakes !== undefined ? dict.answerShakeSuffix : '';
   return fill(dict.answerTemplate + suffix);
 }
 
 /** Short "375°F · 16 min · flip at 8" spec used on cards. */
 export function presetSpec(preset: FoodPreset, locale: LocaleCode = DEFAULT_LOCALE): string {
   const { dict, fill } = presetCopy(preset, locale);
-  const suffix = preset.flipAt !== undefined ? dict.specFlipSuffix : preset.shakes !== undefined ? dict.specShakeSuffix : '';
+  const { flipAt, shakes } = presetTurns(preset);
+  const suffix = flipAt !== undefined ? dict.specFlipSuffix : shakes !== undefined ? dict.specShakeSuffix : '';
   return fill(dict.specTemplate + suffix);
 }
 
