@@ -8,6 +8,7 @@ export const presets: Dictionary['presets'] = {
   answerShakeSuffix: ', {SHAKES}× schütteln',
   internalTemplate: 'Gar bei {INT_F}°F ({INT_C}°C) an der dicksten Stelle',
   internalCrisp: 'Gar nach Farbe und Knusprigkeit, nicht nach Thermometer',
+  internalToothpick: 'Garprobe mit dem Holzstäbchen, nicht nach der Farbe',
   ovenHeading: 'Entsprechung im Backofen',
   ovenTemplate: 'Ober-/Unterhitze: {OVEN_F}°F ({OVEN_C}°C, britische Gasstufe {OVEN_MARK}) für {OVEN_MIN} Min.',
   fanTemplate: 'Umluft: {FAN_F}°F ({FAN_C}°C) für {FAN_MIN} Min.',
@@ -41,7 +42,7 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Portion', airFryer: 'Heißluftfritteuse', oven: 'Im Ofen aufwärmen' },
     relatedFlagshipLink: 'Umrechner Backofen zu Heißluftfritteuse',
     widgetHeading: 'Du kochst nach einem Backofenrezept?',
-    widgetNote: 'Dieser Umrechner macht aus Backofenrezepten Einstellungen für die Heißluftfritteuse. Zum Aufwärmen ist er nicht gedacht, deshalb startet er leer; für Reste gilt die Einstellung oben.',
+    widgetNote: 'Dieser Umrechner macht aus Backofenrezepten Einstellungen für die Heißluftfritteuse. Zum Aufwärmen ist er nicht gedacht, deshalb startet er mit den Standardwerten; für Reste gilt die Einstellung oben.',
   },
   pages: {
     'chicken-breast': {
@@ -250,7 +251,7 @@ export const presets: Dictionary['presets'] = {
         'Bacon ist gepökelt, deshalb beurteilt man ihn nach Farbe und Textur statt mit dem Thermometer. Nimm ihn heraus, wenn das Fett von weiß zu durchscheinend golden geworden und das Magere dunkler ist. Beim Abkühlen wird er fester, Scheiben, die sich im Korb noch leicht biegen, sind also eine Minute später auf Küchenpapier knusprig. Für zähen Bacon nimm ihn ein bis zwei Minuten früher heraus; für splitternd knusprigen warte, bis die Ränder gerade dunkler werden.',
       prepHeading: 'Bevor er hineinkommt',
       prepBody:
-        'Weder Vorheizen noch Öl ist nötig; Bacon bringt sein eigenes Fett mit. Nutze den Korb, kein geschlossenes Blech, damit das Fett von den Scheiben abläuft. Eine Scheibe Brot oder ein Schuss Wasser in der Schublade unter dem Korb fängt das Fett auf und reduziert Rauch. Dicker Bacon kann leicht überlappend in einer Reihe liegen, aber trenn die Scheiben nach der halben Zeit.',
+        'Weder Vorheizen noch Öl ist nötig; Bacon bringt sein eigenes Fett mit. Nutze den Korb, kein geschlossenes Blech, damit das Fett von den Scheiben abläuft. Eine Scheibe Brot oder ein Schuss Wasser in der Schublade unter dem Korb fängt das Fett auf und reduziert Rauch. Dicker Bacon kann leicht überlappend in einer Reihe liegen, aber trenn die Scheiben nach der halben Zeit. Durchwachsener Frühstücksspeck mit viel Fett braucht etwas länger als magerer Bacon, bis der Fettrand glasig und knusprig ist; dünn geschnittener Speck aus dem Kühlregal wird dagegen schnell zu dunkel.',
       faqs: [
         {
           q: 'Wie lange braucht Bacon in der Heißluftfritteuse?',
@@ -296,7 +297,7 @@ export const presets: Dictionary['presets'] = {
         'Stich ein Sofortthermometer von der Seite bis in die Mitte. Rare liegt bei etwa 120–125°F, medium-rare bei {INT_F}°F ({INT_C}°C), medium bei 140°F und well done ab 155°F; die USDA-Empfehlung für ganze Rindfleischstücke ist 145°F mit drei Minuten Ruhezeit. Nimm das Steak etwa fünf Grad vor deinem Ziel heraus, denn beim Ruhen steigt die Temperatur weiter. Wer zum Prüfen anschneidet, lässt den Saft herauslaufen.',
       prepHeading: 'Bevor es hineinkommt',
       prepBody:
-        'Nimm das Steak 30 Minuten vor dem Garen aus dem Kühlschrank, damit die Mitte nicht kalt ist. Salze es mindestens 40 Minuten vorher oder direkt davor; alles dazwischen lässt die Oberfläche nass. Bestreich es mit etwas hitzebeständigem Öl statt mit Butter, die verbrennt. Butter, Knoblauch oder Kräuter kommen während der Ruhezeit dazu.',
+        'Nimm das Steak 30 Minuten vor dem Garen aus dem Kühlschrank, damit die Mitte nicht kalt ist. Salze es mindestens 40 Minuten vorher oder direkt davor; alles dazwischen lässt die Oberfläche nass. Bestreich es mit etwas hitzebeständigem Öl statt mit Butter, die verbrennt. Butter, Knoblauch oder Kräuter kommen während der Ruhezeit dazu. Tupf das Steak vor dem Garen mit Küchenpapier trocken; eine trockene Oberfläche bräunt in der Heißluftfritteuse deutlich besser. Rumpsteak mit Fettrand schneidest du am Rand ein paarmal ein, damit es sich nicht wölbt.',
       faqs: [
         {
           q: 'Wie lange braucht ein Steak in der Heißluftfritteuse?',
@@ -480,7 +481,7 @@ export const presets: Dictionary['presets'] = {
         'Achte auf eine gleichmäßig goldene Farbe mit etwas dunkleren Rändern, und hör hin: Eine fertige Pommes klingt hohl und knusprig, wenn sie an die anderen stößt. Nimm eine heraus und brich sie durch; innen sollte sie weich und mehlig sein, nicht glasig. Ist die Außenseite braun, aber das Innere noch fest, waren die Pommes für die Zeit zu dick geschnitten: Gib drei Minuten dazu und nimm die Hitze beim nächsten Mal etwas zurück.',
       prepHeading: 'Bevor sie hineinkommen',
       prepBody:
-        'Nimm mehligkochende Kartoffeln. Schneide die Pommes gleichmäßig dick, damit sie zusammen fertig werden; ungleichmäßige Durchgänge haben immer verbrannte dünne und rohe dicke Stücke. Wässere sie mindestens 30 Minuten in kaltem Wasser und trockne sie dann mit einem sauberen Tuch vollständig ab. Ein Esslöffel Öl auf zwei Kartoffeln reicht. Salze nach dem Garen, nicht vorher, sonst zieht das Salz Wasser heraus.',
+        'Nimm mehligkochende Kartoffeln. Schneide die Pommes gleichmäßig dick, damit sie zusammen fertig werden; ungleichmäßige Durchgänge haben immer verbrannte dünne und rohe dicke Stücke. Wässere sie mindestens 30 Minuten in kaltem Wasser und trockne sie dann mit einem sauberen Tuch vollständig ab. Ein Esslöffel Öl auf zwei Kartoffeln reicht. Salze nach dem Garen, nicht vorher, sonst zieht das Salz Wasser heraus. Festkochende Sorten wie Linda oder Nicola werden außen nicht so knusprig, behalten aber ihre Form; für klassische Pommes sind mehligkochende Kartoffeln wie Bintje die bessere Wahl.',
       faqs: [
         {
           q: 'Wie lange brauchen selbstgemachte Pommes in der Heißluftfritteuse?',
@@ -1427,13 +1428,524 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'reheat-pizza': {
+      label: 'Pizza vom Vortag',
+      metaTitle: 'Pizza in der Heißluftfritteuse aufwärmen: knuspriger Boden',
+      metaDescription:
+        'Pizza vom Vortag in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten für einen knusprigen Boden und geschmolzenen Käse. Zeiten für dünnen, normalen und dicken Boden und die Backofen-Methode.',
+      metaKeywords: 'pizza aufwärmen heißluftfritteuse, wie lange pizza in heißluftfritteuse aufwärmen, pizza vom vortag airfryer, pizza aufbacken air fryer',
+      heading: 'Pizza in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Kalte Stücke aus dem Kühlschrank, wieder mit knusprigem Boden und weichem, geschmolzenem Käse. Die sanfte Einstellung, warum mehr Hitze alles schlimmer macht und was bei dickem Boden anders ist.',
+      cardDesc: 'Mit weniger Hitze holt der Boden den Käse ein.',
+      sizeLabels: { thin: 'Stück mit dünnem Boden', medium: 'Normales Stück', thick: 'Stück mit dickem Boden oder Deep-Dish' },
+      failureHeading: 'Warum der Boden weich bleibt, während der Käse verbrennt',
+      failureBody:
+        'Ein Stück, das gerade aus dem Kühlschrank kommt, ist von oben bis unten kalt, und in der Heißluftfritteuse kommt die Hitze von oben. Käse und Belag liegen genau in diesem Luftstrom: Sie schmelzen, schwitzen Öl aus und werden dann zäh, während der Teig darunter nach einer Nacht im Karton noch kalt und etwas feucht ist. Wer die Temperatur hochdreht, vergrößert diesen Abstand nur. Die Lösung ist eine mittlere Temperatur und eine kurze Zeit, damit die Wärme durch das Stück nach unten wandern und die Feuchtigkeit aus dem Boden treiben kann, bevor die Oberseite übergart. Leg die Stücke direkt in den Korb, ohne Alufolie, damit Luft an die Unterseite kommt, und staple sie nie: Ein Stück obendrauf dämpft das darunter.',
+      workedExampleHeading: 'Rechenbeispiel: zwei normale Stücke',
+      workedExampleTemplate:
+        'Zwei Stücke einer normalen Lieferpizza, direkt aus dem Kühlschrank. {PREHEAT} Minuten vorheizen, nebeneinander in den Korb legen und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen. Ein Stück mit dünnem Boden ist nach etwa {THIN_MIN} Minuten fertig, ein Stück mit dickem Boden braucht etwa {THICK_MIN}, weil der dicke Teig länger zum Durchwärmen braucht. Ein ganzes Blech im normalen Backofen braucht {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig ist',
+      donenessBody:
+        'Heb ein Stück mit einer Zange an: Es sollte waagerecht stehen bleiben, ohne dass die Spitze herunterhängt, und die Unterseite sollte trocken und leicht geröstet aussehen. Der Käse sollte geschmolzen und glänzend sein und an den Rändern gerade zu blubbern beginnen. Bräunt der Käse fleckig, während sich der Boden noch biegt, war die Einstellung zu heiß oder das Stück zu dick für die Zeit. Ein trockener, harter Rand bedeutet, dass die Zeit zu lang war.',
+      prepHeading: 'Bevor sie hineinkommt',
+      prepBody:
+        'Nimm die Stücke ein paar Minuten früher aus dem Karton, damit die größte Kälte verfliegt. Frische Beläge wie Rucola oder Basilikum nimmst du ab und legst sie danach wieder auf. Bei einem sehr trockenen Stück halten ein paar Tropfen Wasser im Korb, neben dem Stück und nicht darauf, den Käse weich. Mehrere Stücke wärmst du lieber in zwei Durchgängen auf als übereinander.',
+      faqs: [
+        {
+          q: 'Wie lange wärmt man Pizza in der Heißluftfritteuse auf?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für ein normales Stück. Dünner Boden braucht etwa {THIN_MIN} Minuten, dicker Boden etwa {THICK_MIN}.',
+        },
+        {
+          q: 'Warum Pizza nicht heißer aufwärmen?',
+          a: 'Die Hitze kommt von oben, deshalb übergart eine heißere Einstellung den Käse, bevor der kalte Boden warm und trocken geworden ist.',
+        },
+        {
+          q: 'Soll ich Alufolie oder Backpapier unter das Stück legen?',
+          a: 'Nein. Die Luft muss an die Unterseite kommen, damit sie knusprig wird. Nimm nur bei sehr käsigen, tropfenden Stücken eine Unterlage, und zwar kleiner als das Stück.',
+        },
+        {
+          q: 'Ist das dasselbe wie eine Tiefkühlpizza backen?',
+          a: 'Nein. Eine Tiefkühlpizza ist oben roh und komplett gefroren und braucht deshalb eine andere Einstellung; diese hier wärmt nur ein fertiges Stück auf und macht es wieder knusprig.',
+        },
+        {
+          q: 'Wie wärmt man Pizza im Backofen auf?',
+          a: 'Leg die Stücke auf ein Blech bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, oder auf ein vorgeheiztes Blech, wenn der Boden knuspriger werden soll.',
+        },
+      ],
+    },
+    'reheat-fries': {
+      label: 'Pommes vom Vortag',
+      metaTitle: 'Pommes in der Heißluftfritteuse aufwärmen: wieder knusprig',
+      metaDescription:
+        'Pommes vom Vortag in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten, einmal schütteln. Warum Pommes über Nacht ledrig werden, wie viel sie zurückgewinnen und die Backofen-Methode.',
+      metaKeywords: 'pommes aufwärmen heißluftfritteuse, pommes vom vortag airfryer, wie pommes in heißluftfritteuse aufwärmen, mcdonalds pommes aufwärmen airfryer',
+      heading: 'Pommes in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Pommes vom Vortag, vom Imbiss oder selbst gemacht, in wenigen Minuten wieder knusprig. Warum sie über Nacht ledrig werden, und das kurze, heiße Aufwärmen, das die meisten zurückholt.',
+      cardDesc: 'Kurz und heiß, mit etwas Öl, in einer Lage.',
+      sizeLabels: { small: 'Eine kleine Handvoll', medium: 'Eine Imbissportion', large: 'Eine große oder Familienportion' },
+      failureHeading: 'Warum Pommes vom Vortag ledrig werden',
+      failureBody:
+        'Eine frische Pommes ist knusprig, weil ihre Oberfläche trocken und ihr Inneres aus gegarter, lockerer Stärke ist. Im Kühlschrank kristallisiert diese Stärke langsam wieder aus und presst Wasser heraus, das die Kruste von innen durchweicht. Am nächsten Tag ist die Außenseite weich und das Innere dicht und gummiartig geworden. Langes, sanftes Aufwärmen macht es schlimmer: Es trocknet das Innere zu Pappe aus, bevor die Oberfläche knusprig wird. Was funktioniert, ist das Gegenteil: ein kurzer Stoß heißer Luft, der die Oberfläche schnell trocknet und frittiert, mit einer ganz dünnen Schicht Öl als Hilfe, während das Innere nur warm wird. Dünne Pommes erholen sich am besten; dicke werden nie ganz wie frisch.',
+      workedExampleHeading: 'Rechenbeispiel: eine Imbissportion',
+      workedExampleTemplate:
+        'Eine Portion übrig gebliebener Pommes aus dem Kühlschrank, mit einem halben Teelöffel Öl vermischt. {PREHEAT} Minuten vorheizen, in einer Lage verteilen und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen, nach der halben Zeit einmal schütteln. Eine kleine Handvoll ist nach etwa {SMALL_MIN} Minuten fertig, eine große Portion in einer Lage nach etwa {LARGE_MIN}. Auf einem Blech im normalen Backofen brauchen dieselben Pommes {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Nimm eine heraus: Sie sollte gerade stehen und knusprig klingen, wenn du sie gegen den Korb klopfst. Brich sie auf, und das Innere sollte heiß sein, nicht nur lauwarm. Pommes, die brechen, hohl wirken oder trocken schmecken, waren zu lange drin; biegen sie sich noch, lagen sie zu dicht oder der Korb war nicht vorgeheizt.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Schüttle loses Salz und Krümel ab, die verbrennen. Eine sehr kleine Menge Öl macht viel aus, weil das meiste Frittieröl eingezogen ist. Trenn Pommes, die im Karton aneinanderkleben. Salze erst nach dem Aufwärmen nach. Pommes, die in einer geschlossenen Tüte lagen, sind feuchter als offen gelagerte, gib ihnen also das längere Ende der Zeit. Süßkartoffelpommes enthalten mehr Zucker und werden schneller dunkel, schau bei ihnen also früher nach.',
+      faqs: [
+        {
+          q: 'Wie lange wärmt man Pommes in der Heißluftfritteuse auf?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine Portion, einmal geschüttelt. Eine kleine Handvoll braucht etwa {SMALL_MIN} Minuten, eine große Portion etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Kann man McDonald’s-Pommes in der Heißluftfritteuse aufwärmen?',
+          a: 'Ja. Dünne Fast-Food-Pommes erholen sich besser als dicke; schau eine Minute früher nach, denn sie werden sehr schnell von knusprig zu trocken.',
+        },
+        {
+          q: 'Warum sind meine aufgewärmten Pommes hart?',
+          a: 'Sie waren zu lange drin. Pommes vom Vortag brauchen nur kurzes, heißes Aufwärmen; das Innere hat schon Wasser verloren und trocknet schnell aus.',
+        },
+        {
+          q: 'Muss ich Öl dazugeben?',
+          a: 'Ein wenig hilft. Das meiste Frittieröl ist über Nacht in die Kartoffel eingezogen, eine dünne Schicht hilft der Oberfläche, wieder knusprig zu werden.',
+        },
+        {
+          q: 'Wie wärmt man Pommes im Backofen auf?',
+          a: 'Verteil sie auf einem Blech bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten und wende sie einmal. Ein vorgeheiztes Blech macht die Unterseite schneller knusprig.',
+        },
+      ],
+    },
+    'reheat-fried-chicken': {
+      label: 'Brathähnchen vom Vortag',
+      metaTitle: 'Frittiertes Hähnchen in der Heißluftfritteuse aufwärmen',
+      metaDescription:
+        'Frittiertes Hähnchen in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, bis {INT_F}°F. Zeiten für Unterschenkel, Oberschenkel und Brust und die Backofen-Methode.',
+      metaKeywords: 'frittiertes hähnchen aufwärmen heißluftfritteuse, fried chicken aufwärmen airfryer, kfc aufwärmen heißluftfritteuse, hähnchen vom vortag airfryer',
+      heading: 'Frittiertes Hähnchen in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Frittiertes Hähnchen vom Vortag, mit Knochen, wieder mit knuspriger Panade und heißem Kern. Warum die Panade im Kühlschrank weich wird und wie du sie vor dem Aufwärmen trocknest.',
+      cardDesc: 'Erst offen liegen lassen, damit die Kruste trocknet.',
+      sizeLabels: { small: 'Unterschenkel', medium: 'Oberschenkel', large: 'Brust oder großes Stück' },
+      internalLine: 'Durch und durch heiß bei {INT_F}°F ({INT_C}°C) an der dicksten Stelle: USDA-Empfehlung für Reste',
+      failureHeading: 'Warum die Panade im Kühlschrank weich wird',
+      failureBody:
+        'Frittiertes Hähnchen ist eine trockene, knusprige Hülle um feuchtes Fleisch. Über Nacht in einer geschlossenen Dose wandert Feuchtigkeit aus dem Fleisch in die Panade, und die kalte Luft in der Dose schlägt sich zusätzlich darauf nieder. Am Morgen ist die Kruste weich und etwas klebrig. Kommt das Hähnchen so in die Heißluftfritteuse, muss dieses Wasser erst als Dampf entweichen, bevor die Panade knusprig werden kann, und die Außenseite ist noch feucht, wenn der Bereich am Knochen endlich heiß ist. Die Lösung beginnt vor dem Aufwärmen. Nimm die Stücke aus der Dose und leg sie auf ein Gitter, während die Heißluftfritteuse vorheizt, damit die Oberfläche trocknet und die Kälte nachlässt. Dann erledigt eine mittlere Hitze den Rest: Sie macht die Kruste knusprig und bringt das Fleisch am Knochen im gleichen Tempo auf Temperatur.',
+      workedExampleHeading: 'Rechenbeispiel: zwei Oberschenkel aus dem Kühlschrank',
+      workedExampleTemplate:
+        'Zwei übrig gebliebene frittierte Hähnchenoberschenkel, offen auf einem Gitter, während die Heißluftfritteuse aufheizt. {PREHEAT} Minuten vorheizen, mit der Haut nach oben hineinlegen und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen, nach {FLIP} wenden. Ein Unterschenkel braucht etwa {SMALL_MIN} Minuten, eine große Brust etwa {LARGE_MIN}. Im normalen Backofen werden dieselben Stücke bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Gitter über einem Blech aufgewärmt.',
+      donenessHeading: 'Woran du erkennst, dass es fertig ist',
+      donenessBody:
+        'Prüf das dickste Stück mit einem Thermometer neben dem Knochen, ohne ihn zu berühren: Die USDA empfiehlt {INT_F}°F ({INT_C}°C) für aufgewärmte Reste. Die Panade sollte beim Klopfen knusprig klingen und trocken aussehen, und um die Stücke herum sollte etwas Fett brutzeln. Eine kalte Stelle am Knochen unter einer dunklen Kruste bedeutet, dass die Hitze für die Größe zu hoch war.',
+      prepHeading: 'Bevor es hineinkommt',
+      prepBody:
+        'Lass die Stücke beim Vorheizen offen liegen und tupf das Fett vom Boden der Dose ab. Zusätzliches Öl ist nicht nötig. Wärm Stücke ähnlicher Größe zusammen auf oder gib die kleineren ein paar Minuten später dazu. Stücke, die schon zwei Tage im Kühlschrank lagen, brauchen eher das längere Ende der Zeit.',
+      faqs: [
+        {
+          q: 'Wie lange wärmt man frittiertes Hähnchen in der Heißluftfritteuse auf?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für einen Oberschenkel, nach {FLIP} gewendet. Ein Unterschenkel braucht etwa {SMALL_MIN} Minuten, eine große Brust etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Welche Temperatur sollte aufgewärmtes Hähnchen erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) an der dicksten Stelle; das ist die USDA-Empfehlung für alle aufgewärmten Reste.',
+        },
+        {
+          q: 'Kann ich so auch KFC oder anderes Imbiss-Hähnchen aufwärmen?',
+          a: 'Ja. Druckfrittiertes Imbiss-Hähnchen hat eine dickere Panade, gib ihm also das längere Ende der Zeit und prüf am Knochen.',
+        },
+        {
+          q: 'Soll ich es mit Öl einsprühen?',
+          a: 'Nein. Die Panade enthält noch reichlich Frittieröl; mehr Öl macht sie nur fettig.',
+        },
+        {
+          q: 'Wie wärmt man frittiertes Hähnchen im Backofen auf?',
+          a: 'Auf einem Gitter über einem Blech bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten. Das Gitter lässt Luft an die Unterseite, damit sie nicht weich wird.',
+        },
+      ],
+    },
+    'reheat-wings': {
+      label: 'Chicken Wings vom Vortag',
+      metaTitle: 'Chicken Wings in der Heißluftfritteuse aufwärmen',
+      metaDescription:
+        'Chicken Wings vom Vortag in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten, einmal schütteln, bis {INT_F}°F. Wie klebrige Soße nicht verbrennt, und die Backofen-Methode.',
+      metaKeywords: 'chicken wings aufwärmen heißluftfritteuse, wings aufwärmen airfryer, chicken wings vom vortag, buffalo wings aufwärmen heißluftfritteuse',
+      heading: 'Chicken Wings in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Wings vom Vortag, mit Soße oder trockener Würzmischung, wieder heiß und knusprig. Warum die Soße verbrennt, bevor das Fleisch heiß ist, und der Trick, der klebrige Wings vor dem Verbrennen bewahrt.',
+      cardDesc: 'Dicke Soße vorher abstreifen, danach neu glasieren.',
+      sizeLabels: { small: 'Kleine Wings, Flügelmittelstücke und Drumettes', medium: 'Normale geteilte Wings', large: 'Große Wings' },
+      internalLine: 'Durch und durch heiß bei {INT_F}°F ({INT_C}°C) am Knochen: USDA-Empfehlung für Reste',
+      failureHeading: 'Warum die Soße verbrennt, bevor der Wing heiß ist',
+      failureBody:
+        'Die meisten Wing-Soßen beruhen auf Zucker: Honig, brauner Zucker, Ketchup, Barbecuesoße oder süße Chilisoße. Zucker beginnt bei einer viel niedrigeren Temperatur zu karamellisieren, als nötig ist, um einen kalten Wing bis zum Knochen zu erhitzen, und in der Heißluftfritteuse sitzt die Soße außen, mitten im heißen Luftstrom. Die Glasur wird also dunkel, dann bitter und schwarz, während das Fleisch innen noch kalt ist. Buffalo-Soße hat weniger Zucker, trennt sich aber und hinterlässt eine Pfütze Butter. Die Lösung: den Wing aufwärmen, nicht die Soße. Kratz oder wisch die dicke Glasur ab, wärm die Wings fast ohne Soße auf und schwenk sie am Ende in frischer oder erwärmter Soße. Wings mit trockener Würzmischung können direkt hinein.',
+      workedExampleHeading: 'Rechenbeispiel: eine Imbissbox Wings',
+      workedExampleTemplate:
+        'Acht übrig gebliebene Barbecue-Wings, von der dicksten Soße befreit. {PREHEAT} Minuten vorheizen, in einer Lage verteilen und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen, einmal schütteln. Kleine Flügelmittelstücke und Drumettes brauchen etwa {SMALL_MIN} Minuten, große Wings etwa {LARGE_MIN}. In warmer Soße schwenken und für eine Minute zurück in den Korb, damit sie anzieht. Im normalen Backofen werden dieselben Wings bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten aufgewärmt.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Prüf das fleischigste Drumette neben dem Knochen: Die USDA empfiehlt {INT_F}°F ({INT_C}°C) für aufgewärmte Reste. Die Haut sollte knusprig sein und brutzeln, und übrige Soße sollte blubbern, nicht schwarz sein. Dunkle Ränder mit kalter Mitte bedeuten, dass zu viel Soße dran geblieben ist.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Heb die Soße aus der Box auf und wärm sie getrennt. Wisch klebrige Wings mit Küchenpapier ab; ein dünner Film ist in Ordnung. Trenn Wings, die aneinanderkleben, damit Luft an jede Seite kommt. Öl ist nicht nötig. Wings, die seit dem Vorabend in Soße lagen, haben einen Teil davon in die Haut aufgenommen; sie werden nie ganz so knusprig wie trocken gewürzte, aber kurzes Aufwärmen und frische Soße kommen nah heran. Wärm sie in einer Lage auf, notfalls in zwei Durchgängen. Ein Spritzer frischer Zitronensaft oder etwas frische Soße am Ende bringt den Geschmack vom Vortag zurück.',
+      faqs: [
+        {
+          q: 'Wie lange wärmt man Wings in der Heißluftfritteuse auf?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für normale Wings, einmal geschüttelt. Kleine brauchen etwa {SMALL_MIN} Minuten, große etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Warum verbrennen meine aufgewärmten Wings?',
+          a: 'Der Zucker in der Soße karamellisiert lange bevor das Fleisch heiß ist. Streif dicke Soße vorher ab und gib am Ende frische Soße dazu.',
+        },
+        {
+          q: 'Kann man Buffalo Wings in der Heißluftfritteuse aufwärmen?',
+          a: 'Ja. Buffalo-Soße trennt sich beim Aufwärmen, also wärm die Wings ohne Soße auf und schwenk sie danach in warmer Soße.',
+        },
+        {
+          q: 'Welche Temperatur sollten aufgewärmte Wings erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) neben dem Knochen; das ist die USDA-Empfehlung für alle aufgewärmten Reste.',
+        },
+        {
+          q: 'Wie wärmt man Wings im Backofen auf?',
+          a: 'Auf einem Gitter über einem Blech bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, danach in Soße schwenken.',
+        },
+      ],
+    },
+    'reheat-steak': {
+      label: 'Steak vom Vortag',
+      metaTitle: 'Steak in der Heißluftfritteuse aufwärmen: {INT_F}°F oder rosa',
+      metaDescription:
+        'Steak vom Vortag in der Heißluftfritteuse bei {AF_F}°F aufwärmen: etwa {MIN} Minuten bis zu den {INT_F}°F der USDA für Reste, oder früher aufhören und es rosa halten. Beides, klar gesagt.',
+      metaKeywords: 'steak aufwärmen heißluftfritteuse, steak vom vortag aufwärmen, steak aufwärmen ohne durchzugaren, steak airfryer aufwärmen',
+      heading: 'Steak in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Steak vom Vortag, ganz oder in Scheiben. Die niedrige Einstellung, die zwei unterschiedlichen Ziele für Garstufe und Sicherheit und warum Aufschneiden vorher das Beste aus beiden bringt.',
+      cardDesc: 'Niedrige Hitze und ab dem Wenden das Thermometer.',
+      sizeLabels: { thin: 'Steak in Scheiben', medium: 'Ganzes Steak, etwa 2,5 cm', thick: 'Ganzes Steak, etwa 4 cm' },
+      internalLine: 'USDA-Empfehlung für Reste: {INT_F}°F ({INT_C}°C) im Kern',
+      internalAltLine:
+        'Um es medium-rare zu halten: {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), meist um {FLIP} Min. erreicht. Dort aufzuhören ist deine Entscheidung.',
+      failureHeading: 'Sicher oder rosa: zwei Ziele, die nicht zusammenpassen',
+      failureBody:
+        'Ein medium-rare gegartes Steak war am Ende bei etwa {INT_ALT_TO_F}°F im Kern. Die USDA-Empfehlung für das Aufwärmen aller Reste liegt bei {INT_F}°F, und den Kern eines Steaks so heiß zu bekommen gart es durch. Keine Einstellung schafft beides, deshalb nennt dir diese Seite beide Zahlen und lässt dich wählen. Die niedrige Temperatur sorgt dafür, dass beide Wege gelingen: Bei sanfter Hitze wird die Außenseite nicht zäh und grau, während der Kern noch warm wird, und das Steak erwärmt sich gleichmäßig. Die Zeit hier ist eine Schätzung, bis ein ganzes Steak {INT_F}°F erreicht, kein getesteter Wert, denn Dicke und Kühlschranktemperatur schwanken. Fang beim Wenden an, mit dem Thermometer zu messen, und entscheide nach dem Messwert.',
+      workedExampleHeading: 'Rechenbeispiel: ein Rumpsteak vom Vortag',
+      workedExampleTemplate:
+        'Ein etwa 2,5 cm dickes Rumpsteak vom Vorabend, direkt aus dem Kühlschrank. {PREHEAT} Minuten vorheizen und bei {AF_F}°F aufwärmen, nach {FLIP} Minuten wenden und dann den Kern messen. Für die {INT_F}°F der USDA rechne mit etwa {MEDIUM_MIN} Minuten insgesamt; ein 4 cm dickes Steak braucht etwa {THICK_MIN}. Steak in Scheiben ist nach etwa {THIN_MIN} Minuten durch und durch heiß. Im normalen Backofen ist die langsame Methode {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Gitter.',
+      donenessHeading: 'So prüfst du es',
+      donenessBody:
+        'Nimm ein Sekundenthermometer und miss genau in der Mitte der dicksten Stelle. Beim Wenden bedeutet ein Wert von {INT_ALT_F}–{INT_ALT_TO_F}°F, dass das Steak warm und noch rosa ist; mach weiter bis {INT_F}°F ({INT_C}°C), wenn du der USDA-Empfehlung für Reste folgst. Die Oberfläche sollte brutzeln, aber nicht austrocknen oder sich an den Rändern wölben.',
+      prepHeading: 'Bevor es hineinkommt',
+      prepBody:
+        'Lass das Steak draußen liegen, während die Heißluftfritteuse aufheizt, damit der Kern weniger kalt ist. Bestreich es mit etwas Öl oder Butter, damit die Oberfläche nicht austrocknet. Heb den Fleischsaft vom Teller auf und gieß ihn vor dem Servieren darüber.',
+      faqs: [
+        {
+          q: 'Wie wird Steak durch und durch heiß, ohne zu übergaren?',
+          a: 'Schneid es vor dem Aufwärmen auf, wenn du es durch und durch heiß willst, ohne es zu übergaren. Dünne Scheiben erreichen {INT_F}°F in etwa {THIN_MIN} Minuten, bevor sie grau und zäh werden.',
+        },
+        {
+          q: 'Welche Temperatur sollte aufgewärmtes Steak erreichen?',
+          a: 'Die USDA-Empfehlung für Reste liegt bei {INT_F}°F ({INT_C}°C). Viele hören bei {INT_ALT_F}–{INT_ALT_TO_F}°F auf, damit es rosa bleibt; das ist deine Entscheidung.',
+        },
+        {
+          q: 'Ist die Zeit auf dieser Seite genau?',
+          a: 'Nein. Sie ist eine Schätzung für ein 2,5 cm dickes Steak aus dem Kühlschrank. Fang nach {FLIP} Minuten an, mit dem Thermometer zu messen, und richte dich nach dem Wert.',
+        },
+        {
+          q: 'Warum so eine niedrige Temperatur?',
+          a: 'Sanfte Hitze wärmt den Kern, bevor die Außenseite austrocknet, und das Steak behält vom Rand bis zur Mitte dieselbe Farbe.',
+        },
+        {
+          q: 'Wie wärmt man Steak im Backofen auf?',
+          a: 'Auf einem Gitter bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, danach kurz in einer sehr heißen Pfanne anbraten, wenn die Kruste zurückkommen soll.',
+        },
+      ],
+    },
+    cookies: {
+      label: 'Cookies',
+      metaTitle: 'Cookies in der Heißluftfritteuse: Zeit, Temperatur, Backpapier',
+      metaDescription:
+        'Cookies in der Heißluftfritteuse backen: {AF_F}°F für {MIN} Minuten aus Teig. Warum leichter Teig und Backpapier in den Lüfter fliegen, Zeiten nach Größe und die Backofen-Entsprechung.',
+      metaKeywords: 'cookies heißluftfritteuse, kekse airfryer zeit und temperatur, chocolate chip cookies heißluftfritteuse, cookies backen airfryer',
+      heading: 'Cookies in der Heißluftfritteuse',
+      subDesc:
+        'Cookies vom Löffel, ein paar auf einmal gebacken, aus frischem oder gefrorenem Teig. Die niedrigere Einstellung, wie das Backpapier liegen bleibt und wann sie herauskommen.',
+      cardDesc: 'Beschwer das Backpapier mit dem Teig selbst.',
+      sizeLabels: { small: 'Klein, ein gestrichener Esslöffel', medium: 'Mittel, etwa 2 Esslöffel', large: 'Groß, Bäckereigröße' },
+      failureHeading: 'Warum Backpapier und Teig in den Lüfter fliegen',
+      failureBody:
+        'Der Lüfter einer Heißluftfritteuse ist kräftig, und ein loses Blatt Backpapier wiegt fast nichts. Kommt das Papier allein zum Vorheizen hinein, fliegt es an das Heizelement und kann dort ansengen. Selbst mit Teig darauf hebt sich eine freie Ecke und klappt über die Cookies. Der Teig selbst ist das zweite Problem: Weicher Keksteig läuft beim Erwärmen auseinander, und die Luft, die über die Oberfläche streicht, lässt sie zu früh fest werden, sodass die Cookies sich wölben und reißen, statt gleichmäßig zu zerlaufen. Die Lösungen sind einfach. Leg das Papier nur mit dem Teig darauf hinein, schneid es so zu, dass kein Rand übersteht, und lass Platz zwischen den Kugeln. Die niedrigere Einstellung bremst die Oberseite, damit der Cookie zerlaufen kann, bevor er fest wird.',
+      workedExampleHeading: 'Rechenbeispiel: Chocolate Chip Cookies',
+      workedExampleTemplate:
+        'Eine Portion Chocolate-Chip-Keksteig, für die das Rezept {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen angibt. In einer Korb-Heißluftfritteuse bei {AF_F}°F für {MEDIUM_MIN} Minuten backen. {PREHEAT} Minuten vorheizen, vier Kugeln von etwa zwei Esslöffeln auf zugeschnittenes Backpapier setzen und hineinschieben. Kleine Cookies brauchen etwa {SMALL_MIN} Minuten, große in Bäckereigröße etwa {LARGE_MIN}. Lass jede Ladung auf dem Papier fest werden, bevor du sie bewegst.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Die Ränder sollten fest und leicht golden sein, während die Mitte noch etwas weich und aufgegangen aussieht; sie wird beim Abkühlen fest. Ein Holzstäbchen in der Mitte sollte mit feuchten Krümeln herauskommen, nicht mit nassem Teig. Dunkelbraune Cookies sind zu weit gegangen. Lass sie auf dem Papier fest werden und setz sie dann auf ein Gitter, wo die Unterseite knusprig bleibt.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Kühl sehr weichen Teig kurz, damit er seine Form hält. Schneid das Backpapier auf die Größe des Korbbodens zu, kleiner als die Grundfläche, oder nimm eine gelochte Unterlage. Back vier bis sechs auf einmal, mit Platz zum Zerlaufen. Gefrorene Teigkugeln kommen so, wie sie sind, hinein, mit ein bis zwei Minuten mehr. Fertigteig aus dem Kühlregal funktioniert genauso; stich ihn in gleich große Stücke ab, damit alle Cookies einer Ladung gleichzeitig fertig werden.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Cookies in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für mittlere Cookies. Kleine brauchen etwa {SMALL_MIN} Minuten, große etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Brauche ich Backpapier für Cookies in der Heißluftfritteuse?',
+          a: 'Es hilft, sie sauber zu lösen, aber leg es nur mit Teig darauf und passend zugeschnitten hinein, damit der Lüfter es nicht an das Heizelement bläst.',
+        },
+        {
+          q: 'Kann ich gefrorenen Keksteig in der Heißluftfritteuse backen?',
+          a: 'Ja, direkt aus dem Gefrierfach. Gib ein bis zwei Minuten dazu und prüf die Mitte mit einem Holzstäbchen.',
+        },
+        {
+          q: 'Warum sind meine Cookies gewölbt und unten blass?',
+          a: 'Die Oberseite wurde fest, bevor der Teig zerlaufen konnte. Nimm die niedrigere Einstellung und drück die Kugeln etwas flach.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem ausgelegten Backblech im normalen Backofen.',
+        },
+      ],
+    },
+    muffins: {
+      label: 'Muffins',
+      metaTitle: 'Muffins in der Heißluftfritteuse: Zeit, Temperatur und Förmchen',
+      metaDescription:
+        'Muffins in der Heißluftfritteuse backen: {AF_F}°F für {MIN} Minuten. Silikonförmchen oder ein kleines Blech, das passt, warum ein 12er-Blech nicht passt und wie du die Mitte prüfst.',
+      metaKeywords: 'muffins heißluftfritteuse, muffins airfryer zeit und temperatur, blaubeermuffins heißluftfritteuse, muffins backen airfryer',
+      heading: 'Muffins in der Heißluftfritteuse',
+      subDesc:
+        'Muffins in Durchgängen in einer Korb-Heißluftfritteuse gebacken. Die Einstellung, welche Förmchen und Bleche passen und wie die Oberseite nicht bräunt, bevor die Mitte gar ist.',
+      cardDesc: 'Silikonförmchen, und die Mitte zählt, nicht die Farbe.',
+      sizeLabels: { small: 'Mini-Muffins', medium: 'Normale Muffins', large: 'Große oder Bäcker-Muffins' },
+      failureHeading: 'Warum die Oberseite bräunt, während die Mitte roh bleibt',
+      failureBody:
+        'Im Backofen wird ein Muffin in ruhiger Luft von allen Seiten erhitzt. In der Heißluftfritteuse strömt die Hitze über die Oberseite, deshalb bräunt die Haube früh und wirkt fertig, während die Mitte noch Teig ist. Die Farbe ist die Falle: Ein goldener Muffin kann innen roh sein. Die niedrigere Einstellung hier bremst die Oberseite, damit das Innere aufholen kann, und die Zeit geht davon aus, dass du die Mitte prüfst, nicht die Farbe. Muffins mit viel Teig, Obst oder Joghurt enthalten mehr Wasser und brauchen die volle Zeit. Ist die Oberseite lange vor dem Ende dunkel, leg für den Rest der Backzeit ein kleines Stück Alufolie locker darüber, so festgesteckt, dass der Lüfter es nicht anhebt.',
+      workedExampleHeading: 'Rechenbeispiel: sechs Blaubeermuffins',
+      workedExampleTemplate:
+        'Ein Rezept für Blaubeermuffins, das {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen angibt. In einer Korb-Heißluftfritteuse bei {AF_F}°F für {MEDIUM_MIN} Minuten backen. {PREHEAT} Minuten vorheizen, sechs Silikonförmchen zu zwei Dritteln füllen und mit Abstand hineinstellen. Mini-Muffins brauchen etwa {SMALL_MIN} Minuten, große etwa {LARGE_MIN}. Den restlichen Teig in einem zweiten Durchgang backen.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Stich ein Holzstäbchen in die Mitte des mittleren Muffins: Es sollte sauber oder mit ein paar trockenen Krümeln herauskommen, nie mit feuchtem Teig. Die Oberseite sollte zurückfedern, wenn du leicht darauf drückst. Achte nicht auf die Farbe, die in der Heißluftfritteuse dem Inneren vorauseilt. Muffins am Rand des Korbs backen schneller als die in der Mitte, also prüf den mittleren und tausch die Plätze nach der halben Zeit, wenn dein Korb ungleichmäßig bräunt. Lass sie in den Förmchen ruhen, bevor du sie herausnimmst.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Nimm Silikonförmchen, ineinandergesteckte Alu-Förmchen für mehr Halt oder ein kleines Muffinblech, das flach auf dem Korbboden steht. Ein normales 12er-Muffinblech passt nicht in einen 5-qt-Korb (etwa 4,7 Liter). Füll die Förmchen zu zwei Dritteln und lass Lücken, damit die Luft zwischen ihnen zirkuliert. Silikonförmchen sind weich: Stell sie schon gefüllt in den Korb, oder setz sie vorher auf ein kleines Gitter, damit sie beim Hineinheben nicht kippen und der Teig nicht überläuft.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Muffins in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für normale Muffins. Minis brauchen etwa {SMALL_MIN} Minuten, große etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Passt ein Muffinblech in meine Heißluftfritteuse?',
+          a: 'Ein 12er-Blech passt nicht in einen 5-qt-Korb. Nimm Silikonförmchen oder ein kleines Blech mit 4 oder 6 Mulden, das flach auf dem Boden steht.',
+        },
+        {
+          q: 'Kann ich Papierförmchen verwenden?',
+          a: 'Nur in Silikon- oder Alu-Förmchen. Allein sind Papierförmchen zu weich, um den Teig zu halten, und können umkippen.',
+        },
+        {
+          q: 'Warum sind meine Muffins in der Mitte roh?',
+          a: 'Die Oberseite bräunte zuerst und sie kamen nach der Farbe heraus. Prüf die Mitte mit einem Holzstäbchen und senk die Hitze, wenn die Oberseite früh dunkel wird.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten in einem 12er-Muffinblech im normalen Backofen.',
+        },
+      ],
+    },
+    brownies: {
+      label: 'Brownies',
+      metaTitle: 'Brownies in der Heißluftfritteuse: Formgröße, Zeit, Temperatur',
+      metaDescription:
+        'Brownies in der Heißluftfritteuse backen: {AF_F}°F für {MIN} Minuten in einer 18-cm-Form. Welche Formen in einen 5-qt-Korb passen, wie du ein 23×23-Rezept halbierst, und die Backofen-Entsprechung.',
+      metaKeywords: 'brownies heißluftfritteuse, brownies airfryer zeit und temperatur, brownie form heißluftfritteuse, brownies backen airfryer',
+      heading: 'Brownies in der Heißluftfritteuse',
+      subDesc:
+        'Eine kleine Form Brownies, in einer Korb-Heißluftfritteuse gebacken. Die Form, die passt, wie du ein normales Rezept anpasst und wie die Mitte saftig wird, ohne harte Ränder.',
+      cardDesc: 'Nimm eine 15–18-cm-Form und halbiere ein 23×23-Rezept.',
+      sizeLabels: { small: 'Runde Form, 15 cm', medium: 'Quadratische Form, 18 cm', thick: 'Höhere oder besonders saftige Ladung' },
+      failureHeading: 'Warum die Ränder übergaren, während die Mitte nass bleibt',
+      failureBody:
+        'Brownieteig ist dicht und schwer, und in einer Metallform bekommen die Ränder die stärkste Hitze ab, an den heißen Wänden und direkt unter dem Lüfter. Sie stocken und trocknen lange vor der Mitte, die rundum von Teig isoliert ist. Drehst du die Hitze hoch, um die Mitte zu beschleunigen, bekommst du einen harten Rand und eine Kruste, die reißt und sich von einem rohen Kern löst. Die niedrigere Einstellung gibt der Wärme Zeit, die Mitte zu erreichen. Die Formgröße zählt genauso: Ein 5-qt-Korb ist etwa 20–22 cm breit, also passt eine 15- oder 18-cm-Form mit Platz, damit die Luft rundherum zirkuliert. Ein normales Rezept für 23×23 cm musst du halbieren oder in zwei Durchgängen backen; höher in eine kleine Form gegossen, wird es in der Mitte nicht fest.',
+      workedExampleHeading: 'Rechenbeispiel: ein halbes 23×23-Rezept',
+      workedExampleTemplate:
+        'Ein Brownie-Rezept für 23×23 cm, das {OVEN_F}°F für {OVEN_MIN} Minuten angibt, halbiert und in eine ausgelegte quadratische 18-cm-Form gegossen. {PREHEAT} Minuten vorheizen und bei {AF_F}°F für {MEDIUM_MIN} Minuten backen. Eine runde 15-cm-Form braucht etwa {SMALL_MIN} Minuten, eine höhere oder besonders saftige Ladung etwa {THICK_MIN}. In der Form abkühlen lassen, bevor du schneidest.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Ein Holzstäbchen in der Mitte sollte mit feuchten Krümeln herauskommen, nicht mit flüssigem Teig. Die Oberfläche sollte trocken und an den Rändern leicht rissig aussehen, mit nur einem leichten Wackeln in der Mitte. Brownies garen in der heißen Form weiter, nimm sie also etwas früher heraus. Schneid sie erst, wenn sie ganz abgekühlt sind, dann werden die Stücke sauber.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Leg die Form mit Backpapier aus und lass zwei Seiten überstehen, damit du die Brownies herausheben kannst. Prüf, dass die Form flach steht und rundum Platz hat. Wird die Oberseite früh dunkel, deck sie locker mit Alufolie ab und steck die Folie unter die Form, damit sie nicht wegfliegt. Eine Silikonform leitet die Hitze schwächer als Metall; rechne dort mit ein paar Minuten mehr.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Brownies in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F in einer quadratischen 18-cm-Form. Eine runde 15-cm-Form braucht etwa {SMALL_MIN} Minuten, eine höhere Ladung etwa {THICK_MIN}.',
+        },
+        {
+          q: 'Welche Formgröße passt in eine 5-qt-Heißluftfritteuse?',
+          a: 'Eine runde oder quadratische Form mit 15 oder 18 cm. Der Korb ist etwa 20–22 cm breit, und die Luft braucht Platz um die Form.',
+        },
+        {
+          q: 'Kann ich ein 23×23-Brownie-Rezept in der Heißluftfritteuse backen?',
+          a: 'Halbier es oder back es in zwei Durchgängen. In eine einzige kleine Form gegossen, ist es zu hoch, um in der Mitte fest zu werden.',
+        },
+        {
+          q: 'Kann ich eine fertige Brownie-Backmischung nehmen?',
+          a: 'Ja. Die meisten Packungen sind für eine 20- oder 23-cm-Form gedacht, nimm also pro Durchgang die Hälfte des Teigs und halte dich an die Zeiten hier.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten für dieselbe Form im normalen Backofen.',
+        },
+      ],
+    },
+    'garlic-bread': {
+      label: 'Knoblauchbrot',
+      metaTitle: 'Knoblauchbrot in der Heißluftfritteuse: frisch oder tiefgekühlt',
+      metaDescription:
+        'Knoblauchbrot in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, knusprig und goldbraun. Scheiben, ein halbes Baguette oder tiefgekühltes Knoblauchbrot, und die Backofen-Entsprechung.',
+      metaKeywords: 'knoblauchbrot heißluftfritteuse, knoblauchbaguette airfryer, tiefkühl knoblauchbrot heißluftfritteuse, knoblauchbrot selber machen airfryer',
+      heading: 'Knoblauchbrot in der Heißluftfritteuse',
+      subDesc:
+        'Selbst gemachtes oder gekauftes Knoblauchbrot, an den Rändern knusprig geröstet und in der Mitte weich. Die Einstellung, und wie der Knoblauch nicht verbrennt.',
+      cardDesc: 'Der Knoblauch gehört unter die Butter, nicht obendrauf.',
+      sizeLabels: { thin: 'Knoblauchbrot in Scheiben', medium: 'Halbes Baguette, Schnittfläche nach oben', thick: 'Dicker Toast oder tiefgekühltes Knoblauchbrot' },
+      failureHeading: 'Warum der Knoblauch verbrennt und bitter wird',
+      failureBody:
+        'Gehackter Knoblauch ist klein, trocken und reich an Zucker, und auf dem Brot sitzt er genau in der heißesten Luft. Er geht in weniger als einer Minute von golden über braun zu bitter-schwarz, oft bevor das Brot darunter geröstet ist. Die Butter ist Teil des Problems: Sie schmilzt und läuft von der Oberfläche ab, sodass der Knoblauch frei und trocken liegt. Die Lösung liegt im Bestreichen. Zerdrück den Knoblauch in weicher Butter, damit jedes Stückchen umhüllt ist, streich ihn bis an die Ränder und drück ihn in die Krume. Geriebener Knoblauch verbrennt weniger als gehackter, Knoblauchpulver kaum. Eine mittlere Einstellung röstet das Brot durch, während die Oberseite golden wird, ohne dunkel zu werden.',
+      workedExampleHeading: 'Rechenbeispiel: ein halbes Baguette',
+      workedExampleTemplate:
+        'Ein halbes Baguette, längs aufgeschnitten und mit Knoblauchbutter bestrichen. Ein Backofenrezept würde {OVEN_F}°F für etwa {OVEN_MIN} Minuten angeben. In einer Korb-Heißluftfritteuse {PREHEAT} Minuten vorheizen und mit der Schnittfläche nach oben bei {AF_F}°F für {MEDIUM_MIN} Minuten rösten. Einzelne Scheiben brauchen etwa {THIN_MIN} Minuten, dicker Toast oder tiefgekühltes Knoblauchbrot etwa {THICK_MIN}.',
+      donenessHeading: 'Woran du erkennst, dass es fertig ist',
+      donenessBody:
+        'Die Ränder sollten knusprig und kräftig golden sein, und die Butter sollte ins Brot hinein blubbern, statt obendrauf zu stehen. Drück auf die Mitte: Sie sollte noch weich sein. Dunkelbrauner Knoblauch bedeutet, dass der nächste Durchgang weniger Zeit oder der Knoblauch mehr Butter drumherum braucht.',
+      prepHeading: 'Bevor es hineinkommt',
+      prepBody:
+        'Nimm weiche, keine geschmolzene Butter, damit sie dort bleibt, wo du sie hinstreichst. Petersilie oder geriebenen Käse gibst du erst in der letzten Minute dazu. Schneid lange Brote so zu, dass sie in den Korb passen, und leg die Stücke in eine Lage. Brot vom Vortag eignet sich gut, weil seine trockenere Krume die Butter aufsaugt, statt durchzuweichen. Tiefgekühltes Knoblauchbrot kommt direkt aus dem Gefrierfach hinein, ohne Auftauen, sonst läuft die Butter heraus, bevor die Kruste knusprig wird. Ist es in Alufolie verpackt, nimm die Folie für die Heißluftfritteuse ab. Kräuterbaguette aus dem Kühlregal ist schon vorgebacken und braucht nur das kürzere Ende der Zeit, bis die Butter schmilzt und die Kruste knistert.',
+      faqs: [
+        {
+          q: 'Wie lange braucht Knoblauchbrot in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für ein halbes Baguette. Scheiben brauchen etwa {THIN_MIN} Minuten, dicke oder tiefgekühlte Stücke etwa {THICK_MIN}.',
+        },
+        {
+          q: 'Frisches oder tiefgekühltes Knoblauchbrot: Was ist der Unterschied?',
+          a: 'Frisches Knoblauchbrot muss nur geröstet werden. Tiefgekühltes kommt direkt aus dem Gefrierfach und braucht die längere Zeit, damit die Mitte auftaut und weich wird, bevor die Oberseite knusprig ist.',
+        },
+        {
+          q: 'Warum verbrennt mein Knoblauch in der Heißluftfritteuse?',
+          a: 'Er liegt ungeschützt in der heißesten Luft. Zerdrück ihn in weicher Butter und drück ihn ins Brot, damit er geschützt ist.',
+        },
+        {
+          q: 'Kann ich Käse dazugeben?',
+          a: 'Ja, für die letzten ein, zwei Minuten. Gleich zu Beginn bräunt er, bevor das Brot geröstet ist.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Blech im normalen Backofen.',
+        },
+      ],
+    },
+    'corn-on-the-cob': {
+      label: 'Maiskolben',
+      metaTitle: 'Maiskolben in der Heißluftfritteuse: Zeit, Temperatur, Größe',
+      metaDescription:
+        'Maiskolben in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden. Saftige Körner mit Röststellen, warum lange Kolben halbiert werden müssen, und die Backofen-Entsprechung.',
+      metaKeywords: 'maiskolben heißluftfritteuse, maiskolben airfryer zeit, gerösteter mais heißluftfritteuse, wie lange maiskolben in heißluftfritteuse',
+      heading: 'Maiskolben in der Heißluftfritteuse',
+      subDesc:
+        'Frischer Mais, geröstet, bis er süß, saftig und leicht angeröstet ist. Die Einstellung, das einmalige Wenden und wie ganze Kolben in einen Korb passen.',
+      cardDesc: 'Lange Kolben halbieren und mit Butter oder Öl bestreichen.',
+      sizeLabels: { small: 'Halbe oder kleine Kolben', medium: 'Mittlere Kolben, passend halbiert', large: 'Große, dicke Kolben, halbiert' },
+      failureHeading: 'Warum die Körner austrocknen und schrumpeln',
+      failureBody:
+        'Gekochter Mais liegt im Wasser, er kann also nur nasser werden. In der Heißluftfritteuse passiert das Gegenteil: Bewegte heiße Luft zieht jedem freiliegenden Korn Wasser heraus, und ein nackter Kolben, der zu lange drin ist, wird schrumpelig, zäh und blass. Was ihn schützt, ist eine Schicht Fett. Butter oder Öl versiegeln die Körner, sodass sie durchwärmen und saftig werden, während das Fett stellenweise bräunt und diesen gegrillten Röstgeschmack gibt. Größe und Passform zählen auch. Die meisten ganzen Kolben sind länger als ein 5-qt-Korb, und ein schräg hineingezwängter Kolben berührt die Wände, dämpft an den Enden und blockiert die Luft. Halbier jeden Kolben, der länger als der Korb ist, damit die Stücke flach in einer Lage liegen.',
+      workedExampleHeading: 'Rechenbeispiel: vier Maiskolben',
+      workedExampleTemplate:
+        'Vier mittlere Kolben, ohne Blätter, halbiert und mit geschmolzener Butter und Salz bestrichen. {PREHEAT} Minuten vorheizen, die Hälften in eine Lage legen und bei {AF_F}°F für {MEDIUM_MIN} Minuten rösten, nach {FLIP} wenden. Kleine Kolben oder kurze Stücke brauchen etwa {SMALL_MIN} Minuten, große, dicke Kolben etwa {LARGE_MIN}. Auf einem Blech im normalen Backofen braucht derselbe Mais {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass er fertig ist',
+      donenessBody:
+        'Die Körner sollten leuchtend gelb, prall und glänzend sein, mit ein paar goldbraunen Stellen. Drück mit dem Fingernagel auf ein Korn: Es sollte aufplatzen und Saft abgeben. Matte, eingedellte Körner bedeuten, dass der Mais durch zu viel Zeit oder zu wenig Fett ausgetrocknet ist. Vorgekochte, vakuumverpackte Maiskolben aus dem Supermarkt müssen nur heiß werden und brauchen weniger Zeit.',
+      prepHeading: 'Bevor er hineinkommt',
+      prepBody:
+        'Entferne Blätter und Fäden vollständig. Schneid jeden Kolben mit einem schweren Messer durch, indem du die Klinge durch den Strunk wiegst, statt zu sägen. Bestreich ihn rundum mit Butter oder Öl und würz erst nach dem Garen, wenn du eine Gewürzmischung nimmst, die verbrennt. Geräuchertes Paprikapulver, Chili und geriebener Parmesan passen gut auf den heißen Mais, mit etwas zusätzlicher Butter. Sehr frischer, süßer Mais braucht die kürzere Zeit; ältere, stärkehaltige Kolben vom Ende der Saison brauchen etwas länger, bis sie zart sind.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Maiskolben in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für mittlere Kolben, nach {FLIP} gewendet. Kleine brauchen etwa {SMALL_MIN} Minuten, große etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Muss ich Mais halbieren, damit er in die Heißluftfritteuse passt?',
+          a: 'Meistens ja. Halbier jeden Kolben, der länger als der Korb ist, damit er flach liegt; eingezwängte Kolben garen ungleichmäßig.',
+        },
+        {
+          q: 'Kann ich Mais in den Blättern garen?',
+          a: 'Das geht, aber er dämpft statt zu rösten, und die trockenen Blätter können ansengen. Ohne Blätter und mit Butter wird er am besten.',
+        },
+        {
+          q: 'Kann ich tiefgekühlte Maiskolben in der Heißluftfritteuse garen?',
+          a: 'Ja, direkt gefroren. Gib ein paar Minuten dazu und bestreich sie nach der halben Zeit mit Butter, wenn das Eis weg ist.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Blech im normalen Backofen, einmal gewendet.',
+        },
+      ],
+    },
+    'frozen-vegetables': {
+      label: 'Tiefkühlgemüse',
+      metaTitle: 'Tiefkühlgemüse in der Heißluftfritteuse: geröstet statt matschig',
+      metaDescription:
+        'Tiefkühlgemüse in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, {SHAKES}× schütteln, direkt aus dem Beutel. Wie es röstet statt dämpft, und was auf der Packung steht.',
+      metaKeywords: 'tiefkühlgemüse heißluftfritteuse, gefrorenes gemüse airfryer, tiefkühlgemüse rösten heißluftfritteuse, gemüsemischung tiefgekühlt airfryer',
+      heading: 'Tiefkühlgemüse in der Heißluftfritteuse',
+      subDesc:
+        'Gemüsemischung, Erbsen, Mais oder Röschen direkt aus dem Gefrierfach, geröstet statt gedämpft. Ohne Auftauen, und warum die Menge im Korb das Ergebnis entscheidet.',
+      cardDesc: 'Nie auftauen: direkt hinein, höchstens ein halber Korb.',
+      sizeLabels: { small: 'Erbsen, Mais oder gewürfelte Mischung', medium: 'Gemüsemischung', large: 'Brokkoli- oder Blumenkohlröschen' },
+      failureHeading: 'Warum Tiefkühlgemüse weich und nass herauskommt',
+      failureBody:
+        'Tiefkühlgemüse wird vor dem Einfrieren blanchiert, und die Eiskristalle, die sich darin bilden, sprengen viele der Zellwände. Beim Erhitzen gibt diese zerstörte Struktur ihr Wasser auf einmal ab, zusätzlich zum Reif auf der Oberfläche. In einem vollen Korb kann das Wasser nirgendwohin: Es sammelt sich, wird zu Dampf und kocht das Gemüse weich und grau, bevor irgendein Stück bräunen kann. Die Antwort ist weniger Menge und kein Auftauen. Aufgetautes Gemüse hat sein Wasser schon verloren und wird sofort schlaff; gefrorenes behält seine Form, während die Außenseite trocknet. Füll den Korb höchstens zur Hälfte, damit der Dampf entweicht, dann röstet das Gemüse in der trockenen Hitze, die danach kommt.',
+      workedExampleHeading: 'Rechenbeispiel: ein Beutel Gemüsemischung',
+      workedExampleTemplate:
+        'Ein halber Beutel tiefgekühlte Gemüsemischung, auf dem steht, sie bei {OVEN_F}°F für {OVEN_MIN} Minuten zu rösten. In einer Korb-Heißluftfritteuse {PREHEAT} Minuten vorheizen, das Gemüse noch gefroren mit einem Esslöffel Öl hineingeben und bei {AF_F}°F für {MEDIUM_MIN} Minuten garen, {SHAKES}× schütteln. Erbsen, Mais und kleine gewürfelte Mischungen brauchen etwa {SMALL_MIN} Minuten, große Röschen etwa {LARGE_MIN}.',
+      donenessHeading: 'Woran du erkennst, dass es fertig ist',
+      donenessBody:
+        'Der Korb sollte trocken sein, ohne Wasser am Boden, und die Ränder des Gemüses sollten gebräunte Stellen haben. Karotten und Röschen sollten beim Einstechen zart, aber nicht matschig sein. Eine Pfütze unter blassem, weichem Gemüse bedeutet, dass der Korb zu voll war. Ist am Ende noch etwas Wasser im Korb, schütte es ab und gib dem Gemüse ein, zwei Minuten mehr; erst dann bekommt es Farbe. Erbsen und Mais schrumpeln schnell, nimm sie also lieber etwas früher heraus.',
+      prepHeading: 'Bevor es hineinkommt',
+      prepBody:
+        'Brich gefrorene Klumpen noch im Beutel auf. Misch das Öl erst direkt vor dem Garen unter; es haftet an bereiften Stücken schlechter, also misch beim ersten Schütteln noch einmal durch. Salz und Gewürze kommen am Ende dazu, weil der Dampf am Anfang sie wegspült. Beutel mit großen und kleinen Stücken garen ungleichmäßig, nimm also die kleinen heraus, wenn sie zu verbrennen beginnen, oder gare die Mischung in zwei Durchgängen. Gemüsepackungen mit Soße oder Butter geben oft nur die Mikrowelle an; die Soße verbrennt in der Heißluftfritteuse, nimm also Beutel mit reinem Gemüse.',
+      faqs: [
+        {
+          q: 'Wie lange braucht Tiefkühlgemüse in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine Gemüsemischung, {SHAKES}× geschüttelt. Kleine Stücke brauchen etwa {SMALL_MIN} Minuten, große Röschen etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Muss ich Tiefkühlgemüse vor der Heißluftfritteuse auftauen?',
+          a: 'Nein. Aufgetautes Gemüse hat sein Wasser schon abgegeben und wird schlaff. Gare es direkt gefroren.',
+        },
+        {
+          q: 'Warum wird mein Tiefkühlgemüse in der Heißluftfritteuse matschig?',
+          a: 'Der Korb war zu voll, und das eigene Wasser hat es gedämpft. Nimm höchstens einen halben Korb auf einmal.',
+        },
+        {
+          q: 'Ist das anders als bei frischem Brokkoli?',
+          a: 'Ja. Frische Röschen brauchen eine kürzere, sanftere Einstellung; gefrorene brauchen mehr Hitze und Zeit, um erst das Eis loszuwerden.',
+        },
+        {
+          q: 'Was steht für den Backofen auf der Packung?',
+          a: 'Die meisten Beutel geben {OVEN_F}°F für etwa {OVEN_MIN} Minuten im normalen Backofen an.',
+        },
+      ],
+    },
   },
 };
 
 export const presetsIndex: Dictionary['presetsIndex'] = {
   metaTitle: 'Voreinstellungen für die Heißluftfritteuse: Zeit und Temperatur je Lebensmittel',
   metaDescription:
-    'Zeit und Temperatur in der Heißluftfritteuse für Hähnchen, Wings, Lachs, Bacon, Steak, Kartoffeln und mehr – jede Voreinstellung mit Kerntemperatur, Zeiten nach Größe und Ofen-Entsprechung.',
+    'Zeit und Temperatur in der Heißluftfritteuse für Hähnchen, Lachs, Steak, Kartoffeln, Gebäck, Tiefkühlkost und Reste – jede Voreinstellung mit Kerntemperatur oder Garprobe, Zeiten nach Größe und Ofen-Entsprechung.',
   metaKeywords: 'Garzeiten Heißluftfritteuse, Heißluftfritteuse Zeit Temperatur Tabelle, Airfryer Voreinstellungen',
   backLink: 'Alle Werkzeuge',
   heading: 'Lebensmittel-Voreinstellungen für die Heißluftfritteuse',
@@ -1450,7 +1962,7 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
   },
   howHeading: 'Wie diese Voreinstellungen festgelegt sind',
   howBody:
-    'Jede Voreinstellung geht von einer vorgeheizten Korb-Heißluftfritteuse mit 4–6 Litern aus, das Lebensmittel in einer Lage. Die Entsprechungen für Ober-/Unterhitze und Umluft auf jeder Seite berechnet derselbe Algorithmus wie der Umrechner, sie stimmen also miteinander überein, und der Umrechner auf jeder Seite ist schon auf dieses Lebensmittel eingestellt, falls du von einem Ofenrezept ausgehst. Jede Seite beginnt mit der typischen Art, wie dieses Lebensmittel in der Heißluftfritteuse misslingt, denn das entscheidet über das Ergebnis mehr als die Zahl am Regler. Keine E-Mail, keine Anmeldung, nichts zu installieren.',
+    'Jede Voreinstellung geht von einer vorgeheizten Korb-Heißluftfritteuse mit 4–6 Litern aus, das Lebensmittel in einer Lage. Bei den Garvoreinstellungen berechnet derselbe Algorithmus wie der Umrechner die Entsprechungen für Ober-/Unterhitze und Umluft, sie stimmen also miteinander überein, und der Umrechner auf der Seite ist schon auf dieses Lebensmittel eingestellt. Tiefkühl-Voreinstellungen zeigen stattdessen, was auf der Packung steht. Beim Aufwärmen ist es anders: Der Algorithmus rechnet Garrezepte um, kein Aufwärmen, deshalb sind die Aufwärmzeiten und ihre Ofen-Entsprechungen von Hand eingetragen, und der Umrechner auf diesen Seiten rechnet Backofenrezepte um. Jede Seite beginnt mit der typischen Art, wie dieses Lebensmittel in der Heißluftfritteuse misslingt, denn das entscheidet über das Ergebnis mehr als die Zahl am Regler. Keine E-Mail, keine Anmeldung, nichts zu installieren.',
   relatedFlagshipLink: 'Umrechner Backofen zu Heißluftfritteuse',
   relatedChartLink: 'Umrechnungstabelle zum Ausdrucken',
 };

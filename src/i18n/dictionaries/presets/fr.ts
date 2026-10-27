@@ -8,6 +8,7 @@ export const presets: Dictionary['presets'] = {
   answerShakeSuffix: ', secouer {SHAKES}×',
   internalTemplate: 'Cuit à {INT_F}°F ({INT_C}°C) au cœur de la partie la plus épaisse',
   internalCrisp: 'Cuit à la couleur et au croustillant, pas au thermomètre',
+  internalToothpick: 'La cuisson se vérifie au cure-dent, pas à la couleur',
   ovenHeading: 'Équivalent au four',
   ovenTemplate: 'Four traditionnel : {OVEN_F}°F ({OVEN_C}°C, Th. {OVEN_MARK}) pendant {OVEN_MIN} min',
   fanTemplate: 'Four à chaleur tournante : {FAN_F}°F ({FAN_C}°C) pendant {FAN_MIN} min',
@@ -41,7 +42,7 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Portion', airFryer: 'Friteuse à air', oven: 'Réchauffer au four' },
     relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
     widgetHeading: 'Vous partez d’une recette au four ?',
-    widgetNote: 'Ce convertisseur transforme les recettes de cuisson au four en réglages de friteuse à air. Il ne sert pas à réchauffer, il démarre donc vide ; pour les restes, suivez le réglage ci-dessus.',
+    widgetNote: 'Ce convertisseur transforme les recettes de cuisson au four en réglages de friteuse à air. Il ne sert pas à réchauffer, il démarre donc sur ses réglages par défaut ; pour les restes, suivez le réglage ci-dessus.',
   },
   pages: {
     'chicken-breast': {
@@ -1427,13 +1428,524 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'reheat-pizza': {
+      label: 'Restes de pizza',
+      metaTitle: 'Réchauffer une pizza à la friteuse à air : pâte croustillante',
+      metaDescription:
+        'Réchauffez une pizza à la friteuse à air : {AF_F}°F pendant {MIN} minutes pour une pâte croustillante et un fromage fondu. Durées pour pâte fine, classique et épaisse, et la méthode au four.',
+      metaKeywords: 'réchauffer pizza friteuse à air, combien de temps réchauffer pizza air fryer, restes de pizza friteuse sans huile, température réchauffer pizza',
+      heading: 'Réchauffer une pizza à la friteuse à air',
+      subDesc:
+        'Des parts froides sorties du frigo, de nouveau avec une pâte croustillante et un fromage fondant. Le réglage doux, pourquoi plus de chaleur aggrave les choses et ce qui change pour une pâte épaisse.',
+      cardDesc: 'Une chaleur modérée laisse la pâte rattraper le fromage.',
+      sizeLabels: { thin: 'Part à pâte fine', medium: 'Part classique', thick: 'Part à pâte épaisse ou deep-dish' },
+      failureHeading: 'Pourquoi la pâte reste molle pendant que le fromage brûle',
+      failureBody:
+        'Une part sortie du frigo est froide de haut en bas, et dans une friteuse à air la chaleur arrive par le dessus. Le fromage et la garniture sont pile dans ce flux : ils fondent, rendent leur huile puis deviennent caoutchouteux, pendant que la pâte en dessous reste froide et un peu humide après une nuit dans la boîte. Monter la température ne fait qu’agrandir cet écart. La solution est une température modérée et un temps court, pour que la chaleur descende à travers la part et chasse l’humidité de la pâte avant que le dessus ne cuise trop. Posez les parts directement dans le panier, sans papier aluminium, pour que l’air passe dessous, et ne les empilez jamais : une part posée sur une autre la fait cuire à la vapeur.',
+      workedExampleHeading: 'Exemple concret : deux parts classiques',
+      workedExampleTemplate:
+        'Deux parts d’une pizza à emporter classique, sorties du frigo. Préchauffez {PREHEAT} minutes, posez-les côte à côte dans le panier et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes. Une part à pâte fine est prête en {THIN_MIN} minutes environ, et une part à pâte épaisse demande environ {THICK_MIN}, car la pâte épaisse met plus longtemps à chauffer. Pour réchauffer une plaque entière dans un four traditionnel, comptez {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elle est prête',
+      donenessBody:
+        'Soulevez une part avec une pince : elle doit rester droite sans que la pointe retombe, et le dessous doit paraître sec et légèrement grillé. Le fromage doit être fondu et brillant, et commencer à bouillonner sur les bords. Si le fromage dore par endroits alors que la pâte plie encore, le réglage était trop chaud ou la part trop épaisse pour la durée.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Sortez les parts de la boîte quelques minutes plus tôt pour casser le plus gros du froid. Retirez les garnitures fraîches comme la roquette ou le basilic et remettez-les après. Pour une part très sèche, quelques gouttes d’eau dans le panier, à côté et non dessus, gardent le fromage moelleux.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer une pizza à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour une part classique. La pâte fine demande environ {THIN_MIN} minutes et la pâte épaisse environ {THICK_MIN}.',
+        },
+        {
+          q: 'Pourquoi ne pas réchauffer la pizza plus chaud ?',
+          a: 'La chaleur vient du dessus : un réglage plus chaud cuit trop le fromage avant que la pâte froide n’ait chauffé et séché.',
+        },
+        {
+          q: 'Faut-il mettre du papier aluminium ou du papier cuisson sous la part ?',
+          a: 'Non. L’air doit atteindre le dessous pour le rendre croustillant. Utilisez une feuille seulement pour des parts très fromagées qui coulent, plus petite que la part.',
+        },
+        {
+          q: 'Est-ce la même chose que cuire une pizza surgelée ?',
+          a: 'Non. Une pizza surgelée est crue dessus et congelée à cœur, elle demande donc un autre réglage ; celui-ci ne fait que réchauffer et recroustiller une part déjà cuite.',
+        },
+        {
+          q: 'Comment réchauffer une pizza au four ?',
+          a: 'Posez les parts sur une plaque à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, ou sur une plaque préchauffée pour une pâte plus croustillante.',
+        },
+      ],
+    },
+    'reheat-fries': {
+      label: 'Restes de frites',
+      metaTitle: 'Réchauffer des frites à la friteuse à air : croustillantes',
+      metaDescription:
+        'Réchauffez des restes de frites à la friteuse à air : {AF_F}°F pendant {MIN} minutes, en secouant une fois. Pourquoi les frites de la veille deviennent caoutchouteuses et la méthode au four.',
+      metaKeywords: 'réchauffer frites friteuse à air, comment réchauffer des frites air fryer, restes de frites friteuse sans huile, réchauffer frites mcdo',
+      heading: 'Réchauffer des frites à la friteuse à air',
+      subDesc:
+        'Des frites de la veille, à emporter ou maison, de nouveau croustillantes en quelques minutes. Pourquoi elles deviennent caoutchouteuses au frigo, et le réchauffage court et chaud qui en sauve la plupart.',
+      cardDesc: 'Court et chaud, avec un peu d’huile, en une couche.',
+      sizeLabels: { small: 'Une petite poignée', medium: 'Une portion à emporter', large: 'Une grande portion ou familiale' },
+      failureHeading: 'Pourquoi les frites de la veille deviennent caoutchouteuses',
+      failureBody:
+        'Une frite fraîche est croustillante parce que sa surface est sèche et son cœur fait d’amidon cuit et moelleux. Au frigo, cet amidon recristallise lentement et rejette de l’eau, qui imbibe la croûte de l’intérieur. Le lendemain, l’extérieur est mou et le cœur est devenu dense et élastique. Un réchauffage long et doux aggrave les choses : il dessèche l’intérieur jusqu’au carton avant que la surface ne croustille. Ce qui marche, c’est l’inverse : un coup d’air chaud bref qui sèche et frit la surface vite, avec une très fine couche d’huile pour aider, pendant que l’intérieur se contente de chauffer. Les frites fines se rattrapent le mieux ; les grosses frites ne redeviennent jamais tout à fait comme neuves.',
+      workedExampleHeading: 'Exemple concret : une portion à emporter',
+      workedExampleTemplate:
+        'Une portion de frites restantes sortie du frigo, mélangée avec une demi-cuillère à café d’huile. Préchauffez {PREHEAT} minutes, étalez-les en une seule couche et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en secouant une fois à mi-temps. Une petite poignée est prête en {SMALL_MIN} minutes environ et une grande portion, en une seule couche, en {LARGE_MIN} environ. Sur une plaque dans un four traditionnel, les mêmes frites demandent {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elles sont prêtes',
+      donenessBody:
+        'Prenez-en une : elle doit tenir droite et sonner croustillante quand on la tapote sur le panier. Cassez-la : l’intérieur doit être chaud, pas tiède. Des frites qui se brisent, paraissent creuses ou ont un goût sec ont trop chauffé ; si elles plient encore, elles étaient entassées ou le panier n’était pas préchauffé.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Secouez le sel en trop et les miettes, qui brûlent. Une toute petite quantité d’huile change vraiment le résultat, car l’essentiel de l’huile de friture a été absorbé. Séparez les frites collées entre elles dans la boîte. Ne resalez qu’après le réchauffage. Des frites gardées dans un sac fermé sont plus humides que celles gardées à l’air, donnez-leur donc le temps le plus long.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer des frites à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour une portion, en secouant une fois. Une petite poignée demande environ {SMALL_MIN} minutes et une grande portion environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Peut-on réchauffer des frites de McDonald’s à la friteuse à air ?',
+          a: 'Oui. Les frites fines de fast-food se rattrapent mieux que les grosses ; vérifiez-les une minute plus tôt, car elles passent très vite de croustillantes à sèches.',
+        },
+        {
+          q: 'Pourquoi mes frites réchauffées sont-elles dures ?',
+          a: 'Elles ont chauffé trop longtemps. Les restes de frites n’ont besoin que d’un réchauffage court et chaud ; l’intérieur a déjà perdu de l’eau et sèche vite.',
+        },
+        {
+          q: 'Faut-il ajouter de l’huile ?',
+          a: 'Un peu aide. L’essentiel de l’huile de friture a pénétré la pomme de terre pendant la nuit, une fine couche aide donc la surface à recroustiller.',
+        },
+        {
+          q: 'Comment réchauffer des frites au four ?',
+          a: 'Étalez-les sur une plaque à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, en les retournant une fois. Une plaque préchauffée dore le dessous plus vite.',
+        },
+      ],
+    },
+    'reheat-fried-chicken': {
+      label: 'Restes de poulet frit',
+      metaTitle: 'Réchauffer du poulet frit à la friteuse à air : croustillant',
+      metaDescription:
+        'Réchauffez du poulet frit à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}, jusqu’à {INT_F}°F. Durées pour pilons, hauts de cuisse et blancs, et la méthode au four.',
+      metaKeywords: 'réchauffer poulet frit friteuse à air, combien de temps réchauffer poulet frit air fryer, restes de poulet frit friteuse sans huile, réchauffer kfc air fryer',
+      heading: 'Réchauffer du poulet frit à la friteuse à air',
+      subDesc:
+        'Des restes de poulet frit avec os, de nouveau avec une panure croustillante et un cœur chaud. Pourquoi la panure ramollit au frigo et comment la sécher avant de l’enfourner.',
+      cardDesc: 'Laissez-le dehors un moment pour sécher la croûte.',
+      sizeLabels: { small: 'Pilon', medium: 'Haut de cuisse', large: 'Blanc ou gros morceau' },
+      internalLine: 'Chaud à cœur à {INT_F}°F ({INT_C}°C) dans la partie la plus épaisse : la recommandation de l’USDA pour les restes',
+      failureHeading: 'Pourquoi la panure ramollit au frigo',
+      failureBody:
+        'Le poulet frit, c’est une croûte sèche et croustillante autour d’une viande humide. Après une nuit dans une boîte fermée, l’humidité passe de la viande à la panure, et l’air froid de la boîte se condense aussi dessus. Le matin, la croûte est molle et un peu collante. Mis tel quel dans la friteuse à air, toute cette eau doit partir en vapeur avant que la panure puisse croustiller, si bien que l’extérieur est encore humide quand la zone de l’os est enfin chaude. La solution commence avant le réchauffage. Sortez les morceaux de la boîte et posez-les sur une grille pendant que la friteuse préchauffe, pour que la surface sèche et que le froid s’atténue. Ensuite, une chaleur modérée termine le travail : elle rend la croûte croustillante et amène la viande près de l’os à température au même rythme.',
+      workedExampleHeading: 'Exemple concret : deux hauts de cuisse du frigo',
+      workedExampleTemplate:
+        'Deux hauts de cuisse de poulet frit restants, posés à découvert sur une grille pendant que la friteuse chauffe. Préchauffez {PREHEAT} minutes, posez-les peau vers le haut et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en les retournant à {FLIP}. Un pilon demande environ {SMALL_MIN} minutes et un gros blanc environ {LARGE_MIN}. Dans un four traditionnel, les mêmes morceaux se réchauffent à {OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une grille au-dessus d’une plaque.',
+      donenessHeading: 'Comment savoir qu’il est prêt',
+      donenessBody:
+        'Vérifiez le plus gros morceau avec un thermomètre près de l’os, sans le toucher : la recommandation de l’USDA est de {INT_F}°F ({INT_C}°C) pour les restes réchauffés. La panure doit sonner croustillante quand on la tapote et paraître sèche, avec un peu de graisse qui grésille autour. Un point froid près de l’os sous une croûte foncée signifie que la chaleur était trop forte pour la taille.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Laissez les morceaux à découvert pendant le préchauffage et épongez la graisse restée au fond de la boîte. Pas besoin d’huile en plus. Réchauffez ensemble des morceaux de taille proche, ou ajoutez les petits quelques minutes plus tard.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer du poulet frit à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour un haut de cuisse, retourné à {FLIP}. Un pilon demande environ {SMALL_MIN} minutes et un gros blanc environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Quelle température doit atteindre le poulet réchauffé ?',
+          a: '{INT_F}°F ({INT_C}°C) dans la partie la plus épaisse, la recommandation de l’USDA pour tous les restes réchauffés.',
+        },
+        {
+          q: 'Peut-on réchauffer ainsi du poulet KFC ou d’un autre fast-food ?',
+          a: 'Oui. Le poulet frit sous pression des fast-foods a une panure plus épaisse : donnez-lui le temps le plus long et vérifiez près de l’os.',
+        },
+        {
+          q: 'Faut-il le vaporiser d’huile ?',
+          a: 'Non. La panure contient encore beaucoup d’huile de friture ; en ajouter ne fait que la rendre grasse.',
+        },
+        {
+          q: 'Comment réchauffer du poulet frit au four ?',
+          a: 'Sur une grille au-dessus d’une plaque à {OVEN_F}°F pendant environ {OVEN_MIN} minutes. La grille laisse l’air passer dessous pour qu’il ne ramollisse pas.',
+        },
+      ],
+    },
+    'reheat-wings': {
+      label: 'Restes d’ailes de poulet',
+      metaTitle: 'Réchauffer des ailes de poulet à la friteuse à air',
+      metaDescription:
+        'Réchauffez des restes d’ailes de poulet à la friteuse à air : {AF_F}°F pendant {MIN} minutes, en secouant une fois, jusqu’à {INT_F}°F. Comment éviter que la sauce brûle, et la méthode au four.',
+      metaKeywords: 'réchauffer ailes de poulet friteuse à air, combien de temps réchauffer wings air fryer, restes d’ailes de poulet friteuse sans huile, réchauffer buffalo wings',
+      heading: 'Réchauffer des ailes de poulet à la friteuse à air',
+      subDesc:
+        'Des restes d’ailes, en sauce ou aux épices sèches, de nouveau chaudes et croustillantes. Pourquoi la sauce brûle avant que la viande soit chaude, et l’astuce qui empêche les ailes collantes de brûler.',
+      cardDesc: 'Retirez la sauce épaisse avant, remettez-en après.',
+      sizeLabels: { small: 'Petites ailes, manchons et ailerons', medium: 'Ailes coupées classiques', large: 'Grosses ailes' },
+      internalLine: 'Chaudes à cœur à {INT_F}°F ({INT_C}°C) près de l’os : la recommandation de l’USDA pour les restes',
+      failureHeading: 'Pourquoi la sauce brûle avant que l’aile soit chaude',
+      failureBody:
+        'La plupart des sauces pour ailes reposent sur le sucre : miel, sucre roux, ketchup, sauce barbecue ou sauce chili douce. Le sucre commence à caraméliser à une température bien plus basse que celle qu’il faut pour chauffer une aile froide jusqu’à l’os, et dans une friteuse à air la sauce est à l’extérieur, en plein dans l’air chaud. Le glaçage fonce donc, puis devient amer et noir, alors que la viande est encore froide dedans. La sauce buffalo contient moins de sucre, mais elle se sépare et laisse une flaque de beurre. La solution : réchauffer l’aile, pas la sauce. Raclez ou essuyez le glaçage épais, réchauffez les ailes presque nature, puis enrobez-les à la fin de sauce neuve ou tiédie. Les ailes aux épices sèches peuvent y aller directement.',
+      workedExampleHeading: 'Exemple concret : une boîte d’ailes à emporter',
+      workedExampleTemplate:
+        'Huit ailes barbecue restantes, débarrassées de la sauce la plus épaisse. Préchauffez {PREHEAT} minutes, étalez-les en une seule couche et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en secouant une fois. Les petits manchons et ailerons demandent environ {SMALL_MIN} minutes et les grosses ailes environ {LARGE_MIN}. Enrobez de sauce tiède et remettez une minute pour la fixer. Dans un four traditionnel, les mêmes ailes se réchauffent à {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elles sont prêtes',
+      donenessBody:
+        'Vérifiez le manchon le plus charnu près de l’os : la recommandation de l’USDA est de {INT_F}°F ({INT_C}°C) pour les restes réchauffés. La peau doit être croustillante et grésillante, et la sauce restante doit bouillonner, pas noircir. Des bords foncés avec un centre froid signifient qu’il restait trop de sauce.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Gardez la sauce restée dans la boîte pour la réchauffer à part. Essuyez les ailes collantes avec du papier absorbant ; une fine pellicule ne pose pas de problème. Séparez les ailes collées entre elles pour que l’air atteigne chaque face. Pas besoin d’huile. Des ailes en sauce depuis la veille en ont absorbé une partie par la peau : elles ne seront jamais aussi croustillantes que des ailes aux épices sèches, mais le réchauffage court et la sauce neuve s’en approchent. Réchauffez-les en une seule couche, en deux fois si besoin.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer des ailes à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des ailes classiques, en secouant une fois. Les petites demandent environ {SMALL_MIN} minutes et les grosses environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Pourquoi mes ailes réchauffées brûlent-elles ?',
+          a: 'Le sucre de la sauce caramélise bien avant que la viande soit chaude. Retirez d’abord la sauce épaisse et ajoutez de la sauce neuve à la fin.',
+        },
+        {
+          q: 'Peut-on réchauffer des buffalo wings à la friteuse à air ?',
+          a: 'Oui. La sauce buffalo tranche au réchauffage : réchauffez les ailes nature et enrobez-les ensuite de sauce tiède.',
+        },
+        {
+          q: 'Quelle température doivent atteindre les ailes réchauffées ?',
+          a: '{INT_F}°F ({INT_C}°C) près de l’os, la recommandation de l’USDA pour tous les restes réchauffés.',
+        },
+        {
+          q: 'Comment réchauffer des ailes au four ?',
+          a: 'Sur une grille au-dessus d’une plaque à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, puis enrobez de sauce.',
+        },
+      ],
+    },
+    'reheat-steak': {
+      label: 'Reste de steak',
+      metaTitle: 'Réchauffer un steak à la friteuse à air : {INT_F}°F ou rosé',
+      metaDescription:
+        'Réchauffez un reste de steak à la friteuse à air à {AF_F}°F : environ {MIN} minutes pour atteindre les {INT_F}°F de l’USDA pour les restes, ou arrêtez plus tôt pour le garder saignant. Les deux, clairement.',
+      metaKeywords: 'réchauffer steak friteuse à air, comment réchauffer une viande air fryer, reste de steak friteuse sans huile, réchauffer steak sans trop le cuire',
+      heading: 'Réchauffer un steak à la friteuse à air',
+      subDesc:
+        'Un reste de steak, entier ou tranché. Le réglage bas, les deux objectifs différents de cuisson et de sécurité, et pourquoi le trancher avant donne le meilleur des deux.',
+      cardDesc: 'Chaleur basse, et thermomètre dès le retournement.',
+      sizeLabels: { thin: 'Steak tranché', medium: 'Steak entier, environ 2,5 cm', thick: 'Steak entier, environ 4 cm' },
+      internalLine: 'Recommandation de l’USDA pour les restes : {INT_F}°F ({INT_C}°C) à cœur',
+      internalAltLine:
+        'Pour le garder saignant : {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), atteint en général vers {FLIP} min. S’arrêter là, c’est votre choix.',
+      failureHeading: 'Sûr ou rosé : deux objectifs qui ne se rejoignent pas',
+      failureBody:
+        'Un steak cuit saignant a terminé à environ {INT_ALT_TO_F}°F à cœur. La recommandation de l’USDA pour réchauffer tout reste est de {INT_F}°F, et porter le centre d’un steak à cette température le cuit bien cuit. Aucun réglage ne fait les deux, alors cette page vous donne les deux chiffres et vous laisse choisir. C’est la température basse qui rend chaque option réussie : à chaleur douce, l’extérieur ne durcit pas et ne grisaille pas pendant que le centre chauffe, si bien que le steak chauffe de façon homogène. La durée indiquée est une estimation pour qu’un steak entier atteigne {INT_F}°F, pas un chiffre testé, car l’épaisseur et la température du frigo varient. Commencez à mesurer au thermomètre au retournement et décidez d’après la lecture.',
+      workedExampleHeading: 'Exemple concret : un reste de faux-filet',
+      workedExampleTemplate:
+        'Un faux-filet d’environ 2,5 cm de la veille, sorti du frigo. Préchauffez {PREHEAT} minutes et réchauffez à {AF_F}°F, en le retournant à {FLIP} minutes et en mesurant le centre à ce moment-là. Pour les {INT_F}°F de l’USDA, comptez environ {MEDIUM_MIN} minutes au total ; un steak de 4 cm demande environ {THICK_MIN}. Un steak tranché est chaud à cœur en {THIN_MIN} minutes environ. Dans un four traditionnel, la méthode lente est {OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une grille.',
+      donenessHeading: 'Comment le vérifier',
+      donenessBody:
+        'Utilisez un thermomètre à lecture instantanée au centre même de la partie la plus épaisse. Au retournement, une lecture de {INT_ALT_F}–{INT_ALT_TO_F}°F signifie que le steak est chaud et encore rosé ; continuez jusqu’à {INT_F}°F ({INT_C}°C) si vous suivez la recommandation de l’USDA pour les restes. La surface doit grésiller, sans sécher ni se recroqueviller sur les bords.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Laissez le steak dehors pendant que la friteuse chauffe, pour que le centre soit moins froid. Badigeonnez-le d’un peu d’huile ou de beurre pour que la surface ne sèche pas. Gardez le jus de l’assiette et versez-le dessus avant de servir.',
+      faqs: [
+        {
+          q: 'Comment réchauffer un steak à cœur sans trop le cuire ?',
+          a: 'Tranchez-le avant de le réchauffer si vous le voulez chaud à cœur sans trop le cuire. Les tranches fines atteignent {INT_F}°F en {THIN_MIN} minutes environ, avant de devenir grises et dures.',
+        },
+        {
+          q: 'Quelle température doit atteindre un steak réchauffé ?',
+          a: 'La recommandation de l’USDA pour les restes est de {INT_F}°F ({INT_C}°C). Beaucoup s’arrêtent à {INT_ALT_F}–{INT_ALT_TO_F}°F pour le garder rosé ; c’est votre choix.',
+        },
+        {
+          q: 'La durée de cette page est-elle exacte ?',
+          a: 'Non. C’est une estimation pour un steak de 2,5 cm sorti du frigo. Commencez à mesurer au thermomètre à {FLIP} minutes et fiez-vous à la lecture.',
+        },
+        {
+          q: 'Pourquoi une température si basse ?',
+          a: 'Une chaleur douce réchauffe le centre avant que l’extérieur ne sèche, et le steak garde la même couleur du bord au centre.',
+        },
+        {
+          q: 'Comment réchauffer un steak au four ?',
+          a: 'Sur une grille à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, puis saisissez-le brièvement dans une poêle très chaude si vous voulez retrouver la croûte.',
+        },
+      ],
+    },
+    cookies: {
+      label: 'Cookies',
+      metaTitle: 'Cookies à la friteuse à air : durée, température et papier',
+      metaDescription:
+        'Faites des cookies à la friteuse à air : {AF_F}°F pendant {MIN} minutes à partir de la pâte. Pourquoi la pâte légère et le papier cuisson s’envolent avec le ventilateur, durées par taille et équivalent au four.',
+      metaKeywords: 'cookies friteuse à air, cookies air fryer temps et température, cookies pépites de chocolat friteuse sans huile, cuire des cookies à la friteuse à air',
+      heading: 'Cookies à la friteuse à air',
+      subDesc:
+        'Des cookies à la cuillère cuits quelques-uns à la fois, avec une pâte fraîche ou surgelée. Le réglage plus bas, comment garder le papier en place et quand les sortir.',
+      cardDesc: 'Lestez le papier avec la pâte elle-même.',
+      sizeLabels: { small: 'Petits, une cuillère à soupe rase', medium: 'Moyens, environ 2 cuillères à soupe', large: 'Grands, format boulangerie' },
+      failureHeading: 'Pourquoi le papier et la pâte s’envolent avec le ventilateur',
+      failureBody:
+        'Le ventilateur d’une friteuse à air est puissant, et une feuille de papier cuisson posée seule ne pèse rien. Mettez le papier à préchauffer seul et il s’envole vers la résistance, où il peut roussir. Même avec de la pâte dessus, un coin nu se soulève et se replie sur les cookies. La pâte elle-même est le second souci : une pâte molle s’étale en chauffant, et l’air qui balaie le dessus le fige trop tôt, si bien que les cookies bombent et se fendent au lieu de s’étaler régulièrement. Les solutions sont simples. N’ajoutez le papier qu’avec la pâte déjà dessus, recoupez-le pour qu’aucun bord ne dépasse et laissez de l’espace entre les boules. Le réglage plus bas ralentit le dessus pour que le cookie s’étale avant de prendre.',
+      workedExampleHeading: 'Exemple concret : cookies aux pépites de chocolat',
+      workedExampleTemplate:
+        'Une fournée de pâte à cookies aux pépites de chocolat qui indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four. Dans une friteuse à air à panier, faites cuire à {AF_F}°F pendant {MEDIUM_MIN} minutes. Préchauffez {PREHEAT} minutes, posez quatre boules d’environ deux cuillères à soupe sur le papier recoupé et glissez-le dans le panier. Les petits cookies demandent environ {SMALL_MIN} minutes et les grands, format boulangerie, environ {LARGE_MIN}. Laissez chaque fournée raffermir sur le papier avant de la déplacer.',
+      donenessHeading: 'Comment savoir qu’ils sont cuits',
+      donenessBody:
+        'Les bords doivent être pris et légèrement dorés, tandis que le centre paraît encore un peu mou et gonflé ; il se raffermit en refroidissant. Un cure-dent planté au milieu doit ressortir avec des miettes humides, pas de pâte crue. Des cookies brun foncé sont allés trop loin. Laissez-les sur le papier le temps qu’ils se raffermissent, puis passez-les sur une grille, où le dessous reste croustillant.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Mettez brièvement au frais une pâte très molle pour qu’elle garde sa forme. Découpez le papier à la taille du fond du panier, plus petit que la base, ou utilisez une feuille perforée. Faites-en quatre à six à la fois, avec de la place pour s’étaler. Les boules de pâte surgelées vont telles quelles, avec une ou deux minutes de plus.',
+      faqs: [
+        {
+          q: 'Combien de temps cuisent les cookies à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des cookies moyens. Les petits demandent environ {SMALL_MIN} minutes et les grands environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il du papier cuisson pour les cookies à la friteuse à air ?',
+          a: 'Il aide à les décoller proprement, mais ne le mettez qu’avec la pâte dessus et recoupé à la bonne taille, pour que le ventilateur ne le projette pas sur la résistance.',
+        },
+        {
+          q: 'Peut-on cuire de la pâte à cookies surgelée à la friteuse à air ?',
+          a: 'Oui, directement sortie du congélateur. Ajoutez une ou deux minutes et vérifiez le centre au cure-dent.',
+        },
+        {
+          q: 'Pourquoi mes cookies sont-ils bombés et pâles dessous ?',
+          a: 'Le dessus a pris avant que la pâte ait pu s’étaler. Utilisez le réglage plus bas et aplatissez un peu les boules.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une plaque chemisée dans un four traditionnel.',
+        },
+      ],
+    },
+    muffins: {
+      label: 'Muffins',
+      metaTitle: 'Muffins à la friteuse à air : durée, température et moules',
+      metaDescription:
+        'Faites des muffins à la friteuse à air : {AF_F}°F pendant {MIN} minutes. Moules en silicone ou petit moule qui rentre, pourquoi un moule à 12 ne rentre pas et comment vérifier le centre.',
+      metaKeywords: 'muffins friteuse à air, muffins air fryer temps et température, muffins myrtilles friteuse sans huile, cuire des muffins à la friteuse à air',
+      heading: 'Muffins à la friteuse à air',
+      subDesc:
+        'Des muffins cuits par fournées dans une friteuse à air à panier. Le réglage, les moules qui rentrent et comment éviter que le dessus dore avant que le centre soit cuit.',
+      cardDesc: 'Moules en silicone, et jugez le centre, pas le dessus.',
+      sizeLabels: { small: 'Mini muffins', medium: 'Muffins classiques', large: 'Gros muffins ou format boulangerie' },
+      failureHeading: 'Pourquoi le dessus dore pendant que le centre reste cru',
+      failureBody:
+        'Dans un four, un muffin chauffe de tous les côtés dans un air calme. Dans une friteuse à air, la chaleur se déverse sur le dessus : le dôme dore tôt et paraît cuit alors que le centre est encore de la pâte. La couleur est le piège : un muffin bien doré peut être cru au milieu. Le réglage plus bas proposé ici ralentit le dessus pour que l’intérieur le rattrape, et la durée suppose que vous vérifiez le centre, pas la couleur. Les muffins riches en pâte, en fruits ou en yaourt contiennent plus d’eau et demandent la durée complète. Si le dessus fonce bien avant la fin, posez une petite feuille d’aluminium sans serrer pour le reste de la cuisson, bien coincée pour que le ventilateur ne la soulève pas.',
+      workedExampleHeading: 'Exemple concret : six muffins aux myrtilles',
+      workedExampleTemplate:
+        'Une recette de muffins aux myrtilles qui indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four. Dans une friteuse à air à panier, faites cuire à {AF_F}°F pendant {MEDIUM_MIN} minutes. Préchauffez {PREHEAT} minutes, remplissez six moules en silicone aux deux tiers et posez-les avec de l’espace entre eux. Les mini muffins demandent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}. Faites cuire le reste de la pâte en une deuxième fournée.',
+      donenessHeading: 'Comment savoir qu’ils sont cuits',
+      donenessBody:
+        'Plantez un cure-dent au centre du muffin du milieu : il doit ressortir propre ou avec quelques miettes sèches, jamais avec de la pâte humide. Le dessus doit reprendre sa forme quand on appuie doucement. Ignorez la couleur, qui devance l’intérieur dans une friteuse à air. Les muffins au bord du panier cuisent plus vite que ceux du centre : testez celui du milieu et intervertissez-les à mi-cuisson si votre panier dore de façon inégale. Laissez-les reposer dans leurs moules avant de démouler.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Utilisez des moules en silicone, des caissettes en aluminium doublées pour qu’elles tiennent, ou un petit moule à muffins qui pose à plat au fond du panier. Un moule classique à 12 empreintes ne rentre pas dans un panier de 5 qt (environ 4,7 litres). Remplissez aux deux tiers et laissez des espaces pour que l’air circule entre les moules.',
+      faqs: [
+        {
+          q: 'Combien de temps cuisent les muffins à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des muffins classiques. Les mini demandent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Un moule à muffins rentre-t-il dans ma friteuse à air ?',
+          a: 'Un moule à 12 empreintes ne rentre pas dans un panier de 5 qt. Utilisez des moules en silicone ou un petit moule à 4 ou 6 empreintes qui pose à plat au fond.',
+        },
+        {
+          q: 'Peut-on utiliser des caissettes en papier ?',
+          a: 'Seulement à l’intérieur de moules en silicone ou en aluminium. Seules, les caissettes en papier sont trop souples pour tenir la pâte et peuvent se renverser.',
+        },
+        {
+          q: 'Pourquoi mes muffins sont-ils crus au milieu ?',
+          a: 'Le dessus a doré en premier et ils sont sortis sur la couleur. Vérifiez le centre au cure-dent et baissez la chaleur si le dessus fonce tôt.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un moule à 12 muffins dans un four traditionnel.',
+        },
+      ],
+    },
+    brownies: {
+      label: 'Brownies',
+      metaTitle: 'Brownies à la friteuse à air : taille du moule, durée et température',
+      metaDescription:
+        'Faites un brownie à la friteuse à air : {AF_F}°F pendant {MIN} minutes dans un moule de 18 cm. Les moules qui rentrent dans un panier de 5 qt, comment diviser une recette de 23×23 par deux et l’équivalent au four.',
+      metaKeywords: 'brownie friteuse à air, brownie air fryer temps et température, moule brownie friteuse sans huile, cuire un brownie à la friteuse à air',
+      heading: 'Brownies à la friteuse à air',
+      subDesc:
+        'Un petit moule de brownie cuit dans une friteuse à air à panier. Le moule qui rentre, comment adapter une recette classique et comment obtenir un cœur fondant sans bords durs.',
+      cardDesc: 'Un moule de 15–18 cm, et une recette de 23×23 divisée par deux.',
+      sizeLabels: { small: 'Moule rond de 15 cm', medium: 'Moule carré de 18 cm', thick: 'Fournée plus haute ou très fondante' },
+      failureHeading: 'Pourquoi les bords cuisent trop pendant que le centre reste humide',
+      failureBody:
+        'La pâte à brownie est dense et lourde, et dans un moule en métal les bords reçoivent la chaleur la plus forte, contre les parois chaudes et juste sous le ventilateur. Ils prennent et sèchent bien avant le centre, isolé par la pâte de tous côtés. Montez la chaleur pour presser le centre et vous obtenez un bord dur et une croûte qui se fend et se décolle d’un cœur cru. Le réglage plus bas laisse à la chaleur le temps d’atteindre le centre. La taille du moule compte tout autant : un panier de 5 qt mesure environ 20–22 cm de large, donc un moule de 15 ou 18 cm rentre en laissant l’air circuler autour. Une recette classique de 23×23 cm doit être divisée par deux ou cuite en deux fois ; versée plus haut dans un petit moule, elle ne prendra pas au centre.',
+      workedExampleHeading: 'Exemple concret : une demi-recette de 23×23',
+      workedExampleTemplate:
+        'Une recette de brownie de 23×23 cm qui indique {OVEN_F}°F pendant {OVEN_MIN} minutes, divisée par deux et versée dans un moule carré chemisé de 18 cm. Préchauffez {PREHEAT} minutes et faites cuire à {AF_F}°F pendant {MEDIUM_MIN} minutes. Un moule rond de 15 cm demande environ {SMALL_MIN} minutes, et une fournée plus haute ou très fondante environ {THICK_MIN}. Laissez refroidir dans le moule avant de couper.',
+      donenessHeading: 'Comment savoir qu’il est cuit',
+      donenessBody:
+        'Un cure-dent planté au centre doit ressortir avec des miettes humides, pas de pâte liquide. Le dessus doit paraître sec et un peu craquelé sur les bords, avec à peine un léger tremblement au centre. Le brownie continue de cuire dans le moule chaud : sortez-le un peu tôt. Ne le coupez qu’une fois complètement refroidi, pour des carrés nets.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Chemisez le moule de papier cuisson en laissant dépasser deux côtés pour soulever le brownie. Vérifiez que le moule pose à plat avec de l’espace tout autour. Si le dessus fonce tôt, couvrez-le sans serrer d’aluminium, rentré sous le moule pour qu’il ne s’envole pas.',
+      faqs: [
+        {
+          q: 'Combien de temps cuit un brownie à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F dans un moule carré de 18 cm. Un moule rond de 15 cm demande environ {SMALL_MIN} minutes et une fournée plus haute environ {THICK_MIN}.',
+        },
+        {
+          q: 'Quelle taille de moule rentre dans une friteuse à air de 5 qt ?',
+          a: 'Un moule rond ou carré de 15 ou 18 cm. Le panier mesure environ 20–22 cm de large, et l’air a besoin d’espace autour du moule.',
+        },
+        {
+          q: 'Peut-on faire une recette de brownie de 23×23 à la friteuse à air ?',
+          a: 'Divisez-la par deux ou cuisez-la en deux fois. Versée dans un seul petit moule, elle est trop haute pour prendre au centre.',
+        },
+        {
+          q: 'Peut-on utiliser une préparation pour brownie en boîte ?',
+          a: 'Oui. La plupart des boîtes sont prévues pour un moule de 20 ou 23 cm : utilisez la moitié de la pâte par fournée et suivez les durées indiquées ici.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes pour le même moule dans un four traditionnel.',
+        },
+      ],
+    },
+    'garlic-bread': {
+      label: 'Pain à l’ail',
+      metaTitle: 'Pain à l’ail à la friteuse à air : frais ou surgelé',
+      metaDescription:
+        'Pain à l’ail à la friteuse à air : {AF_F}°F pendant {MIN} minutes, croustillant et doré. Tranches, demi-baguette ou pain à l’ail surgelé, et l’équivalent au four.',
+      metaKeywords: 'pain à l’ail friteuse à air, pain à l’ail air fryer durée, pain à l’ail surgelé friteuse sans huile, pain à l’ail maison friteuse à air',
+      heading: 'Pain à l’ail à la friteuse à air',
+      subDesc:
+        'Pain à l’ail maison ou du commerce, grillé et croustillant sur les bords, moelleux au milieu. Le réglage, et comment empêcher l’ail de brûler.',
+      cardDesc: 'Gardez l’ail sous le beurre, pas dessus.',
+      sizeLabels: { thin: 'Pain à l’ail en tranches', medium: 'Demi-baguette, face coupée vers le haut', thick: 'Tartine épaisse ou pain à l’ail surgelé' },
+      failureHeading: 'Pourquoi l’ail brûle et devient amer',
+      failureBody:
+        'L’ail haché est petit, sec et riche en sucres, et sur le pain il se retrouve en plein dans l’air le plus chaud. Il passe de doré à brun puis à noir amer en moins d’une minute, souvent avant que le pain en dessous soit grillé. Le beurre fait partie du problème : il fond et coule de la surface, laissant l’ail à nu et sec. La solution tient à la façon de tartiner. Écrasez l’ail dans du beurre mou pour que chaque morceau soit enrobé, étalez jusqu’aux bords et pressez-le dans la mie. L’ail râpé brûle moins que l’ail haché, et l’ail en poudre ne brûle presque pas. Un réglage moyen grille le pain à cœur pendant que le dessus dore, sans foncer.',
+      workedExampleHeading: 'Exemple concret : une demi-baguette',
+      workedExampleTemplate:
+        'Une demi-baguette ouverte dans la longueur et tartinée de beurre à l’ail. Une recette au four indiquerait {OVEN_F}°F pendant environ {OVEN_MIN} minutes. Dans une friteuse à air à panier, préchauffez {PREHEAT} minutes et faites griller face coupée vers le haut à {AF_F}°F pendant {MEDIUM_MIN} minutes. Les tranches seules demandent environ {THIN_MIN} minutes, et une tartine épaisse ou un pain à l’ail surgelé environ {THICK_MIN}.',
+      donenessHeading: 'Comment savoir qu’il est prêt',
+      donenessBody:
+        'Les bords doivent être croustillants et bien dorés, et le beurre doit bouillonner dans le pain plutôt que faire une flaque dessus. Appuyez au milieu : il doit rester moelleux. Le moindre ail brun foncé signifie que la fournée suivante demande moins de temps ou plus de beurre autour de l’ail.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Utilisez du beurre mou, pas fondu, pour qu’il reste là où vous l’étalez. N’ajoutez le persil ou le fromage râpé qu’à la dernière minute. Coupez les pains longs pour qu’ils rentrent dans le panier et posez les morceaux en une seule couche. Le pain de la veille convient très bien, car sa mie plus sèche absorbe le beurre au lieu de ramollir. Le pain à l’ail surgelé va directement du congélateur, sans décongeler, sinon le beurre s’échappe avant que la croûte croustille. S’il est emballé dans de l’aluminium, retirez-le pour la friteuse à air.',
+      faqs: [
+        {
+          q: 'Combien de temps cuit le pain à l’ail à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour une demi-baguette. Les tranches demandent environ {THIN_MIN} minutes et les morceaux épais ou surgelés environ {THICK_MIN}.',
+        },
+        {
+          q: 'Pain à l’ail frais ou surgelé : quelle différence ?',
+          a: 'Le pain à l’ail frais a seulement besoin d’être grillé. Le surgelé va directement du congélateur et demande la durée la plus longue, pour que le centre décongèle et ramollisse avant que le dessus croustille.',
+        },
+        {
+          q: 'Pourquoi mon ail brûle-t-il à la friteuse à air ?',
+          a: 'Il est à découvert dans l’air le plus chaud. Écrasez-le dans du beurre mou et pressez-le dans le pain pour le protéger.',
+        },
+        {
+          q: 'Peut-on ajouter du fromage ?',
+          a: 'Oui, pour la dernière minute ou deux. Ajouté au début, il dore avant que le pain soit grillé.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une plaque dans un four traditionnel.',
+        },
+      ],
+    },
+    'corn-on-the-cob': {
+      label: 'Épis de maïs',
+      metaTitle: 'Épis de maïs à la friteuse à air : durée, température et taille',
+      metaDescription:
+        'Épis de maïs à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournés à {FLIP}. Grains juteux et légèrement grillés, pourquoi couper les épis longs et l’équivalent au four.',
+      metaKeywords: 'épi de maïs friteuse à air, maïs grillé air fryer, combien de temps épi de maïs friteuse sans huile, maïs en épi friteuse à air',
+      heading: 'Épis de maïs à la friteuse à air',
+      subDesc:
+        'Du maïs frais rôti jusqu’à être sucré, juteux et légèrement grillé. Le réglage, l’unique retournement et comment faire tenir des épis entiers dans un panier.',
+      cardDesc: 'Coupez les épis longs et enrobez-les de beurre ou d’huile.',
+      sizeLabels: { small: 'Demi-épis ou petits épis', medium: 'Épis moyens, coupés pour rentrer', large: 'Gros épis épais, coupés' },
+      failureHeading: 'Pourquoi les grains se dessèchent et se rident',
+      failureBody:
+        'Le maïs bouilli baigne dans l’eau, il ne peut donc que devenir plus humide. Dans une friteuse à air, c’est l’inverse : l’air chaud en mouvement retire l’eau de chaque grain exposé, et un épi nu laissé trop longtemps finit ridé, caoutchouteux et pâle. Ce qui le protège, c’est une couche de matière grasse. Le beurre ou l’huile scellent les grains pour qu’ils chauffent et deviennent juteux, pendant que le gras dore par endroits et donne ce goût de grillé au barbecue. La taille compte aussi. La plupart des épis entiers sont plus longs qu’un panier de 5 qt, et un épi coincé en biais touche les parois, cuit à la vapeur aux extrémités et bloque l’air. Coupez tout épi plus long que le panier pour que les morceaux reposent à plat en une couche.',
+      workedExampleHeading: 'Exemple concret : quatre épis',
+      workedExampleTemplate:
+        'Quatre épis moyens, épluchés, coupés en deux et badigeonnés de beurre fondu et de sel. Préchauffez {PREHEAT} minutes, posez les moitiés en une couche et faites rôtir à {AF_F}°F pendant {MEDIUM_MIN} minutes, en les retournant à {FLIP}. Les petits épis ou les morceaux courts demandent environ {SMALL_MIN} minutes, et les gros épis épais environ {LARGE_MIN}. Sur une plaque dans un four traditionnel, le même maïs demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’il est cuit',
+      donenessBody:
+        'Les grains doivent être jaune vif, bien pleins et brillants, avec quelques points dorés. Pressez-en un avec l’ongle : il doit éclater et rendre du jus. Des grains ternes et creusés signifient que le maïs s’est desséché, faute de gras ou par excès de temps.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Retirez entièrement les feuilles et les barbes. Coupez chaque épi avec un couteau lourd, en basculant la lame à travers le cœur plutôt qu’en sciant. Badigeonnez de beurre ou d’huile sur tout le tour, et assaisonnez après cuisson si vous utilisez un mélange d’épices qui brûle. Paprika fumé, piment et parmesan râpé vont très bien sur le maïs chaud avec un peu plus de beurre. Un maïs très frais et sucré demande la durée la plus courte ; les épis plus vieux et farineux de fin de saison mettent un peu plus longtemps à devenir tendres.',
+      faqs: [
+        {
+          q: 'Combien de temps cuisent les épis de maïs à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des épis moyens, retournés à {FLIP}. Les petits demandent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il couper le maïs pour qu’il rentre dans la friteuse à air ?',
+          a: 'En général, oui. Coupez tout épi plus long que le panier pour qu’il repose à plat ; les épis coincés cuisent de façon inégale.',
+        },
+        {
+          q: 'Peut-on cuire le maïs dans ses feuilles ?',
+          a: 'C’est possible, mais il cuit à la vapeur au lieu de rôtir et les feuilles sèches peuvent roussir. Épluché et beurré donne le meilleur résultat.',
+        },
+        {
+          q: 'Peut-on cuire des épis de maïs surgelés à la friteuse à air ?',
+          a: 'Oui, directement surgelés. Ajoutez quelques minutes et badigeonnez de beurre à mi-cuisson, une fois la glace partie.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une plaque dans un four traditionnel, en les retournant une fois.',
+        },
+      ],
+    },
+    'frozen-vegetables': {
+      label: 'Légumes surgelés',
+      metaTitle: 'Légumes surgelés à la friteuse à air : rôtis, pas ramollis',
+      metaDescription:
+        'Légumes surgelés à la friteuse à air : {AF_F}°F pendant {MIN} minutes, en secouant {SHAKES} fois, directement du sachet. Comment les rôtir au lieu de les cuire à la vapeur, et l’équivalent de l’emballage.',
+      metaKeywords: 'légumes surgelés friteuse à air, légumes surgelés air fryer, rôtir des légumes surgelés friteuse sans huile, poêlée de légumes surgelés friteuse à air',
+      heading: 'Légumes surgelés à la friteuse à air',
+      subDesc:
+        'Légumes mélangés, petits pois, maïs ou bouquets directement sortis du congélateur, rôtis plutôt que cuits à la vapeur. Sans décongélation, et pourquoi la quantité dans le panier décide du résultat.',
+      cardDesc: 'Ne les décongelez jamais : directement, un demi-panier au plus.',
+      sizeLabels: { small: 'Petits pois, maïs ou mélange en dés', medium: 'Légumes mélangés', large: 'Bouquets de brocoli ou de chou-fleur' },
+      failureHeading: 'Pourquoi les légumes surgelés sortent mous et détrempés',
+      failureBody:
+        'Les légumes surgelés sont blanchis avant d’être congelés, et les cristaux de glace qui se forment à l’intérieur font éclater beaucoup de leurs parois cellulaires. En chauffant, cette structure abîmée lâche son eau d’un coup, en plus du givre en surface. Dans un panier plein, l’eau n’a nulle part où aller : elle stagne, se change en vapeur et fait bouillir les légumes jusqu’à les rendre mous et gris avant qu’aucun ne puisse dorer. La réponse : moins de légumes et pas de décongélation. Des légumes décongelés ont déjà rendu leur eau et deviennent flasques aussitôt ; surgelés, ils gardent leur forme pendant que l’extérieur sèche. Ne remplissez pas le panier à plus de moitié, pour que la vapeur s’échappe, et les légumes rôtiront dans la chaleur sèche qui suit.',
+      workedExampleHeading: 'Exemple concret : un sachet de légumes mélangés',
+      workedExampleTemplate:
+        'Un demi-sachet de légumes mélangés surgelés qui indique de les rôtir à {OVEN_F}°F pendant {OVEN_MIN} minutes. Dans une friteuse à air à panier, préchauffez {PREHEAT} minutes, versez-les encore surgelés avec une cuillère à soupe d’huile et faites cuire à {AF_F}°F pendant {MEDIUM_MIN} minutes, en secouant {SHAKES} fois. Les petits pois, le maïs et les petits mélanges en dés demandent environ {SMALL_MIN} minutes ; les gros bouquets environ {LARGE_MIN}.',
+      donenessHeading: 'Comment savoir qu’ils sont cuits',
+      donenessBody:
+        'Le panier doit être sec, sans eau au fond, et les bords des légumes doivent présenter des points dorés. Les carottes et les bouquets doivent être tendres sous la pointe d’un couteau, sans être en purée. Une flaque sous des légumes pâles et mous signifie que le panier était trop plein.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Défaites les blocs gelés dans le sachet. Mélangez avec l’huile juste avant la cuisson ; elle accroche moins bien aux morceaux givrés, alors remuez de nouveau à la première secousse. Salez et épicez à la fin, car la vapeur du début emporte tout. Les sachets mêlant gros et petits morceaux cuisent de façon inégale : retirez les petits s’ils commencent à brûler, ou faites le mélange en deux fois. Les sachets de légumes déjà en sauce ou au beurre n’indiquent souvent que le micro-ondes ; la sauce brûle dans une friteuse à air, prenez donc des légumes nature.',
+      faqs: [
+        {
+          q: 'Combien de temps cuisent les légumes surgelés à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des légumes mélangés, en secouant {SHAKES} fois. Les petits morceaux demandent environ {SMALL_MIN} minutes et les gros bouquets environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il décongeler les légumes avant la friteuse à air ?',
+          a: 'Non. Des légumes décongelés ont déjà rendu leur eau et deviennent flasques. Cuisez-les directement surgelés.',
+        },
+        {
+          q: 'Pourquoi mes légumes surgelés sont-ils mous à la friteuse à air ?',
+          a: 'Le panier était trop plein et leur eau les a cuits à la vapeur. Utilisez au plus un demi-panier à la fois.',
+        },
+        {
+          q: 'Est-ce différent du brocoli frais ?',
+          a: 'Oui. Les bouquets frais demandent un réglage plus court et plus doux ; les surgelés ont besoin de plus de chaleur et de temps pour éliminer d’abord la glace.',
+        },
+        {
+          q: 'Que dit l’emballage pour le four ?',
+          a: 'La plupart des sachets indiquent {OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel.',
+        },
+      ],
+    },
   },
 };
 
 export const presetsIndex: Dictionary['presetsIndex'] = {
   metaTitle: 'Préréglages friteuse à air : temps et température pour chaque aliment',
   metaDescription:
-    'Temps et température à la friteuse à air pour le poulet, les ailes, le saumon, le bacon, le steak, les pommes de terre et plus : chaque préréglage avec la température à cœur, les durées par taille et l’équivalent au four.',
+    'Temps et température à la friteuse à air pour le poulet, le saumon, le steak, les pommes de terre, la pâtisserie, les surgelés et les restes : chaque préréglage avec la température à cœur ou le test de cuisson, les durées par taille et l’équivalent au four.',
   metaKeywords: 'temps de cuisson air fryer, tableau temps température air fryer, préréglages air fryer',
   backLink: 'Tous les outils',
   heading: 'Préréglages d’aliments pour friteuse à air',
@@ -1450,7 +1962,7 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
   },
   howHeading: 'Comment ces préréglages sont établis',
   howBody:
-    'Chaque préréglage part d’une friteuse à air à panier de 4 à 6 litres, préchauffé, avec l’aliment en une seule couche. Les équivalents au four traditionnel et à chaleur tournante de chaque page sont calculés par le même moteur que le convertisseur, ils concordent donc entre eux, et le convertisseur de chaque page est déjà réglé sur cet aliment si vous partez d’une recette au four. Chaque page commence par la façon précise dont cet aliment rate à la friteuse à air, car c’est cela qui décide du résultat plus que le chiffre sur le cadran. Pas d’e-mail, pas d’inscription, rien à installer.',
+    'Chaque préréglage part d’une friteuse à air à panier de 4 à 6 litres, préchauffée, avec l’aliment en une seule couche. Pour les préréglages de cuisson, les équivalents au four traditionnel et à chaleur tournante sont calculés par le même moteur que le convertisseur, ils concordent donc entre eux, et le convertisseur de la page est déjà réglé sur cet aliment. Les préréglages surgelés affichent à la place ce que dit l’emballage. Le réchauffage est différent : le moteur convertit des recettes de cuisson, pas des réchauffages, donc les durées de réchauffage et leurs équivalents au four sont saisis à la main, et le convertisseur de ces pages convertit des recettes au four. Chaque page commence par la façon précise dont cet aliment rate à la friteuse à air, car c’est cela qui décide du résultat plus que le chiffre sur le cadran. Pas d’e-mail, pas d’inscription, rien à installer.',
   relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
   relatedChartLink: 'Tableau de conversion à imprimer',
 };

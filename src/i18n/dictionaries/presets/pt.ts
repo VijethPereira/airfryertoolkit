@@ -8,6 +8,7 @@ export const presets: Dictionary['presets'] = {
   answerShakeSuffix: ', chacoalhar {SHAKES}×',
   internalTemplate: 'Pronto a {INT_F}°F ({INT_C}°C) na parte mais grossa',
   internalCrisp: 'Pronto pela cor e crocância, não pelo termômetro',
+  internalToothpick: 'O ponto se confere com um palito, não pela cor',
   ovenHeading: 'Equivalente no forno',
   ovenTemplate: 'Forno convencional: {OVEN_F}°F ({OVEN_C}°C, nível de gás {OVEN_MARK}) por {OVEN_MIN} min',
   fanTemplate: 'Forno com ventilação / convecção: {FAN_F}°F ({FAN_C}°C) por {FAN_MIN} min',
@@ -41,7 +42,7 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Porção', airFryer: 'Air fryer', oven: 'Reaquecer no forno' },
     relatedFlagshipLink: 'Conversor de forno para air fryer',
     widgetHeading: 'Vai cozinhar a partir de uma receita de forno?',
-    widgetNote: 'Este conversor transforma receitas de forno em ajustes de air fryer. Ele não serve para reaquecer, por isso começa vazio; para sobras, use o ajuste acima.',
+    widgetNote: 'Este conversor transforma receitas de forno em ajustes de air fryer. Ele não serve para reaquecer, por isso começa com os valores padrão; para sobras, use o ajuste acima.',
   },
   pages: {
     'chicken-breast': {
@@ -1427,13 +1428,524 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'reheat-pizza': {
+      label: 'Sobras de pizza',
+      metaTitle: 'Reaquecer pizza na air fryer: massa crocante, queijo derretido',
+      metaDescription:
+        'Reaqueça sobras de pizza na air fryer: {AF_F}°F por {MIN} minutos para uma base crocante e queijo derretido. Tempos para massa fina, normal e grossa, e o método no forno.',
+      metaKeywords: 'reaquecer pizza air fryer, quanto tempo reaquecer pizza na air fryer, sobra de pizza air fryer, temperatura reaquecer pizza',
+      heading: 'Reaquecer pizza na air fryer',
+      subDesc:
+        'Fatias geladas da geladeira, de volta a uma base crocante e um queijo macio e derretido. O ajuste suave, por que mais calor piora e o que muda na massa grossa.',
+      cardDesc: 'Com menos calor, a base alcança o queijo.',
+      sizeLabels: { thin: 'Fatia de massa fina', medium: 'Fatia normal', thick: 'Fatia de massa grossa ou deep-dish' },
+      failureHeading: 'Por que a base fica mole enquanto o queijo passa do ponto',
+      failureBody:
+        'Uma fatia que acabou de sair da geladeira está fria de cima a baixo, e na air fryer o calor chega por cima. O queijo e a cobertura ficam bem nessa corrente, então derretem, soltam óleo e ficam borrachudos, enquanto a massa embaixo continua fria e um pouco úmida depois de uma noite na caixa. Aumentar a temperatura só aumenta essa diferença. A solução é uma temperatura moderada e um tempo curto, para o calor descer pela fatia e tirar a umidade da base antes que a parte de cima passe do ponto. Coloque as fatias direto no cesto, sem papel-alumínio, para o ar chegar por baixo, e nunca empilhe: uma fatia por cima cozinha a de baixo no vapor.',
+      workedExampleHeading: 'Exemplo prático: duas fatias normais',
+      workedExampleTemplate:
+        'Duas fatias de uma pizza de delivery comum, direto da geladeira. Preaqueça {PREHEAT} minutos, coloque-as lado a lado no cesto e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos. Uma fatia de massa fina fica pronta em cerca de {THIN_MIN}, e uma de massa grossa precisa de cerca de {THICK_MIN}, porque a base grossa demora mais para esquentar. Para reaquecer uma assadeira inteira num forno convencional, são {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que está pronta',
+      donenessBody:
+        'Levante uma fatia com uma pinça: ela deve ficar reta, sem a ponta cair, e o lado de baixo deve parecer seco e levemente tostado. O queijo deve estar derretido e brilhante, começando a borbulhar nas bordas. Se o queijo doura em manchas enquanto a base ainda dobra, o ajuste estava alto demais ou a fatia grossa demais para o tempo.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Tire as fatias da caixa alguns minutos antes para tirar o pior do frio. Retire coberturas frescas como rúcula ou manjericão e coloque de volta depois. Se a fatia estiver muito seca, algumas gotas de água no cesto, ao lado dela e não em cima, deixam o queijo macio.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva para reaquecer pizza na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para uma fatia normal. A massa fina leva cerca de {THIN_MIN} minutos e a grossa cerca de {THICK_MIN}.',
+        },
+        {
+          q: 'Por que não reaquecer pizza numa temperatura mais alta?',
+          a: 'O calor vem de cima, então um ajuste mais alto passa o queijo do ponto antes que a base fria tenha esquentado e secado.',
+        },
+        {
+          q: 'Devo colocar papel-alumínio ou papel-manteiga embaixo da fatia?',
+          a: 'Não. O ar precisa chegar por baixo para deixar crocante. Use forro só em fatias com muito queijo que pingam, e menor que a fatia.',
+        },
+        {
+          q: 'É a mesma coisa que fazer uma pizza congelada?',
+          a: 'Não. Uma pizza congelada está crua em cima e congelada por inteiro, então precisa de outro ajuste; este só aquece e devolve a crocância a uma fatia já assada.',
+        },
+        {
+          q: 'Como reaquecer pizza no forno?',
+          a: 'Coloque as fatias numa assadeira a {OVEN_F}°F por cerca de {OVEN_MIN} minutos, ou numa assadeira preaquecida se quiser a base mais crocante.',
+        },
+      ],
+    },
+    'reheat-fries': {
+      label: 'Sobras de batata frita',
+      metaTitle: 'Reaquecer batata frita na air fryer: crocante de novo',
+      metaDescription:
+        'Reaqueça sobras de batata frita na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando uma vez. Por que a batata do dia anterior fica borrachuda, quanto ela recupera e o método no forno.',
+      metaKeywords: 'reaquecer batata frita air fryer, como reaquecer batata frita na air fryer, sobra de batata frita air fryer, reaquecer batata mcdonalds air fryer',
+      heading: 'Reaquecer batata frita na air fryer',
+      subDesc:
+        'Batata frita do dia anterior, de delivery ou caseira, crocante de novo em poucos minutos. Por que ela fica borrachuda de um dia para o outro e o reaquecimento curto e forte que recupera a maior parte.',
+      cardDesc: 'Curto e forte, com um pouco de óleo, numa camada.',
+      sizeLabels: { small: 'Um punhado pequeno', medium: 'Uma porção de delivery', large: 'Uma porção grande ou familiar' },
+      failureHeading: 'Por que a batata do dia anterior fica borrachuda',
+      failureBody:
+        'Uma batata frita recém-feita é crocante porque a superfície está seca e o interior é amido cozido e macio. Na geladeira esse amido se recristaliza aos poucos e solta água, que encharca a casca por dentro. No dia seguinte o lado de fora está mole e o meio ficou denso e borrachudo. Um reaquecimento longo e suave piora, porque seca o interior até virar papelão antes que a superfície fique crocante. O que funciona é o contrário: um jato curto de ar quente que seca e frita a superfície rápido, com uma camada bem fina de óleo para ajudar, enquanto o interior só esquenta. Batatas finas se recuperam melhor; as grossas nunca voltam totalmente a ser como recém-feitas.',
+      workedExampleHeading: 'Exemplo prático: uma porção de delivery',
+      workedExampleTemplate:
+        'Uma porção de batata frita que sobrou, da geladeira, misturada com meia colher de chá de óleo. Preaqueça {PREHEAT} minutos, espalhe numa camada só e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, chacoalhando uma vez na metade. Um punhado pequeno fica pronto em cerca de {SMALL_MIN} minutos e uma porção grande, numa camada só, em cerca de {LARGE_MIN}. Numa assadeira num forno convencional, as mesmas batatas levam {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que estão prontas',
+      donenessBody:
+        'Pegue uma: ela deve ficar reta e fazer barulho de crocante ao bater no cesto. Abra e o interior deve estar quente, não só morno. Batatas que racham, parecem ocas ou têm gosto de seco ficaram tempo demais; se ainda dobram, estavam amontoadas ou o cesto não foi preaquecido.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Tire o sal solto ou as migalhas, que queimam. Uma quantidade bem pequena de óleo faz muita diferença, porque a maior parte do óleo da fritura foi absorvida. Separe as batatas que grudaram na caixa. Salgue de novo só depois de reaquecer. Batatas guardadas em saco fechado ficam mais úmidas que as guardadas abertas, então dê a elas o tempo maior.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva para reaquecer batata frita na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para uma porção, chacoalhando uma vez. Um punhado pequeno leva cerca de {SMALL_MIN} minutos e uma porção grande cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Dá para reaquecer batata do McDonald’s na air fryer?',
+          a: 'Sim. As batatas finas de fast-food se recuperam melhor que as grossas; confira um minuto antes, porque elas passam de crocantes a secas muito rápido.',
+        },
+        {
+          q: 'Por que minha batata reaquecida ficou dura?',
+          a: 'Ficou tempo demais. Sobras de batata precisam só de um reaquecimento curto e forte; o interior já perdeu água e seca rápido.',
+        },
+        {
+          q: 'Preciso colocar óleo?',
+          a: 'Um pouco ajuda. A maior parte do óleo da fritura foi absorvida durante a noite, então uma camada fina ajuda a superfície a ficar crocante de novo.',
+        },
+        {
+          q: 'Como reaquecer batata frita no forno?',
+          a: 'Espalhe numa assadeira a {OVEN_F}°F por cerca de {OVEN_MIN} minutos, virando uma vez. Uma assadeira preaquecida deixa o lado de baixo crocante mais rápido.',
+        },
+      ],
+    },
+    'reheat-fried-chicken': {
+      label: 'Sobras de frango frito',
+      metaTitle: 'Reaquecer frango frito na air fryer: crocante e quente',
+      metaDescription:
+        'Reaqueça frango frito na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, até {INT_F}°F. Tempos para coxa, sobrecoxa e peito, e o método no forno.',
+      metaKeywords: 'reaquecer frango frito air fryer, quanto tempo reaquecer frango frito na air fryer, sobra de frango frito air fryer, reaquecer kfc air fryer',
+      heading: 'Reaquecer frango frito na air fryer',
+      subDesc:
+        'Sobras de frango frito com osso, de volta a uma casquinha crocante e um centro quente. Por que o empanado amolece na geladeira e como secá-lo antes de colocar.',
+      cardDesc: 'Deixe fora um pouco para a casquinha secar.',
+      sizeLabels: { small: 'Coxa', medium: 'Sobrecoxa', large: 'Peito ou pedaço grande' },
+      internalLine: 'Quente por inteiro a {INT_F}°F ({INT_C}°C) na parte mais grossa: orientação do USDA para sobras',
+      failureHeading: 'Por que o empanado amolece na geladeira',
+      failureBody:
+        'Frango frito é uma casca seca e crocante em volta de uma carne úmida. Depois de uma noite num pote fechado, a umidade passa da carne para o empanado, e o ar frio lá dentro também condensa sobre ele. De manhã a casquinha está mole e um pouco grudenta. Se for direto para a air fryer, essa água tem que sair em forma de vapor antes que o empanado possa ficar crocante, e o lado de fora continua úmido quando a parte do osso finalmente esquenta. A solução começa antes de reaquecer. Tire os pedaços do pote e deixe-os numa grade enquanto a air fryer preaquece, para a superfície secar e o frio diminuir. Depois, um calor moderado termina o trabalho, deixando a casca crocante e levando a carne junto ao osso à temperatura no mesmo ritmo.',
+      workedExampleHeading: 'Exemplo prático: duas sobrecoxas da geladeira',
+      workedExampleTemplate:
+        'Duas sobrecoxas de frango frito que sobraram, descansando descobertas numa grade enquanto a air fryer esquenta. Preaqueça {PREHEAT} minutos, coloque-as com a pele para cima e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Uma coxa precisa de cerca de {SMALL_MIN} minutos e um peito grande de cerca de {LARGE_MIN}. Num forno convencional, os mesmos pedaços reaquecem a {OVEN_F}°F por cerca de {OVEN_MIN} minutos numa grade sobre uma assadeira.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Confira o pedaço mais grosso com um termômetro junto ao osso, sem encostar nele: a orientação do USDA é {INT_F}°F ({INT_C}°C) para sobras reaquecidas. O empanado deve fazer barulho de crocante ao bater e parecer seco, com um pouco de gordura chiando em volta. Um ponto frio junto ao osso com a casca escura indica que o calor estava alto demais para o tamanho.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Deixe os pedaços descobertos enquanto preaquece e tire com papel a gordura que ficou do fundo do pote. Não precisa de mais óleo. Aqueça juntos pedaços de tamanho parecido, ou coloque os menores alguns minutos depois.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva para reaquecer frango frito na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para uma sobrecoxa, virando aos {FLIP}. Uma coxa leva cerca de {SMALL_MIN} minutos e um peito grande cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Que temperatura o frango reaquecido deve atingir?',
+          a: '{INT_F}°F ({INT_C}°C) na parte mais grossa, que é a orientação do USDA para qualquer sobra reaquecida.',
+        },
+        {
+          q: 'Posso reaquecer frango do KFC ou outro delivery assim?',
+          a: 'Sim. O frango de delivery frito sob pressão tem um empanado mais grosso, então use o tempo maior e confira junto ao osso.',
+        },
+        {
+          q: 'Devo borrifar óleo?',
+          a: 'Não. O empanado ainda tem bastante óleo da fritura; mais óleo só deixa engordurado.',
+        },
+        {
+          q: 'Como reaquecer frango frito no forno?',
+          a: 'Numa grade sobre uma assadeira a {OVEN_F}°F por cerca de {OVEN_MIN} minutos. A grade deixa o ar chegar por baixo para não amolecer.',
+        },
+      ],
+    },
+    'reheat-wings': {
+      label: 'Sobras de asinhas',
+      metaTitle: 'Reaquecer asinhas de frango na air fryer: com ou sem molho',
+      metaDescription:
+        'Reaqueça sobras de asinhas de frango na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando uma vez, até {INT_F}°F. Como evitar que o molho grudento queime e o método no forno.',
+      metaKeywords: 'reaquecer asinhas air fryer, quanto tempo reaquecer asa de frango na air fryer, sobra de asinha air fryer, reaquecer buffalo wings air fryer',
+      heading: 'Reaquecer asinhas de frango na air fryer',
+      subDesc:
+        'Sobras de asinhas, com molho ou tempero seco, quentes e crocantes de novo. Por que o molho queima antes de a carne esquentar e o truque que impede as asinhas grudentas de queimar.',
+      cardDesc: 'Raspe o molho grosso antes e coloque de novo depois.',
+      sizeLabels: { small: 'Asinhas pequenas, meio da asa e coxinha da asa', medium: 'Asinhas cortadas normais', large: 'Asinhas grandes' },
+      internalLine: 'Quentes por inteiro a {INT_F}°F ({INT_C}°C) junto ao osso: orientação do USDA para sobras',
+      failureHeading: 'Por que o molho queima antes de a asinha esquentar',
+      failureBody:
+        'A maioria dos molhos para asinhas leva açúcar: mel, açúcar mascavo, ketchup, molho barbecue ou chili doce. O açúcar começa a caramelizar a uma temperatura bem mais baixa que a necessária para esquentar uma asinha fria até o osso, e na air fryer o molho fica do lado de fora, bem no ar quente. Então o glaceado escurece, depois amarga e fica preto, enquanto a carne por dentro continua fria. O molho buffalo tem menos açúcar, mas separa e deixa uma poça de manteiga. A solução é reaquecer a asinha, não o molho. Raspe ou limpe o glaceado grosso, reaqueça as asinhas quase sem molho e misture no fim com molho novo ou aquecido. Asinhas com tempero seco podem ir direto.',
+      workedExampleHeading: 'Exemplo prático: uma caixa de asinhas de delivery',
+      workedExampleTemplate:
+        'Oito asinhas barbecue que sobraram, sem a parte mais grossa do molho. Preaqueça {PREHEAT} minutos, espalhe numa camada só e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, chacoalhando uma vez. Asinhas pequenas precisam de cerca de {SMALL_MIN} minutos e as grandes de cerca de {LARGE_MIN}. Misture com molho quente e volte por um minuto para firmar. Num forno convencional, as mesmas asinhas reaquecem a {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que estão prontas',
+      donenessBody:
+        'Confira a coxinha da asa mais carnuda junto ao osso: a orientação do USDA é {INT_F}°F ({INT_C}°C) para sobras reaquecidas. A pele deve estar crocante e chiando, e o molho que sobrou deve borbulhar, não estar preto. Bordas escuras com o meio frio significam que ficou molho demais.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Guarde o molho que ficou na caixa para aquecer à parte. Limpe as asinhas grudentas com papel-toalha; uma camada fina não tem problema. Separe as asinhas que grudaram para o ar chegar em todos os lados. Não precisa de óleo. Asinhas que ficaram com molho desde a noite anterior absorveram parte dele pela pele, então nunca vão ficar tão crocantes quanto as de tempero seco; o reaquecimento curto e o molho novo chegam bem perto. Faça numa camada só, em duas levas se precisar.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva para reaquecer asinhas na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para asinhas normais, chacoalhando uma vez. As pequenas levam cerca de {SMALL_MIN} minutos e as grandes cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Por que minhas asinhas reaquecidas queimam?',
+          a: 'O açúcar do molho carameliza muito antes de a carne esquentar. Tire o molho grosso antes e coloque molho novo no fim.',
+        },
+        {
+          q: 'Dá para reaquecer buffalo wings na air fryer?',
+          a: 'Sim. O molho buffalo talha ao reaquecer, então reaqueça as asinhas sem molho e misture depois com molho quente.',
+        },
+        {
+          q: 'Que temperatura as asinhas reaquecidas devem atingir?',
+          a: '{INT_F}°F ({INT_C}°C) junto ao osso, que é a orientação do USDA para qualquer sobra reaquecida.',
+        },
+        {
+          q: 'Como reaquecer asinhas no forno?',
+          a: 'Numa grade sobre uma assadeira a {OVEN_F}°F por cerca de {OVEN_MIN} minutos, depois misture com o molho.',
+        },
+      ],
+    },
+    'reheat-steak': {
+      label: 'Sobras de bife',
+      metaTitle: 'Reaquecer bife na air fryer: {INT_F}°F ou ainda rosado',
+      metaDescription:
+        'Reaqueça sobras de bife na air fryer a {AF_F}°F: cerca de {MIN} minutos para chegar aos {INT_F}°F do USDA para sobras, ou pare antes para manter ao ponto. As duas opções, ditas com clareza.',
+      metaKeywords: 'reaquecer bife air fryer, como reaquecer carne na air fryer, sobra de bife air fryer, reaquecer bife sem passar do ponto',
+      heading: 'Reaquecer bife na air fryer',
+      subDesc:
+        'Sobras de bife, inteiro ou fatiado. O ajuste baixo, os dois alvos diferentes de ponto e de segurança, e por que fatiar antes dá o melhor dos dois.',
+      cardDesc: 'Calor baixo e termômetro a partir da virada.',
+      sizeLabels: { thin: 'Bife fatiado', medium: 'Bife inteiro, cerca de 2,5 cm', thick: 'Bife inteiro, cerca de 4 cm' },
+      internalLine: 'Orientação do USDA para sobras: {INT_F}°F ({INT_C}°C) no centro',
+      internalAltLine:
+        'Para manter mal passado: {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), que costuma ser atingido por volta de {FLIP} min. Parar aí é decisão sua.',
+      failureHeading: 'Seguro ou rosado: dois alvos que não se encontram',
+      failureBody:
+        'Um bife feito mal passado terminou com cerca de {INT_ALT_TO_F}°F por dentro. A orientação do USDA para reaquecer qualquer sobra é {INT_F}°F, e levar o centro de um bife a essa temperatura deixa a carne bem passada. Nenhum ajuste faz as duas coisas, então esta página dá os dois números e deixa você escolher. A temperatura baixa é o que mantém qualquer das escolhas boa: com um calor suave, o lado de fora não endurece nem fica cinza enquanto o centro ainda esquenta, e o bife aquece por igual. O tempo aqui é uma estimativa para um bife inteiro chegar a {INT_F}°F, não um número testado, porque a espessura e a temperatura da geladeira variam. Comece a medir com um termômetro na virada e decida pela leitura.',
+      workedExampleHeading: 'Exemplo prático: um contrafilé que sobrou',
+      workedExampleTemplate:
+        'Um contrafilé de cerca de 2,5 cm da noite anterior, direto da geladeira. Preaqueça {PREHEAT} minutos e aqueça a {AF_F}°F, virando aos {FLIP} minutos e medindo o centro nesse momento. Para os {INT_F}°F do USDA, conte com cerca de {MEDIUM_MIN} minutos no total; um bife de 4 cm leva cerca de {THICK_MIN}. O bife fatiado fica quente por inteiro em cerca de {THIN_MIN}. Num forno convencional, o método lento é {OVEN_F}°F por cerca de {OVEN_MIN} minutos numa grade.',
+      donenessHeading: 'Como conferir',
+      donenessBody:
+        'Use um termômetro de leitura instantânea bem no centro da parte mais grossa. Na virada, uma leitura de {INT_ALT_F}–{INT_ALT_TO_F}°F significa que o bife está morno e ainda rosado; continue até {INT_F}°F ({INT_C}°C) se seguir a orientação do USDA para sobras. A superfície deve chiar, mas sem ressecar nem enrolar nas bordas.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Deixe o bife fora enquanto a air fryer esquenta, para o centro ficar menos frio. Pincele com um pouco de óleo ou manteiga para a superfície não ressecar. Guarde o caldo do prato e regue por cima antes de servir.',
+      faqs: [
+        {
+          q: 'Como deixar o bife quente por inteiro sem passar do ponto?',
+          a: 'Fatie antes de reaquecer se quiser o bife quente por inteiro sem passar do ponto. Fatias finas chegam a {INT_F}°F em cerca de {THIN_MIN} minutos, antes de ficarem cinzentas e duras.',
+        },
+        {
+          q: 'Que temperatura o bife reaquecido deve atingir?',
+          a: 'A orientação do USDA para sobras é {INT_F}°F ({INT_C}°C). Muita gente para em {INT_ALT_F}–{INT_ALT_TO_F}°F para manter rosado; a decisão é sua.',
+        },
+        {
+          q: 'O tempo desta página é exato?',
+          a: 'Não. É uma estimativa para um bife de 2,5 cm saído da geladeira. Comece a medir com um termômetro aos {FLIP} minutos e siga a leitura.',
+        },
+        {
+          q: 'Por que uma temperatura tão baixa?',
+          a: 'Um calor suave aquece o centro antes que o lado de fora resseque, e o bife mantém a mesma cor da borda ao meio.',
+        },
+        {
+          q: 'Como reaquecer bife no forno?',
+          a: 'Numa grade a {OVEN_F}°F por cerca de {OVEN_MIN} minutos, depois sele rapidamente numa frigideira bem quente se quiser a crosta de volta.',
+        },
+      ],
+    },
+    cookies: {
+      label: 'Cookies',
+      metaTitle: 'Cookies na air fryer: tempo, temperatura e papel-manteiga',
+      metaDescription:
+        'Asse cookies na air fryer: {AF_F}°F por {MIN} minutos a partir da massa. Por que a massa leve e o papel-manteiga levantam com o ventilador, tempos por tamanho e o equivalente no forno.',
+      metaKeywords: 'cookies na air fryer, cookies air fryer tempo e temperatura, cookie de gotas de chocolate air fryer, assar cookies na air fryer',
+      heading: 'Cookies na air fryer',
+      subDesc:
+        'Cookies de colher assados poucos de cada vez, com massa fresca ou congelada. O ajuste mais baixo, como manter o papel no lugar e quando tirar.',
+      cardDesc: 'Segure o papel com a própria massa.',
+      sizeLabels: { small: 'Pequenos, uma colher de sopa rasa', medium: 'Médios, cerca de 2 colheres de sopa', large: 'Grandes, tamanho de padaria' },
+      failureHeading: 'Por que o papel e a massa levantam com o ventilador',
+      failureBody:
+        'O ventilador de uma air fryer é forte, e uma folha solta de papel-manteiga é leve. Se o papel entrar sozinho para preaquecer, ele voa até a resistência, onde pode queimar. Mesmo com massa em cima, uma ponta livre levanta e dobra sobre os cookies. A própria massa é o segundo problema: a massa mole se espalha ao esquentar, e o ar que passa por cima firma a superfície cedo, então os cookies estufam e racham em vez de se espalharem por igual. As soluções são simples. Só coloque o papel com a massa já em cima, corte-o para nenhuma borda ficar sobrando e deixe espaço entre as bolinhas. O ajuste mais baixo segura a parte de cima para o cookie se espalhar antes de firmar.',
+      workedExampleHeading: 'Exemplo prático: cookies de gotas de chocolate',
+      workedExampleTemplate:
+        'Uma leva de massa de cookie com gotas de chocolate que pede {OVEN_F}°F por {OVEN_MIN} minutos no forno. Numa air fryer de cesto, asse a {AF_F}°F por {MEDIUM_MIN} minutos. Preaqueça {PREHEAT} minutos, coloque quatro bolinhas de cerca de duas colheres de sopa sobre o papel cortado e leve ao cesto. Cookies pequenos levam cerca de {SMALL_MIN} minutos e os grandes, de padaria, cerca de {LARGE_MIN}. Deixe cada leva firmar no papel antes de mexer.',
+      donenessHeading: 'Como saber que estão prontos',
+      donenessBody:
+        'As bordas devem estar firmes e levemente douradas, enquanto o centro ainda parece um pouco mole e estufado; ele firma ao esfriar. Um palito no meio deve sair com migalhas úmidas, não com massa crua. Cookies marrom-escuros passaram do ponto. Deixe-os no papel até firmarem e depois passe para uma grade, onde a base continua crocante.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Gele por pouco tempo a massa muito mole para ela manter o formato. Corte o papel do tamanho do fundo do cesto, menor que a base, ou use um forro perfurado. Asse de quatro a seis por vez, com espaço para espalhar. Bolinhas de massa congelada vão como estão, com um ou dois minutos a mais.',
+      faqs: [
+        {
+          q: 'Quanto tempo os cookies levam na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para cookies médios. Os pequenos levam cerca de {SMALL_MIN} minutos e os grandes cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso de papel-manteiga para cookies na air fryer?',
+          a: 'Ajuda a soltar sem quebrar, mas só coloque com a massa em cima e cortado do tamanho certo, para o ventilador não jogá-lo na resistência.',
+        },
+        {
+          q: 'Posso assar massa de cookie congelada na air fryer?',
+          a: 'Sim, direto do freezer. Acrescente um ou dois minutos e confira o centro com um palito.',
+        },
+        {
+          q: 'Por que meus cookies ficam estufados e pálidos embaixo?',
+          a: 'A parte de cima firmou antes de a massa conseguir se espalhar. Use o ajuste mais baixo e achate um pouco as bolinhas.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira forrada num forno convencional.',
+        },
+      ],
+    },
+    muffins: {
+      label: 'Muffins',
+      metaTitle: 'Muffins na air fryer: tempo, temperatura e forminhas',
+      metaDescription:
+        'Asse muffins na air fryer: {AF_F}°F por {MIN} minutos. Forminhas de silicone ou uma forma pequena que caiba, por que a de 12 não cabe e como conferir o centro.',
+      metaKeywords: 'muffins na air fryer, muffin air fryer tempo e temperatura, muffin de mirtilo air fryer, assar muffins na air fryer',
+      heading: 'Muffins na air fryer',
+      subDesc:
+        'Muffins assados em levas numa air fryer de cesto. O ajuste, quais forminhas e formas cabem e como evitar que o topo doure antes de o centro assar.',
+      cardDesc: 'Forminhas de silicone, e julgue o centro, não o topo.',
+      sizeLabels: { small: 'Mini muffins', medium: 'Muffins normais', large: 'Muffins grandes ou de padaria' },
+      failureHeading: 'Por que o topo doura enquanto o centro fica cru',
+      failureBody:
+        'No forno, um muffin esquenta por todos os lados em ar parado. Na air fryer o calor despeja sobre o topo, então a cúpula doura cedo e parece pronta enquanto o centro ainda é massa. A cor é a armadilha: um muffin dourado pode estar cru por dentro. O ajuste mais baixo daqui segura o topo para o interior alcançá-lo, e o tempo pressupõe que você confere o centro, não a cor. Muffins com muita massa, fruta ou iogurte têm mais água e precisam do tempo todo. Se o topo escurecer bem antes do fim, coloque uma folha pequena de papel-alumínio solta por cima pelo resto do tempo, bem presa para o ventilador não levantá-la.',
+      workedExampleHeading: 'Exemplo prático: seis muffins de mirtilo',
+      workedExampleTemplate:
+        'Uma receita de muffin de mirtilo que pede {OVEN_F}°F por {OVEN_MIN} minutos no forno. Numa air fryer de cesto, asse a {AF_F}°F por {MEDIUM_MIN} minutos. Preaqueça {PREHEAT} minutos, encha seis forminhas de silicone até dois terços e coloque-as com espaço entre elas. Mini muffins levam cerca de {SMALL_MIN} minutos e os grandes cerca de {LARGE_MIN}. Asse o resto da massa numa segunda leva.',
+      donenessHeading: 'Como saber que estão prontos',
+      donenessBody:
+        'Espete um palito no centro do muffin do meio: ele deve sair limpo ou com poucas migalhas secas, nunca com massa úmida. O topo deve voltar ao lugar quando pressionado de leve. Ignore a cor, que vai na frente do interior na air fryer. Os muffins da borda do cesto assam mais rápido que os do meio, então teste o do meio e troque-os de lugar na metade se o seu cesto doura de forma desigual. Deixe-os descansar nas forminhas antes de desenformar.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Use forminhas de silicone, forminhas de alumínio uma dentro da outra para dar firmeza, ou uma forma pequena de muffin que fique reta no fundo do cesto. Uma forma comum de 12 cavidades não cabe num cesto de 5 qt (cerca de 4,7 litros). Encha até dois terços e deixe espaço para o ar circular entre as forminhas.',
+      faqs: [
+        {
+          q: 'Quanto tempo os muffins levam na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para muffins normais. Os mini levam cerca de {SMALL_MIN} minutos e os grandes cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Uma forma de muffin cabe na minha air fryer?',
+          a: 'Uma forma de 12 cavidades não cabe num cesto de 5 qt. Use forminhas de silicone ou uma forma pequena de 4 ou 6 cavidades que fique reta no fundo.',
+        },
+        {
+          q: 'Posso usar forminhas de papel?',
+          a: 'Só dentro de forminhas de silicone ou alumínio. Sozinhas, as de papel são moles demais para segurar a massa e podem tombar com o vento.',
+        },
+        {
+          q: 'Por que meus muffins ficam crus no meio?',
+          a: 'O topo dourou primeiro e eles saíram pela cor. Confira o centro com um palito e baixe o calor se o topo escurecer cedo.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa forma de 12 muffins num forno convencional.',
+        },
+      ],
+    },
+    brownies: {
+      label: 'Brownies',
+      metaTitle: 'Brownie na air fryer: tamanho da forma, tempo e temperatura',
+      metaDescription:
+        'Asse brownie na air fryer: {AF_F}°F por {MIN} minutos numa forma de 18 cm. Quais formas cabem num cesto de 5 qt, como fazer meia receita de 23×23 e o equivalente no forno.',
+      metaKeywords: 'brownie na air fryer, brownie air fryer tempo e temperatura, forma de brownie air fryer, assar brownie na air fryer',
+      heading: 'Brownie na air fryer',
+      subDesc:
+        'Uma forma pequena de brownie assada numa air fryer de cesto. A forma que cabe, como adaptar uma receita comum e como ter um meio úmido sem bordas duras.',
+      cardDesc: 'Use uma forma de 15–18 cm e faça meia receita de 23×23.',
+      sizeLabels: { small: 'Forma redonda de 15 cm', medium: 'Forma quadrada de 18 cm', thick: 'Leva mais alta ou bem úmida' },
+      failureHeading: 'Por que as bordas passam do ponto e o meio fica molhado',
+      failureBody:
+        'A massa de brownie é densa e pesada, e numa forma de metal as bordas ficam no calor mais forte, encostadas nas paredes quentes e bem embaixo do ventilador. Elas firmam e secam muito antes do centro, que fica isolado por massa de todos os lados. Aumente o calor para apressar o meio e você terá uma borda dura e uma casca que racha e se solta de um centro cru. O ajuste mais baixo dá tempo para o calor chegar ao centro. O tamanho da forma importa tanto quanto: um cesto de 5 qt mede cerca de 20–22 cm de largura, então uma forma de 15 ou 18 cm cabe com espaço para o ar circular em volta. Uma receita comum de 23×23 cm precisa ser feita pela metade ou em duas levas; despejada mais alta numa forma pequena, não firma no meio.',
+      workedExampleHeading: 'Exemplo prático: meia receita de 23×23',
+      workedExampleTemplate:
+        'Uma receita de brownie de 23×23 cm que pede {OVEN_F}°F por {OVEN_MIN} minutos, feita pela metade e despejada numa forma quadrada forrada de 18 cm. Preaqueça {PREHEAT} minutos e asse a {AF_F}°F por {MEDIUM_MIN} minutos. Uma forma redonda de 15 cm leva cerca de {SMALL_MIN} minutos, e uma leva mais alta ou bem úmida cerca de {THICK_MIN}. Deixe esfriar na forma antes de cortar.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Um palito espetado no centro deve sair com migalhas úmidas, não com massa líquida. O topo deve parecer seco e um pouco rachado nas bordas, com só um leve tremor no meio. O brownie continua assando na forma quente, então tire um pouco antes. Corte só quando estiver totalmente frio, para os quadrados saírem limpos.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Forre a forma com papel-manteiga, deixando dois lados compridos para levantar o brownie. Confira se a forma fica reta e com espaço em volta. Se o topo escurecer cedo, cubra solto com papel-alumínio, preso embaixo da forma para não voar.',
+      faqs: [
+        {
+          q: 'Quanto tempo o brownie leva na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F numa forma quadrada de 18 cm. Uma forma redonda de 15 cm leva cerca de {SMALL_MIN} minutos e uma leva mais alta cerca de {THICK_MIN}.',
+        },
+        {
+          q: 'Que tamanho de forma cabe numa air fryer de 5 qt?',
+          a: 'Uma forma redonda ou quadrada de 15 ou 18 cm. O cesto mede cerca de 20–22 cm de largura, e o ar precisa de espaço em volta da forma.',
+        },
+        {
+          q: 'Posso fazer uma receita de brownie de 23×23 na air fryer?',
+          a: 'Faça pela metade ou em duas levas. Despejada numa forma pequena só, fica alta demais para firmar no meio.',
+        },
+        {
+          q: 'Posso usar mistura pronta de brownie?',
+          a: 'Sim. A maioria das caixas rende uma forma de 20 ou 23 cm, então use metade da massa por leva e siga os tempos daqui.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos para a mesma forma num forno convencional.',
+        },
+      ],
+    },
+    'garlic-bread': {
+      label: 'Pão de alho',
+      metaTitle: 'Pão de alho na air fryer: fresco ou congelado',
+      metaDescription:
+        'Pão de alho na air fryer: {AF_F}°F por {MIN} minutos, crocante e dourado. Fatias, meia baguete ou pão de alho congelado, e o equivalente no forno.',
+      metaKeywords: 'pão de alho air fryer, pão de alho na air fryer tempo, pão de alho congelado air fryer, pão de alho caseiro air fryer',
+      heading: 'Pão de alho na air fryer',
+      subDesc:
+        'Pão de alho caseiro ou comprado, tostado e crocante nas bordas e macio no meio. O ajuste e como evitar que o alho queime.',
+      cardDesc: 'Deixe o alho sob a manteiga, não por cima.',
+      sizeLabels: { thin: 'Pão de alho fatiado', medium: 'Meia baguete, com o corte para cima', thick: 'Torrada grossa ou pão de alho congelado' },
+      failureHeading: 'Por que o alho queima e amarga',
+      failureBody:
+        'O alho picado é pequeno, seco e cheio de açúcares, e em cima do pão ele fica bem no ar mais quente. Passa de dourado a marrom e a preto amargo em menos de um minuto, muitas vezes antes de o pão embaixo tostar. A manteiga é parte do problema: ela derrete e escorre da superfície, deixando o alho exposto e seco. A solução está em como você passa. Amasse o alho na manteiga mole para cada pedacinho ficar coberto, espalhe até as bordas e pressione contra o miolo. Alho ralado queima menos que picado, e alho em pó quase não queima. Um ajuste médio tosta o pão por inteiro enquanto o topo doura, sem escurecer.',
+      workedExampleHeading: 'Exemplo prático: meia baguete',
+      workedExampleTemplate:
+        'Meia baguete aberta no comprimento e coberta com manteiga de alho. Uma receita de forno pediria {OVEN_F}°F por cerca de {OVEN_MIN} minutos. Numa air fryer de cesto, preaqueça {PREHEAT} minutos e toste com o corte para cima a {AF_F}°F por {MEDIUM_MIN} minutos. Fatias soltas levam cerca de {THIN_MIN} minutos, e a torrada grossa ou o pão de alho congelado cerca de {THICK_MIN}.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'As bordas devem estar crocantes e bem douradas, e a manteiga deve borbulhar dentro do pão, não empoçada por cima. Aperte o meio: ele deve continuar macio. Qualquer alho marrom-escuro significa que a próxima leva precisa de menos tempo ou que o alho precisa de mais manteiga em volta.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Use manteiga mole, não derretida, para ela ficar onde você passou. Acrescente salsinha ou queijo ralado só no último minuto. Corte pães compridos para caberem no cesto e coloque os pedaços numa camada só. Pão amanhecido funciona bem, porque o miolo mais seco absorve a manteiga em vez de ficar encharcado. O pão de alho congelado vai direto do freezer, sem descongelar, ou a manteiga escorre antes que a casca fique crocante. Se vier embrulhado em papel-alumínio, tire o papel para a air fryer.',
+      faqs: [
+        {
+          q: 'Quanto tempo o pão de alho leva na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para meia baguete. Fatias levam cerca de {THIN_MIN} minutos e pedaços grossos ou congelados cerca de {THICK_MIN}.',
+        },
+        {
+          q: 'Pão de alho fresco ou congelado: qual a diferença?',
+          a: 'O pão de alho fresco só precisa tostar. O congelado vai direto do freezer e precisa do tempo maior, para o meio descongelar e amolecer antes de o topo ficar crocante.',
+        },
+        {
+          q: 'Por que o alho queima na air fryer?',
+          a: 'Ele fica descoberto no ar mais quente. Amasse-o na manteiga mole e pressione contra o pão para protegê-lo.',
+        },
+        {
+          q: 'Posso colocar queijo?',
+          a: 'Sim, no último minuto ou dois. Colocado no começo, ele doura antes de o pão tostar.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira num forno convencional.',
+        },
+      ],
+    },
+    'corn-on-the-cob': {
+      label: 'Milho na espiga',
+      metaTitle: 'Milho na espiga na air fryer: tempo, temperatura e tamanho',
+      metaDescription:
+        'Milho na espiga na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}. Grãos suculentos com pontos tostados, por que espigas longas precisam ser cortadas e o equivalente no forno.',
+      metaKeywords: 'milho na espiga air fryer, milho assado na air fryer, quanto tempo milho na air fryer, espiga de milho air fryer',
+      heading: 'Milho na espiga na air fryer',
+      subDesc:
+        'Milho fresco assado até ficar doce, suculento e levemente tostado. O ajuste, a única virada e como colocar espigas inteiras num cesto.',
+      cardDesc: 'Corte as espigas longas e passe manteiga ou óleo.',
+      sizeLabels: { small: 'Meias espigas ou espigas pequenas', medium: 'Espigas médias, cortadas para caber', large: 'Espigas grandes e grossas, cortadas' },
+      failureHeading: 'Por que os grãos ressecam e enrugam',
+      failureBody:
+        'O milho cozido fica na água, então só pode ficar mais molhado. Na air fryer acontece o contrário: o ar quente em movimento tira a água de cada grão exposto, e uma espiga sem nada deixada tempo demais termina murcha, borrachuda e pálida. O que a protege é uma camada de gordura. A manteiga ou o óleo selam os grãos para eles esquentarem e ficarem suculentos, enquanto a gordura doura em pontos e dá aquele sabor de assado na grelha. Tamanho e encaixe também importam. A maioria das espigas inteiras é mais comprida que um cesto de 5 qt, e uma espiga enfiada na diagonal encosta nas paredes, cozinha no vapor nas pontas e bloqueia o ar. Corte qualquer espiga maior que o cesto para os pedaços ficarem retos numa camada.',
+      workedExampleHeading: 'Exemplo prático: quatro espigas',
+      workedExampleTemplate:
+        'Quatro espigas médias, sem palha, cortadas ao meio e pinceladas com manteiga derretida e sal. Preaqueça {PREHEAT} minutos, coloque as metades numa camada e asse a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP}. Espigas pequenas ou pedaços curtos levam cerca de {SMALL_MIN} minutos, e espigas grandes e grossas cerca de {LARGE_MIN}. Numa assadeira num forno convencional, o mesmo milho leva {OVEN_F}°F por cerca de {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Os grãos devem estar amarelo vivo, cheios e brilhantes, com alguns pontos dourados. Aperte um com a unha: ele deve soltar caldo. Grãos opacos e afundados indicam que o milho ressecou por tempo demais ou gordura de menos.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Tire toda a palha e os cabelos. Corte cada espiga com uma faca pesada, balançando-a através do miolo em vez de serrar. Pincele manteiga ou óleo por toda a volta e tempere depois de assar se usar uma mistura de especiarias que queima. Páprica defumada, pimenta e parmesão ralado ficam ótimos sobre o milho quente com mais um pouco de manteiga. Milho bem fresco e doce precisa do tempo menor; espigas mais velhas e amiláceas do fim da safra demoram um pouco mais para amaciar.',
+      faqs: [
+        {
+          q: 'Quanto tempo o milho na espiga leva na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para espigas médias, virando aos {FLIP}. As pequenas levam cerca de {SMALL_MIN} minutos e as grandes cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso cortar o milho para caber na air fryer?',
+          a: 'Geralmente sim. Corte qualquer espiga maior que o cesto para ela ficar reta; espigas enfiadas assam de forma desigual.',
+        },
+        {
+          q: 'Posso assar o milho com a palha?',
+          a: 'Pode, mas ele cozinha no vapor em vez de assar e a palha seca pode queimar. Sem palha e com manteiga dá o melhor resultado.',
+        },
+        {
+          q: 'Dá para fazer milho na espiga congelado na air fryer?',
+          a: 'Sim, direto do congelado. Acrescente alguns minutos e passe manteiga na metade, quando o gelo tiver sumido.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira num forno convencional, virando uma vez.',
+        },
+      ],
+    },
+    'frozen-vegetables': {
+      label: 'Legumes congelados',
+      metaTitle: 'Legumes congelados na air fryer: assados, não moles',
+      metaDescription:
+        'Legumes congelados na air fryer: {AF_F}°F por {MIN} minutos, chacoalhando {SHAKES} vezes, direto do pacote. Como assar em vez de cozinhar no vapor e o equivalente da embalagem.',
+      metaKeywords: 'legumes congelados air fryer, vegetais congelados air fryer, assar legumes congelados na air fryer, seleta de legumes air fryer',
+      heading: 'Legumes congelados na air fryer',
+      subDesc:
+        'Legumes mistos, ervilha, milho ou buquês direto do freezer, assados em vez de cozidos no vapor. Sem descongelar, e por que a quantidade no cesto decide o resultado.',
+      cardDesc: 'Nunca descongele: direto, no máximo meio cesto.',
+      sizeLabels: { small: 'Ervilha, milho ou mix em cubinhos', medium: 'Legumes mistos', large: 'Buquês de brócolis ou couve-flor' },
+      failureHeading: 'Por que os legumes congelados saem moles e aguados',
+      failureBody:
+        'Os legumes congelados são branqueados antes de congelar, e os cristais de gelo que se formam dentro deles rompem muitas das paredes das células. Ao esquentar, essa estrutura rompida solta a água de uma vez, além da camada de gelo de fora. Num cesto cheio a água não tem para onde ir: empoça, vira vapor e cozinha os legumes até ficarem moles e acinzentados antes que qualquer um consiga dourar. A resposta é menos quantidade e nada de descongelar. Legumes descongelados já soltaram a água, então murcham na hora; os congelados mantêm a forma enquanto o lado de fora seca. Encha o cesto no máximo até a metade, para o vapor escapar, e os legumes vão assar no calor seco que vem depois.',
+      workedExampleHeading: 'Exemplo prático: um pacote de legumes mistos',
+      workedExampleTemplate:
+        'Meio pacote de legumes mistos congelados que pede para assar a {OVEN_F}°F por {OVEN_MIN} minutos. Numa air fryer de cesto, preaqueça {PREHEAT} minutos, coloque-os ainda congelados com uma colher de sopa de óleo e asse a {AF_F}°F por {MEDIUM_MIN} minutos, chacoalhando {SHAKES} vezes. Ervilha, milho e mix em cubinhos levam cerca de {SMALL_MIN} minutos; buquês grandes cerca de {LARGE_MIN}.',
+      donenessHeading: 'Como saber que estão prontos',
+      donenessBody:
+        'O cesto deve estar seco, sem água no fundo, e as bordas dos legumes devem ter pontos dourados. Cenouras e buquês devem estar macios ao espetar, mas não desmanchando. Uma poça embaixo de legumes pálidos e moles significa que o cesto estava cheio demais.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Desfaça os blocos congelados dentro do pacote. Misture com óleo logo antes de assar; ele não gruda tão bem nos pedaços com gelo, então misture de novo na primeira chacoalhada. Tempere com sal e especiarias no fim, porque o vapor do começo leva tudo embora. Pacotes com pedaços grandes e pequenos juntos assam de forma desigual, então tire os pequenos se começarem a queimar, ou faça o mix em duas levas. Pacotes de legumes com molho ou manteiga costumam indicar só micro-ondas; o molho queima na air fryer, então use pacotes de legumes puros.',
+      faqs: [
+        {
+          q: 'Quanto tempo os legumes congelados levam na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para legumes mistos, chacoalhando {SHAKES} vezes. Pedaços pequenos levam cerca de {SMALL_MIN} minutos e buquês grandes cerca de {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso descongelar os legumes antes da air fryer?',
+          a: 'Não. Legumes descongelados já soltaram a água e murcham. Faça direto do congelado.',
+        },
+        {
+          q: 'Por que meus legumes congelados ficam moles na air fryer?',
+          a: 'O cesto estava cheio demais e a água deles os cozinhou no vapor. Use no máximo meio cesto por vez.',
+        },
+        {
+          q: 'É diferente do brócolis fresco?',
+          a: 'Sim. Buquês frescos precisam de um ajuste mais curto e suave; os congelados precisam de mais calor e tempo para eliminar o gelo primeiro.',
+        },
+        {
+          q: 'O que a embalagem diz para o forno?',
+          a: 'A maioria dos pacotes pede {OVEN_F}°F por cerca de {OVEN_MIN} minutos num forno convencional.',
+        },
+      ],
+    },
   },
 };
 
 export const presetsIndex: Dictionary['presetsIndex'] = {
   metaTitle: 'Predefinições para air fryer: tempo e temperatura de cada alimento',
   metaDescription:
-    'Tempo e temperatura na air fryer para frango, asinhas, salmão, bacon, bife, batatas e mais: cada predefinição com temperatura interna, tempos por tamanho e equivalente no forno.',
+    'Tempo e temperatura na air fryer para frango, salmão, bife, batatas, assados, congelados e sobras: cada predefinição com temperatura interna ou teste de ponto, tempos por tamanho e equivalente no forno.',
   metaKeywords: 'tempos air fryer, tabela tempo temperatura air fryer, predefinições air fryer',
   backLink: 'Todas as ferramentas',
   heading: 'Predefinições de alimentos para air fryer',
@@ -1450,7 +1962,7 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
   },
   howHeading: 'Como estas predefinições são definidas',
   howBody:
-    'Cada predefinição parte de uma air fryer de cesto de 4–6 litros, preaquecida, com o alimento numa camada só. Os equivalentes em forno convencional e com ventilação de cada página são calculados pelo mesmo motor do conversor, então batem entre si, e o conversor de cada página já vem com esse alimento escolhido caso você parta de uma receita de forno. Cada página começa pelo jeito específico como aquele alimento dá errado na air fryer, porque isso decide o resultado mais do que o número no seletor. Sem e-mail, sem cadastro, nada para instalar.',
+    'Cada predefinição parte de uma air fryer de cesto de 4–6 litros, preaquecida, com o alimento numa camada só. Nas de cozinhar, os equivalentes em forno convencional e com ventilação são calculados pelo mesmo motor do conversor, então batem entre si, e o conversor da página já vem com esse alimento escolhido. As de congelados mostram o que diz a embalagem. As de reaquecer são diferentes: o motor converte receitas de cozimento, não reaquecimentos, então os tempos de reaquecer e seus equivalentes no forno são escritos à mão, e o conversor dessas páginas converte receitas de forno. Cada página começa pelo jeito específico como aquele alimento dá errado na air fryer, porque isso decide o resultado mais do que o número no seletor. Sem e-mail, sem cadastro, nada para instalar.',
   relatedFlagshipLink: 'Conversor de forno para air fryer',
   relatedChartLink: 'Tabela de conversão para imprimir',
 };

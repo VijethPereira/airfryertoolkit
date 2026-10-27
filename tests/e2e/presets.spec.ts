@@ -174,7 +174,7 @@ test.describe('food presets: data and copy', () => {
 
   test('internalAlt is display only: every locale has its line, and the engine, answer and JSON-LD description never use it', () => {
     const withAlt = ALL.filter((p) => p.internalAlt !== undefined);
-    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'sausages']);
+    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'reheat-steak', 'sausages']);
     for (const l of LOCALES) {
       const d = getDictionary(l.code).presets;
       expect(d.answerTemplate + d.answerFlipSuffix + d.answerShakeSuffix).not.toMatch(/INT_ALT_/);
@@ -335,6 +335,95 @@ test.describe('food presets: reheat engine branch', () => {
   });
 });
 
+test.describe('food presets: batch 3 (reheating, baking, corn, frozen vegetables)', () => {
+  const bySlug = (slug: string) => ALL.find((p) => p.slug === slug)!;
+
+  test('every fresh slug exists in PRESETS, never points to itself, and leads the related presets', () => {
+    const withFresh = ALL.filter((p) => p.fresh !== undefined);
+    expect(withFresh.map((p) => p.slug).sort()).toEqual(['reheat-fried-chicken', 'reheat-fries', 'reheat-pizza', 'reheat-steak', 'reheat-wings']);
+    for (const p of withFresh) {
+      expect(p.fresh, p.slug).not.toBe(p.slug);
+      expect(ALL.some((x) => x.slug === p.fresh), `${p.slug} -> ${p.fresh}`).toBe(true);
+      const related = relatedPresets(p, 3);
+      expect(related[0].slug, p.slug).toBe(p.fresh);
+      expect(related.filter((x) => x.slug === p.fresh), p.slug).toHaveLength(1);
+      expect(related[1].category, p.slug).toBe('reheat');
+    }
+    expect(Object.fromEntries(withFresh.map((p) => [p.slug, p.fresh]))).toEqual({
+      'reheat-pizza': 'frozen-pizza',
+      'reheat-fries': 'homemade-fries',
+      'reheat-fried-chicken': 'chicken-thighs',
+      'reheat-wings': 'chicken-wings',
+      'reheat-steak': 'steak',
+    });
+  });
+
+  test('reheat meats target 165°F (USDA leftovers); pizza and fries are judged by crispness', () => {
+    for (const slug of ['reheat-fried-chicken', 'reheat-wings', 'reheat-steak']) expect(bySlug(slug).internalF, slug).toBe(165);
+    for (const slug of ['reheat-pizza', 'reheat-fries']) {
+      expect(bySlug(slug).internalF, slug).toBeUndefined();
+      expect(bySlug(slug).doneBy, slug).toBe('crisp');
+    }
+  });
+
+  test('reheat-steak: 165°F in the answer data and JSON-LD description, the warm-through range as internalAlt, the time flagged as an estimate', () => {
+    const steak = bySlug('reheat-steak');
+    expect(steak.internalAlt).toEqual({ f: 110, toF: 120 });
+    for (const { code } of LOCALES) {
+      const c = getDictionary(code).presets.pages['reheat-steak'];
+      expect(fillPlaceholders(c.metaDescription, { ...presetValues(steak, code), LABEL: c.label }), code).toContain('165°F');
+      expect(c.internalAltLine, code).toContain('{FLIP}');
+      expect(c.faqs.length, code).toBe(5);
+    }
+    const c = en.presets.pages['reheat-steak'];
+    expect(c.faqs.some((f) => f.a.startsWith('Slice before reheating if you want it hot through without overcooking.'))).toBe(true);
+    expect(c.failureBody).toMatch(/estimate/);
+    expect(c.failureBody).toMatch(/thermometer at the flip/);
+  });
+
+  test('baked goods: cookies, muffins and brownies are judged by toothpick; garlic bread is baked; corn is veg', () => {
+    for (const slug of ['cookies', 'muffins', 'brownies']) {
+      expect(bySlug(slug).doneBy, slug).toBe('toothpick');
+      expect(bySlug(slug).category, slug).toBe('baked');
+    }
+    expect(bySlug('garlic-bread').category).toBe('baked');
+    expect(bySlug('corn-on-the-cob').category).toBe('veg');
+    for (const { code } of LOCALES) expect(getDictionary(code).presets.internalToothpick.length, code).toBeGreaterThan(0);
+  });
+
+  test('cookies round-trip near the 325–330°F range from a 350°F oven', () => {
+    expect(computeAirFryerSetting({ ovenTemp: 350, unit: 'F', ovenMinutes: 10, food: 'baked', style: 'basket' }).outF).toBeGreaterThanOrEqual(325);
+    expect(computeAirFryerSetting({ ovenTemp: 350, unit: 'F', ovenMinutes: 10, food: 'baked', style: 'basket' }).outF).toBeLessThanOrEqual(330);
+    const cookies = bySlug('cookies');
+    const back = forwardOf(cookies, ovenOf(cookies).outF!, ovenOf(cookies).outMinutes!);
+    expect(Math.abs(back.outF! - cookies.tempF)).toBeLessThanOrEqual(5);
+  });
+
+  test('fit and size copy: muffin tin, brownie pan, long cobs, fresh vs frozen garlic bread', () => {
+    const p = en.presets.pages;
+    expect(p.muffins.prepBody).toMatch(/12-cup tin will not fit a 5 qt basket/);
+    expect(p.muffins.prepBody).toMatch(/silicone/i);
+    expect(p.brownies.failureBody).toMatch(/8 to 8½ inches/);
+    expect(p.brownies.failureBody).toMatch(/9×9-inch recipe has to be halved or baked in two rounds/);
+    expect(p['corn-on-the-cob'].failureBody).toMatch(/Halve any cob longer than the basket/);
+    expect(p['garlic-bread'].faqs.some((f) => /fresh or frozen/i.test(f.q))).toBe(true);
+    expect(p.cookies.failureBody).toMatch(/parchment/);
+  });
+
+  test('lead failure modes differ across the overlap groups', () => {
+    const lead = (slug: PresetSlug) => en.presets.pages[slug].failureHeading;
+    for (const group of [
+      ['reheat-wings', 'frozen-chicken-wings', 'chicken-wings'],
+      ['reheat-fries', 'frozen-fries', 'homemade-fries'],
+      ['garlic-bread', 'reheat-pizza'],
+      ['frozen-vegetables', 'broccoli', 'frozen-fries'],
+      ['reheat-fried-chicken', 'chicken-thighs'],
+    ] as PresetSlug[][]) {
+      expect(new Set(group.map(lead)).size, group.join(' / ')).toBe(group.length);
+    }
+  });
+});
+
 test.describe('food presets: frozen engine branch', () => {
   // Synthetic entries: one per FROZEN_FOODS key, so the branch is covered before any frozen preset ships.
   const frozenPreset = (food: FrozenFoodKey): FoodPreset => ({
@@ -391,11 +480,12 @@ test.describe('food presets: frozen engine branch', () => {
     }
   });
 
-  test('the frozen presets: ten entries, turn overrides, heated-through nuggets, pre-cooked wings, pizza sizes', () => {
+  test('the frozen presets: eleven entries, turn overrides, heated-through nuggets, pre-cooked wings, pizza sizes', () => {
     const frozen = ALL.filter(isFrozen);
     expect(frozen.map((p) => p.slug)).toEqual([
       'frozen-fries', 'frozen-chicken-wings', 'frozen-chicken-breast', 'frozen-chicken-nuggets', 'frozen-tater-tots',
       'frozen-pizza', 'frozen-fish-sticks', 'frozen-chicken-tenders', 'frozen-hash-browns', 'frozen-egg-rolls',
+      'frozen-vegetables',
     ]);
     for (const p of frozen) expect(p.category, p.slug).toBe('frozen');
     const bySlug = (slug: string) => frozen.find((p) => p.slug === slug)!;
@@ -473,6 +563,9 @@ test.describe('food preset pages', () => {
         await expect(internal).toContainText(`${internalOf(p)}°F`);
       } else if (p.doneBy === 'crisp') {
         await expect(internal).toHaveText(en.presets.internalCrisp);
+        await expect(internal).not.toContainText('°F');
+      } else if (p.doneBy === 'toothpick') {
+        await expect(internal).toHaveText(en.presets.internalToothpick);
       } else {
         await expect(internal).toHaveCount(0);
       }
@@ -521,7 +614,6 @@ test.describe('food preset pages', () => {
         for (const [i, sel] of ['#afk-temp', '#afk-time', '#afk-food'].entries()) {
           await expect(page.locator(sel)).toHaveValue(defaults[i]);
         }
-        await expect(page.locator('#afk-temp')).not.toHaveValue(String(reheatOf(p).ovenF));
         // Still live.
         await page.fill('#afk-temp', '350');
         await expect(page.locator('#afk-out-main')).not.toHaveText('');
@@ -569,11 +661,14 @@ test.describe('food preset pages', () => {
       const related = page.locator('.related-preset');
       await expect(related).toHaveCount(3);
       const expected = relatedPresets(p, 3);
-      const sameCategory = ALL.filter((o) => o.slug !== p.slug && o.category === p.category).length;
+      // A reheat preset's fresh version leads; then same category.
+      const lead = p.fresh !== undefined ? 1 : 0;
+      if (lead) expect(expected[0].slug).toBe(p.fresh);
+      const sameCategory = ALL.filter((o) => o.slug !== p.slug && o.slug !== p.fresh && o.category === p.category).length;
       for (const [i, r] of expected.entries()) {
         await expect(related.nth(i)).toHaveAttribute('href', presetPath(r.slug));
         await expect(related.nth(i).locator('.rp-spec')).toHaveText(expectedSpec('en', r));
-        if (i < sameCategory) expect(r.category).toBe(p.category); // same category comes first
+        if (i >= lead && i - lead < sameCategory) expect(r.category).toBe(p.category);
       }
       await expect(page.locator(`.related-preset[href="${slug}"]`)).toHaveCount(0);
     });
@@ -615,7 +710,13 @@ test.describe('food presets: index, homepage and locales', () => {
         }
       }
       await expect(page.locator('main .card')).toHaveCount(ALL.length);
-      // Empty categories (reheat, baked until batch 3) render no heading anywhere on the page.
+      // Reheat and baked are live since batch 3: their headings show with at least one card each.
+      for (const c of ['reheat', 'baked'] as const) {
+        const g = page.locator(`section.group[data-category="${c}"]`);
+        await expect(g.locator('h2')).toHaveText(dict.categories[c]);
+        expect(await g.locator('.card').count(), `${code} ${c}`).toBeGreaterThan(0);
+      }
+      // Empty categories render no heading anywhere on the page.
       for (const g of await groups.all()) expect(await g.locator('.card').count()).toBeGreaterThan(0);
       const headings = await page.locator('main h2').allTextContents();
       for (const empty of PRESET_CATEGORY_ORDER.filter((c) => !expectedGroups.includes(c))) {

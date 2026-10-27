@@ -297,6 +297,8 @@ export interface Dictionary {
     internalTemplate: string;
     /** Shown instead of internalTemplate for doneBy: 'crisp'. */
     internalCrisp: string;
+    /** Cakes and bakes (doneBy 'toothpick'). */
+    internalToothpick: string;
     ovenHeading: string;
     /** {OVEN_F}, {OVEN_C}, {OVEN_MARK}, {OVEN_MIN}. */
     ovenTemplate: string;

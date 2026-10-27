@@ -8,6 +8,7 @@ export const presets: Dictionary['presets'] = {
   answerShakeSuffix: ', agitar {SHAKES}×',
   internalTemplate: 'Listo a {INT_F}°F ({INT_C}°C) en la parte más gruesa',
   internalCrisp: 'Listo por color y textura crujiente, no por termómetro',
+  internalToothpick: 'Se comprueba con un palillo, no por el color',
   ovenHeading: 'Equivalente en horno',
   ovenTemplate: 'Horno convencional: {OVEN_F}°F ({OVEN_C}°C, nivel de gas {OVEN_MARK}) durante {OVEN_MIN} min',
   fanTemplate: 'Horno con ventilador / convección: {FAN_F}°F ({FAN_C}°C) durante {FAN_MIN} min',
@@ -41,7 +42,7 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Ración', airFryer: 'Freidora de aire', oven: 'Recalentar en horno' },
     relatedFlagshipLink: 'Conversor de horno a freidora de aire',
     widgetHeading: '¿Cocinas a partir de una receta de horno?',
-    widgetNote: 'Este conversor pasa recetas de horno a ajustes de freidora de aire. No sirve para recalentar, por eso empieza vacío; para las sobras usa el ajuste de arriba.',
+    widgetNote: 'Este conversor pasa recetas de horno a ajustes de freidora de aire. No sirve para recalentar, por eso empieza con sus valores por defecto; para las sobras usa el ajuste de arriba.',
   },
   pages: {
     'chicken-breast': {
@@ -1427,13 +1428,524 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'reheat-pizza': {
+      label: 'Pizza sobrante',
+      metaTitle: 'Recalentar pizza en la freidora de aire: base crujiente',
+      metaDescription:
+        'Recalienta pizza sobrante en la freidora de aire: {AF_F}°F durante {MIN} minutos para una base crujiente y el queso fundido. Tiempos para masa fina, normal y gruesa, y el método en horno.',
+      metaKeywords: 'recalentar pizza freidora de aire, cuánto tiempo recalentar pizza en freidora de aire, pizza sobrante air fryer, temperatura recalentar pizza',
+      heading: 'Recalentar pizza en la freidora de aire',
+      subDesc:
+        'Porciones frías de la nevera, de vuelta a una base crujiente y un queso suave y fundido. El ajuste suave, por qué más calor lo empeora y en qué cambia la masa gruesa.',
+      cardDesc: 'Con menos calor, la base alcanza al queso.',
+      sizeLabels: { thin: 'Porción de masa fina', medium: 'Porción normal', thick: 'Porción de masa gruesa o deep-dish' },
+      failureHeading: 'Por qué la base sigue blanda mientras el queso se pasa',
+      failureBody:
+        'Una porción recién salida de la nevera está fría de arriba abajo, y en la freidora de aire el calor llega desde arriba. El queso y los ingredientes están justo en esa corriente, así que se funden, sueltan aceite y se ponen correosos, mientras la masa de abajo sigue fría y algo húmeda tras una noche en la caja. Subir la temperatura solo agranda esa diferencia. La solución es una temperatura moderada y un tiempo corto, para que el calor baje a través de la porción y saque la humedad de la base antes de que la parte de arriba se pase. Pon las porciones directamente en la cesta, sin papel de aluminio, para que el aire llegue por debajo, y nunca las apiles: una porción encima cuece al vapor la de abajo.',
+      workedExampleHeading: 'Ejemplo práctico: dos porciones normales',
+      workedExampleTemplate:
+        'Dos porciones de una pizza normal para llevar, recién sacadas de la nevera. Precalienta {PREHEAT} minutos, colócalas una junto a otra en la cesta y caliéntalas a {AF_F}°F durante {MEDIUM_MIN} minutos. Una porción de masa fina está lista en unos {THIN_MIN}, y una de masa gruesa necesita unos {THICK_MIN}, porque la base gruesa tarda más en calentarse. Si recalientas una bandeja entera en un horno convencional, son {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que está lista',
+      donenessBody:
+        'Levanta una porción con unas pinzas: debe quedarse recta sin que la punta se doble, y la parte de abajo debe verse seca y ligeramente tostada. El queso debe estar fundido y brillante, empezando a burbujear por los bordes. Si el queso se dora a manchas mientras la base todavía se dobla, el ajuste era demasiado alto o la porción demasiado gruesa para ese tiempo.',
+      prepHeading: 'Antes de meterla',
+      prepBody:
+        'Saca las porciones de la caja unos minutos antes para quitarles el frío más intenso. Retira los ingredientes frescos como la rúcula o la albahaca y vuelve a ponerlos después. Si la porción está muy seca, unas gotas de agua en la cesta, junto a ella y no encima, mantienen el queso suave.',
+      faqs: [
+        {
+          q: '¿Cuánto tiempo se recalienta la pizza en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una porción normal. La masa fina tarda unos {THIN_MIN} minutos y la gruesa unos {THICK_MIN}.',
+        },
+        {
+          q: '¿Por qué no recalentar la pizza a más temperatura?',
+          a: 'El calor llega desde arriba, así que un ajuste más alto pasa el queso antes de que la base fría se haya calentado y secado.',
+        },
+        {
+          q: '¿Pongo papel de aluminio o de horno bajo la porción?',
+          a: 'No. El aire tiene que llegar por debajo para que cruja. Usa un papel solo con porciones con mucho queso que gotean, y que sea más pequeño que la porción.',
+        },
+        {
+          q: '¿Es lo mismo que cocinar una pizza congelada?',
+          a: 'No. Una pizza congelada está cruda por arriba y congelada del todo, así que necesita otro ajuste; este solo calienta y devuelve el crujiente a una porción ya hecha.',
+        },
+        {
+          q: '¿Cómo se recalienta la pizza en el horno?',
+          a: 'Pon las porciones en una bandeja a {OVEN_F}°F durante unos {OVEN_MIN} minutos, o en una bandeja precalentada si quieres la base más crujiente.',
+        },
+      ],
+    },
+    'reheat-fries': {
+      label: 'Patatas fritas sobrantes',
+      metaTitle: 'Recalentar patatas fritas en la freidora de aire: crujientes',
+      metaDescription:
+        'Recalienta patatas fritas sobrantes en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando una vez. Por qué se ponen correosas de un día para otro y el método en horno.',
+      metaKeywords: 'recalentar patatas fritas freidora de aire, cómo recalentar papas fritas en air fryer, patatas fritas sobrantes freidora de aire',
+      heading: 'Recalentar patatas fritas en la freidora de aire',
+      subDesc:
+        'Patatas fritas del día anterior, para llevar o caseras, crujientes otra vez en pocos minutos. Por qué se ponen correosas en la nevera y el recalentado corto y fuerte que recupera la mayoría.',
+      cardDesc: 'Corto y fuerte, con un poco de aceite, en una capa.',
+      sizeLabels: { small: 'Un puñado pequeño', medium: 'Una ración para llevar', large: 'Una ración grande o familiar' },
+      failureHeading: 'Por qué las patatas del día anterior se ponen correosas',
+      failureBody:
+        'Una patata frita recién hecha cruje porque su superficie está seca y su interior es almidón cocido y esponjoso. En la nevera ese almidón se recristaliza poco a poco y suelta agua, que empapa la costra desde dentro. Al día siguiente el exterior está blando y el centro se ha vuelto denso y gomoso. Un recalentado largo y suave lo empeora, porque seca el interior hasta dejarlo como cartón antes de que la superficie cruja. Lo que funciona es lo contrario: un golpe corto de aire caliente que seque y fría la superficie rápido, con una capa muy fina de aceite que ayude, mientras el interior solo se calienta. Las patatas finas se recuperan mejor; las gruesas nunca vuelven del todo a estar como recién hechas.',
+      workedExampleHeading: 'Ejemplo práctico: una ración para llevar',
+      workedExampleTemplate:
+        'Una ración de patatas fritas sobrantes de la nevera, mezclada con media cucharadita de aceite. Precalienta {PREHEAT} minutos, extiéndelas en una sola capa y caliéntalas a {AF_F}°F durante {MEDIUM_MIN} minutos, agitando una vez a mitad. Un puñado pequeño está listo en unos {SMALL_MIN} minutos y una ración grande, en una sola capa, en unos {LARGE_MIN}. En una bandeja en un horno convencional, las mismas patatas necesitan {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que están listas',
+      donenessBody:
+        'Coge una: debe mantenerse recta y sonar crujiente al golpearla contra la cesta. Ábrela y el interior debe estar caliente, no solo templado. Las patatas que se quiebran, parecen huecas o saben secas han estado demasiado tiempo; si siguen blandas, estaban amontonadas o la cesta no se precalentó.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Sacude la sal suelta o las migas, que se queman. Una cantidad muy pequeña de aceite marca la diferencia, porque la mayor parte del aceite de la fritura se ha absorbido. Separa las patatas que se hayan pegado en la caja. Vuelve a salar solo después de recalentar. Las patatas guardadas en una bolsa cerrada están más húmedas que las guardadas abiertas, así que dales el tiempo más largo.',
+      faqs: [
+        {
+          q: '¿Cuánto tiempo se recalientan las patatas fritas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una ración, agitando una vez. Un puñado pequeño tarda unos {SMALL_MIN} minutos y una ración grande unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Se pueden recalentar las patatas de McDonald’s en la freidora de aire?',
+          a: 'Sí. Las patatas finas de comida rápida se recuperan mejor que las gruesas; míralas un minuto antes, porque pasan de crujientes a secas muy rápido.',
+        },
+        {
+          q: '¿Por qué mis patatas recalentadas quedan duras?',
+          a: 'Se calentaron demasiado tiempo. Las patatas sobrantes solo necesitan un recalentado corto y fuerte; el interior ya ha perdido agua y se seca enseguida.',
+        },
+        {
+          q: '¿Hace falta añadir aceite?',
+          a: 'Un poco ayuda. La mayor parte del aceite de la fritura se ha absorbido durante la noche, así que una capa fina ayuda a que la superficie vuelva a crujir.',
+        },
+        {
+          q: '¿Cómo se recalientan las patatas fritas en el horno?',
+          a: 'Extiéndelas en una bandeja a {OVEN_F}°F durante unos {OVEN_MIN} minutos, dándoles la vuelta una vez. Una bandeja precalentada dora antes la parte de abajo.',
+        },
+      ],
+    },
+    'reheat-fried-chicken': {
+      label: 'Pollo frito sobrante',
+      metaTitle: 'Recalentar pollo frito en la freidora de aire: crujiente',
+      metaDescription:
+        'Recalienta pollo frito en la freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}, hasta {INT_F}°F. Tiempos para muslos, contramuslos y pechugas, y el método en horno.',
+      metaKeywords: 'recalentar pollo frito freidora de aire, cuánto tiempo recalentar pollo frito en air fryer, pollo frito sobrante freidora de aire',
+      heading: 'Recalentar pollo frito en la freidora de aire',
+      subDesc:
+        'Pollo frito sobrante, con hueso, de vuelta a un rebozado crujiente y un centro caliente. Por qué el rebozado se ablanda en la nevera y cómo secarlo antes de meterlo.',
+      cardDesc: 'Déjalo fuera un rato para que la costra se seque.',
+      sizeLabels: { small: 'Muslo (la parte baja)', medium: 'Contramuslo', large: 'Pechuga o pieza grande' },
+      internalLine: 'Caliente del todo a {INT_F}°F ({INT_C}°C) en la parte más gruesa: la pauta del USDA para sobras',
+      failureHeading: 'Por qué el rebozado se ablanda en la nevera',
+      failureBody:
+        'El pollo frito es una costra seca y crujiente alrededor de una carne húmeda. Tras una noche en un recipiente cerrado, la humedad pasa de la carne al rebozado, y el aire frío de dentro también se condensa sobre él. Por la mañana la costra está blanda y algo pegajosa. Si lo metes directamente en la freidora de aire, esa agua tiene que salir en forma de vapor antes de que el rebozado pueda crujir, así que el exterior sigue húmedo cuando por fin se calienta la zona del hueso. La solución empieza antes de recalentar. Saca las piezas del recipiente y déjalas sobre una rejilla mientras se precalienta la freidora, para que la superficie se seque y se les pase el frío. Después, un calor moderado termina el trabajo: dora la costra y lleva la carne junto al hueso a temperatura al mismo ritmo.',
+      workedExampleHeading: 'Ejemplo práctico: dos contramuslos de la nevera',
+      workedExampleTemplate:
+        'Dos contramuslos de pollo frito sobrantes, reposados sin tapar en una rejilla mientras se calienta la freidora. Precalienta {PREHEAT} minutos, ponlos con la piel hacia arriba y caliéntalos a {AF_F}°F durante {MEDIUM_MIN} minutos, dándoles la vuelta a los {FLIP}. Un muslo necesita unos {SMALL_MIN} minutos y una pechuga grande unos {LARGE_MIN}. En un horno convencional, las mismas piezas se recalientan a {OVEN_F}°F durante unos {OVEN_MIN} minutos sobre una rejilla con bandeja debajo.',
+      donenessHeading: 'Cómo saber que está listo',
+      donenessBody:
+        'Comprueba la pieza más gruesa con un termómetro junto al hueso, sin tocarlo: la pauta del USDA es {INT_F}°F ({INT_C}°C) para sobras recalentadas. El rebozado debe sonar crujiente al golpearlo y verse seco, con un poco de grasa chisporroteando alrededor. Una zona fría junto al hueso con la costra oscura indica que el calor era demasiado alto para ese tamaño.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Deja las piezas destapadas mientras precalientas y quítales con papel la grasa que haya quedado del fondo del recipiente. No hace falta más aceite. Calienta juntas piezas de tamaño parecido, o añade las pequeñas unos minutos más tarde.',
+      faqs: [
+        {
+          q: '¿Cuánto tiempo se recalienta el pollo frito en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para un contramuslo, volteándolo a los {FLIP}. Un muslo tarda unos {SMALL_MIN} minutos y una pechuga grande unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Qué temperatura debe alcanzar el pollo recalentado?',
+          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa, que es la pauta del USDA para cualquier sobra recalentada.',
+        },
+        {
+          q: '¿Puedo recalentar así el pollo de KFC u otro pollo para llevar?',
+          a: 'Sí. El pollo para llevar frito a presión tiene un rebozado más grueso, así que dale el tiempo más largo y compruébalo junto al hueso.',
+        },
+        {
+          q: '¿Le pongo aceite en spray?',
+          a: 'No. El rebozado todavía tiene mucho aceite de la fritura; más aceite solo lo deja grasiento.',
+        },
+        {
+          q: '¿Cómo se recalienta el pollo frito en el horno?',
+          a: 'Sobre una rejilla con bandeja debajo a {OVEN_F}°F durante unos {OVEN_MIN} minutos. La rejilla deja que el aire llegue por debajo para que no se ablande.',
+        },
+      ],
+    },
+    'reheat-wings': {
+      label: 'Alitas sobrantes',
+      metaTitle: 'Recalentar alitas de pollo en la freidora de aire',
+      metaDescription:
+        'Recalienta alitas de pollo sobrantes en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando una vez, hasta {INT_F}°F. Cómo evitar que la salsa se queme y el método en horno.',
+      metaKeywords: 'recalentar alitas freidora de aire, cuánto tiempo recalentar alitas de pollo en air fryer, alitas sobrantes freidora de aire, alitas búfalo recalentar',
+      heading: 'Recalentar alitas de pollo en la freidora de aire',
+      subDesc:
+        'Alitas sobrantes, con salsa o con especias secas, calientes y crujientes de nuevo. Por qué la salsa se quema antes de que la carne se caliente y el truco que evita que las alitas pegajosas se quemen.',
+      cardDesc: 'Quita la salsa espesa antes y vuelve a ponerla después.',
+      sizeLabels: { small: 'Alitas pequeñas, puntas y muslitos', medium: 'Alitas partidas normales', large: 'Alitas grandes' },
+      internalLine: 'Calientes del todo a {INT_F}°F ({INT_C}°C) junto al hueso: la pauta del USDA para sobras',
+      failureHeading: 'Por qué la salsa se quema antes de que la alita se caliente',
+      failureBody:
+        'La mayoría de las salsas para alitas llevan azúcar: miel, azúcar moreno, kétchup, salsa barbacoa o chile dulce. El azúcar empieza a caramelizarse a una temperatura mucho más baja de la necesaria para calentar una alita fría hasta el hueso, y en la freidora de aire la salsa está por fuera, justo en el aire caliente. Así que el glaseado se oscurece, luego amarga y se pone negro, mientras la carne de dentro sigue fría. La salsa búfalo tiene menos azúcar, pero se separa y deja un charco de mantequilla. La solución es recalentar la alita, no la salsa. Raspa o limpia el glaseado espeso, recalienta las alitas casi sin salsa y mézclalas al final con salsa nueva o templada. Las alitas con especias secas pueden ir directamente.',
+      workedExampleHeading: 'Ejemplo práctico: una caja de alitas para llevar',
+      workedExampleTemplate:
+        'Ocho alitas barbacoa sobrantes, sin la parte más espesa de la salsa. Precalienta {PREHEAT} minutos, extiéndelas en una sola capa y caliéntalas a {AF_F}°F durante {MEDIUM_MIN} minutos, agitando una vez. Las puntas y muslitos pequeños necesitan unos {SMALL_MIN} minutos y las alitas grandes unos {LARGE_MIN}. Mézclalas con salsa templada y vuelve a meterlas un minuto para que se fije. En un horno convencional, las mismas alitas se recalientan a {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que están listas',
+      donenessBody:
+        'Comprueba el muslito más carnoso junto al hueso: la pauta del USDA es {INT_F}°F ({INT_C}°C) para sobras recalentadas. La piel debe estar crujiente y chisporroteando, y la salsa que quede debe burbujear, no estar negra. Bordes oscuros con el centro frío significan que se quedó demasiada salsa.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Guarda la salsa que quede en la caja para calentarla aparte. Limpia las alitas pegajosas con papel de cocina; una capa fina no pasa nada. Separa las alitas que se hayan pegado para que el aire llegue por todos lados. No hace falta aceite. Las alitas que llevaban salsa desde la noche anterior la han absorbido en parte por la piel, así que nunca quedarán tan crujientes como las de especias secas; el recalentado corto y la salsa nueva las acercan mucho. Hazlas en una sola capa, en dos tandas si hace falta.',
+      faqs: [
+        {
+          q: '¿Cuánto tiempo se recalientan las alitas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para alitas normales, agitando una vez. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Por qué se queman mis alitas recalentadas?',
+          a: 'El azúcar de la salsa se carameliza mucho antes de que la carne esté caliente. Quita antes la salsa espesa y añade salsa nueva al final.',
+        },
+        {
+          q: '¿Se pueden recalentar alitas búfalo en la freidora de aire?',
+          a: 'Sí. La salsa búfalo se corta al recalentarse, así que recalienta las alitas sin salsa y mézclalas después con salsa templada.',
+        },
+        {
+          q: '¿Qué temperatura deben alcanzar las alitas recalentadas?',
+          a: '{INT_F}°F ({INT_C}°C) junto al hueso, que es la pauta del USDA para cualquier sobra recalentada.',
+        },
+        {
+          q: '¿Cómo se recalientan las alitas en el horno?',
+          a: 'Sobre una rejilla con bandeja debajo a {OVEN_F}°F durante unos {OVEN_MIN} minutos, y después mézclalas con la salsa.',
+        },
+      ],
+    },
+    'reheat-steak': {
+      label: 'Filete sobrante',
+      metaTitle: 'Recalentar filete en la freidora de aire: {INT_F}°F o rosado',
+      metaDescription:
+        'Recalienta un filete sobrante en la freidora de aire a {AF_F}°F: unos {MIN} minutos para llegar a los {INT_F}°F del USDA para sobras, o para antes y mantenlo al punto. Las dos opciones, claras.',
+      metaKeywords: 'recalentar filete freidora de aire, cómo recalentar carne en air fryer, filete sobrante freidora de aire, recalentar filete sin que se pase',
+      heading: 'Recalentar filete en la freidora de aire',
+      subDesc:
+        'Filete sobrante, entero o en tiras. El ajuste bajo, los dos objetivos distintos de punto y de seguridad, y por qué cortarlo antes te da lo mejor de ambos.',
+      cardDesc: 'Calor bajo y termómetro a partir de la vuelta.',
+      sizeLabels: { thin: 'Filete en tiras', medium: 'Filete entero, de unos 2,5 cm', thick: 'Filete entero, de unos 4 cm' },
+      internalLine: 'Pauta del USDA para sobras: {INT_F}°F ({INT_C}°C) en el centro',
+      internalAltLine:
+        'Para mantenerlo al punto: {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), que suele alcanzarse hacia los {FLIP} min. Parar ahí es decisión tuya.',
+      failureHeading: 'Seguro o rosado: dos objetivos que no coinciden',
+      failureBody:
+        'Un filete hecho al punto terminó a unos {INT_ALT_TO_F}°F por dentro. La pauta del USDA para recalentar cualquier sobra es {INT_F}°F, y llevar el centro de un filete a esa temperatura lo deja muy hecho. No hay ajuste que consiga las dos cosas, así que esta página te da los dos números y te deja elegir. La temperatura baja es lo que hace que cualquiera de las dos opciones salga bien: con un calor suave, el exterior no se endurece ni se pone gris mientras el centro se calienta, así que el filete se calienta de forma pareja. El tiempo de aquí es una estimación para que un filete entero llegue a {INT_F}°F, no una cifra probada, porque el grosor y la temperatura de la nevera varían. Empieza a medir con un termómetro en la vuelta y decide según la lectura.',
+      workedExampleHeading: 'Ejemplo práctico: un solomillo sobrante',
+      workedExampleTemplate:
+        'Un filete de lomo de unos 2,5 cm de la noche anterior, recién sacado de la nevera. Precalienta {PREHEAT} minutos y caliéntalo a {AF_F}°F, dándole la vuelta a los {FLIP} minutos y midiendo el centro en ese momento. Para los {INT_F}°F del USDA, cuenta con unos {MEDIUM_MIN} minutos en total; un filete de 4 cm tarda unos {THICK_MIN}. El filete en tiras está caliente del todo en unos {THIN_MIN}. En un horno convencional, el método lento es {OVEN_F}°F durante unos {OVEN_MIN} minutos sobre una rejilla.',
+      donenessHeading: 'Cómo comprobarlo',
+      donenessBody:
+        'Usa un termómetro de lectura instantánea en el centro mismo de la parte más gruesa. En la vuelta, una lectura de {INT_ALT_F}–{INT_ALT_TO_F}°F indica que el filete está templado y todavía rosado; sigue hasta {INT_F}°F ({INT_C}°C) si aplicas la pauta del USDA para sobras. La superficie debe chisporrotear, pero sin secarse ni curvarse por los bordes.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Deja el filete fuera mientras se calienta la freidora para que el centro esté menos frío. Úntalo con un poco de aceite o mantequilla para que la superficie no se reseque. Guarda los jugos del plato y échalos por encima antes de servir.',
+      faqs: [
+        {
+          q: '¿Cómo caliento el filete del todo sin que se pase?',
+          a: 'Córtalo antes de recalentarlo si lo quieres caliente del todo sin que se pase. Las tiras finas llegan a {INT_F}°F en unos {THIN_MIN} minutos, antes de que se pongan grises y duras.',
+        },
+        {
+          q: '¿Qué temperatura debe alcanzar el filete recalentado?',
+          a: 'La pauta del USDA para sobras es {INT_F}°F ({INT_C}°C). Mucha gente para en {INT_ALT_F}–{INT_ALT_TO_F}°F para mantenerlo rosado; es decisión tuya.',
+        },
+        {
+          q: '¿El tiempo de esta página es exacto?',
+          a: 'No. Es una estimación para un filete de 2,5 cm sacado de la nevera. Empieza a medir con un termómetro a los {FLIP} minutos y guíate por la lectura.',
+        },
+        {
+          q: '¿Por qué una temperatura tan baja?',
+          a: 'Un calor suave calienta el centro antes de que el exterior se seque, así que el filete conserva el mismo color de borde a centro.',
+        },
+        {
+          q: '¿Cómo se recalienta el filete en el horno?',
+          a: 'Sobre una rejilla a {OVEN_F}°F durante unos {OVEN_MIN} minutos, y después márcalo un momento en una sartén muy caliente si quieres recuperar la costra.',
+        },
+      ],
+    },
+    cookies: {
+      label: 'Galletas',
+      metaTitle: 'Galletas en la freidora de aire: tiempo, temperatura y papel',
+      metaDescription:
+        'Hornea galletas en la freidora de aire: {AF_F}°F durante {MIN} minutos a partir de la masa. Por qué la masa ligera y el papel se levantan con el ventilador, tiempos por tamaño y el equivalente en horno.',
+      metaKeywords: 'galletas en freidora de aire, galletas air fryer tiempo y temperatura, cookies de chocolate freidora de aire, hornear galletas en freidora de aire',
+      heading: 'Galletas en la freidora de aire',
+      subDesc:
+        'Galletas de cuchara horneadas de pocas en pocas, con masa fresca o congelada. El ajuste más bajo, cómo evitar que el papel se levante y cuándo sacarlas.',
+      cardDesc: 'Sujeta el papel con la propia masa.',
+      sizeLabels: { small: 'Pequeñas, una cucharada rasa', medium: 'Medianas, unas 2 cucharadas', large: 'Grandes, tamaño pastelería' },
+      failureHeading: 'Por qué el papel y la masa se levantan con el ventilador',
+      failureBody:
+        'El ventilador de una freidora de aire es potente, y una hoja suelta de papel de horno pesa muy poco. Si metes el papel solo para precalentar, sale volando hacia la resistencia, donde puede chamuscarse. Incluso con masa encima, una esquina libre se levanta y se dobla sobre las galletas. La propia masa es el segundo problema: la masa blanda se extiende al calentarse, y el aire que pasa por encima endurece la superficie antes de tiempo, así que las galletas se abomban y se agrietan en lugar de extenderse por igual. Las soluciones son sencillas. Mete el papel solo con la masa ya encima, recórtalo para que no sobresalga ningún borde y deja espacio entre las bolas. El ajuste más bajo frena la parte de arriba para que la galleta se extienda antes de cuajar.',
+      workedExampleHeading: 'Ejemplo práctico: galletas con pepitas de chocolate',
+      workedExampleTemplate:
+        'Una tanda de masa de galletas con pepitas de chocolate que indica {OVEN_F}°F durante {OVEN_MIN} minutos en el horno. En una freidora de aire de cesta, hornéalas a {AF_F}°F durante {MEDIUM_MIN} minutos. Precalienta {PREHEAT} minutos, coloca cuatro bolas de unas dos cucharadas sobre papel recortado y mételo. Las galletas pequeñas tardan unos {SMALL_MIN} minutos y las grandes, tipo pastelería, unos {LARGE_MIN}. Deja que cada tanda se asiente sobre el papel antes de moverla.',
+      donenessHeading: 'Cómo saber que están hechas',
+      donenessBody:
+        'Los bordes deben estar cuajados y ligeramente dorados, mientras el centro todavía parece algo blando e hinchado; se endurece al enfriarse. Un palillo en el centro debe salir con migas húmedas, no con masa cruda. Si están marrón oscuro, se han pasado. Déjalas sobre el papel hasta que se asienten y pásalas luego a una rejilla, donde la base se mantiene crujiente.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Enfría un rato la masa muy blanda para que mantenga la forma. Recorta el papel al tamaño del fondo de la cesta, más pequeño que la base, o usa un papel perforado. Hornea de cuatro a seis a la vez, con espacio para extenderse. Las bolas de masa congelada van tal cual, con uno o dos minutos más.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las galletas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para galletas medianas. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Necesito papel de horno para las galletas en la freidora de aire?',
+          a: 'Ayuda a despegarlas limpias, pero mételo solo con masa encima y recortado a medida, para que el ventilador no lo lance contra la resistencia.',
+        },
+        {
+          q: '¿Puedo hornear masa de galletas congelada en la freidora de aire?',
+          a: 'Sí, directamente del congelador. Añade uno o dos minutos y comprueba el centro con un palillo.',
+        },
+        {
+          q: '¿Por qué mis galletas salen abombadas y pálidas por debajo?',
+          a: 'La parte de arriba cuajó antes de que la masa pudiera extenderse. Usa el ajuste más bajo y aplasta un poco las bolas.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja forrada en un horno convencional.',
+        },
+      ],
+    },
+    muffins: {
+      label: 'Magdalenas',
+      metaTitle: 'Magdalenas en la freidora de aire: tiempo, temperatura y moldes',
+      metaDescription:
+        'Hornea magdalenas en la freidora de aire: {AF_F}°F durante {MIN} minutos. Moldes de silicona o un molde pequeño que quepa, por qué no cabe uno de 12 y cómo comprobar el centro.',
+      metaKeywords: 'magdalenas en freidora de aire, muffins air fryer tiempo y temperatura, muffins de arándanos freidora de aire, hornear magdalenas en freidora de aire',
+      heading: 'Magdalenas en la freidora de aire',
+      subDesc:
+        'Magdalenas horneadas por tandas en una freidora de aire de cesta. El ajuste, qué moldes caben y cómo evitar que la parte de arriba se dore antes de que el centro se haga.',
+      cardDesc: 'Moldes de silicona, y juzga el centro, no el color.',
+      sizeLabels: { small: 'Mini magdalenas', medium: 'Magdalenas normales', large: 'Magdalenas grandes o de pastelería' },
+      failureHeading: 'Por qué la parte de arriba se dora y el centro sigue crudo',
+      failureBody:
+        'En un horno, una magdalena se calienta por todos lados en aire quieto. En una freidora de aire el calor cae sobre la parte de arriba, así que la copa se dora pronto y parece hecha mientras el centro todavía es masa. El color es la trampa: una magdalena dorada puede estar cruda por dentro. El ajuste más bajo de aquí frena la parte de arriba para que el interior la alcance, y el tiempo da por hecho que compruebas el centro, no el color. Las magdalenas con mucha masa, fruta o yogur tienen más agua y necesitan el tiempo completo. Si la parte de arriba está oscura mucho antes del final, pon encima una hoja pequeña de papel de aluminio sin apretar el resto del horneado, bien sujeta para que el ventilador no la levante.',
+      workedExampleHeading: 'Ejemplo práctico: seis magdalenas de arándanos',
+      workedExampleTemplate:
+        'Una receta de magdalenas de arándanos que indica {OVEN_F}°F durante {OVEN_MIN} minutos en el horno. En una freidora de aire de cesta, hornéalas a {AF_F}°F durante {MEDIUM_MIN} minutos. Precalienta {PREHEAT} minutos, llena seis moldes de silicona hasta dos tercios y colócalos con espacio entre ellos. Las mini tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}. Hornea el resto de la masa en una segunda tanda.',
+      donenessHeading: 'Cómo saber que están hechas',
+      donenessBody:
+        'Clava un palillo en el centro de la magdalena del medio: debe salir limpio o con unas pocas migas secas, nunca con masa húmeda. La parte de arriba debe recuperar la forma al presionarla con suavidad. Ignora el color, que va por delante del interior en una freidora de aire. Las magdalenas del borde de la cesta se hacen antes que las del centro, así que prueba la del medio y cámbialas de sitio a mitad si tu cesta dora de forma desigual. Déjalas reposar en sus moldes antes de desmoldarlas.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Usa moldes de silicona, moldes de aluminio metidos uno dentro de otro para que aguanten, o un molde pequeño para magdalenas que quede plano en el fondo de la cesta. Un molde normal de 12 no cabe en una cesta de 5 qt (unos 4,7 litros). Llénalos hasta dos tercios y deja huecos para que el aire circule entre ellos.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las magdalenas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para magdalenas normales. Las mini tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Cabe un molde de magdalenas en mi freidora de aire?',
+          a: 'Un molde de 12 no cabe en una cesta de 5 qt. Usa moldes de silicona o un molde pequeño de 4 o 6 huecos que quede plano en el fondo.',
+        },
+        {
+          q: '¿Puedo usar cápsulas de papel?',
+          a: 'Solo dentro de moldes de silicona o aluminio. Solas, las cápsulas de papel son demasiado blandas para sostener la masa y pueden volcarse con el aire.',
+        },
+        {
+          q: '¿Por qué mis magdalenas quedan crudas por dentro?',
+          a: 'La parte de arriba se doró antes y las sacaste por el color. Comprueba el centro con un palillo y baja el calor si la parte de arriba se oscurece pronto.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en un molde de 12 magdalenas en un horno convencional.',
+        },
+      ],
+    },
+    brownies: {
+      label: 'Brownies',
+      metaTitle: 'Brownies en la freidora de aire: molde, tiempo y temperatura',
+      metaDescription:
+        'Hornea brownies en la freidora de aire: {AF_F}°F durante {MIN} minutos en un molde de 18 cm. Qué moldes caben en una cesta de 5 qt, cómo reducir a la mitad una receta de 23×23 y el equivalente en horno.',
+      metaKeywords: 'brownies en freidora de aire, brownie air fryer tiempo y temperatura, molde brownie freidora de aire, hornear brownie en freidora de aire',
+      heading: 'Brownies en la freidora de aire',
+      subDesc:
+        'Un molde pequeño de brownies horneado en una freidora de aire de cesta. El molde que cabe, cómo adaptar una receta normal y cómo lograr un centro jugoso sin bordes duros.',
+      cardDesc: 'Usa un molde de 15–18 cm y reduce a la mitad una receta de 23×23.',
+      sizeLabels: { small: 'Molde redondo de 15 cm', medium: 'Molde cuadrado de 18 cm', thick: 'Tanda más alta o muy jugosa' },
+      failureHeading: 'Por qué los bordes se pasan y el centro sigue húmedo',
+      failureBody:
+        'La masa de brownie es densa y pesada, y en un molde metálico los bordes reciben el calor más fuerte, pegados a las paredes calientes y justo bajo el ventilador. Cuajan y se secan mucho antes que el centro, que está aislado por masa por todos lados. Si subes el calor para acelerar el centro, obtienes un borde duro y una costra que se agrieta y se separa de un centro crudo. El ajuste más bajo da tiempo al calor para llegar al centro. El tamaño del molde importa igual: una cesta de 5 qt mide unos 20–22 cm de ancho, así que un molde de 15 o 18 cm cabe con espacio para que el aire circule alrededor. Una receta normal de 23×23 cm hay que reducirla a la mitad u hornearla en dos tandas; vertida más alta en un molde pequeño, no cuajará por el centro.',
+      workedExampleHeading: 'Ejemplo práctico: media receta de 23×23',
+      workedExampleTemplate:
+        'Una receta de brownies de 23×23 cm que indica {OVEN_F}°F durante {OVEN_MIN} minutos, reducida a la mitad y vertida en un molde cuadrado forrado de 18 cm. Precalienta {PREHEAT} minutos y hornéalo a {AF_F}°F durante {MEDIUM_MIN} minutos. Un molde redondo de 15 cm tarda unos {SMALL_MIN} minutos, y una tanda más alta o muy jugosa unos {THICK_MIN}. Déjalo enfriar en el molde antes de cortarlo.',
+      donenessHeading: 'Cómo saber que están hechos',
+      donenessBody:
+        'Un palillo clavado en el centro debe salir con migas húmedas, no con masa líquida. La superficie debe verse seca y algo agrietada por los bordes, con solo un ligero temblor en el centro. Los brownies siguen haciéndose en el molde caliente, así que sácalos un poco antes. Córtalos solo cuando estén del todo fríos, para que los cuadrados salgan limpios.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Forra el molde con papel de horno y deja dos lados largos para poder sacar el brownie. Comprueba que el molde queda plano y con hueco alrededor. Si la superficie se oscurece pronto, cúbrela sin apretar con papel de aluminio, metido bajo el molde para que no salga volando.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los brownies en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F en un molde cuadrado de 18 cm. Un molde redondo de 15 cm tarda unos {SMALL_MIN} minutos y una tanda más alta unos {THICK_MIN}.',
+        },
+        {
+          q: '¿Qué tamaño de molde cabe en una freidora de aire de 5 qt?',
+          a: 'Un molde redondo o cuadrado de 15 o 18 cm. La cesta mide unos 20–22 cm de ancho, y el aire necesita espacio alrededor del molde.',
+        },
+        {
+          q: '¿Puedo hacer una receta de brownie de 23×23 en la freidora de aire?',
+          a: 'Redúcela a la mitad u hornéala en dos tandas. Vertida en un solo molde pequeño, queda demasiado alta para cuajar por el centro.',
+        },
+        {
+          q: '¿Puedo usar un preparado de brownie de caja?',
+          a: 'Sí. La mayoría de las cajas son para un molde de 20 o 23 cm, así que usa la mitad de la masa por tanda y sigue los tiempos de aquí.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos para el mismo molde en un horno convencional.',
+        },
+      ],
+    },
+    'garlic-bread': {
+      label: 'Pan de ajo',
+      metaTitle: 'Pan de ajo en la freidora de aire: fresco o congelado',
+      metaDescription:
+        'Pan de ajo en la freidora de aire: {AF_F}°F durante {MIN} minutos, crujiente y dorado. Rebanadas, media barra o pan de ajo congelado, y el equivalente en horno.',
+      metaKeywords: 'pan de ajo freidora de aire, pan de ajo air fryer tiempo, pan de ajo congelado freidora de aire, pan de ajo casero freidora de aire',
+      heading: 'Pan de ajo en la freidora de aire',
+      subDesc:
+        'Pan de ajo casero o comprado, tostado y crujiente por los bordes y tierno por dentro. El ajuste y cómo evitar que el ajo se queme.',
+      cardDesc: 'Deja el ajo bajo la mantequilla, no encima.',
+      sizeLabels: { thin: 'Pan de ajo en rebanadas', medium: 'Media barra, con el corte hacia arriba', thick: 'Tostada gruesa o pan de ajo congelado' },
+      failureHeading: 'Por qué el ajo se quema y amarga',
+      failureBody:
+        'El ajo picado es pequeño, seco y lleno de azúcares, y encima del pan queda justo en el aire más caliente. Pasa de dorado a marrón y a negro amargo en menos de un minuto, a menudo antes de que el pan de debajo se haya tostado. La mantequilla es parte del problema: se derrite y escurre por la superficie, y deja el ajo al descubierto y seco. La solución está en cómo lo untas. Machaca el ajo con mantequilla blanda para que cada trocito quede cubierto, úntalo hasta los bordes y apriétalo contra la miga. El ajo rallado se quema menos que el picado, y el ajo en polvo casi no se quema. Un ajuste medio tuesta el pan por completo mientras la parte de arriba se dora, sin oscurecerse.',
+      workedExampleHeading: 'Ejemplo práctico: media barra de pan',
+      workedExampleTemplate:
+        'Media barra abierta a lo largo y untada con mantequilla de ajo. Una receta de horno indicaría {OVEN_F}°F durante unos {OVEN_MIN} minutos. En una freidora de aire de cesta, precalienta {PREHEAT} minutos y tuéstala con el corte hacia arriba a {AF_F}°F durante {MEDIUM_MIN} minutos. Las rebanadas sueltas tardan unos {THIN_MIN} minutos, y la tostada gruesa o el pan de ajo congelado unos {THICK_MIN}.',
+      donenessHeading: 'Cómo saber que está hecho',
+      donenessBody:
+        'Los bordes deben estar crujientes y bien dorados, y la mantequilla debe burbujear metida en el pan, no encharcada encima. Presiona el centro: debe seguir tierno. Cualquier trozo de ajo marrón oscuro significa que la siguiente tanda necesita menos tiempo o que el ajo necesita más mantequilla alrededor.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Usa mantequilla blanda, no derretida, para que se quede donde la untas. Añade el perejil o el queso rallado solo en el último minuto. Corta las barras largas para que quepan en la cesta y coloca los trozos en una sola capa. El pan del día anterior va muy bien, porque su miga más seca absorbe la mantequilla en lugar de ablandarse. El pan de ajo congelado va directamente del congelador, sin descongelar, o la mantequilla se sale antes de que la corteza cruja. Si viene envuelto en papel de aluminio, quítaselo para la freidora de aire.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el pan de ajo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para media barra. Las rebanadas tardan unos {THIN_MIN} minutos y los trozos gruesos o congelados unos {THICK_MIN}.',
+        },
+        {
+          q: 'Pan de ajo fresco o congelado: ¿qué cambia?',
+          a: 'El pan de ajo fresco solo necesita tostarse. El congelado va directamente del congelador y necesita el tiempo más largo, para que el centro se descongele y ablande antes de que la parte de arriba cruja.',
+        },
+        {
+          q: '¿Por qué se me quema el ajo en la freidora de aire?',
+          a: 'Queda al descubierto en el aire más caliente. Machácalo con mantequilla blanda y apriétalo contra el pan para protegerlo.',
+        },
+        {
+          q: '¿Puedo añadir queso?',
+          a: 'Sí, en el último minuto o dos. Si lo pones al principio, se dora antes de que el pan esté tostado.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en un horno convencional.',
+        },
+      ],
+    },
+    'corn-on-the-cob': {
+      label: 'Mazorcas de maíz',
+      metaTitle: 'Mazorcas de maíz en la freidora de aire: tiempo y tamaño',
+      metaDescription:
+        'Mazorcas de maíz en la freidora de aire: {AF_F}°F durante {MIN} minutos, girándolas a los {FLIP}. Granos jugosos con toques tostados, por qué hay que partir las largas y el equivalente en horno.',
+      metaKeywords: 'mazorca de maíz freidora de aire, elote en freidora de aire, choclo air fryer tiempo, maíz asado freidora de aire',
+      heading: 'Mazorcas de maíz en la freidora de aire',
+      subDesc:
+        'Maíz fresco asado hasta quedar dulce, jugoso y algo tostado. El ajuste, el único giro y cómo meter mazorcas enteras en una cesta.',
+      cardDesc: 'Parte las mazorcas largas y úntalas con mantequilla o aceite.',
+      sizeLabels: { small: 'Medias mazorcas o mazorcas pequeñas', medium: 'Mazorcas medianas, partidas para que quepan', large: 'Mazorcas grandes y gruesas, partidas' },
+      failureHeading: 'Por qué los granos se secan y se arrugan',
+      failureBody:
+        'El maíz cocido está en agua, así que solo puede mojarse más. En una freidora de aire pasa lo contrario: el aire caliente en movimiento saca el agua de cada grano expuesto, y una mazorca desnuda que se deja demasiado tiempo acaba arrugada, gomosa y pálida. Lo que la protege es una capa de grasa. La mantequilla o el aceite sellan los granos para que se calienten y queden jugosos, mientras la grasa se dora a puntos y da ese sabor a asado a la parrilla. El tamaño también importa. La mayoría de las mazorcas enteras son más largas que una cesta de 5 qt, y una mazorca metida en diagonal toca las paredes, se cuece al vapor por los extremos y bloquea el aire. Parte cualquier mazorca más larga que la cesta para que los trozos queden planos en una capa.',
+      workedExampleHeading: 'Ejemplo práctico: cuatro mazorcas',
+      workedExampleTemplate:
+        'Cuatro mazorcas medianas, sin hojas, partidas por la mitad y untadas con mantequilla derretida y sal. Precalienta {PREHEAT} minutos, coloca las mitades en una capa y ásalas a {AF_F}°F durante {MEDIUM_MIN} minutos, girándolas a los {FLIP}. Las mazorcas pequeñas o los trozos cortos tardan unos {SMALL_MIN} minutos, y las grandes y gruesas unos {LARGE_MIN}. En una bandeja en un horno convencional, el mismo maíz necesita {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que está hecho',
+      donenessBody:
+        'Los granos deben estar de un amarillo intenso, llenos y brillantes, con algunos puntos dorados. Aprieta uno con la uña: debe soltar jugo. Los granos apagados y hundidos indican que el maíz se secó por exceso de tiempo o falta de grasa.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Quita del todo las hojas y las barbas. Parte cada mazorca con un cuchillo pesado, balanceándolo a través del centro en lugar de serrar. Úntala con mantequilla o aceite por todos lados y sazónala después de asarla si usas una mezcla de especias que se quema. El pimentón ahumado, el chile y el parmesano rallado van muy bien sobre el maíz caliente con un poco más de mantequilla. El maíz muy fresco y dulce necesita el tiempo más corto; las mazorcas más viejas y harinosas del final de temporada tardan algo más en ablandarse.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las mazorcas de maíz en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para mazorcas medianas, girándolas a los {FLIP}. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que partir el maíz para que quepa en la freidora de aire?',
+          a: 'Normalmente sí. Parte cualquier mazorca más larga que la cesta para que quede plana; las mazorcas encajadas se hacen de forma desigual.',
+        },
+        {
+          q: '¿Puedo asar el maíz con sus hojas?',
+          a: 'Puedes, pero se cuece al vapor en lugar de asarse y las hojas secas pueden chamuscarse. Sin hojas y con mantequilla da el mejor resultado.',
+        },
+        {
+          q: '¿Se pueden hacer mazorcas congeladas en la freidora de aire?',
+          a: 'Sí, directamente congeladas. Añade unos minutos y úntalas con mantequilla a mitad, cuando el hielo haya desaparecido.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en un horno convencional, girándolas una vez.',
+        },
+      ],
+    },
+    'frozen-vegetables': {
+      label: 'Verduras congeladas',
+      metaTitle: 'Verduras congeladas en la freidora de aire: asadas, no blandas',
+      metaDescription:
+        'Verduras congeladas en la freidora de aire: {AF_F}°F durante {MIN} minutos, agitando {SHAKES} veces, directamente de la bolsa. Cómo asarlas en lugar de cocerlas al vapor y el equivalente del paquete.',
+      metaKeywords: 'verduras congeladas freidora de aire, verduras congeladas air fryer, asar verduras congeladas freidora de aire, menestra congelada freidora de aire',
+      heading: 'Verduras congeladas en la freidora de aire',
+      subDesc:
+        'Verduras mixtas, guisantes, maíz o ramilletes directamente del congelador, asados en lugar de cocidos al vapor. Sin descongelar, y por qué la cantidad en la cesta decide el resultado.',
+      cardDesc: 'Nunca las descongeles: directas, media cesta como mucho.',
+      sizeLabels: { small: 'Guisantes, maíz o mezcla en dados', medium: 'Verduras mixtas', large: 'Ramilletes de brócoli o coliflor' },
+      failureHeading: 'Por qué las verduras congeladas salen blandas y aguadas',
+      failureBody:
+        'Las verduras congeladas se escaldan antes de congelarlas, y los cristales de hielo que se forman dentro rompen muchas de sus paredes celulares. Al calentarse, esa estructura rota suelta su agua de golpe, además de la escarcha de fuera. En una cesta llena el agua no tiene adónde ir: se encharca, se convierte en vapor y cuece las verduras hasta dejarlas blandas y grises antes de que ninguna pueda dorarse. La respuesta es menos cantidad y nada de descongelar. Las verduras descongeladas ya han soltado su agua, así que se ponen mustias enseguida; las congeladas mantienen la forma mientras el exterior se seca. Llena la cesta como mucho hasta la mitad, para que el vapor escape, y las verduras se asarán con el calor seco que viene después.',
+      workedExampleHeading: 'Ejemplo práctico: una bolsa de verduras mixtas',
+      workedExampleTemplate:
+        'Media bolsa de verduras mixtas congeladas que indica asarlas a {OVEN_F}°F durante {OVEN_MIN} minutos. En una freidora de aire de cesta, precalienta {PREHEAT} minutos, échalas todavía congeladas con una cucharada de aceite y ásalas a {AF_F}°F durante {MEDIUM_MIN} minutos, agitando {SHAKES} veces. Los guisantes, el maíz y las mezclas en dados pequeños tardan unos {SMALL_MIN} minutos; los ramilletes grandes unos {LARGE_MIN}.',
+      donenessHeading: 'Cómo saber que están hechas',
+      donenessBody:
+        'La cesta debe estar seca, sin agua en el fondo, y los bordes de las verduras deben tener puntos dorados. Las zanahorias y los ramilletes deben estar tiernos al pincharlos, pero no deshechos. Un charco bajo unas verduras pálidas y blandas significa que la cesta estaba demasiado llena.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Deshaz los grumos congelados dentro de la bolsa. Mézclalas con aceite justo antes de asarlas; no se pega tan bien a las piezas escarchadas, así que vuelve a mezclar en el primer meneo. Sazona con sal y especias al final, porque el vapor del principio se las lleva. Las bolsas con piezas grandes y pequeñas juntas se hacen de forma desigual, así que retira las pequeñas si empiezan a quemarse, o haz la mezcla en dos tandas. Los paquetes de verduras con salsa o mantequilla suelen indicar solo microondas; la salsa se quema en la freidora de aire, así que usa bolsas de verduras solas.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las verduras congeladas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para verduras mixtas, agitando {SHAKES} veces. Las piezas pequeñas tardan unos {SMALL_MIN} minutos y los ramilletes grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que descongelar las verduras antes de la freidora de aire?',
+          a: 'No. Las verduras descongeladas ya han soltado su agua y se ponen mustias. Hazlas directamente congeladas.',
+        },
+        {
+          q: '¿Por qué mis verduras congeladas salen blandas?',
+          a: 'La cesta estaba demasiado llena y su agua las coció al vapor. Usa como mucho media cesta cada vez.',
+        },
+        {
+          q: '¿Es distinto del brócoli fresco?',
+          a: 'Sí. Los ramilletes frescos necesitan un ajuste más corto y suave; los congelados necesitan más calor y tiempo para eliminar antes el hielo.',
+        },
+        {
+          q: '¿Qué dice el paquete para el horno?',
+          a: 'La mayoría de las bolsas indican {OVEN_F}°F durante unos {OVEN_MIN} minutos en un horno convencional.',
+        },
+      ],
+    },
   },
 };
 
 export const presetsIndex: Dictionary['presetsIndex'] = {
   metaTitle: 'Preconfiguraciones para freidora de aire: tiempo y temperatura por alimento',
   metaDescription:
-    'Tiempo y temperatura en freidora de aire para pollo, alitas, salmón, beicon, filete, patatas y más: cada preconfiguración con temperatura interna, tiempos por tamaño y equivalente en horno.',
+    'Tiempo y temperatura en freidora de aire para pollo, salmón, filete, patatas, repostería, congelados y sobras: cada preconfiguración con temperatura interna o prueba de punto, tiempos por tamaño y equivalente en horno.',
   metaKeywords: 'tiempos freidora de aire, tabla tiempo temperatura freidora de aire, preconfiguraciones freidora de aire',
   backLink: 'Todas las herramientas',
   heading: 'Preconfiguraciones de alimentos para freidora de aire',
@@ -1450,7 +1962,7 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
   },
   howHeading: 'Cómo se fijan estas preconfiguraciones',
   howBody:
-    'Cada preconfiguración parte de una freidora de cesta de 4–6 litros, precalentada, con el alimento en una sola capa. Los equivalentes en horno y en horno con ventilador de cada página los calcula el mismo motor que el conversor, así que coinciden entre sí, y el conversor de cada página ya tiene ese alimento elegido por si partes de una receta de horno. Cada página empieza por la forma concreta en que ese alimento sale mal en la freidora, porque eso decide el resultado más que el número del dial. Sin correo, sin registro, nada que instalar.',
+    'Cada preconfiguración parte de una freidora de cesta de 4–6 litros, precalentada, con el alimento en una sola capa. En las de cocinar, los equivalentes en horno y en horno con ventilador los calcula el mismo motor que el conversor, así que coinciden entre sí, y el conversor de la página ya tiene ese alimento elegido. Las de congelados muestran en su lugar lo que dice el paquete. Las de recalentar son distintas: el motor convierte recetas de cocción, no recalentados, así que los tiempos de recalentado y sus equivalentes en horno están escritos a mano, y el conversor de esas páginas convierte recetas de horno. Cada página empieza por la forma concreta en que ese alimento sale mal en la freidora, porque eso decide el resultado más que el número del dial. Sin correo, sin registro, nada que instalar.',
   relatedFlagshipLink: 'Conversor de horno a freidora de aire',
   relatedChartLink: 'Tabla de conversión imprimible',
 };

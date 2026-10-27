@@ -41,8 +41,10 @@ export interface FoodPreset {
    * Heat-through setting for the copy ({PRE_F}, {PRE_C}, {PRE_MIN}); no raw warning applies to it.
    */
   precooked?: { tempF: number; minutes: number };
-  /** Doneness is judged by eye instead of a thermometer (bacon). */
-  doneBy?: 'crisp';
+  /** Doneness is judged by eye instead of a thermometer (bacon), or by a toothpick (muffins, brownies, cookies). */
+  doneBy?: 'crisp' | 'toothpick';
+  /** Reheat presets: the slug of the fresh (or frozen) version, listed first among the related presets. */
+  fresh?: string;
   /** Sizing table rows; `minutes` is the air fryer time at `tempF` unless the row sets its own `tempF`. */
   sizes: { id: PresetSizeId; minutes: number; tempF?: number }[];
 }
@@ -448,6 +450,159 @@ export const PRESETS = [
       { id: 'small', minutes: 8 },
       { id: 'medium', minutes: 11 },
       { id: 'large', minutes: 13 },
+    ],
+  },
+  {
+    slug: 'reheat-pizza',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'pizza', ovenF: 375, ovenMinutes: 10 },
+    tempF: 350,
+    minutes: 4,
+    doneBy: 'crisp',
+    fresh: 'frozen-pizza',
+    sizes: [
+      { id: 'thin', minutes: 3 },
+      { id: 'medium', minutes: 4 },
+      { id: 'thick', minutes: 6 },
+    ],
+  },
+  {
+    slug: 'reheat-fries',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'fries', ovenF: 400, ovenMinutes: 9 },
+    tempF: 375,
+    minutes: 4,
+    shakes: 1,
+    doneBy: 'crisp',
+    fresh: 'homemade-fries',
+    sizes: [
+      { id: 'small', minutes: 3 },
+      { id: 'medium', minutes: 4 },
+      { id: 'large', minutes: 6 },
+    ],
+  },
+  {
+    slug: 'reheat-fried-chicken',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'thigh', ovenF: 375, ovenMinutes: 20 },
+    tempF: 375,
+    minutes: 8,
+    flipAt: 4,
+    internalF: 165,
+    fresh: 'chicken-thighs',
+    sizes: [
+      { id: 'small', minutes: 6 },
+      { id: 'medium', minutes: 8 },
+      { id: 'large', minutes: 11 },
+    ],
+  },
+  {
+    slug: 'reheat-wings',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'wings', ovenF: 375, ovenMinutes: 10 },
+    tempF: 375,
+    minutes: 5,
+    shakes: 1,
+    internalF: 165,
+    fresh: 'chicken-wings',
+    sizes: [
+      { id: 'small', minutes: 4 },
+      { id: 'medium', minutes: 5 },
+      { id: 'large', minutes: 7 },
+    ],
+  },
+  {
+    slug: 'reheat-steak',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'steak', ovenF: 275, ovenMinutes: 30 },
+    tempF: 300,
+    // An estimate for a 1-inch steak from the fridge to 165°F, not a tested time: the copy says to start checking at the flip.
+    minutes: 8,
+    flipAt: 4,
+    internalF: 165,
+    internalAlt: { f: 110, toF: 120 },
+    fresh: 'steak',
+    sizes: [
+      { id: 'thin', minutes: 4 },
+      { id: 'medium', minutes: 8 },
+      { id: 'thick', minutes: 11 },
+    ],
+  },
+  {
+    slug: 'cookies',
+    category: 'baked',
+    engine: { kind: 'oven', food: 'baked' },
+    tempF: 325,
+    minutes: 8,
+    doneBy: 'toothpick',
+    sizes: [
+      { id: 'small', minutes: 6 },
+      { id: 'medium', minutes: 8 },
+      { id: 'large', minutes: 10 },
+    ],
+  },
+  {
+    slug: 'muffins',
+    category: 'baked',
+    engine: { kind: 'oven', food: 'baked' },
+    tempF: 325,
+    minutes: 15,
+    doneBy: 'toothpick',
+    sizes: [
+      { id: 'small', minutes: 8 },
+      { id: 'medium', minutes: 15 },
+      { id: 'large', minutes: 20 },
+    ],
+  },
+  {
+    slug: 'brownies',
+    category: 'baked',
+    engine: { kind: 'oven', food: 'baked' },
+    tempF: 325,
+    minutes: 22,
+    doneBy: 'toothpick',
+    sizes: [
+      { id: 'small', minutes: 18 },
+      { id: 'medium', minutes: 22 },
+      { id: 'thick', minutes: 26 },
+    ],
+  },
+  {
+    slug: 'garlic-bread',
+    category: 'baked',
+    engine: { kind: 'oven', food: 'pizza' },
+    tempF: 375,
+    minutes: 6,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'thin', minutes: 4 },
+      { id: 'medium', minutes: 6 },
+      { id: 'thick', minutes: 8 },
+    ],
+  },
+  {
+    slug: 'corn-on-the-cob',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'veg' },
+    tempF: 400,
+    minutes: 12,
+    flipAt: 6,
+    sizes: [
+      { id: 'small', minutes: 10 },
+      { id: 'medium', minutes: 12 },
+      { id: 'large', minutes: 15 },
+    ],
+  },
+  {
+    slug: 'frozen-vegetables',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'veg' },
+    tempF: 400,
+    minutes: 12,
+    sizes: [
+      { id: 'small', minutes: 10 },
+      { id: 'medium', minutes: 12 },
+      { id: 'large', minutes: 15 },
     ],
   },
 ] as const satisfies readonly FoodPreset[];

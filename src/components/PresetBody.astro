@@ -31,7 +31,13 @@ const { locale = DEFAULT_LOCALE, preset } = Astro.props;
 const { dict, labels, copy, fill } = presetCopy(preset, locale);
 const answer = presetAnswer(preset, locale);
 const internal =
-  presetInternalF(preset) !== undefined ? fill(copy.internalLine ?? dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
+  presetInternalF(preset) !== undefined
+    ? fill(copy.internalLine ?? dict.internalTemplate)
+    : preset.doneBy === 'crisp'
+      ? dict.internalCrisp
+      : preset.doneBy === 'toothpick'
+        ? dict.internalToothpick
+        : null;
 // Display only; the answer line and JSON-LD stay on internalF.
 const internalAlt = preset.internalAlt !== undefined && copy.internalAltLine ? fill(copy.internalAltLine) : null;
 

@@ -8,6 +8,7 @@ export const presets: Dictionary['presets'] = {
   answerShakeSuffix: ', shake {SHAKES}×',
   internalTemplate: 'Done at {INT_F}°F ({INT_C}°C) in the thickest part',
   internalCrisp: 'Done by colour and crispness, not a thermometer',
+  internalToothpick: 'Done by toothpick, not colour',
   ovenHeading: 'Oven equivalent',
   ovenTemplate: 'Conventional oven: {OVEN_F}°F ({OVEN_C}°C, gas mark {OVEN_MARK}) for {OVEN_MIN} min',
   fanTemplate: 'Fan / convection oven: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
@@ -41,7 +42,7 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Portion', airFryer: 'Air fryer', oven: 'Oven reheat' },
     relatedFlagshipLink: 'Oven to air fryer converter',
     widgetHeading: 'Cooking from an oven recipe?',
-    widgetNote: 'This converter turns oven cooking recipes into air fryer settings. It does not reheat, so it starts blank; use the setting above for leftovers.',
+    widgetNote: 'This converter turns oven cooking recipes into air fryer settings. It does not reheat, so it starts at its default settings; use the setting above for leftovers.',
   },
   pages: {
     'chicken-breast': {
@@ -1427,13 +1428,524 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+    'reheat-pizza': {
+      label: 'Leftover pizza',
+      metaTitle: 'Reheat Pizza in the Air Fryer: Crisp Base, Melted Cheese',
+      metaDescription:
+        'Reheat leftover pizza in the air fryer: {AF_F}°F for {MIN} minutes for a crisp base and melted cheese. Times for thin, regular and deep-dish slices, plus the oven method.',
+      metaKeywords: 'reheat pizza air fryer, how long to reheat pizza in air fryer, leftover pizza air fryer, air fryer pizza reheat temp',
+      heading: 'Reheating pizza in the air fryer',
+      subDesc:
+        'Cold slices from the fridge, back to a crisp base and soft, melted cheese. The gentle setting, why hotter makes it worse, and how deep-dish differs.',
+      cardDesc: 'A lower heat lets the base catch up with the cheese.',
+      sizeLabels: { thin: 'Thin-crust slice', medium: 'Regular slice', thick: 'Deep-dish or thick pan slice' },
+      failureHeading: 'Why the base stays soft while the cheese overcooks',
+      failureBody:
+        'A slice straight from the fridge is cold all the way through, and in an air fryer the heat arrives from above. The cheese and toppings sit right in that stream, so they melt, then sweat oil, then go leathery, while the crust underneath is still cool and a little damp from a night in the box. Turning the dial up only widens that gap. The fix is a moderate temperature and a short time, so heat has a chance to travel down through the slice and drive the moisture out of the base before the top overcooks. Put slices directly on the basket, not on foil, so air reaches the underside, and never stack them: a second slice on top steams the first.',
+      workedExampleHeading: 'Worked example: two regular slices',
+      workedExampleTemplate:
+        'Two slices of a regular takeaway pizza, straight from the fridge. Preheat {PREHEAT} minutes, lay them side by side on the basket and heat at {AF_F}°F for {MEDIUM_MIN} minutes. A thin-crust slice is ready in about {THIN_MIN}, and a deep-dish slice needs about {THICK_MIN}, because the thick base takes longer to warm through. Reheating a whole tray in a conventional oven instead takes {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is ready',
+      donenessBody:
+        'Lift a slice with tongs: it should hold out flat without drooping at the tip, and the underside should look dry and lightly toasted. The cheese should be melted and glossy, just starting to bubble at the edges. If the cheese is browning in patches while the base still bends, the setting was too hot or the slice too thick for the time.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Take the slices out of the box a few minutes early so the worst of the chill goes. Pick off and set aside fresh toppings like rocket or basil and add them back afterwards. For a very dry slice, a few drops of water on the basket beside it, not on it, keeps the cheese soft.',
+      faqs: [
+        {
+          q: 'How long do you reheat pizza in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a regular slice. Thin crust takes around {THIN_MIN} minutes and deep-dish around {THICK_MIN}.',
+        },
+        {
+          q: 'Why not reheat pizza at a higher temperature?',
+          a: 'The heat comes from above, so a hotter setting overcooks the cheese before the cold base has warmed and dried out.',
+        },
+        {
+          q: 'Should I put foil or parchment under the slice?',
+          a: 'No. Air needs to reach the underside to crisp it. Only use a liner for very cheesy slices that drip, and keep it smaller than the slice.',
+        },
+        {
+          q: 'Is this the same as cooking a frozen pizza?',
+          a: 'No. A frozen pizza starts raw on top and frozen solid, so it needs a different setting; this one only warms and re-crisps a cooked slice.',
+        },
+        {
+          q: 'How do I reheat pizza in the oven?',
+          a: 'Put the slices on a tray at {OVEN_F}°F for around {OVEN_MIN} minutes, or on a preheated tray if you want a crisper base.',
+        },
+      ],
+    },
+    'reheat-fries': {
+      label: 'Leftover fries',
+      metaTitle: 'Reheat Fries in the Air Fryer: Crisp Again, Not Leathery',
+      metaDescription:
+        'Reheat leftover fries in the air fryer: {AF_F}°F for {MIN} minutes, shaken once. Why day-old fries go leathery, how much they can recover and the oven method.',
+      metaKeywords: 'reheat fries air fryer, how to reheat french fries in air fryer, leftover fries air fryer, reheat mcdonalds fries air fryer',
+      heading: 'Reheating fries in the air fryer',
+      subDesc:
+        'Day-old fries, takeaway or homemade, made crisp again in a few minutes. Why they go leathery overnight, and the quick, hot reheat that brings most of them back.',
+      cardDesc: 'Short and hot, with a little oil, in one layer.',
+      sizeLabels: { small: 'A small handful', medium: 'One takeaway portion', large: 'A large or family portion' },
+      failureHeading: 'Why day-old fries turn leathery',
+      failureBody:
+        'A fresh fry is crisp because its surface is dry and its inside is fluffy, cooked starch. In the fridge that starch slowly recrystallises and squeezes out water, which soaks into the crust from inside. By the next day the outside is soft and the middle has gone dense and chewy. A long, gentle reheat makes it worse, drying the inside into something like cardboard before the surface crisps. What works is the opposite: a short blast of hot air that dries and fries the surface fast, with a very light coat of oil to help, while the inside only warms through. Thin fries recover best; thick-cut ones never get quite back to fresh.',
+      workedExampleHeading: 'Worked example: one takeaway portion',
+      workedExampleTemplate:
+        'One portion of leftover fries from the fridge, tossed with half a teaspoon of oil. Preheat {PREHEAT} minutes, spread them in a single layer and heat at {AF_F}°F for {MEDIUM_MIN} minutes, shaking once halfway. A small handful is ready in about {SMALL_MIN} minutes and a large portion, cooked in one layer, in about {LARGE_MIN}. On a tray in a conventional oven, the same fries take {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are ready',
+      donenessBody:
+        'Pick one up: it should stand out straight and sound crisp when you tap it on the basket. Break it open and the inside should be hot, not just warm. Fries that crack and look hollow or taste dry have had too long; if they are still bendy, they were piled up or the basket was not preheated.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Shake off any loose salt or crumbs, which burn. A very small amount of oil makes a real difference, because most of the original frying oil has soaked in. Separate fries that have stuck together in the box. Salt again only after reheating. Fries that sat in a closed bag are wetter than ones stored open, so give those the longer end of the time.',
+      faqs: [
+        {
+          q: 'How long do you reheat fries in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for one portion, shaken once. A small handful takes around {SMALL_MIN} minutes and a large portion around {LARGE_MIN}.',
+        },
+        {
+          q: 'Can you reheat McDonald’s fries in the air fryer?',
+          a: 'Yes. Thin fast-food fries recover better than thick ones; check them a minute early, because they go from crisp to dry quickly.',
+        },
+        {
+          q: 'Why are my reheated fries hard?',
+          a: 'They were heated too long. Leftover fries need only a short, hot reheat; the inside has already lost water and dries out fast.',
+        },
+        {
+          q: 'Do I need to add oil?',
+          a: 'A little helps. Most of the frying oil has soaked into the potato overnight, so a light coat helps the surface crisp again.',
+        },
+        {
+          q: 'How do I reheat fries in the oven?',
+          a: 'Spread them on a tray at {OVEN_F}°F for around {OVEN_MIN} minutes, turning once. A preheated tray crisps the underside faster.',
+        },
+      ],
+    },
+    'reheat-fried-chicken': {
+      label: 'Leftover fried chicken',
+      metaTitle: 'Reheat Fried Chicken in the Air Fryer: Crisp, Hot Through',
+      metaDescription:
+        'Reheat fried chicken in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, hot to {INT_F}°F. Times for drumsticks, thighs and breasts, and the oven method.',
+      metaKeywords: 'reheat fried chicken air fryer, how long to reheat fried chicken in air fryer, leftover fried chicken air fryer, reheat kfc air fryer',
+      heading: 'Reheating fried chicken in the air fryer',
+      subDesc:
+        'Leftover fried chicken, bone-in, back to a crunchy coating and a hot centre. Why the breading goes soggy in the fridge, and how to dry it out before it goes in.',
+      cardDesc: 'Let it sit out first so the crust dries.',
+      sizeLabels: { small: 'Drumstick', medium: 'Thigh', large: 'Breast or large piece' },
+      internalLine: 'Hot through at {INT_F}°F ({INT_C}°C) in the thickest part: USDA guidance for leftovers',
+      failureHeading: 'Why the breading goes soggy in the fridge',
+      failureBody:
+        'Fried chicken is a crisp, dry shell around wet meat. Overnight in a sealed box, moisture moves from the meat into the coating, and the cold air inside the box condenses on it too. By morning the crust is soft and slightly gummy. Put it straight into the air fryer and that water has to steam out before the coating can crisp, so the outside is still damp when the bone end is finally hot. The fix starts before reheating. Take the pieces out of the box and let them sit on a rack while the air fryer preheats, so the surface dries and the chill eases. Then a moderate heat finishes the job, crisping the crust and bringing the meat by the bone up to temperature at the same pace.',
+      workedExampleHeading: 'Worked example: two thighs from the fridge',
+      workedExampleTemplate:
+        'Two leftover fried chicken thighs, rested uncovered on a rack while the air fryer heats. Preheat {PREHEAT} minutes, put them in skin side up and heat at {AF_F}°F for {MEDIUM_MIN} minutes, turning them at {FLIP}. A drumstick needs about {SMALL_MIN} minutes and a large breast about {LARGE_MIN}. In a conventional oven, the same pieces reheat at {OVEN_F}°F for around {OVEN_MIN} minutes on a rack over a tray.',
+      donenessHeading: 'How to tell it is ready',
+      donenessBody:
+        'Check the thickest piece with a thermometer next to the bone, not touching it: USDA guidance is {INT_F}°F ({INT_C}°C) for reheated leftovers. The coating should sound crisp when tapped and look dry, with a little fat sizzling around the pieces. A cold spot by the bone with a dark crust means the heat was too high for the size.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Leave the pieces uncovered while you preheat, and blot any obvious grease from the bottom of the box off them. No extra oil is needed. Cook pieces of a similar size together, or add the smaller ones a few minutes later.',
+      faqs: [
+        {
+          q: 'How long do you reheat fried chicken in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a thigh, turned at {FLIP}. A drumstick takes around {SMALL_MIN} minutes and a large breast around {LARGE_MIN}.',
+        },
+        {
+          q: 'What temperature should reheated chicken reach?',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest part, which is USDA guidance for any reheated leftovers.',
+        },
+        {
+          q: 'Can I reheat KFC or other takeaway chicken this way?',
+          a: 'Yes. Pressure-fried takeaway chicken has a thicker coating, so give it the longer end of the time and check by the bone.',
+        },
+        {
+          q: 'Should I spray it with oil?',
+          a: 'No. The coating still holds plenty of oil from frying; extra oil only makes it greasy.',
+        },
+        {
+          q: 'How do I reheat fried chicken in the oven?',
+          a: 'On a rack over a tray at {OVEN_F}°F for around {OVEN_MIN} minutes. The rack lets air reach the underside so it does not go soggy.',
+        },
+      ],
+    },
+    'reheat-wings': {
+      label: 'Leftover wings',
+      metaTitle: 'Reheat Chicken Wings in the Air Fryer: Sauced or Plain',
+      metaDescription:
+        'Reheat leftover chicken wings in the air fryer: {AF_F}°F for {MIN} minutes, shaken once, hot to {INT_F}°F. How to stop sticky sauce burning, and the oven method.',
+      metaKeywords: 'reheat wings air fryer, how long to reheat chicken wings in air fryer, leftover wings air fryer, reheat buffalo wings air fryer',
+      heading: 'Reheating chicken wings in the air fryer',
+      subDesc:
+        'Leftover wings, sauced or dry-rubbed, hot and crisp again. Why the sauce scorches before the meat is hot, and the trick that keeps sticky wings from burning.',
+      cardDesc: 'Scrape off thick sauce first and re-sauce after.',
+      sizeLabels: { small: 'Party wings, flats and drumettes', medium: 'Standard split wings', large: 'Jumbo wings' },
+      internalLine: 'Hot through at {INT_F}°F ({INT_C}°C) by the bone: USDA guidance for leftovers',
+      failureHeading: 'Why the sauce burns before the wing is hot',
+      failureBody:
+        'Most wing sauces are built on sugar: honey, brown sugar, ketchup, barbecue sauce or sweet chilli. Sugar starts to caramelise at a much lower temperature than it takes to heat a cold wing to the bone, and in an air fryer the sauce sits on the outside, right in the hot airflow. So the glaze goes dark, then bitter and black, while the meat inside is still cool. Buffalo sauce has less sugar but separates, leaving a puddle of butter. The fix is to reheat the wing, not the sauce. Scrape or wipe off thick glaze, reheat the wings close to plain, and toss them in fresh or warmed sauce at the end. Dry-rubbed wings can go straight in.',
+      workedExampleHeading: 'Worked example: a takeaway box of wings',
+      workedExampleTemplate:
+        'Eight leftover barbecue wings with the thickest sauce wiped off. Preheat {PREHEAT} minutes, spread them in a single layer and heat at {AF_F}°F for {MEDIUM_MIN} minutes, shaking once. Party-size flats and drumettes need about {SMALL_MIN} minutes and jumbo wings about {LARGE_MIN}. Toss in warm sauce and return for a minute to set it. In a conventional oven, the same wings reheat at {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are ready',
+      donenessBody:
+        'Check the meatiest drumette next to the bone: USDA guidance is {INT_F}°F ({INT_C}°C) for reheated leftovers. The skin should be crisp and sizzling, and any sauce left on should be bubbling, not black. Dark edges with a cool middle mean too much sauce stayed on.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Keep any sauce from the box to warm separately. Wipe sticky wings with a paper towel; a thin film is fine. Separate wings that have stuck together so air reaches every side. No oil is needed. Wings that were sauced the night before have soaked some of it into the skin, so they will never be quite as crisp as dry-rubbed ones; the short reheat and fresh sauce get them close. Cook them in a single layer, in two rounds if needed.',
+      faqs: [
+        {
+          q: 'How long do you reheat wings in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for standard wings, shaken once. Party wings take around {SMALL_MIN} minutes and jumbo wings around {LARGE_MIN}.',
+        },
+        {
+          q: 'Why do my reheated wings burn?',
+          a: 'The sugar in the sauce caramelises long before the meat is hot. Wipe off thick sauce first and add fresh sauce at the end.',
+        },
+        {
+          q: 'Can I reheat buffalo wings in the air fryer?',
+          a: 'Yes. Buffalo sauce splits when reheated, so reheat the wings plain and toss them in warm sauce afterwards.',
+        },
+        {
+          q: 'What temperature should reheated wings reach?',
+          a: '{INT_F}°F ({INT_C}°C) next to the bone, which is USDA guidance for any reheated leftovers.',
+        },
+        {
+          q: 'How do I reheat wings in the oven?',
+          a: 'On a rack over a tray at {OVEN_F}°F for around {OVEN_MIN} minutes, then toss in sauce.',
+        },
+      ],
+    },
+    'reheat-steak': {
+      label: 'Leftover steak',
+      metaTitle: 'Reheat Steak in the Air Fryer: {INT_F}°F or Keep It Pink',
+      metaDescription:
+        'Reheat leftover steak in the air fryer at {AF_F}°F: about {MIN} minutes to reach the USDA {INT_F}°F for leftovers, or stop early to keep it medium-rare. Both, stated plainly.',
+      metaKeywords: 'reheat steak air fryer, how to reheat steak in air fryer, leftover steak air fryer, reheat steak without overcooking',
+      heading: 'Reheating steak in the air fryer',
+      subDesc:
+        'Leftover steak, whole or sliced. The low setting, the two different targets for doneness and safety, and why slicing first gives you the best of both.',
+      cardDesc: 'Low heat, and check with a thermometer at the flip.',
+      sizeLabels: { thin: 'Sliced steak', medium: 'Whole steak, about 1 inch', thick: 'Whole steak, about 1½ inches' },
+      internalLine: 'USDA guidance for leftovers: {INT_F}°F ({INT_C}°C) in the centre',
+      internalAltLine:
+        'To keep it medium-rare: {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), usually reached around {FLIP} min. Stopping there is your call.',
+      failureHeading: 'Safe or pink: two targets that do not meet',
+      failureBody:
+        'A steak cooked medium-rare finished at around {INT_ALT_TO_F}°F inside. USDA guidance for reheating any leftovers is {INT_F}°F, and getting the middle of a steak that hot cooks it through to well done. There is no setting that does both, so this page gives you the two numbers and lets you choose. The low temperature is what keeps either choice good: at a gentle heat, the outside does not toughen and grey while the centre is still warming, so the steak heats evenly. The time here is an estimate for a whole steak to reach {INT_F}°F, not a tested figure, because thickness and fridge temperature vary. Start checking with a thermometer at the flip and decide from the reading.',
+      workedExampleHeading: 'Worked example: one leftover sirloin',
+      workedExampleTemplate:
+        'A 1-inch sirloin from the night before, out of the fridge. Preheat {PREHEAT} minutes and heat at {AF_F}°F, turning it at {FLIP} minutes and checking the centre then. For the USDA {INT_F}°F, expect about {MEDIUM_MIN} minutes in total; a 1½-inch steak takes about {THICK_MIN}. Sliced steak is hot through in about {THIN_MIN}. In a conventional oven, the slow method is {OVEN_F}°F for around {OVEN_MIN} minutes on a rack.',
+      donenessHeading: 'How to check it',
+      donenessBody:
+        'Use an instant-read thermometer in the very centre of the thickest part. At the flip, a reading of {INT_ALT_F}–{INT_ALT_TO_F}°F means the steak is warm and still pink; carry on to {INT_F}°F ({INT_C}°C) if you follow the USDA leftover guidance. The surface should be sizzling but not dry or curling at the edges.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Let the steak sit out while the air fryer heats so the centre is less cold. Brush it with a little oil or butter to keep the surface from drying. Save any juices from the plate and spoon them over before serving.',
+      faqs: [
+        {
+          q: 'How do I get steak hot through without overcooking it?',
+          a: 'Slice before reheating if you want it hot through without overcooking. Thin slices reach {INT_F}°F in about {THIN_MIN} minutes, before they can turn grey and tough.',
+        },
+        {
+          q: 'What temperature should reheated steak reach?',
+          a: 'USDA guidance for leftovers is {INT_F}°F ({INT_C}°C). Many people stop at {INT_ALT_F}–{INT_ALT_TO_F}°F to keep it pink; that is your call.',
+        },
+        {
+          q: 'Is the time on this page exact?',
+          a: 'No. It is an estimate for a 1-inch steak from the fridge. Start checking with a thermometer at {FLIP} minutes and go by the reading.',
+        },
+        {
+          q: 'Why such a low temperature?',
+          a: 'A gentle heat warms the centre before the outside dries out, so the steak stays the same colour from edge to middle.',
+        },
+        {
+          q: 'How do I reheat steak in the oven?',
+          a: 'On a rack at {OVEN_F}°F for around {OVEN_MIN} minutes, then sear it briefly in a hot pan if you want the crust back.',
+        },
+      ],
+    },
+    cookies: {
+      label: 'Cookies',
+      metaTitle: 'Cookies in the Air Fryer: Time, Temp & Parchment Tips',
+      metaDescription:
+        'Bake cookies in the air fryer: {AF_F}°F for {MIN} minutes from dough. Why light dough and parchment lift into the fan, times by cookie size and the oven equivalent.',
+      metaKeywords: 'cookies in air fryer, air fryer cookies time and temp, chocolate chip cookies air fryer, bake cookies in air fryer',
+      heading: 'Cookies in the air fryer',
+      subDesc:
+        'Drop cookies baked a few at a time, from fresh or frozen dough. The lower setting, how to keep the parchment down, and when to take them out.',
+      cardDesc: 'Weigh the parchment down with the dough.',
+      sizeLabels: { small: 'Small, a level tablespoon', medium: 'Medium, about 2 tablespoons', large: 'Large, bakery size' },
+      failureHeading: 'Why the parchment and the dough lift into the fan',
+      failureBody:
+        'An air fryer fan is strong, and a loose sheet of parchment is light. Put the paper in to preheat on its own and it flies up into the heating element, where it can scorch. Even with dough on it, a corner left bare flaps up and folds over the cookies. The dough itself is the second issue: soft cookie dough spreads as it warms, and the air blowing across the top sets the surface early, so cookies dome and crack instead of spreading evenly. The fixes are simple. Only add the parchment with the dough already on it, trim it so no edge sticks out, and leave space between balls. The lower setting slows the top so the cookie can spread before it sets.',
+      workedExampleHeading: 'Worked example: chocolate chip cookies',
+      workedExampleTemplate:
+        'A batch of chocolate chip cookie dough that says {OVEN_F}°F for {OVEN_MIN} minutes in the oven. In a basket air fryer, bake at {AF_F}°F for {MEDIUM_MIN} minutes. Preheat {PREHEAT} minutes, place four balls of about two tablespoons on trimmed parchment and slide it in. Small cookies take about {SMALL_MIN} minutes and large bakery-style ones about {LARGE_MIN}. Let each batch firm up on the paper before moving it.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The edges should be set and lightly golden while the centre still looks a little soft and puffed; it firms as it cools. A toothpick in the middle should come out with moist crumbs, not wet dough. Dark brown cookies have gone too far. Leave them on the paper until they firm up, then move them to a rack, where the bases stay crisp.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Chill very soft dough briefly so it holds its shape. Cut the parchment to the floor of the basket, smaller than the base, or use a perforated liner. Bake four to six at a time with room to spread. Frozen dough balls go in as they are, with a minute or two more.',
+      faqs: [
+        {
+          q: 'How long do cookies take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium cookies. Small ones take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'Do I need parchment for air fryer cookies?',
+          a: 'It helps them lift off cleanly, but only put it in with dough on top, trimmed to fit, so the fan cannot blow it into the element.',
+        },
+        {
+          q: 'Can I bake frozen cookie dough in the air fryer?',
+          a: 'Yes, straight from the freezer. Add a minute or two and check the centre with a toothpick.',
+        },
+        {
+          q: 'Why are my air fryer cookies domed and pale underneath?',
+          a: 'The top set before the dough could spread. Use the lower setting and flatten the balls slightly.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a lined baking sheet in a conventional oven.',
+        },
+      ],
+    },
+    muffins: {
+      label: 'Muffins',
+      metaTitle: 'Muffins in the Air Fryer: Time, Temp & Which Cups Fit',
+      metaDescription:
+        'Bake muffins in the air fryer: {AF_F}°F for {MIN} minutes. Silicone cups or a small tin that fits, why a 12-cup tin will not, and how to check the centre.',
+      metaKeywords: 'muffins in air fryer, air fryer muffins time and temp, blueberry muffins air fryer, bake muffins in air fryer',
+      heading: 'Muffins in the air fryer',
+      subDesc:
+        'Muffins baked in batches in a basket air fryer. The setting, which cups and tins fit, and how to stop the tops browning before the middle is cooked.',
+      cardDesc: 'Silicone cups, and judge the centre, not the top.',
+      sizeLabels: { small: 'Mini muffins', medium: 'Standard muffins', large: 'Jumbo or bakery muffins' },
+      failureHeading: 'Why the tops brown while the centre stays raw',
+      failureBody:
+        'In an oven, a muffin is heated from all sides in still air. In an air fryer the heat pours across the top, so the dome browns early and looks done while the centre is still batter. Colour is the trap: a golden muffin can be raw in the middle. The lower setting here slows the top so the inside can catch up, and the time assumes you check the centre, not the colour. Batter-heavy muffins with fruit or yoghurt hold more water and need the full time. If the tops are dark well before the end, lay a small sheet of foil loosely over them for the rest of the bake, tucked so the fan cannot lift it.',
+      workedExampleHeading: 'Worked example: six blueberry muffins',
+      workedExampleTemplate:
+        'A blueberry muffin recipe that says {OVEN_F}°F for {OVEN_MIN} minutes in the oven. In a basket air fryer, bake at {AF_F}°F for {MEDIUM_MIN} minutes. Preheat {PREHEAT} minutes, fill six silicone cups two-thirds full and set them in with space between them. Mini muffins take about {SMALL_MIN} minutes and jumbo muffins about {LARGE_MIN}. Bake the rest of the batter in a second round.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Push a toothpick into the centre of the middle muffin: it should come out clean or with a few dry crumbs, never wet batter. The top should spring back when pressed lightly. Ignore the colour, which runs ahead of the inside in an air fryer. Muffins at the edge of the basket bake faster than the ones in the middle, so test the middle one and swap positions halfway if your basket browns unevenly. Let them rest in their cups before turning them out.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Use silicone muffin cups, foil cups set inside each other for strength, or a small muffin tin that fits flat on the basket floor. A standard 12-cup tin will not fit a 5 qt basket. Fill two-thirds full, and leave gaps so air moves between the cups.',
+      faqs: [
+        {
+          q: 'How long do muffins take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for standard muffins. Minis take around {SMALL_MIN} minutes and jumbo muffins around {LARGE_MIN}.',
+        },
+        {
+          q: 'Will a muffin tin fit in my air fryer?',
+          a: 'A 12-cup tin will not fit a 5 qt basket. Use silicone cups, or a small 4- or 6-cup tin that sits flat on the floor.',
+        },
+        {
+          q: 'Can I use paper muffin cases?',
+          a: 'Only inside silicone or foil cups. On their own, paper cases are too floppy to hold the batter and can blow over.',
+        },
+        {
+          q: 'Why are my muffins raw in the middle?',
+          a: 'The top browned first and they came out on colour. Check the centre with a toothpick, and lower the heat if the tops darken early.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a 12-cup muffin tin in a conventional oven.',
+        },
+      ],
+    },
+    brownies: {
+      label: 'Brownies',
+      metaTitle: 'Brownies in the Air Fryer: Pan Size, Time & Temp',
+      metaDescription:
+        'Bake brownies in the air fryer: {AF_F}°F for {MIN} minutes in a 7-inch pan. Which pans fit a 5 qt basket, how to halve a 9×9 recipe, and the oven equivalent.',
+      metaKeywords: 'brownies in air fryer, air fryer brownies time and temp, brownie pan size air fryer, bake brownies in air fryer',
+      heading: 'Brownies in the air fryer',
+      subDesc:
+        'A small pan of brownies baked in a basket air fryer. The pan that fits, how to scale a standard recipe, and how to get a fudgy middle without hard edges.',
+      cardDesc: 'Use a 6–7 inch pan and halve a 9×9 recipe.',
+      sizeLabels: { small: '6-inch round pan', medium: '7-inch square pan', thick: 'Deep or extra-fudgy batch' },
+      failureHeading: 'Why the edges overbake while the middle stays wet',
+      failureBody:
+        'Brownie batter is dense and heavy, and in a metal pan the edges sit in the strongest heat, against the hot sides and right under the fan. They set and dry long before the centre, which is insulated by batter on every side. Turn the heat up to rush the middle and you get a hard rim and a crust that cracks away from a wet core. The lower setting gives heat time to reach the centre. Pan size matters just as much: a 5 qt basket is about 8 to 8½ inches across, so a 6- or 7-inch pan fits with room for air to move around it. A standard 9×9-inch recipe has to be halved or baked in two rounds; poured deeper into a small pan, it will not set in the middle.',
+      workedExampleHeading: 'Worked example: half a 9×9 recipe',
+      workedExampleTemplate:
+        'A 9×9-inch brownie recipe that says {OVEN_F}°F for {OVEN_MIN} minutes, halved and poured into a lined 7-inch square pan. Preheat {PREHEAT} minutes and bake at {AF_F}°F for {MEDIUM_MIN} minutes. A 6-inch round pan takes about {SMALL_MIN} minutes, and a deeper or extra-fudgy batch about {THICK_MIN}. Leave it to cool in the pan before cutting.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'A toothpick pushed into the centre should come out with moist crumbs, not liquid batter. The top should look dry and slightly cracked at the edges, with only a faint wobble in the middle. Brownies keep cooking in the hot pan, so take them out a little early. Cut them only once they are fully cool, for clean squares.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Line the pan with parchment, leaving two edges long so you can lift the brownies out. Check the pan sits flat with a gap all round. If the top darkens early, cover it loosely with foil, tucked under the pan so it cannot blow off.',
+      faqs: [
+        {
+          q: 'How long do brownies take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F in a 7-inch square pan. A 6-inch round pan takes around {SMALL_MIN} minutes and a deeper batch around {THICK_MIN}.',
+        },
+        {
+          q: 'What size pan fits a 5 qt air fryer?',
+          a: 'A 6- or 7-inch round or square pan. The basket is about 8 to 8½ inches across, and air needs room around the pan.',
+        },
+        {
+          q: 'Can I bake a 9×9 brownie recipe in the air fryer?',
+          a: 'Halve it, or bake it in two rounds. Poured into one small pan, it is too deep to set in the middle.',
+        },
+        {
+          q: 'Can I use a boxed brownie mix?',
+          a: 'Yes. Most boxes make a 9×9 or 8×8 pan, so use half the batter per round and follow the times here.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes for the same pan in a conventional oven.',
+        },
+      ],
+    },
+    'garlic-bread': {
+      label: 'Garlic bread',
+      metaTitle: 'Garlic Bread in the Air Fryer: Fresh or Frozen, Time & Temp',
+      metaDescription:
+        'Garlic bread in the air fryer: {AF_F}°F for {MIN} minutes, crisp and golden. Fresh slices, a halved baguette or frozen garlic bread, and the oven equivalent.',
+      metaKeywords: 'garlic bread air fryer, air fryer garlic bread time, frozen garlic bread air fryer, homemade garlic bread air fryer',
+      heading: 'Garlic bread in the air fryer',
+      subDesc:
+        'Homemade or shop-bought garlic bread, toasted crisp at the edges and soft in the middle. The setting, and how to keep the garlic from burning.',
+      cardDesc: 'Keep the garlic under the butter, not on top.',
+      sizeLabels: { thin: 'Sliced garlic bread', medium: 'Half a baguette, cut side up', thick: 'Thick toast or frozen garlic bread' },
+      failureHeading: 'Why the garlic burns and turns bitter',
+      failureBody:
+        'Minced garlic is small, dry and full of sugar, and on top of bread it sits right in the hottest air. It goes from golden to brown to bitter black in under a minute, often before the bread under it has toasted. The butter is part of the problem: it melts and runs off the surface, leaving the garlic exposed and dry. The fix is in how you spread it. Mash the garlic into soft butter so every piece is coated, spread it right to the edges, and press it into the crumb. Grated garlic burns less than chopped, and garlic powder hardly burns at all. A medium setting toasts the bread through while the top turns golden, not dark.',
+      workedExampleHeading: 'Worked example: half a baguette',
+      workedExampleTemplate:
+        'Half a baguette split lengthways and spread with garlic butter. An oven recipe would say {OVEN_F}°F for about {OVEN_MIN} minutes. In a basket air fryer, preheat {PREHEAT} minutes and toast it cut side up at {AF_F}°F for {MEDIUM_MIN} minutes. Individual slices take about {THIN_MIN} minutes, and thick toast or frozen garlic bread about {THICK_MIN}.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'The edges should be crisp and deep golden, and the butter should be bubbling into the bread rather than pooled on top. Press the middle: it should still be soft. Any dark brown garlic means the next batch needs less time or the garlic needs more butter around it.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Use soft, not melted, butter so it stays where you spread it. Add parsley or grated cheese for the last minute only. Cut long loaves to fit the basket and lay pieces in a single layer. Day-old bread works well, because its drier crumb soaks up the butter instead of going soggy. For frozen garlic bread, take it straight from the freezer and do not thaw it, or the butter seeps out before the crust can crisp. Foil-wrapped garlic bread should come out of the foil for the air fryer.',
+      faqs: [
+        {
+          q: 'How long does garlic bread take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for half a baguette. Slices take around {THIN_MIN} minutes and thick or frozen pieces around {THICK_MIN}.',
+        },
+        {
+          q: 'Fresh or frozen garlic bread: what is the difference?',
+          a: 'Fresh garlic bread only needs toasting. Frozen garlic bread goes in straight from the freezer and needs the longer time, so the middle thaws and softens before the top crisps.',
+        },
+        {
+          q: 'Why does my garlic burn in the air fryer?',
+          a: 'It sits uncovered in the hottest air. Mash it into soft butter and press it into the bread so it is protected.',
+        },
+        {
+          q: 'Can I add cheese?',
+          a: 'Yes, for the last minute or two. Added at the start, it browns before the bread is toasted.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven.',
+        },
+      ],
+    },
+    'corn-on-the-cob': {
+      label: 'Corn on the cob',
+      metaTitle: 'Corn on the Cob in the Air Fryer: Time, Temp & Fit',
+      metaDescription:
+        'Corn on the cob in the air fryer: {AF_F}°F for {MIN} minutes, turned at {FLIP}. Juicy kernels with charred spots, why long cobs must be halved, and the oven equivalent.',
+      metaKeywords: 'corn on the cob air fryer, air fryer corn on the cob time, roasted corn air fryer, how long to cook corn in air fryer',
+      heading: 'Corn on the cob in the air fryer',
+      subDesc:
+        'Fresh corn roasted until it is sweet, juicy and lightly charred. The setting, the single turn, and how to fit full-length cobs in a basket.',
+      cardDesc: 'Halve long cobs and coat them in butter or oil.',
+      sizeLabels: { small: 'Half cobs or small ears', medium: 'Medium cobs, halved to fit', large: 'Large, thick cobs, halved' },
+      failureHeading: 'Why the kernels go dry and wrinkled',
+      failureBody:
+        'Boiled corn sits in water, so it can only get wetter. In an air fryer the opposite happens: hot, moving air pulls water out of every exposed kernel, and a bare cob left too long ends up shrivelled, chewy and pale. A coat of fat is what protects it. Butter or oil seals the kernels so they heat through and turn juicy, while the fat browns in spots for that roasted, grilled flavour. Size and fit matter too. Most full cobs are longer than a 5 qt basket, and a cob jammed in at an angle touches the sides, steams at the ends and blocks the air. Halve any cob longer than the basket so the pieces lie flat in one layer.',
+      workedExampleHeading: 'Worked example: four ears of corn',
+      workedExampleTemplate:
+        'Four medium ears, husked, halved and brushed with melted butter and salt. Preheat {PREHEAT} minutes, lay the halves in one layer and cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning them at {FLIP}. Small ears or short halves take about {SMALL_MIN} minutes, and large, thick cobs about {LARGE_MIN}. Roasted on a tray in a conventional oven, the same corn takes {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'The kernels should be bright yellow, plump and shiny, with a few golden-brown spots. Press one with a fingernail: it should pop with juice. Dull, dented kernels mean the corn dried out from too long or too little fat.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Remove the husk and silk completely. Cut each cob with a heavy knife, rocking it through the core rather than sawing. Brush with butter or oil all round, and season after cooking if you are using a spice mix that burns. Smoked paprika, chilli and grated parmesan all work well tossed over the hot corn with a little more butter. Very fresh, sweet corn needs the shorter time; older, starchy cobs from the end of the season take a little longer to turn tender.',
+      faqs: [
+        {
+          q: 'How long does corn on the cob take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium cobs, turned at {FLIP}. Small ears take around {SMALL_MIN} minutes and large ones around {LARGE_MIN}.',
+        },
+        {
+          q: 'Do I need to cut corn to fit the air fryer?',
+          a: 'Usually, yes. Halve any cob longer than the basket so it lies flat; jammed-in cobs cook unevenly.',
+        },
+        {
+          q: 'Can I cook corn in the husk?',
+          a: 'You can, but it steams instead of roasting and the dry husk can scorch. Husked and buttered gives the best result.',
+        },
+        {
+          q: 'Can I air fry frozen corn on the cob?',
+          a: 'Yes, from frozen. Add a few minutes and brush with butter halfway, once the ice has gone.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, turned once.',
+        },
+      ],
+    },
+    'frozen-vegetables': {
+      label: 'Frozen vegetables',
+      metaTitle: 'Frozen Vegetables in the Air Fryer: Roasted, Not Soggy',
+      metaDescription:
+        'Frozen vegetables in the air fryer: {AF_F}°F for {MIN} minutes, shaken {SHAKES} times, straight from the bag. How to roast instead of steam, and the pack equivalent.',
+      metaKeywords: 'frozen vegetables air fryer, air fryer frozen veggies, roast frozen vegetables air fryer, frozen mixed vegetables air fryer',
+      heading: 'Frozen vegetables in the air fryer',
+      subDesc:
+        'Mixed vegetables, peas, corn or florets straight from the freezer, roasted rather than steamed. No thawing, and why the amount in the basket decides the result.',
+      cardDesc: 'Never thaw them: straight in, half a basket at most.',
+      sizeLabels: { small: 'Peas, corn or diced mix', medium: 'Mixed vegetables', large: 'Broccoli or cauliflower florets' },
+      failureHeading: 'Why frozen vegetables come out soft and wet',
+      failureBody:
+        'Frozen vegetables are blanched before freezing, and the ice crystals that form inside them burst many of the cell walls. As they heat, that broken structure lets go of its water all at once, on top of the frost on the outside. In a full basket the water has nowhere to go: it pools, turns to steam and boils the vegetables soft and grey before any of them can brown. The answer is less food and no thawing. Thawed vegetables have already leaked, so they go limp at once; frozen ones keep their shape while the outside dries. Fill the basket no more than half full, so the steam escapes, and the vegetables roast in the dry heat that follows.',
+      workedExampleHeading: 'Worked example: a bag of mixed vegetables',
+      workedExampleTemplate:
+        'Half a bag of frozen mixed vegetables that says to roast at {OVEN_F}°F for {OVEN_MIN} minutes. In a basket air fryer, preheat {PREHEAT} minutes, tip them in still frozen with a tablespoon of oil, and cook at {AF_F}°F for {MEDIUM_MIN} minutes, shaking {SHAKES} times. Peas, corn and small diced mixes take about {SMALL_MIN} minutes; large florets about {LARGE_MIN}.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The basket should be dry, with no water on the bottom, and the edges of the vegetables should have browned spots. Carrots and florets should be tender when pierced but not mushy. A puddle under pale, soft vegetables means the basket was too full.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Break up any frozen clumps in the bag. Toss with oil just before cooking; it will not stick to frosty pieces as well, so toss again at the first shake. Season with salt and spices at the end, since they wash off in the early steam. Bags of large and small pieces together cook unevenly, so pick the smaller pieces out if they start to burn, or cook the mix in two rounds. Sauced or seasoned vegetable packs with butter already in them often say to microwave only; the sauce burns in an air fryer, so use plain bags here.',
+      faqs: [
+        {
+          q: 'How long do frozen vegetables take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for mixed vegetables, shaken {SHAKES} times. Small pieces take around {SMALL_MIN} minutes and large florets around {LARGE_MIN}.',
+        },
+        {
+          q: 'Should I thaw frozen vegetables before air frying?',
+          a: 'No. Thawed vegetables have already released their water and go limp. Cook them straight from frozen.',
+        },
+        {
+          q: 'Why are my air fried frozen vegetables soggy?',
+          a: 'The basket was too full, so their water steamed them. Use no more than half a basket at a time.',
+        },
+        {
+          q: 'Is this different from fresh broccoli?',
+          a: 'Yes. Fresh florets need a shorter, gentler setting; frozen ones need extra heat and time to clear the ice first.',
+        },
+        {
+          q: 'What does the pack say for the oven?',
+          a: 'Most bags say {OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven.',
+        },
+      ],
+    },
   },
 };
 
 export const presetsIndex: Dictionary['presetsIndex'] = {
   metaTitle: 'Air Fryer Food Presets: Time & Temperature for Each Food',
   metaDescription:
-    'Air fryer time and temperature for chicken, wings, salmon, bacon, steak, potatoes and more — each preset with the internal temperature, times by size and the oven equivalent.',
+    'Air fryer time and temperature for chicken, salmon, steak, potatoes, baking, frozen food and leftovers: each preset with the internal temperature or doneness check, times by size and the oven equivalent.',
   metaKeywords: 'air fryer cooking times, air fryer time and temperature chart, air fryer food presets',
   backLink: 'All tools',
   heading: 'Air fryer food presets',
@@ -1450,7 +1962,7 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
   },
   howHeading: 'How these presets are set',
   howBody:
-    'Every preset starts from a basket air fryer of 4–6 quarts, preheated, with the food in a single layer. The oven and fan-oven equivalents on each page are calculated by the same engine as the converter, so they agree with each other, and the converter on every preset page is already set to that food if you are starting from an oven recipe. Each page leads with the specific way that food goes wrong in an air fryer, because that is what decides the result more than the number on the dial. No email, no sign-up, nothing to install.',
+    'Every preset starts from a basket air fryer of 4–6 quarts, preheated, with the food in a single layer. For cooking presets, the oven and fan-oven equivalents are calculated by the same engine as the converter, so they agree with each other, and the converter on the page is already set to that food. Frozen presets show what the pack says instead. Reheating settings are different: the engine converts cooking recipes, not reheats, so the reheat times and their oven equivalents are written in by hand, and the converter on those pages converts oven recipes. Each page leads with the specific way that food goes wrong in an air fryer, because that decides the result more than the number on the dial. No email, no sign-up, nothing to install.',
   relatedFlagshipLink: 'Oven to air fryer converter',
   relatedChartLink: 'Printable conversion chart',
 };

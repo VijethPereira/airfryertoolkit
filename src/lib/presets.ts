@@ -184,10 +184,12 @@ export function presetTempLanding(preset: FoodPreset): TempLanding {
   return [...TEMP_LANDINGS].sort((a, b) => Math.abs(a.tempF - ovenF) - Math.abs(b.tempF - ovenF))[0];
 }
 
-/** `n` related presets: same category first, then the rest in PRESETS order. */
+/** `n` related presets: a reheat preset's fresh version first, then same category, then the rest in PRESETS order. */
 export function relatedPresets(preset: FoodPreset, n = 3): FoodPreset[] {
   const others = PRESETS.filter((p) => p.slug !== preset.slug) as readonly FoodPreset[];
-  return [...others.filter((p) => p.category === preset.category), ...others.filter((p) => p.category !== preset.category)].slice(0, n);
+  const fresh = others.filter((p) => p.slug === preset.fresh);
+  const rest = others.filter((p) => p.slug !== preset.fresh);
+  return [...fresh, ...rest.filter((p) => p.category === preset.category), ...rest.filter((p) => p.category !== preset.category)].slice(0, n);
 }
 
 const toC = (f: number) => Math.round(((f - 32) * 5) / 9);
