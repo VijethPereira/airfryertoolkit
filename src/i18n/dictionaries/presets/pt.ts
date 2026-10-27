@@ -33,6 +33,16 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Tamanho', airFryer: 'Air fryer', oven: 'Diz a embalagem' },
     relatedFlagshipLink: 'Conversor de embalagens congeladas',
   },
+  reheat: {
+    ovenHeading: 'Se for reaquecer no forno',
+    ovenTemplate: 'Forno convencional: {OVEN_F}°F ({OVEN_C}°C, nível de gás {OVEN_MARK}) por {OVEN_MIN} min',
+    fanTemplate: 'Forno ventilado: {FAN_F}°F ({FAN_C}°C) por {FAN_MIN} min',
+    ovenNote: 'As sobras já estão cozidas, então estes ajustes só aquecem e devolvem a crocância; o forno demora mais porque aquece a cavidade inteira primeiro.',
+    sizingHeaders: { size: 'Porção', airFryer: 'Air fryer', oven: 'Reaquecer no forno' },
+    relatedFlagshipLink: 'Conversor de forno para air fryer',
+    widgetHeading: 'Vai cozinhar a partir de uma receita de forno?',
+    widgetNote: 'Este conversor transforma receitas de forno em ajustes de air fryer. Ele não serve para reaquecer, por isso começa vazio; para sobras, use o ajuste acima.',
+  },
   pages: {
     'chicken-breast': {
       label: 'Peito de frango',

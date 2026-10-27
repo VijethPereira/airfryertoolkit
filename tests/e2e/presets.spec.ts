@@ -1,6 +1,8 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import {
+  CONVECTION_FOODS,
+  FOODS,
   FROZEN_FOODS,
   computeAirFryerSetting,
   computeAirFryerSettingFromFrozen,
@@ -8,6 +10,7 @@ import {
   computeOvenSetting,
   computePackSetting,
   convertTempUnit,
+  gasMarkFor,
   type FoodKey,
   type FrozenFoodKey,
 } from '../../src/lib/converter';
@@ -46,15 +49,35 @@ async function collectPageErrors(page: Page): Promise<Error[]> {
 const food = (p: FoodPreset) => (p.engine as { food: FoodKey }).food;
 const isFrozen = (p: FoodPreset) => p.engine.kind === 'frozen';
 const frozenFood = (p: FoodPreset) => p.engine.food as FrozenFoodKey;
+const isReheat = (p: FoodPreset) => p.engine.kind === 'reheat';
+const reheatOf = (p: FoodPreset) => p.engine as { food: FoodKey; ovenF: number; ovenMinutes: number };
+/**
+ * Reheat presets: the stored oven reheat, scaled to the row (same °F offset, minutes in proportion);
+ * the fan oven shifts it by the FOODS vs CONVECTION_FOODS gap, snapped to 25°F, and scales the time by their ratio.
+ */
+function reheatOvenOf(p: FoodPreset, tempF: number, minutes: number, fan: boolean) {
+  const { food: k, ovenF, ovenMinutes } = reheatOf(p);
+  let outF = ovenF + (tempF - p.tempF);
+  let outMinutes = Math.round((ovenMinutes * minutes) / p.minutes);
+  if (fan) {
+    outF = Math.round((outF - (FOODS[k].dT - CONVECTION_FOODS[k].dT)) / 25) * 25;
+    outMinutes = Math.round((outMinutes * FOODS[k].f) / CONVECTION_FOODS[k].f);
+  }
+  return { outF, outC: convertTempUnit(outF, 'F'), outMinutes, gasMark: gasMarkFor(outF) };
+}
 // Frozen presets: the "oven" equivalent is the pack instruction (conventional / fan pack).
 const ovenOf = (p: FoodPreset, tempF = p.tempF, minutes = p.minutes) =>
-  isFrozen(p)
-    ? computePackSetting({ tempF, minutes, food: frozenFood(p), pack: 'conventional', style: 'basket' })
-    : computeOvenSetting({ airFryerTemp: tempF, unit: 'F', airFryerMinutes: minutes, food: food(p), style: 'basket' });
+  isReheat(p)
+    ? reheatOvenOf(p, tempF, minutes, false)
+    : isFrozen(p)
+      ? computePackSetting({ tempF, minutes, food: frozenFood(p), pack: 'conventional', style: 'basket' })
+      : computeOvenSetting({ airFryerTemp: tempF, unit: 'F', airFryerMinutes: minutes, food: food(p), style: 'basket' });
 const fanOf = (p: FoodPreset) =>
-  isFrozen(p)
-    ? computePackSetting({ tempF: p.tempF, minutes: p.minutes, food: frozenFood(p), pack: 'fan', style: 'basket' })
-    : computeConvectionSetting({ airFryerTemp: p.tempF, unit: 'F', airFryerMinutes: p.minutes, food: food(p), style: 'basket' });
+  isReheat(p)
+    ? reheatOvenOf(p, p.tempF, p.minutes, true)
+    : isFrozen(p)
+      ? computePackSetting({ tempF: p.tempF, minutes: p.minutes, food: frozenFood(p), pack: 'fan', style: 'basket' })
+      : computeConvectionSetting({ airFryerTemp: p.tempF, unit: 'F', airFryerMinutes: p.minutes, food: food(p), style: 'basket' });
 /** Forward conversion of an oven (or pack) setting, as the pre-filled widget runs it. */
 const forwardOf = (p: FoodPreset, ovenTemp: number, ovenMinutes: number) =>
   isFrozen(p)
@@ -221,6 +244,93 @@ test.describe('food presets: data and copy', () => {
     const xml = await (await request.get('/sitemap.xml')).text();
     for (const slug of [PRESETS_INDEX_PATH, ...ALL.map((p) => presetPath(p.slug))]) {
       for (const l of LOCALES) expect(xml).toContain(`<loc>${localizedUrl(l.code, slug)}</loc>`);
+    }
+  });
+});
+
+test.describe('food presets: reheat engine branch', () => {
+  // Synthetic entries, one per FOODS key, so the branch is covered before any reheat preset ships.
+  const reheatPreset = (k: FoodKey): FoodPreset => ({
+    slug: `reheat-${k}`,
+    category: 'reheat',
+    engine: { kind: 'reheat', food: k, ovenF: 375, ovenMinutes: 12 },
+    tempF: 360,
+    minutes: 5,
+    sizes: [
+      { id: 'small', minutes: 4 },
+      { id: 'medium', minutes: 5 },
+      { id: 'large', minutes: 7, tempF: 350 },
+    ],
+  });
+  const FOOD_KEYS = Object.keys(FOODS) as FoodKey[];
+
+  test('why the branch exists: the oven engine misses typical reheats (15°F / 25% of minutes rule, 10.6 A1)', () => {
+    // [FOODS key, oven reheat °F, oven min (range midpoint), typical air fryer reheat °F, min (midpoint)]
+    const MEASURED: [FoodKey, number, number, number, number][] = [
+      ['pizza', 375, 10, 350, 3.5],
+      ['fries', 400, 9, 375, 4],
+      ['thigh', 375, 17.5, 375, 7],
+      ['wings', 375, 10, 375, 5],
+      ['steak', 250, 25, 300, 4],
+    ];
+    const misses = MEASURED.filter(([k, ovenF, ovenMin, afF, afMin]) => {
+      const r = computeAirFryerSetting({ ovenTemp: ovenF, unit: 'F', ovenMinutes: ovenMin, food: k, style: 'basket' });
+      return Math.abs(r.outF! - afF) > 15 || Math.abs(r.outMinutes! - afMin) > afMin * 0.25;
+    });
+    expect(misses.length).toBeGreaterThan(0);
+  });
+
+  test('the equivalent is the stored oven reheat; fan and sizing rows derive from it', () => {
+    for (const k of FOOD_KEYS) {
+      const p = reheatPreset(k);
+      expect(presetOven(p), k).toMatchObject({ outF: 375, outC: 190, outMinutes: 12 });
+      expect(presetOven(p), k).toMatchObject(reheatOvenOf(p, 360, 5, false));
+      expect(presetFan(p), k).toMatchObject(reheatOvenOf(p, 360, 5, true));
+      expect(presetFan(p).outF! % 25, k).toBe(0);
+      expect(presetFan(p).outF!, k).toBeLessThanOrEqual(375);
+      const large = reheatOvenOf(p, 350, 7, false);
+      expect(large, k).toMatchObject({ outF: 365, outC: 185, outMinutes: 17 });
+    }
+  });
+
+  test('the widget is left in its default state, not pre-filled with the reheat values', () => {
+    for (const k of FOOD_KEYS) expect(presetWidget(reheatPreset(k)), k).toEqual({ source: 'oven' });
+  });
+
+  test('basket round trip returns the reheat setting itself; oven-style gets the engine style shift', () => {
+    for (const k of FOOD_KEYS) {
+      const p = reheatPreset(k);
+      const basket = presetRoundTrip(p);
+      expect([basket.outF, basket.outMinutes], k).toEqual([360, 5]);
+      const os = presetRoundTrip(p, 'oven');
+      expect(os.outF, k).toBe(365);
+      expect(os.outMinutes, k).toBe(Math.round((5 / FOODS[k].f) * (FOODS[k].f + 0.05)));
+    }
+  });
+
+  test('every shipped reheat preset is sane: oven ≥ air fryer − 25°F, oven slower, both inside the ceilings', () => {
+    for (const p of ALL.filter(isReheat)) {
+      const { ovenF, ovenMinutes } = reheatOf(p);
+      expect(ovenF, p.slug).toBeGreaterThanOrEqual(p.tempF - 25);
+      expect(ovenMinutes, p.slug).toBeGreaterThan(p.minutes);
+      expect(p.tempF, p.slug).toBeLessThanOrEqual(400);
+      expect(ovenF, p.slug).toBeLessThanOrEqual(500);
+      for (const s of p.sizes) {
+        const row = ovenOf(p, s.tempF ?? p.tempF, s.minutes);
+        expect(row.outMinutes!, `${p.slug} ${s.id}`).toBeGreaterThan(s.minutes);
+      }
+    }
+  });
+
+  test('reheat labels exist in every locale, keep the oven templates’ placeholders and introduce the widget', () => {
+    for (const l of LOCALES) {
+      const d = getDictionary(l.code).presets;
+      for (const key of ['ovenTemplate', 'fanTemplate'] as const) {
+        const ph = (t: string) => [...t.matchAll(/\{([A-Z_]+)\}/g)].map((m) => m[1]).sort();
+        expect(ph(d.reheat[key]), `${l.code} ${key}`).toEqual(ph(d[key]));
+      }
+      expect(d.reheat.widgetHeading.length, l.code).toBeGreaterThan(0);
+      expect(d.reheat.widgetNote.length, l.code).toBeGreaterThan(0);
     }
   });
 });
@@ -401,8 +511,25 @@ test.describe('food preset pages', () => {
       });
     }
 
+    if (isReheat(p)) {
+      test(`${slug} widget is not pre-filled with the reheat values: default state under the oven-recipe intro`, async ({ page }) => {
+        await page.goto('/oven-to-air-fryer');
+        const defaults = await Promise.all(['#afk-temp', '#afk-time', '#afk-food'].map((sel) => page.locator(sel).inputValue()));
+        await page.goto(slug);
+        await expect(page.locator('#pr-widget-intro h2')).toHaveText(en.presets.reheat.widgetHeading);
+        await expect(page.locator('#pr-widget-intro p')).toHaveText(en.presets.reheat.widgetNote);
+        for (const [i, sel] of ['#afk-temp', '#afk-time', '#afk-food'].entries()) {
+          await expect(page.locator(sel)).toHaveValue(defaults[i]);
+        }
+        await expect(page.locator('#afk-temp')).not.toHaveValue(String(reheatOf(p).ovenF));
+        // Still live.
+        await page.fill('#afk-temp', '350');
+        await expect(page.locator('#afk-out-main')).not.toHaveText('');
+      });
+    } else
     test(`${slug} widget is pre-filled with this food's oven equivalent, round-trips within 25°F and stays live`, async ({ page }) => {
       await page.goto(slug);
+      await expect(page.locator('#pr-widget-intro')).toHaveCount(0);
       const oven = ovenOf(p);
       await expect(page.locator('#afk-temp')).toHaveValue(String(oven.outF));
       await expect(page.locator('#afk-time')).toHaveValue(String(oven.outMinutes));
@@ -543,8 +670,11 @@ test.describe('food presets: index, homepage and locales', () => {
         const values = { ...presetValues(p, l.code), LABEL: label(l.code, p) };
         await expect(page.locator('.tool-header h1')).toHaveText(fillPlaceholders(dict.pages[p.slug as PresetSlug].heading, values));
         await expect(page.locator('#pr-answer')).toHaveText(expectedAnswer(l.code, p));
-        await expect(page.locator('#afk-temp')).toHaveValue(String(ovenOf(p).outF));
-        await expect(page.locator('#afk-food')).toHaveValue(p.engine.food);
+        if (isReheat(p)) await expect(page.locator('#pr-widget-intro h2')).toHaveText(dict.reheat.widgetHeading);
+        else {
+          await expect(page.locator('#afk-temp')).toHaveValue(String(ovenOf(p).outF));
+          await expect(page.locator('#afk-food')).toHaveValue(p.engine.food);
+        }
         await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', localizedUrl(l.code, slug));
         await expect(page.locator(`link[rel="alternate"][hreflang="${DEFAULT_LOCALE}"]`)).toHaveAttribute('href', localizedUrl(DEFAULT_LOCALE, slug));
         await expect(page.locator(`.related-link a[href="${localizedPath(l.code, PRESETS_INDEX_PATH)}"]`)).toHaveCount(1);

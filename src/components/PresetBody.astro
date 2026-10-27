@@ -40,6 +40,7 @@ const { INT_F, INT_C } = presetValues(preset, locale);
 const rawWarning = presetRaw(preset) ? getDictionary(locale).frozenConverter.rawWarningTemplate.replace('{f}', INT_F).replace('{c}', INT_C) : null;
 
 // The widget starts on the oven (or pack) equivalent, so its live result is this preset's setting run back through the engine.
+// Reheat presets leave it in its default state under the labels' widget intro (it converts cooking recipes).
 const widget = presetWidget(preset);
 
 const minutes = (n: number | null) => fillPlaceholders(dict.minutesTemplate, { MIN: String(n) });
@@ -104,6 +105,12 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
     </section>
 
     <section class="tool-area" aria-label="Converter">
+      {labels.widgetHeading && (
+        <div id="pr-widget-intro" class="widget-intro">
+          <h2>{labels.widgetHeading}</h2>
+          <p>{labels.widgetNote}</p>
+        </div>
+      )}
       <ConverterWidget locale={locale} {...widget} />
     </section>
 
@@ -498,6 +505,24 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
   .oven-box .oven-note {
     color: var(--site-text-muted);
     margin: 8px 0 0;
+  }
+
+  .widget-intro {
+    margin-bottom: 12px;
+  }
+
+  .widget-intro h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 4px;
+  }
+
+  .widget-intro p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--site-text-muted);
+    margin: 0;
   }
 
   .related-presets {

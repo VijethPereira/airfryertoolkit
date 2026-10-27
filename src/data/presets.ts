@@ -14,7 +14,15 @@ export type PresetSizeId = 'small' | 'medium' | 'large' | 'thin' | 'thick';
 export interface FoodPreset {
   slug: string;
   category: PresetCategory;
-  engine: { kind: 'oven'; food: FoodKey } | { kind: 'frozen'; food: FrozenFoodKey };
+  /**
+   * 'reheat': the engine converts an oven *cooking* recipe and misses reheats (2026-10-27
+   * measurement, 10.6 A1), so the oven reheat setting is stored here — the one exception to
+   * "equivalents are derived, never stored". Fan-oven and sizing equivalents still derive from it.
+   */
+  engine:
+    | { kind: 'oven'; food: FoodKey }
+    | { kind: 'frozen'; food: FrozenFoodKey }
+    | { kind: 'reheat'; food: FoodKey; ovenF: number; ovenMinutes: number };
   /** Air fryer setting for the medium/standard portion. */
   tempF: number;
   minutes: number;

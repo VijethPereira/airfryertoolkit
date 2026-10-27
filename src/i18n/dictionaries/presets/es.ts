@@ -33,6 +33,16 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Tamaño', airFryer: 'Freidora de aire', oven: 'Dice el paquete' },
     relatedFlagshipLink: 'Conversor de paquetes congelados',
   },
+  reheat: {
+    ovenHeading: 'Si recalientas en el horno',
+    ovenTemplate: 'Horno convencional: {OVEN_F}°F ({OVEN_C}°C, nivel de gas {OVEN_MARK}) durante {OVEN_MIN} min',
+    fanTemplate: 'Horno con ventilador: {FAN_F}°F ({FAN_C}°C) durante {FAN_MIN} min',
+    ovenNote: 'Las sobras ya están cocinadas, así que estos ajustes solo las calientan y les devuelven el crujiente; el horno tarda más porque primero calienta toda la cavidad.',
+    sizingHeaders: { size: 'Ración', airFryer: 'Freidora de aire', oven: 'Recalentar en horno' },
+    relatedFlagshipLink: 'Conversor de horno a freidora de aire',
+    widgetHeading: '¿Cocinas a partir de una receta de horno?',
+    widgetNote: 'Este conversor pasa recetas de horno a ajustes de freidora de aire. No sirve para recalentar, por eso empieza vacío; para las sobras usa el ajuste de arriba.',
+  },
   pages: {
     'chicken-breast': {
       label: 'Pechuga de pollo',

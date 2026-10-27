@@ -33,6 +33,16 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Größe', airFryer: 'Heißluftfritteuse', oven: 'Laut Packung' },
     relatedFlagshipLink: 'Tiefkühlpackungs-Umrechner',
   },
+  reheat: {
+    ovenHeading: 'Stattdessen im Backofen aufwärmen',
+    ovenTemplate: 'Ober-/Unterhitze: {OVEN_F}°F ({OVEN_C}°C, britische Gasstufe {OVEN_MARK}) für {OVEN_MIN} Min.',
+    fanTemplate: 'Umluft: {FAN_F}°F ({FAN_C}°C) für {FAN_MIN} Min.',
+    ovenNote: 'Reste sind schon gar, diese Einstellungen wärmen sie also nur auf und machen sie wieder knusprig; der Backofen braucht länger, weil er erst den ganzen Garraum aufheizt.',
+    sizingHeaders: { size: 'Portion', airFryer: 'Heißluftfritteuse', oven: 'Im Ofen aufwärmen' },
+    relatedFlagshipLink: 'Umrechner Backofen zu Heißluftfritteuse',
+    widgetHeading: 'Du kochst nach einem Backofenrezept?',
+    widgetNote: 'Dieser Umrechner macht aus Backofenrezepten Einstellungen für die Heißluftfritteuse. Zum Aufwärmen ist er nicht gedacht, deshalb startet er leer; für Reste gilt die Einstellung oben.',
+  },
   pages: {
     'chicken-breast': {
       label: 'Hähnchenbrust',

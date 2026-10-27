@@ -33,6 +33,16 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Size', airFryer: 'Air fryer', oven: 'Pack says' },
     relatedFlagshipLink: 'Frozen pack converter',
   },
+  reheat: {
+    ovenHeading: 'Reheating in the oven instead',
+    ovenTemplate: 'Conventional oven: {OVEN_F}°F ({OVEN_C}°C, gas mark {OVEN_MARK}) for {OVEN_MIN} min',
+    fanTemplate: 'Fan / convection oven: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
+    ovenNote: 'Leftovers are already cooked, so these settings only warm and re-crisp them; the oven takes longer because it heats a whole cavity first.',
+    sizingHeaders: { size: 'Portion', airFryer: 'Air fryer', oven: 'Oven reheat' },
+    relatedFlagshipLink: 'Oven to air fryer converter',
+    widgetHeading: 'Cooking from an oven recipe?',
+    widgetNote: 'This converter turns oven cooking recipes into air fryer settings. It does not reheat, so it starts blank; use the setting above for leftovers.',
+  },
   pages: {
     'chicken-breast': {
       label: 'Chicken breast',

@@ -329,6 +329,20 @@ export interface Dictionary {
       /** Link to /frozen with this food preselected (replaces the flagship link). */
       relatedFlagshipLink: string;
     };
+    /**
+     * Reheat presets (engine.kind 'reheat') read these instead: the equivalent is the oven reheat,
+     * and the converter (which converts cooking recipes) sits in its default state under its own intro.
+     */
+    reheat: {
+      ovenHeading: string;
+      ovenTemplate: string;
+      fanTemplate: string;
+      ovenNote: string;
+      sizingHeaders: { size: string; airFryer: string; oven: string };
+      relatedFlagshipLink: string;
+      widgetHeading: string;
+      widgetNote: string;
+    };
     pages: Record<PresetSlug, PresetCopy>;
   };
   presetsIndex: {

@@ -33,6 +33,16 @@ export const presets: Dictionary['presets'] = {
     sizingHeaders: { size: 'Taille', airFryer: 'Friteuse à air', oven: 'L’emballage dit' },
     relatedFlagshipLink: 'Convertisseur d’emballages surgelés',
   },
+  reheat: {
+    ovenHeading: 'Pour réchauffer au four',
+    ovenTemplate: 'Four traditionnel : {OVEN_F}°F ({OVEN_C}°C, Th. {OVEN_MARK}) pendant {OVEN_MIN} min',
+    fanTemplate: 'Chaleur tournante : {FAN_F}°F ({FAN_C}°C) pendant {FAN_MIN} min',
+    ovenNote: 'Les restes sont déjà cuits : ces réglages ne font que les réchauffer et leur rendre leur croustillant. Le four est plus long, car il doit d’abord chauffer toute sa cavité.',
+    sizingHeaders: { size: 'Portion', airFryer: 'Friteuse à air', oven: 'Réchauffer au four' },
+    relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
+    widgetHeading: 'Vous partez d’une recette au four ?',
+    widgetNote: 'Ce convertisseur transforme les recettes de cuisson au four en réglages de friteuse à air. Il ne sert pas à réchauffer, il démarre donc vide ; pour les restes, suivez le réglage ci-dessus.',
+  },
   pages: {
     'chicken-breast': {
       label: 'Blanc de poulet',

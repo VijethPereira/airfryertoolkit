@@ -8,6 +8,8 @@ import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import {
+  CONVECTION_FOODS,
+  FOODS,
   FROZEN_FOODS,
   computeAirFryerSetting,
   computeAirFryerSettingFromFrozen,
@@ -15,6 +17,7 @@ import {
   computeOvenSetting,
   computePackSetting,
   convertTempUnit,
+  gasMarkFor,
   ovenMarkFor,
   type ConversionResult,
   type FoodKey,
@@ -36,13 +39,39 @@ export function presetFood(preset: FoodPreset): FoodKey | FrozenFoodKey {
   return preset.engine.food;
 }
 
+const REHEAT_DIAL_STEP = 25;
+
+/**
+ * Reheat presets: the stored oven reheat, scaled to a sizing row (same temperature offset,
+ * minutes in proportion). The fan oven is the setting the engine treats as equivalent to it:
+ * the FOODS vs CONVECTION_FOODS temperature gap (snapped to a 25°F dial step) and time ratio.
+ */
+function reheatEquivalent(
+  preset: FoodPreset,
+  engine: { food: FoodKey; ovenF: number; ovenMinutes: number },
+  tempF: number,
+  minutes: number,
+  target: 'oven' | 'convection',
+): ReverseConversionResult {
+  let outF = engine.ovenF + (tempF - preset.tempF);
+  let outMinutes = Math.round((engine.ovenMinutes * minutes) / preset.minutes);
+  if (target === 'convection') {
+    const oven = FOODS[engine.food];
+    const fan = CONVECTION_FOODS[engine.food];
+    outF = Math.round((outF - (oven.dT - fan.dT)) / REHEAT_DIAL_STEP) * REHEAT_DIAL_STEP;
+    outMinutes = Math.round((outMinutes * oven.f) / fan.f);
+  }
+  return { outF, outC: convertTempUnit(outF, 'F'), outMinutes, gasMark: gasMarkFor(outF), ceiling: 400, ceilingAmbiguous: false };
+}
+
 /**
  * The "equivalent" a preset's air fryer setting converts back to. Oven presets: the
  * oven recipe (conventional or fan). Frozen presets: the pack instruction (conventional
- * or fan pack), through computePackSetting.
+ * or fan pack), through computePackSetting. Reheat presets: the stored oven reheat.
  */
 const reverse = (preset: FoodPreset, tempF: number, minutes: number, target: 'oven' | 'convection'): ReverseConversionResult => {
   const { engine } = preset;
+  if (engine.kind === 'reheat') return reheatEquivalent(preset, engine, tempF, minutes, target);
   if (engine.kind === 'frozen') {
     return computePackSetting({ tempF, minutes, food: engine.food, pack: target === 'oven' ? 'conventional' : 'fan', style: 'basket' });
   }
@@ -60,10 +89,18 @@ export const presetOven = (preset: FoodPreset) => reverse(preset, preset.tempF, 
 /** Fan / convection-oven equivalent (a frozen preset: the fan-oven pack). */
 export const presetFan = (preset: FoodPreset) => reverse(preset, preset.tempF, preset.minutes, 'convection');
 
-/** Oven (or pack) equivalent run back through the forward converter — what the pre-filled widget shows. */
+/**
+ * Oven (or pack) equivalent run back through the forward converter — what the pre-filled widget
+ * shows. Reheat presets have no cooking recipe to run back, so the engine is fed the oven input that
+ * yields the reheat setting itself: basket returns it unchanged, oven-style gets the usual style shift.
+ */
 export function presetRoundTrip(preset: FoodPreset, style: FryerStyle = 'basket'): ConversionResult {
-  const oven = presetOven(preset);
   const { engine } = preset;
+  if (engine.kind === 'reheat') {
+    const { dT, f } = FOODS[engine.food];
+    return computeAirFryerSetting({ ovenTemp: preset.tempF + dT, unit: 'F', ovenMinutes: preset.minutes / f, food: engine.food, style });
+  }
+  const oven = presetOven(preset);
   const input = { ovenTemp: oven.outF!, unit: 'F' as const, ovenMinutes: oven.outMinutes!, style };
   return engine.kind === 'frozen'
     ? computeAirFryerSettingFromFrozen({ ...input, food: engine.food, pack: 'conventional', turnOverride: presetTurnOverride(preset) })
@@ -81,8 +118,12 @@ export function presetTurnOverride(preset: FoodPreset): FrozenConversionInput['t
   return undefined;
 }
 
-/** The converter widget a preset page embeds, pre-filled with the oven (or pack) equivalent. */
+/**
+ * The converter widget a preset page embeds, pre-filled with the oven (or pack) equivalent.
+ * The widget converts cooking recipes, not reheats, so a reheat preset gets it in its default state.
+ */
 export function presetWidget(preset: FoodPreset) {
+  if (preset.engine.kind === 'reheat') return { source: 'oven' as const };
   const oven = presetOven(preset);
   return {
     source: preset.engine.kind === 'frozen' ? ('frozen' as const) : ('oven' as const),
@@ -206,8 +247,11 @@ export function presetCopy(preset: FoodPreset, locale: LocaleCode = DEFAULT_LOCA
   const dict = getDictionary(locale).presets;
   const values = presetValues(preset, locale);
   const copy = dict.pages[preset.slug as PresetSlug];
-  // A frozen preset's equivalent is the pack instruction, so it reads the pack-side labels; every other key is shared.
-  const labels = preset.engine.kind === 'frozen' ? { ...dict, ...dict.frozen } : dict;
+  // A frozen preset's equivalent is the pack instruction and a reheat preset's the oven reheat, so each
+  // reads its own labels (reheat adds the widget intro); every other key is shared.
+  const kind = preset.engine.kind;
+  const labels: typeof dict & Partial<typeof dict.reheat> =
+    kind === 'frozen' ? { ...dict, ...dict.frozen } : kind === 'reheat' ? { ...dict, ...dict.reheat } : dict;
   return { dict, labels, copy, values: { ...values, LABEL: copy.label }, fill: (text: string) => fillPlaceholders(text, { ...values, LABEL: copy.label }) };
 }
 
