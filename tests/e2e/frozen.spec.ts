@@ -13,6 +13,8 @@ import {
   type PackType,
 } from '../../src/lib/converter';
 import { TEMP_STEPS } from '../../src/lib/chart-data';
+import { PRESETS } from '../../src/data/presets';
+import { presetPath } from '../../src/lib/preset-paths';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, DEFAULT_LOCALE } from '../../src/i18n/locales';
@@ -198,6 +200,40 @@ test.describe('/frozen', () => {
     expect(failures).toEqual([]);
   });
 
+  test('computePackSetting: when two dial steps give the same air fryer setting, the hotter pack wins; otherwise the closer one', () => {
+    const tieFoods = new Set<string>();
+    const failures: string[] = [];
+    for (const food of FOOD_KEYS) {
+      for (const pack of PACKS) {
+        for (const style of STYLES) {
+          const ceiling = style === 'oven' ? 450 : 400;
+          for (let tempF = 300; tempF <= ceiling; tempF += 5) {
+            const p = computePackSetting({ tempF, minutes: 15, food, pack, style });
+            const fwd = (packF: number) => computeAirFryerSettingFromFrozen({ ovenTemp: packF, unit: 'F', ovenMinutes: 15, food, pack, style }).outF!;
+            // The two dial steps either side of the exact inverse (tempF + the profile's cut).
+            const dT = Math.max(0, FROZEN_FOODS[food].dT - (style === 'oven' ? 5 : 0)) - (pack === 'fan' ? fanPackOffset(food) : 0);
+            const lo = Math.floor((tempF + dT) / 25) * 25;
+            const hi = lo + 25;
+            const tie = fwd(lo) === fwd(hi);
+            if (tie) tieFoods.add(food);
+            const expected = tie || Math.abs(fwd(hi) - tempF) < Math.abs(fwd(lo) - tempF) ? hi : lo;
+            if (p.outF !== expected) failures.push(`${food}/${pack}/${style} ${tempF}: got ${p.outF}, expected ${expected}${tie ? ' (tie: hotter wins)' : ''}`);
+          }
+        }
+      }
+    }
+    expect(failures).toEqual([]);
+    expect(tieFoods.size, `ties seen for ${[...tieFoods].join(', ')}`).toBeGreaterThan(1);
+    // The case that motivated it: a US fries bag prints 425°F, and 400°F would map lower, not to the same setting.
+    expect(computePackSetting({ tempF: 400, minutes: 15, food: 'fries', pack: 'conventional', style: 'basket' }).outF).toBe(425);
+    // Wings at the ceiling: 400°F and 425°F packs both give 400°F, so the hotter wins.
+    const fwdWings = (packF: number) => computeAirFryerSettingFromFrozen({ ovenTemp: packF, unit: 'F', ovenMinutes: 20, food: 'wings', pack: 'conventional', style: 'basket' }).outF;
+    expect(fwdWings(400)).toBe(fwdWings(425));
+    expect(computePackSetting({ tempF: 400, minutes: 20, food: 'wings', pack: 'conventional', style: 'basket' }).outF).toBe(425);
+    // Below the ceiling nothing ties, so the nearest dial is unchanged.
+    expect(computePackSetting({ tempF: 350, minutes: 20, food: 'wings', pack: 'conventional', style: 'basket' }).outF).toBe(350);
+  });
+
   test('computePackSetting: a fan pack prints lower than a conventional pack for the same air fryer setting', () => {
     for (const food of FOOD_KEYS) {
       const conv = computePackSetting({ tempF: 380, minutes: 15, food, pack: 'conventional', style: 'basket' });
@@ -230,14 +266,23 @@ test.describe('/frozen', () => {
     await expect(page.locator('#afk-food')).toHaveValue('fries');
   });
 
-  test('cross-links to the flagship, both convection pages and /chart; preset slot empty until presets ship', async ({ page }) => {
+  test('cross-links to the flagship, both convection pages and /chart', async ({ page }) => {
     await page.goto('/frozen');
     for (const slug of ['/oven-to-air-fryer', '/convection-to-air-fryer', '/air-fryer-to-convection', '/chart']) {
       await expect(page.locator(`.related-link a[href="${slug}"]`)).toHaveCount(1);
     }
-    const livePresets = ['/frozen-fries', '/frozen-chicken-nuggets', '/frozen-chicken', '/frozen-pizza'].filter((s) => LIVE_PAGES.has(s));
-    await expect(page.locator('.preset-link')).toHaveCount(livePresets.length);
   });
+
+  for (const code of ['en', 'de'] as const) {
+    test(`/frozen (${code}) links to every live frozen preset, in its own locale`, async ({ page }) => {
+      await page.goto(localizedPath(code, '/frozen'));
+      const live = PRESETS.filter((p) => p.category === 'frozen').map((p) => presetPath(p.slug)).filter((path) => LIVE_PAGES.has(path));
+      expect(live.length).toBeGreaterThan(0);
+      const links = page.locator('.preset-link a');
+      await expect(links).toHaveCount(live.length);
+      for (const [i, path] of live.entries()) await expect(links.nth(i)).toHaveAttribute('href', localizedPath(code, path));
+    });
+  }
 
   test('flagship, convection pages and /chart link back to /frozen', async ({ page }) => {
     for (const slug of ['/oven-to-air-fryer', '/convection-to-air-fryer', '/air-fryer-to-convection']) {

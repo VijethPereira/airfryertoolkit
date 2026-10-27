@@ -122,7 +122,7 @@ const es: Dictionary = {
       },
       hashBrowns: {
         label: "Hash browns y formas de papa",
-        tip: "Las piezas planas se doran de un lado a la vez: voltea una vez a la mitad.",
+        tip: "Las piezas planas se doran de un lado a la vez: voltéalas a la mitad. Las formas redondas, como los tots, ruedan: mejor agítalas.",
       },
       veg: {
         label: "Verduras congeladas",

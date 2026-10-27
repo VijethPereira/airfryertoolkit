@@ -31,6 +31,7 @@ export const presets: Dictionary['presets'] = {
     fanTemplate: 'Fan oven pack: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
     ovenNote: 'Your bag prints different numbers? The converter below is set to this food — enter the pack’s temperature and time.',
     sizingHeaders: { size: 'Size', airFryer: 'Air fryer', oven: 'Pack says' },
+    relatedFlagshipLink: 'Frozen pack converter',
   },
   pages: {
     'chicken-breast': {
@@ -952,6 +953,467 @@ export const presets: Dictionary['presets'] = {
         {
           q: 'What is the oven equivalent for potato wedges?',
           a: '{OVEN_F}°F for around {OVEN_MIN} minutes on a tray in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'frozen-fries': {
+      label: 'Frozen fries',
+      metaTitle: 'Frozen Fries in the Air Fryer: Time, Temp & Bag Conversion',
+      metaDescription:
+        'Frozen fries in the air fryer: {AF_F}°F for {MIN} minutes, shaken {SHAKES} times, straight from the bag. Shoestring to steak fries, plus what the pack setting becomes.',
+      metaKeywords: 'air fryer frozen fries time, frozen french fries air fryer, how long to cook frozen fries in air fryer, frozen chips air fryer',
+      heading: 'Frozen fries in the air fryer',
+      subDesc:
+        'Bagged fries cooked straight from the freezer, no thawing and no extra oil. The setting, when to shake, and how to turn the pack instructions into air fryer numbers.',
+      cardDesc: 'Straight from the bag, one layer, two shakes.',
+      sizeLabels: { thin: 'Shoestring or skinny fries', medium: 'Regular straight-cut fries', thick: 'Steak fries or thick-cut chips' },
+      failureHeading: 'Why frozen fries come out soggy',
+      failureBody:
+        'Every frozen fry carries a thin glaze of ice, and in the first few minutes that ice melts and turns to steam. With room around each piece the steam blows away and the surface browns in the oil the factory already fried them in. Tip in the whole bag and the steam is trapped: the bottom fries sit in their own water and come out pale and limp however long you leave them. Fill the basket no more than halfway and cook a big bag in two rounds. The {SHAKES} shakes do the rest, breaking up fries that froze together and turning the damp bottom layer up into the airflow.',
+      workedExampleHeading: 'Worked example: turning the bag into an air fryer setting',
+      workedExampleTemplate:
+        'A typical bag of straight-cut fries says {OVEN_F}°F for {OVEN_MIN} minutes in the oven. A basket air fryer cannot go that hot, so it runs at {AF_F}°F and the time drops to {MIN} minutes, because the fan moves heat into the fries much faster than a tray does. Preheat for {PREHEAT} minutes, add half the bag, and shake at roughly a third and two thirds of the way through. Shoestring fries are ready in about {THIN_MIN} minutes; steak fries need about {THICK_MIN}. A UK bag printed for a fan oven reads {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} minutes and lands on the same air fryer setting.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Frozen fries are already cooked, so you are after colour and crunch. Snap one: the outside should be golden and crackle, the inside fluffy and hot. If the bottom of the basket is still pale, give it one more shake and two more minutes. Thicker cuts look done before the centre is soft, so taste a steak fry before you pull the batch.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Do not thaw them, and break up frozen clumps before tipping them in. Oil is optional because the fries were par-fried, though a quick spray helps crinkle-cut fries brown evenly. Salt after cooking, not before, so the salt does not draw out more water.',
+      faqs: [
+        {
+          q: 'How long do frozen fries take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for regular fries, shaken {SHAKES} times. Shoestring fries take about {THIN_MIN} minutes and steak fries about {THICK_MIN}.',
+        },
+        {
+          q: 'Should I thaw frozen fries before air frying?',
+          a: 'No. Cook them straight from the freezer. Thawing lets the surface go wet and soft, and they never crisp properly afterwards.',
+        },
+        {
+          q: 'Do frozen fries need oil in the air fryer?',
+          a: 'Not usually. They were par-fried before freezing, so they brown on their own. A light spray helps seasoned or crinkle-cut fries colour more evenly.',
+        },
+        {
+          q: 'Why are my frozen fries still soggy?',
+          a: 'Too many in the basket. The ice on each fry turns to steam, and a full basket traps it. Cook half a bag at a time and shake as the timer suggests.',
+        },
+        {
+          q: 'My bag says {OVEN_F}°F for {OVEN_MIN} minutes. What do I set?',
+          a: '{AF_F}°F for about {MIN} minutes in a basket air fryer. The converter on this page takes any bag’s numbers, including fan-oven ones.',
+        },
+      ],
+    },
+    'frozen-chicken-wings': {
+      label: 'Frozen chicken wings',
+      metaTitle: 'Frozen Chicken Wings in the Air Fryer: Raw & Pre-Cooked',
+      metaDescription:
+        'Raw frozen chicken wings in the air fryer: {AF_F}°F for {MIN} minutes, shaken {SHAKES} times, done at {INT_F}°F. Fully cooked or sauced wings take about {PRE_MIN} minutes.',
+      metaKeywords: 'frozen chicken wings air fryer, air fryer frozen wings time, cook frozen wings in air fryer, frozen buffalo wings air fryer',
+      heading: 'Frozen chicken wings in the air fryer',
+      subDesc:
+        'Raw wings cooked from frozen, with no thawing, plus the shorter setting for fully cooked and sauced wings. How to break up the block and get the skin crisp.',
+      cardDesc: 'Raw from frozen: separate them at the first shake.',
+      sizeLabels: { small: 'Party wings, flats and drumettes', medium: 'Standard split wings', large: 'Jumbo or whole wings' },
+      failureHeading: 'Why frozen wings cook unevenly',
+      failureBody:
+        'Raw wings usually freeze into clumps in the bag. Where two wings touch, neither surface sees hot air, so that side stays pale and the meat beneath lags behind. The skin has a second problem: frozen wings carry ice, and the water it releases has to leave before the fat under the skin can render and crisp. Prise the wings apart with tongs at the first shake, spread them out, and let the second shake turn them so every side gets its turn near the fan.',
+      workedExampleHeading: 'Worked example: a bag of raw frozen wings',
+      workedExampleTemplate:
+        'A bag of raw split wings says to bake from frozen at {OVEN_F}°F for {OVEN_MIN} minutes. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, tip in a single layer, and shake twice; at the first shake, separate any wings that are still frozen together. Party-size flats and drumettes finish in about {SMALL_MIN} minutes, jumbo wings in about {LARGE_MIN}. Toss them in sauce after cooking, not before, or the sugar burns long before the meat is safe.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Raw wings must reach {INT_F}°F ({INT_C}°C) next to the bone, so check the thickest drumette with a thermometer; the skin can brown while the middle is still cold. Many people take wings further for a more tender texture. The skin should be crisp and blistered, with no soft, pale patches where wings were touching.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Read the bag first: raw and fully cooked wings look alike but need different settings. Skip the oil; the skin has plenty of its own fat. Season with a dry rub once they are separated at the first shake, so it sticks to the thawed surface.',
+      faqs: [
+        {
+          q: 'How long do raw frozen wings take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, shaken {SHAKES} times, until they reach {INT_F}°F. Small party wings take about {SMALL_MIN} minutes and jumbo wings about {LARGE_MIN}.',
+        },
+        {
+          q: 'What about fully cooked or sauced frozen wings?',
+          a: 'They only need heating through, not cooking: about {PRE_MIN} minutes at {PRE_F}°F ({PRE_C}°C), shaken once. They were cooked at the factory, so there is no raw-chicken risk; stop when the sauce is bubbling and sticky.',
+        },
+        {
+          q: 'Do I need to thaw wings before air frying?',
+          a: 'No. The setting above is for wings straight from the freezer. Just separate them at the first shake.',
+        },
+        {
+          q: 'When should I add sauce?',
+          a: 'After cooking. Toss the hot wings in sauce in a bowl, then return them for a minute or two if you want it to set.',
+        },
+        {
+          q: 'Can I use the fresh-wing setting for frozen wings?',
+          a: 'No. Fresh wings cook faster and hotter; frozen ones need the extra time for the ice to clear and the centre to come up to temperature.',
+        },
+      ],
+    },
+    'frozen-chicken-breast': {
+      label: 'Frozen chicken breast',
+      metaTitle: 'Frozen Chicken Breast in the Air Fryer: Time & Safe Temp',
+      metaDescription:
+        'Raw chicken breast straight from frozen in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Times by weight and the oven equivalent.',
+      metaKeywords: 'frozen chicken breast air fryer, how long to cook frozen chicken breast in air fryer, air fryer frozen chicken, cook chicken from frozen air fryer',
+      heading: 'Frozen chicken breast in the air fryer',
+      subDesc:
+        'Raw boneless breasts cooked straight from the freezer, no thawing. A lower, slower setting than fresh chicken, and why a thermometer is not optional here.',
+      cardDesc: 'Lower and slower than fresh: check it with a thermometer.',
+      sizeLabels: { small: 'Small, 5–6 oz (150 g)', medium: 'Medium, 7–8 oz (220 g)', large: 'Large, 10–12 oz (300 g)' },
+      failureHeading: 'Why the outside dries before the middle is safe',
+      failureBody:
+        'A frozen breast starts with a block of ice in the middle. Heat has to thaw the centre before it can cook it, while the outside keeps taking heat the whole time. That is why this preset sits lower and runs longer than fresh chicken: a gentler temperature narrows the gap between outside and inside, so the centre reaches a safe reading before the edges dry out. Thickness matters most, so cook pieces of a similar size together and check the biggest.',
+      workedExampleHeading: 'Worked example: two breasts from a freezer bag',
+      workedExampleTemplate:
+        'A bag of individually frozen raw breasts says {OVEN_F}°F for {OVEN_MIN} minutes in the oven. In a basket air fryer that becomes {AF_F}°F for about {MIN} minutes for a medium breast. Preheat {PREHEAT} minutes, lay two breasts flat with space between them, and flip at {FLIP} minutes, which is also when you add seasoning, because the thawed surface now holds it. Small breasts are usually done in about {SMALL_MIN} minutes; large ones need about {LARGE_MIN}. Probe the thickest one before you take any out.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Only a thermometer is reliable here: {INT_F}°F ({INT_C}°C) in the thickest part, with the probe pushed in from the side so the tip sits in the very middle. A frozen breast can be golden outside while the centre is still pink and cold. If one breast is done and another is not, take the finished one out and give the other a few more minutes. Rest it for three minutes before slicing.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Separate breasts that froze together, rinse off any ice glaze and pat them dry. Brush with a little oil so the seasoning sticks later, but hold back the spices until the flip, since they slide off a frozen surface.',
+      faqs: [
+        {
+          q: 'How long does a frozen chicken breast take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a medium breast, flipped at {FLIP} minutes. Small breasts take about {SMALL_MIN} minutes and large ones about {LARGE_MIN}. Always finish with a thermometer check.',
+        },
+        {
+          q: 'Is it safe to cook chicken breast from frozen?',
+          a: 'Yes, as long as the thickest part reaches {INT_F}°F ({INT_C}°C). It simply takes longer than fresh, and the lower setting keeps the outside from drying first.',
+        },
+        {
+          q: 'Why not use the fresh chicken breast setting?',
+          a: 'Fresh chicken runs hotter and shorter. On a frozen breast that browns the outside long before the centre has thawed and cooked through.',
+        },
+        {
+          q: 'When should I season it?',
+          a: 'At the flip. By then the surface has thawed and the seasoning sticks instead of sliding off the ice.',
+        },
+        {
+          q: 'Can I cook breaded frozen chicken breasts the same way?',
+          a: 'Check the pack. Many breaded products are sold raw and follow the frozen tenders page; fully cooked ones only need heating through.',
+        },
+      ],
+    },
+    'frozen-chicken-nuggets': {
+      label: 'Frozen chicken nuggets',
+      metaTitle: 'Frozen Chicken Nuggets in the Air Fryer: Time & Temp',
+      metaDescription:
+        'Frozen chicken nuggets in the air fryer: {AF_F}°F for {MIN} minutes, shaken once, hot through at {INT_F}°F. Popcorn chicken to dinosaur shapes, with the pack conversion.',
+      metaKeywords: 'frozen chicken nuggets air fryer, air fryer nuggets time, how long to cook frozen nuggets in air fryer, dino nuggets air fryer',
+      heading: 'Frozen chicken nuggets in the air fryer',
+      subDesc:
+        'Fully cooked, breaded nuggets straight from the bag. You are reheating, not cooking, so the job is a crisp coating without a dried-out middle.',
+      cardDesc: 'Already cooked: you are only reheating them.',
+      sizeLabels: { small: 'Popcorn chicken or mini bites', medium: 'Standard nuggets', large: 'Large shapes or dinosaur nuggets' },
+      internalLine: 'Heated through at {INT_F}°F ({INT_C}°C) in the middle; they are already cooked',
+      failureHeading: 'Why nuggets end up dry and hard',
+      failureBody:
+        'Almost every frozen nugget in the shops is fully cooked before it is frozen. The chicken inside is done; what the air fryer has to do is crisp the breading and bring the middle back up to heat. That changes what goes wrong. The danger is not undercooking but overcooking: nuggets are small, so a couple of minutes too long dries the chicken into something firm and stringy, and the coating goes from crisp to hard. Treat them like a short reheat. Use the time on this page, give the basket one shake halfway so the pieces that were lying flat get turned, and start checking a minute or two early. Nuggets heaped two deep also steam each other, so the coating on the bottom layer stays soft.',
+      workedExampleHeading: 'Worked example: half a bag for two',
+      workedExampleTemplate:
+        'A bag of breaded nuggets says {OVEN_F}°F for {OVEN_MIN} minutes on a tray. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, spread about twenty nuggets in one layer, and shake once halfway. Popcorn chicken is ready in about {SMALL_MIN} minutes, and big dinosaur shapes in about {LARGE_MIN}. If the pack prints a fan-oven setting instead, {FAN_F}°F for {FAN_MIN} minutes, the result is the same air fryer setting.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Because the chicken is already cooked, the check is that the middle is hot, not that it has reached a kill step: {INT_F}°F ({INT_C}°C) in the thickest nugget if you want a number, or break one open and look for steam all the way through. The coating should be evenly golden and should crunch when you press it. If it is hard rather than crisp, the next batch needs a minute or two less.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Check the pack says fully cooked. A few breaded chicken products are sold raw, and those belong on the frozen tenders page with a thermometer. Do not thaw, and do not add oil: the coating was fried at the factory. Leave a little space between nuggets so the air reaches every side.',
+      faqs: [
+        {
+          q: 'How long do frozen nuggets take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, shaken once. Popcorn chicken takes about {SMALL_MIN} minutes and large shapes about {LARGE_MIN}.',
+        },
+        {
+          q: 'Are frozen chicken nuggets already cooked?',
+          a: 'Most are. The pack will say “fully cooked”. If it says “uncooked” or “raw”, cook them to {INT_F}°F with a thermometer like raw chicken.',
+        },
+        {
+          q: 'Do I need to flip nuggets?',
+          a: 'A single shake halfway is enough. Small pieces turn themselves over when you shake; there is no need to flip them one by one.',
+        },
+        {
+          q: 'Why are my nuggets hard?',
+          a: 'They were in too long. Nuggets only need reheating, so a couple of extra minutes dries them out. Try the low end of the time next batch.',
+        },
+        {
+          q: 'Can I cook nuggets and fries together?',
+          a: 'Yes, if the basket is not crowded. Start the fries first and add the nuggets for the last {MIN} minutes so both finish together.',
+        },
+      ],
+    },
+    'frozen-tater-tots': {
+      label: 'Frozen tater tots',
+      metaTitle: 'Frozen Tater Tots in the Air Fryer: Time, Temp & Crunch',
+      metaDescription:
+        'Frozen tater tots in the air fryer: {AF_F}°F for {MIN} minutes, shaken {SHAKES} times. Mini tots to potato crowns, crisp outside and hot all the way through.',
+      metaKeywords: 'air fryer tater tots, frozen tater tots air fryer time, how long to cook tater tots in air fryer, potato puffs air fryer',
+      heading: 'Frozen tater tots in the air fryer',
+      subDesc:
+        'Bagged tots and potato puffs cooked from frozen. The setting, the shakes, and how to get a hot centre inside the crunch.',
+      cardDesc: 'Shake twice so every side gets a crust.',
+      sizeLabels: { small: 'Mini tots', medium: 'Regular tater tots', large: 'Potato crowns or large puffs' },
+      failureHeading: 'Why tots are crunchy outside and cold inside',
+      failureBody:
+        'A tot is a little cylinder of grated potato pressed tight, which makes it much denser than a fry of the same size. The outside fries quickly in the hot air and sets into a crust within a few minutes, but the packed shreds in the middle are slow to warm, so a tot pulled when it looks golden can still be lukewarm and pasty in the centre. Crank the heat to rush it and the crust darkens before the middle catches up. The answer is a steady setting and enough time, with the basket shaken twice so the tots roll onto a new face each time. Because they are round, they roll rather than lie flat, and shaking does the turning for you.',
+      workedExampleHeading: 'Worked example: a family bag',
+      workedExampleTemplate:
+        'A bag of tots says {OVEN_F}°F for {OVEN_MIN} minutes in the oven, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, pour in enough to cover the base in one layer, and shake twice, about a third and two thirds of the way through. Mini tots are ready in about {SMALL_MIN} minutes and potato crowns in about {LARGE_MIN}. For a crowd, cook in two batches rather than piling them up.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Tots are pre-cooked, so you are judging crunch and heat. They should be deep golden all over and sound hollow when they knock together in the basket. Bite one from the middle of the batch: the inside should be soft, fluffy and hot. If the outside is ready but the centre is cool, do not raise the heat; add two minutes and shake again.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Cook them straight from frozen and break up any tots stuck together. Oil is not needed, but a light spray gives a darker, more even crust. Season with salt or a seasoning blend in the last shake or right after cooking, when the surface is still slightly oily and holds it.',
+      faqs: [
+        {
+          q: 'How long do tater tots take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, shaken {SHAKES} times. Mini tots take about {SMALL_MIN} minutes and large crowns about {LARGE_MIN}.',
+        },
+        {
+          q: 'Should I shake or flip tater tots?',
+          a: 'Shake. Tots are round and roll onto a new side when the basket is shaken, so two shakes brown them evenly without flipping each one.',
+        },
+        {
+          q: 'Why are my tots cold in the middle?',
+          a: 'They are denser than fries and need the full time. Pulling them as soon as they look golden leaves the packed centre cool.',
+        },
+        {
+          q: 'Do tater tots need oil?',
+          a: 'No, they were par-fried before freezing. A light spray only adds colour.',
+        },
+        {
+          q: 'Can I make loaded tots in the air fryer?',
+          a: 'Yes. Cook the tots fully, then add cheese and toppings and return them for a minute or two until the cheese melts.',
+        },
+      ],
+    },
+    'frozen-pizza': {
+      label: 'Frozen pizza',
+      metaTitle: 'Frozen Pizza in the Air Fryer: Time, Temp & What Size Fits',
+      metaDescription:
+        'Frozen pizza in the air fryer: {AF_F}°F for {MIN} minutes for a personal pizza. Which sizes fit a basket, and how to get a crisp base under melted cheese.',
+      metaKeywords: 'frozen pizza air fryer, air fryer frozen pizza time, personal pizza air fryer, how long to cook frozen pizza in air fryer',
+      heading: 'Frozen pizza in the air fryer',
+      subDesc:
+        'Personal and mini frozen pizzas, cooked from frozen. The setting, which sizes fit your basket, and how to stop the top finishing before the base.',
+      cardDesc: 'Personal size fits a basket; a family pizza does not.',
+      sizeLabels: { small: 'Mini pizza, 5" (13 cm)', medium: 'Personal pizza, 7–8" (18–20 cm)', large: '10–12" (25–30 cm): oven-style or 8 qt+ only' },
+      failureHeading: 'Why the top is done before the base',
+      failureBody:
+        'In an air fryer the heat comes from above, and the fan blows it straight across the top of the pizza. Cheese and toppings sit closest to the element and start browning almost at once, while the base underneath is still frozen dough sitting on the basket. Run it hot and you get scorched pepperoni on a pale, bendy crust. A slightly lower setting than you might expect lets heat soak down through the pizza so the base crisps by the time the cheese has melted and blistered. Size is the other half: a pizza that is jammed against the walls blocks the airflow, so the base steams instead of crisping. It has to lie flat with a gap around the edge.',
+      workedExampleHeading: 'Worked example: a personal pizza',
+      workedExampleTemplate:
+        'A personal pizza box says {OVEN_F}°F for {OVEN_MIN} minutes, straight on the oven rack. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes so the base starts on a hot surface, lay the pizza flat, and leave it alone; there is nothing to turn. Check underneath at the low end of the time by lifting an edge with a spatula. A mini pizza is ready in about {SMALL_MIN} minutes; a large one in an oven-style air fryer needs about {LARGE_MIN}.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Lift the edge: the underside should be golden and firm, and the slice should hold straight out rather than flop. The cheese should be fully melted and bubbling in the centre, not just at the edges. If the top is ready but the base is still soft, lay a piece of foil loosely over the top and give it two more minutes.',
+      prepHeading: 'Will it fit?',
+      prepBody:
+        'Measure your basket before you buy. A 5 qt round basket is only about 8 to 8½ inches (20–22 cm) across inside, so a personal pizza of 7 to 8 inches fits with a little room. A 10 or 12 inch pizza does not: it needs an oven-style air fryer or a basket of around 8 qt and up. Remove all packaging, including the cardboard disc.',
+      faqs: [
+        {
+          q: 'How long does frozen pizza take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a 7–8 inch personal pizza. A 5 inch mini takes about {SMALL_MIN} minutes.',
+        },
+        {
+          q: 'What size frozen pizza fits in an air fryer?',
+          a: 'In a 5 qt basket, about 8 inches at most, because the inside is only around 8 to 8½ inches across. A 10–12 inch pizza needs an oven-style unit or an 8 qt or larger basket; otherwise cut it in half and cook it in two goes.',
+        },
+        {
+          q: 'Do I need to preheat for frozen pizza?',
+          a: 'Yes, for {PREHEAT} minutes. A hot basket gives the frozen base a head start so it crisps before the cheese overcooks.',
+        },
+        {
+          q: 'Why is my pizza base soggy?',
+          a: 'The pizza is too big for the basket and the air cannot get around it, or the cardboard was left underneath. It needs to lie flat with space at the edges.',
+        },
+        {
+          q: 'Should I flip a frozen pizza?',
+          a: 'No. Toppings slide off. Leave it flat and check the underside at the low end of the time.',
+        },
+      ],
+    },
+    'frozen-fish-sticks': {
+      label: 'Frozen fish sticks',
+      metaTitle: 'Frozen Fish Sticks in the Air Fryer: Time & Temp',
+      metaDescription:
+        'Frozen fish sticks in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Fish fingers, bites and breaded fillets from the bag.',
+      metaKeywords: 'frozen fish sticks air fryer, fish fingers air fryer time, air fryer frozen breaded fish, how long to cook fish sticks in air fryer',
+      heading: 'Frozen fish sticks in the air fryer',
+      subDesc:
+        'Fish sticks, fish fingers and breaded fillets cooked from frozen. The setting, a careful flip, and how to keep the crumb on the fish.',
+      cardDesc: 'Flip gently: the crumb sets before the fish does.',
+      sizeLabels: { small: 'Fish bites or mini sticks', medium: 'Fish sticks or fish fingers', large: 'Breaded or battered fillets' },
+      failureHeading: 'Why the coating tears and the fish falls apart',
+      failureBody:
+        'A fish stick is a block of flaky white fish held together only by its coating. In the air fryer the crumb sets and browns quickly on the side facing the fan, while the fish inside is still soft and the underside coating is still damp against the basket. Flip it too early and the soft underside stays stuck to the mesh, so the crumb tears away and the fish breaks. Flip it too roughly and the same thing happens. Wait until halfway, when the bottom has had time to firm up, then slide a thin spatula or tongs under each stick and turn it in one movement. Battered fillets are even more fragile than crumbed ones, so a light spray of oil on the basket helps them release.',
+      workedExampleHeading: 'Worked example: a box of fish sticks',
+      workedExampleTemplate:
+        'A box of breaded fish sticks says {OVEN_F}°F for {OVEN_MIN} minutes in the oven, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, lay the sticks in one layer with a small gap between them, and turn them at {FLIP} minutes. Fish bites need about {SMALL_MIN} minutes; thick breaded fillets need about {LARGE_MIN}. If the box gives a fan-oven setting, {FAN_F}°F for {FAN_MIN} minutes, the air fryer setting is the same.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The crumb should be golden and crisp on both sides, and the fish inside should be white, opaque and flake when you press it with a fork. A thermometer in the middle of the thickest piece should read {INT_F}°F ({INT_C}°C). Pale crumb on the second side means a minute or two more; a stick that bends instead of holding straight is not hot through.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Cook straight from frozen; thawed fish sticks go soft and lose their coating. Spray the basket lightly, or use a perforated liner, so the crumb does not stick. Separate any sticks frozen together before they go in, because pulling them apart later tears the coating.',
+      faqs: [
+        {
+          q: 'How long do fish sticks take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, turned at {FLIP} minutes. Fish bites take about {SMALL_MIN} minutes and breaded fillets about {LARGE_MIN}.',
+        },
+        {
+          q: 'Do I need to flip fish sticks?',
+          a: 'Yes, once at halfway, gently. Before then the underside is too soft to lift cleanly.',
+        },
+        {
+          q: 'Why does the coating stick to the basket?',
+          a: 'The bottom was still damp when it was turned, or the basket was dry. Spray it lightly and wait until halfway to flip.',
+        },
+        {
+          q: 'Do fish sticks need oil?',
+          a: 'Not on the fish; the coating is pre-fried. A little oil on the basket stops sticking.',
+        },
+        {
+          q: 'Can I cook battered fillets the same way?',
+          a: 'Yes, for about {LARGE_MIN} minutes. Batter is softer than crumb, so use a liner and turn them with a wide spatula.',
+        },
+      ],
+    },
+    'frozen-chicken-tenders': {
+      label: 'Frozen chicken tenders',
+      metaTitle: 'Frozen Chicken Tenders in the Air Fryer: Raw or Cooked?',
+      metaDescription:
+        'Frozen breaded chicken tenders in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, checked at {INT_F}°F. How to tell raw from fully cooked on the pack.',
+      metaKeywords: 'frozen chicken tenders air fryer, frozen chicken strips air fryer, air fryer breaded chicken tenders time, frozen chicken fingers air fryer',
+      heading: 'Frozen chicken tenders in the air fryer',
+      subDesc:
+        'Breaded tenders, strips and chicken fingers from the freezer. The setting, the flip, and the one line on the pack that decides how careful you need to be.',
+      cardDesc: 'Read the pack: many are sold raw.',
+      sizeLabels: { small: 'Thin strips or chicken fingers', medium: 'Standard breaded tenders', large: 'Thick or homestyle tenders' },
+      failureHeading: 'The pack says raw, the coating says done',
+      failureBody:
+        'Breaded tenders come in two kinds that look identical in the bag. Some are fully cooked and only need reheating. Many others, especially store brands and “homestyle” strips, are raw chicken in a pre-browned coating, and the pack says so in small print: uncooked, cook thoroughly, or raw. The coating on these was fried just long enough to set it, so it looks golden before the air fryer even starts, and it is easy to pull them when they look ready while the chicken inside is still raw. A tender is also thicker than a nugget, so the centre needs longer to come up to temperature. Treat every bag as raw unless it clearly says fully cooked, and use a thermometer on the fattest strip.',
+      workedExampleHeading: 'Worked example: a bag of raw breaded tenders',
+      workedExampleTemplate:
+        'A bag of uncooked breaded tenders says {OVEN_F}°F for {OVEN_MIN} minutes, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, lay six to eight tenders flat without touching, and flip at {FLIP} minutes. Thin chicken fingers take about {SMALL_MIN} minutes; thick homestyle tenders need about {LARGE_MIN}. Probe the thickest one before serving; fully cooked tenders can come out a few minutes sooner.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'For raw tenders, {INT_F}°F ({INT_C}°C) in the thickest strip, measured with the probe pushed in from the end so the tip sits in the middle. The coating colour tells you nothing here, because it was browned before freezing. Fully cooked tenders only need to be hot all the way through. In both cases the crumb should be crisp on both sides with no soft patches where strips touched.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Find the cooking line on the pack before anything else and note whether it says raw or fully cooked. Do not thaw them. Leave a gap between strips, and give the coating a light spray of oil if it looks dry and floury. Wash your hands after handling raw breaded chicken, even frozen.',
+      faqs: [
+        {
+          q: 'How long do frozen chicken tenders take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, flipped at {FLIP} minutes. Thin strips take about {SMALL_MIN} minutes and thick ones about {LARGE_MIN}.',
+        },
+        {
+          q: 'How do I know if frozen tenders are raw?',
+          a: 'The pack tells you. Look for “uncooked”, “raw” or “cook thoroughly” near the instructions. If it is unclear, treat them as raw and check with a thermometer.',
+        },
+        {
+          q: 'What temperature should raw tenders reach?',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest piece, measured with a thermometer, not judged by colour.',
+        },
+        {
+          q: 'How are tenders different from nuggets?',
+          a: 'Nuggets are almost always fully cooked and small. Tenders are thicker and often raw, so they need more time and a thermometer.',
+        },
+        {
+          q: 'Do I need to flip frozen tenders?',
+          a: 'Yes, once at {FLIP} minutes, so the side against the basket crisps too.',
+        },
+      ],
+    },
+    'frozen-hash-browns': {
+      label: 'Frozen hash browns',
+      metaTitle: 'Frozen Hash Browns in the Air Fryer: Patties, Time & Temp',
+      metaDescription:
+        'Frozen hash brown patties in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}. Mini rounds to thick patties, browned on both faces without sticking.',
+      metaKeywords: 'frozen hash browns air fryer, hash brown patties air fryer, air fryer hash browns time, how long to cook frozen hash browns in air fryer',
+      heading: 'Frozen hash browns in the air fryer',
+      subDesc:
+        'Shredded hash brown patties and rounds from the freezer. The setting, the one flip, and how to get both faces brown instead of one.',
+      cardDesc: 'Flat patties: one flip at halfway.',
+      sizeLabels: { small: 'Mini rounds or bites', medium: 'Standard patties', large: 'Thick or oversized patties' },
+      failureHeading: 'Why one side stays pale and sticks',
+      failureBody:
+        'A hash brown patty is flat, so it sits on the basket with one whole face pressed against the mesh. The top face gets the full blast of the fan and browns, while the bottom face gets far less air and stays pale. Shaking does not help, because a flat patty just slides around on the same side. Shredded potato also releases starch as it heats, and on a dry basket that starch glues the underside to the metal, so the crust tears off when you finally try to move it. The fix is a single flip at halfway, done with a spatula, and a light film of oil on the basket or the patties so the starch browns instead of sticking. After the flip the pale side faces the fan and catches up.',
+      workedExampleHeading: 'Worked example: breakfast for four',
+      workedExampleTemplate:
+        'A box of hash brown patties says {OVEN_F}°F for {OVEN_MIN} minutes, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, lay four patties flat without overlapping, and flip them at {FLIP} minutes. Mini rounds need about {SMALL_MIN} minutes and thick patties about {LARGE_MIN}. They make room for nothing else, so cook bacon or sausages before or after, not alongside.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'Both faces should be deep golden and crisp, and the edges slightly darker. Press the middle with a spatula: it should feel firm, not soft, and the inside should be hot and tender when you cut one. If the second side is still pale, give it one or two more minutes rather than turning the heat up.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Cook from frozen and do not stack them. Brush or spray the patties lightly with oil, or oil the basket, so the starch browns instead of welding to the mesh. Season with salt and pepper after the flip.',
+      faqs: [
+        {
+          q: 'How long do frozen hash browns take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, flipped at {FLIP} minutes. Mini rounds take about {SMALL_MIN} minutes and thick patties about {LARGE_MIN}.',
+        },
+        {
+          q: 'Do I need to flip hash browns?',
+          a: 'Yes. They are flat, so shaking leaves the same face down. One flip at halfway browns both sides.',
+        },
+        {
+          q: 'Why do hash browns stick to the basket?',
+          a: 'Starch from the potato glues them to a dry basket. A light spray of oil prevents it.',
+        },
+        {
+          q: 'Can I cook loose shredded hash browns?',
+          a: 'Yes, in a thin layer on a liner, pressed flat. Turn them in sections at halfway; they take a few minutes longer than patties.',
+        },
+        {
+          q: 'How are hash browns different from tater tots here?',
+          a: 'Patties are flat and get flipped once. Tots are round, so they are shaken instead and roll onto new sides by themselves.',
+        },
+      ],
+    },
+    'frozen-egg-rolls': {
+      label: 'Frozen egg rolls',
+      metaTitle: 'Frozen Egg Rolls in the Air Fryer: Time, Temp & Crisp Wrappers',
+      metaDescription:
+        'Frozen egg rolls and spring rolls in the air fryer: {AF_F}°F for {MIN} minutes, turned at {FLIP}. Crisp, blistered wrappers with a hot filling.',
+      metaKeywords: 'frozen egg rolls air fryer, air fryer spring rolls frozen, how long to cook frozen egg rolls in air fryer, frozen samosas air fryer',
+      heading: 'Frozen egg rolls in the air fryer',
+      subDesc:
+        'Egg rolls, spring rolls and similar wrapped snacks cooked from frozen. The setting, the turn, and how to get the filling hot before the ends burn.',
+      cardDesc: 'Spray the wrapper and turn once.',
+      sizeLabels: { small: 'Mini spring rolls', medium: 'Standard egg rolls', large: 'Large egg rolls or samosas' },
+      failureHeading: 'Why the ends burn and the middle is cold',
+      failureBody:
+        'An egg roll is a thin, dry wrapper wrapped around a thick, wet filling. The wrapper takes colour in minutes, and the folded ends, where the pastry is thinnest and sticks out into the airflow, blister and darken first. Meanwhile the cabbage and meat filling started frozen solid and is slow to heat, so a roll that looks perfect outside can still be icy in the middle. Two things fix it. A light spray of oil over the wrapper lets it brown evenly and slowly instead of drying out and scorching at the tips. And a turn at halfway brings the pale underside up to the fan while giving the filling time to catch up. Leave space between rolls so the sides crisp as well as the tops.',
+      workedExampleHeading: 'Worked example: a box of egg rolls',
+      workedExampleTemplate:
+        'A box of frozen egg rolls says {OVEN_F}°F for {OVEN_MIN} minutes on a baking sheet, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, spray the rolls lightly, lay them in one layer with a gap between each, and turn them at {FLIP} minutes. Mini spring rolls need about {SMALL_MIN} minutes and large egg rolls about {LARGE_MIN}. Let them stand for two minutes before biting: the filling holds a lot of heat.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The wrapper should be golden and blistered all over, with no white, chalky patches, and should crackle when you press it. The real test is the filling: cut one in half and check it is steaming right through the middle. If the wrapper is ready but the centre is cool, give them two more minutes; the ends take a little more colour but should not burn at this setting.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Cook from frozen; thawed wrappers turn soggy and tear. Spray or brush them lightly with oil on all sides, which matters more for these than for anything else in the freezer. Separate rolls that froze together carefully so the wrapper does not split. Serve with dipping sauce on the side so the wrapper stays crisp.',
+      faqs: [
+        {
+          q: 'How long do frozen egg rolls take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F, turned at {FLIP} minutes. Mini spring rolls take about {SMALL_MIN} minutes and large egg rolls about {LARGE_MIN}.',
+        },
+        {
+          q: 'Do frozen egg rolls need oil in the air fryer?',
+          a: 'A light spray, yes. Without it the wrapper dries out, turns chalky and scorches at the ends.',
+        },
+        {
+          q: 'Why are my egg rolls cold inside?',
+          a: 'The filling started frozen and needs the full time. Cut one open to check rather than going by the colour.',
+        },
+        {
+          q: 'Does this work for samosas and spring rolls?',
+          a: 'Yes. Mini spring rolls are quicker and thick samosas take about as long as large egg rolls.',
+        },
+        {
+          q: 'Should I thaw egg rolls first?',
+          a: 'No. Thawed wrappers absorb moisture from the filling and tear when you move them.',
         },
       ],
     },

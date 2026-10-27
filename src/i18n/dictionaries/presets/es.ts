@@ -31,6 +31,7 @@ export const presets: Dictionary['presets'] = {
     fanTemplate: 'Paquete para horno con ventilador: {FAN_F}°F ({FAN_C}°C) durante {FAN_MIN} min',
     ovenNote: '¿Tu bolsa trae otras cifras? El conversor de abajo ya tiene este alimento elegido: escribe la temperatura y el tiempo del paquete.',
     sizingHeaders: { size: 'Tamaño', airFryer: 'Freidora de aire', oven: 'Dice el paquete' },
+    relatedFlagshipLink: 'Conversor de paquetes congelados',
   },
   pages: {
     'chicken-breast': {
@@ -952,6 +953,467 @@ export const presets: Dictionary['presets'] = {
         {
           q: '¿Cuál es el equivalente en horno para las patatas gajo?',
           a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja en horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos con ventilador.',
+        },
+      ],
+    },
+    'frozen-fries': {
+      label: 'Papas fritas congeladas',
+      metaTitle: 'Papas fritas congeladas en freidora de aire: tiempo y temperatura',
+      metaDescription:
+        'Papas fritas congeladas en freidora de aire: {AF_F}°F durante {MIN} minutos, agitando {SHAKES} veces, directo de la bolsa. De papas finas a gruesas, y cómo convertir lo que dice el paquete.',
+      metaKeywords: 'papas fritas congeladas freidora de aire, tiempo papas congeladas freidora de aire, cuánto tiempo papas fritas congeladas en freidora de aire',
+      heading: 'Papas fritas congeladas en la freidora de aire',
+      subDesc:
+        'Papas de bolsa cocinadas directo del congelador, sin descongelar y sin aceite extra. El ajuste, cuándo agitar y cómo pasar las instrucciones del paquete a la freidora de aire.',
+      cardDesc: 'Directo de la bolsa, una capa, dos agitadas.',
+      sizeLabels: { thin: 'Papas finas tipo shoestring', medium: 'Papas rectas normales', thick: 'Papas gruesas tipo steak' },
+      failureHeading: 'Por qué las papas congeladas salen blandas',
+      failureBody:
+        'Cada papa congelada lleva una capa fina de hielo, y en los primeros minutos ese hielo se derrite y se convierte en vapor. Si hay espacio alrededor de cada pieza, el ventilador se lleva el vapor y la superficie se dora en el aceite con el que la fábrica ya las frió. Si vacías la bolsa entera, el vapor queda atrapado: las papas de abajo se quedan en su propia agua y salen pálidas y lacias, por mucho que las dejes. Llena la cesta como mucho hasta la mitad y cocina una bolsa grande en dos tandas. Las {SHAKES} agitadas hacen el resto: separan las papas que se congelaron juntas y suben la capa húmeda de abajo hacia el aire caliente.',
+      workedExampleHeading: 'Ejemplo práctico: del paquete a la freidora de aire',
+      workedExampleTemplate:
+        'Una bolsa típica de papas rectas dice {OVEN_F}°F durante {OVEN_MIN} minutos en el horno. Una freidora de cesta no llega a esa temperatura, así que funciona a {AF_F}°F y el tiempo baja a {MIN} minutos, porque el ventilador lleva el calor a las papas mucho más rápido que una bandeja. Precalienta {PREHEAT} minutos, echa media bolsa y agita más o menos a un tercio y a dos tercios del tiempo. Las papas finas están en unos {THIN_MIN} minutos; las gruesas necesitan unos {THICK_MIN}. Una bolsa europea pensada para horno con ventilador indica {FAN_F}°F ({FAN_C}°C) durante {FAN_MIN} minutos y termina en el mismo ajuste de freidora.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Las papas congeladas ya vienen cocidas, así que buscas color y crujido. Parte una: el exterior debe estar dorado y crujir, y el interior debe estar esponjoso y caliente. Si el fondo de la cesta sigue pálido, agita una vez más y dale dos minutos. Los cortes gruesos parecen listos antes de que el centro esté tierno, así que prueba una papa gruesa antes de sacar la tanda.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'No las descongeles y separa los grumos congelados antes de echarlas. El aceite es opcional porque las papas ya vienen prefritas, aunque un poco de aceite en spray ayuda a que las onduladas se doren parejo. Sala después de cocinar, no antes, para que la sal no saque más agua.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las papas fritas congeladas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para papas normales, agitando {SHAKES} veces. Las finas tardan unos {THIN_MIN} minutos y las gruesas unos {THICK_MIN}.',
+        },
+        {
+          q: '¿Hay que descongelar las papas antes?',
+          a: 'No. Cocínalas directo del congelador. Al descongelarse la superficie se moja y se ablanda, y después nunca quedan bien crujientes.',
+        },
+        {
+          q: '¿Las papas congeladas necesitan aceite?',
+          a: 'Normalmente no. Se prefríen antes de congelarlas, así que se doran solas. Un poco de spray ayuda a que las papas sazonadas u onduladas tomen color parejo.',
+        },
+        {
+          q: '¿Por qué mis papas congeladas siguen blandas?',
+          a: 'Hay demasiadas en la cesta. El hielo de cada papa se vuelve vapor y una cesta llena lo atrapa. Cocina media bolsa cada vez y agita cuando lo indica el tiempo.',
+        },
+        {
+          q: 'Mi bolsa dice {OVEN_F}°F durante {OVEN_MIN} minutos. ¿Qué pongo?',
+          a: '{AF_F}°F durante unos {MIN} minutos en una freidora de cesta. El conversor de esta página acepta los números de cualquier bolsa, incluidos los de horno con ventilador.',
+        },
+      ],
+    },
+    'frozen-chicken-wings': {
+      label: 'Alitas de pollo congeladas',
+      metaTitle: 'Alitas de pollo congeladas en freidora de aire: crudas y precocidas',
+      metaDescription:
+        'Alitas de pollo crudas congeladas en freidora de aire: {AF_F}°F durante {MIN} minutos, agitando {SHAKES} veces, listas a {INT_F}°F. Las alitas precocidas o con salsa tardan unos {PRE_MIN} minutos.',
+      metaKeywords: 'alitas de pollo congeladas freidora de aire, alitas congeladas freidora de aire tiempo, cocinar alitas congeladas en freidora de aire',
+      heading: 'Alitas de pollo congeladas en la freidora de aire',
+      subDesc:
+        'Alitas crudas cocinadas desde congeladas, sin descongelar, más el ajuste corto para alitas ya cocidas o con salsa. Cómo separar el bloque y dejar la piel crujiente.',
+      cardDesc: 'Crudas y congeladas: sepáralas en la primera agitada.',
+      sizeLabels: { small: 'Alitas pequeñas, puntas y muslitos', medium: 'Alitas partidas normales', large: 'Alitas grandes o enteras' },
+      failureHeading: 'Por qué las alitas congeladas se cocinan de forma desigual',
+      failureBody:
+        'Las alitas crudas suelen congelarse pegadas en grupos dentro de la bolsa. Donde dos alitas se tocan, ninguna de las dos caras recibe aire caliente, así que ese lado se queda pálido y la carne de debajo va por detrás del resto. Si dejas un bloque entero, obtienes alitas que parecen hechas por arriba y están crudas donde estaban pegadas. La piel tiene un segundo problema: las alitas congeladas llevan hielo, y el agua que sueltan tiene que irse antes de que la grasa bajo la piel se derrita y la vuelva crujiente. Por eso este ajuste es largo y constante, no corto y fuerte. Sepáralas con pinzas en la primera agitada, extiéndelas y deja que la segunda las voltee para que cada lado pase cerca del ventilador.',
+      workedExampleHeading: 'Ejemplo práctico: una bolsa de alitas crudas congeladas',
+      workedExampleTemplate:
+        'Una bolsa de alitas crudas partidas indica hornear desde congeladas a {OVEN_F}°F durante {OVEN_MIN} minutos. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, colócalas en una sola capa y agita dos veces; en la primera, separa las alitas que sigan congeladas juntas. Las alitas pequeñas terminan en unos {SMALL_MIN} minutos y las grandes en unos {LARGE_MIN}. Báñalas en salsa después de cocinarlas, no antes, o el azúcar se quema mucho antes de que la carne sea segura.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Las alitas crudas tienen que llegar a {INT_F}°F ({INT_C}°C) junto al hueso, así que mide el muslito más grueso con un termómetro; una bolsa congelada es justo el caso en que el color engaña, porque la piel puede dorarse mientras el centro sigue frío. Por encima de esa temperatura las alitas aguantan bien, y mucha gente las deja más tiempo para una textura más suelta y tierna. La piel debe estar crujiente y con ampollas, sin zonas blandas y pálidas donde se tocaban.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Lee la bolsa primero: las alitas crudas y las ya cocidas se parecen, pero necesitan ajustes distintos. Golpea la bolsa contra la encimera para romper los bloques grandes antes de abrirla. No hace falta aceite, la piel tiene grasa de sobra. Echa el adobo seco cuando ya estén separadas, en la primera agitada, para que se pegue a la superficie descongelada.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las alitas crudas congeladas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, agitando {SHAKES} veces, hasta llegar a {INT_F}°F. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Y las alitas congeladas ya cocidas o con salsa?',
+          a: 'Solo necesitan calentarse, no cocinarse: unos {PRE_MIN} minutos a {PRE_F}°F ({PRE_C}°C), agitando una vez. Se cocinaron en fábrica, así que no hay riesgo de pollo crudo; sácalas cuando la salsa burbujee y esté pegajosa.',
+        },
+        {
+          q: '¿Tengo que descongelar las alitas?',
+          a: 'No. El ajuste de arriba es para alitas directo del congelador. Solo sepáralas en la primera agitada.',
+        },
+        {
+          q: '¿Cuándo pongo la salsa?',
+          a: 'Después de cocinarlas. Mezcla las alitas calientes con la salsa en un bol y, si quieres que se fije, devuélvelas uno o dos minutos.',
+        },
+        {
+          q: '¿Puedo usar el ajuste de alitas frescas para las congeladas?',
+          a: 'No. Las frescas se hacen más rápido y más calientes; las congeladas necesitan tiempo extra para que se vaya el hielo y el centro llegue a temperatura.',
+        },
+      ],
+    },
+    'frozen-chicken-breast': {
+      label: 'Pechuga de pollo congelada',
+      metaTitle: 'Pechuga de pollo congelada en freidora de aire: tiempo y temperatura segura',
+      metaDescription:
+        'Pechuga de pollo cruda directo del congelador en freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}, lista a {INT_F}°F. Tiempos por peso y equivalente en horno.',
+      metaKeywords: 'pechuga de pollo congelada freidora de aire, cuánto tiempo pechuga congelada freidora de aire, pollo congelado freidora de aire',
+      heading: 'Pechuga de pollo congelada en la freidora de aire',
+      subDesc:
+        'Pechugas crudas sin hueso cocinadas directo del congelador, sin descongelar. Un ajuste más bajo y más lento que el del pollo fresco, y por qué aquí el termómetro no es opcional.',
+      cardDesc: 'Más baja y más lenta que la fresca: compruébala con termómetro.',
+      sizeLabels: { small: 'Pequeña, 150 g (5–6 oz)', medium: 'Mediana, 220 g (7–8 oz)', large: 'Grande, 300 g (10–12 oz)' },
+      failureHeading: 'Por qué el exterior se seca antes de que el centro sea seguro',
+      failureBody:
+        'Una pechuga congelada empieza con un bloque de hielo en el centro. El calor tiene que descongelar el centro antes de poder cocinarlo, mientras el exterior sigue recibiendo calor todo el tiempo. Si la pones al ajuste fuerte de una pechuga fresca, la superficie se vuelve correosa mientras el centro sigue por debajo de una temperatura segura. Por eso este ajuste es más bajo y más largo que el del pollo fresco: una temperatura más suave reduce la diferencia entre fuera y dentro, y el centro llega a una lectura segura antes de que los bordes se sequen. Lo que más importa es el grosor, así que cocina juntas piezas de tamaño parecido y mide la más grande.',
+      workedExampleHeading: 'Ejemplo práctico: dos pechugas de una bolsa',
+      workedExampleTemplate:
+        'Una bolsa de pechugas crudas congeladas por separado dice {OVEN_F}°F durante {OVEN_MIN} minutos en el horno. En una freidora de cesta eso pasa a {AF_F}°F durante unos {MIN} minutos para una pechuga mediana. Precalienta {PREHEAT} minutos, coloca dos pechugas planas con espacio entre ellas y voltéalas a los {FLIP} minutos, que es también cuando añades los condimentos, porque la superficie ya descongelada los retiene. Las pequeñas suelen estar en unos {SMALL_MIN} minutos; las grandes necesitan unos {LARGE_MIN}. Mide la más gruesa antes de sacar ninguna.',
+      donenessHeading: 'Cómo saber si está lista',
+      donenessBody:
+        'Aquí solo un termómetro es fiable: {INT_F}°F ({INT_C}°C) en la parte más gruesa, con la sonda metida de lado para que la punta quede en el centro. Una pechuga congelada puede estar dorada y firme por fuera con el centro aún rosado y frío, y cortarla para mirar deja escapar el jugo. Si una pechuga está lista y otra no, saca la terminada y dale a la otra unos minutos más. Déjala reposar tres minutos antes de cortarla.',
+      prepHeading: 'Antes de meterla',
+      prepBody:
+        'Separa las pechugas que se congelaron juntas; ponlas unos segundos bajo agua fría si no se despegan. Quita la capa de hielo y seca la superficie. Úntalas con un poco de aceite para que luego se peguen los condimentos, pero guarda las especias para el momento de voltear, porque resbalan sobre una superficie congelada.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda una pechuga de pollo congelada en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga mediana, volteando a los {FLIP} minutos. Las pequeñas tardan unos {SMALL_MIN} minutos y las grandes unos {LARGE_MIN}. Termina siempre comprobando con termómetro.',
+        },
+        {
+          q: '¿Es seguro cocinar pechuga de pollo desde congelada?',
+          a: 'Sí, siempre que la parte más gruesa llegue a {INT_F}°F ({INT_C}°C). Solo tarda más que la fresca, y el ajuste más bajo evita que el exterior se seque primero.',
+        },
+        {
+          q: '¿Por qué no usar el ajuste de pechuga fresca?',
+          a: 'El pollo fresco se hace más caliente y más corto. En una pechuga congelada eso dora el exterior mucho antes de que el centro se descongele y se cocine.',
+        },
+        {
+          q: '¿Cuándo le pongo los condimentos?',
+          a: 'Al voltearla. Para entonces la superficie se ha descongelado y el condimento se pega en lugar de resbalar sobre el hielo.',
+        },
+        {
+          q: '¿Puedo cocinar igual pechugas empanizadas congeladas?',
+          a: 'Mira el paquete. Muchos productos empanizados se venden crudos y siguen la página de tiras de pollo congeladas; los ya cocidos solo necesitan calentarse.',
+        },
+      ],
+    },
+    'frozen-chicken-nuggets': {
+      label: 'Nuggets de pollo congelados',
+      metaTitle: 'Nuggets de pollo congelados en freidora de aire: tiempo y temperatura',
+      metaDescription:
+        'Nuggets de pollo congelados en freidora de aire: {AF_F}°F durante {MIN} minutos, agitando una vez, calientes por dentro a {INT_F}°F. De pollo popcorn a dinosaurios, con la conversión del paquete.',
+      metaKeywords: 'nuggets de pollo congelados freidora de aire, nuggets freidora de aire tiempo, cuánto tiempo nuggets congelados freidora de aire',
+      heading: 'Nuggets de pollo congelados en la freidora de aire',
+      subDesc:
+        'Nuggets empanizados ya cocidos, directo de la bolsa. Estás recalentando, no cocinando, así que el objetivo es un rebozado crujiente sin un centro reseco.',
+      cardDesc: 'Ya vienen cocidos: solo los recalientas.',
+      sizeLabels: { small: 'Pollo popcorn o mini bocados', medium: 'Nuggets normales', large: 'Formas grandes o nuggets de dinosaurio' },
+      internalLine: 'Calientes por dentro a {INT_F}°F ({INT_C}°C) en el centro; ya vienen cocidos',
+      failureHeading: 'Por qué los nuggets quedan secos y duros',
+      failureBody:
+        'Casi todos los nuggets congelados de la tienda se cocinan por completo antes de congelarse. El pollo de dentro ya está hecho; lo que la freidora tiene que hacer es dejar crujiente el empanizado y devolver el calor al centro. Eso cambia lo que puede salir mal. El peligro no es quedarse corto sino pasarse: los nuggets son pequeños, así que un par de minutos de más secan el pollo hasta dejarlo firme y fibroso, y el rebozado pasa de crujiente a duro. Trátalos como un recalentado corto. Usa el tiempo de esta página, agita la cesta una vez a la mitad para dar la vuelta a las piezas que estaban planas y empieza a mirar uno o dos minutos antes. Los nuggets amontonados en dos capas también se cuecen al vapor entre sí, y el rebozado de abajo queda blando.',
+      workedExampleHeading: 'Ejemplo práctico: media bolsa para dos',
+      workedExampleTemplate:
+        'Una bolsa de nuggets empanizados dice {OVEN_F}°F durante {OVEN_MIN} minutos en bandeja. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, extiende unos veinte nuggets en una capa y agita una vez a la mitad. El pollo popcorn está listo en unos {SMALL_MIN} minutos y los dinosaurios grandes en unos {LARGE_MIN}. Si el paquete trae un ajuste para horno con ventilador, {FAN_F}°F durante {FAN_MIN} minutos, el resultado es el mismo ajuste de freidora.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'Como el pollo ya está cocido, lo que compruebas es que el centro esté caliente, no que alcance una temperatura de seguridad: {INT_F}°F ({INT_C}°C) en el nugget más grueso si quieres un número, o parte uno y busca vapor de punta a punta. El rebozado debe estar dorado de forma pareja y crujir al presionarlo. Si está duro en vez de crujiente, la próxima tanda necesita uno o dos minutos menos.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Comprueba que el paquete dice totalmente cocido. Algunos productos de pollo empanizado se venden crudos, y esos van con la página de tiras de pollo congeladas y un termómetro. No los descongeles ni añadas aceite: el rebozado se frió en la fábrica. Deja un poco de espacio entre nuggets para que el aire llegue a todos los lados.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los nuggets congelados en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, agitando una vez. El pollo popcorn tarda unos {SMALL_MIN} minutos y las formas grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Los nuggets de pollo congelados ya vienen cocidos?',
+          a: 'La mayoría sí. El paquete dirá “totalmente cocido”. Si dice “sin cocinar” o “crudo”, cocínalos hasta {INT_F}°F con termómetro, como el pollo crudo.',
+        },
+        {
+          q: '¿Hay que voltear los nuggets?',
+          a: 'Basta con agitar una vez a la mitad. Las piezas pequeñas se dan la vuelta solas al agitar; no hace falta voltearlas una por una.',
+        },
+        {
+          q: '¿Por qué mis nuggets quedan duros?',
+          a: 'Estuvieron demasiado tiempo. Los nuggets solo necesitan recalentarse, así que un par de minutos de más los resecan. Prueba con el tiempo más corto en la próxima tanda.',
+        },
+        {
+          q: '¿Puedo hacer nuggets y papas a la vez?',
+          a: 'Sí, si la cesta no va llena. Empieza con las papas y añade los nuggets para los últimos {MIN} minutos, así terminan juntos.',
+        },
+      ],
+    },
+    'frozen-tater-tots': {
+      label: 'Tater tots congelados',
+      metaTitle: 'Tater tots congelados en freidora de aire: tiempo, temperatura y crujido',
+      metaDescription:
+        'Tater tots congelados en freidora de aire: {AF_F}°F durante {MIN} minutos, agitando {SHAKES} veces. De mini tots a coronas de papa, crujientes por fuera y calientes por dentro.',
+      metaKeywords: 'tater tots freidora de aire, tater tots congelados freidora de aire tiempo, croquetas de papa congeladas freidora de aire',
+      heading: 'Tater tots congelados en la freidora de aire',
+      subDesc:
+        'Tots y bocados de papa de bolsa cocinados desde congelados. El ajuste, las agitadas y cómo lograr un centro caliente dentro del crujido.',
+      cardDesc: 'Agita dos veces para que cada lado forme costra.',
+      sizeLabels: { small: 'Mini tots', medium: 'Tater tots normales', large: 'Coronas de papa o bocados grandes' },
+      failureHeading: 'Por qué los tots quedan crujientes por fuera y fríos por dentro',
+      failureBody:
+        'Un tot es un pequeño cilindro de papa rallada bien prensada, mucho más denso que una papa frita del mismo tamaño. El exterior se fríe rápido en el aire caliente y forma costra en pocos minutos, pero las tiras apretadas del centro tardan en calentarse, así que un tot que se ve dorado puede seguir tibio y pastoso por dentro. Si subes el calor para ir más rápido, la costra se oscurece antes de que el centro la alcance. La solución es un ajuste constante y tiempo suficiente, con la cesta agitada dos veces para que los tots rueden sobre una cara nueva cada vez. Como son redondos, ruedan en lugar de quedarse planos, y la agitada les da la vuelta por ti.',
+      workedExampleHeading: 'Ejemplo práctico: una bolsa familiar',
+      workedExampleTemplate:
+        'Una bolsa de tots dice {OVEN_F}°F durante {OVEN_MIN} minutos en el horno, dándoles la vuelta una vez. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, echa los suficientes para cubrir el fondo en una capa y agita dos veces, más o menos a un tercio y a dos tercios del tiempo. Los mini tots están en unos {SMALL_MIN} minutos y las coronas de papa en unos {LARGE_MIN}. Para mucha gente, cocina en dos tandas en vez de amontonarlos.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'Los tots vienen precocidos, así que juzgas el crujido y el calor. Deben estar bien dorados por todas partes y sonar huecos al chocar en la cesta. Muerde uno del centro de la tanda: el interior debe estar suave, esponjoso y caliente. Si el exterior está listo pero el centro sigue frío, no subas el calor; añade dos minutos y agita otra vez.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Cocínalos directo del congelador y separa los que estén pegados. No necesitan aceite, aunque un poco de spray da una costra más oscura y pareja. Sazona con sal o con una mezcla de especias en la última agitada o justo después de cocinar, cuando la superficie sigue algo aceitosa y la retiene.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los tater tots en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, agitando {SHAKES} veces. Los mini tots tardan unos {SMALL_MIN} minutos y las coronas grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Agito o volteo los tater tots?',
+          a: 'Agita. Los tots son redondos y ruedan sobre otra cara al agitar la cesta, así que dos agitadas los doran parejo sin voltearlos uno a uno.',
+        },
+        {
+          q: '¿Por qué mis tots están fríos en el centro?',
+          a: 'Son más densos que las papas fritas y necesitan el tiempo completo. Si los sacas en cuanto se ven dorados, el centro prensado queda frío.',
+        },
+        {
+          q: '¿Los tater tots necesitan aceite?',
+          a: 'No, se prefríen antes de congelarlos. Un poco de spray solo añade color.',
+        },
+        {
+          q: '¿Puedo hacer tots cargados en la freidora de aire?',
+          a: 'Sí. Cocina los tots por completo, añade queso y los toppings y devuélvelos uno o dos minutos hasta que el queso se derrita.',
+        },
+      ],
+    },
+    'frozen-pizza': {
+      label: 'Pizza congelada',
+      metaTitle: 'Pizza congelada en freidora de aire: tiempo, temperatura y qué tamaño cabe',
+      metaDescription:
+        'Pizza congelada en freidora de aire: {AF_F}°F durante {MIN} minutos para una pizza individual. Qué tamaños caben en la cesta y cómo lograr una base crujiente bajo el queso derretido.',
+      metaKeywords: 'pizza congelada freidora de aire, pizza congelada freidora de aire tiempo, pizza individual freidora de aire',
+      heading: 'Pizza congelada en la freidora de aire',
+      subDesc:
+        'Pizzas congeladas individuales y mini, cocinadas desde congeladas. El ajuste, qué tamaños caben en tu cesta y cómo evitar que la parte de arriba termine antes que la base.',
+      cardDesc: 'La individual cabe en la cesta; la familiar no.',
+      sizeLabels: { small: 'Mini pizza, 13 cm (5")', medium: 'Pizza individual, 18–20 cm (7–8")', large: '25–30 cm (10–12"): solo tipo horno u 8 qt o más' },
+      failureHeading: 'Por qué la parte de arriba está lista antes que la base',
+      failureBody:
+        'En una freidora de aire el calor viene de arriba y el ventilador lo sopla justo sobre la pizza. El queso y los ingredientes quedan más cerca de la resistencia y empiezan a dorarse casi de inmediato, mientras la base sigue siendo masa congelada apoyada en la cesta. Si la pones muy caliente, obtienes pepperoni quemado sobre una base pálida y blanda. Un ajuste algo más bajo de lo que esperarías deja que el calor baje a través de la pizza, de modo que la base queda crujiente cuando el queso ya se derritió y burbujea. El tamaño es la otra mitad: una pizza encajada contra las paredes bloquea el aire y la base se cuece al vapor en vez de dorarse. Tiene que quedar plana y con hueco alrededor del borde.',
+      workedExampleHeading: 'Ejemplo práctico: una pizza individual',
+      workedExampleTemplate:
+        'La caja de una pizza individual dice {OVEN_F}°F durante {OVEN_MIN} minutos, directo sobre la rejilla del horno. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos para que la base empiece sobre una superficie caliente, coloca la pizza plana y no la toques; no hay que darle la vuelta. Mira la base al final del tiempo más corto levantando un borde con una espátula. Una mini pizza está en unos {SMALL_MIN} minutos; una grande en una freidora tipo horno necesita unos {LARGE_MIN}.',
+      donenessHeading: 'Cómo saber si está lista',
+      donenessBody:
+        'Levanta el borde: la parte de abajo debe estar dorada y firme, y la porción debe sostenerse recta en vez de doblarse. El queso tiene que estar derretido del todo y burbujeando en el centro, no solo en los bordes. Si la parte de arriba está lista pero la base sigue blanda, cubre la pizza sin apretar con papel de aluminio y dale dos minutos más.',
+      prepHeading: '¿Cabe?',
+      prepBody:
+        'Mide la cesta antes de comprar. Una cesta redonda de 5 qt mide por dentro solo unos 20–22 cm (8 a 8½ pulgadas) de ancho, así que una pizza individual de 18 a 20 cm cabe con algo de margen. Una de 25 o 30 cm no cabe: necesita una freidora tipo horno o una cesta de unos 8 qt o más. Quita todo el envoltorio, incluido el disco de cartón.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda la pizza congelada en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una pizza individual de 18–20 cm. Una mini de 13 cm tarda unos {SMALL_MIN} minutos.',
+        },
+        {
+          q: '¿Qué tamaño de pizza congelada cabe en una freidora de aire?',
+          a: 'En una cesta de 5 qt, unos 20 cm como máximo, porque por dentro mide solo unos 20–22 cm. Una pizza de 25–30 cm necesita una freidora tipo horno o una cesta de 8 qt o más; si no, córtala por la mitad y hazla en dos veces.',
+        },
+        {
+          q: '¿Hay que precalentar para la pizza congelada?',
+          a: 'Sí, {PREHEAT} minutos. Una cesta caliente da ventaja a la base congelada para que se dore antes de que el queso se pase.',
+        },
+        {
+          q: '¿Por qué la base de mi pizza queda blanda?',
+          a: 'La pizza es demasiado grande para la cesta y el aire no la rodea, o se quedó el cartón debajo. Tiene que quedar plana y con espacio en los bordes.',
+        },
+        {
+          q: '¿Hay que darle la vuelta a la pizza congelada?',
+          a: 'No. Los ingredientes se caen. Déjala plana y mira la base al final del tiempo más corto.',
+        },
+      ],
+    },
+    'frozen-fish-sticks': {
+      label: 'Palitos de pescado congelados',
+      metaTitle: 'Palitos de pescado congelados en freidora de aire: tiempo y temperatura',
+      metaDescription:
+        'Palitos de pescado congelados en freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}, listos a {INT_F}°F. Palitos, bocados y filetes empanizados de bolsa.',
+      metaKeywords: 'palitos de pescado congelados freidora de aire, varitas de pescado freidora de aire, pescado empanizado congelado freidora de aire',
+      heading: 'Palitos de pescado congelados en la freidora de aire',
+      subDesc:
+        'Palitos de pescado, varitas y filetes empanizados cocinados desde congelados. El ajuste, una vuelta con cuidado y cómo mantener el empanizado pegado al pescado.',
+      cardDesc: 'Voltea con cuidado: el empanizado cuaja antes que el pescado.',
+      sizeLabels: { small: 'Bocados o mini palitos', medium: 'Palitos de pescado', large: 'Filetes empanizados o rebozados' },
+      failureHeading: 'Por qué el empanizado se rompe y el pescado se deshace',
+      failureBody:
+        'Un palito de pescado es un bloque de pescado blanco y escamoso sujeto solo por su empanizado. En la freidora, el pan rallado cuaja y se dora rápido en la cara que mira al ventilador, mientras el pescado de dentro sigue blando y el empanizado de abajo sigue húmedo contra la cesta. Si lo volteas demasiado pronto, la parte de abajo se queda pegada a la rejilla, el empanizado se arranca y el pescado se rompe. Si lo volteas con brusquedad, pasa lo mismo. Espera a la mitad del tiempo, cuando la base ya se ha afirmado, y pasa una espátula fina o unas pinzas por debajo de cada palito para girarlo de un solo movimiento. Los filetes rebozados son todavía más frágiles que los empanizados, así que un poco de aceite en la cesta ayuda a que se suelten.',
+      workedExampleHeading: 'Ejemplo práctico: una caja de palitos de pescado',
+      workedExampleTemplate:
+        'Una caja de palitos de pescado empanizados dice {OVEN_F}°F durante {OVEN_MIN} minutos en el horno, dándoles la vuelta una vez. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, coloca los palitos en una capa con un pequeño hueco entre ellos y voltéalos a los {FLIP} minutos. Los bocados necesitan unos {SMALL_MIN} minutos; los filetes gruesos empanizados, unos {LARGE_MIN}. Si la caja da un ajuste para horno con ventilador, {FAN_F}°F durante {FAN_MIN} minutos, el ajuste de freidora es el mismo.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'El empanizado debe estar dorado y crujiente por ambos lados, y el pescado de dentro blanco, opaco y desmenuzarse al presionarlo con un tenedor. Un termómetro en el centro de la pieza más gruesa debe marcar {INT_F}°F ({INT_C}°C). Si la segunda cara sigue pálida, faltan uno o dos minutos; un palito que se dobla en vez de mantenerse recto no está caliente por dentro.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Cocínalos directo del congelador; los palitos descongelados se ablandan y pierden el empanizado. Pon un poco de aceite en la cesta o usa un papel perforado para que el pan rallado no se pegue. Separa los palitos congelados juntos antes de meterlos, porque separarlos después rompe el empanizado.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los palitos de pescado en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, volteando a los {FLIP} minutos. Los bocados tardan unos {SMALL_MIN} minutos y los filetes empanizados unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que voltear los palitos de pescado?',
+          a: 'Sí, una vez a la mitad y con cuidado. Antes de eso la parte de abajo está demasiado blanda para levantarla limpia.',
+        },
+        {
+          q: '¿Por qué el empanizado se pega a la cesta?',
+          a: 'La base seguía húmeda al voltearlos o la cesta estaba seca. Ponle un poco de aceite y espera a la mitad para dar la vuelta.',
+        },
+        {
+          q: '¿Los palitos de pescado necesitan aceite?',
+          a: 'En el pescado no; el empanizado viene prefrito. Un poco de aceite en la cesta evita que se peguen.',
+        },
+        {
+          q: '¿Puedo cocinar igual los filetes rebozados?',
+          a: 'Sí, durante unos {LARGE_MIN} minutos. El rebozado es más blando que el empanizado, así que usa papel y gíralos con una espátula ancha.',
+        },
+      ],
+    },
+    'frozen-chicken-tenders': {
+      label: 'Tiras de pollo congeladas',
+      metaTitle: 'Tiras de pollo congeladas en freidora de aire: ¿crudas o cocidas?',
+      metaDescription:
+        'Tiras de pollo empanizadas congeladas en freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}, comprobadas a {INT_F}°F. Cómo distinguir crudas de cocidas en el paquete.',
+      metaKeywords: 'tiras de pollo congeladas freidora de aire, chicken tenders congelados freidora de aire, dedos de pollo congelados freidora de aire',
+      heading: 'Tiras de pollo congeladas en la freidora de aire',
+      subDesc:
+        'Tiras empanizadas, chicken tenders y dedos de pollo del congelador. El ajuste, la vuelta y la única línea del paquete que decide cuánto cuidado necesitas.',
+      cardDesc: 'Lee el paquete: muchas se venden crudas.',
+      sizeLabels: { small: 'Tiras finas o dedos de pollo', medium: 'Tiras empanizadas normales', large: 'Tiras gruesas o caseras' },
+      failureHeading: 'El paquete dice crudo, el empanizado dice listo',
+      failureBody:
+        'Las tiras empanizadas vienen en dos tipos que se ven idénticos en la bolsa. Unas están totalmente cocidas y solo hay que recalentarlas. Muchas otras, sobre todo las de marca propia y las de estilo casero, son pollo crudo con un empanizado ya dorado, y el paquete lo dice en letra pequeña: sin cocinar, cocinar completamente o crudo. Ese empanizado se frió solo lo justo para fijarlo, así que se ve dorado antes de que la freidora empiece, y es fácil sacarlas cuando parecen listas con el pollo aún crudo por dentro. Una tira además es más gruesa que un nugget, así que el centro tarda más en llegar a temperatura. Trata cada bolsa como cruda salvo que diga claramente totalmente cocido, y usa un termómetro en la tira más gruesa.',
+      workedExampleHeading: 'Ejemplo práctico: una bolsa de tiras empanizadas crudas',
+      workedExampleTemplate:
+        'Una bolsa de tiras empanizadas sin cocinar dice {OVEN_F}°F durante {OVEN_MIN} minutos, dándoles la vuelta una vez. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, coloca de seis a ocho tiras planas sin que se toquen y voltéalas a los {FLIP} minutos. Los dedos de pollo finos tardan unos {SMALL_MIN} minutos; las tiras gruesas caseras necesitan unos {LARGE_MIN}. Mide la más gruesa antes de servir; las ya cocidas pueden salir unos minutos antes.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Para tiras crudas, {INT_F}°F ({INT_C}°C) en la más gruesa, con la sonda metida desde el extremo para que la punta quede en el centro. El color del empanizado aquí no dice nada, porque se doró antes de congelarse. Las tiras ya cocidas solo tienen que estar calientes de punta a punta. En los dos casos el empanizado debe quedar crujiente por ambos lados, sin zonas blandas donde se tocaban.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Busca primero la línea de cocción del paquete y fíjate si dice crudo o totalmente cocido. No las descongeles. Deja espacio entre tiras y, si el empanizado se ve seco y harinoso, dale un poco de aceite en spray. Lávate las manos después de tocar pollo empanizado crudo, aunque esté congelado.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las tiras de pollo congeladas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, volteando a los {FLIP} minutos. Las finas tardan unos {SMALL_MIN} minutos y las gruesas unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Cómo sé si las tiras congeladas están crudas?',
+          a: 'Lo dice el paquete. Busca “sin cocinar”, “crudo” o “cocinar completamente” cerca de las instrucciones. Si no está claro, trátalas como crudas y usa un termómetro.',
+        },
+        {
+          q: '¿A qué temperatura deben llegar las tiras crudas?',
+          a: '{INT_F}°F ({INT_C}°C) en la pieza más gruesa, medida con termómetro, no juzgada por el color.',
+        },
+        {
+          q: '¿En qué se diferencian las tiras de los nuggets?',
+          a: 'Los nuggets casi siempre vienen cocidos y son pequeños. Las tiras son más gruesas y a menudo crudas, así que necesitan más tiempo y un termómetro.',
+        },
+        {
+          q: '¿Hay que voltear las tiras congeladas?',
+          a: 'Sí, una vez a los {FLIP} minutos, para que el lado contra la cesta también quede crujiente.',
+        },
+      ],
+    },
+    'frozen-hash-browns': {
+      label: 'Hash browns congelados',
+      metaTitle: 'Hash browns congelados en freidora de aire: tortitas, tiempo y temperatura',
+      metaDescription:
+        'Tortitas de papa hash brown congeladas en freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}. De mini redondas a tortitas gruesas, doradas por las dos caras sin pegarse.',
+      metaKeywords: 'hash browns congelados freidora de aire, tortitas de papa congeladas freidora de aire, hash browns freidora de aire tiempo',
+      heading: 'Hash browns congelados en la freidora de aire',
+      subDesc:
+        'Tortitas y redondas de papa rallada del congelador. El ajuste, la única vuelta y cómo dorar las dos caras en lugar de una.',
+      cardDesc: 'Tortitas planas: una vuelta a la mitad.',
+      sizeLabels: { small: 'Mini redondas o bocados', medium: 'Tortitas normales', large: 'Tortitas gruesas o grandes' },
+      failureHeading: 'Por qué una cara queda pálida y pegada',
+      failureBody:
+        'Una tortita de hash brown es plana, así que apoya toda una cara contra la rejilla de la cesta. La cara de arriba recibe todo el aire del ventilador y se dora, mientras la de abajo recibe mucho menos aire y se queda pálida. Agitar no sirve, porque una tortita plana solo se desliza sobre el mismo lado. La papa rallada además suelta almidón al calentarse, y sobre una cesta seca ese almidón pega la base al metal, así que la costra se arranca cuando por fin intentas moverla. La solución es una sola vuelta a la mitad, con espátula, y una película fina de aceite en la cesta o en las tortitas para que el almidón se dore en vez de pegarse. Tras la vuelta, la cara pálida mira al ventilador y se pone al día.',
+      workedExampleHeading: 'Ejemplo práctico: desayuno para cuatro',
+      workedExampleTemplate:
+        'Una caja de tortitas hash brown dice {OVEN_F}°F durante {OVEN_MIN} minutos, dándoles la vuelta una vez. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, coloca cuatro tortitas planas sin solaparse y voltéalas a los {FLIP} minutos. Las mini redondas necesitan unos {SMALL_MIN} minutos y las gruesas unos {LARGE_MIN}. No dejan sitio para nada más, así que cocina el tocino o las salchichas antes o después, no a la vez.',
+      donenessHeading: 'Cómo saber si están listas',
+      donenessBody:
+        'Las dos caras deben estar bien doradas y crujientes, y los bordes algo más oscuros. Presiona el centro con una espátula: debe sentirse firme, no blando, y el interior debe estar caliente y tierno al cortar una. Si la segunda cara sigue pálida, dale uno o dos minutos más en vez de subir el calor.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Cocínalas desde congeladas y no las apiles. Pinta o rocía las tortitas con un poco de aceite, o engrasa la cesta, para que el almidón se dore en vez de soldarse a la rejilla. Salpimienta después de darles la vuelta.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los hash browns congelados en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, volteando a los {FLIP} minutos. Las mini redondas tardan unos {SMALL_MIN} minutos y las tortitas gruesas unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Hay que voltear los hash browns?',
+          a: 'Sí. Son planos, así que al agitar sigue abajo la misma cara. Una vuelta a la mitad dora los dos lados.',
+        },
+        {
+          q: '¿Por qué los hash browns se pegan a la cesta?',
+          a: 'El almidón de la papa los pega a una cesta seca. Un poco de aceite en spray lo evita.',
+        },
+        {
+          q: '¿Puedo cocinar hash browns rallados sueltos?',
+          a: 'Sí, en una capa fina sobre papel, bien prensados. Dales la vuelta por partes a la mitad; tardan unos minutos más que las tortitas.',
+        },
+        {
+          q: '¿En qué se diferencian aquí los hash browns de los tater tots?',
+          a: 'Las tortitas son planas y se voltean una vez. Los tots son redondos, así que se agitan y ruedan solos sobre caras nuevas.',
+        },
+      ],
+    },
+    'frozen-egg-rolls': {
+      label: 'Rollitos de primavera congelados',
+      metaTitle: 'Rollitos de primavera congelados en freidora de aire: tiempo y temperatura',
+      metaDescription:
+        'Rollitos de primavera y egg rolls congelados en freidora de aire: {AF_F}°F durante {MIN} minutos, volteando a los {FLIP}. Masa crujiente y con burbujas, relleno caliente.',
+      metaKeywords: 'rollitos de primavera congelados freidora de aire, egg rolls congelados freidora de aire, samosas congeladas freidora de aire',
+      heading: 'Rollitos de primavera congelados en la freidora de aire',
+      subDesc:
+        'Egg rolls, rollitos de primavera y bocados envueltos parecidos, cocinados desde congelados. El ajuste, la vuelta y cómo calentar el relleno antes de que se quemen las puntas.',
+      cardDesc: 'Rocía la masa y dales una vuelta.',
+      sizeLabels: { small: 'Mini rollitos de primavera', medium: 'Egg rolls normales', large: 'Egg rolls grandes o samosas' },
+      failureHeading: 'Por qué las puntas se queman y el centro sigue frío',
+      failureBody:
+        'Un rollito es una masa fina y seca envuelta alrededor de un relleno grueso y húmedo. La masa toma color en minutos, y las puntas dobladas, donde la masa es más fina y sobresale hacia el aire, se llenan de burbujas y se oscurecen primero. Mientras tanto, el relleno de col y carne empezó congelado del todo y tarda en calentarse, así que un rollito que se ve perfecto por fuera puede seguir helado en el centro. Dos cosas lo arreglan. Un poco de aceite en spray sobre la masa deja que se dore de forma pareja y lenta en vez de secarse y quemarse en las puntas. Y una vuelta a la mitad sube la cara pálida hacia el ventilador mientras le da tiempo al relleno para ponerse al día. Deja espacio entre rollitos para que los lados también queden crujientes.',
+      workedExampleHeading: 'Ejemplo práctico: una caja de egg rolls',
+      workedExampleTemplate:
+        'Una caja de egg rolls congelados dice {OVEN_F}°F durante {OVEN_MIN} minutos en bandeja, dándoles la vuelta una vez. En una freidora de cesta eso pasa a {AF_F}°F durante {MIN} minutos. Precalienta {PREHEAT} minutos, rocía los rollitos con un poco de aceite, colócalos en una capa con hueco entre cada uno y voltéalos a los {FLIP} minutos. Los mini rollitos de primavera necesitan unos {SMALL_MIN} minutos y los egg rolls grandes unos {LARGE_MIN}. Déjalos reposar dos minutos antes de morder: el relleno guarda mucho calor.',
+      donenessHeading: 'Cómo saber si están listos',
+      donenessBody:
+        'La masa debe estar dorada y con burbujas por todas partes, sin zonas blancas y harinosas, y crujir al presionarla. La prueba de verdad es el relleno: corta uno por la mitad y comprueba que humea justo en el centro. Si la masa está lista pero el centro sigue frío, dales dos minutos más; las puntas toman algo más de color pero no deberían quemarse con este ajuste.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Cocínalos desde congelados; la masa descongelada se ablanda y se rompe. Rocíalos o píntalos con un poco de aceite por todos los lados, algo que importa más en estos que en cualquier otra cosa del congelador. Separa con cuidado los que se congelaron juntos para que la masa no se abra. Sirve la salsa aparte para que la masa siga crujiente.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los rollitos de primavera congelados en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F, volteando a los {FLIP} minutos. Los mini tardan unos {SMALL_MIN} minutos y los egg rolls grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Los rollitos congelados necesitan aceite en la freidora de aire?',
+          a: 'Un poco en spray, sí. Sin él la masa se seca, queda harinosa y se quema en las puntas.',
+        },
+        {
+          q: '¿Por qué mis rollitos están fríos por dentro?',
+          a: 'El relleno empezó congelado y necesita el tiempo completo. Corta uno para comprobarlo en vez de fiarte del color.',
+        },
+        {
+          q: '¿Sirve para samosas y rollitos de primavera?',
+          a: 'Sí. Los mini rollitos son más rápidos y las samosas gruesas tardan más o menos lo mismo que los egg rolls grandes.',
+        },
+        {
+          q: '¿Hay que descongelar los rollitos antes?',
+          a: 'No. La masa descongelada absorbe la humedad del relleno y se rompe al moverla.',
         },
       ],
     },

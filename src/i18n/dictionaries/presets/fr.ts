@@ -31,6 +31,7 @@ export const presets: Dictionary['presets'] = {
     fanTemplate: 'Emballage chaleur tournante : {FAN_F}°F ({FAN_C}°C) pendant {FAN_MIN} min',
     ovenNote: 'Votre sachet indique d’autres valeurs ? Le convertisseur ci-dessous est déjà réglé sur cet aliment : saisissez la température et la durée de l’emballage.',
     sizingHeaders: { size: 'Taille', airFryer: 'Friteuse à air', oven: 'L’emballage dit' },
+    relatedFlagshipLink: 'Convertisseur d’emballages surgelés',
   },
   pages: {
     'chicken-breast': {
@@ -952,6 +953,467 @@ export const presets: Dictionary['presets'] = {
         {
           q: 'Quel est l’équivalent au four pour des potatoes ?',
           a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une plaque au four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes en chaleur tournante.',
+        },
+      ],
+    },
+    'frozen-fries': {
+      label: 'Frites surgelées',
+      metaTitle: 'Frites surgelées au air fryer : temps, température et emballage',
+      metaDescription:
+        'Frites surgelées à la friteuse à air : {AF_F}°F pendant {MIN} minutes, secouées {SHAKES} fois, directement du sachet. Des allumettes aux frites épaisses, et comment convertir l’emballage.',
+      metaKeywords: 'frites surgelées air fryer, temps frites surgelées friteuse à air, combien de temps frites surgelées friteuse sans huile',
+      heading: 'Frites surgelées à la friteuse à air',
+      subDesc:
+        'Des frites en sachet cuites directement depuis le congélateur, sans décongélation et sans huile en plus. Le réglage, quand secouer et comment passer des indications de l’emballage à la friteuse à air.',
+      cardDesc: 'Directement du sachet, une couche, deux secousses.',
+      sizeLabels: { thin: 'Frites allumettes', medium: 'Frites classiques', thick: 'Frites épaisses ou potatoes' },
+      failureHeading: 'Pourquoi les frites surgelées sortent molles',
+      failureBody:
+        'Chaque frite surgelée porte une fine couche de glace, et dans les premières minutes cette glace fond et se transforme en vapeur. S’il y a de la place autour de chaque morceau, le ventilateur chasse la vapeur et la surface dore dans l’huile où l’usine les a déjà précuites. Videz tout le sachet et la vapeur reste prisonnière : les frites du fond baignent dans leur propre eau et ressortent pâles et molles, quel que soit le temps de cuisson. Remplissez le panier au plus à moitié et faites un gros sachet en deux fois. Les {SHAKES} secousses font le reste : elles séparent les frites collées par le gel et remontent la couche humide du fond vers l’air chaud.',
+      workedExampleHeading: 'Exemple concret : de l’emballage à la friteuse à air',
+      workedExampleTemplate:
+        'Un sachet classique de frites indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four. Une friteuse à panier ne monte pas aussi haut, elle tourne donc à {AF_F}°F et le temps tombe à {MIN} minutes, parce que le ventilateur transmet la chaleur bien plus vite qu’une plaque. Préchauffez {PREHEAT} minutes, mettez la moitié du sachet et secouez à peu près au tiers et aux deux tiers du temps. Les allumettes sont prêtes en environ {THIN_MIN} minutes ; les frites épaisses demandent environ {THICK_MIN} minutes. Un sachet européen prévu pour la chaleur tournante indique {FAN_F}°F ({FAN_C}°C) pendant {FAN_MIN} minutes et aboutit au même réglage.',
+      donenessHeading: 'Comment savoir si elles sont prêtes',
+      donenessBody:
+        'Les frites surgelées sont déjà précuites, vous cherchez donc la couleur et le croustillant. Cassez-en une : l’extérieur doit être doré et craquer, l’intérieur moelleux et chaud. Si le fond du panier est encore pâle, secouez une fois de plus et ajoutez deux minutes. Les coupes épaisses ont l’air prêtes avant que le cœur soit fondant : goûtez une grosse frite avant de tout sortir.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Ne les décongelez pas et cassez les blocs gelés avant de les verser. L’huile est facultative puisque les frites sont précuites, mais un léger spray aide les frites ondulées à dorer uniformément. Salez après la cuisson, pas avant, pour que le sel ne fasse pas sortir davantage d’eau.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des frites surgelées à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des frites classiques, secouées {SHAKES} fois. Les allumettes prennent environ {THIN_MIN} minutes et les frites épaisses environ {THICK_MIN}.',
+        },
+        {
+          q: 'Faut-il décongeler les frites avant ?',
+          a: 'Non. Cuisez-les directement depuis le congélateur. En décongelant, la surface devient humide et molle, et elles ne croustillent plus jamais vraiment.',
+        },
+        {
+          q: 'Les frites surgelées ont-elles besoin d’huile ?',
+          a: 'En général non. Elles sont précuites avant d’être surgelées et dorent toutes seules. Un léger spray aide les frites assaisonnées ou ondulées à colorer uniformément.',
+        },
+        {
+          q: 'Pourquoi mes frites surgelées restent-elles molles ?',
+          a: 'Il y en a trop dans le panier. La glace de chaque frite devient vapeur et un panier plein la retient. Faites un demi-sachet à la fois et secouez quand le minuteur l’indique.',
+        },
+        {
+          q: 'Mon sachet indique {OVEN_F}°F pendant {OVEN_MIN} minutes. Que dois-je régler ?',
+          a: '{AF_F}°F pendant environ {MIN} minutes dans une friteuse à panier. Le convertisseur de cette page accepte les chiffres de n’importe quel sachet, y compris ceux pour chaleur tournante.',
+        },
+      ],
+    },
+    'frozen-chicken-wings': {
+      label: 'Ailes de poulet surgelées',
+      metaTitle: 'Ailes de poulet surgelées au air fryer : crues et précuites',
+      metaDescription:
+        'Ailes de poulet crues surgelées à la friteuse à air : {AF_F}°F pendant {MIN} minutes, secouées {SHAKES} fois, cuites à {INT_F}°F. Les ailes précuites ou en sauce prennent environ {PRE_MIN} minutes.',
+      metaKeywords: 'ailes de poulet surgelées air fryer, ailes surgelées friteuse à air temps, cuire des ailes surgelées friteuse sans huile',
+      heading: 'Ailes de poulet surgelées à la friteuse à air',
+      subDesc:
+        'Des ailes crues cuites depuis le congélateur, sans décongélation, plus le réglage court pour les ailes déjà cuites ou en sauce. Comment séparer le bloc et obtenir une peau croustillante.',
+      cardDesc: 'Crues et surgelées : séparez-les à la première secousse.',
+      sizeLabels: { small: 'Petites ailes, manchons et pilons', medium: 'Ailes coupées classiques', large: 'Grosses ailes ou ailes entières' },
+      failureHeading: 'Pourquoi les ailes surgelées cuisent de façon inégale',
+      failureBody:
+        'Les ailes crues gèlent le plus souvent en paquets dans le sachet. Là où deux ailes se touchent, aucune des deux faces ne voit d’air chaud : ce côté reste pâle et la chair en dessous prend du retard. Laissez un bloc entier et vous obtenez des ailes qui semblent cuites dessus et restent crues là où elles étaient collées. La peau a un second problème : les ailes surgelées portent de la glace, et l’eau qu’elle libère doit s’évaporer avant que la graisse sous la peau fonde et la rende croustillante. C’est pourquoi ce réglage est long et régulier, pas court et violent. Séparez les ailes à la pince à la première secousse, étalez-les, et laissez la seconde les retourner pour que chaque face passe près du ventilateur.',
+      workedExampleHeading: 'Exemple concret : un sachet d’ailes crues surgelées',
+      workedExampleTemplate:
+        'Un sachet d’ailes crues coupées indique de cuire depuis le congélateur à {OVEN_F}°F pendant {OVEN_MIN} minutes. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, disposez-les en une seule couche et secouez deux fois ; à la première, séparez les ailes encore collées. Les petites ailes sont prêtes en environ {SMALL_MIN} minutes, les grosses en environ {LARGE_MIN}. Nappez-les de sauce après la cuisson, pas avant, sinon le sucre brûle bien avant que la viande soit sûre.',
+      donenessHeading: 'Comment savoir si elles sont cuites',
+      donenessBody:
+        'Les ailes crues doivent atteindre {INT_F}°F ({INT_C}°C) près de l’os : vérifiez le pilon le plus épais au thermomètre. Un sachet surgelé est justement le cas où la couleur trompe, car la peau peut dorer alors que le centre est encore froid. Au-delà de cette température les ailes tiennent bien, et beaucoup les poussent plus loin pour une chair plus fondante. La peau doit être croustillante et cloquée, sans zones molles et pâles là où les ailes se touchaient.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Lisez d’abord le sachet : ailes crues et ailes déjà cuites se ressemblent mais demandent des réglages différents. Tapez le sachet sur le plan de travail pour casser les gros blocs avant de l’ouvrir. Inutile d’ajouter de l’huile, la peau a assez de gras. Ajoutez un mélange d’épices sèches une fois les ailes séparées, à la première secousse, pour qu’il adhère à la surface décongelée.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des ailes crues surgelées à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, secouées {SHAKES} fois, jusqu’à {INT_F}°F. Les petites ailes prennent environ {SMALL_MIN} minutes et les grosses environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Et les ailes surgelées déjà cuites ou en sauce ?',
+          a: 'Elles doivent seulement être réchauffées, pas cuites : environ {PRE_MIN} minutes à {PRE_F}°F ({PRE_C}°C), secouées une fois. Elles ont été cuites à l’usine, il n’y a donc pas de risque de poulet cru ; arrêtez quand la sauce bouillonne et devient collante.',
+        },
+        {
+          q: 'Faut-il décongeler les ailes avant ?',
+          a: 'Non. Le réglage ci-dessus est prévu pour des ailes sortant du congélateur. Séparez-les simplement à la première secousse.',
+        },
+        {
+          q: 'Quand ajouter la sauce ?',
+          a: 'Après la cuisson. Mélangez les ailes chaudes à la sauce dans un saladier, puis remettez-les une ou deux minutes si vous voulez qu’elle fige.',
+        },
+        {
+          q: 'Puis-je utiliser le réglage des ailes fraîches pour des surgelées ?',
+          a: 'Non. Les ailes fraîches cuisent plus vite et plus chaud ; les surgelées ont besoin de temps en plus pour que la glace parte et que le centre monte en température.',
+        },
+      ],
+    },
+    'frozen-chicken-breast': {
+      label: 'Blanc de poulet surgelé',
+      metaTitle: 'Blanc de poulet surgelé au air fryer : temps et température sûre',
+      metaDescription:
+        'Blanc de poulet cru directement du congélateur à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}, cuit à {INT_F}°F. Temps selon le poids et équivalent au four.',
+      metaKeywords: 'blanc de poulet surgelé air fryer, combien de temps blanc de poulet surgelé friteuse à air, poulet surgelé friteuse sans huile',
+      heading: 'Blanc de poulet surgelé à la friteuse à air',
+      subDesc:
+        'Des blancs crus sans os cuits directement depuis le congélateur, sans décongélation. Un réglage plus bas et plus long que pour le poulet frais, et pourquoi le thermomètre n’est pas facultatif ici.',
+      cardDesc: 'Plus bas et plus long que le frais : vérifiez au thermomètre.',
+      sizeLabels: { small: 'Petit, 150 g (5–6 oz)', medium: 'Moyen, 220 g (7–8 oz)', large: 'Gros, 300 g (10–12 oz)' },
+      failureHeading: 'Pourquoi l’extérieur sèche avant que le cœur soit sûr',
+      failureBody:
+        'Un blanc surgelé commence avec un bloc de glace au milieu. La chaleur doit d’abord décongeler le cœur avant de pouvoir le cuire, pendant que l’extérieur continue de chauffer tout le temps. Au réglage vif d’un blanc frais, la surface devient caoutchouteuse alors que le centre reste sous une température sûre. Voilà pourquoi ce préréglage est plus bas et plus long que pour le poulet frais : une température plus douce réduit l’écart entre l’extérieur et l’intérieur, et le cœur atteint une lecture sûre avant que les bords ne sèchent. L’épaisseur compte plus que tout : cuisez ensemble des morceaux de taille proche et contrôlez le plus gros.',
+      workedExampleHeading: 'Exemple concret : deux blancs d’un sachet',
+      workedExampleTemplate:
+        'Un sachet de blancs crus surgelés à l’unité indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four. Dans une friteuse à panier, cela devient {AF_F}°F pendant environ {MIN} minutes pour un blanc moyen. Préchauffez {PREHEAT} minutes, posez deux blancs à plat avec de l’espace entre eux et retournez-les à {FLIP} minutes, c’est aussi le moment d’assaisonner, car la surface décongelée retient alors les épices. Les petits blancs sont généralement prêts en environ {SMALL_MIN} minutes ; les gros demandent environ {LARGE_MIN}. Sondez le plus épais avant d’en sortir un seul.',
+      donenessHeading: 'Comment savoir s’il est cuit',
+      donenessBody:
+        'Seul un thermomètre est fiable ici : {INT_F}°F ({INT_C}°C) dans la partie la plus épaisse, la sonde enfoncée par le côté pour que la pointe soit bien au centre. Un blanc surgelé peut être doré et ferme dehors avec un cœur encore rosé et froid, et l’entailler pour vérifier fait couler le jus. Si un blanc est prêt et pas l’autre, sortez le premier et laissez quelques minutes de plus au second. Laissez reposer trois minutes avant de trancher.',
+      prepHeading: 'Avant de le mettre',
+      prepBody:
+        'Séparez les blancs collés par le gel ; passez-les quelques secondes sous l’eau froide s’ils résistent. Retirez la pellicule de glace et épongez la surface. Badigeonnez d’un peu d’huile pour que l’assaisonnement accroche ensuite, mais gardez les épices pour le moment où vous les retournez, car elles glissent sur une surface gelée.',
+      faqs: [
+        {
+          q: 'Combien de temps pour un blanc de poulet surgelé à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour un blanc moyen, retourné à {FLIP} minutes. Les petits prennent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}. Terminez toujours par un contrôle au thermomètre.',
+        },
+        {
+          q: 'Est-ce sûr de cuire un blanc de poulet surgelé ?',
+          a: 'Oui, tant que la partie la plus épaisse atteint {INT_F}°F ({INT_C}°C). Il faut simplement plus de temps qu’avec du frais, et le réglage plus bas évite que l’extérieur sèche en premier.',
+        },
+        {
+          q: 'Pourquoi ne pas utiliser le réglage du blanc frais ?',
+          a: 'Le poulet frais cuit plus chaud et plus vite. Sur un blanc surgelé, cela dore l’extérieur bien avant que le cœur ait décongelé et cuit.',
+        },
+        {
+          q: 'Quand faut-il l’assaisonner ?',
+          a: 'Au moment de le retourner. La surface a alors décongelé et l’assaisonnement adhère au lieu de glisser sur la glace.',
+        },
+        {
+          q: 'Puis-je cuire de la même façon des blancs panés surgelés ?',
+          a: 'Regardez l’emballage. Beaucoup de produits panés sont vendus crus et suivent la page des aiguillettes de poulet surgelées ; ceux déjà cuits doivent seulement être réchauffés.',
+        },
+      ],
+    },
+    'frozen-chicken-nuggets': {
+      label: 'Nuggets de poulet surgelés',
+      metaTitle: 'Nuggets de poulet surgelés au air fryer : temps et température',
+      metaDescription:
+        'Nuggets de poulet surgelés à la friteuse à air : {AF_F}°F pendant {MIN} minutes, secoués une fois, chauds à cœur à {INT_F}°F. Du poulet pop-corn aux formes de dinosaure, avec la conversion de l’emballage.',
+      metaKeywords: 'nuggets surgelés air fryer, nuggets friteuse à air temps, combien de temps nuggets surgelés friteuse sans huile',
+      heading: 'Nuggets de poulet surgelés à la friteuse à air',
+      subDesc:
+        'Des nuggets panés déjà cuits, directement du sachet. Vous réchauffez, vous ne cuisez pas : le but est une panure croustillante sans un cœur desséché.',
+      cardDesc: 'Déjà cuits : vous ne faites que les réchauffer.',
+      sizeLabels: { small: 'Poulet pop-corn ou mini bouchées', medium: 'Nuggets classiques', large: 'Grandes formes ou nuggets dinosaures' },
+      internalLine: 'Chauds à cœur à {INT_F}°F ({INT_C}°C) au centre ; ils sont déjà cuits',
+      failureHeading: 'Pourquoi les nuggets deviennent secs et durs',
+      failureBody:
+        'Presque tous les nuggets surgelés du commerce sont entièrement cuits avant d’être surgelés. Le poulet à l’intérieur est prêt ; la friteuse doit seulement rendre la panure croustillante et ramener la chaleur au centre. Cela change ce qui peut mal tourner. Le danger n’est pas le manque de cuisson mais l’excès : les nuggets sont petits, deux minutes de trop dessèchent le poulet jusqu’à le rendre ferme et filandreux, et la panure passe de croustillante à dure. Traitez-les comme un réchauffage court. Suivez le temps de cette page, secouez le panier une fois à mi-cuisson pour retourner les morceaux restés à plat, et commencez à vérifier une ou deux minutes plus tôt. Des nuggets entassés sur deux couches se cuisent aussi à la vapeur, et la panure du dessous reste molle.',
+      workedExampleHeading: 'Exemple concret : un demi-sachet pour deux',
+      workedExampleTemplate:
+        'Un sachet de nuggets panés indique {OVEN_F}°F pendant {OVEN_MIN} minutes sur une plaque. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, étalez une vingtaine de nuggets en une couche et secouez une fois à mi-cuisson. Le poulet pop-corn est prêt en environ {SMALL_MIN} minutes et les grands dinosaures en environ {LARGE_MIN}. Si l’emballage donne un réglage pour chaleur tournante, {FAN_F}°F pendant {FAN_MIN} minutes, on obtient le même réglage de friteuse.',
+      donenessHeading: 'Comment savoir s’ils sont prêts',
+      donenessBody:
+        'Comme le poulet est déjà cuit, vous vérifiez que le centre est chaud, pas qu’il atteint une température d’hygiène : {INT_F}°F ({INT_C}°C) dans le nugget le plus épais si vous voulez un chiffre, ou cassez-en un et cherchez de la vapeur d’un bout à l’autre. La panure doit être dorée de façon régulière et craquer sous la pression. Si elle est dure plutôt que croustillante, la fournée suivante demande une ou deux minutes de moins.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Vérifiez que l’emballage indique entièrement cuit. Quelques produits de poulet pané sont vendus crus, et ceux-là relèvent de la page des aiguillettes de poulet surgelées, avec un thermomètre. Ne décongelez pas et n’ajoutez pas d’huile : la panure a été frite à l’usine. Laissez un peu d’espace entre les nuggets pour que l’air atteigne chaque face.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des nuggets surgelés à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, secoués une fois. Le poulet pop-corn prend environ {SMALL_MIN} minutes et les grandes formes environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Les nuggets de poulet surgelés sont-ils déjà cuits ?',
+          a: 'La plupart, oui. L’emballage indique « entièrement cuit ». S’il dit « cru » ou « non cuit », cuisez-les jusqu’à {INT_F}°F au thermomètre, comme du poulet cru.',
+        },
+        {
+          q: 'Faut-il retourner les nuggets ?',
+          a: 'Une secousse à mi-cuisson suffit. Les petits morceaux se retournent tout seuls quand on secoue ; inutile de les retourner un par un.',
+        },
+        {
+          q: 'Pourquoi mes nuggets sont-ils durs ?',
+          a: 'Ils sont restés trop longtemps. Les nuggets n’ont besoin que d’être réchauffés, deux minutes de trop les dessèchent. Essayez le temps le plus court à la prochaine fournée.',
+        },
+        {
+          q: 'Peut-on cuire nuggets et frites ensemble ?',
+          a: 'Oui, si le panier n’est pas plein. Lancez d’abord les frites et ajoutez les nuggets pour les {MIN} dernières minutes, pour que tout finisse en même temps.',
+        },
+      ],
+    },
+    'frozen-tater-tots': {
+      label: 'Tater tots surgelés',
+      metaTitle: 'Tater tots surgelés au air fryer : temps, température et croustillant',
+      metaDescription:
+        'Tater tots surgelés à la friteuse à air : {AF_F}°F pendant {MIN} minutes, secoués {SHAKES} fois. Des mini tots aux couronnes de pomme de terre, croustillants dehors et chauds à cœur.',
+      metaKeywords: 'tater tots air fryer, tater tots surgelés friteuse à air temps, pommes noisettes surgelées friteuse à air',
+      heading: 'Tater tots surgelés à la friteuse à air',
+      subDesc:
+        'Des tots et bouchées de pomme de terre en sachet cuits depuis le congélateur. Le réglage, les secousses et comment obtenir un cœur chaud sous le croustillant.',
+      cardDesc: 'Secouez deux fois pour que chaque face croûte.',
+      sizeLabels: { small: 'Mini tots', medium: 'Tater tots classiques', large: 'Couronnes ou grosses bouchées de pomme de terre' },
+      failureHeading: 'Pourquoi les tots sont croustillants dehors et froids dedans',
+      failureBody:
+        'Un tot est un petit cylindre de pomme de terre râpée bien tassée, beaucoup plus dense qu’une frite de même taille. L’extérieur frit vite dans l’air chaud et forme une croûte en quelques minutes, mais les filaments serrés du centre mettent longtemps à chauffer : un tot qui a l’air doré peut rester tiède et pâteux au cœur. Montez la température pour aller plus vite et la croûte fonce avant que le centre ne rattrape. La solution est un réglage régulier et assez de temps, avec le panier secoué deux fois pour que les tots roulent sur une nouvelle face à chaque fois. Comme ils sont ronds, ils roulent au lieu de rester à plat, et la secousse fait le retournement à votre place.',
+      workedExampleHeading: 'Exemple concret : un sachet familial',
+      workedExampleTemplate:
+        'Un sachet de tots indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four, en les retournant une fois. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, versez de quoi couvrir le fond en une couche et secouez deux fois, à peu près au tiers et aux deux tiers du temps. Les mini tots sont prêts en environ {SMALL_MIN} minutes et les couronnes en environ {LARGE_MIN}. Pour beaucoup de monde, faites deux fournées plutôt que de les entasser.',
+      donenessHeading: 'Comment savoir s’ils sont prêts',
+      donenessBody:
+        'Les tots sont précuits : vous jugez le croustillant et la chaleur. Ils doivent être bien dorés partout et sonner creux quand ils s’entrechoquent dans le panier. Croquez-en un du milieu de la fournée : l’intérieur doit être tendre, moelleux et chaud. Si l’extérieur est prêt mais le centre encore froid, ne montez pas la température ; ajoutez deux minutes et secouez à nouveau.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Cuisez-les directement surgelés et séparez ceux qui sont collés. Ils n’ont pas besoin d’huile, mais un léger spray donne une croûte plus foncée et régulière. Salez ou assaisonnez à la dernière secousse ou juste après la cuisson, quand la surface est encore un peu grasse et retient l’assaisonnement.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des tater tots à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, secoués {SHAKES} fois. Les mini tots prennent environ {SMALL_MIN} minutes et les grosses couronnes environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il secouer ou retourner les tater tots ?',
+          a: 'Secouer. Les tots sont ronds et roulent sur une autre face quand on secoue le panier : deux secousses les dorent uniformément sans les retourner un par un.',
+        },
+        {
+          q: 'Pourquoi mes tots sont-ils froids au milieu ?',
+          a: 'Ils sont plus denses que des frites et ont besoin de tout le temps. Les sortir dès qu’ils paraissent dorés laisse le cœur tassé froid.',
+        },
+        {
+          q: 'Les tater tots ont-ils besoin d’huile ?',
+          a: 'Non, ils sont précuits avant d’être surgelés. Un léger spray n’ajoute que de la couleur.',
+        },
+        {
+          q: 'Peut-on faire des tots garnis à la friteuse à air ?',
+          a: 'Oui. Cuisez entièrement les tots, ajoutez fromage et garnitures, puis remettez une ou deux minutes jusqu’à ce que le fromage fonde.',
+        },
+      ],
+    },
+    'frozen-pizza': {
+      label: 'Pizza surgelée',
+      metaTitle: 'Pizza surgelée au air fryer : temps, température et taille qui rentre',
+      metaDescription:
+        'Pizza surgelée à la friteuse à air : {AF_F}°F pendant {MIN} minutes pour une pizza individuelle. Quelles tailles rentrent dans le panier, et comment obtenir une pâte croustillante sous le fromage fondu.',
+      metaKeywords: 'pizza surgelée air fryer, pizza surgelée friteuse à air temps, pizza individuelle friteuse sans huile',
+      heading: 'Pizza surgelée à la friteuse à air',
+      subDesc:
+        'Des pizzas surgelées individuelles et mini, cuites depuis le congélateur. Le réglage, quelles tailles rentrent dans votre panier et comment éviter que le dessus soit prêt avant la pâte.',
+      cardDesc: 'L’individuelle rentre dans un panier ; la familiale non.',
+      sizeLabels: { small: 'Mini pizza, 13 cm (5")', medium: 'Pizza individuelle, 18–20 cm (7–8")', large: '25–30 cm (10–12") : type four ou 8 qt et plus uniquement' },
+      failureHeading: 'Pourquoi le dessus est prêt avant la pâte',
+      failureBody:
+        'Dans une friteuse à air la chaleur vient d’en haut, et le ventilateur la souffle directement sur la pizza. Le fromage et la garniture sont au plus près de la résistance et commencent à dorer presque tout de suite, alors que la pâte en dessous est encore surgelée, posée sur le panier. Réglez trop chaud et vous obtenez un chorizo brûlé sur une pâte pâle et souple. Un réglage un peu plus bas que prévu laisse la chaleur descendre à travers la pizza, si bien que la pâte croustille quand le fromage a fondu et gratiné. La taille est l’autre moitié du problème : une pizza coincée contre les parois bloque l’air, et la pâte cuit à la vapeur au lieu de croustiller. Elle doit être à plat, avec un espace tout autour.',
+      workedExampleHeading: 'Exemple concret : une pizza individuelle',
+      workedExampleTemplate:
+        'La boîte d’une pizza individuelle indique {OVEN_F}°F pendant {OVEN_MIN} minutes, directement sur la grille du four. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes pour que la pâte démarre sur une surface chaude, posez la pizza à plat et n’y touchez plus ; il n’y a rien à retourner. Vérifiez le dessous au temps le plus court en soulevant un bord à la spatule. Une mini pizza est prête en environ {SMALL_MIN} minutes ; une grande dans une friteuse type four demande environ {LARGE_MIN}.',
+      donenessHeading: 'Comment savoir si elle est prête',
+      donenessBody:
+        'Soulevez le bord : le dessous doit être doré et ferme, et la part doit tenir droite au lieu de pendre. Le fromage doit être entièrement fondu et bouillonner au centre, pas seulement sur les bords. Si le dessus est prêt mais la pâte encore molle, couvrez la pizza sans serrer d’une feuille d’aluminium et ajoutez deux minutes.',
+      prepHeading: 'Est-ce que ça rentre ?',
+      prepBody:
+        'Mesurez votre panier avant d’acheter. Un panier rond de 5 qt ne fait qu’environ 20 à 22 cm (8 à 8½ pouces) de large à l’intérieur, donc une pizza individuelle de 18 à 20 cm rentre avec un peu de marge. Une pizza de 25 ou 30 cm ne rentre pas : il faut une friteuse type four ou un panier d’environ 8 qt et plus. Retirez tout l’emballage, y compris le disque en carton.',
+      faqs: [
+        {
+          q: 'Combien de temps pour une pizza surgelée à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour une pizza individuelle de 18–20 cm. Une mini de 13 cm prend environ {SMALL_MIN} minutes.',
+        },
+        {
+          q: 'Quelle taille de pizza surgelée rentre dans une friteuse à air ?',
+          a: 'Dans un panier de 5 qt, environ 20 cm au maximum, car il ne mesure qu’environ 20 à 22 cm à l’intérieur. Une pizza de 25–30 cm demande une friteuse type four ou un panier de 8 qt et plus ; sinon, coupez-la en deux et faites-la en deux fois.',
+        },
+        {
+          q: 'Faut-il préchauffer pour une pizza surgelée ?',
+          a: 'Oui, {PREHEAT} minutes. Un panier chaud donne de l’avance à la pâte surgelée pour qu’elle croustille avant que le fromage ne cuise trop.',
+        },
+        {
+          q: 'Pourquoi la pâte de ma pizza est-elle molle ?',
+          a: 'La pizza est trop grande pour le panier et l’air ne circule pas autour, ou le carton est resté dessous. Elle doit être à plat avec de l’espace sur les bords.',
+        },
+        {
+          q: 'Faut-il retourner une pizza surgelée ?',
+          a: 'Non. La garniture tombe. Laissez-la à plat et vérifiez le dessous au temps le plus court.',
+        },
+      ],
+    },
+    'frozen-fish-sticks': {
+      label: 'Bâtonnets de poisson surgelés',
+      metaTitle: 'Bâtonnets de poisson surgelés au air fryer : temps et température',
+      metaDescription:
+        'Bâtonnets de poisson surgelés à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournés à {FLIP}, cuits à {INT_F}°F. Bâtonnets, bouchées et filets panés du sachet.',
+      metaKeywords: 'bâtonnets de poisson surgelés air fryer, poisson pané surgelé friteuse à air, fish sticks friteuse sans huile temps',
+      heading: 'Bâtonnets de poisson surgelés à la friteuse à air',
+      subDesc:
+        'Bâtonnets de poisson, croquettes et filets panés cuits depuis le congélateur. Le réglage, un retournement délicat et comment garder la panure sur le poisson.',
+      cardDesc: 'Retournez délicatement : la panure prend avant le poisson.',
+      sizeLabels: { small: 'Bouchées ou mini bâtonnets', medium: 'Bâtonnets de poisson', large: 'Filets panés ou en pâte à frire' },
+      failureHeading: 'Pourquoi la panure se déchire et le poisson s’effrite',
+      failureBody:
+        'Un bâtonnet de poisson est un bloc de poisson blanc feuilleté tenu uniquement par sa panure. Dans la friteuse, la chapelure prend et dore vite sur la face tournée vers le ventilateur, pendant que le poisson reste mou à l’intérieur et que la panure du dessous est encore humide contre le panier. Retournez trop tôt et le dessous reste collé à la grille : la panure s’arrache et le poisson casse. Retournez sans douceur et c’est pareil. Attendez la mi-cuisson, quand le dessous s’est raffermi, puis glissez une spatule fine ou une pince sous chaque bâtonnet et retournez-le d’un seul geste. Les filets en pâte à frire sont encore plus fragiles que les panés, alors un peu d’huile sur le panier les aide à se décoller.',
+      workedExampleHeading: 'Exemple concret : une boîte de bâtonnets',
+      workedExampleTemplate:
+        'Une boîte de bâtonnets de poisson panés indique {OVEN_F}°F pendant {OVEN_MIN} minutes au four, en les retournant une fois. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, posez les bâtonnets en une couche avec un petit espace entre eux et retournez-les à {FLIP} minutes. Les bouchées demandent environ {SMALL_MIN} minutes ; les filets panés épais environ {LARGE_MIN}. Si la boîte donne un réglage pour chaleur tournante, {FAN_F}°F pendant {FAN_MIN} minutes, le réglage de friteuse est le même.',
+      donenessHeading: 'Comment savoir s’ils sont prêts',
+      donenessBody:
+        'La panure doit être dorée et croustillante des deux côtés, et le poisson à l’intérieur blanc, opaque, s’effeuillant sous la fourchette. Un thermomètre au centre du morceau le plus épais doit indiquer {INT_F}°F ({INT_C}°C). Une seconde face encore pâle signifie une ou deux minutes de plus ; un bâtonnet qui plie au lieu de rester droit n’est pas chaud à cœur.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Cuisez-les directement surgelés ; décongelés, ils ramollissent et perdent leur panure. Huilez légèrement le panier ou utilisez un papier perforé pour que la chapelure n’accroche pas. Séparez les bâtonnets collés avant de les mettre, car les décoller ensuite déchire la panure.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des bâtonnets de poisson à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, retournés à {FLIP} minutes. Les bouchées prennent environ {SMALL_MIN} minutes et les filets panés environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il retourner les bâtonnets de poisson ?',
+          a: 'Oui, une fois à mi-cuisson, délicatement. Avant, le dessous est trop mou pour se décoller proprement.',
+        },
+        {
+          q: 'Pourquoi la panure colle-t-elle au panier ?',
+          a: 'Le dessous était encore humide au moment de retourner, ou le panier était sec. Huilez-le légèrement et attendez la mi-cuisson.',
+        },
+        {
+          q: 'Les bâtonnets de poisson ont-ils besoin d’huile ?',
+          a: 'Pas sur le poisson : la panure est précuite. Un peu d’huile sur le panier évite qu’ils collent.',
+        },
+        {
+          q: 'Peut-on cuire de la même façon des filets en pâte à frire ?',
+          a: 'Oui, environ {LARGE_MIN} minutes. La pâte est plus molle que la chapelure : utilisez un papier et retournez-les avec une large spatule.',
+        },
+      ],
+    },
+    'frozen-chicken-tenders': {
+      label: 'Aiguillettes de poulet surgelées',
+      metaTitle: 'Aiguillettes de poulet surgelées au air fryer : crues ou cuites ?',
+      metaDescription:
+        'Aiguillettes de poulet panées surgelées à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournées à {FLIP}, contrôlées à {INT_F}°F. Comment distinguer cru et cuit sur l’emballage.',
+      metaKeywords: 'aiguillettes de poulet surgelées air fryer, tenders de poulet surgelés friteuse à air, poulet pané surgelé friteuse sans huile',
+      heading: 'Aiguillettes de poulet surgelées à la friteuse à air',
+      subDesc:
+        'Aiguillettes panées, tenders et bâtonnets de poulet du congélateur. Le réglage, le retournement et la seule ligne de l’emballage qui décide du soin à apporter.',
+      cardDesc: 'Lisez l’emballage : beaucoup sont vendues crues.',
+      sizeLabels: { small: 'Fines lamelles ou bâtonnets de poulet', medium: 'Aiguillettes panées classiques', large: 'Aiguillettes épaisses ou façon maison' },
+      failureHeading: 'L’emballage dit cru, la panure dit cuit',
+      failureBody:
+        'Les aiguillettes panées existent en deux versions identiques dans le sachet. Certaines sont entièrement cuites et doivent seulement être réchauffées. Beaucoup d’autres, notamment les marques de distributeur et les versions façon maison, sont du poulet cru dans une panure déjà dorée, et l’emballage le dit en petits caractères : non cuit, à cuire à cœur ou cru. Cette panure n’a été frite que le temps de la fixer, elle paraît donc dorée avant même que la friteuse démarre, et il est facile de les sortir quand elles semblent prêtes alors que le poulet est encore cru. Une aiguillette est aussi plus épaisse qu’un nugget, donc le centre met plus longtemps à monter en température. Traitez chaque sachet comme cru, sauf s’il indique clairement entièrement cuit, et utilisez un thermomètre sur la plus épaisse.',
+      workedExampleHeading: 'Exemple concret : un sachet d’aiguillettes panées crues',
+      workedExampleTemplate:
+        'Un sachet d’aiguillettes panées non cuites indique {OVEN_F}°F pendant {OVEN_MIN} minutes, en les retournant une fois. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, posez six à huit aiguillettes à plat sans qu’elles se touchent et retournez-les à {FLIP} minutes. Les fins bâtonnets prennent environ {SMALL_MIN} minutes ; les aiguillettes épaisses façon maison demandent environ {LARGE_MIN}. Sondez la plus épaisse avant de servir ; celles déjà cuites peuvent sortir quelques minutes plus tôt.',
+      donenessHeading: 'Comment savoir si elles sont cuites',
+      donenessBody:
+        'Pour des aiguillettes crues, {INT_F}°F ({INT_C}°C) dans la plus épaisse, la sonde enfoncée par le bout pour que la pointe soit au centre. La couleur de la panure ne dit rien ici, puisqu’elle a été dorée avant la surgélation. Les aiguillettes déjà cuites doivent simplement être chaudes d’un bout à l’autre. Dans les deux cas, la panure doit être croustillante des deux côtés, sans zones molles là où elles se touchaient.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Repérez d’abord la ligne de cuisson sur l’emballage et notez s’il est écrit cru ou entièrement cuit. Ne les décongelez pas. Laissez un espace entre elles et, si la panure paraît sèche et farineuse, donnez un léger coup de spray d’huile. Lavez-vous les mains après avoir manipulé du poulet pané cru, même surgelé.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des aiguillettes de poulet surgelées à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, retournées à {FLIP} minutes. Les fines prennent environ {SMALL_MIN} minutes et les épaisses environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Comment savoir si des aiguillettes surgelées sont crues ?',
+          a: 'L’emballage le dit. Cherchez « non cuit », « cru » ou « à cuire à cœur » près des instructions. En cas de doute, traitez-les comme crues et vérifiez au thermomètre.',
+        },
+        {
+          q: 'À quelle température les aiguillettes crues doivent-elles arriver ?',
+          a: '{INT_F}°F ({INT_C}°C) dans le morceau le plus épais, mesurée au thermomètre, pas jugée à la couleur.',
+        },
+        {
+          q: 'Quelle différence entre aiguillettes et nuggets ?',
+          a: 'Les nuggets sont presque toujours déjà cuits et petits. Les aiguillettes sont plus épaisses et souvent crues : il leur faut plus de temps et un thermomètre.',
+        },
+        {
+          q: 'Faut-il retourner les aiguillettes surgelées ?',
+          a: 'Oui, une fois à {FLIP} minutes, pour que la face contre le panier croustille aussi.',
+        },
+      ],
+    },
+    'frozen-hash-browns': {
+      label: 'Galettes de pommes de terre surgelées',
+      metaTitle: 'Galettes de pommes de terre surgelées au air fryer : temps et température',
+      metaDescription:
+        'Galettes de pommes de terre (hash browns) surgelées à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournées à {FLIP}. Des mini galettes aux plus épaisses, dorées des deux côtés sans coller.',
+      metaKeywords: 'galettes de pommes de terre surgelées air fryer, hash browns friteuse à air, röstis surgelés friteuse sans huile',
+      heading: 'Galettes de pommes de terre surgelées à la friteuse à air',
+      subDesc:
+        'Galettes et mini röstis de pomme de terre râpée du congélateur. Le réglage, l’unique retournement et comment dorer les deux faces au lieu d’une.',
+      cardDesc: 'Galettes plates : un retournement à mi-cuisson.',
+      sizeLabels: { small: 'Mini galettes ou bouchées', medium: 'Galettes classiques', large: 'Galettes épaisses ou grandes' },
+      failureHeading: 'Pourquoi une face reste pâle et colle',
+      failureBody:
+        'Une galette de pommes de terre est plate : elle repose sur le panier avec toute une face contre la grille. La face du dessus reçoit tout le souffle du ventilateur et dore, tandis que celle du dessous reçoit beaucoup moins d’air et reste pâle. Secouer n’aide pas, une galette plate glisse simplement sur la même face. La pomme de terre râpée libère aussi de l’amidon en chauffant, et sur un panier sec cet amidon colle le dessous au métal : la croûte s’arrache quand vous essayez enfin de la bouger. La solution est un seul retournement à mi-cuisson, à la spatule, et un film d’huile sur le panier ou les galettes pour que l’amidon dore au lieu de coller. Après le retournement, la face pâle se retrouve face au ventilateur et rattrape son retard.',
+      workedExampleHeading: 'Exemple concret : un petit-déjeuner pour quatre',
+      workedExampleTemplate:
+        'Une boîte de galettes de pommes de terre indique {OVEN_F}°F pendant {OVEN_MIN} minutes, en les retournant une fois. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, posez quatre galettes à plat sans chevauchement et retournez-les à {FLIP} minutes. Les mini galettes demandent environ {SMALL_MIN} minutes et les épaisses environ {LARGE_MIN}. Il ne reste de place pour rien d’autre : cuisez le bacon ou les saucisses avant ou après, pas en même temps.',
+      donenessHeading: 'Comment savoir si elles sont prêtes',
+      donenessBody:
+        'Les deux faces doivent être bien dorées et croustillantes, avec des bords un peu plus foncés. Appuyez au centre avec une spatule : il doit être ferme, pas mou, et l’intérieur chaud et tendre quand vous en coupez une. Si la seconde face est encore pâle, ajoutez une ou deux minutes plutôt que de monter la température.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Cuisez-les surgelées et ne les empilez pas. Badigeonnez ou vaporisez légèrement les galettes d’huile, ou huilez le panier, pour que l’amidon dore au lieu de se souder à la grille. Salez et poivrez après le retournement.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des galettes de pommes de terre surgelées à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, retournées à {FLIP} minutes. Les mini galettes prennent environ {SMALL_MIN} minutes et les épaisses environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Faut-il retourner les galettes ?',
+          a: 'Oui. Elles sont plates, donc en secouant la même face reste dessous. Un retournement à mi-cuisson dore les deux côtés.',
+        },
+        {
+          q: 'Pourquoi les galettes collent-elles au panier ?',
+          a: 'L’amidon de la pomme de terre les colle à un panier sec. Un léger spray d’huile l’évite.',
+        },
+        {
+          q: 'Peut-on cuire des pommes de terre râpées en vrac ?',
+          a: 'Oui, en couche fine sur un papier, bien tassée. Retournez-les par morceaux à mi-cuisson ; elles prennent quelques minutes de plus que les galettes.',
+        },
+        {
+          q: 'Quelle différence avec les tater tots ici ?',
+          a: 'Les galettes sont plates et se retournent une fois. Les tots sont ronds : on les secoue et ils roulent seuls sur de nouvelles faces.',
+        },
+      ],
+    },
+    'frozen-egg-rolls': {
+      label: 'Nems et rouleaux de printemps surgelés',
+      metaTitle: 'Nems surgelés au air fryer : temps, température et feuille croustillante',
+      metaDescription:
+        'Nems, egg rolls et rouleaux de printemps surgelés à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournés à {FLIP}. Feuille croustillante et cloquée, farce chaude.',
+      metaKeywords: 'nems surgelés air fryer, egg rolls surgelés friteuse à air, samoussas surgelés friteuse sans huile',
+      heading: 'Nems et rouleaux de printemps surgelés à la friteuse à air',
+      subDesc:
+        'Nems, egg rolls, rouleaux de printemps et feuilletés roulés du même genre, cuits depuis le congélateur. Le réglage, le retournement et comment chauffer la farce avant que les bouts ne brûlent.',
+      cardDesc: 'Vaporisez la feuille et retournez une fois.',
+      sizeLabels: { small: 'Mini nems', medium: 'Nems ou egg rolls classiques', large: 'Grands egg rolls ou samoussas' },
+      failureHeading: 'Pourquoi les bouts brûlent et le centre reste froid',
+      failureBody:
+        'Un nem est une feuille fine et sèche roulée autour d’une farce épaisse et humide. La feuille prend couleur en quelques minutes, et les bouts repliés, là où la pâte est la plus fine et dépasse dans le flux d’air, cloquent et foncent les premiers. Pendant ce temps, la farce de chou et de viande est partie entièrement gelée et chauffe lentement : un nem parfait à l’extérieur peut rester glacé au milieu. Deux gestes règlent le problème. Un léger spray d’huile sur la feuille la laisse dorer lentement et uniformément au lieu de sécher et de brûler aux extrémités. Et un retournement à mi-cuisson remonte la face pâle vers le ventilateur tout en laissant à la farce le temps de rattraper. Laissez de l’espace entre les nems pour que les côtés croustillent aussi.',
+      workedExampleHeading: 'Exemple concret : une boîte d’egg rolls',
+      workedExampleTemplate:
+        'Une boîte d’egg rolls surgelés indique {OVEN_F}°F pendant {OVEN_MIN} minutes sur une plaque, en les retournant une fois. Dans une friteuse à panier, cela devient {AF_F}°F pendant {MIN} minutes. Préchauffez {PREHEAT} minutes, vaporisez légèrement les rouleaux, posez-les en une couche avec un espace entre chacun et retournez-les à {FLIP} minutes. Les mini nems demandent environ {SMALL_MIN} minutes et les grands egg rolls environ {LARGE_MIN}. Attendez deux minutes avant de croquer : la farce garde beaucoup de chaleur.',
+      donenessHeading: 'Comment savoir s’ils sont prêts',
+      donenessBody:
+        'La feuille doit être dorée et cloquée partout, sans zones blanches et farineuses, et craquer sous la pression. Le vrai test, c’est la farce : coupez-en un en deux et vérifiez qu’il fume jusqu’au centre. Si la feuille est prête mais le cœur encore froid, ajoutez deux minutes ; les bouts prennent un peu plus de couleur mais ne devraient pas brûler à ce réglage.',
+      prepHeading: 'Avant de les mettre',
+      prepBody:
+        'Cuisez-les surgelés ; décongelée, la feuille ramollit et se déchire. Vaporisez ou badigeonnez un peu d’huile sur toutes les faces, ce qui compte plus pour eux que pour tout autre produit du congélateur. Séparez délicatement ceux qui ont gelé ensemble pour que la feuille ne s’ouvre pas. Servez la sauce à part pour que la feuille reste croustillante.',
+      faqs: [
+        {
+          q: 'Combien de temps pour des nems surgelés à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F, retournés à {FLIP} minutes. Les mini nems prennent environ {SMALL_MIN} minutes et les grands egg rolls environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Les nems surgelés ont-ils besoin d’huile à la friteuse à air ?',
+          a: 'Un léger spray, oui. Sans lui la feuille sèche, devient farineuse et brûle aux bouts.',
+        },
+        {
+          q: 'Pourquoi mes nems sont-ils froids à l’intérieur ?',
+          a: 'La farce est partie gelée et a besoin de tout le temps. Coupez-en un pour vérifier au lieu de vous fier à la couleur.',
+        },
+        {
+          q: 'Cela marche-t-il pour les samoussas et les rouleaux de printemps ?',
+          a: 'Oui. Les mini rouleaux sont plus rapides et les samoussas épais prennent à peu près autant que les grands egg rolls.',
+        },
+        {
+          q: 'Faut-il décongeler les nems avant ?',
+          a: 'Non. La feuille décongelée absorbe l’humidité de la farce et se déchire quand on la manipule.',
         },
       ],
     },

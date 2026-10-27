@@ -122,7 +122,7 @@ const en: Dictionary = {
       },
       hashBrowns: {
         label: "Hash browns & potato shapes",
-        tip: "Flat pieces brown one side at a time — flip once at halfway.",
+        tip: "Flat patties brown one side at a time, so flip them at halfway. Round shapes like tots roll, so shake those instead.",
       },
       veg: {
         label: "Frozen vegetables",

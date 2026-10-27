@@ -17,9 +17,12 @@ interface Props {
   initialTime?: number;
   /** Food preselected in the dropdown (the /air-fryer/[food] presets): a FROZEN_FOODS key when source is 'frozen'; still fully editable. */
   initialFood?: FoodKey | FrozenFoodKey;
+  /** Frozen mode: the preset's own turn type/count for `initialFood` (applies only while that food is selected). */
+  initialTurn?: { turn: 'shake' | 'flip'; turns: number };
 }
 
-const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood } = Astro.props;
+const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood, initialTurn } = Astro.props;
+const turnOverride = initialTurn && initialFood ? { food: initialFood, ...initialTurn } : null;
 const markScale = OVEN_MARK_SCALE[locale];
 const all = getDictionary(locale);
 const baseDict = all.converter;
@@ -127,8 +130,9 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale }}>
+<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale, turnOverride }}>
   window.__afkDict = dict;
+  window.__afkTurnOverride = turnOverride;
   window.__afkSource = source;
   window.__afkFrozenDict = frozenDict;
   window.__afkTips = tips;
@@ -159,12 +163,14 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     __afkFrozenDict: frozenDict,
     __afkTips: tips,
     __afkMarkScale: markScale,
+    __afkTurnOverride: turnOverride,
   } = window as unknown as {
     __afkDict: Dictionary['converter'];
     __afkSource: 'oven' | 'convection' | 'frozen';
     __afkFrozenDict: Dictionary['frozenConverter'] | null;
     __afkTips: Record<string, string>;
     __afkMarkScale: OvenMarkScale;
+    __afkTurnOverride: { food: string; turn: 'shake' | 'flip'; turns: number } | null;
   };
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
@@ -239,7 +245,8 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
 
     let result: ConversionResult;
     if (source === 'frozen' && frozenDict) {
-      const frozen = computeAirFryerSettingFromFrozen({ ...base, food: food as FrozenFoodKey, pack: state.pack });
+      const turn = turnOverride && turnOverride.food === food ? { turn: turnOverride.turn, turns: turnOverride.turns } : undefined;
+      const frozen = computeAirFryerSettingFromFrozen({ ...base, food: food as FrozenFoodKey, pack: state.pack, turnOverride: turn });
       renderFrozen(frozen, frozenDict);
       result = frozen;
     } else {

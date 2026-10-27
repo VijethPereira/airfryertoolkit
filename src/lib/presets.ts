@@ -18,6 +18,7 @@ import {
   ovenMarkFor,
   type ConversionResult,
   type FoodKey,
+  type FrozenConversionInput,
   type FrozenFoodKey,
   type FryerStyle,
   type ReverseConversionResult,
@@ -65,8 +66,19 @@ export function presetRoundTrip(preset: FoodPreset, style: FryerStyle = 'basket'
   const { engine } = preset;
   const input = { ovenTemp: oven.outF!, unit: 'F' as const, ovenMinutes: oven.outMinutes!, style };
   return engine.kind === 'frozen'
-    ? computeAirFryerSettingFromFrozen({ ...input, food: engine.food, pack: 'conventional' })
+    ? computeAirFryerSettingFromFrozen({ ...input, food: engine.food, pack: 'conventional', turnOverride: presetTurnOverride(preset) })
     : computeAirFryerSetting({ ...input, food: engine.food });
+}
+
+/**
+ * A frozen preset's own flip/shake, as the frozen engine's turn override (undefined when
+ * it inherits FROZEN_FOODS'): shakes set the type to shake, flipAt to a single flip.
+ */
+export function presetTurnOverride(preset: FoodPreset): FrozenConversionInput['turnOverride'] {
+  if (preset.engine.kind !== 'frozen') return undefined;
+  if (preset.shakes !== undefined) return { turn: 'shake', turns: preset.shakes };
+  if (preset.flipAt !== undefined) return { turn: 'flip', turns: 1 };
+  return undefined;
 }
 
 /** The converter widget a preset page embeds, pre-filled with the oven (or pack) equivalent. */
@@ -77,7 +89,13 @@ export function presetWidget(preset: FoodPreset) {
     initialFood: preset.engine.food,
     initialTemp: oven.outF!,
     initialTime: oven.outMinutes!,
+    initialTurn: presetTurnOverride(preset),
   };
+}
+
+/** The full converter a preset page links to: /frozen with its food preselected, or the flagship. */
+export function presetToolLink(preset: FoodPreset): { path: string; query: string } {
+  return preset.engine.kind === 'frozen' ? { path: '/frozen', query: `?food=${preset.engine.food}` } : { path: '/oven-to-air-fryer', query: '' };
 }
 
 /** The frozen profile behind a frozen preset, or null for an oven preset. */
@@ -168,6 +186,11 @@ export function presetValues(preset: FoodPreset, locale: LocaleCode = DEFAULT_LO
       values.INT_ALT_TO_F = String(preset.internalAlt.toF);
       values.INT_ALT_TO_C = String(toC(preset.internalAlt.toF));
     }
+  }
+  if (preset.precooked !== undefined) {
+    values.PRE_F = String(preset.precooked.tempF);
+    values.PRE_C = String(convertTempUnit(preset.precooked.tempF, 'F'));
+    values.PRE_MIN = String(preset.precooked.minutes);
   }
   for (const row of presetSizeRows(preset)) {
     const id = row.id.toUpperCase();

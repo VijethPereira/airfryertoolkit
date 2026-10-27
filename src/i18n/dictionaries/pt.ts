@@ -122,7 +122,7 @@ const pt: Dictionary = {
       },
       hashBrowns: {
         label: "Hash browns e batatas em formato",
-        tip: "Pedaços achatados douram um lado por vez: vire uma vez na metade.",
+        tip: "Pedaços achatados douram um lado por vez: vire na metade. Formatos redondos, como tots, rolam: agite em vez de virar.",
       },
       veg: {
         label: "Legumes congelados",

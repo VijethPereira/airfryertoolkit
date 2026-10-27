@@ -28,6 +28,11 @@ export interface FoodPreset {
    * The page's dictionary `internalAltLine` says what it means.
    */
   internalAlt?: { f: number; toF?: number };
+  /**
+   * Frozen presets: the fully cooked version of a raw product (pre-cooked or sauced wings).
+   * Heat-through setting for the copy ({PRE_F}, {PRE_C}, {PRE_MIN}); no raw warning applies to it.
+   */
+  precooked?: { tempF: number; minutes: number };
   /** Doneness is judged by eye instead of a thermometer (bacon). */
   doneBy?: 'crisp';
   /** Sizing table rows; `minutes` is the air fryer time at `tempF` unless the row sets its own `tempF`. */
@@ -307,6 +312,134 @@ export const PRESETS = [
       { id: 'small', minutes: 16 },
       { id: 'medium', minutes: 20 },
       { id: 'large', minutes: 25 },
+    ],
+  },
+  {
+    slug: 'frozen-fries',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'fries' },
+    tempF: 400,
+    minutes: 15,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'thin', minutes: 11 },
+      { id: 'medium', minutes: 15 },
+      { id: 'thick', minutes: 19 },
+    ],
+  },
+  {
+    slug: 'frozen-chicken-wings',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'wings' },
+    tempF: 390,
+    minutes: 26,
+    precooked: { tempF: 380, minutes: 12 },
+    sizes: [
+      { id: 'small', minutes: 22 },
+      { id: 'medium', minutes: 26 },
+      { id: 'large', minutes: 30 },
+    ],
+  },
+  {
+    slug: 'frozen-chicken-breast',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'rawChicken' },
+    tempF: 360,
+    minutes: 24,
+    sizes: [
+      { id: 'small', minutes: 20 },
+      { id: 'medium', minutes: 24 },
+      { id: 'large', minutes: 30 },
+    ],
+  },
+  {
+    slug: 'frozen-chicken-nuggets',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'nuggets' },
+    tempF: 400,
+    minutes: 10,
+    sizes: [
+      { id: 'small', minutes: 8 },
+      { id: 'medium', minutes: 10 },
+      { id: 'large', minutes: 12 },
+    ],
+  },
+  {
+    slug: 'frozen-tater-tots',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'hashBrowns' },
+    tempF: 400,
+    minutes: 14,
+    // Tots tumble like fries: shake twice, not the hash-brown flip.
+    shakes: 2,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'small', minutes: 12 },
+      { id: 'medium', minutes: 14 },
+      { id: 'large', minutes: 16 },
+    ],
+  },
+  {
+    slug: 'frozen-pizza',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'pizza' },
+    tempF: 380,
+    minutes: 9,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'small', minutes: 6 },
+      { id: 'medium', minutes: 9 },
+      { id: 'large', minutes: 12 },
+    ],
+  },
+  {
+    slug: 'frozen-fish-sticks',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'fish' },
+    tempF: 400,
+    minutes: 10,
+    sizes: [
+      { id: 'small', minutes: 8 },
+      { id: 'medium', minutes: 10 },
+      { id: 'large', minutes: 14 },
+    ],
+  },
+  {
+    slug: 'frozen-chicken-tenders',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'tenders' },
+    tempF: 400,
+    minutes: 12,
+    sizes: [
+      { id: 'small', minutes: 10 },
+      { id: 'medium', minutes: 12 },
+      { id: 'large', minutes: 15 },
+    ],
+  },
+  {
+    slug: 'frozen-hash-browns',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'hashBrowns' },
+    tempF: 400,
+    minutes: 12,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'small', minutes: 10 },
+      { id: 'medium', minutes: 12 },
+      { id: 'large', minutes: 15 },
+    ],
+  },
+  {
+    slug: 'frozen-egg-rolls',
+    category: 'frozen',
+    engine: { kind: 'frozen', food: 'springRolls' },
+    tempF: 390,
+    minutes: 11,
+    doneBy: 'crisp',
+    sizes: [
+      { id: 'small', minutes: 8 },
+      { id: 'medium', minutes: 11 },
+      { id: 'large', minutes: 13 },
     ],
   },
 ] as const satisfies readonly FoodPreset[];

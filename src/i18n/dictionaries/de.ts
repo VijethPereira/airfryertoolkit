@@ -122,7 +122,7 @@ const de: Dictionary = {
       },
       hashBrowns: {
         label: "Rösti & Kartoffelprodukte",
-        tip: "Flache Stücke bräunen eine Seite nach der anderen — einmal zur Hälfte wenden.",
+        tip: "Flache Stücke bräunen eine Seite nach der anderen, also zur Hälfte wenden. Runde Formen wie Tater Tots rollen – die lieber schütteln.",
       },
       veg: {
         label: "Tiefkühlgemüse",

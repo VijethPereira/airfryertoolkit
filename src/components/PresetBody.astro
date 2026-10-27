@@ -14,6 +14,7 @@ import {
   presetRaw,
   presetSizeRows,
   presetTempLanding,
+  presetToolLink,
   presetValues,
   presetWidget,
   relatedPresets,
@@ -30,7 +31,7 @@ const { locale = DEFAULT_LOCALE, preset } = Astro.props;
 const { dict, labels, copy, fill } = presetCopy(preset, locale);
 const answer = presetAnswer(preset, locale);
 const internal =
-  presetInternalF(preset) !== undefined ? fill(dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
+  presetInternalF(preset) !== undefined ? fill(copy.internalLine ?? dict.internalTemplate) : preset.doneBy === 'crisp' ? dict.internalCrisp : null;
 // Display only; the answer line and JSON-LD stay on internalF.
 const internalAlt = preset.internalAlt !== undefined && copy.internalAltLine ? fill(copy.internalAltLine) : null;
 
@@ -53,6 +54,8 @@ const related = relatedPresets(preset, 3)
   .map((p) => presetCard(p, locale))
   .filter((c) => LIVE_PAGES.has(c.path));
 
+// Frozen presets link to /frozen with their food preselected instead of the flagship.
+const tool = presetToolLink(preset);
 const landing = presetTempLanding(preset);
 const landingSlug = tempLandingSlug(landing.tempF);
 const links = [
@@ -66,12 +69,12 @@ const links = [
       ]
     : []),
   ...[
-    { slug: '/oven-to-air-fryer', label: dict.relatedFlagshipLink },
-    { slug: PRESETS_INDEX_PATH, label: dict.relatedIndexLink },
-    { slug: '/chart', label: dict.relatedChartLink },
+    { slug: tool.path, query: tool.query, label: labels.relatedFlagshipLink },
+    { slug: PRESETS_INDEX_PATH, query: '', label: dict.relatedIndexLink },
+    { slug: '/chart', query: '', label: dict.relatedChartLink },
   ]
     .filter(({ slug }) => LIVE_PAGES.has(slug))
-    .map(({ slug, label }) => ({ href: localizedPath(locale, slug), label, cls: '' })),
+    .map(({ slug, query, label }) => ({ href: `${localizedPath(locale, slug)}${query}`, label, cls: '' })),
 ];
 const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRESETS_INDEX_PATH : '/');
 ---

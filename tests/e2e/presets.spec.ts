@@ -44,10 +44,35 @@ async function collectPageErrors(page: Page): Promise<Error[]> {
 
 /** Straight from the engine, independent of src/lib/presets.ts, so a bug there can't hide behind itself. */
 const food = (p: FoodPreset) => (p.engine as { food: FoodKey }).food;
+const isFrozen = (p: FoodPreset) => p.engine.kind === 'frozen';
+const frozenFood = (p: FoodPreset) => p.engine.food as FrozenFoodKey;
+// Frozen presets: the "oven" equivalent is the pack instruction (conventional / fan pack).
 const ovenOf = (p: FoodPreset, tempF = p.tempF, minutes = p.minutes) =>
-  computeOvenSetting({ airFryerTemp: tempF, unit: 'F', airFryerMinutes: minutes, food: food(p), style: 'basket' });
+  isFrozen(p)
+    ? computePackSetting({ tempF, minutes, food: frozenFood(p), pack: 'conventional', style: 'basket' })
+    : computeOvenSetting({ airFryerTemp: tempF, unit: 'F', airFryerMinutes: minutes, food: food(p), style: 'basket' });
 const fanOf = (p: FoodPreset) =>
-  computeConvectionSetting({ airFryerTemp: p.tempF, unit: 'F', airFryerMinutes: p.minutes, food: food(p), style: 'basket' });
+  isFrozen(p)
+    ? computePackSetting({ tempF: p.tempF, minutes: p.minutes, food: frozenFood(p), pack: 'fan', style: 'basket' })
+    : computeConvectionSetting({ airFryerTemp: p.tempF, unit: 'F', airFryerMinutes: p.minutes, food: food(p), style: 'basket' });
+/** Forward conversion of an oven (or pack) setting, as the pre-filled widget runs it. */
+const forwardOf = (p: FoodPreset, ovenTemp: number, ovenMinutes: number) =>
+  isFrozen(p)
+    ? computeAirFryerSettingFromFrozen({
+        ovenTemp, unit: 'F', ovenMinutes, food: frozenFood(p), pack: 'conventional', style: 'basket',
+        turnOverride: p.shakes !== undefined ? { turn: 'shake', turns: p.shakes } : undefined,
+      })
+    : computeAirFryerSetting({ ovenTemp, unit: 'F', ovenMinutes, food: food(p), style: 'basket' });
+/** Flip / shakes: the preset's own, else (frozen) FROZEN_FOODS', a flip at the halfway mark. */
+function turnsOf(p: FoodPreset): { flipAt?: number; shakes?: number } {
+  if (p.flipAt !== undefined || p.shakes !== undefined) return { flipAt: p.flipAt, shakes: p.shakes };
+  if (!isFrozen(p)) return {};
+  const f = FROZEN_FOODS[frozenFood(p)];
+  if (f.turns === 0) return {};
+  return f.turn === 'flip' ? { flipAt: Math.round(p.minutes / 2) } : { shakes: f.turns };
+}
+const internalOf = (p: FoodPreset) => p.internalF ?? (isFrozen(p) ? (FROZEN_FOODS[frozenFood(p)].internalF ?? undefined) : undefined);
+const toolHrefOf = (p: FoodPreset) => (isFrozen(p) ? `/frozen?food=${frozenFood(p)}` : '/oven-to-air-fryer');
 const label = (code: LocaleCode, p: FoodPreset) => getDictionary(code).presets.pages[p.slug as PresetSlug].label;
 
 function expectedAnswer(code: LocaleCode, p: FoodPreset): string {
@@ -57,16 +82,18 @@ function expectedAnswer(code: LocaleCode, p: FoodPreset): string {
     .replace('{AF_F}', String(p.tempF))
     .replace('{AF_C}', String(convertTempUnit(p.tempF, 'F')))
     .replace('{MIN}', String(p.minutes));
-  if (p.flipAt !== undefined) return base + d.answerFlipSuffix.replace('{FLIP}', String(p.flipAt));
-  if (p.shakes !== undefined) return base + d.answerShakeSuffix.replace('{SHAKES}', String(p.shakes));
+  const { flipAt, shakes } = turnsOf(p);
+  if (flipAt !== undefined) return base + d.answerFlipSuffix.replace('{FLIP}', String(flipAt));
+  if (shakes !== undefined) return base + d.answerShakeSuffix.replace('{SHAKES}', String(shakes));
   return base;
 }
 
 function expectedSpec(code: LocaleCode, p: FoodPreset): string {
   const d = getDictionary(code).presets;
   const base = d.specTemplate.replace('{AF_F}', String(p.tempF)).replace('{MIN}', String(p.minutes));
-  if (p.flipAt !== undefined) return base + d.specFlipSuffix.replace('{FLIP}', String(p.flipAt));
-  if (p.shakes !== undefined) return base + d.specShakeSuffix.replace('{SHAKES}', String(p.shakes));
+  const { flipAt, shakes } = turnsOf(p);
+  if (flipAt !== undefined) return base + d.specFlipSuffix.replace('{FLIP}', String(flipAt));
+  if (shakes !== undefined) return base + d.specShakeSuffix.replace('{SHAKES}', String(shakes));
   return base;
 }
 
@@ -76,6 +103,7 @@ function copyStrings(code: LocaleCode, p: FoodPreset): string[] {
   return [
     c.metaTitle, c.metaDescription, c.heading, c.subDesc, c.cardDesc, c.failureBody, c.workedExampleTemplate,
     c.donenessBody, c.prepBody, ...c.faqs.flatMap((f) => [f.q, f.a]), ...(c.internalAltLine ? [c.internalAltLine] : []),
+    ...(c.internalLine ? [c.internalLine] : []),
   ];
 }
 
@@ -253,6 +281,47 @@ test.describe('food presets: frozen engine branch', () => {
     }
   });
 
+  test('the frozen presets: ten entries, turn overrides, heated-through nuggets, pre-cooked wings, pizza sizes', () => {
+    const frozen = ALL.filter(isFrozen);
+    expect(frozen.map((p) => p.slug)).toEqual([
+      'frozen-fries', 'frozen-chicken-wings', 'frozen-chicken-breast', 'frozen-chicken-nuggets', 'frozen-tater-tots',
+      'frozen-pizza', 'frozen-fish-sticks', 'frozen-chicken-tenders', 'frozen-hash-browns', 'frozen-egg-rolls',
+    ]);
+    for (const p of frozen) expect(p.category, p.slug).toBe('frozen');
+    const bySlug = (slug: string) => frozen.find((p) => p.slug === slug)!;
+
+    // Tots run on the hash-brown profile (a flip) but override both the turn type and the count.
+    const tots = bySlug('frozen-tater-tots');
+    expect(FROZEN_FOODS[frozenFood(tots)].turn).toBe('flip');
+    expect(presetTurns(tots)).toEqual({ flipAt: undefined, shakes: 2 });
+    expect(presetWidget(tots).initialTurn).toEqual({ turn: 'shake', turns: 2 });
+    const rt = presetRoundTrip(tots) as ReturnType<typeof computeAirFryerSettingFromFrozen>;
+    expect([rt.turn, rt.turns]).toEqual(['shake', 2]);
+    // Presets that inherit their turns pass no override.
+    for (const p of frozen.filter((x) => x.flipAt === undefined && x.shakes === undefined)) expect(presetWidget(p).initialTurn, p.slug).toBeUndefined();
+
+    // Nuggets: 165°F is a heated-through check, worded as such in every locale, with no raw warning.
+    const nuggets = bySlug('frozen-chicken-nuggets');
+    expect(presetRaw(nuggets)).toBe(false);
+    for (const { code } of LOCALES) expect(getDictionary(code).presets.pages['frozen-chicken-nuggets'].internalLine, code).toBeTruthy();
+
+    // Wings: the pre-cooked setting is data, shorter than raw, and only wings carry it.
+    const wings = bySlug('frozen-chicken-wings');
+    expect(wings.precooked!.minutes).toBeLessThan(wings.minutes);
+    expect(presetValues(wings).PRE_MIN).toBe(String(wings.precooked!.minutes));
+    expect(ALL.filter((p) => p.precooked !== undefined).map((p) => p.slug)).toEqual(['frozen-chicken-wings']);
+    for (const { code } of LOCALES) {
+      expect(getDictionary(code).presets.pages['frozen-chicken-wings'].faqs.some((f) => f.a.includes('{PRE_MIN}')), code).toBe(true);
+    }
+
+    // Pizza: mini / personal 7–8" / 10–12" oven-style or 8 qt+ only.
+    const pizza = getDictionary('en').presets.pages['frozen-pizza'];
+    expect(pizza.sizeLabels.medium).toContain('7–8"');
+    expect(pizza.sizeLabels.large).toMatch(/10–12".*8 qt/);
+    expect(pizza.prepBody).toMatch(/8 to 8½ inches/);
+    expect(pizza.faqs.some((f) => /8 to 8½ inches/.test(f.a))).toBe(true);
+  });
+
   test('frozen labels exist in every locale and keep the oven templates’ placeholders', () => {
     for (const { code } of LOCALES) {
       const d = getDictionary(code).presets;
@@ -289,9 +358,9 @@ test.describe('food preset pages', () => {
       await page.goto(slug);
       await expect(page.locator('#pr-answer')).toHaveText(expectedAnswer('en', p));
       const internal = page.locator('#pr-internal');
-      if (p.internalF !== undefined) {
+      if (internalOf(p) !== undefined) {
         await expect(internal).toBeVisible();
-        await expect(internal).toContainText(`${p.internalF}°F`);
+        await expect(internal).toContainText(`${internalOf(p)}°F`);
       } else if (p.doneBy === 'crisp') {
         await expect(internal).toHaveText(en.presets.internalCrisp);
       } else {
@@ -305,6 +374,14 @@ test.describe('food preset pages', () => {
         await expect(alt).toHaveCount(0);
       }
       if (p.slug === 'burgers') await expect(internal).not.toContainText('130°F');
+      // Raw frozen products repeat /frozen's thermometer warning; nothing else shows it.
+      const raw = page.locator('#pr-raw');
+      if (isFrozen(p) && FROZEN_FOODS[frozenFood(p)].raw && internalOf(p) !== undefined) {
+        const c = Math.round(((internalOf(p)! - 32) * 5) / 9);
+        await expect(raw).toHaveText(en.frozenConverter.rawWarningTemplate.replace('{f}', String(internalOf(p))).replace('{c}', String(c)));
+      } else {
+        await expect(raw).toHaveCount(0);
+      }
       const oven = ovenOf(p);
       await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outF}°F (${oven.outC}°C`);
       await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outMinutes} min`);
@@ -313,20 +390,31 @@ test.describe('food preset pages', () => {
       await expect(page.locator('#pr-oven-fan')).toContainText(`${fan.outF}°F (${fan.outC}°C) for ${fan.outMinutes} min`);
     });
 
+    if (p.slug === 'frozen-tater-tots' || p.slug === 'frozen-chicken-nuggets') {
+      test(`${slug} widget and internal line follow the preset, not the frozen profile`, async ({ page }) => {
+        await page.goto(slug);
+        if (p.slug === 'frozen-tater-tots') await expect(page.locator('#afk-turns')).toContainText(en.frozenConverter.shake);
+        if (p.slug === 'frozen-chicken-nuggets') {
+          await expect(page.locator('#pr-internal')).toHaveText(fillPlaceholders(copy.internalLine!, values));
+          await expect(page.locator('#pr-raw')).toHaveCount(0);
+        }
+      });
+    }
+
     test(`${slug} widget is pre-filled with this food's oven equivalent, round-trips within 25°F and stays live`, async ({ page }) => {
       await page.goto(slug);
       const oven = ovenOf(p);
       await expect(page.locator('#afk-temp')).toHaveValue(String(oven.outF));
       await expect(page.locator('#afk-time')).toHaveValue(String(oven.outMinutes));
-      await expect(page.locator('#afk-food')).toHaveValue(food(p));
-      const back = computeAirFryerSetting({ ovenTemp: oven.outF!, unit: 'F', ovenMinutes: oven.outMinutes!, food: food(p), style: 'basket' });
+      await expect(page.locator('#afk-food')).toHaveValue(p.engine.food);
+      const back = forwardOf(p, oven.outF!, oven.outMinutes!);
       await expect(page.locator('#afk-out-main')).toHaveText(`${back.outF}°F`);
       await expect(page.locator('#afk-out-time')).toHaveText(String(back.outMinutes));
       expect(Math.abs(back.outF! - p.tempF), `${p.slug} round trip`).toBeLessThanOrEqual(25);
 
       // Editable and live: a different temperature recomputes without a button.
       await page.fill('#afk-temp', '350');
-      const edited = computeAirFryerSetting({ ovenTemp: 350, unit: 'F', ovenMinutes: oven.outMinutes!, food: food(p), style: 'basket' });
+      const edited = forwardOf(p, 350, oven.outMinutes!);
       await expect(page.locator('#afk-out-main')).toHaveText(`${edited.outF}°F`);
     });
 
@@ -345,7 +433,7 @@ test.describe('food preset pages', () => {
 
     test(`${slug} cross-links the flagship, /presets, /chart, its nearest temperature page and 3 related presets`, async ({ page }) => {
       await page.goto(slug);
-      for (const target of ['/oven-to-air-fryer', PRESETS_INDEX_PATH, '/chart']) {
+      for (const target of [toolHrefOf(p), PRESETS_INDEX_PATH, '/chart']) {
         await expect(page.locator(`.related-link a[href="${target}"]`)).toHaveCount(1);
       }
       const landing = nearestLanding(p);
@@ -456,7 +544,7 @@ test.describe('food presets: index, homepage and locales', () => {
         await expect(page.locator('.tool-header h1')).toHaveText(fillPlaceholders(dict.pages[p.slug as PresetSlug].heading, values));
         await expect(page.locator('#pr-answer')).toHaveText(expectedAnswer(l.code, p));
         await expect(page.locator('#afk-temp')).toHaveValue(String(ovenOf(p).outF));
-        await expect(page.locator('#afk-food')).toHaveValue(food(p));
+        await expect(page.locator('#afk-food')).toHaveValue(p.engine.food);
         await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', localizedUrl(l.code, slug));
         await expect(page.locator(`link[rel="alternate"][hreflang="${DEFAULT_LOCALE}"]`)).toHaveAttribute('href', localizedUrl(DEFAULT_LOCALE, slug));
         await expect(page.locator(`.related-link a[href="${localizedPath(l.code, PRESETS_INDEX_PATH)}"]`)).toHaveCount(1);

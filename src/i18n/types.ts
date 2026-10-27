@@ -15,6 +15,8 @@ export interface PresetCopy {
   cardDesc: string;
   /** Sizing-table row labels for this preset's PresetSizeIds. */
   sizeLabels: Partial<Record<PresetSizeId, string>>;
+  /** Replaces the shared internalTemplate on this page ({INT_F}, {INT_C}): e.g. nuggets are a heated-through check, not a kill step. */
+  internalLine?: string;
   /** Second internal-temperature line, required when the preset has internalAlt ({INT_ALT_F}, {INT_ALT_C}, {INT_ALT_TO_F}, {INT_ALT_TO_C}). */
   internalAltLine?: string;
   failureHeading: string;
@@ -318,7 +320,15 @@ export interface Dictionary {
     relatedChartLink: string;
     faqHeading: string;
     /** Frozen presets (engine.kind 'frozen') read these instead: the equivalent is the pack instruction, not an oven recipe. Same placeholders. */
-    frozen: { ovenHeading: string; ovenTemplate: string; fanTemplate: string; ovenNote: string; sizingHeaders: { size: string; airFryer: string; oven: string } };
+    frozen: {
+      ovenHeading: string;
+      ovenTemplate: string;
+      fanTemplate: string;
+      ovenNote: string;
+      sizingHeaders: { size: string; airFryer: string; oven: string };
+      /** Link to /frozen with this food preselected (replaces the flagship link). */
+      relatedFlagshipLink: string;
+    };
     pages: Record<PresetSlug, PresetCopy>;
   };
   presetsIndex: {

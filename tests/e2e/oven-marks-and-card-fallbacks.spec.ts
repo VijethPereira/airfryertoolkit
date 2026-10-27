@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 import { computeAirFryerSetting, gasMarkFor, GAS_MARKS, thermostatFor } from '../../src/lib/converter';
 import { TEMP_STEPS } from '../../src/lib/chart-data';
 import { TEMP_LANDINGS, tempLandingSlug } from '../../src/lib/temp-landings';
-import { HOME_FROZEN_CARDS, frozenCardSpec } from '../../src/lib/home-cards';
+import { HOME_FROZEN_CARDS, frozenCardEngineSpec } from '../../src/lib/home-cards';
+import { PRESETS } from '../../src/data/presets';
+import { presetPath, presetSpec, presetValues } from '../../src/lib/presets';
 import { LIVE_PAGES } from '../../src/site.config';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, OVEN_MARK_SCALE } from '../../src/i18n/locales';
@@ -68,14 +70,36 @@ test.describe('oven-dial marks per locale', () => {
 test.describe('homepage card fallbacks', () => {
   const frozenCards = HOME_FROZEN_CARDS.map((c) => ({ slug: c.href, food: c.food }));
 
-  test('frozen card specs come from the engine in every locale', async ({ page }) => {
-    // Pinned against the old hand-typed text for the card whose numbers did not change.
-    expect(frozenCardSpec(HOME_FROZEN_CARDS[0], 'en')).toBe('400°F · 15 min · shake ×2');
-    expect(frozenCardSpec(HOME_FROZEN_CARDS[2], 'en')).toMatch(/· 165°F core$/);
+  test('frozen card specs: the live preset’s own spec, else the engine spec, in every locale', async ({ page }) => {
+    // Engine spec (used until a card's page is live), pinned against the old hand-typed fries text.
+    expect(frozenCardEngineSpec(HOME_FROZEN_CARDS[0], 'en')).toBe('400°F · 15 min · shake ×2');
+    expect(frozenCardEngineSpec(HOME_FROZEN_CARDS[2], 'en')).toMatch(/· 165°F core$/);
     for (const { code } of LOCALES) {
       await page.goto(localizedPath(code, '/'));
       const specs = page.locator('#frozen .card-grid > .card .card-spec');
-      await expect(specs).toHaveText(HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, code)));
+      await expect(specs).toHaveText(
+        HOME_FROZEN_CARDS.map((c) => {
+          const preset = PRESETS.find((p) => presetPath(p.slug) === c.href);
+          return preset && LIVE_PAGES.has(c.href) ? presetSpec(preset, code) : frozenCardEngineSpec(c, code);
+        }),
+      );
+    }
+  });
+
+  test('a live frozen card shows the same numbers as its page’s answer line', async ({ page }) => {
+    const live = HOME_FROZEN_CARDS.filter((c) => LIVE_PAGES.has(c.href));
+    expect(live.length).toBe(HOME_FROZEN_CARDS.length);
+    await page.goto('/');
+    const cardTexts = await page.locator('#frozen .card-grid > .card .card-spec').allInnerTexts();
+    for (const [i, card] of HOME_FROZEN_CARDS.entries()) {
+      if (!LIVE_PAGES.has(card.href)) continue;
+      const preset = PRESETS.find((p) => presetPath(p.slug) === card.href)!;
+      const v = presetValues(preset);
+      await page.goto(card.href);
+      const answer = await page.locator('#pr-answer').innerText();
+      for (const n of (cardTexts[i].match(/\d+/g) ?? [])) expect(answer, `${card.href}: ${n} from "${cardTexts[i]}"`).toContain(n);
+      expect(cardTexts[i]).toContain(`${v.AF_F}°F`);
+      expect(cardTexts[i]).toContain(`${v.MIN} min`);
     }
   });
 

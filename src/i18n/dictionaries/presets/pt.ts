@@ -31,6 +31,7 @@ export const presets: Dictionary['presets'] = {
     fanTemplate: 'Embalagem para forno ventilado: {FAN_F}°F ({FAN_C}°C) por {FAN_MIN} min',
     ovenNote: 'Sua embalagem traz outros números? O conversor abaixo já está com este alimento: digite a temperatura e o tempo da embalagem.',
     sizingHeaders: { size: 'Tamanho', airFryer: 'Air fryer', oven: 'Diz a embalagem' },
+    relatedFlagshipLink: 'Conversor de embalagens congeladas',
   },
   pages: {
     'chicken-breast': {
@@ -952,6 +953,467 @@ export const presets: Dictionary['presets'] = {
         {
           q: 'Qual o equivalente no forno para batata rústica?',
           a: '{OVEN_F}°F por cerca de {OVEN_MIN} minutos numa assadeira no forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos com ventilação.',
+        },
+      ],
+    },
+    'frozen-fries': {
+      label: 'Batata frita congelada',
+      metaTitle: 'Batata frita congelada na air fryer: tempo, temperatura e embalagem',
+      metaDescription:
+        'Batata frita congelada na air fryer: {AF_F}°F por {MIN} minutos, agitando {SHAKES} vezes, direto do pacote. Da palito fina à rústica grossa, e como converter o que diz a embalagem.',
+      metaKeywords: 'batata frita congelada air fryer, tempo batata congelada air fryer, quanto tempo batata frita congelada na air fryer',
+      heading: 'Batata frita congelada na air fryer',
+      subDesc:
+        'Batata de pacote feita direto do congelador, sem descongelar e sem óleo extra. A configuração, quando agitar e como passar as instruções da embalagem para a air fryer.',
+      cardDesc: 'Direto do pacote, uma camada, duas agitadas.',
+      sizeLabels: { thin: 'Batata palito fina', medium: 'Batata palito comum', thick: 'Batata grossa ou rústica' },
+      failureHeading: 'Por que a batata congelada fica mole',
+      failureBody:
+        'Toda batata congelada tem uma camada fina de gelo, e nos primeiros minutos esse gelo derrete e vira vapor. Com espaço em volta de cada pedaço, o ventilador leva o vapor embora e a superfície doura no óleo em que a fábrica já fritou as batatas. Se você despeja o pacote inteiro, o vapor fica preso: as batatas de baixo ficam na própria água e saem pálidas e murchas, não importa quanto tempo fiquem lá. Encha o cesto no máximo até a metade e faça um pacote grande em duas levas. As {SHAKES} agitadas fazem o resto: soltam as batatas que congelaram grudadas e levam a camada úmida de baixo para o ar quente.',
+      workedExampleHeading: 'Exemplo prático: da embalagem para a air fryer',
+      workedExampleTemplate:
+        'Um pacote típico de batata palito diz {OVEN_F}°F por {OVEN_MIN} minutos no forno. Uma air fryer de cesto não chega a essa temperatura, então trabalha a {AF_F}°F e o tempo cai para {MIN} minutos, porque o ventilador leva calor às batatas muito mais rápido que uma assadeira. Preaqueça {PREHEAT} minutos, coloque meio pacote e agite mais ou menos a um terço e a dois terços do tempo. A palito fina fica pronta em cerca de {THIN_MIN} minutos; a grossa precisa de uns {THICK_MIN}. Um pacote europeu feito para forno ventilado indica {FAN_F}°F ({FAN_C}°C) por {FAN_MIN} minutos e chega à mesma configuração da air fryer.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'A batata congelada já vem cozida, então o que você busca é cor e crocância. Quebre uma: por fora deve estar dourada e estalar, por dentro macia e quente. Se o fundo do cesto ainda estiver pálido, agite mais uma vez e dê dois minutos. Cortes grossos parecem prontos antes de o centro amolecer, então prove uma batata grossa antes de tirar a leva.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Não descongele e solte os blocos congelados antes de despejar. O óleo é opcional porque as batatas já vêm pré-fritas, embora um spray leve ajude as onduladas a dourar por igual. Coloque sal depois de pronto, não antes, para o sal não puxar mais água.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a batata frita congelada na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para batata comum, agitando {SHAKES} vezes. A palito fina leva uns {THIN_MIN} minutos e a grossa uns {THICK_MIN}.',
+        },
+        {
+          q: 'Preciso descongelar a batata antes?',
+          a: 'Não. Faça direto do congelador. Ao descongelar, a superfície fica molhada e mole, e depois nunca fica bem crocante.',
+        },
+        {
+          q: 'Batata congelada precisa de óleo na air fryer?',
+          a: 'Normalmente não. Ela é pré-frita antes de congelar, então doura sozinha. Um spray leve ajuda batatas temperadas ou onduladas a pegar cor por igual.',
+        },
+        {
+          q: 'Por que minha batata congelada continua mole?',
+          a: 'Tem batata demais no cesto. O gelo de cada uma vira vapor e um cesto cheio prende esse vapor. Faça meio pacote por vez e agite quando o tempo indicar.',
+        },
+        {
+          q: 'Meu pacote diz {OVEN_F}°F por {OVEN_MIN} minutos. O que eu coloco?',
+          a: '{AF_F}°F por cerca de {MIN} minutos numa air fryer de cesto. O conversor desta página aceita os números de qualquer pacote, inclusive os de forno ventilado.',
+        },
+      ],
+    },
+    'frozen-chicken-wings': {
+      label: 'Asinhas de frango congeladas',
+      metaTitle: 'Asinhas de frango congeladas na air fryer: cruas e pré-cozidas',
+      metaDescription:
+        'Asinhas de frango cruas congeladas na air fryer: {AF_F}°F por {MIN} minutos, agitando {SHAKES} vezes, prontas a {INT_F}°F. Asinhas pré-cozidas ou com molho levam cerca de {PRE_MIN} minutos.',
+      metaKeywords: 'asinha de frango congelada air fryer, asas congeladas air fryer tempo, como fazer asinha congelada na air fryer',
+      heading: 'Asinhas de frango congeladas na air fryer',
+      subDesc:
+        'Asinhas cruas feitas direto do congelador, sem descongelar, mais a configuração curta para asinhas já cozidas ou com molho. Como soltar o bloco e deixar a pele crocante.',
+      cardDesc: 'Cruas e congeladas: solte na primeira agitada.',
+      sizeLabels: { small: 'Asinhas pequenas, meio da asa e coxinha da asa', medium: 'Asinhas cortadas comuns', large: 'Asas grandes ou inteiras' },
+      failureHeading: 'Por que asinhas congeladas cozinham de forma desigual',
+      failureBody:
+        'As asinhas cruas costumam congelar grudadas em blocos dentro do pacote. Onde duas asinhas se tocam, nenhuma das faces recebe ar quente, então esse lado fica pálido e a carne embaixo fica atrás do resto. Se você deixa um bloco inteiro, sai uma asinha que parece pronta por cima e está crua onde estava grudada. A pele tem um segundo problema: asinhas congeladas trazem gelo, e a água que soltam precisa sair antes de a gordura sob a pele derreter e deixá-la crocante. Por isso esta configuração é longa e constante, não curta e forte. Separe as asinhas com uma pinça na primeira agitada, espalhe-as e deixe a segunda virá-las para que cada lado passe perto do ventilador.',
+      workedExampleHeading: 'Exemplo prático: um pacote de asinhas cruas congeladas',
+      workedExampleTemplate:
+        'Um pacote de asinhas cruas cortadas manda assar direto do congelador a {OVEN_F}°F por {OVEN_MIN} minutos. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, coloque em uma única camada e agite duas vezes; na primeira, separe as asinhas que ainda estiverem congeladas juntas. As pequenas ficam prontas em cerca de {SMALL_MIN} minutos e as grandes em uns {LARGE_MIN}. Passe no molho depois de prontas, não antes, ou o açúcar queima muito antes de a carne ficar segura.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Asinhas cruas precisam chegar a {INT_F}°F ({INT_C}°C) junto ao osso, então meça a coxinha da asa mais grossa com um termômetro; um pacote congelado é justamente o caso em que a cor engana, porque a pele pode dourar enquanto o centro ainda está frio. Acima dessa temperatura as asinhas aguentam bem, e muita gente deixa mais tempo para uma textura mais solta e macia. A pele deve estar crocante e com bolhas, sem partes moles e pálidas onde se tocavam.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Leia o pacote primeiro: asinhas cruas e já cozidas parecem iguais, mas precisam de configurações diferentes. Bata o pacote na bancada para quebrar os blocos grandes antes de abrir. Não precisa de óleo, a pele tem gordura de sobra. Use o tempero seco depois de separar as asinhas, na primeira agitada, para ele grudar na superfície já descongelada.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam as asinhas cruas congeladas na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, agitando {SHAKES} vezes, até chegar a {INT_F}°F. As pequenas levam uns {SMALL_MIN} minutos e as grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'E as asinhas congeladas já cozidas ou com molho?',
+          a: 'Só precisam esquentar, não cozinhar: cerca de {PRE_MIN} minutos a {PRE_F}°F ({PRE_C}°C), agitando uma vez. Foram cozidas na fábrica, então não há risco de frango cru; tire quando o molho estiver borbulhando e pegajoso.',
+        },
+        {
+          q: 'Preciso descongelar as asinhas?',
+          a: 'Não. A configuração acima é para asinhas direto do congelador. Só separe na primeira agitada.',
+        },
+        {
+          q: 'Quando coloco o molho?',
+          a: 'Depois de prontas. Misture as asinhas quentes com o molho numa tigela e, se quiser que ele firme, volte com elas por um ou dois minutos.',
+        },
+        {
+          q: 'Posso usar a configuração de asinha fresca para a congelada?',
+          a: 'Não. As frescas cozinham mais rápido e mais quentes; as congeladas precisam de tempo extra para o gelo sair e o centro chegar à temperatura.',
+        },
+      ],
+    },
+    'frozen-chicken-breast': {
+      label: 'Peito de frango congelado',
+      metaTitle: 'Peito de frango congelado na air fryer: tempo e temperatura segura',
+      metaDescription:
+        'Peito de frango cru direto do congelador na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, pronto a {INT_F}°F. Tempos por peso e equivalente no forno.',
+      metaKeywords: 'peito de frango congelado air fryer, quanto tempo peito congelado air fryer, frango congelado na air fryer',
+      heading: 'Peito de frango congelado na air fryer',
+      subDesc:
+        'Peitos crus sem osso feitos direto do congelador, sem descongelar. Uma configuração mais baixa e mais lenta que a do frango fresco, e por que aqui o termômetro não é opcional.',
+      cardDesc: 'Mais baixo e mais lento que o fresco: confira com termômetro.',
+      sizeLabels: { small: 'Pequeno, 150 g (5–6 oz)', medium: 'Médio, 220 g (7–8 oz)', large: 'Grande, 300 g (10–12 oz)' },
+      failureHeading: 'Por que o lado de fora resseca antes de o centro ficar seguro',
+      failureBody:
+        'Um peito congelado começa com um bloco de gelo no meio. O calor precisa descongelar o centro antes de conseguir cozinhá-lo, enquanto o lado de fora continua recebendo calor o tempo todo. Se você usa a configuração forte de um peito fresco, a superfície fica borrachuda enquanto o centro ainda está abaixo de uma temperatura segura. Por isso esta configuração é mais baixa e mais longa que a do frango fresco: uma temperatura mais suave diminui a diferença entre fora e dentro, e o centro chega a uma leitura segura antes de as bordas ressecarem. O que mais importa é a espessura, então cozinhe juntos pedaços de tamanho parecido e meça o maior.',
+      workedExampleHeading: 'Exemplo prático: dois peitos de um pacote',
+      workedExampleTemplate:
+        'Um pacote de peitos crus congelados um a um diz {OVEN_F}°F por {OVEN_MIN} minutos no forno. Numa air fryer de cesto isso vira {AF_F}°F por cerca de {MIN} minutos para um peito médio. Preaqueça {PREHEAT} minutos, coloque dois peitos deitados com espaço entre eles e vire aos {FLIP} minutos, que é também quando você tempera, porque a superfície já descongelada segura o tempero. Os pequenos costumam ficar prontos em uns {SMALL_MIN} minutos; os grandes precisam de uns {LARGE_MIN}. Meça o mais grosso antes de tirar qualquer um.',
+      donenessHeading: 'Como saber se está pronto',
+      donenessBody:
+        'Aqui só o termômetro é confiável: {INT_F}°F ({INT_C}°C) na parte mais grossa, com a sonda entrando pela lateral para a ponta ficar bem no meio. Um peito congelado pode estar dourado e firme por fora com o centro ainda rosado e frio, e cortar para olhar deixa o suco escapar. Se um peito estiver pronto e outro não, tire o pronto e dê mais alguns minutos ao outro. Deixe descansar três minutos antes de fatiar.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Separe os peitos que congelaram juntos; passe alguns segundos sob água fria se não soltarem. Tire a camada de gelo e seque a superfície. Pincele um pouco de óleo para o tempero grudar depois, mas guarde as especiarias para a hora de virar, porque elas escorregam numa superfície congelada.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva um peito de frango congelado na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para um peito médio, virando aos {FLIP} minutos. Os pequenos levam uns {SMALL_MIN} minutos e os grandes uns {LARGE_MIN}. Termine sempre conferindo com termômetro.',
+        },
+        {
+          q: 'É seguro fazer peito de frango direto do congelador?',
+          a: 'Sim, desde que a parte mais grossa chegue a {INT_F}°F ({INT_C}°C). Só demora mais que o fresco, e a configuração mais baixa evita que o lado de fora resseque primeiro.',
+        },
+        {
+          q: 'Por que não usar a configuração do peito fresco?',
+          a: 'O frango fresco vai mais quente e mais rápido. Num peito congelado isso doura o lado de fora muito antes de o centro descongelar e cozinhar.',
+        },
+        {
+          q: 'Quando devo temperar?',
+          a: 'Na hora de virar. Nesse momento a superfície já descongelou e o tempero gruda em vez de escorregar no gelo.',
+        },
+        {
+          q: 'Posso fazer peito empanado congelado do mesmo jeito?',
+          a: 'Veja a embalagem. Muitos empanados são vendidos crus e seguem a página de tiras de frango congeladas; os já cozidos só precisam esquentar.',
+        },
+      ],
+    },
+    'frozen-chicken-nuggets': {
+      label: 'Nuggets de frango congelados',
+      metaTitle: 'Nuggets de frango congelados na air fryer: tempo e temperatura',
+      metaDescription:
+        'Nuggets de frango congelados na air fryer: {AF_F}°F por {MIN} minutos, agitando uma vez, quentes por dentro a {INT_F}°F. Do frango pipoca aos dinossauros, com a conversão da embalagem.',
+      metaKeywords: 'nuggets congelados air fryer, nuggets air fryer tempo, quanto tempo nuggets congelados na air fryer',
+      heading: 'Nuggets de frango congelados na air fryer',
+      subDesc:
+        'Nuggets empanados já cozidos, direto do pacote. Você está reaquecendo, não cozinhando, então o objetivo é uma casquinha crocante sem um miolo ressecado.',
+      cardDesc: 'Já vêm cozidos: você só reaquece.',
+      sizeLabels: { small: 'Frango pipoca ou mini bocados', medium: 'Nuggets comuns', large: 'Formatos grandes ou nuggets de dinossauro' },
+      internalLine: 'Quentes por dentro a {INT_F}°F ({INT_C}°C) no centro; já vêm cozidos',
+      failureHeading: 'Por que os nuggets ficam secos e duros',
+      failureBody:
+        'Quase todo nugget congelado do mercado é totalmente cozido antes de congelar. O frango de dentro já está pronto; o que a air fryer precisa fazer é deixar a casquinha crocante e devolver o calor ao centro. Isso muda o que pode dar errado. O perigo não é ficar cru, e sim passar do ponto: nuggets são pequenos, então dois minutos a mais secam o frango até ele ficar firme e fibroso, e a casquinha passa de crocante a dura. Trate como um reaquecimento curto. Use o tempo desta página, agite o cesto uma vez na metade para virar os pedaços que estavam deitados e comece a olhar um ou dois minutos antes. Nuggets amontoados em duas camadas também se cozinham no vapor uns dos outros, e a casquinha de baixo fica mole.',
+      workedExampleHeading: 'Exemplo prático: meio pacote para dois',
+      workedExampleTemplate:
+        'Um pacote de nuggets empanados diz {OVEN_F}°F por {OVEN_MIN} minutos na assadeira. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, espalhe uns vinte nuggets em uma camada e agite uma vez na metade. O frango pipoca fica pronto em cerca de {SMALL_MIN} minutos e os dinossauros grandes em uns {LARGE_MIN}. Se a embalagem trouxer uma configuração para forno ventilado, {FAN_F}°F por {FAN_MIN} minutos, o resultado é a mesma configuração da air fryer.',
+      donenessHeading: 'Como saber se estão prontos',
+      donenessBody:
+        'Como o frango já está cozido, o que você confere é se o centro está quente, não se chegou a uma temperatura de segurança: {INT_F}°F ({INT_C}°C) no nugget mais grosso se quiser um número, ou abra um e procure vapor de ponta a ponta. A casquinha deve estar dourada por igual e estalar ao apertar. Se estiver dura em vez de crocante, a próxima leva precisa de um ou dois minutos a menos.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Confira se a embalagem diz totalmente cozido. Alguns empanados de frango são vendidos crus, e esses seguem a página de tiras de frango congeladas, com termômetro. Não descongele nem coloque óleo: a casquinha foi frita na fábrica. Deixe um pouco de espaço entre os nuggets para o ar chegar a todos os lados.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam os nuggets congelados na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, agitando uma vez. O frango pipoca leva uns {SMALL_MIN} minutos e os formatos grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Nuggets de frango congelados já vêm cozidos?',
+          a: 'A maioria sim. A embalagem vai dizer “totalmente cozido”. Se disser “cru” ou “não cozido”, cozinhe até {INT_F}°F com termômetro, como frango cru.',
+        },
+        {
+          q: 'Preciso virar os nuggets?',
+          a: 'Uma agitada na metade basta. Pedaços pequenos se viram sozinhos quando você agita; não precisa virar um por um.',
+        },
+        {
+          q: 'Por que meus nuggets ficam duros?',
+          a: 'Ficaram tempo demais. Nuggets só precisam reaquecer, então dois minutos a mais ressecam. Tente o tempo mais curto na próxima leva.',
+        },
+        {
+          q: 'Posso fazer nuggets e batata juntos?',
+          a: 'Sim, se o cesto não estiver cheio. Comece pela batata e coloque os nuggets nos últimos {MIN} minutos para os dois terminarem juntos.',
+        },
+      ],
+    },
+    'frozen-tater-tots': {
+      label: 'Tater tots congelados',
+      metaTitle: 'Tater tots congelados na air fryer: tempo, temperatura e crocância',
+      metaDescription:
+        'Tater tots congelados na air fryer: {AF_F}°F por {MIN} minutos, agitando {SHAKES} vezes. Dos mini tots às coroas de batata, crocantes por fora e quentes por dentro.',
+      metaKeywords: 'tater tots air fryer, tater tots congelados air fryer tempo, bolinhas de batata congeladas air fryer',
+      heading: 'Tater tots congelados na air fryer',
+      subDesc:
+        'Tots e bolinhas de batata de pacote feitos direto do congelador. A configuração, as agitadas e como conseguir um centro quente dentro da crocância.',
+      cardDesc: 'Agite duas vezes para cada lado criar casquinha.',
+      sizeLabels: { small: 'Mini tots', medium: 'Tater tots comuns', large: 'Coroas de batata ou bolinhas grandes' },
+      failureHeading: 'Por que os tots ficam crocantes por fora e frios por dentro',
+      failureBody:
+        'Um tot é um cilindro pequeno de batata ralada bem prensada, muito mais denso que uma batata frita do mesmo tamanho. O lado de fora frita rápido no ar quente e forma casquinha em poucos minutos, mas os fios apertados do centro demoram a esquentar, então um tot que parece dourado ainda pode estar morno e pastoso por dentro. Se você aumenta o calor para apressar, a casquinha escurece antes de o centro alcançar. A saída é uma configuração constante e tempo suficiente, com o cesto agitado duas vezes para os tots rolarem para uma face nova a cada vez. Como são redondos, eles rolam em vez de ficar deitados, e a agitada faz a virada por você.',
+      workedExampleHeading: 'Exemplo prático: um pacote família',
+      workedExampleTemplate:
+        'Um pacote de tots diz {OVEN_F}°F por {OVEN_MIN} minutos no forno, virando uma vez. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, coloque o suficiente para cobrir o fundo em uma camada e agite duas vezes, mais ou menos a um terço e a dois terços do tempo. Os mini tots ficam prontos em cerca de {SMALL_MIN} minutos e as coroas de batata em uns {LARGE_MIN}. Para muita gente, faça em duas levas em vez de amontoar.',
+      donenessHeading: 'Como saber se estão prontos',
+      donenessBody:
+        'Os tots vêm pré-cozidos, então você julga a crocância e o calor. Devem estar bem dourados por todo lado e soar ocos quando batem um no outro no cesto. Morda um do meio da leva: o interior deve estar macio, fofo e quente. Se o lado de fora estiver pronto mas o centro ainda frio, não aumente o calor; dê mais dois minutos e agite de novo.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Faça direto do congelador e solte os que estiverem grudados. Não precisam de óleo, mas um spray leve dá uma casquinha mais escura e uniforme. Tempere com sal ou uma mistura de temperos na última agitada ou logo depois de pronto, quando a superfície ainda está um pouco oleosa e segura o tempero.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam os tater tots na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, agitando {SHAKES} vezes. Os mini tots levam uns {SMALL_MIN} minutos e as coroas grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Devo agitar ou virar os tater tots?',
+          a: 'Agitar. Os tots são redondos e rolam para outra face quando você agita o cesto, então duas agitadas douram por igual sem virar um por um.',
+        },
+        {
+          q: 'Por que meus tots ficam frios no meio?',
+          a: 'São mais densos que a batata frita e precisam do tempo todo. Se você tira assim que parecem dourados, o centro prensado fica frio.',
+        },
+        {
+          q: 'Tater tots precisam de óleo?',
+          a: 'Não, são pré-fritos antes de congelar. Um spray leve só adiciona cor.',
+        },
+        {
+          q: 'Posso fazer tots recheados na air fryer?',
+          a: 'Sim. Faça os tots por completo, coloque queijo e coberturas e volte por um ou dois minutos até o queijo derreter.',
+        },
+      ],
+    },
+    'frozen-pizza': {
+      label: 'Pizza congelada',
+      metaTitle: 'Pizza congelada na air fryer: tempo, temperatura e que tamanho cabe',
+      metaDescription:
+        'Pizza congelada na air fryer: {AF_F}°F por {MIN} minutos para uma pizza individual. Que tamanhos cabem no cesto e como conseguir uma massa crocante sob o queijo derretido.',
+      metaKeywords: 'pizza congelada air fryer, pizza congelada air fryer tempo, pizza individual air fryer',
+      heading: 'Pizza congelada na air fryer',
+      subDesc:
+        'Pizzas congeladas individuais e mini, feitas direto do congelador. A configuração, que tamanhos cabem no seu cesto e como evitar que a cobertura fique pronta antes da massa.',
+      cardDesc: 'A individual cabe no cesto; a família não.',
+      sizeLabels: { small: 'Mini pizza, 13 cm (5")', medium: 'Pizza individual, 18–20 cm (7–8")', large: '25–30 cm (10–12"): só tipo forno ou 8 qt ou mais' },
+      failureHeading: 'Por que a cobertura fica pronta antes da massa',
+      failureBody:
+        'Numa air fryer o calor vem de cima e o ventilador o sopra direto sobre a pizza. Queijo e cobertura ficam mais perto da resistência e começam a dourar quase na hora, enquanto a massa embaixo ainda é massa congelada apoiada no cesto. Se você coloca muito quente, sai calabresa queimada sobre uma massa pálida e mole. Uma configuração um pouco mais baixa do que você esperaria deixa o calor descer pela pizza, e a massa fica crocante quando o queijo já derreteu e borbulhou. O tamanho é a outra metade: uma pizza encostada nas paredes bloqueia o ar e a massa cozinha no vapor em vez de dourar. Ela precisa ficar deitada, com folga em volta da borda.',
+      workedExampleHeading: 'Exemplo prático: uma pizza individual',
+      workedExampleTemplate:
+        'A caixa de uma pizza individual diz {OVEN_F}°F por {OVEN_MIN} minutos, direto na grade do forno. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos para a massa começar numa superfície quente, coloque a pizza deitada e não mexa; não há nada para virar. Olhe embaixo no fim do tempo mais curto levantando uma borda com a espátula. Uma mini pizza fica pronta em cerca de {SMALL_MIN} minutos; uma grande numa air fryer tipo forno precisa de uns {LARGE_MIN}.',
+      donenessHeading: 'Como saber se está pronta',
+      donenessBody:
+        'Levante a borda: a parte de baixo deve estar dourada e firme, e a fatia deve ficar reta em vez de cair. O queijo precisa estar todo derretido e borbulhando no centro, não só nas bordas. Se a cobertura estiver pronta mas a massa ainda mole, cubra a pizza de leve com papel-alumínio e dê mais dois minutos.',
+      prepHeading: 'Cabe?',
+      prepBody:
+        'Meça o cesto antes de comprar. Um cesto redondo de 5 qt tem por dentro só uns 20–22 cm (8 a 8½ polegadas) de largura, então uma pizza individual de 18 a 20 cm cabe com um pouco de folga. Uma de 25 ou 30 cm não cabe: precisa de uma air fryer tipo forno ou de um cesto de uns 8 qt ou mais. Tire toda a embalagem, inclusive o disco de papelão.',
+      faqs: [
+        {
+          q: 'Quanto tempo leva a pizza congelada na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F para uma pizza individual de 18–20 cm. Uma mini de 13 cm leva uns {SMALL_MIN} minutos.',
+        },
+        {
+          q: 'Que tamanho de pizza congelada cabe na air fryer?',
+          a: 'Num cesto de 5 qt, uns 20 cm no máximo, porque por dentro ele tem só uns 20–22 cm. Uma pizza de 25–30 cm precisa de uma air fryer tipo forno ou de um cesto de 8 qt ou mais; senão, corte ao meio e faça em duas vezes.',
+        },
+        {
+          q: 'Preciso preaquecer para a pizza congelada?',
+          a: 'Sim, por {PREHEAT} minutos. Um cesto quente dá vantagem à massa congelada para ela dourar antes de o queijo passar do ponto.',
+        },
+        {
+          q: 'Por que a massa da minha pizza fica mole?',
+          a: 'A pizza é grande demais para o cesto e o ar não circula, ou o papelão ficou embaixo. Ela precisa ficar deitada e com espaço nas bordas.',
+        },
+        {
+          q: 'Devo virar a pizza congelada?',
+          a: 'Não. A cobertura cai. Deixe deitada e olhe a parte de baixo no fim do tempo mais curto.',
+        },
+      ],
+    },
+    'frozen-fish-sticks': {
+      label: 'Iscas de peixe congeladas',
+      metaTitle: 'Iscas de peixe congeladas na air fryer: tempo e temperatura',
+      metaDescription:
+        'Iscas de peixe congeladas na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, prontas a {INT_F}°F. Iscas, bocados e filés empanados de pacote.',
+      metaKeywords: 'iscas de peixe congeladas air fryer, peixe empanado congelado air fryer, fish sticks air fryer tempo',
+      heading: 'Iscas de peixe congeladas na air fryer',
+      subDesc:
+        'Iscas de peixe, fish sticks e filés empanados feitos direto do congelador. A configuração, uma virada com cuidado e como manter o empanado preso ao peixe.',
+      cardDesc: 'Vire com cuidado: o empanado firma antes do peixe.',
+      sizeLabels: { small: 'Bocados ou mini iscas', medium: 'Iscas de peixe', large: 'Filés empanados ou à milanesa' },
+      failureHeading: 'Por que o empanado rasga e o peixe desmancha',
+      failureBody:
+        'Uma isca de peixe é um bloco de peixe branco e lascado preso só pelo empanado. Na air fryer, a farinha de rosca firma e doura rápido na face voltada para o ventilador, enquanto o peixe por dentro ainda está mole e o empanado de baixo continua úmido contra o cesto. Se você vira cedo demais, a parte de baixo fica presa na grade, o empanado arranca e o peixe quebra. Se vira sem cuidado, acontece o mesmo. Espere a metade do tempo, quando a base já firmou, e passe uma espátula fina ou uma pinça por baixo de cada isca para girá-la de uma vez. Filés à milanesa com massa são ainda mais frágeis que os empanados, então um pouco de óleo no cesto ajuda a soltar.',
+      workedExampleHeading: 'Exemplo prático: uma caixa de iscas de peixe',
+      workedExampleTemplate:
+        'Uma caixa de iscas de peixe empanadas diz {OVEN_F}°F por {OVEN_MIN} minutos no forno, virando uma vez. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, coloque as iscas em uma camada com um pequeno espaço entre elas e vire aos {FLIP} minutos. Os bocados precisam de uns {SMALL_MIN} minutos; os filés empanados grossos, de uns {LARGE_MIN}. Se a caixa trouxer uma configuração para forno ventilado, {FAN_F}°F por {FAN_MIN} minutos, a configuração da air fryer é a mesma.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'O empanado deve estar dourado e crocante dos dois lados, e o peixe por dentro branco, opaco e soltando em lascas ao apertar com um garfo. Um termômetro no centro da peça mais grossa deve marcar {INT_F}°F ({INT_C}°C). Se a segunda face ainda estiver pálida, faltam um ou dois minutos; uma isca que dobra em vez de ficar reta não está quente por dentro.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Faça direto do congelador; iscas descongeladas amolecem e perdem o empanado. Passe um pouco de óleo no cesto ou use um papel perfurado para a farinha de rosca não grudar. Separe as iscas congeladas juntas antes de colocar, porque separar depois rasga o empanado.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam as iscas de peixe na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, virando aos {FLIP} minutos. Os bocados levam uns {SMALL_MIN} minutos e os filés empanados uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso virar as iscas de peixe?',
+          a: 'Sim, uma vez na metade e com cuidado. Antes disso a parte de baixo está mole demais para levantar inteira.',
+        },
+        {
+          q: 'Por que o empanado gruda no cesto?',
+          a: 'A base ainda estava úmida na hora de virar ou o cesto estava seco. Passe um pouco de óleo e espere a metade para virar.',
+        },
+        {
+          q: 'Iscas de peixe precisam de óleo?',
+          a: 'No peixe não; o empanado já vem pré-frito. Um pouco de óleo no cesto evita que grudem.',
+        },
+        {
+          q: 'Posso fazer filés à milanesa com massa do mesmo jeito?',
+          a: 'Sim, por cerca de {LARGE_MIN} minutos. A massa é mais mole que a farinha de rosca, então use papel e vire com uma espátula larga.',
+        },
+      ],
+    },
+    'frozen-chicken-tenders': {
+      label: 'Tiras de frango congeladas',
+      metaTitle: 'Tiras de frango congeladas na air fryer: cruas ou cozidas?',
+      metaDescription:
+        'Tiras de frango empanadas congeladas na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, conferidas a {INT_F}°F. Como saber pela embalagem se são cruas ou cozidas.',
+      metaKeywords: 'tiras de frango congeladas air fryer, frango empanado congelado air fryer, chicken tenders congelado air fryer',
+      heading: 'Tiras de frango congeladas na air fryer',
+      subDesc:
+        'Tiras empanadas, chicken tenders e dedinhos de frango do congelador. A configuração, a virada e a única linha da embalagem que decide quanto cuidado você precisa ter.',
+      cardDesc: 'Leia a embalagem: muitas são vendidas cruas.',
+      sizeLabels: { small: 'Tiras finas ou dedinhos de frango', medium: 'Tiras empanadas comuns', large: 'Tiras grossas ou caseiras' },
+      failureHeading: 'A embalagem diz cru, o empanado diz pronto',
+      failureBody:
+        'Tiras empanadas vêm em dois tipos que parecem idênticos no pacote. Umas são totalmente cozidas e só precisam reaquecer. Muitas outras, principalmente as de marca própria e as caseiras, são frango cru num empanado já dourado, e a embalagem diz isso em letra miúda: não cozido, cozinhar completamente ou cru. Esse empanado foi frito só o bastante para firmar, então parece dourado antes de a air fryer começar, e é fácil tirar quando parece pronto com o frango ainda cru por dentro. Uma tira também é mais grossa que um nugget, então o centro demora mais para chegar à temperatura. Trate todo pacote como cru, a não ser que diga claramente totalmente cozido, e use um termômetro na tira mais grossa.',
+      workedExampleHeading: 'Exemplo prático: um pacote de tiras empanadas cruas',
+      workedExampleTemplate:
+        'Um pacote de tiras empanadas não cozidas diz {OVEN_F}°F por {OVEN_MIN} minutos, virando uma vez. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, coloque de seis a oito tiras deitadas sem encostar e vire aos {FLIP} minutos. Dedinhos de frango finos levam uns {SMALL_MIN} minutos; tiras grossas caseiras precisam de uns {LARGE_MIN}. Meça a mais grossa antes de servir; as já cozidas podem sair alguns minutos antes.',
+      donenessHeading: 'Como saber se estão prontas',
+      donenessBody:
+        'Para tiras cruas, {INT_F}°F ({INT_C}°C) na mais grossa, com a sonda entrando pela ponta para ficar bem no meio. A cor do empanado aqui não diz nada, porque ele foi dourado antes de congelar. Tiras já cozidas só precisam estar quentes de ponta a ponta. Nos dois casos o empanado deve ficar crocante dos dois lados, sem partes moles onde se tocavam.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Procure primeiro a linha de preparo na embalagem e veja se diz cru ou totalmente cozido. Não descongele. Deixe espaço entre as tiras e, se o empanado parecer seco e farinhento, dê um spray leve de óleo. Lave as mãos depois de mexer em frango empanado cru, mesmo congelado.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam as tiras de frango congeladas na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, virando aos {FLIP} minutos. As finas levam uns {SMALL_MIN} minutos e as grossas uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Como sei se as tiras congeladas são cruas?',
+          a: 'A embalagem diz. Procure “não cozido”, “cru” ou “cozinhar completamente” perto das instruções. Se não estiver claro, trate como cru e use um termômetro.',
+        },
+        {
+          q: 'A que temperatura as tiras cruas devem chegar?',
+          a: '{INT_F}°F ({INT_C}°C) na peça mais grossa, medida com termômetro, não pela cor.',
+        },
+        {
+          q: 'Qual a diferença entre tiras e nuggets?',
+          a: 'Nuggets quase sempre vêm cozidos e são pequenos. Tiras são mais grossas e muitas vezes cruas, então precisam de mais tempo e de termômetro.',
+        },
+        {
+          q: 'Preciso virar as tiras congeladas?',
+          a: 'Sim, uma vez aos {FLIP} minutos, para o lado encostado no cesto também ficar crocante.',
+        },
+      ],
+    },
+    'frozen-hash-browns': {
+      label: 'Hash browns congelados',
+      metaTitle: 'Hash browns congelados na air fryer: rösti, tempo e temperatura',
+      metaDescription:
+        'Hash browns congelados na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}. Das mini redondas às mais grossas, douradas dos dois lados sem grudar.',
+      metaKeywords: 'hash brown congelado air fryer, batata rösti congelada air fryer, hash brown air fryer tempo',
+      heading: 'Hash browns congelados na air fryer',
+      subDesc:
+        'Discos e redondinhas de batata ralada do congelador. A configuração, a única virada e como dourar as duas faces em vez de uma.',
+      cardDesc: 'Discos achatados: uma virada na metade.',
+      sizeLabels: { small: 'Mini redondas ou bocados', medium: 'Discos comuns', large: 'Discos grossos ou grandes' },
+      failureHeading: 'Por que uma face fica pálida e gruda',
+      failureBody:
+        'Um hash brown é achatado, então apoia uma face inteira na grade do cesto. A face de cima recebe todo o ar do ventilador e doura, enquanto a de baixo recebe bem menos ar e fica pálida. Agitar não resolve, porque um disco achatado só desliza sobre o mesmo lado. A batata ralada também solta amido ao esquentar, e num cesto seco esse amido cola a base no metal, então a casquinha arranca quando você finalmente tenta mexer. A solução é uma única virada na metade, com espátula, e uma película fina de óleo no cesto ou nos discos para o amido dourar em vez de grudar. Depois da virada, a face pálida fica de frente para o ventilador e alcança a outra.',
+      workedExampleHeading: 'Exemplo prático: café da manhã para quatro',
+      workedExampleTemplate:
+        'Uma caixa de hash browns diz {OVEN_F}°F por {OVEN_MIN} minutos, virando uma vez. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, coloque quatro discos deitados sem sobrepor e vire aos {FLIP} minutos. As mini redondas precisam de uns {SMALL_MIN} minutos e os discos grossos de uns {LARGE_MIN}. Não sobra espaço para mais nada, então faça o bacon ou as linguiças antes ou depois, não junto.',
+      donenessHeading: 'Como saber se estão prontos',
+      donenessBody:
+        'As duas faces devem estar bem douradas e crocantes, com as bordas um pouco mais escuras. Aperte o centro com uma espátula: deve estar firme, não mole, e o interior deve estar quente e macio ao cortar um. Se a segunda face ainda estiver pálida, dê um ou dois minutos a mais em vez de aumentar o calor.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Faça direto do congelador e não empilhe. Pincele ou borrife um pouco de óleo nos discos, ou unte o cesto, para o amido dourar em vez de soldar na grade. Tempere com sal e pimenta depois de virar.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam os hash browns congelados na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, virando aos {FLIP} minutos. As mini redondas levam uns {SMALL_MIN} minutos e os discos grossos uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Preciso virar os hash browns?',
+          a: 'Sim. Eles são achatados, então ao agitar a mesma face continua embaixo. Uma virada na metade doura os dois lados.',
+        },
+        {
+          q: 'Por que os hash browns grudam no cesto?',
+          a: 'O amido da batata cola num cesto seco. Um spray leve de óleo evita isso.',
+        },
+        {
+          q: 'Posso fazer batata ralada solta congelada?',
+          a: 'Sim, numa camada fina sobre papel, bem apertada. Vire por partes na metade; leva alguns minutos a mais que os discos.',
+        },
+        {
+          q: 'Qual a diferença entre hash browns e tater tots aqui?',
+          a: 'Os discos são achatados e viram uma vez. Os tots são redondos, então são agitados e rolam sozinhos para faces novas.',
+        },
+      ],
+    },
+    'frozen-egg-rolls': {
+      label: 'Rolinhos primavera congelados',
+      metaTitle: 'Rolinhos primavera congelados na air fryer: tempo e temperatura',
+      metaDescription:
+        'Rolinhos primavera e egg rolls congelados na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}. Massa crocante e com bolhas, recheio quente.',
+      metaKeywords: 'rolinho primavera congelado air fryer, egg roll congelado air fryer, samosa congelada air fryer',
+      heading: 'Rolinhos primavera congelados na air fryer',
+      subDesc:
+        'Egg rolls, rolinhos primavera e salgadinhos enrolados parecidos, feitos direto do congelador. A configuração, a virada e como esquentar o recheio antes de as pontas queimarem.',
+      cardDesc: 'Borrife a massa e vire uma vez.',
+      sizeLabels: { small: 'Mini rolinhos primavera', medium: 'Egg rolls comuns', large: 'Egg rolls grandes ou samosas' },
+      failureHeading: 'Por que as pontas queimam e o meio fica frio',
+      failureBody:
+        'Um rolinho é uma massa fina e seca enrolada em volta de um recheio grosso e úmido. A massa pega cor em minutos, e as pontas dobradas, onde a massa é mais fina e fica exposta ao ar, criam bolhas e escurecem primeiro. Enquanto isso, o recheio de repolho e carne começou totalmente congelado e demora a esquentar, então um rolinho que parece perfeito por fora pode estar gelado no meio. Duas coisas resolvem. Um spray leve de óleo sobre a massa deixa ela dourar por igual e devagar, em vez de ressecar e queimar nas pontas. E uma virada na metade leva a face pálida para o ventilador enquanto dá tempo para o recheio alcançar. Deixe espaço entre os rolinhos para os lados também ficarem crocantes.',
+      workedExampleHeading: 'Exemplo prático: uma caixa de egg rolls',
+      workedExampleTemplate:
+        'Uma caixa de egg rolls congelados diz {OVEN_F}°F por {OVEN_MIN} minutos na assadeira, virando uma vez. Numa air fryer de cesto isso vira {AF_F}°F por {MIN} minutos. Preaqueça {PREHEAT} minutos, borrife os rolinhos com um pouco de óleo, coloque em uma camada com espaço entre cada um e vire aos {FLIP} minutos. Os mini rolinhos primavera precisam de uns {SMALL_MIN} minutos e os egg rolls grandes de uns {LARGE_MIN}. Espere dois minutos antes de morder: o recheio guarda muito calor.',
+      donenessHeading: 'Como saber se estão prontos',
+      donenessBody:
+        'A massa deve estar dourada e com bolhas por todo lado, sem partes brancas e farinhentas, e estalar ao apertar. O teste de verdade é o recheio: corte um ao meio e veja se está soltando vapor bem no centro. Se a massa estiver pronta mas o centro ainda frio, dê mais dois minutos; as pontas pegam um pouco mais de cor, mas não devem queimar nesta configuração.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Faça direto do congelador; a massa descongelada amolece e rasga. Borrife ou pincele um pouco de óleo em todos os lados, o que importa mais nestes do que em qualquer outra coisa do congelador. Separe com cuidado os que congelaram juntos para a massa não abrir. Sirva o molho à parte para a massa continuar crocante.',
+      faqs: [
+        {
+          q: 'Quanto tempo levam os rolinhos primavera congelados na air fryer?',
+          a: 'Cerca de {MIN} minutos a {AF_F}°F, virando aos {FLIP} minutos. Os mini levam uns {SMALL_MIN} minutos e os egg rolls grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Rolinhos congelados precisam de óleo na air fryer?',
+          a: 'Um spray leve, sim. Sem ele a massa resseca, fica farinhenta e queima nas pontas.',
+        },
+        {
+          q: 'Por que meus rolinhos ficam frios por dentro?',
+          a: 'O recheio começou congelado e precisa do tempo todo. Corte um para conferir em vez de confiar na cor.',
+        },
+        {
+          q: 'Funciona para samosas e rolinhos primavera?',
+          a: 'Sim. Os mini rolinhos são mais rápidos e as samosas grossas levam mais ou menos o mesmo que os egg rolls grandes.',
+        },
+        {
+          q: 'Preciso descongelar os rolinhos antes?',
+          a: 'Não. A massa descongelada absorve a umidade do recheio e rasga quando você mexe.',
         },
       ],
     },

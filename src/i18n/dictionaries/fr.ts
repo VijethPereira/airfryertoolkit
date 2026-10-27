@@ -122,7 +122,7 @@ const fr: Dictionary = {
       },
       hashBrowns: {
         label: "Galettes de pommes de terre",
-        tip: "Les pièces plates dorent une face à la fois : retournez une fois à mi-cuisson.",
+        tip: "Les pièces plates dorent une face à la fois : retournez-les à mi-cuisson. Les formes rondes comme les tots roulent : secouez-les plutôt.",
       },
       veg: {
         label: "Légumes surgelés",

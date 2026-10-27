@@ -254,6 +254,8 @@ export interface FrozenConversionInput extends Omit<ConversionInput, 'food'> {
   /** `ovenTemp` / `ovenMinutes` are the pack's oven instructions. */
   food: FrozenFoodKey;
   pack: PackType;
+  /** Replaces the food's turn type and count (a preset whose food turns differently, e.g. tots on the hash-brown profile). */
+  turnOverride?: { turn: 'shake' | 'flip'; turns: number };
 }
 
 export interface FrozenConversionResult extends ConversionResult {
@@ -289,14 +291,15 @@ export function computeAirFryerSettingFromFrozen(input: FrozenConversionInput): 
   const profile = input.pack === 'fan' ? { ...styled, dT: styled.dT - fanPackOffset(input.food) } : styled;
   const result = toAirFryer(profile, input);
   const outMinutes = result.outMinutes;
+  const { turn, turns } = input.turnOverride ?? food;
 
   return {
     ...result,
-    turns: food.turns,
-    turn: food.turn,
+    turns,
+    turn,
     turnAtMinutes:
       outMinutes !== null
-        ? Array.from({ length: food.turns }, (_, i) => Math.max(1, Math.round((outMinutes * (i + 1)) / (food.turns + 1))))
+        ? Array.from({ length: turns }, (_, i) => Math.max(1, Math.round((outMinutes * (i + 1)) / (turns + 1))))
         : [],
     internalF: food.internalF,
     internalC: food.internalF !== null ? Math.round(((food.internalF - 32) * 5) / 9) : null,
@@ -315,18 +318,27 @@ export interface PackSettingInput {
 
 /**
  * Air fryer -> frozen pack: the inverse of `computeAirFryerSettingFromFrozen`. Returns
- * the pack instruction (conventional or fan) that converts to this air fryer setting,
- * snapped to 25°F oven-dial steps like the other reverse directions. When the snapped
- * pack temperature would hit the forward ceiling clamp, the time divides by the capped
- * multiplier (f + 0.08) so the forward trip lands back on `minutes`.
+ * the pack instruction (conventional or fan) that converts to this air fryer setting, on
+ * a 25°F oven-dial step: of the two dial steps either side, the one whose forward
+ * conversion lands closest. When both land on the same air fryer temperature (the
+ * hotter one is held at the ceiling), the hotter pack wins: that is what bags print
+ * (425°F fries, not 400°F). A pack that hits the forward ceiling clamp divides the time
+ * by the capped multiplier (f + 0.08) so the forward trip lands back on `minutes`.
  */
 export function computePackSetting(input: PackSettingInput): ReverseConversionResult {
   const food = FROZEN_FOODS[input.food] ?? FROZEN_FOODS.fries;
   const styled = styleProfile(FROZEN_RULES, food, input.style);
   const dT = input.pack === 'fan' ? styled.dT - fanPackOffset(input.food) : styled.dT;
   const { f, ceiling } = styled;
+  const forwardF = (packF: number) => Math.min(ceiling, Math.round((packF - dT) / 5) * 5);
 
-  const outF: number | null = Number.isFinite(input.tempF) ? Math.round((input.tempF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP : null;
+  let outF: number | null = null;
+  if (Number.isFinite(input.tempF)) {
+    const lo = Math.floor((input.tempF + dT) / OVEN_TEMP_STEP) * OVEN_TEMP_STEP;
+    const hi = lo + OVEN_TEMP_STEP;
+    const sameSetting = forwardF(lo) === forwardF(hi);
+    outF = sameSetting || Math.abs(forwardF(hi) - input.tempF) < Math.abs(forwardF(lo) - input.tempF) ? hi : lo;
+  }
   const capped = outF !== null && Math.round((outF - dT) / 5) * 5 > ceiling;
   const outMinutes: number | null = Number.isFinite(input.minutes) ? Math.max(1, Math.round(input.minutes / (capped ? f + 0.08 : f))) : null;
   const outC: number | null = outF !== null ? Math.round(((outF - 32) * 5) / 9 / 5) * 5 : null;

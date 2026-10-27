@@ -31,6 +31,7 @@ export const presets: Dictionary['presets'] = {
     fanTemplate: 'Packung für Umluft: {FAN_F}°F ({FAN_C}°C) für {FAN_MIN} Min.',
     ovenNote: 'Auf deiner Packung stehen andere Werte? Der Umrechner unten ist schon auf dieses Lebensmittel eingestellt – gib Temperatur und Zeit von der Packung ein.',
     sizingHeaders: { size: 'Größe', airFryer: 'Heißluftfritteuse', oven: 'Laut Packung' },
+    relatedFlagshipLink: 'Tiefkühlpackungs-Umrechner',
   },
   pages: {
     'chicken-breast': {
@@ -952,6 +953,467 @@ export const presets: Dictionary['presets'] = {
         {
           q: 'Was entspricht dem im Backofen?',
           a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Blech mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+        },
+      ],
+    },
+    'frozen-fries': {
+      label: 'Tiefkühl-Pommes',
+      metaTitle: 'Tiefkühl-Pommes in der Heißluftfritteuse: Zeit, Temperatur & Packung',
+      metaDescription:
+        'Tiefkühl-Pommes in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, {SHAKES}× geschüttelt, direkt aus dem Beutel. Von dünnen bis dicken Pommes, und wie du die Packungsangabe umrechnest.',
+      metaKeywords: 'tiefkühl pommes heißluftfritteuse, pommes airfryer zeit, wie lange tiefkühl pommes heißluftfritteuse, gefrorene pommes airfryer',
+      heading: 'Tiefkühl-Pommes in der Heißluftfritteuse',
+      subDesc:
+        'Pommes aus dem Beutel, direkt aus dem Tiefkühler gegart, ohne Auftauen und ohne zusätzliches Öl. Die Einstellung, wann du schüttelst, und wie aus der Angabe auf der Packung eine Einstellung für die Heißluftfritteuse wird.',
+      cardDesc: 'Direkt aus dem Beutel, eine Lage, zweimal schütteln.',
+      sizeLabels: { thin: 'Dünne Pommes (Shoestring)', medium: 'Normale Pommes', thick: 'Dicke Pommes oder Steakhouse-Pommes' },
+      failureHeading: 'Warum Tiefkühl-Pommes labbrig werden',
+      failureBody:
+        'Jedes Stück Tiefkühl-Pommes trägt eine dünne Eisschicht, und in den ersten Minuten schmilzt dieses Eis und wird zu Dampf. Hat jedes Stück Platz um sich herum, bläst der Ventilator den Dampf weg, und die Oberfläche bräunt in dem Öl, in dem die Fabrik die Pommes schon vorfrittiert hat. Kippst du den ganzen Beutel hinein, bleibt der Dampf gefangen: Die unteren Pommes liegen in ihrem eigenen Wasser und kommen blass und schlaff heraus, ganz egal, wie lange sie drin sind. Füll den Korb höchstens zur Hälfte und gare einen großen Beutel lieber in zwei Durchgängen. Das {SHAKES}-malige Schütteln erledigt den Rest: Es löst Pommes, die aneinander festgefroren sind, und bringt die feuchte untere Lage nach oben in den heißen Luftstrom.',
+      workedExampleHeading: 'Rechenbeispiel: von der Packung zur Heißluftfritteuse',
+      workedExampleTemplate:
+        'Ein typischer Beutel Pommes gibt {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen an. Eine Korb-Heißluftfritteuse wird so heiß gar nicht, also läuft sie mit {AF_F}°F, und die Zeit sinkt auf {MIN} Minuten, weil der Ventilator die Hitze viel schneller an die Pommes bringt als ein Backblech. Heize {PREHEAT} Minuten vor, gib einen halben Beutel hinein und schüttle ungefähr nach einem Drittel und nach zwei Dritteln der Zeit. Dünne Pommes sind nach etwa {THIN_MIN} Minuten fertig, dicke brauchen ungefähr {THICK_MIN}. Ein europäischer Beutel mit Umluftangabe nennt {FAN_F}°F ({FAN_C}°C) für {FAN_MIN} Minuten und führt zur selben Einstellung.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Tiefkühl-Pommes sind schon vorgegart, es geht also nur um Farbe und Knusprigkeit. Brich eine durch: Außen sollte sie goldbraun sein und knacken, innen locker und heiß. Ist der Boden des Korbs noch blass, schüttle noch einmal und gib zwei Minuten dazu. Dicke Pommes sehen fertig aus, bevor der Kern weich ist, also probier eine dicke, bevor du alles herausnimmst.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Nicht auftauen, und gefrorene Klumpen im Beutel lösen, bevor du sie hineinkippst. Öl ist nicht nötig, weil die Pommes vorfrittiert sind, aber ein kurzer Sprühstoß hilft Wellenschnitt-Pommes, gleichmäßig zu bräunen. Salze erst nach dem Garen, nicht vorher, damit das Salz nicht noch mehr Wasser herauszieht.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tiefkühl-Pommes in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für normale Pommes, {SHAKES}× geschüttelt. Dünne Pommes brauchen ungefähr {THIN_MIN} Minuten, dicke ungefähr {THICK_MIN}.',
+        },
+        {
+          q: 'Muss ich Tiefkühl-Pommes vorher auftauen?',
+          a: 'Nein. Gare sie direkt aus dem Tiefkühler. Beim Auftauen wird die Oberfläche nass und weich, und danach werden sie nie mehr richtig knusprig.',
+        },
+        {
+          q: 'Brauchen Tiefkühl-Pommes Öl in der Heißluftfritteuse?',
+          a: 'Normalerweise nicht. Sie werden vor dem Einfrieren vorfrittiert und bräunen von selbst. Ein leichter Sprühstoß hilft gewürzten oder gewellten Pommes, gleichmäßiger Farbe zu bekommen.',
+        },
+        {
+          q: 'Warum sind meine Tiefkühl-Pommes immer noch labbrig?',
+          a: 'Es sind zu viele im Korb. Das Eis an jeder Pommes wird zu Dampf, und ein voller Korb hält ihn fest. Gare einen halben Beutel auf einmal und schüttle, wenn die Zeit es vorgibt.',
+        },
+        {
+          q: 'Auf meinem Beutel steht {OVEN_F}°F für {OVEN_MIN} Minuten. Was stelle ich ein?',
+          a: '{AF_F}°F für etwa {MIN} Minuten in einer Korb-Heißluftfritteuse. Der Umrechner auf dieser Seite nimmt die Zahlen von jedem Beutel, auch Umluftangaben.',
+        },
+      ],
+    },
+    'frozen-chicken-wings': {
+      label: 'Tiefkühl-Chicken-Wings',
+      metaTitle: 'Tiefkühl-Chicken-Wings in der Heißluftfritteuse: roh & vorgegart',
+      metaDescription:
+        'Rohe Tiefkühl-Chicken-Wings in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, {SHAKES}× geschüttelt, gar bei {INT_F}°F. Vorgegarte oder marinierte Wings brauchen etwa {PRE_MIN} Minuten.',
+      metaKeywords: 'tiefkühl chicken wings heißluftfritteuse, gefrorene chicken wings airfryer, chicken wings tiefgefroren heißluftfritteuse zeit',
+      heading: 'Tiefkühl-Chicken-Wings in der Heißluftfritteuse',
+      subDesc:
+        'Rohe Wings direkt aus dem Tiefkühler, ohne Auftauen, dazu die kürzere Einstellung für vorgegarte oder schon marinierte Wings. Wie du den Block löst und die Haut knusprig bekommst.',
+      cardDesc: 'Roh und gefroren: beim ersten Schütteln trennen.',
+      sizeLabels: { small: 'Kleine Wings, Flügelspitzen und Drumettes', medium: 'Normale geteilte Wings', large: 'Große oder ganze Flügel' },
+      failureHeading: 'Warum Tiefkühl-Wings ungleichmäßig garen',
+      failureBody:
+        'Rohe Wings frieren im Beutel meist zu Klumpen zusammen. Wo sich zwei Wings berühren, bekommt keine der beiden Seiten heiße Luft ab, also bleibt diese Seite blass, und das Fleisch darunter hinkt dem Rest hinterher. Lässt du einen Klumpen zusammen, bekommst du Wings, die oben fertig aussehen und dort, wo sie aneinanderklebten, noch roh sind. Die Haut hat ein zweites Problem: Gefrorene Wings tragen Eis, und das Wasser daraus muss verdampfen, bevor das Fett unter der Haut schmelzen und sie knusprig machen kann. Darum ist diese Einstellung lang und gleichmäßig statt kurz und scharf. Trenne die Wings beim ersten Schütteln mit einer Zange, verteile sie, und lass sie beim zweiten Schütteln wenden, damit jede Seite einmal nah am Ventilator liegt.',
+      workedExampleHeading: 'Rechenbeispiel: ein Beutel rohe Tiefkühl-Wings',
+      workedExampleTemplate:
+        'Ein Beutel roher, geteilter Wings sagt: gefroren bei {OVEN_F}°F für {OVEN_MIN} Minuten backen. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, leg die Wings in eine einzige Lage und schüttle zweimal; beim ersten Mal trennst du alle Wings, die noch zusammengefroren sind. Kleine Wings sind nach etwa {SMALL_MIN} Minuten fertig, große nach ungefähr {LARGE_MIN}. Schwenk sie erst nach dem Garen in Soße, nicht vorher, sonst verbrennt der Zucker, lange bevor das Fleisch sicher ist.',
+      donenessHeading: 'Woran du erkennst, dass sie gar sind',
+      donenessBody:
+        'Rohe Wings müssen am Knochen {INT_F}°F ({INT_C}°C) erreichen, also miss das dickste Drumette mit einem Thermometer. Ein Tiefkühlbeutel ist genau der Fall, in dem die Farbe täuscht, weil die Haut bräunen kann, während die Mitte noch kalt ist. Oberhalb dieser Temperatur sind Wings sehr gutmütig, und viele garen sie weiter, damit das Fleisch lockerer und zarter wird. Die Haut sollte knusprig und leicht blasig sein, ohne weiche, blasse Stellen, wo sich Wings berührt haben.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Lies zuerst den Beutel: Rohe und vorgegarte Wings sehen gleich aus, brauchen aber unterschiedliche Einstellungen. Klopf den Beutel vor dem Öffnen auf die Arbeitsfläche, um große Klumpen zu lösen. Öl brauchst du nicht, die Haut hat genug eigenes Fett. Streu eine trockene Würzmischung erst darüber, wenn die Wings beim ersten Schütteln getrennt sind, dann haftet sie an der angetauten Oberfläche.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen rohe Tiefkühl-Wings in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, {SHAKES}× geschüttelt, bis sie {INT_F}°F erreichen. Kleine Wings brauchen ungefähr {SMALL_MIN} Minuten, große ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Und vorgegarte oder schon marinierte Tiefkühl-Wings?',
+          a: 'Die müssen nur durchgewärmt, nicht gegart werden: etwa {PRE_MIN} Minuten bei {PRE_F}°F ({PRE_C}°C), einmal geschüttelt. Sie wurden schon in der Fabrik gegart, es gibt also kein Risiko durch rohes Hähnchen; hör auf, wenn die Soße blubbert und klebrig wird.',
+        },
+        {
+          q: 'Muss ich die Wings vorher auftauen?',
+          a: 'Nein. Die Einstellung oben gilt für Wings direkt aus dem Tiefkühler. Trenne sie einfach beim ersten Schütteln.',
+        },
+        {
+          q: 'Wann kommt die Soße dazu?',
+          a: 'Nach dem Garen. Schwenk die heißen Wings in einer Schüssel in der Soße und gib sie dann noch ein, zwei Minuten zurück, wenn die Soße anziehen soll.',
+        },
+        {
+          q: 'Kann ich die Einstellung für frische Wings nehmen?',
+          a: 'Nein. Frische Wings garen schneller und heißer; gefrorene brauchen zusätzliche Zeit, damit das Eis verschwindet und die Mitte auf Temperatur kommt.',
+        },
+      ],
+    },
+    'frozen-chicken-breast': {
+      label: 'Tiefkühl-Hähnchenbrust',
+      metaTitle: 'Tiefkühl-Hähnchenbrust in der Heißluftfritteuse: Zeit & sichere Temperatur',
+      metaDescription:
+        'Rohe Hähnchenbrust direkt aus dem Tiefkühler in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} gewendet, gar bei {INT_F}°F. Zeiten nach Gewicht und das Backofen-Pendant.',
+      metaKeywords: 'tiefkühl hähnchenbrust heißluftfritteuse, gefrorene hähnchenbrust airfryer, hähnchenbrust gefroren heißluftfritteuse zeit',
+      heading: 'Tiefkühl-Hähnchenbrust in der Heißluftfritteuse',
+      subDesc:
+        'Rohe Hähnchenbrustfilets ohne Knochen, direkt aus dem Tiefkühler gegart und nicht aufgetaut. Eine niedrigere, langsamere Einstellung als bei frischem Hähnchen, und warum das Thermometer hier keine Kür ist.',
+      cardDesc: 'Niedriger und langsamer als frisch: mit Thermometer prüfen.',
+      sizeLabels: { small: 'Klein, 150 g (5–6 oz)', medium: 'Mittel, 220 g (7–8 oz)', large: 'Groß, 300 g (10–12 oz)' },
+      failureHeading: 'Warum außen alles austrocknet, bevor die Mitte sicher ist',
+      failureBody:
+        'Eine gefrorene Hähnchenbrust beginnt mit einem Eisblock in der Mitte. Die Hitze muss den Kern erst auftauen, bevor sie ihn garen kann, während die Außenseite die ganze Zeit weiter Hitze abbekommt. Gibst du ihr die kräftige Einstellung einer frischen Brust, wird die Oberfläche zäh, während der Kern noch unter einer sicheren Temperatur liegt. Deshalb liegt diese Voreinstellung niedriger und läuft länger als bei frischem Hähnchen: Eine sanftere Temperatur verkleinert den Abstand zwischen außen und innen, und der Kern erreicht eine sichere Temperatur, bevor die Ränder austrocknen. Am wichtigsten ist die Dicke. Gare deshalb Stücke ähnlicher Größe zusammen und miss immer das größte.',
+      workedExampleHeading: 'Rechenbeispiel: zwei Filets aus dem Beutel',
+      workedExampleTemplate:
+        'Ein Beutel einzeln gefrorener roher Filets gibt {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen an. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für etwa {MIN} Minuten bei einer mittelgroßen Brust. Heize {PREHEAT} Minuten vor, leg zwei Filets flach mit Abstand hinein und wende sie nach {FLIP} Minuten. Dann würzt du auch, weil die aufgetaute Oberfläche die Gewürze jetzt hält. Kleine Filets sind meist nach etwa {SMALL_MIN} Minuten fertig, große brauchen ungefähr {LARGE_MIN}. Miss das dickste, bevor du irgendeines herausnimmst.',
+      donenessHeading: 'Woran du erkennst, dass sie gar ist',
+      donenessBody:
+        'Verlässlich ist hier nur ein Thermometer: {INT_F}°F ({INT_C}°C) an der dicksten Stelle, den Fühler von der Seite eingestochen, damit die Spitze genau in der Mitte sitzt. Eine gefrorene Brust kann außen goldbraun und fest sein, während der Kern noch rosa und kalt ist, und wer sie zum Nachsehen aufschneidet, lässt den Saft auslaufen. Ist ein Filet fertig und das andere nicht, nimm das fertige heraus und gib dem anderen noch ein paar Minuten. Lass es vor dem Aufschneiden drei Minuten ruhen.',
+      prepHeading: 'Bevor sie hineinkommt',
+      prepBody:
+        'Trenne Filets, die aneinander festgefroren sind; halte sie ein paar Sekunden unter kaltes Wasser, wenn sie nicht nachgeben. Spül die Eisglasur ab und tupf die Oberfläche trocken. Pinsel sie mit etwas Öl ein, damit die Würze später haftet, aber heb die Gewürze bis zum Wenden auf, denn auf einer gefrorenen Oberfläche rutschen sie ab.',
+      faqs: [
+        {
+          q: 'Wie lange braucht eine gefrorene Hähnchenbrust in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine mittlere Brust, nach {FLIP} Minuten gewendet. Kleine brauchen ungefähr {SMALL_MIN} Minuten, große ungefähr {LARGE_MIN}. Zum Schluss immer mit dem Thermometer prüfen.',
+        },
+        {
+          q: 'Ist es sicher, Hähnchenbrust gefroren zu garen?',
+          a: 'Ja, solange die dickste Stelle {INT_F}°F ({INT_C}°C) erreicht. Es dauert nur länger als bei frischem Fleisch, und die niedrigere Einstellung verhindert, dass die Außenseite zuerst austrocknet.',
+        },
+        {
+          q: 'Warum nicht die Einstellung für frische Hähnchenbrust?',
+          a: 'Frisches Hähnchen gart heißer und kürzer. Bei einer gefrorenen Brust bräunt das die Außenseite, lange bevor der Kern aufgetaut und durchgegart ist.',
+        },
+        {
+          q: 'Wann soll ich würzen?',
+          a: 'Beim Wenden. Dann ist die Oberfläche aufgetaut, und die Würze haftet, statt auf dem Eis abzurutschen.',
+        },
+        {
+          q: 'Kann ich panierte Tiefkühl-Hähnchenbrust genauso garen?',
+          a: 'Schau auf die Packung. Viele panierte Produkte werden roh verkauft und folgen der Seite für Tiefkühl-Hähnchenstreifen; vorgegarte müssen nur durchgewärmt werden.',
+        },
+      ],
+    },
+    'frozen-chicken-nuggets': {
+      label: 'Tiefkühl-Chicken-Nuggets',
+      metaTitle: 'Tiefkühl-Chicken-Nuggets in der Heißluftfritteuse: Zeit & Temperatur',
+      metaDescription:
+        'Tiefkühl-Chicken-Nuggets in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, einmal geschüttelt, bei {INT_F}°F durchgewärmt. Von Popcorn Chicken bis Dino-Nuggets, mit Umrechnung der Packung.',
+      metaKeywords: 'tiefkühl chicken nuggets heißluftfritteuse, nuggets airfryer zeit, wie lange nuggets heißluftfritteuse, gefrorene nuggets airfryer',
+      heading: 'Tiefkühl-Chicken-Nuggets in der Heißluftfritteuse',
+      subDesc:
+        'Panierte Nuggets, die schon durchgegart sind, direkt aus dem Beutel. Du wärmst auf, du garst nicht, also geht es um eine knusprige Panade ohne ausgetrocknete Mitte.',
+      cardDesc: 'Schon gegart: du wärmst sie nur auf.',
+      sizeLabels: { small: 'Popcorn Chicken oder Mini-Bites', medium: 'Normale Nuggets', large: 'Große Formen oder Dino-Nuggets' },
+      internalLine: 'Durchgewärmt bei {INT_F}°F ({INT_C}°C) in der Mitte; sie sind schon gegart',
+      failureHeading: 'Warum Nuggets trocken und hart werden',
+      failureBody:
+        'Fast alle Tiefkühl-Nuggets aus dem Supermarkt werden vor dem Einfrieren vollständig gegart. Das Hähnchen innen ist fertig; die Heißluftfritteuse muss nur die Panade knusprig machen und die Mitte wieder auf Temperatur bringen. Das verändert, was schiefgehen kann. Die Gefahr ist nicht, dass etwas roh bleibt, sondern dass es zu lange gart: Nuggets sind klein, also trocknen zwei Minuten zu viel das Hähnchen aus, bis es fest und faserig ist, und die Panade wird von knusprig zu hart. Behandle sie wie ein kurzes Aufwärmen. Nimm die Zeit von dieser Seite, schüttle den Korb einmal zur Hälfte, damit die flach liegenden Stücke umgedreht werden, und schau ein, zwei Minuten früher nach. In zwei Lagen gestapelte Nuggets dämpfen sich außerdem gegenseitig, und die Panade der unteren Lage bleibt weich.',
+      workedExampleHeading: 'Rechenbeispiel: ein halber Beutel für zwei',
+      workedExampleTemplate:
+        'Ein Beutel panierter Nuggets gibt {OVEN_F}°F für {OVEN_MIN} Minuten auf dem Blech an. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, verteile etwa zwanzig Nuggets in einer Lage und schüttle einmal zur Hälfte. Popcorn Chicken ist nach etwa {SMALL_MIN} Minuten fertig, große Dino-Formen nach ungefähr {LARGE_MIN}. Steht auf der Packung eine Umluftangabe, {FAN_F}°F für {FAN_MIN} Minuten, landest du bei derselben Einstellung für die Heißluftfritteuse.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Weil das Hähnchen schon gegart ist, prüfst du, ob die Mitte heiß ist, nicht, ob eine Sicherheitstemperatur erreicht ist: {INT_F}°F ({INT_C}°C) im dicksten Nugget, wenn du eine Zahl willst, oder brich eines auf und schau, ob es bis innen dampft. Die Panade sollte gleichmäßig goldbraun sein und beim Drücken knacken. Ist sie hart statt knusprig, braucht die nächste Portion ein, zwei Minuten weniger.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Prüf, ob auf der Packung vollständig gegart steht. Einige panierte Hähnchenprodukte werden roh verkauft, und die gehören auf die Seite für Tiefkühl-Hähnchenstreifen, mit Thermometer. Nicht auftauen und kein Öl dazugeben: Die Panade wurde schon in der Fabrik frittiert. Lass etwas Platz zwischen den Nuggets, damit die Luft an jede Seite kommt.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tiefkühl-Nuggets in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, einmal geschüttelt. Popcorn Chicken braucht ungefähr {SMALL_MIN} Minuten, große Formen ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Sind Tiefkühl-Chicken-Nuggets schon gegart?',
+          a: 'Die meisten ja. Auf der Packung steht dann „vollständig gegart“. Steht dort „roh“ oder „ungegart“, gare sie mit Thermometer auf {INT_F}°F, wie rohes Hähnchen.',
+        },
+        {
+          q: 'Muss ich Nuggets wenden?',
+          a: 'Einmal Schütteln zur Hälfte genügt. Kleine Stücke drehen sich beim Schütteln von selbst um; du musst sie nicht einzeln wenden.',
+        },
+        {
+          q: 'Warum werden meine Nuggets hart?',
+          a: 'Sie waren zu lange drin. Nuggets müssen nur aufgewärmt werden, also trocknen zwei Minuten zu viel sie aus. Nimm beim nächsten Mal die kürzere Zeit.',
+        },
+        {
+          q: 'Kann ich Nuggets und Pommes zusammen machen?',
+          a: 'Ja, wenn der Korb nicht voll ist. Starte mit den Pommes und gib die Nuggets für die letzten {MIN} Minuten dazu, dann werden beide gleichzeitig fertig.',
+        },
+      ],
+    },
+    'frozen-tater-tots': {
+      label: 'Tiefkühl-Tater-Tots',
+      metaTitle: 'Tiefkühl-Tater-Tots in der Heißluftfritteuse: Zeit, Temperatur & Kruste',
+      metaDescription:
+        'Tiefkühl-Tater-Tots in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, {SHAKES}× geschüttelt. Von Mini-Tots bis Kartoffelkronen, außen knusprig und innen durch und durch heiß.',
+      metaKeywords: 'tater tots heißluftfritteuse, tiefkühl tater tots airfryer zeit, kartoffel tots heißluftfritteuse, kroketten airfryer',
+      heading: 'Tiefkühl-Tater-Tots in der Heißluftfritteuse',
+      subDesc:
+        'Tots und Kartoffelhäppchen aus dem Beutel, direkt aus dem Tiefkühler gegart. Die Einstellung, das Schütteln und wie du eine heiße Mitte unter die Kruste bekommst.',
+      cardDesc: 'Zweimal schütteln, damit jede Seite Kruste bekommt.',
+      sizeLabels: { small: 'Mini-Tots', medium: 'Normale Tater Tots', large: 'Kartoffelkronen oder große Häppchen' },
+      failureHeading: 'Warum Tots außen knusprig und innen kalt sind',
+      failureBody:
+        'Ein Tot ist ein kleiner Zylinder aus fest gepresster, geriebener Kartoffel und damit viel dichter als eine Pommes derselben Größe. Die Außenseite frittiert in der heißen Luft schnell und bildet in wenigen Minuten eine Kruste, aber die dicht gepackten Raspel in der Mitte werden nur langsam warm. Ein Tot, der goldbraun aussieht, kann innen also noch lauwarm und pappig sein. Drehst du die Hitze hoch, um es zu beschleunigen, wird die Kruste dunkel, bevor die Mitte aufholt. Die Lösung ist eine gleichmäßige Einstellung und genug Zeit, mit zweimaligem Schütteln, damit die Tots jedes Mal auf eine neue Seite rollen. Weil sie rund sind, rollen sie, statt flach liegen zu bleiben, und das Schütteln übernimmt das Wenden für dich.',
+      workedExampleHeading: 'Rechenbeispiel: ein Familienbeutel',
+      workedExampleTemplate:
+        'Ein Beutel Tots gibt {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen an, einmal gewendet. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, gib so viele hinein, dass der Boden in einer Lage bedeckt ist, und schüttle zweimal, ungefähr nach einem Drittel und nach zwei Dritteln der Zeit. Mini-Tots sind nach etwa {SMALL_MIN} Minuten fertig, Kartoffelkronen nach ungefähr {LARGE_MIN}. Für viele Leute gare lieber in zwei Durchgängen, statt sie aufzutürmen.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Tots sind vorgegart, du beurteilst also Knusprigkeit und Hitze. Sie sollten rundum kräftig goldbraun sein und hohl klingen, wenn sie im Korb aneinanderstoßen. Beiß in einen aus der Mitte der Portion: Innen sollte er weich, locker und heiß sein. Ist die Außenseite fertig, die Mitte aber noch kühl, dreh die Hitze nicht hoch; gib zwei Minuten dazu und schüttle noch einmal.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Gare sie direkt aus dem Tiefkühler und löse Tots, die aneinanderkleben. Öl brauchen sie nicht, aber ein leichter Sprühstoß gibt eine dunklere, gleichmäßigere Kruste. Würze mit Salz oder einer Gewürzmischung beim letzten Schütteln oder direkt nach dem Garen, solange die Oberfläche noch leicht ölig ist und die Würze hält. Tots aus Süßkartoffeln enthalten mehr Zucker und werden schneller dunkel, also schau bei ihnen ein paar Minuten früher nach.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tater Tots in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, {SHAKES}× geschüttelt. Mini-Tots brauchen ungefähr {SMALL_MIN} Minuten, große Kronen ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Soll ich Tater Tots schütteln oder wenden?',
+          a: 'Schütteln. Tots sind rund und rollen beim Schütteln auf eine andere Seite, also bräunen zwei Schüttelrunden sie gleichmäßig, ohne dass du jeden einzeln wendest.',
+        },
+        {
+          q: 'Warum sind meine Tots in der Mitte kalt?',
+          a: 'Sie sind dichter als Pommes und brauchen die volle Zeit. Nimmst du sie heraus, sobald sie goldbraun aussehen, bleibt die gepresste Mitte kühl.',
+        },
+        {
+          q: 'Brauchen Tater Tots Öl?',
+          a: 'Nein, sie werden vor dem Einfrieren vorfrittiert. Ein leichter Sprühstoß bringt nur mehr Farbe.',
+        },
+        {
+          q: 'Kann ich überbackene Tots in der Heißluftfritteuse machen?',
+          a: 'Ja. Gare die Tots ganz fertig, gib Käse und Toppings darauf und lass sie noch ein, zwei Minuten drin, bis der Käse geschmolzen ist.',
+        },
+      ],
+    },
+    'frozen-pizza': {
+      label: 'Tiefkühlpizza',
+      metaTitle: 'Tiefkühlpizza in der Heißluftfritteuse: Zeit, Temperatur & welche Größe passt',
+      metaDescription:
+        'Tiefkühlpizza in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten bei einer kleinen Einzelpizza. Welche Größen in den Korb passen und wie der Boden unter dem geschmolzenen Käse knusprig wird.',
+      metaKeywords: 'tiefkühlpizza heißluftfritteuse, pizza airfryer zeit, kleine pizza heißluftfritteuse, wie lange tiefkühlpizza airfryer',
+      heading: 'Tiefkühlpizza in der Heißluftfritteuse',
+      subDesc:
+        'Kleine Einzel- und Mini-Tiefkühlpizzen, gefroren gegart. Die Einstellung, welche Größen in deinen Korb passen und wie du verhinderst, dass der Belag vor dem Boden fertig ist.',
+      cardDesc: 'Die kleine passt in den Korb, die große nicht.',
+      sizeLabels: { small: 'Mini-Pizza, 13 cm (5")', medium: 'Einzelpizza, 18–20 cm (7–8")', large: '25–30 cm (10–12"): nur Ofen-Typ oder ab 8 qt' },
+      failureHeading: 'Warum der Belag vor dem Boden fertig ist',
+      failureBody:
+        'In einer Heißluftfritteuse kommt die Hitze von oben, und der Ventilator bläst sie direkt über die Pizza. Käse und Belag liegen am nächsten an der Heizspirale und fangen fast sofort an zu bräunen, während der Boden darunter noch gefrorener Teig auf dem Korbgitter ist. Stellst du sie zu heiß ein, bekommst du verbrannte Salami auf einem blassen, biegsamen Boden. Eine etwas niedrigere Einstellung, als du erwarten würdest, lässt die Hitze durch die Pizza nach unten ziehen, sodass der Boden knusprig ist, wenn der Käse geschmolzen ist und Blasen wirft. Die Größe ist die andere Hälfte: Eine Pizza, die an den Wänden anstößt, blockiert den Luftstrom, und der Boden dämpft, statt knusprig zu werden. Sie muss flach liegen, mit etwas Luft rundherum.',
+      workedExampleHeading: 'Rechenbeispiel: eine kleine Einzelpizza',
+      workedExampleTemplate:
+        'Der Karton einer kleinen Einzelpizza gibt {OVEN_F}°F für {OVEN_MIN} Minuten direkt auf dem Ofenrost an. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, damit der Boden auf einer heißen Fläche startet, leg die Pizza flach hinein und lass sie in Ruhe; es gibt nichts zu wenden. Schau dir die Unterseite am Ende der kürzeren Zeit an, indem du einen Rand mit dem Pfannenwender anhebst. Eine Mini-Pizza ist nach etwa {SMALL_MIN} Minuten fertig; eine große in einer Heißluftfritteuse im Ofen-Stil braucht ungefähr {LARGE_MIN}.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig ist',
+      donenessBody:
+        'Heb den Rand an: Die Unterseite sollte goldbraun und fest sein, und ein Stück sollte gerade abstehen statt herunterzuhängen. Der Käse muss vollständig geschmolzen sein und in der Mitte blubbern, nicht nur am Rand. Ist der Belag fertig, der Boden aber noch weich, leg ein Stück Alufolie locker darüber und gib ihr noch zwei Minuten.',
+      prepHeading: 'Passt sie hinein?',
+      prepBody:
+        'Miss deinen Korb, bevor du einkaufst. Ein runder 5-qt-Korb ist innen nur etwa 20–22 cm (8 bis 8½ Zoll) breit, also passt eine Einzelpizza mit 18 bis 20 cm mit etwas Luft hinein. Eine Pizza mit 25 oder 30 cm passt nicht: Sie braucht eine Heißluftfritteuse im Ofen-Stil oder einen Korb ab etwa 8 qt. Entferne die ganze Verpackung, auch die Pappscheibe.',
+      faqs: [
+        {
+          q: 'Wie lange braucht Tiefkühlpizza in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine Einzelpizza mit 18–20 cm. Eine Mini-Pizza mit 13 cm braucht ungefähr {SMALL_MIN} Minuten.',
+        },
+        {
+          q: 'Welche Größe Tiefkühlpizza passt in eine Heißluftfritteuse?',
+          a: 'In einen 5-qt-Korb höchstens etwa 20 cm, weil er innen nur etwa 20–22 cm misst. Eine Pizza mit 25–30 cm braucht ein Gerät im Ofen-Stil oder einen Korb ab 8 qt; sonst schneide sie in der Mitte durch und gare sie in zwei Runden.',
+        },
+        {
+          q: 'Muss ich für Tiefkühlpizza vorheizen?',
+          a: 'Ja, {PREHEAT} Minuten. Ein heißer Korb verschafft dem gefrorenen Boden einen Vorsprung, damit er knusprig wird, bevor der Käse zu viel abbekommt.',
+        },
+        {
+          q: 'Warum ist der Boden meiner Pizza weich?',
+          a: 'Die Pizza ist zu groß für den Korb, und die Luft kommt nicht um sie herum, oder die Pappe lag noch darunter. Sie muss flach liegen und am Rand Platz haben.',
+        },
+        {
+          q: 'Soll ich Tiefkühlpizza wenden?',
+          a: 'Nein. Dann fällt der Belag herunter. Lass sie flach liegen und prüf die Unterseite am Ende der kürzeren Zeit.',
+        },
+      ],
+    },
+    'frozen-fish-sticks': {
+      label: 'Tiefkühl-Fischstäbchen',
+      metaTitle: 'Fischstäbchen in der Heißluftfritteuse: Zeit & Temperatur',
+      metaDescription:
+        'Tiefkühl-Fischstäbchen in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} gewendet, gar bei {INT_F}°F. Fischstäbchen, Fisch-Bites und panierte Filets aus der Packung.',
+      metaKeywords: 'fischstäbchen heißluftfritteuse, fischstäbchen airfryer zeit, panierter fisch tiefkühl heißluftfritteuse, backfisch airfryer',
+      heading: 'Tiefkühl-Fischstäbchen in der Heißluftfritteuse',
+      subDesc:
+        'Fischstäbchen, Fisch-Bites und panierte Filets, gefroren gegart. Die Einstellung, ein vorsichtiges Wenden und wie die Panade am Fisch bleibt.',
+      cardDesc: 'Vorsichtig wenden: Die Panade wird fest, bevor der Fisch es ist.',
+      sizeLabels: { small: 'Fisch-Bites oder Mini-Stäbchen', medium: 'Fischstäbchen', large: 'Panierte Filets oder Backfisch im Teigmantel' },
+      failureHeading: 'Warum die Panade reißt und der Fisch zerfällt',
+      failureBody:
+        'Ein Fischstäbchen ist ein Block aus blättrigem weißem Fisch, der nur von seiner Panade zusammengehalten wird. In der Heißluftfritteuse wird das Paniermehl auf der Seite zum Ventilator schnell fest und braun, während der Fisch innen noch weich ist und die Panade unten noch feucht am Korb liegt. Wendest du zu früh, bleibt die Unterseite am Gitter hängen, die Panade reißt ab, und der Fisch bricht. Wendest du zu grob, passiert dasselbe. Warte bis zur Hälfte der Zeit, wenn die Unterseite fest geworden ist, schieb dann einen dünnen Pfannenwender oder eine Zange unter jedes Stäbchen und dreh es in einer Bewegung um. Backfisch im Teigmantel ist noch empfindlicher als panierter, also hilft etwas Öl auf dem Korb, damit er sich löst.',
+      workedExampleHeading: 'Rechenbeispiel: eine Packung Fischstäbchen',
+      workedExampleTemplate:
+        'Eine Packung panierter Fischstäbchen gibt {OVEN_F}°F für {OVEN_MIN} Minuten im Backofen an, einmal gewendet. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, leg die Stäbchen in einer Lage mit etwas Abstand hinein und wende sie nach {FLIP} Minuten. Fisch-Bites brauchen etwa {SMALL_MIN} Minuten, dicke panierte Filets ungefähr {LARGE_MIN}. Steht auf der Packung eine Umluftangabe, {FAN_F}°F für {FAN_MIN} Minuten, ist die Einstellung für die Heißluftfritteuse dieselbe.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Die Panade sollte auf beiden Seiten goldbraun und knusprig sein, und der Fisch innen weiß und undurchsichtig, und er sollte sich mit der Gabel in Lamellen teilen lassen. Ein Thermometer in der Mitte des dicksten Stücks sollte {INT_F}°F ({INT_C}°C) zeigen. Ist die zweite Seite noch blass, fehlen ein, zwei Minuten; ein Stäbchen, das sich biegt, statt gerade zu bleiben, ist innen noch nicht heiß.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Gare sie direkt aus dem Tiefkühler; aufgetaute Fischstäbchen werden weich und verlieren ihre Panade. Öl den Korb leicht ein oder nimm ein gelochtes Backpapier, damit das Paniermehl nicht kleben bleibt. Trenne zusammengefrorene Stäbchen, bevor sie hineinkommen, denn wenn du sie später auseinanderziehst, reißt die Panade. Für Kinder lohnt es sich, die Stäbchen nach dem Garen eine Minute ruhen zu lassen, denn innen sind sie deutlich heißer, als die Panade vermuten lässt. Eine halbe Packung pro Durchgang ist in einem normalen Korb das Maximum.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Fischstäbchen in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, nach {FLIP} Minuten gewendet. Fisch-Bites brauchen ungefähr {SMALL_MIN} Minuten, panierte Filets ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Muss ich Fischstäbchen wenden?',
+          a: 'Ja, einmal zur Hälfte und vorsichtig. Vorher ist die Unterseite zu weich, um sich sauber zu lösen.',
+        },
+        {
+          q: 'Warum klebt die Panade am Korb?',
+          a: 'Die Unterseite war beim Wenden noch feucht, oder der Korb war trocken. Öl ihn leicht ein und warte mit dem Wenden bis zur Hälfte.',
+        },
+        {
+          q: 'Brauchen Fischstäbchen Öl?',
+          a: 'Am Fisch nicht, die Panade ist vorfrittiert. Etwas Öl auf dem Korb verhindert, dass sie kleben.',
+        },
+        {
+          q: 'Kann ich Backfisch im Teigmantel genauso garen?',
+          a: 'Ja, etwa {LARGE_MIN} Minuten. Teig ist weicher als Paniermehl, also nimm Backpapier und wende ihn mit einem breiten Pfannenwender.',
+        },
+      ],
+    },
+    'frozen-chicken-tenders': {
+      label: 'Tiefkühl-Hähnchenstreifen',
+      metaTitle: 'Tiefkühl-Hähnchenstreifen in der Heißluftfritteuse: roh oder gegart?',
+      metaDescription:
+        'Panierte Tiefkühl-Hähnchenstreifen in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} gewendet, bei {INT_F}°F geprüft. Woran du auf der Packung roh und gegart unterscheidest.',
+      metaKeywords: 'tiefkühl hähnchenstreifen heißluftfritteuse, chicken tenders airfryer tiefkühl, panierte hähnchenstreifen airfryer zeit',
+      heading: 'Tiefkühl-Hähnchenstreifen in der Heißluftfritteuse',
+      subDesc:
+        'Panierte Hähnchenstreifen, Chicken Tenders und Chicken Fingers aus dem Tiefkühler. Die Einstellung, das Wenden und die eine Zeile auf der Packung, die entscheidet, wie vorsichtig du sein musst.',
+      cardDesc: 'Lies die Packung: Viele werden roh verkauft.',
+      sizeLabels: { small: 'Dünne Streifen oder Chicken Fingers', medium: 'Normale panierte Streifen', large: 'Dicke Streifen nach Hausmacherart' },
+      failureHeading: 'Die Packung sagt roh, die Panade sagt fertig',
+      failureBody:
+        'Panierte Hähnchenstreifen gibt es in zwei Sorten, die im Beutel genau gleich aussehen. Die einen sind vollständig gegart und müssen nur aufgewärmt werden. Viele andere, vor allem Handelsmarken und Streifen nach Hausmacherart, sind rohes Hähnchen in einer schon gebräunten Panade, und die Packung sagt das im Kleingedruckten: ungegart, vor dem Verzehr vollständig durchgaren oder roh. Diese Panade wurde nur so lange frittiert, bis sie hält, sie sieht also goldbraun aus, bevor die Heißluftfritteuse überhaupt startet. Darum nimmt man sie leicht heraus, wenn sie fertig wirken, obwohl das Hähnchen innen noch roh ist. Ein Streifen ist außerdem dicker als ein Nugget, also braucht die Mitte länger, um auf Temperatur zu kommen. Behandle jeden Beutel als roh, es sei denn, er sagt klar vollständig gegart, und miss den dicksten Streifen mit einem Thermometer.',
+      workedExampleHeading: 'Rechenbeispiel: ein Beutel roher panierter Streifen',
+      workedExampleTemplate:
+        'Ein Beutel ungegarter, panierter Streifen gibt {OVEN_F}°F für {OVEN_MIN} Minuten an, einmal gewendet. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, leg sechs bis acht Streifen flach hinein, ohne dass sie sich berühren, und wende sie nach {FLIP} Minuten. Dünne Chicken Fingers brauchen etwa {SMALL_MIN} Minuten, dicke Streifen nach Hausmacherart ungefähr {LARGE_MIN}. Miss den dicksten vor dem Servieren; vorgegarte Streifen können ein paar Minuten früher heraus.',
+      donenessHeading: 'Woran du erkennst, dass sie gar sind',
+      donenessBody:
+        'Bei rohen Streifen {INT_F}°F ({INT_C}°C) im dicksten Stück, den Fühler vom Ende her eingestochen, damit die Spitze in der Mitte sitzt. Die Farbe der Panade sagt hier gar nichts, weil sie schon vor dem Einfrieren gebräunt wurde. Vorgegarte Streifen müssen nur von einem Ende zum anderen heiß sein. In beiden Fällen sollte die Panade auf beiden Seiten knusprig sein, ohne weiche Stellen, wo sich Streifen berührt haben.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Such zuerst die Zubereitungszeile auf der Packung und merk dir, ob dort roh oder vollständig gegart steht. Nicht auftauen. Lass Platz zwischen den Streifen und sprüh die Panade leicht mit Öl ein, wenn sie trocken und mehlig aussieht. Wasch dir die Hände, nachdem du rohes paniertes Hähnchen angefasst hast, auch wenn es gefroren war.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tiefkühl-Hähnchenstreifen in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, nach {FLIP} Minuten gewendet. Dünne Streifen brauchen ungefähr {SMALL_MIN} Minuten, dicke ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Woran erkenne ich, ob Tiefkühl-Streifen roh sind?',
+          a: 'Die Packung sagt es dir. Achte auf „ungegart“, „roh“ oder „vollständig durchgaren“ bei der Zubereitung. Ist es unklar, behandle sie als roh und prüf mit einem Thermometer.',
+        },
+        {
+          q: 'Welche Temperatur müssen rohe Streifen erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) im dicksten Stück, mit dem Thermometer gemessen und nicht nach der Farbe geschätzt.',
+        },
+        {
+          q: 'Was unterscheidet Streifen von Nuggets?',
+          a: 'Nuggets sind fast immer schon gegart und klein. Streifen sind dicker und oft roh, sie brauchen also mehr Zeit und ein Thermometer.',
+        },
+        {
+          q: 'Muss ich Tiefkühl-Streifen wenden?',
+          a: 'Ja, einmal nach {FLIP} Minuten, damit auch die Seite am Korb knusprig wird.',
+        },
+      ],
+    },
+    'frozen-hash-browns': {
+      label: 'Tiefkühl-Rösti',
+      metaTitle: 'Tiefkühl-Rösti in der Heißluftfritteuse: Hash Browns, Zeit & Temperatur',
+      metaDescription:
+        'Tiefkühl-Rösti und Hash Browns in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} gewendet. Von Mini-Rösti bis zu dicken Ecken, auf beiden Seiten braun, ohne festzukleben.',
+      metaKeywords: 'tiefkühl rösti heißluftfritteuse, hash browns airfryer, rösti airfryer zeit, kartoffelpuffer tiefkühl heißluftfritteuse',
+      heading: 'Tiefkühl-Rösti in der Heißluftfritteuse',
+      subDesc:
+        'Rösti-Ecken, Hash Browns und Mini-Rösti aus geriebener Kartoffel, direkt aus dem Tiefkühler. Die Einstellung, das eine Wenden und wie beide Seiten braun werden statt nur eine.',
+      cardDesc: 'Flache Stücke: einmal zur Hälfte wenden.',
+      sizeLabels: { small: 'Mini-Rösti oder Häppchen', medium: 'Normale Rösti-Ecken oder Hash Browns', large: 'Dicke oder große Rösti' },
+      failureHeading: 'Warum eine Seite blass bleibt und festklebt',
+      failureBody:
+        'Ein Rösti ist flach und liegt deshalb mit einer ganzen Seite auf dem Korbgitter. Die obere Seite bekommt den vollen Luftstrom des Ventilators ab und bräunt, während die untere viel weniger Luft bekommt und blass bleibt. Schütteln hilft nicht, weil ein flaches Stück nur auf derselben Seite herumrutscht. Geriebene Kartoffel gibt außerdem beim Erhitzen Stärke ab, und auf einem trockenen Korb klebt diese Stärke die Unterseite am Metall fest, sodass die Kruste abreißt, wenn du das Stück endlich bewegen willst. Die Lösung ist ein einziges Wenden zur Hälfte, mit dem Pfannenwender, und ein dünner Ölfilm auf dem Korb oder auf den Rösti, damit die Stärke bräunt, statt festzukleben. Nach dem Wenden zeigt die blasse Seite zum Ventilator und holt auf.',
+      workedExampleHeading: 'Rechenbeispiel: Frühstück für vier',
+      workedExampleTemplate:
+        'Eine Packung Rösti-Ecken gibt {OVEN_F}°F für {OVEN_MIN} Minuten an, einmal gewendet. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, leg vier Stück flach und ohne Überlappen hinein und wende sie nach {FLIP} Minuten. Mini-Rösti brauchen etwa {SMALL_MIN} Minuten, dicke Stücke ungefähr {LARGE_MIN}. Daneben ist kein Platz mehr, also brate Speck oder Würstchen vorher oder nachher, nicht gleichzeitig.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Beide Seiten sollten kräftig goldbraun und knusprig sein, die Ränder etwas dunkler. Drück mit dem Pfannenwender auf die Mitte: Sie sollte sich fest anfühlen, nicht weich, und innen heiß und zart sein, wenn du ein Stück durchschneidest. Ist die zweite Seite noch blass, gib ein, zwei Minuten dazu, statt die Hitze hochzudrehen.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Gare sie gefroren und staple sie nicht. Bestreich oder besprüh die Rösti leicht mit Öl, oder öl den Korb ein, damit die Stärke bräunt, statt am Gitter festzubacken. Salz und Pfeffer kommen erst nach dem Wenden dazu. Wenn du mehr als vier Stück brauchst, gare sie in zwei Runden und halte die erste Portion auf einem Gitter im warmen Backofen knusprig; auf einem Teller dämpfen sie sich von unten wieder weich. Klassische Schweizer Rösti aus dem Kühlregal sind dicker und brauchen eher die Zeit der großen Stücke.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tiefkühl-Rösti in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, nach {FLIP} Minuten gewendet. Mini-Rösti brauchen ungefähr {SMALL_MIN} Minuten, dicke Stücke ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Muss ich Rösti wenden?',
+          a: 'Ja. Sie sind flach, beim Schütteln bleibt also dieselbe Seite unten. Einmal Wenden zur Hälfte bräunt beide Seiten.',
+        },
+        {
+          q: 'Warum kleben Rösti am Korb?',
+          a: 'Die Stärke aus der Kartoffel klebt sie an einem trockenen Korb fest. Ein leichter Sprühstoß Öl verhindert das.',
+        },
+        {
+          q: 'Kann ich lose geriebene Tiefkühl-Kartoffeln garen?',
+          a: 'Ja, in einer dünnen, fest angedrückten Schicht auf Backpapier. Wende sie zur Hälfte in Stücken; sie brauchen ein paar Minuten länger als Rösti-Ecken.',
+        },
+        {
+          q: 'Was unterscheidet Rösti hier von Tater Tots?',
+          a: 'Rösti sind flach und werden einmal gewendet. Tots sind rund, also werden sie geschüttelt und rollen von selbst auf neue Seiten.',
+        },
+      ],
+    },
+    'frozen-egg-rolls': {
+      label: 'Tiefkühl-Frühlingsrollen',
+      metaTitle: 'Tiefkühl-Frühlingsrollen in der Heißluftfritteuse: Zeit & Temperatur',
+      metaDescription:
+        'Tiefkühl-Frühlingsrollen und Egg Rolls in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} gewendet. Knuspriger, blasiger Teigmantel mit heißer Füllung.',
+      metaKeywords: 'frühlingsrollen heißluftfritteuse, tiefkühl frühlingsrollen airfryer zeit, samosas tiefkühl heißluftfritteuse',
+      heading: 'Tiefkühl-Frühlingsrollen in der Heißluftfritteuse',
+      subDesc:
+        'Frühlingsrollen, Egg Rolls und ähnliche gewickelte Snacks, direkt aus dem Tiefkühler gegart. Die Einstellung, das Wenden und wie die Füllung heiß wird, bevor die Enden verbrennen.',
+      cardDesc: 'Teigmantel einsprühen und einmal wenden.',
+      sizeLabels: { small: 'Mini-Frühlingsrollen', medium: 'Normale Frühlingsrollen', large: 'Große Egg Rolls oder Samosas' },
+      failureHeading: 'Warum die Enden verbrennen und die Mitte kalt bleibt',
+      failureBody:
+        'Eine Frühlingsrolle ist ein dünner, trockener Teigmantel um eine dicke, feuchte Füllung. Der Teig nimmt in wenigen Minuten Farbe an, und die umgeschlagenen Enden, wo der Teig am dünnsten ist und in den Luftstrom ragt, werfen zuerst Blasen und werden dunkel. Gleichzeitig hat die Füllung aus Kohl und Fleisch komplett gefroren angefangen und wird nur langsam warm, sodass eine Rolle, die außen perfekt aussieht, in der Mitte noch eisig sein kann. Zwei Dinge helfen. Ein leichter Sprühstoß Öl auf den Teig lässt ihn gleichmäßig und langsam bräunen, statt auszutrocknen und an den Spitzen zu verbrennen. Und ein Wenden zur Hälfte bringt die blasse Unterseite zum Ventilator und gibt der Füllung Zeit aufzuholen. Lass Platz zwischen den Rollen, damit auch die Seiten knusprig werden.',
+      workedExampleHeading: 'Rechenbeispiel: eine Packung Frühlingsrollen',
+      workedExampleTemplate:
+        'Eine Packung Tiefkühl-Frühlingsrollen gibt {OVEN_F}°F für {OVEN_MIN} Minuten auf dem Blech an, einmal gewendet. In einer Korb-Heißluftfritteuse wird daraus {AF_F}°F für {MIN} Minuten. Heize {PREHEAT} Minuten vor, sprüh die Rollen leicht ein, leg sie in einer Lage mit Abstand hinein und wende sie nach {FLIP} Minuten. Mini-Frühlingsrollen brauchen etwa {SMALL_MIN} Minuten, große Egg Rolls ungefähr {LARGE_MIN}. Lass sie zwei Minuten stehen, bevor du hineinbeißt: Die Füllung hält viel Hitze.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Der Teigmantel sollte rundum goldbraun und blasig sein, ohne weiße, mehlige Stellen, und beim Drücken knistern. Der eigentliche Test ist die Füllung: Schneid eine Rolle in der Mitte durch und prüf, ob sie bis ganz innen dampft. Ist der Teig fertig, die Mitte aber noch kühl, gib ihnen noch zwei Minuten; die Enden nehmen etwas mehr Farbe an, sollten bei dieser Einstellung aber nicht verbrennen.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Gare sie gefroren; aufgetauter Teig wird weich und reißt. Sprüh oder pinsel sie rundum leicht mit Öl ein, was bei ihnen mehr ausmacht als bei allem anderen aus dem Tiefkühler. Trenne zusammengefrorene Rollen vorsichtig, damit der Teig nicht aufplatzt. Serviere die Dip-Soße getrennt, damit der Mantel knusprig bleibt. Wenn du verschiedene Größen in einer Packung hast, gare sie getrennt, denn kleine Rollen sind deutlich früher fertig als große.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Tiefkühl-Frühlingsrollen in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F, nach {FLIP} Minuten gewendet. Mini-Rollen brauchen ungefähr {SMALL_MIN} Minuten, große Egg Rolls ungefähr {LARGE_MIN}.',
+        },
+        {
+          q: 'Brauchen Tiefkühl-Frühlingsrollen Öl in der Heißluftfritteuse?',
+          a: 'Einen leichten Sprühstoß, ja. Ohne Öl trocknet der Teig aus, wird mehlig und verbrennt an den Enden.',
+        },
+        {
+          q: 'Warum sind meine Frühlingsrollen innen kalt?',
+          a: 'Die Füllung war am Anfang gefroren und braucht die volle Zeit. Schneid eine auf, statt dich auf die Farbe zu verlassen.',
+        },
+        {
+          q: 'Geht das auch mit Samosas und anderen Teigtaschen?',
+          a: 'Ja. Mini-Rollen sind schneller, und dicke Samosas brauchen ungefähr so lange wie große Egg Rolls.',
+        },
+        {
+          q: 'Soll ich Frühlingsrollen vorher auftauen?',
+          a: 'Nein. Aufgetauter Teig zieht Feuchtigkeit aus der Füllung und reißt, wenn du die Rollen bewegst.',
         },
       ],
     },

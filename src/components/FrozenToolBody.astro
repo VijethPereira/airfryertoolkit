@@ -4,7 +4,9 @@ import AdSlot from './AdSlot.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import { computeAirFryerSettingFromFrozen, type FrozenFoodKey } from '../lib/converter';
+import { computeAirFryerSettingFromFrozen } from '../lib/converter';
+import { PRESETS } from '../data/presets';
+import { presetCard } from '../lib/presets';
 import { LIVE_PAGES } from '../site.config';
 
 interface Props {
@@ -34,16 +36,10 @@ const links = [
   .filter(({ slug }) => LIVE_PAGES.has(slug))
   .map(({ slug, label }) => ({ href: localizedPath(locale, slug), label }));
 
-// Slot for the /frozen-[food] presets (Section 4 row 8): each link appears once its slug is in LIVE_PAGES.
-const presetSlugs: { slug: string; food: FrozenFoodKey }[] = [
-  { slug: '/frozen-fries', food: 'fries' },
-  { slug: '/frozen-chicken-nuggets', food: 'nuggets' },
-  { slug: '/frozen-chicken', food: 'rawChicken' },
-  { slug: '/frozen-pizza', food: 'pizza' },
-];
-const presetLinks = presetSlugs
-  .filter(({ slug }) => LIVE_PAGES.has(slug))
-  .map(({ slug, food }) => ({ href: slug, label: all.frozenConverter.foods[food].label }));
+// Every live frozen preset (/air-fryer/frozen-*), in PRESETS order.
+const presetLinks = PRESETS.filter((p) => p.category === 'frozen')
+  .map((p) => presetCard(p, locale))
+  .filter((c) => LIVE_PAGES.has(c.path));
 ---
 
 <main class="page-main">
