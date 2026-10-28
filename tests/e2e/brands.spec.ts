@@ -264,6 +264,14 @@ test.describe('/model-max-temp', () => {
     for (const m of MODELS) await expect(page.locator(`a[href="${m.source}"]`).first(), m.id).toBeAttached();
   });
 
+  test('a maximum read from a default setting is marked in its row, and only there', async ({ page }) => {
+    await page.goto(MODEL_MAX_TEMP_PATH);
+    const marked = MODELS.filter((m) => m.maxIsDefault).map((m) => m.id);
+    expect(marked).toEqual(['ninja-doublestack-sl401']);
+    await expect(page.locator('tbody tr', { hasText: dict.maxDefaultNote })).toHaveCount(marked.length);
+    await expect(page.locator(`tr[data-model="${marked[0]}"]`)).toContainText(dict.maxDefaultNote);
+  });
+
   test('filter and sort work as plain links, with JavaScript off', async ({ browser }) => {
     const ctx = await browser.newContext({ javaScriptEnabled: false });
     const page = await ctx.newPage();

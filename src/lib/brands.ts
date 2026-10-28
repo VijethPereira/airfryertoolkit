@@ -151,6 +151,8 @@ export interface ModelRow {
   maxF: number;
   min: string | null;
   other: string | null;
+  /** Set when the stated temperature is a default, not a maximum. */
+  maxNote: string | null;
   preheat: string;
   source: string;
   sourceLabel: string;
@@ -173,6 +175,7 @@ export function modelRow(m: FryerModel): ModelRow {
     maxF: m.maxF,
     min: formatMin(m),
     other: m.otherMax ? fillPlaceholders(brandsDict.otherMaxTemplate, { LABEL: brandsDict.otherMax[m.otherMax.label], F: String(m.otherMax.f) }) : null,
+    maxNote: m.maxIsDefault ? brandsDict.maxDefaultNote : null,
     preheat: brandsDict.preheat[m.preheat],
     source: m.source,
     sourceLabel: m.brand === 'philips' ? brandsDict.sourceSpec : brandsDict.sourceManual,

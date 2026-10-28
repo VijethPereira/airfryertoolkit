@@ -39,6 +39,7 @@ export interface BrandsDictionary {
   sourceManual: string;
   sourceSpec: string;
   foodLoadNote: string;
+  maxDefaultNote: string;
   relatedHeading: string;
   flagshipLink: string;
   maxTempLink: string;
@@ -87,6 +88,7 @@ export const brands: BrandsDictionary = {
   sourceManual: 'Manual',
   sourceSpec: 'Spec page',
   foodLoadNote: 'The source gives a food load in kilograms, not a volume.',
+  maxDefaultNote: 'Default setting, max not stated',
   relatedHeading: 'Related',
   flagshipLink: 'Oven to air fryer converter',
   maxTempLink: 'Max temperature of every sourced model',
@@ -167,7 +169,7 @@ export const brands: BrandsDictionary = {
         { q: 'Can I set Max Crisp to a lower temperature?', a: 'No. The Max XL guide says the temperature cannot be adjusted in Max Crisp. If you need less heat, use Air Fry and set it yourself.' },
         { q: 'Should I use Max Crisp for oven recipes?', a: 'Usually not. Convert the recipe for Air Fry instead. Max Crisp is meant for frozen, pre-cooked food that only needs crisping.' },
         { q: 'Do I need to preheat my Ninja?', a: 'On the basket models, yes: the guides recommend {PREHEAT_MIN} minutes. The DoubleStack XL does not need it, and the Foodi oven preheats on its own.' },
-        { q: 'Why are the Foodi 2-Basket models not in the table?', a: 'Their owner’s guides do not state an Air Fry maximum, so we have left them out rather than guess. Until they are listed, choose "not sure" in the converter.' },
+        { q: 'Why are the Foodi 2-Basket models not in the table?', a: 'We read the DZ201, DZ401 and DZ550 owner’s guides in full. They give chart settings and probe targets, never an Air Fry maximum, so we left them out.' },
       ],
       cardDesc: 'Max Crisp is a fixed preset: what that means for oven recipes.',
     },
