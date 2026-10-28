@@ -234,14 +234,20 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
       const dict = getDictionary(code).home;
       await page.goto(localizedPath(code, '/'));
       const items = page.locator('.rail-list .rail-item');
-      await expect(items).toHaveCount(dict.commonConversions.length);
-      for (let i = 0; i < dict.commonConversions.length; i++) {
+      await expect(items).toHaveCount(TEMP_LANDINGS.length);
+      for (let i = 0; i < TEMP_LANDINGS.length; i++) {
         const { tempF } = TEMP_LANDINGS[i];
         const item = items.nth(i);
+        const r = engine(tempF, 'general', 'basket');
         await expect(item).toHaveAttribute('href', localizedPath(code, tempLandingSlug(tempF)));
-        await expect(item.locator('.rail-num').nth(1)).toHaveText(`${engine(tempF, 'general', 'basket').outF}°F`);
+        await expect(item.locator('.rail-num').nth(1)).toHaveText(`${r.outF}°F`);
+        // The ceiling label sits only on the capped row (450°F); the others state the engine's time cut.
+        await expect(item.locator('.rail-note')).toHaveText(
+          r.capped ? dict.commonConversions.ceiling : dict.commonConversions.timeCut.replace('{PCT}', String(pctLess(tempF, 'general', 'basket'))),
+        );
         await expect(item).not.toContainText(dict.comingSoon);
       }
+      await expect(items.last().locator('.rail-note')).toHaveText(dict.commonConversions.ceiling);
     });
   }
 

@@ -4,6 +4,7 @@ import { presets, presetsIndex } from './presets/de';
 
 const de: Dictionary = {
   nav: {
+    home: 'Startseite',
     convert: 'Umrechnen',
     reverse: 'Umgekehrt',
     foodPresets: 'Lebensmittel',
@@ -14,6 +15,7 @@ const de: Dictionary = {
   footer: {
     converter: 'Umrechner',
     foodPresets: 'Voreingestellte Lebensmittel',
+    frozen: 'Tiefkühlkost',
     conversionChart: 'Umrechnungstabelle',
     about: 'Über uns',
     contact: 'Kontakt',
@@ -150,7 +152,7 @@ const de: Dictionary = {
       'Gib Temperatur und Zeit aus dem Rezept ein. Erhalte die Heißluftfritteusen-Einstellung für dein Gericht, angepasst an Korb- oder Ofentyp — keine pauschale 25°-Regel.',
     ctaLabel: 'Vollständigen Umrechner öffnen',
     commonConversionsHeading: 'Häufige Umrechnungen',
-    commonConversions: ['−20 % Zeit', '−20 % Zeit', '−20 % Zeit', 'Korb-Obergrenze'],
+    commonConversions: { timeCut: '−{PCT} % Zeit', ceiling: 'Korb-Obergrenze' },
     railFootnote: 'Multiplikatoren abgestimmt auf Korb- und Ofen-Heißluftfritteusen, je nach Lebensmittelart.',
     comingSoon: 'Demnächst',
     sectionTitles: {

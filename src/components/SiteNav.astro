@@ -259,7 +259,8 @@ const dict = getDictionary(locale).nav;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  @media (max-width: 640px) {
+  /* The six links overflow below ~900px in German, so the menu collapses up to there. */
+  @media (max-width: 900px) {
     .nav-toggle {
       display: flex;
     }

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import siteConfig from '../site.config.ts';
 import { DEFAULT_LOCALE, LOCALES, OG_LOCALE_MAP, type LocaleCode } from '../i18n/locales';
 import { localizedUrl } from '../i18n/utils';
+import { breadcrumbJsonLd } from '../lib/breadcrumbs';
 
 interface Props {
   title?: string;
@@ -32,6 +33,8 @@ const metaDesc = description ?? siteConfig.tagline;
 const canonicalUrl = canonical ?? `${siteConfig.domain}/`;
 const ogImg = ogImage ?? `${siteConfig.domain}/og-image.png`;
 const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : null;
+// Every translated page below the homepage gets a BreadcrumbList derived from its slug.
+const breadcrumbs = translatedSlug !== undefined ? breadcrumbJsonLd(locale, translatedSlug) : null;
 ---
 
 <!doctype html>
@@ -100,6 +103,7 @@ const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : null;
 
     <!-- JSON-LD structured data -->
     {jsonLdStr && <script is:inline type="application/ld+json" set:html={jsonLdStr} />}
+    {breadcrumbs && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
 
     <!-- Google Analytics -->
     {siteConfig.gaId && (

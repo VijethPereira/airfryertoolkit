@@ -4,6 +4,7 @@ import { presets, presetsIndex } from './presets/pt';
 
 const pt: Dictionary = {
   nav: {
+    home: 'Início',
     convert: 'Converter',
     reverse: 'Inverso',
     foodPresets: 'Alimentos',
@@ -14,6 +15,7 @@ const pt: Dictionary = {
   footer: {
     converter: 'Conversor',
     foodPresets: 'Alimentos predefinidos',
+    frozen: 'Congelados',
     conversionChart: 'Tabela de conversão',
     about: 'Sobre',
     contact: 'Contato',
@@ -150,7 +152,7 @@ const pt: Dictionary = {
       'Digite a temperatura e o tempo da receita. Receba o ajuste da air fryer para o seu alimento, adaptado para cesto ou tipo forno — não uma regra fixa de 25°.',
     ctaLabel: 'Abrir o conversor completo',
     commonConversionsHeading: 'Conversões comuns',
-    commonConversions: ['−20% de tempo', '−20% de tempo', '−20% de tempo', 'limite do cesto'],
+    commonConversions: { timeCut: '−{PCT}% de tempo', ceiling: 'limite do cesto' },
     railFootnote: 'Multiplicadores ajustados para air fryers de cesto e tipo forno, por tipo de alimento.',
     comingSoon: 'Em breve',
     sectionTitles: {

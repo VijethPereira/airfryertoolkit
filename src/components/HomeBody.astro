@@ -4,9 +4,9 @@ import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
-import type { FrozenFoodKey } from '../lib/converter';
+import { computeAirFryerSetting, type FrozenFoodKey } from '../lib/converter';
 import { HOME_FROZEN_CARDS, frozenCardSpec } from '../lib/home-cards';
-import { TEMP_LANDINGS, tempLandingSlug, tempLandingValues } from '../lib/temp-landings';
+import { TEMP_LANDINGS, TEMP_LANDING_MINUTES, fillPlaceholders, tempLandingSlug, tempLandingValues, timeCutPercent } from '../lib/temp-landings';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
 
@@ -23,12 +23,18 @@ const isLive = (href: string) => href.startsWith('/#') || LIVE_PAGES.has(href);
 const translatedSlugs = new Set(TRANSLATED_PAGES.map((p) => p.slug));
 const hrefFor = (href: string) => (translatedSlugs.has(href) ? localizedPath(locale, href) : href);
 
-// One rail row per dict.commonConversions note (the first landing temperatures); values from the engine.
-const commonConversions = TEMP_LANDINGS.slice(0, dict.commonConversions.length).map((landing) => ({
-  href: tempLandingSlug(landing.tempF),
-  from: `${landing.tempF}°F`,
-  to: `${tempLandingValues(landing).AF_F}°F`,
-}));
+// One rail row per landing temperature; value and note from the engine (the note names the ceiling where the output is capped).
+const commonConversions = TEMP_LANDINGS.map((landing) => {
+  const basket = computeAirFryerSetting({ ovenTemp: landing.tempF, unit: 'F', ovenMinutes: TEMP_LANDING_MINUTES, food: 'general', style: 'basket' });
+  return {
+    href: tempLandingSlug(landing.tempF),
+    from: `${landing.tempF}°F`,
+    to: `${tempLandingValues(landing).AF_F}°F`,
+    note: basket.capped
+      ? dict.commonConversions.ceiling
+      : fillPlaceholders(dict.commonConversions.timeCut, { PCT: String(timeCutPercent(landing.tempF, 'general', 'basket')) }),
+  };
+});
 
 /** A card's own page, plus an optional live page to send people to until it ships (may carry a ?query). */
 interface CardTarget {
@@ -87,7 +93,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
                   <span class="rail-num">{c.from}</span>
                   <span class="rail-arrow">&rarr;</span>
                   <span class="rail-num">{c.to}</span>
-                  <span class="rail-note">{dict.commonConversions[i]}</span>
+                  <span class="rail-note">{c.note}</span>
                 </a>
               ) : (
                 <div class:list={['rail-item', 'disabled', { first: i === 0 }]} aria-disabled="true">

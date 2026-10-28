@@ -4,6 +4,7 @@ import { presets, presetsIndex } from './presets/es';
 
 const es: Dictionary = {
   nav: {
+    home: 'Inicio',
     convert: 'Convertir',
     reverse: 'Inverso',
     foodPresets: 'Alimentos',
@@ -14,6 +15,7 @@ const es: Dictionary = {
   footer: {
     converter: 'Conversor',
     foodPresets: 'Alimentos preconfigurados',
+    frozen: 'Congelados',
     conversionChart: 'Tabla de conversión',
     about: 'Acerca de',
     contact: 'Contacto',
@@ -150,7 +152,7 @@ const es: Dictionary = {
       'Ingresa la temperatura y el tiempo de la receta. Obtén el ajuste de la freidora de aire para tu alimento, adaptado a cesta o tipo horno — no una regla fija de 25°.',
     ctaLabel: 'Abrir el conversor completo',
     commonConversionsHeading: 'Conversiones comunes',
-    commonConversions: ['−20% de tiempo', '−20% de tiempo', '−20% de tiempo', 'límite de cesta'],
+    commonConversions: { timeCut: '−{PCT}% de tiempo', ceiling: 'límite de cesta' },
     railFootnote: 'Multiplicadores ajustados para freidoras de aire de cesta y tipo horno, según el alimento.',
     comingSoon: 'Próximamente',
     sectionTitles: {

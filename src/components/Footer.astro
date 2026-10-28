@@ -11,10 +11,11 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale).footer;
 
-/** `translated: true` links point at the 2 pages this launch translates (home + tool page) and get a locale prefix; the rest stay English-only. */
+/** `translated: true` links point at pages in TRANSLATED_PAGES and get a locale prefix; the rest stay English-only. */
 const footerLinks = [
   { label: dict.converter, href: '/oven-to-air-fryer', translated: true },
-  { label: dict.foodPresets, href: '/#presets', translated: true },
+  { label: dict.foodPresets, href: '/presets', translated: true },
+  { label: dict.frozen, href: '/frozen', translated: true },
   { label: dict.conversionChart, href: '/chart', translated: true },
   { label: dict.about, href: '/about', translated: false },
   { label: dict.contact, href: '/contact', translated: false },

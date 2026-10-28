@@ -4,6 +4,7 @@ import { presets, presetsIndex } from './presets/en';
 
 const en: Dictionary = {
   nav: {
+    home: 'Home',
     convert: 'Convert',
     reverse: 'Reverse',
     foodPresets: 'Food presets',
@@ -14,6 +15,7 @@ const en: Dictionary = {
   footer: {
     converter: 'Converter',
     foodPresets: 'Food presets',
+    frozen: 'Frozen food',
     conversionChart: 'Conversion chart',
     about: 'About',
     contact: 'Contact',
@@ -150,7 +152,7 @@ const en: Dictionary = {
       'Enter the temperature and time on the recipe. Get the air fryer setting for your food, adjusted for basket or oven-style — not a flat 25° rule.',
     ctaLabel: 'Open the full converter',
     commonConversionsHeading: 'Common conversions',
-    commonConversions: ['−20% time', '−20% time', '−20% time', 'basket ceiling'],
+    commonConversions: { timeCut: '−{PCT}% time', ceiling: 'basket ceiling' },
     railFootnote: 'Multipliers tuned for basket and oven-style air fryers, per food type.',
     comingSoon: 'Coming soon',
     sectionTitles: {

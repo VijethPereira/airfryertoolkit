@@ -1,26 +1,29 @@
 import type { APIRoute } from 'astro';
 import siteConfig, { TRANSLATED_PAGES } from '../site.config.ts';
-import { LOCALES, DEFAULT_LOCALE } from '../i18n/locales';
+import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedUrl } from '../i18n/utils';
+// Last commit that changed each page's data or dictionary entry; written by scripts/content-dates.mjs before the build.
+import CONTENT_DATES from '../data/content-dates.json';
 
 export const prerender = true;
 
-const STATIC_PAGES: { path: string; priority: string; changefreq: string }[] = [
-  { path: '/about', priority: '0.4', changefreq: 'monthly' },
-  { path: '/contact', priority: '0.3', changefreq: 'monthly' },
-  { path: '/privacy-policy', priority: '0.2', changefreq: 'yearly' },
-  { path: '/terms', priority: '0.2', changefreq: 'yearly' },
-];
+// No <priority> or <changefreq>: Google ignores both. <lastmod> is a real content date, not build time.
+const STATIC_PAGES = ['/about', '/contact', '/privacy-policy', '/terms'];
 
-function urlBlock(path: string, priority: string, changefreq: string): string {
+function lastmod(locale: LocaleCode, slug: string): string {
+  const date = (CONTENT_DATES as Record<string, string>)[`${locale}:${slug}`];
+  if (!date) throw new Error(`sitemap: no content date for ${locale}:${slug} — run node scripts/content-dates.mjs`);
+  return date;
+}
+
+function urlBlock(path: string): string {
   return `  <url>
     <loc>${siteConfig.domain}${path}</loc>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <lastmod>${lastmod(DEFAULT_LOCALE, path)}</lastmod>
   </url>`;
 }
 
-function translatedUrlBlock(slug: string, priority: string, changefreq: string): string {
+function translatedUrlBlock(slug: string): string {
   const alternates = [
     ...LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${localizedUrl(l.code, slug)}" />`),
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(DEFAULT_LOCALE, slug)}" />`,
@@ -29,18 +32,14 @@ function translatedUrlBlock(slug: string, priority: string, changefreq: string):
   return LOCALES.map(
     (l) => `  <url>
     <loc>${localizedUrl(l.code, slug)}</loc>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <lastmod>${lastmod(l.code, slug)}</lastmod>
 ${alternates}
   </url>`,
   ).join('\n');
 }
 
 export const GET: APIRoute = () => {
-  const urlBlocks = [
-    ...TRANSLATED_PAGES.map((p) => translatedUrlBlock(p.slug, p.priority, p.changefreq)),
-    ...STATIC_PAGES.map((p) => urlBlock(p.path, p.priority, p.changefreq)),
-  ];
+  const urlBlocks = [...TRANSLATED_PAGES.map((p) => translatedUrlBlock(p.slug)), ...STATIC_PAGES.map((p) => urlBlock(p))];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

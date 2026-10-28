@@ -51,6 +51,8 @@ export interface TempLandingCopy {
 
 export interface Dictionary {
   nav: {
+    /** Breadcrumb name of the homepage (not a nav item). */
+    home: string;
     convert: string;
     reverse: string;
     foodPresets: string;
@@ -61,6 +63,7 @@ export interface Dictionary {
   footer: {
     converter: string;
     foodPresets: string;
+    frozen: string;
     conversionChart: string;
     about: string;
     contact: string;
@@ -130,7 +133,8 @@ export interface Dictionary {
     heroSub: string;
     ctaLabel: string;
     commonConversionsHeading: string;
-    commonConversions: [string, string, string, string];
+    /** Rail note per landing temperature: the time cut ({PCT}), or the ceiling label where the output is capped. */
+    commonConversions: { timeCut: string; ceiling: string };
     railFootnote: string;
     comingSoon: string;
     sectionTitles: {

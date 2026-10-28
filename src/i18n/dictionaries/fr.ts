@@ -4,6 +4,7 @@ import { presets, presetsIndex } from './presets/fr';
 
 const fr: Dictionary = {
   nav: {
+    home: 'Accueil',
     convert: 'Convertir',
     reverse: 'Inverse',
     foodPresets: 'Aliments',
@@ -14,6 +15,7 @@ const fr: Dictionary = {
   footer: {
     converter: 'Convertisseur',
     foodPresets: 'Aliments préréglés',
+    frozen: 'Surgelés',
     conversionChart: 'Tableau de conversion',
     about: 'À propos',
     contact: 'Contact',
@@ -150,7 +152,7 @@ const fr: Dictionary = {
       'Entrez la température et le temps indiqués sur la recette. Obtenez le réglage de friteuse à air pour votre aliment, adapté au panier ou au type four — pas une règle fixe de 25°.',
     ctaLabel: 'Ouvrir le convertisseur complet',
     commonConversionsHeading: 'Conversions courantes',
-    commonConversions: ['−20 % de temps', '−20 % de temps', '−20 % de temps', 'plafond panier'],
+    commonConversions: { timeCut: '−{PCT} % de temps', ceiling: 'plafond panier' },
     railFootnote: 'Multiplicateurs ajustés pour les friteuses à air à panier et de type four, par type d’aliment.',
     comingSoon: 'Bientôt disponible',
     sectionTitles: {

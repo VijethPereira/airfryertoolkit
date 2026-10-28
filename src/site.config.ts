@@ -15,7 +15,7 @@ const siteConfig = {
   navLinks: [
     { key: 'convert', href: '/#convert' },
     { key: 'reverse', href: '/#reverse' },
-    { key: 'foodPresets', href: '/#presets' },
+    { key: 'foodPresets', href: '/presets' },
     { key: 'brands', href: '/#brands' },
     { key: 'chart', href: '/chart' },
     { key: 'guide', href: '/#guide' },
@@ -81,15 +81,15 @@ export const LIVE_PAGES = new Set<string>([
  * Read by sitemap.xml.ts (one <url> per locale + hreflang) and by HomeBody (which
  * localizes a card's href only when the slug is listed here).
  */
-export const TRANSLATED_PAGES: { slug: string; priority: string; changefreq: string }[] = [
-  { slug: '/', priority: '1.0', changefreq: 'weekly' },
-  { slug: '/oven-to-air-fryer', priority: '0.9', changefreq: 'monthly' },
-  { slug: '/air-fryer-to-oven', priority: '0.8', changefreq: 'monthly' },
-  { slug: '/convection-to-air-fryer', priority: '0.8', changefreq: 'monthly' },
-  { slug: '/air-fryer-to-convection', priority: '0.7', changefreq: 'monthly' },
-  { slug: '/frozen', priority: '0.8', changefreq: 'monthly' },
-  ...TEMP_LANDING_SLUGS.map((slug) => ({ slug, priority: '0.7', changefreq: 'monthly' })),
-  { slug: PRESETS_INDEX_PATH, priority: '0.8', changefreq: 'monthly' },
-  ...PRESET_PATHS.map((slug) => ({ slug, priority: '0.7', changefreq: 'monthly' })),
-  { slug: '/chart', priority: '0.7', changefreq: 'monthly' },
+export const TRANSLATED_PAGES: { slug: string }[] = [
+  { slug: '/' },
+  { slug: '/oven-to-air-fryer' },
+  { slug: '/air-fryer-to-oven' },
+  { slug: '/convection-to-air-fryer' },
+  { slug: '/air-fryer-to-convection' },
+  { slug: '/frozen' },
+  ...TEMP_LANDING_SLUGS.map((slug) => ({ slug })),
+  { slug: PRESETS_INDEX_PATH },
+  ...PRESET_PATHS.map((slug) => ({ slug })),
+  { slug: '/chart' },
 ];

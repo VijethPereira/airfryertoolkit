@@ -797,7 +797,7 @@ test.describe('food presets: index, homepage and locales', () => {
 
   for (const width of [375, 412]) {
     test(`preset pages and /presets have no horizontal scroll and 44px+ tap targets at ${width}px`, async ({ page }) => {
-      test.setTimeout(180_000); // eleven pages per test
+      test.setTimeout(360_000); // every preset page plus /presets (42 pages), run while the rest of the suite loads astro dev
       await page.setViewportSize({ width, height: 860 });
       for (const path of [PRESETS_INDEX_PATH, ...ALL.map((p) => presetPath(p.slug))]) {
         await page.goto(path);
