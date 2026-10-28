@@ -155,7 +155,10 @@ export interface Dictionary {
     frozenCardSpec: { template: string; shake: string; shakeOnce: string; flip: string; flipOnce: string; noTurn: string; internal: string };
     presetsTeaser: { heading: string; desc: string; selectLabel: string; goLabel: string };
     allPresetsCard: { title: string; desc: string };
-    brandCards: { title: string; spec: string; desc: string }[];
+    /** Brand cards: the spec line is built from src/data/models.ts (brandCardSpec / modelTableSpec), never typed in. */
+    brandCards: Record<'ninja' | 'cosori' | 'philips' | 'instant' | 'modelMaxTemp', { title: string; desc: string }>;
+    brandCardSpec: string;
+    modelTableSpec: string;
     chartStrip: [string, string, string, string];
     guide: { heading: string; body: string }[];
   };

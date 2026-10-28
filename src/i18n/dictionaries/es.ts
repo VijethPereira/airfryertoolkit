@@ -203,12 +203,15 @@ const es: Dictionary = {
       goLabel: 'Ir',
     },
     allPresetsCard: { title: 'Todas las preconfiguraciones →', desc: 'Carne, pescado, verduras, repostería, recalentado.' },
-    brandCards: [
-      { title: 'Ninja', spec: 'Máx. 400°F · cesta y doble', desc: 'Ajustes para AF101, AF161, DZ201 y Foodi.' },
-      { title: 'Cosori', spec: 'Máx. 450°F · 11 preconfiguraciones', desc: 'Traduce los botones preconfigurados a tiempos reales.' },
-      { title: 'Philips', spec: 'Máx. 390°F · Rapid Air', desc: 'Límite más bajo que la mayoría — los tiempos se alargan.' },
-      { title: 'Referencia de temperatura máxima por modelo', spec: '60+ modelos', desc: 'La tabla de límites que alimenta el conversor de arriba.' },
-    ],
+    brandCards: {
+      ninja: { title: 'Ninja', desc: 'Ajustes por modelo, según las guías de Ninja.' },
+      cosori: { title: 'Cosori', desc: 'Varios modelos de cesta alcanzan más temperatura de la que suponen los conversores.' },
+      philips: { title: 'Philips', desc: 'Un límite más bajo que la mayoría: las recetas calientes necesitan más tiempo.' },
+      instant: { title: 'Instant Vortex', desc: 'Cuándo aparece Turn Food y cómo mirar por la ventana.' },
+      modelMaxTemp: { title: 'Referencia de temperatura máxima por modelo', desc: 'La tabla de límites que alimenta el conversor, con la fuente de cada fila.' },
+    },
+    brandCardSpec: 'Hasta {MAX_F}°F · {N} modelos',
+    modelTableSpec: '{N} modelos con fuente',
     chartStrip: ['Multiplicadores por alimento', 'Cesta y tipo horno', '°F · °C · nivel de gas', 'Gratis — sin cuenta'],
     guide: [
       {

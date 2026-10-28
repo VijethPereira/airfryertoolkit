@@ -203,12 +203,15 @@ const pt: Dictionary = {
       goLabel: 'Ir',
     },
     allPresetsCard: { title: 'Todas as predefinições →', desc: 'Carne, peixe, legumes, assados, reaquecimento.' },
-    brandCards: [
-      { title: 'Ninja', spec: 'Máx. 400°F · cesto e duplo', desc: 'Ajustes para AF101, AF161, DZ201 e Foodi.' },
-      { title: 'Cosori', spec: 'Máx. 450°F · 11 predefinições', desc: 'Traduz os botões predefinidos em tempos reais.' },
-      { title: 'Philips', spec: 'Máx. 390°F · Rapid Air', desc: 'Limite mais baixo que a maioria — os tempos ficam mais longos.' },
-      { title: 'Referência de temperatura máxima por modelo', spec: '60+ modelos', desc: 'A tabela de limites que alimenta o conversor acima.' },
-    ],
+    brandCards: {
+      ninja: { title: 'Ninja', desc: 'Ajustes por modelo, segundo os guias da Ninja.' },
+      cosori: { title: 'Cosori', desc: 'Vários modelos de cesto chegam mais quentes do que os conversores supõem.' },
+      philips: { title: 'Philips', desc: 'Um limite mais baixo que a maioria: receitas quentes precisam de mais tempo.' },
+      instant: { title: 'Instant Vortex', desc: 'Quando aparece o Turn Food e como olhar pela janela.' },
+      modelMaxTemp: { title: 'Referência de temperatura máxima por modelo', desc: 'A tabela de limites que alimenta o conversor, com a fonte de cada linha.' },
+    },
+    brandCardSpec: 'Até {MAX_F}°F · {N} modelos',
+    modelTableSpec: '{N} modelos com fonte',
     chartStrip: ['Multiplicadores por alimento', 'Cesto e tipo forno', '°F · °C · nível de gás', 'Grátis — sem cadastro'],
     guide: [
       {

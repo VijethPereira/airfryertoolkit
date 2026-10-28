@@ -31,7 +31,16 @@ function lineDates(file) {
   const commitDate = new Map();
   const dates = [];
   let sha = null;
-  for (const line of git(['blame', '--line-porcelain', '--', file]).split('\n')) {
+  let porcelain;
+  try {
+    porcelain = git(['blame', '--line-porcelain', '--', file]);
+  } catch {
+    // Not committed yet (a new file): every line dates to today.
+    const today = fileLines(file).map(() => TODAY);
+    blameCache.set(file, today);
+    return today;
+  }
+  for (const line of porcelain.split('\n')) {
     const header = line.match(/^([0-9a-f]{40}) \d+ \d+/);
     if (header) {
       sha = header[1];
@@ -132,6 +141,24 @@ function build() {
       ]);
     }
   }
+  // English-only pages. A brand page: that brand's model rows plus its page copy (no sourced model,
+  // no page). The model table: every row plus its own copy.
+  const models = 'src/data/models.ts';
+  const brandsDict = 'src/i18n/dictionaries/brands/en.ts';
+  const brandPaths = [...readFileSync('src/lib/brands.ts', 'utf8').matchAll(/^ {2}\{ key: '([a-z]+)', path: '(\/[a-z-]+)'/gm)];
+  const modelRows = [...readFileSync(models, 'utf8').matchAll(/id: '([a-z0-9-]+)', brand: '([a-z]+)'/g)];
+  for (const [, brand, path] of brandPaths) {
+    const rows = modelRows.filter((m) => m[2] === brand);
+    if (!rows.length) continue;
+    dates[`en:${path}`] = latest([
+      ...rows.map((m) => [models, arrayElementRange(models, `id: '${m[1]}'`)]),
+      [brandsDict, entryRange(brandsDict, brand, 4)],
+    ]);
+  }
+  dates['en:/model-max-temp'] = latest([
+    [models, [0, fileLines(models).length - 1]],
+    [brandsDict, entryRange(brandsDict, 'maxTemp', 2)],
+  ]);
   for (const page of ['about', 'contact', 'privacy-policy', 'terms']) {
     dates[`en:/${page}`] = lastCommitOf(`src/pages/${page}.astro`);
   }

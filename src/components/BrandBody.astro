@@ -1,0 +1,257 @@
+---
+import ConverterWidget from './ConverterWidget.astro';
+import AdSlot from './AdSlot.astro';
+import type { BrandKey } from '../data/models';
+import { PRESETS } from '../data/presets';
+import { brands as dict } from '../i18n/dictionaries/brands/en';
+import { LIVE_BRANDS, MODEL_MAX_TEMP_PATH, brandConfig, brandModels, fillBrand, modelById, modelRow, widgetModels } from '../lib/brands';
+import { presetCard } from '../lib/presets';
+import { LIVE_PAGES } from '../site.config';
+
+interface Props {
+  brand: BrandKey;
+}
+
+const { brand } = Astro.props;
+const copy = dict.pages[brand]!;
+const cfg = brandConfig(brand);
+const fill = (text: string) => fillBrand(brand, text);
+const rows = brandModels(brand).map(modelRow);
+const featured = modelById(cfg.featured)!;
+const programs = (featured.programs ?? []).map((p) => ({ label: dict.programs[p.key], defaultF: p.defaultF, range: `${p.minF}–${p.maxF}°F` }));
+const related = cfg.related.map((slug) => presetCard(PRESETS.find((p) => p.slug === slug)!));
+const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(b.path));
+---
+
+<main class="page-main">
+  <div class="wrap">
+    <header class="tool-header">
+      <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+      <h1>{copy.heading}</h1>
+      <p class="tool-desc">{fill(copy.intro)}</p>
+    </header>
+
+    <div class="direct-answer">
+      <p id="br-answer" class="answer-main">{fill(copy.answerTemplate)}</p>
+    </div>
+
+    <section class="tool-area" aria-label="Converter">
+      <div class="widget-intro">
+        <h2>{copy.widgetHeading}</h2>
+        <p>{fill(copy.widgetNote)}</p>
+      </div>
+      <ConverterWidget models={widgetModels(brand)} modelLabels={{ picker: dict.modelPicker, any: dict.anyModel }} />
+    </section>
+
+    <AdSlot slot="5566778899" />
+
+    <section class="table-section" aria-labelledby="br-models-heading">
+      <h2 id="br-models-heading">{dict.modelsHeading}</h2>
+      <p class="table-intro">{dict.modelsIntro}</p>
+      <div class="table-card">
+        <table id="br-models">
+          <thead>
+            <tr><th>{dict.tableHeaders.model}</th><th>{dict.tableHeaders.max}</th><th>{dict.tableHeaders.preheat}</th><th>{dict.tableHeaders.source}</th></tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr data-model={r.id} data-max-f={r.maxF}>
+                <td class="model-cell">
+                  <span class="model-name">{r.name}</span>
+                  <span class="model-meta">{r.type} · {r.capacity}</span>
+                  {r.capacityNote && <span class="model-meta">{r.capacityNote}</span>}
+                </td>
+                <td>
+                  {r.max}
+                  {r.other && <span class="model-meta">{r.other}</span>}
+                </td>
+                <td>{r.preheat}</td>
+                <td>
+                  <a href={r.source} rel="nofollow noopener" target="_blank">{r.sourceLabel}</a>
+                  <span class="model-meta">{r.sourced}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="related-link"><a href={MODEL_MAX_TEMP_PATH}>{dict.maxTempLink}</a> &rarr;</p>
+    </section>
+
+    {programs.length > 0 && (
+      <section class="table-section" aria-labelledby="br-programs-heading">
+        <h2 id="br-programs-heading">{dict.programsHeading.replace('{MODEL}', dict.modelNames[featured.id])}</h2>
+        <p class="table-intro">{dict.programsIntro}</p>
+        <div class="table-card">
+          <table id="br-programs">
+            <thead>
+              <tr><th>{dict.programHeaders.program}</th><th>{dict.programHeaders.default}</th><th>{dict.programHeaders.range}</th></tr>
+            </thead>
+            <tbody>
+              {programs.map((p) => (
+                <tr><td>{p.label}</td><td>{p.defaultF}°F</td><td>{p.range}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <section class="content-section">
+      {copy.sections.map((s) => (
+        <>
+          <h2>{fill(s.heading)}</h2>
+          {s.paragraphs.map((p) => <p>{fill(p)}</p>)}
+        </>
+      ))}
+
+      <h3>{dict.relatedHeading}</h3>
+      <ul class="related-presets">
+        {related.map((c) => (
+          <li>
+            <a href={c.path} class="related-preset" data-slug={c.slug}>
+              <span class="rp-label">{c.label}</span>
+              <span class="rp-spec">{c.spec}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="related-link"><a href="/oven-to-air-fryer">{dict.flagshipLink}</a> &rarr;</p>
+      {otherBrands.map((b) => (
+        <p class="related-link"><a href={b.path}>{dict.pages[b.key]!.heading}</a> &rarr;</p>
+      ))}
+    </section>
+
+    <AdSlot slot="9988776655" />
+
+    <section class="faq-section">
+      <h2>{dict.faqHeading}</h2>
+      <div class="faq-list">
+        {copy.faqs.map(({ q, a }) => (
+          <details class="faq-item">
+            <summary class="faq-q">{fill(q)}<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{fill(a)}</p></div>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+</main>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap { max-width: 860px; margin-inline: auto; padding-inline: 24px; }
+  .page-main { padding: 40px 0 80px; }
+  .tool-header { margin-bottom: 20px; }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase;
+    color: var(--site-text-muted);
+    margin-bottom: 4px;
+  }
+  .back-link:hover { color: var(--site-text); }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--site-text);
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .tool-desc {
+    font-size: var(--text-subheading);
+    line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .direct-answer { border-left: 3px solid var(--site-accent); padding: 4px 0 4px 16px; margin-bottom: 24px; }
+  .answer-main { font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--site-text); margin: 0; }
+
+  .tool-area { margin-bottom: 32px; }
+  .widget-intro { margin-bottom: 12px; }
+  .widget-intro h2 { font-size: 15px; font-weight: 600; color: var(--site-text); margin: 0 0 4px; }
+  .widget-intro p { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0; }
+
+  .table-section, .content-section, .faq-section { margin: 40px 0; }
+  .table-section h2, .content-section h2, .faq-section h2 {
+    font-size: var(--text-heading-sm);
+    line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing);
+    font-weight: 600;
+    color: var(--site-text);
+    margin: 0 0 16px;
+  }
+  .content-section h2 { margin-top: 32px; }
+
+  .table-intro { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0 0 16px; max-width: 72ch; }
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 6px;
+    border-bottom: 1px solid var(--site-border);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    word-break: break-word;
+  }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--site-text-muted); }
+  #br-models th:first-child { width: 40%; }
+  tbody tr:last-child td { border-bottom: none; }
+  td a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); text-decoration: underline; }
+  .model-name { display: block; font-weight: 600; }
+  .model-meta { display: block; color: var(--site-text-muted); font-size: 12px; }
+
+  .content-section h3 { font-size: 18px; font-weight: 600; color: var(--site-text); margin: 28px 0 8px; }
+  .content-section p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+    margin: 0 0 16px;
+    max-width: 72ch;
+  }
+
+  .related-link { margin: 16px 0 0 !important; }
+  .related-link a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
+  .related-link a:hover { color: var(--site-accent); }
+
+  .related-presets { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .related-preset {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px;
+    min-height: 44px; padding: 8px 14px; border-radius: var(--radius-site-card);
+    background: var(--site-bg-card); box-shadow: var(--shadow-site); color: var(--site-text);
+  }
+  .related-preset:hover .rp-label { color: var(--site-accent); }
+  .rp-label { font-weight: 600; }
+  .rp-spec { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--site-text-muted); }
+
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-item { border-radius: var(--radius-site-card); background: var(--site-bg-card); box-shadow: var(--shadow-site); overflow: hidden; }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: 44px; padding: 16px 20px; cursor: pointer; list-style: none;
+    font-size: 15px; font-weight: 600; color: var(--site-text);
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q:hover { background: var(--site-bg-hover); }
+  .faq-icon::before { content: '+'; font-size: 20px; line-height: 1; color: var(--site-text-muted); }
+  details[open] .faq-icon::before { content: '\2212'; }
+  .faq-a { padding: 0 20px 16px; }
+  .faq-a p { margin: 0; font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); }
+</style>

@@ -15,6 +15,8 @@ interface Props {
   locale?: LocaleCode;
   /** Path (starting with "/") of this page's translated slug, e.g. "/" or "/oven-to-air-fryer". Omit on pages that only exist in English — no hreflang block is rendered. */
   translatedSlug?: string;
+  /** English-only pages: the slug to build the BreadcrumbList from (translated pages use translatedSlug). */
+  breadcrumbSlug?: string;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   jsonLd,
   locale = DEFAULT_LOCALE,
   translatedSlug,
+  breadcrumbSlug,
 } = Astro.props;
 
 const fullTitle = title ? `${title} | ${siteConfig.siteName}` : siteConfig.siteName;
@@ -33,8 +36,9 @@ const metaDesc = description ?? siteConfig.tagline;
 const canonicalUrl = canonical ?? `${siteConfig.domain}/`;
 const ogImg = ogImage ?? `${siteConfig.domain}/og-image.png`;
 const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : null;
-// Every translated page below the homepage gets a BreadcrumbList derived from its slug.
-const breadcrumbs = translatedSlug !== undefined ? breadcrumbJsonLd(locale, translatedSlug) : null;
+// Every translated page below the homepage, and English-only pages that pass breadcrumbSlug, get a BreadcrumbList derived from the slug.
+const crumbSlug = translatedSlug ?? breadcrumbSlug;
+const breadcrumbs = crumbSlug !== undefined ? breadcrumbJsonLd(locale, crumbSlug) : null;
 ---
 
 <!doctype html>

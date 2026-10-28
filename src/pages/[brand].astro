@@ -1,0 +1,58 @@
+---
+// Brand pages (/cosori, /philips, /instant-vortex, /ninja): one per brand with a sourced model in
+// src/data/models.ts. English only for now: no /es … /de copy, so no translatedSlug and no hreflang.
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import BrandBody from '../components/BrandBody.astro';
+import siteConfig from '../site.config.ts';
+import { brands as dict } from '../i18n/dictionaries/brands/en';
+import { LIVE_BRANDS, fillBrand } from '../lib/brands';
+
+export function getStaticPaths() {
+  return LIVE_BRANDS.map((b) => ({ params: { brand: b.path.slice(1) }, props: { brand: b.key, path: b.path } }));
+}
+
+const { brand, path } = Astro.props;
+const copy = dict.pages[brand]!;
+const fill = (text: string) => fillBrand(brand, text);
+const url = `${siteConfig.domain}${path}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: `${copy.heading} — ${siteConfig.siteName}`,
+      description: fill(copy.metaDescription),
+      url,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: copy.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: fill(q),
+        acceptedAnswer: { '@type': 'Answer', text: fill(a) },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={fill(copy.metaTitle)}
+  description={fill(copy.metaDescription)}
+  canonical={url}
+  keywords={copy.metaKeywords}
+  jsonLd={jsonLd}
+  breadcrumbSlug={path}
+>
+  <SiteNav currentPath={path} />
+  <BrandBody brand={brand} />
+  <Footer />
+</Layout>

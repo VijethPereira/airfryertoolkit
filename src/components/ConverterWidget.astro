@@ -19,9 +19,15 @@ interface Props {
   initialFood?: FoodKey | FrozenFoodKey;
   /** Frozen mode: the preset's own turn type/count for `initialFood` (applies only while that food is selected). */
   initialTurn?: { turn: 'shake' | 'flip'; turns: number };
+  /**
+   * Brand pages: a model picker. Choosing a model sets its style and clamps to its own air-fry
+   * maximum (engine `maxF`); the "any model" option keeps today's 400/450 style ceiling.
+   */
+  models?: { id: string; label: string; style: 'basket' | 'oven'; maxF: number }[];
+  modelLabels?: { picker: string; any: string };
 }
 
-const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood, initialTurn } = Astro.props;
+const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood, initialTurn, models = [], modelLabels } = Astro.props;
 const turnOverride = initialTurn && initialFood ? { food: initialFood, ...initialTurn } : null;
 const markScale = OVEN_MARK_SCALE[locale];
 const all = getDictionary(locale);
@@ -66,6 +72,20 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
       </div>
     </div>
   </div>
+
+  {models.length > 0 && modelLabels && (
+    <div class="field-row">
+      <div class="field">
+        <label for="afk-model">{modelLabels.picker}</label>
+        <select id="afk-model">
+          <option value="">{modelLabels.any}</option>
+          {models.map((m) => (
+            <option value={m.id}>{m.label}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  )}
 
   {frozenDict && (
     <div class="field-row">
@@ -130,8 +150,9 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale, turnOverride }}>
+<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale, turnOverride, models }}>
   window.__afkDict = dict;
+  window.__afkModels = models;
   window.__afkTurnOverride = turnOverride;
   window.__afkSource = source;
   window.__afkFrozenDict = frozenDict;
@@ -164,6 +185,7 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     __afkTips: tips,
     __afkMarkScale: markScale,
     __afkTurnOverride: turnOverride,
+    __afkModels: models,
   } = window as unknown as {
     __afkDict: Dictionary['converter'];
     __afkSource: 'oven' | 'convection' | 'frozen';
@@ -171,6 +193,7 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     __afkTips: Record<string, string>;
     __afkMarkScale: OvenMarkScale;
     __afkTurnOverride: { food: string; turn: 'shake' | 'flip'; turns: number } | null;
+    __afkModels: { id: string; label: string; style: FryerStyle; maxF: number }[];
   };
 
   const tempInput = document.getElementById('afk-temp') as HTMLInputElement;
@@ -195,6 +218,8 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   const internalEl = document.getElementById('afk-internal');
   const rawEl = document.getElementById('afk-raw');
   const rawTextEl = document.getElementById('afk-raw-text');
+  const modelSelect = document.getElementById('afk-model') as HTMLSelectElement | null;
+  const selectedModel = () => models.find((m) => m.id === modelSelect?.value);
 
   const state: { unit: TempUnit; style: FryerStyle; pack: PackType } = { unit: 'F', style: 'basket', pack: 'conventional' };
 
@@ -241,7 +266,8 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     const ovenTemp = parseFloat(tempInput.value);
     const ovenMinutes = parseFloat(timeInput.value);
     const food = foodSelect.value;
-    const base = { ovenTemp, unit: state.unit, ovenMinutes, style: state.style };
+    const model = selectedModel();
+    const base = { ovenTemp, unit: state.unit, ovenMinutes, style: state.style, maxF: model?.maxF };
 
     let result: ConversionResult;
     if (source === 'frozen' && frozenDict) {
@@ -268,7 +294,7 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
 
     if (result.capped) {
       cappedEl.hidden = false;
-      const unitLabel = state.style === 'oven' ? dict.unitOven : dict.unitBasket;
+      const unitLabel = model ? model.label : state.style === 'oven' ? dict.unitOven : dict.unitBasket;
       cappedTextEl.textContent = cappedNote(dict.cappedNoteTemplate, unitLabel, result);
     } else {
       cappedEl.hidden = true;
@@ -286,6 +312,11 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   tempInput.addEventListener('input', render);
   timeInput.addEventListener('input', render);
   foodSelect.addEventListener('change', render);
+  modelSelect?.addEventListener('change', () => {
+    const model = selectedModel();
+    if (model) state.style = model.style;
+    render();
+  });
 
   unitFBtn.addEventListener('click', () => {
     if (state.unit === 'F') return;

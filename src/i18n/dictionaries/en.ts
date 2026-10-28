@@ -203,12 +203,15 @@ const en: Dictionary = {
       goLabel: 'Go',
     },
     allPresetsCard: { title: 'All presets →', desc: 'Meat, fish, vegetables, baking, reheating.' },
-    brandCards: [
-      { title: 'Ninja', spec: 'Max 400°F · basket & dual', desc: 'AF101, AF161, DZ201 and Foodi settings.' },
-      { title: 'Cosori', spec: 'Max 450°F · 11 presets', desc: 'Maps the built-in preset buttons to real times.' },
-      { title: 'Philips', spec: 'Max 390°F · Rapid Air', desc: 'Lower ceiling than most — times run longer.' },
-      { title: 'Model max-temp reference', spec: '60+ models', desc: 'The ceiling table that feeds the converter above.' },
-    ],
+    brandCards: {
+      ninja: { title: 'Ninja', desc: 'Settings by model, from Ninja\u2019s own owner\u2019s guides.' },
+      cosori: { title: 'Cosori', desc: 'Several basket models go hotter than most converters assume.' },
+      philips: { title: 'Philips', desc: 'A lower ceiling than most: hot recipes need time added back.' },
+      instant: { title: 'Instant Vortex', desc: 'When Turn Food appears, and checking through the window.' },
+      modelMaxTemp: { title: 'Model max-temp reference', desc: 'The ceiling table that feeds the converter, with a source for every row.' },
+    },
+    brandCardSpec: 'Up to {MAX_F}°F · {N} models',
+    modelTableSpec: '{N} sourced models',
     chartStrip: ['Food-type multipliers', 'Basket & oven-style', '°F · °C · gas mark', 'Free — no account'],
     guide: [
       {

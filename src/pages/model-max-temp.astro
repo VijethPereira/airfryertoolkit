@@ -1,0 +1,242 @@
+---
+// /model-max-temp: every sourced model's air-fry maximum. Rendered on request so that sorting and
+// filtering are plain links (?brand=&type=&sort=&dir=) that work without JavaScript; every variant
+// canonicals to the bare URL. English only for now.
+export const prerender = false;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import siteConfig from '../site.config.ts';
+import { LIVE_PAGES } from '../site.config';
+import { MODELS, type BrandKey, type ModelType } from '../data/models';
+import { brands as dict } from '../i18n/dictionaries/brands/en';
+import { BRANDS, MODEL_MAX_TEMP_PATH, MODEL_TYPES, brandConfig, modelMaxTempValues, modelRow, type ModelRow } from '../lib/brands';
+import { fillPlaceholders } from '../lib/temp-landings';
+
+type SortKey = 'maxF' | 'capacity' | 'brand';
+const SORTS: SortKey[] = ['maxF', 'capacity', 'brand'];
+const params = Astro.url.searchParams;
+const brandKeys = BRANDS.map((b) => b.key).filter((k) => MODELS.some((m) => m.brand === k));
+const brand = brandKeys.find((k) => k === params.get('brand')) ?? null;
+const type = MODEL_TYPES.find((t) => t === params.get('type')) ?? null;
+const sort: SortKey = SORTS.find((s) => s === params.get('sort')) ?? 'maxF';
+const dir = params.get('dir') === 'asc' ? 'asc' : params.get('dir') === 'desc' ? 'desc' : sort === 'brand' ? 'asc' : 'desc';
+
+
+const all = MODELS.map(modelRow);
+const sortValue = (r: ModelRow) => (sort === 'maxF' ? r.maxF : sort === 'capacity' ? r.capacityQt : 0);
+const rows = all
+  .filter((r) => (!brand || r.brand === brand) && (!type || MODELS.find((m) => m.id === r.id)!.type === type))
+  .sort((a, b) => {
+    const byBrand = a.brand.localeCompare(b.brand) || a.name.localeCompare(b.name);
+    const d = sort === 'brand' ? byBrand : sortValue(a) - sortValue(b) || byBrand;
+    return dir === 'asc' ? d : -d;
+  });
+
+const defaultDir = (key: SortKey) => (key === 'brand' ? 'asc' : 'desc');
+/** A link to this page with some parameters changed (null removes one). Defaults are left out of the URL. */
+function href(change: Record<string, string | null>): string {
+  const next = { brand, type, sort: sort === 'maxF' ? null : sort, dir: dir === defaultDir(sort) ? null : dir, ...change };
+  const q = Object.entries(next).filter(([, v]) => v) as [string, string][];
+  return q.length ? `${MODEL_MAX_TEMP_PATH}?${new URLSearchParams(q)}` : MODEL_MAX_TEMP_PATH;
+}
+function sortHref(key: SortKey): string {
+  const nextDir = key === sort ? (dir === 'asc' ? 'desc' : 'asc') : defaultDir(key);
+  return href({ sort: key === 'maxF' ? null : key, dir: nextDir === defaultDir(key) ? null : nextDir });
+}
+const ariaSort = (key: SortKey) => (key === sort ? (dir === 'asc' ? 'ascending' : 'descending') : undefined);
+
+const values = modelMaxTempValues();
+const fill = (text: string) => fillPlaceholders(text, values);
+const mt = dict.maxTemp;
+const url = `${siteConfig.domain}${MODEL_MAX_TEMP_PATH}`;
+const brandPath = (k: BrandKey) => {
+  const p = brandConfig(k).path;
+  return LIVE_PAGES.has(p) ? p : null;
+};
+const typeLabel = (t: ModelType) => dict.types[t];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Dataset',
+      '@id': `${url}#dataset`,
+      name: mt.datasetName,
+      description: fill(mt.metaDescription),
+      url,
+      creator: { '@type': 'Organization', name: siteConfig.siteName, url: siteConfig.domain },
+      license: `${siteConfig.domain}/terms`,
+      isAccessibleForFree: true,
+      variableMeasured: ['Maximum air fry temperature (°F)', 'Capacity', 'Preheat'],
+      citation: [...new Set(MODELS.map((m) => m.source))],
+      dateModified: MODELS.map((m) => m.sourced).sort().at(-1),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: mt.faqs.map(({ q, a }) => ({ '@type': 'Question', name: fill(q), acceptedAnswer: { '@type': 'Answer', text: fill(a) } })),
+    },
+  ],
+};
+---
+
+<Layout title={mt.metaTitle} description={fill(mt.metaDescription)} canonical={url} keywords={mt.metaKeywords} jsonLd={jsonLd} breadcrumbSlug={MODEL_MAX_TEMP_PATH}>
+  <SiteNav currentPath={MODEL_MAX_TEMP_PATH} />
+  <main class="page-main">
+    <div class="wrap">
+      <header class="tool-header">
+        <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+        <h1>{mt.heading}</h1>
+        <p class="tool-desc">{fill(mt.intro)}</p>
+      </header>
+
+      <nav class="filters" aria-label={`${mt.filterBrand} / ${mt.filterType}`}>
+        <div class="filter-group">
+          <span class="filter-label">{mt.filterBrand}</span>
+          <a href={href({ brand: null })} class:list={['chip', { active: !brand }]} aria-current={!brand ? 'true' : undefined}>{mt.all}</a>
+          {brandKeys.map((k) => (
+            <a href={href({ brand: k })} class:list={['chip', { active: brand === k }]} aria-current={brand === k ? 'true' : undefined} data-brand={k}>{dict.brandNames[k]}</a>
+          ))}
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">{mt.filterType}</span>
+          <a href={href({ type: null })} class:list={['chip', { active: !type }]} aria-current={!type ? 'true' : undefined}>{mt.all}</a>
+          {MODEL_TYPES.filter((t) => MODELS.some((m) => m.type === t)).map((t) => (
+            <a href={href({ type: t })} class:list={['chip', { active: type === t }]} aria-current={type === t ? 'true' : undefined} data-type={t}>{typeLabel(t)}</a>
+          ))}
+        </div>
+      </nav>
+
+      <p id="mt-count" class="count">{fillPlaceholders(mt.showing, { N: String(rows.length), TOTAL: String(all.length) })}</p>
+
+      <div class="table-card">
+        {rows.length === 0 ? (
+          <p class="none">{mt.none}</p>
+        ) : (
+          <table id="mt-table">
+            <thead>
+              <tr>
+                <th aria-sort={ariaSort('brand')}><a href={sortHref('brand')} data-sort="brand">{dict.tableHeaders.model}</a></th>
+                <th aria-sort={ariaSort('maxF')}><a href={sortHref('maxF')} data-sort="maxF">{dict.tableHeaders.max}</a></th>
+                <th aria-sort={ariaSort('capacity')}><a href={sortHref('capacity')} data-sort="capacity">{dict.tableHeaders.capacity}</a></th>
+                <th>{dict.tableHeaders.source}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => {
+                const bp = brandPath(r.brand);
+                return (
+                  <tr data-model={r.id} data-brand={r.brand} data-max-f={r.maxF}>
+                    <td>
+                      <span class="model-name">{r.name}</span>
+                      <span class="model-meta">{r.type} · {dict.tableHeaders.preheat}: {r.preheat}</span>
+                      {r.min && <span class="model-meta">{dict.tableHeaders.min}: {r.min}</span>}
+                      {bp && <a href={bp} class="brand-link">{mt.brandPageLink} &rarr;</a>}
+                    </td>
+                    <td>
+                      {r.max}
+                      {r.other && <span class="model-meta">{r.other}</span>}
+                    </td>
+                    <td>
+                      {r.capacity}
+                      {r.capacityNote && <span class="model-meta">{r.capacityNote}</span>}
+                    </td>
+                    <td>
+                      <a href={r.source} rel="nofollow noopener" target="_blank">{r.sourceLabel}</a>
+                      <span class="model-meta">{r.sourced}</span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      <section class="content-section">
+        {mt.sections.map((s) => (
+          <>
+            <h2>{fill(s.heading)}</h2>
+            {s.paragraphs.map((p) => <p>{fill(p)}</p>)}
+          </>
+        ))}
+        {BRANDS.filter((b) => LIVE_PAGES.has(b.path)).map((b) => (
+          <p class="related-link"><a href={b.path}>{dict.pages[b.key]!.heading}</a> &rarr;</p>
+        ))}
+        <p class="related-link"><a href="/oven-to-air-fryer">{dict.flagshipLink}</a> &rarr;</p>
+      </section>
+
+      <section class="faq-section">
+        <h2>{dict.faqHeading}</h2>
+        <div class="faq-list">
+          {mt.faqs.map(({ q, a }) => (
+            <details class="faq-item">
+              <summary class="faq-q">{fill(q)}<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-a"><p>{fill(a)}</p></div>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap { max-width: 960px; margin-inline: auto; padding-inline: 24px; }
+  .page-main { padding: 40px 0 80px; }
+  .tool-header { margin-bottom: 20px; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+    font-size: var(--text-caption); font-weight: 600; letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase; color: var(--site-text-muted); margin-bottom: 4px;
+  }
+  .back-link:hover { color: var(--site-text); }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.03em; color: var(--site-text); line-height: 1.1; margin: 0 0 12px; }
+  .tool-desc { font-size: var(--text-subheading); line-height: var(--text-subheading--line-height); color: var(--site-text-muted); margin: 0; max-width: 64ch; }
+
+  .filters { display: flex; flex-direction: column; gap: 8px; margin: 24px 0 8px; }
+  .filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .filter-label { font-size: 13px; font-weight: 600; color: var(--site-text-muted); min-width: 48px; }
+  .chip {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
+    border: 1px solid var(--site-border); border-radius: var(--radius-site-card);
+    background: var(--site-bg-card); color: var(--site-text); font-size: 14px; font-weight: 600;
+  }
+  .chip.active { background: var(--site-text); border-color: var(--site-text); color: var(--site-bg-card); }
+  .count { font-size: 13px; color: var(--site-text-muted); margin: 8px 0 12px; }
+
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  .none { margin: 12px 0; color: var(--site-text-muted); }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td {
+    text-align: left; vertical-align: top; padding: 10px 6px; border-bottom: 1px solid var(--site-border);
+    font-size: 13px; font-variant-numeric: tabular-nums; color: var(--site-text); word-break: break-word;
+  }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--site-text-muted); }
+  th:first-child { width: 38%; }
+  th a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; }
+  th[aria-sort='ascending'] a::after { content: ' \2191'; }
+  th[aria-sort='descending'] a::after { content: ' \2193'; }
+  tbody tr:last-child td { border-bottom: none; }
+  td a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); text-decoration: underline; }
+  .model-name { display: block; font-weight: 600; }
+  .model-meta { display: block; color: var(--site-text-muted); font-size: 12px; }
+
+  .content-section, .faq-section { margin: 40px 0; }
+  .content-section h2, .faq-section h2 { font-size: var(--text-heading-sm); line-height: var(--text-heading-sm--line-height); font-weight: 600; color: var(--site-text); margin: 32px 0 16px; }
+  .content-section p { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0 0 16px; max-width: 72ch; }
+  .related-link { margin: 16px 0 0 !important; }
+  .related-link a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
+
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-item { border-radius: var(--radius-site-card); background: var(--site-bg-card); box-shadow: var(--shadow-site); overflow: hidden; }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 16px 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 600; color: var(--site-text); }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-icon::before { content: '+'; font-size: 20px; line-height: 1; color: var(--site-text-muted); }
+  details[open] .faq-icon::before { content: '\2212'; }
+  .faq-a { padding: 0 20px 16px; }
+  .faq-a p { margin: 0; font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); }
+</style>

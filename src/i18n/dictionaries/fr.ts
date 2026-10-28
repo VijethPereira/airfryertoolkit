@@ -203,12 +203,15 @@ const fr: Dictionary = {
       goLabel: 'Aller',
     },
     allPresetsCard: { title: 'Tous les préréglages →', desc: 'Viande, poisson, légumes, pâtisserie, réchauffage.' },
-    brandCards: [
-      { title: 'Ninja', spec: 'Max 400°F · panier et double', desc: 'Réglages pour AF101, AF161, DZ201 et Foodi.' },
-      { title: 'Cosori', spec: 'Max 450°F · 11 préréglages', desc: 'Traduit les boutons préréglés en temps réels.' },
-      { title: 'Philips', spec: 'Max 390°F · Rapid Air', desc: 'Plafond plus bas que la plupart — les temps sont plus longs.' },
-      { title: 'Référence de température max par modèle', spec: '60+ modèles', desc: 'Le tableau de plafonds qui alimente le convertisseur ci-dessus.' },
-    ],
+    brandCards: {
+      ninja: { title: 'Ninja', desc: 'Réglages par modèle, d\u2019après les guides de Ninja.' },
+      cosori: { title: 'Cosori', desc: 'Plusieurs modèles à panier montent plus haut que ce que supposent les convertisseurs.' },
+      philips: { title: 'Philips', desc: 'Un plafond plus bas que la plupart : les recettes chaudes demandent plus de temps.' },
+      instant: { title: 'Instant Vortex', desc: 'Quand apparaît Turn Food, et surveiller par la fenêtre.' },
+      modelMaxTemp: { title: 'Référence de température max par modèle', desc: 'Le tableau de plafonds qui alimente le convertisseur, avec la source de chaque ligne.' },
+    },
+    brandCardSpec: 'Jusqu\u2019à {MAX_F}°F · {N} modèles',
+    modelTableSpec: '{N} modèles sourcés',
     chartStrip: ['Multiplicateurs par aliment', 'Panier et type four', '°F · °C · thermostat', 'Gratuit — sans compte'],
     guide: [
       {

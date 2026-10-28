@@ -203,12 +203,15 @@ const de: Dictionary = {
       goLabel: 'Los',
     },
     allPresetsCard: { title: 'Alle Voreinstellungen →', desc: 'Fleisch, Fisch, Gemüse, Backen, Aufwärmen.' },
-    brandCards: [
-      { title: 'Ninja', spec: 'Max. 400°F · Korb & doppelt', desc: 'Einstellungen für AF101, AF161, DZ201 und Foodi.' },
-      { title: 'Cosori', spec: 'Max. 450°F · 11 Voreinstellungen', desc: 'Übersetzt die eingebauten Voreinstellungstasten in reale Zeiten.' },
-      { title: 'Philips', spec: 'Max. 390°F · Rapid Air', desc: 'Niedrigere Obergrenze als die meisten — Zeiten sind länger.' },
-      { title: 'Referenz für maximale Modelltemperatur', spec: '60+ Modelle', desc: 'Die Obergrenzentabelle, die den Umrechner oben speist.' },
-    ],
+    brandCards: {
+      ninja: { title: 'Ninja', desc: 'Einstellungen je Modell, nach Ninjas eigenen Anleitungen.' },
+      cosori: { title: 'Cosori', desc: 'Mehrere Korbmodelle werden heißer, als die meisten Umrechner annehmen.' },
+      philips: { title: 'Philips', desc: 'Niedrigere Obergrenze als die meisten: heiße Rezepte brauchen mehr Zeit.' },
+      instant: { title: 'Instant Vortex', desc: 'Wann Turn Food erscheint, und der Blick durchs Sichtfenster.' },
+      modelMaxTemp: { title: 'Referenz für maximale Modelltemperatur', desc: 'Die Obergrenzentabelle, die den Umrechner speist, mit Quelle für jede Zeile.' },
+    },
+    brandCardSpec: 'Bis {MAX_F}°F · {N} Modelle',
+    modelTableSpec: '{N} Modelle mit Quelle',
     chartStrip: ['Multiplikatoren je Lebensmittel', 'Korb & Ofen-Typ', '°F · °C · Gasstufe', 'Kostenlos — ohne Konto'],
     guide: [
       {

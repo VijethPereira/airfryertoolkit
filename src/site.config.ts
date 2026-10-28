@@ -1,5 +1,6 @@
 import { TEMP_LANDING_SLUGS } from './lib/temp-landings';
 import { PRESETS_INDEX_PATH, PRESET_PATHS } from './lib/preset-paths';
+import { BRAND_PATHS, MODEL_MAX_TEMP_PATH } from './lib/brands';
 
 const siteConfig = {
   siteName: 'Air Fryer Toolkit',
@@ -70,6 +71,9 @@ export const LIVE_PAGES = new Set<string>([
   PRESETS_INDEX_PATH,
   ...PRESET_PATHS,
   '/chart',
+  // English only: live but not in TRANSLATED_PAGES (see src/lib/brands.ts).
+  ...BRAND_PATHS,
+  MODEL_MAX_TEMP_PATH,
   '/about',
   '/contact',
   '/privacy-policy',

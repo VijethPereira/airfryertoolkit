@@ -183,6 +183,12 @@ export interface ConversionInput {
   ovenMinutes: number;
   food: FoodKey;
   style: FryerStyle;
+  /**
+   * A specific model's air-fry maximum (°F, as its manual states it). Replaces the
+   * 400/450 style ceiling, floored to the 5°F dial step so a setting never exceeds
+   * the model's limit (Philips 392 -> 390). Omitted: today's style ceiling.
+   */
+  maxF?: number;
 }
 
 export interface ConversionResult {
@@ -191,7 +197,7 @@ export interface ConversionResult {
   outMinutes: number | null;
   /** True when the raw converted temperature exceeded the unit's ceiling and was clamped. */
   capped: boolean;
-  /** The unit-style ceiling used (400°F basket / 450°F oven-style). */
+  /** The ceiling used: the model's floored maxF, or the unit-style ceiling (400°F basket / 450°F oven-style). */
   ceiling: number;
   checkAtMinutes: number | null;
   preheatMinutes: number;
@@ -205,10 +211,17 @@ export function convertTempUnit(value: number, from: TempUnit): number {
     : Math.round(((value * 9) / 5 + 32) / 5) * 5;
 }
 
+/** Air fryer dials step in 5°F. */
+export const DIAL_STEP = 5;
+
+/** A model's maxF on the dial: floored, never rounded up past the limit. */
+export const modelCeiling = (maxF: number) => Math.floor(maxF / DIAL_STEP) * DIAL_STEP;
+
 function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>): ConversionResult {
   const ovenF = input.unit === 'C' ? (input.ovenTemp * 9) / 5 + 32 : input.ovenTemp;
   const ovenStyle = input.style === 'oven';
-  const { dT, f: baseF, ceiling } = profile;
+  const { dT, f: baseF } = profile;
+  const ceiling = input.maxF !== undefined ? modelCeiling(input.maxF) : profile.ceiling;
   let f = baseF;
 
   let outF: number | null = Number.isFinite(ovenF) ? Math.round((ovenF - dT) / 5) * 5 : null;
