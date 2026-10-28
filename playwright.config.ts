@@ -9,6 +9,10 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:4321',
     trace: 'retain-on-failure',
+    // Every page loads gtag, AdSense and Google Fonts; one slow third-party response held page.goto's
+    // "load" past the 30s timeout (flaky /philips failure, 2026-10-28). Resolve only localhost so
+    // third-party requests fail at once and the suite never depends on the network.
+    launchOptions: { args: ['--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1'] },
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

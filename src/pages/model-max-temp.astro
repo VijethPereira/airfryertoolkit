@@ -6,6 +6,7 @@ export const prerender = false;
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
 import siteConfig from '../site.config.ts';
 import { LIVE_PAGES } from '../site.config';
 import { MODELS, type BrandKey, type ModelType } from '../data/models';
@@ -169,14 +170,7 @@ const jsonLd = {
 
       <section class="faq-section">
         <h2>{dict.faqHeading}</h2>
-        <div class="faq-list">
-          {mt.faqs.map(({ q, a }) => (
-            <details class="faq-item">
-              <summary class="faq-q">{fill(q)}<span class="faq-icon" aria-hidden="true"></span></summary>
-              <div class="faq-a"><p>{fill(a)}</p></div>
-            </details>
-          ))}
-        </div>
+        <Faq items={mt.faqs.map(({ q, a }) => ({ q: fill(q), a: fill(a) }))} />
       </section>
     </div>
   </main>
@@ -232,12 +226,4 @@ const jsonLd = {
   .related-link { margin: 16px 0 0 !important; }
   .related-link a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
 
-  .faq-list { display: flex; flex-direction: column; gap: 8px; }
-  .faq-item { border-radius: var(--radius-site-card); background: var(--site-bg-card); box-shadow: var(--shadow-site); overflow: hidden; }
-  .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 16px 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 600; color: var(--site-text); }
-  .faq-q::-webkit-details-marker { display: none; }
-  .faq-icon::before { content: '+'; font-size: 20px; line-height: 1; color: var(--site-text-muted); }
-  details[open] .faq-icon::before { content: '\2212'; }
-  .faq-a { padding: 0 20px 16px; }
-  .faq-a p { margin: 0; font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); }
 </style>

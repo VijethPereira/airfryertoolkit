@@ -804,7 +804,7 @@ test.describe('food presets: index, homepage and locales', () => {
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow, `${path} at ${width}px`).toBeLessThanOrEqual(0);
         for (const box of await page
-          .locator('.widget-card .seg-btn, .widget-card input, .widget-card select, .related-link a, .related-preset, .faq-toggle, main .card')
+          .locator('.widget-card .seg-btn, .widget-card input, .widget-card select, .related-link a, .related-preset, .faq-q, main .card')
           .all()) {
           expect((await box.boundingBox())!.height, path).toBeGreaterThanOrEqual(44);
         }

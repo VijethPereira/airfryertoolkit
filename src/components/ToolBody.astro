@@ -1,4 +1,5 @@
 ---
+import Faq from './Faq.astro';
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
 import { getDictionary } from '../i18n/dictionaries';
@@ -61,38 +62,12 @@ const frozenLive = LIVE_PAGES.has('/frozen');
 
     <section class="faq-section">
       <h2>{dict.faqHeading}</h2>
-      <dl class="faq-list">
-        {dict.faqs.map(({ q, a }) => (
-          <div class="faq-item">
-            <dt class="faq-q">
-              <button type="button" aria-expanded="false" class="faq-toggle">
-                {q}
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-            </dt>
-            <dd class="faq-a" hidden>
-              <p>{a}</p>
-            </dd>
-          </div>
-        ))}
-      </dl>
+      <Faq items={dict.faqs} />
     </section>
 
   </div>
 </main>
 
-<script>
-  document.querySelectorAll('.faq-toggle').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      const dd = btn.closest('.faq-item')?.querySelector('.faq-a') as HTMLElement | null;
-      const icon = btn.querySelector('.faq-icon');
-      if (dd) dd.hidden = expanded;
-      if (icon) icon.textContent = expanded ? '+' : '−';
-    });
-  });
-</script>
 
 <style>
   @reference '../styles/global.css';
@@ -195,60 +170,10 @@ const frozenLive = LIVE_PAGES.has('/frozen');
     color: var(--site-accent);
   }
 
-  .faq-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
 
-  .faq-item {
-    border-radius: var(--radius-site-card);
-    background: var(--site-bg-card);
-    box-shadow: var(--shadow-site);
-    overflow: hidden;
-  }
 
-  .faq-toggle {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 16px 20px;
-    background: transparent;
-    border: none;
-    color: var(--site-text);
-    font-family: var(--font-archivo);
-    font-size: 15px;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
 
-  .faq-toggle:hover {
-    background: var(--site-bg-hover);
-  }
 
-  .faq-icon {
-    font-size: 20px;
-    line-height: 1;
-    flex-shrink: 0;
-    color: var(--site-text-muted);
-  }
 
-  .faq-a {
-    margin: 0;
-    padding: 0 20px 16px;
-  }
 
-  .faq-a p {
-    margin: 0;
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
-    letter-spacing: var(--text-body--letter-spacing);
-    color: var(--site-text-muted);
-  }
 </style>

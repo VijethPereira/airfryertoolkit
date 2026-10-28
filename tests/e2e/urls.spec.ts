@@ -65,3 +65,32 @@ test('query strings survive the slash redirect', async ({ request, baseURL }) =>
   const location = new URL(res.headers()['location'], baseURL);
   expect(location.pathname + location.search).toBe('/frozen?food=pizza');
 });
+
+// Cloudflare dashboard settings (Always Use HTTPS + the www → apex redirect rule) live outside the repo,
+// so these hit the live site. Each http URL must take exactly one 301 to the https apex, same path.
+const HTTP_SAMPLES = [
+  'http://airfryertoolkit.com/',
+  'http://airfryertoolkit.com/presets',
+  'http://www.airfryertoolkit.com/',
+  'http://www.airfryertoolkit.com/de/presets',
+];
+
+test.describe('live http → https apex', () => {
+  test.beforeAll(async ({ request }) => {
+    const online = await request
+      .head(`${siteConfig.domain}/robots.txt`, { maxRedirects: 0, timeout: 10_000 })
+      .then(() => true, () => false);
+    test.skip(!online, `${siteConfig.domain} is unreachable (offline?): live http → https checks skipped`);
+  });
+
+  for (const url of HTTP_SAMPLES) {
+    test(`${url} answers one 301 to the https apex, then 200`, async ({ request }) => {
+      const res = await request.get(url, { maxRedirects: 0 });
+      expect(res.status()).toBe(301);
+      const location = res.headers()['location'];
+      expect(location).toBe(`${siteConfig.domain}${new URL(url).pathname}`);
+      const target = await request.get(location, { maxRedirects: 0 });
+      expect(target.status()).toBe(200);
+    });
+  }
+});

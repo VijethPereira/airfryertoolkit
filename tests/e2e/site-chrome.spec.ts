@@ -25,3 +25,44 @@ for (const width of [641, 720, 800, 900, 1024]) {
     expect(overflow).toBeLessThanOrEqual(0);
   });
 }
+
+// Shared <details> FAQ (src/components/Faq.astro): one page per body that uses it.
+const FAQ_PAGES = [
+  '/oven-to-air-fryer', '/air-fryer-to-oven', '/convection-to-air-fryer', '/air-fryer-to-convection',
+  '/frozen', '/350-to-air-fryer', '/air-fryer/salmon', '/chart', '/cosori', '/model-max-temp',
+];
+
+test.describe('FAQ without JavaScript', () => {
+  test.use({ javaScriptEnabled: false });
+  for (const path of FAQ_PAGES) {
+    test(`${path}: answers are closed and open on click with JS disabled`, async ({ page }) => {
+      await page.goto(path);
+      const items = page.locator('.faq-list details.faq-item');
+      const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
+      const faqCount = ld.flatMap((j) => [JSON.parse(j)].flat().flatMap((b) => b['@graph'] ?? [b]))
+        .filter((b) => b['@type'] === 'FAQPage').reduce((n, b) => n + b.mainEntity.length, 0);
+      expect(faqCount).toBeGreaterThan(0);
+      await expect(items).toHaveCount(faqCount);
+      const first = items.first();
+      await expect(first.locator('.faq-a')).toBeHidden();
+      await first.locator('summary').click();
+      await expect(first).toHaveAttribute('open', '');
+      await expect(first.locator('.faq-a')).toBeVisible();
+    });
+  }
+});
+
+test('FAQ answers print expanded', async ({ page }) => {
+  await page.goto('/air-fryer/salmon');
+  const answers = page.locator('.faq-list .faq-a');
+  await expect(answers.first()).toBeHidden();
+  await page.emulateMedia({ media: 'print' });
+  for (const a of await answers.all()) await expect(a).toBeVisible();
+});
+
+test('no page ships the old FAQ toggle script or <dd hidden> markup', async ({ page }) => {
+  for (const path of FAQ_PAGES) {
+    await page.goto(path);
+    await expect(page.locator('.faq-toggle, dd.faq-a')).toHaveCount(0);
+  }
+});

@@ -258,7 +258,7 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
         await page.goto(tempLandingSlug(tempF));
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow, `${tempF} at ${width}px`).toBeLessThanOrEqual(0);
-        for (const box of await page.locator('.widget-card .seg-btn, .widget-card input, .widget-card select, .related-link a, .faq-toggle').all()) {
+        for (const box of await page.locator('.widget-card .seg-btn, .widget-card input, .widget-card select, .related-link a, .faq-q').all()) {
           expect((await box.boundingBox())!.height).toBeGreaterThanOrEqual(44);
         }
       }
