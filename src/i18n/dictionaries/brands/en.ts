@@ -94,6 +94,11 @@ export const brands: BrandsDictionary = {
   cardSpecTemplate: 'Up to {MAX_HI}°F · {N_MODELS} models',
   brandNames: { ninja: 'Ninja', cosori: 'Cosori', philips: 'Philips', instant: 'Instant Vortex' },
   modelNames: {
+    'ninja-af101': 'Ninja Air Fryer AF101',
+    'ninja-pro-af141': 'Ninja Air Fryer Pro AF141',
+    'ninja-max-xl-af161': 'Ninja Air Fryer Max XL AF161',
+    'ninja-doublestack-sl401': 'Ninja DoubleStack XL SL401',
+    'ninja-foodi-oven-sp101': 'Ninja Foodi Digital Air Fry Oven SP101',
     'cosori-pro-le-5': 'Cosori Pro LE 5.0-Quart',
     'cosori-turboblaze-6': 'Cosori TurboBlaze 6.0-Quart',
     'cosori-stainless-6-5': 'Cosori Stainless Steel 6.5-Quart Smart',
@@ -122,6 +127,50 @@ export const brands: BrandsDictionary = {
     'instant-vortex-xl-versazone-9': 'Instant Vortex XL VersaZone 9-Quart',
   },
   pages: {
+    ninja: {
+      name: 'Ninja',
+      metaTitle: 'Ninja Air Fryer Conversion: Oven to Ninja Time & Temp, Max Crisp Explained',
+      metaDescription:
+        'Convert oven recipes for your Ninja: Air Fry stops at {MAX_LO}°F on the basket models, Max Crisp is a fixed {OTHER_MAX}°F preset, and the DoubleStack XL and Foodi oven reach {MAX_HI}°F.',
+      metaKeywords: 'ninja air fryer conversion, ninja air fryer temperature, ninja max crisp temperature, ninja air fryer max temperature',
+      heading: 'Ninja air fryer conversion',
+      intro:
+        'On a Ninja, {OTHER_MAX}°F almost always means Max Crisp. On the Max XL it is a fixed preset, not a setting you dial in: Max Crisp runs at {OTHER_MAX}°F and cannot be changed, while Air Fry and every other function stop at {F_MAX}°F. A recipe that says {OTHER_MAX}°F on your Ninja is a Max Crisp recipe, usually frozen fries or nuggets. An oven recipe converted for the basket belongs on Air Fry.',
+      answerTemplate:
+        'The Ninja basket models we have sourced air fry up to {MAX_LO}°F; Max Crisp on the Max XL runs at {OTHER_MAX}°F. The DoubleStack XL and the Foodi oven air fry up to {MAX_HI}°F. Pick your model below.',
+      widgetHeading: 'Convert an oven recipe for your Ninja',
+      widgetNote: 'Choose your model to use its own Air Fry limit. Max Crisp is never used for a converted recipe, because you cannot set its temperature.',
+      sections: [
+        {
+          heading: 'When Max Crisp is the right button',
+          paragraphs: [
+            'Take oven fries baked at {EX_OVEN_F}°F for {EX_OVEN_MIN} minutes. On the Max XL’s Air Fry they convert to {EX_MODEL_F}°F for {EX_MODEL_MIN} minutes, checked from minute {EX_MODEL_CHECK}. The oven temperature is above what Air Fry reaches, so the converter holds at the limit and gives the time back. Shake the basket around minute {EX_HALF}.',
+            'Max Crisp is right when the bag of frozen food says to air fry it, or when Ninja’s own chart lists Max Crisp. It suits food that is already cooked and only needs a hard, fast finish. It is wrong for raw chicken, a tray bake or anything that has to cook through: you cannot turn it down, and the outside races ahead of the middle.',
+          ],
+        },
+        {
+          heading: 'The button name is not the number',
+          paragraphs: [
+            'The Air Fryer Pro has a Max Crisp button too, but its guide puts every function, Max Crisp included, at {MAX_LO}°F. The name tells you what the button is for, not how hot it gets, so our table lists what each owner’s guide states.',
+            'The DoubleStack XL and the Foodi Digital Air Fry Oven are different again: Air Fry itself goes to {MAX_HI}°F, so a hot oven recipe converts without being held back. The oven counts as oven-style, with racks and a larger cavity, and gets the gentler oven-style conversion.',
+          ],
+        },
+        {
+          heading: 'Preheating a Ninja',
+          paragraphs: [
+            'The basket models do not preheat on their own. Their guides recommend {PREHEAT_MIN} minutes: choose the function and temperature, run it empty, then add the food. The converted times assume a hot basket. The DoubleStack XL’s guide says it needs no preheat, and the Foodi oven preheats by itself, showing PRE until it is ready.',
+          ],
+        },
+      ],
+      faqs: [
+        { q: 'What is the maximum temperature on a Ninja air fryer?', a: 'Air Fry stops at {MAX_LO}°F on the Ninja basket models we have sourced. Max Crisp on the Max XL runs at {OTHER_MAX}°F, and the DoubleStack XL and Foodi oven air fry up to {MAX_HI}°F. The table links each model’s guide.' },
+        { q: 'Can I set Max Crisp to a lower temperature?', a: 'No. The Max XL guide says the temperature cannot be adjusted in Max Crisp. If you need less heat, use Air Fry and set it yourself.' },
+        { q: 'Should I use Max Crisp for oven recipes?', a: 'Usually not. Convert the recipe for Air Fry instead. Max Crisp is meant for frozen, pre-cooked food that only needs crisping.' },
+        { q: 'Do I need to preheat my Ninja?', a: 'On the basket models, yes: the guides recommend {PREHEAT_MIN} minutes. The DoubleStack XL does not need it, and the Foodi oven preheats on its own.' },
+        { q: 'Why are the Foodi 2-Basket models not in the table?', a: 'Their owner’s guides do not state an Air Fry maximum, so we have left them out rather than guess. Until they are listed, choose "not sure" in the converter.' },
+      ],
+      cardDesc: 'Max Crisp is a fixed preset: what that means for oven recipes.',
+    },
     cosori: {
       name: 'Cosori',
       metaTitle: 'Cosori Air Fryer Conversion: Oven to Cosori Time & Temp by Model',

@@ -36,6 +36,8 @@ export const BRANDS: BrandConfig[] = [
 export const BRAND_FACTS = {
   /** Instant: seconds the Turn Food prompt waits before cooking resumes on its own. */
   instantTurnWaitSeconds: 10,
+  /** Ninja AF basket models: "We recommend 3 minutes of preheating" (owner's guides). */
+  ninjaPreheatMinutes: 3,
 };
 
 export const brandModels = (brand: BrandKey): FryerModel[] => MODELS.filter((m) => m.brand === brand);
@@ -106,6 +108,7 @@ export function brandValues(brand: BrandKey): Record<string, string> {
     EX_HALF: String(Math.round((model.outMinutes ?? 0) / 2)),
     OTHER_MAX: others.length ? String(Math.max(...others)) : '',
     TURN_WAIT: String(BRAND_FACTS.instantTurnWaitSeconds),
+    PREHEAT_MIN: String(BRAND_FACTS.ninjaPreheatMinutes),
     DIAL_STEP: String(DIAL_STEP),
   };
   for (const p of featured.programs ?? []) {

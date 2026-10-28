@@ -83,6 +83,7 @@ test.describe('model data (src/data/models.ts)', () => {
     expect(brandModels('cosori').length).toBe(7);
     expect(brandModels('philips').length).toBe(8);
     expect(brandModels('instant').length).toBe(11);
+    expect(brandModels('ninja').length).toBe(5);
   });
 });
 
@@ -148,7 +149,7 @@ test.describe('English-only pages', () => {
       expect(LIVE_PAGES.has(p), p).toBe(true);
       expect(TRANSLATED_PAGES.some((t) => t.slug === p), p).toBe(false);
     }
-    expect(BRAND_PATHS).not.toContain('/ninja'); // no sourced Ninja model yet
+    expect(BRAND_PATHS).toContain('/ninja');
   });
 
   test('sitemap: one entry each, no hreflang alternates', async ({ request }) => {
@@ -179,7 +180,7 @@ test.describe('English-only pages', () => {
   test('translated homepages and nav never link the English-only pages; their brand cards are Coming soon', async ({ page }) => {
     for (const l of LOCALES.filter((x) => x.code !== DEFAULT_LOCALE)) {
       await page.goto(localizedPath(l.code, '/'));
-      for (const p of [...BRAND_PATHS, MODEL_MAX_TEMP_PATH, '/ninja']) {
+      for (const p of [...BRAND_PATHS, MODEL_MAX_TEMP_PATH]) {
         await expect(page.locator(`a[href="${p}"], a[href="/${l.code}${p}"]`), `${l.code} ${p}`).toHaveCount(0);
       }
       const soon = getDictionary(l.code).home.comingSoon;
@@ -190,7 +191,7 @@ test.describe('English-only pages', () => {
     }
   });
 
-  test('English homepage: live brand cards link their page with a spec from the data; Ninja is Coming soon', async ({ page }) => {
+  test('English homepage: every brand card links its page with a spec from the data', async ({ page }) => {
     await page.goto('/');
     const home = getDictionary('en').home;
     for (const b of LIVE_BRANDS) {
@@ -199,7 +200,7 @@ test.describe('English-only pages', () => {
       await expect(page.locator(`a.card[href="${b.path}"]`)).toContainText(spec);
     }
     await expect(page.locator(`a.card[href="${MODEL_MAX_TEMP_PATH}"]`)).toContainText(fillPlaceholders(home.modelTableSpec, { N: String(MODELS.length) }));
-    await expect(page.locator('.card.disabled', { hasText: home.brandCards.ninja.title })).toContainText(home.comingSoon);
+    for (const b of BRANDS) await expect(page.locator('.card.disabled', { hasText: home.brandCards[b.key].title })).toHaveCount(0);
   });
 });
 

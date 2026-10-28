@@ -52,9 +52,21 @@ export interface FryerModel {
 const C = (c: number) => (c * 9) / 5 + 32;
 const COSORI = 'https://cosori.com/cdn/shop/files/';
 const INSTANT = 'https://p.widencdn.net/';
+const NINJA = 'https://support.sharkninja.com/article/';
 const READ = '2026-10-28';
 
 export const MODELS: FryerModel[] = [
+  // Ninja — owner's guides and quick start guides on support.sharkninja.com (the article page, not the PDF host).
+  // DZ201, DZ401 and DZ550 are left out: none of their guides states an Air Fry maximum.
+  { id: 'ninja-af101', brand: 'ninja', modelNumber: 'AF101', type: 'basket', capacity: null, maxF: 400, minF: null, tempUnit: 'F', preheat: 'manual', source: `${NINJA}AF100-Series-Ninja-Air-Fryer-Owner-s-Guide`, sourced: READ },
+  // "The max temperature is 400°F for all functions", Max Crisp included.
+  { id: 'ninja-pro-af141', brand: 'ninja', modelNumber: 'AF141', type: 'basket', capacity: null, maxF: 400, minF: null, tempUnit: 'F', preheat: 'manual', source: `${NINJA}AF140-Series-Ninja-Air-Fryer-Pro-3-in-1-Owner-s-Guide`, sourced: READ },
+  // "450°F for Max Crisp and Air Broil ... 400°F for all other functions"; Max Crisp cannot be adjusted.
+  { id: 'ninja-max-xl-af161', brand: 'ninja', modelNumber: 'AF161', type: 'basket', capacity: null, maxF: 400, minF: null, tempUnit: 'F', otherMax: { f: 450, label: 'maxCrisp' }, preheat: 'manual', source: `${NINJA}AF160-Series-Ninja-Air-Fryer-Max-XL-Owner-s-Guide`, sourced: READ },
+  // Quick start guide: Air Fry defaults to 450°F, "full 10-qt cooking capacity". Owner's guide: "does not need to preheat".
+  { id: 'ninja-doublestack-sl401', brand: 'ninja', modelNumber: 'SL401', type: 'dual-zone', capacity: { qt: 10 }, maxF: 450, minF: null, tempUnit: 'F', preheat: 'none', source: `${NINJA}SL401-Series-Ninja-DoubleStack-XL-10-QT-2-Basket-Air-Fryer-Quick-Start-Guide`, sourced: READ },
+  // Air Fry, Air Roast and Bake 250–450°F; Dehydrate 105–195°F; PRE flashes while it preheats.
+  { id: 'ninja-foodi-oven-sp101', brand: 'ninja', modelNumber: 'SP101', type: 'toaster-oven', capacity: null, maxF: 450, minF: 105, tempUnit: 'F', preheat: 'auto', source: `${NINJA}SP100-Series-Ninja-Foodi-Digital-Air-Fry-Oven-Owner-s-Guide`, sourced: READ },
   // Cosori — cosori.com/pages/user-manuals
   { id: 'cosori-pro-le-5', brand: 'cosori', modelNumber: 'CAF-L501-KUS', type: 'basket', capacity: { qt: 5.0 }, maxF: 450, minF: 170, tempUnit: 'F', preheat: 'auto', source: `${COSORI}Pro_LE_manual.pdf`, sourced: READ },
   {
