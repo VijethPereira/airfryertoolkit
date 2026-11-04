@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import CostBody from '../components/CostBody.astro';
+import siteConfig from '../site.config.ts';
+import { getDictionary } from '../i18n/dictionaries';
+import { localizedUrl } from '../i18n/utils';
+import { COST_PATH } from '../lib/cost';
+import { costValues, fillCost } from '../lib/cost-page';
+
+const locale = 'en' as const;
+const dict = getDictionary(locale).cost;
+const values = costValues(locale, dict);
+const fill = (s: string) => fillCost(s, values);
+const url = localizedUrl(locale, COST_PATH);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: `${dict.heading} — ${siteConfig.siteName}`,
+      description: dict.metaDescription,
+      url,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: dict.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: fill(q),
+        acceptedAnswer: { '@type': 'Answer', text: fill(a) },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title={dict.metaTitle}
+  description={dict.metaDescription}
+  canonical={url}
+  keywords={dict.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug={COST_PATH}
+>
+  <SiteNav currentPath={COST_PATH} locale={locale} translatedSlug={COST_PATH} />
+  <CostBody locale={locale} />
+  <Footer locale={locale} />
+</Layout>

@@ -1,0 +1,103 @@
+import type { CostCopy } from '../../types';
+
+const cost: CostCopy = {
+  metaTitle: 'Coste de la freidora de aire vs el horno — calculadora con energía medida',
+  metaDescription:
+    'Lo que cuesta una receta de horno en la freidora de aire y en el horno, a tu precio de la luz. Estimado con la energía medida en el laboratorio de Which?, no con vatios × tiempo.',
+  metaKeywords: 'freidora de aire vs horno consumo, cuánto gasta una freidora de aire, coste freidora de aire luz, freidora de aire o horno qué gasta más',
+  backLink: 'Todas las herramientas',
+  heading: 'Freidora de aire vs horno: coste de uso',
+  subDesc:
+    'Introduce una receta de horno y tu precio de la luz: verás el ajuste para freidora de aire y lo que cuesta cada aparato, según energía medida en laboratorio.',
+  widgetLabel: 'Coste de uso',
+  live: 'En vivo',
+  ovenTemperature: 'Temperatura del horno',
+  ovenTime: 'Tiempo en horno',
+  foodType: 'Tipo de alimento',
+  airFryerStyle: 'Tipo de freidora',
+  basket: 'Cesta',
+  ovenStyle: 'Tipo horno',
+  min: 'min',
+  tariffLabel: 'Precio de la electricidad',
+  tariffUnit: '{MINOR}/kWh',
+  tariffDefaultTemplate: '{COUNTRY}, {PERIOD} ({SOURCE})',
+  tariffCustom: 'Tu precio',
+  countries: { uk: 'Media del Reino Unido', us: 'Media de EE. UU.', es: 'Media de España', pt: 'Media de Portugal', fr: 'Media de Francia', de: 'Media de Alemania' },
+  minor: { GBP: 'p', USD: '¢', EUR: 'c' },
+  costTemplate: '{N} {MINOR}',
+  preheatOven: 'Precalentar horno',
+  preheatAirFryer: 'Precalentar freidora',
+  assumptionsSummary: 'Supuestos',
+  assumptionsIntro:
+    'Las tres cifras de energía están ajustadas a las mediciones de Which?. Los vatios nominales solo sirven para la línea de comparación «vatios × tiempo».',
+  ovenWarmUpLabel: 'Calentamiento del horno (kWh)',
+  ovenHoldLabel: 'Horno durante la cocción (kW)',
+  airFryerKwLabel: 'Media de la freidora (kW)',
+  ovenWattsLabel: 'Potencia nominal del horno (W)',
+  airFryerWattsLabel: 'Potencia nominal de la freidora (W)',
+  resetLabel: 'Restablecer supuestos',
+  resultAirFryer: 'Freidora de aire',
+  resultOven: 'Horno',
+  airFryerSettingTemplate: '{AF_TEMP}, {AF_MIN} min + {PRE} min de precalentado = {TOTAL} min',
+  ovenSettingTemplate: '{MIN} min + {PRE} min de precalentado = {TOTAL} min',
+  rangeTemplate: 'probable {LOW}–{HIGH}',
+  savingTemplate: 'La freidora de aire ahorra unos {SAVING} en esta receta ({PCT} % menos).',
+  ovenCheaperTemplate: 'Con estos datos el horno sale {DIFF} más barato.',
+  ratedTemplate: 'Vatios nominales × tiempo darían {AF_RATED} y {OV_RATED} kWh: {AF_RATIO}× y {OV_RATIO}× la estimación.',
+  estimateNote: 'Estimación a partir de las mediciones de laboratorio de Which? ({WHICH_DATE}); los tiempos incluyen el precalentado.',
+  invalid: '—',
+  halfYearTemplate: '{N}.º semestre de {YEAR}',
+  leadHeading: 'Los vatios de la etiqueta exageran lo que gastan ambos aparatos',
+  leadBody:
+    'Casi todas las calculadoras multiplican los vatios de la etiqueta por el tiempo. Pero, ya caliente, el termostato apaga y enciende la resistencia. En el ensayo de Which?, {OV_W} W × tiempo daba entre {OV_RATED_MIN} y {OV_RATED_MAX} veces lo que el horno gastó: {LEAD_OV_RATED} kWh para {LEAD_MIN} minutos de patatas fritas congeladas, frente a {LEAD_OV_KWH} kWh en el contador. El resultado muestra la cifra nominal como límite superior, no como coste.',
+  modelHeading: 'Cómo funciona la estimación',
+  modelBody:
+    'Which? cocinó pollo asado, patatas fritas congeladas, una patata asada y un bizcocho en ambos aparatos y midió la energía, precalentado incluido. Un ajuste por mínimos cuadrados da al horno un calentamiento de {OV_WARM} kWh más {OV_HOLD} kW por hora, y a la freidora {AF_KW} kW de media, sobre el tiempo de receta más el precalentado ({PRE_OV} y {PRE_AF} minutos por defecto). El ajuste falla entre {OV_RES_MIN} % y {OV_RES_MAX} % en el horno y entre {AF_RES_MIN} % y {AF_RES_MAX} % en la freidora; esos peores errores marcan el rango probable. Frente a la prueba de CHOICE de {CHOICE_YEAR}, sin reajustar, se quedó entre un {CHOICE_LOW_MIN} % y un {CHOICE_LOW_MAX} % corto, pero el porcentaje ahorrado quedó a menos de {CHOICE_GAP} puntos. La temperatura no entra en el modelo.',
+  exampleHeading: 'Ejemplo práctico',
+  exampleBody:
+    '{EX_OVEN_TEMP} durante {EX_OVEN_MIN} minutos pasa a {EX_AF_TEMP} durante {EX_AF_MIN} minutos en una freidora de cesta: {EX_AF_TOTAL} minutos con precalentado, frente a {EX_OV_TOTAL} en el horno. Con {TARIFF_RATE} ({TARIFF_COUNTRY}) son unos {EX_AF_KWH} kWh ({EX_AF_COST}) frente a {EX_OV_KWH} kWh ({EX_OV_COST}), un {EX_PCT} % menos.',
+  ovenWinsHeading: 'Cuándo gana el horno',
+  ovenWinsBody:
+    'La freidora gana porque su cavidad es pequeña, así que la ventaja se reduce cuando la comida llena un horno. Which? señala que «if you’re making a full roast dinner, your oven may still be cheaper overall» (con un asado completo, el horno puede salir más barato). Consumer NZ ({CNZ_DATE}): «large quantities of food + more than 30 minutes’ cooking time = oven is cheaper» (mucha comida y más de media hora: gana el horno).',
+  referenceHeading: 'Las mediciones de Which?',
+  referenceIntro: 'La misma comida en ambos aparatos, energía medida en laboratorio, precalentado incluido. Publicado el {WHICH_DATE}.',
+  referenceHeaders: { food: 'Alimento', airFryer: 'Freidora de aire', oven: 'Horno' },
+  referenceCell: '{MIN} min, {KWH} kWh',
+  foods: { roastChicken: 'Pollo asado', chips: 'Patatas fritas congeladas', jacketPotato: 'Patata asada', cake: 'Bizcocho' },
+  referenceSource: 'Fuente: Which?, «Air fryer vs oven: energy usage, costs and cooking results compared»',
+  tariffHeading: 'De dónde sale el precio de la luz',
+  tariffIntro: 'El valor por defecto es una media nacional del periodo indicado. Escribe el precio por kWh de tu factura para una cifra exacta.',
+  tariffHeaders: { country: 'Por defecto', rate: 'Precio', period: 'Periodo', source: 'Fuente' },
+  tariffRateCell: '{RATE} {MINOR}/kWh',
+  tariffChecked: 'comprobado el {CHECKED}',
+  vatNote: 'Sin IVA, que se elimina de las facturas de luz del {FROM} al {TO}.',
+  relatedHeading: 'Relacionado',
+  relatedFlagshipLink: 'Conversor de horno a freidora de aire',
+  relatedMaxTempLink: 'Temperatura máxima por modelo',
+  relatedCosoriLink: 'Freidoras Cosori ({W_N} manuales indican {W_MIN}–{W_MAX} W)',
+  faqHeading: 'Preguntas frecuentes',
+  faqs: [
+    {
+      q: '¿Gasta menos una freidora de aire que un horno?',
+      a: 'Para una sola tanda, sí. En el ensayo de Which? usó entre un {WHICH_SAVE_MIN} % y un {WHICH_SAVE_MAX} % menos energía que el horno con los cuatro alimentos. Fuente: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: '¿Por qué no multiplicar los vatios por el tiempo?',
+      a: 'Porque, ya en temperatura, la resistencia se apaga y enciende, así que vatios × tiempo exagera: entre {OV_RATED_MIN} y {OV_RATED_MAX} veces con el horno de Which?. Fuente: Which?, {WHICH_DATE}; potencia según la ficha del vendedor.',
+    },
+    {
+      q: '¿Cuándo sale más barato el horno?',
+      a: 'Cuando cocinas mucho a la vez. Which?: «an oven may still be the most economical choice when cooking for a crowd» (para mucha gente, el horno puede ser lo más económico). Fuente: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: '¿Por qué mi precio puede no coincidir?',
+      a: 'El valor por defecto es la media de Eurostat para hogares de {BAND_MIN} a {BAND_MAX} kWh al año, impuestos incluidos, del {TARIFF_PERIOD}: {TARIFF_RATE} ({TARIFF_COUNTRY}). Escribe el precio por kWh de tu factura. Fuente: Eurostat (nrg_pc_204).',
+    },
+    {
+      q: '¿Hay que contar el precalentado?',
+      a: 'Sí. Los tiempos y kWh de Which? lo incluyen, así que se suman {PRE_OV} minutos al horno y {PRE_AF} a la freidora; pon cero si la tuya no lo necesita. Fuente: Which?, {WHICH_DATE}.',
+    },
+  ],
+};
+
+export default cost;

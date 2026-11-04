@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/de';
+import cost from './cost/de';
 import { presets, presetsIndex } from './presets/de';
 
 const de: Dictionary = {
@@ -166,7 +167,7 @@ const de: Dictionary = {
       { title: 'Ofen → Heißluftfritteuse', desc: 'Das Flaggschiff. Multiplikatoren je Lebensmittelart, Korb vs. Ofentyp, Temperaturobergrenze, °F/°C/Gasstufe.' },
       { title: 'Umluft → Heißluftfritteuse', desc: 'Umluftrezepte sind bereits ventilatorbedingt angepasst und brauchen daher einen sanfteren Abzug. Die meisten Tools machen das falsch.' },
       { title: 'Portionen- & Mengenanpassung', desc: 'Zeit anpassen, wenn der Korb voll ist oder du in zwei Durchgängen kochst.' },
-      { title: 'Wattzahl-Anpassung', desc: 'Kompakte 1200-W-Körbe garen langsamer als 1700-W-Modelle. Korrigiere für dein Modell.' },
+      { title: 'Kosten: Heißluftfritteuse vs. Backofen', desc: 'Was ein Rezept in jedem Gerät zu deinem Strompreis kostet, aus gemessener Energie, nicht vom Typenschild.' },
     ],
     reverseCards: [
       { title: 'Heißluftfritteuse → Ofen', desc: 'Du kochst für viele Leute, oder der Korb ist besetzt. Zurück zum Ofen.' },
@@ -290,6 +291,10 @@ const de: Dictionary = {
       {
         q: 'Wie genau ist das Ergebnis?',
         a: 'Temperaturen werden auf die nächsten 5° gerundet, entsprechend den tatsächlichen Schritten der Regler und Digitalsteuerungen von Heißluftfritteusen. Betrachte das Ergebnis als Ausgangspunkt, nicht als Garantie — prüfe das Gericht etwas vor der vorgeschlagenen Zeit, besonders beim ersten Mal, wenn du in einem neuen Gerät kochst.',
+      },
+      {
+        q: 'Gart eine Heißluftfritteuse mit mehr Watt schneller?',
+        a: 'Kaum, sobald sie heiß ist. Der Thermostat hält die eingestellte Temperatur, ein stärkeres Heizelement verkürzt also vor allem das Vorheizen und das Wiederaufheizen nach dem Einlegen kalter Lebensmittel. Prüfe beim ersten Mal mit einem neuen Gerät ein paar Minuten früher und merke dir, was es braucht.',
       },
       {
         q: 'Muss ich vorheizen?',
@@ -562,6 +567,7 @@ const de: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cost,
   chart: {
     metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',
     metaDescription:

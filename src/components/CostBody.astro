@@ -1,0 +1,538 @@
+---
+import Faq from './Faq.astro';
+import AdSlot from './AdSlot.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import { FOODS, type FoodKey } from '../lib/converter';
+import { COST_MODEL, TARIFFS, WHICH_MEASUREMENTS, WHICH_TEST } from '../data/energy';
+import { LOCALE_TARIFF, US_TIME_ZONES, computeCost, formatDate, formatNumber, formatPeriod } from '../lib/cost';
+import { costValues, defaultCostInput, fillCost, money, rate } from '../lib/cost-page';
+import { MODEL_MAX_TEMP_PATH, BRANDS } from '../lib/brands';
+import { LIVE_PAGES } from '../site.config';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const all = getDictionary(locale);
+const c = all.cost;
+const values = costValues(locale, c);
+const fill = (s: string) => fillCost(s, values);
+
+const tariffId = LOCALE_TARIFF[locale];
+const tariff = TARIFFS[tariffId];
+const input = defaultCostInput(locale, tariff);
+const result = computeCost(input)!;
+const foods = (Object.keys(FOODS) as FoodKey[]).map((key) => ({ key, label: all.converter.foods[key].label }));
+const tariffNote = (id: typeof tariffId) =>
+  fillCost(c.tariffDefaultTemplate, { COUNTRY: c.countries[id], PERIOD: formatPeriod(TARIFFS[id].period, locale, c.halfYearTemplate), SOURCE: TARIFFS[id].sourceName });
+
+// Server HTML shows the defaults; the script below recomputes on every input.
+const r = {
+  afSetting: fillCost(c.airFryerSettingTemplate, { AF_TEMP: input.unit === 'F' ? `${result.airFryerF}°F` : `${result.airFryerC}°C`, AF_MIN: String(result.airFryerMinutes), PRE: String(input.airFryerPreheat), TOTAL: String(result.airFryer.minutes) }),
+  ovSetting: fillCost(c.ovenSettingTemplate, { MIN: String(input.ovenMinutes), PRE: String(input.ovenPreheat), TOTAL: String(result.oven.minutes) }),
+  afCost: money(result.airFryer.cost, tariff, locale, c),
+  ovCost: money(result.oven.cost, tariff, locale, c),
+  afKwh: `${formatNumber(result.airFryer.kwh, locale, 2)} kWh`,
+  ovKwh: `${formatNumber(result.oven.kwh, locale, 2)} kWh`,
+  afRange: fillCost(c.rangeTemplate, { LOW: money(result.airFryer.costLow, tariff, locale, c), HIGH: money(result.airFryer.costHigh, tariff, locale, c) }),
+  ovRange: fillCost(c.rangeTemplate, { LOW: money(result.oven.costLow, tariff, locale, c), HIGH: money(result.oven.costHigh, tariff, locale, c) }),
+  saving: result.saving >= 0
+    ? fillCost(c.savingTemplate, { SAVING: money(result.saving, tariff, locale, c), PCT: String(Math.round(result.savingPct * 100)) })
+    : fillCost(c.ovenCheaperTemplate, { DIFF: money(-result.saving, tariff, locale, c) }),
+  rated: fillCost(c.ratedTemplate, {
+    AF_RATED: formatNumber(result.airFryer.ratedKwh, locale, 2), OV_RATED: formatNumber(result.oven.ratedKwh, locale, 2),
+    AF_RATIO: formatNumber(result.airFryer.ratedRatio, locale, 1), OV_RATIO: formatNumber(result.oven.ratedRatio, locale, 1),
+  }),
+};
+
+// English: UK in the server HTML, US in the browser for US time zones; other locales: their country.
+const regions = locale === 'en' && c.region ? (['uk', 'us'] as const) : null;
+const clientTariffs = Object.fromEntries(
+  (regions ?? [tariffId]).map((id) => [id, { perKwh: TARIFFS[id].perKwh, currency: TARIFFS[id].currency, note: tariffNote(id) }]),
+);
+
+const brandsLive = locale === 'en';
+const cosori = BRANDS.find((b) => b.key === 'cosori');
+const links = [
+  { slug: '/oven-to-air-fryer', label: c.relatedFlagshipLink, href: localizedPath(locale, '/oven-to-air-fryer') },
+  ...(brandsLive ? [{ slug: MODEL_MAX_TEMP_PATH, label: c.relatedMaxTempLink, href: MODEL_MAX_TEMP_PATH }] : []),
+  ...(brandsLive && cosori ? [{ slug: cosori.path, label: fill(c.relatedCosoriLink), href: cosori.path }] : []),
+].filter(({ slug }) => LIVE_PAGES.has(slug));
+
+// English lists every default (UK, US and the four EU averages); other locales their own country.
+const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
+---
+
+<main class="page-main">
+  <div class="wrap">
+    <header class="tool-header">
+      <a href={localizedPath(locale, '/')} class="back-link" aria-label={c.backLink}>&larr; {c.backLink}</a>
+      <h1>{c.heading}</h1>
+      <p class="tool-desc">{c.subDesc}</p>
+    </header>
+
+    <section class="tool-area" aria-label={c.widgetLabel}>
+      <div class="widget-card" id="afc" data-locale={locale}>
+        <div class="widget-head">
+          <span>{c.widgetLabel}</span>
+          <span class="live-badge"><span class="dot"></span>{c.live}</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field grow">
+            <label for="afc-temp">{c.ovenTemperature}</label>
+            <div class="input-with-toggle">
+              <input id="afc-temp" type="number" inputmode="numeric" value={input.ovenTemp} />
+              <button type="button" id="afc-unit-f" class:list={['seg-btn', { active: input.unit === 'F' }]}>°F</button>
+              <button type="button" id="afc-unit-c" class:list={['seg-btn', { active: input.unit === 'C' }]}>°C</button>
+            </div>
+          </div>
+          <div class="field narrow">
+            <label for="afc-time">{c.ovenTime}</label>
+            <div class="input-with-suffix">
+              <input id="afc-time" type="number" inputmode="numeric" value={input.ovenMinutes} />
+              <span class="suffix">{c.min}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="afc-food">{c.foodType}</label>
+            <select id="afc-food">
+              {foods.map(({ key, label }) => <option value={key} selected={key === input.food}>{label}</option>)}
+            </select>
+          </div>
+          <div class="field">
+            <span class="field-label">{c.airFryerStyle}</span>
+            <div class="input-with-toggle wide">
+              <button type="button" id="afc-style-basket" class="seg-btn wide active">{c.basket}</button>
+              <button type="button" id="afc-style-oven" class="seg-btn wide">{c.ovenStyle}</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field grow">
+            <label for="afc-tariff">{c.tariffLabel}</label>
+            <div class="input-with-suffix">
+              <input id="afc-tariff" type="number" inputmode="decimal" step="0.01" value={formatNumber(tariff.perKwh * 100, 'en', 2)} />
+              <span class="suffix" id="afc-tariff-unit">{fillCost(c.tariffUnit, { MINOR: c.minor[tariff.currency] })}</span>
+            </div>
+            <p class="field-note" id="afc-tariff-note">{tariffNote(tariffId)}</p>
+          </div>
+          {regions && c.region && (
+            <div class="field narrow">
+              <span class="field-label">{c.region.label}</span>
+              <div class="input-with-toggle wide">
+                <button type="button" id="afc-region-uk" class="seg-btn wide active">{c.region.uk}</button>
+                <button type="button" id="afc-region-us" class="seg-btn wide">{c.region.us}</button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="afc-pre-ov">{c.preheatOven}</label>
+            <div class="input-with-suffix">
+              <input id="afc-pre-ov" type="number" inputmode="numeric" value={input.ovenPreheat} />
+              <span class="suffix">{c.min}</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="afc-pre-af">{c.preheatAirFryer}</label>
+            <div class="input-with-suffix">
+              <input id="afc-pre-af" type="number" inputmode="numeric" value={input.airFryerPreheat} />
+              <span class="suffix">{c.min}</span>
+            </div>
+          </div>
+        </div>
+
+        <details class="assumptions">
+          <summary>{c.assumptionsSummary}</summary>
+          <p class="field-note">{c.assumptionsIntro}</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="afc-p-warm">{c.ovenWarmUpLabel}</label>
+              <input id="afc-p-warm" type="number" inputmode="decimal" step="0.01" value={COST_MODEL.oven.warmUpKwh} />
+            </div>
+            <div class="field">
+              <label for="afc-p-hold">{c.ovenHoldLabel}</label>
+              <input id="afc-p-hold" type="number" inputmode="decimal" step="0.01" value={COST_MODEL.oven.holdKw} />
+            </div>
+            <div class="field">
+              <label for="afc-p-af">{c.airFryerKwLabel}</label>
+              <input id="afc-p-af" type="number" inputmode="decimal" step="0.01" value={COST_MODEL.airFryer.averageKw} />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="afc-ov-w">{c.ovenWattsLabel}</label>
+              <input id="afc-ov-w" type="number" inputmode="numeric" value={input.ovenWatts} />
+            </div>
+            <div class="field">
+              <label for="afc-af-w">{c.airFryerWattsLabel}</label>
+              <input id="afc-af-w" type="number" inputmode="numeric" value={input.airFryerWatts} />
+            </div>
+          </div>
+          <button type="button" id="afc-reset" class="seg-btn reset">{c.resetLabel}</button>
+        </details>
+
+        <div class="results">
+          <div class="result-block">
+            <p class="eyebrow">{c.resultAirFryer}</p>
+            <p class="result-main" id="afc-af-cost">{r.afCost}</p>
+            <p class="result-line" id="afc-af-setting">{r.afSetting}</p>
+            <p class="result-line"><span id="afc-af-kwh">{r.afKwh}</span> · <span id="afc-af-range">{r.afRange}</span></p>
+          </div>
+          <div class="result-block">
+            <p class="eyebrow">{c.resultOven}</p>
+            <p class="result-main" id="afc-ov-cost">{r.ovCost}</p>
+            <p class="result-line" id="afc-ov-setting">{r.ovSetting}</p>
+            <p class="result-line"><span id="afc-ov-kwh">{r.ovKwh}</span> · <span id="afc-ov-range">{r.ovRange}</span></p>
+          </div>
+        </div>
+        <p class="saving" id="afc-saving">{r.saving}</p>
+        <p class="field-note" id="afc-rated">{r.rated}</p>
+        <p class="field-note">{fill(c.estimateNote)}</p>
+      </div>
+    </section>
+
+    <AdSlot slot="4455667788" />
+
+    <section class="content-section">
+      <h2>{c.leadHeading}</h2>
+      <p>{fill(c.leadBody)}</p>
+
+      <h3>{c.modelHeading}</h3>
+      <p>{fill(c.modelBody)}</p>
+
+      <h3>{c.exampleHeading}</h3>
+      <p>{fill(c.exampleBody)}</p>
+
+      <h3>{c.ovenWinsHeading}</h3>
+      <p>{fill(c.ovenWinsBody)}</p>
+    </section>
+
+    <section class="table-section" aria-labelledby="afc-ref-heading">
+      <h2 id="afc-ref-heading">{c.referenceHeading}</h2>
+      <p class="table-intro">{fill(c.referenceIntro)}</p>
+      <div class="table-card">
+        <table id="afc-reference">
+          <thead><tr><th>{c.referenceHeaders.food}</th><th>{c.referenceHeaders.airFryer}</th><th>{c.referenceHeaders.oven}</th></tr></thead>
+          <tbody>
+            {WHICH_MEASUREMENTS.map((m) => (
+              <tr>
+                <td>{c.foods[m.food]}</td>
+                <td>{fillCost(c.referenceCell, { MIN: String(m.airFryer.minutes), KWH: formatNumber(m.airFryer.kwh, locale, 3) })}</td>
+                <td>{fillCost(c.referenceCell, { MIN: String(m.oven.minutes), KWH: formatNumber(m.oven.kwh, locale, 3) })}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="source-line"><a href={WHICH_TEST.url} rel="noopener">{c.referenceSource}</a>, {formatDate(WHICH_TEST.published, locale)}</p>
+    </section>
+
+    <section class="table-section" aria-labelledby="afc-tariff-heading">
+      <h2 id="afc-tariff-heading">{c.tariffHeading}</h2>
+      <p class="table-intro">{c.tariffIntro}</p>
+      <div class="table-card">
+        <table id="afc-tariffs">
+          <thead><tr><th>{c.tariffHeaders.country}</th><th>{c.tariffHeaders.rate}</th><th>{c.tariffHeaders.period}</th><th>{c.tariffHeaders.source}</th></tr></thead>
+          <tbody>
+            {tariffRows.map((t) => (
+              <tr data-tariff={t.id}>
+                <td>{c.countries[t.id]}</td>
+                <td>{rate(t, locale, c)}{t.vatRemoved && <span class="cell-note">{fillCost(c.vatNote, { FROM: formatDate(t.vatRemoved.from, locale), TO: formatDate(t.vatRemoved.to, locale) })}</span>}</td>
+                <td>{formatPeriod(t.period, locale, c.halfYearTemplate)}</td>
+                <td><a href={t.query ?? t.source} rel="noopener">{t.sourceName}</a><span class="cell-note">{fillCost(c.tariffChecked, { CHECKED: formatDate(t.checked, locale) })}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {links.length > 0 && (
+      <section class="content-section">
+        <h2>{c.relatedHeading}</h2>
+        {links.map(({ href, label }) => <p class="related-link"><a href={href}>{label}</a> &rarr;</p>)}
+      </section>
+    )}
+
+    <AdSlot slot="8877665544" />
+
+    <section class="faq-section">
+      <h2>{c.faqHeading}</h2>
+      <Faq items={c.faqs.map(({ q, a }) => ({ q: fill(q), a: fill(a) }))} />
+    </section>
+  </div>
+</main>
+
+<script is:inline define:vars={{ costDict: c, clientTariffs, defaultTariff: tariffId, usZones: regions ? US_TIME_ZONES : [] }}>
+  window.__afcDict = costDict;
+  window.__afcTariffs = clientTariffs;
+  window.__afcDefaultTariff = defaultTariff;
+  window.__afcUsZones = usZones;
+</script>
+
+<script>
+  import { computeCost, formatMinor, formatNumber, DEFAULT_PARAMS, type CostParams } from '../lib/cost';
+  import { fillPlaceholders as fill } from '../lib/temp-landings';
+  import type { FoodKey, FryerStyle, TempUnit } from '../lib/converter';
+  import type { CostCopy } from '../i18n/types';
+  import type { LocaleCode } from '../i18n/locales';
+
+  type ClientTariff = { perKwh: number; currency: 'GBP' | 'USD' | 'EUR'; note: string };
+  const w = window as unknown as {
+    __afcDict: CostCopy;
+    __afcTariffs: Record<string, ClientTariff>;
+    __afcDefaultTariff: string;
+    __afcUsZones: string[];
+  };
+  const c = w.__afcDict;
+  const tariffs = w.__afcTariffs;
+  const root = document.getElementById('afc')!;
+  const locale = root.dataset.locale as LocaleCode;
+  const $ = <T = HTMLElement,>(id: string) => document.getElementById(id) as unknown as T;
+  const num = (id: string) => $<HTMLInputElement>(id).valueAsNumber;
+
+  const state: { unit: TempUnit; style: FryerStyle; region: string; customTariff: boolean } = {
+    unit: $<HTMLButtonElement>('afc-unit-c').classList.contains('active') ? 'C' : 'F',
+    style: 'basket',
+    region: w.__afcDefaultTariff,
+    customTariff: false,
+  };
+
+  const setSeg = (on: HTMLElement | null, off: HTMLElement | null) => {
+    on?.classList.add('active');
+    off?.classList.remove('active');
+  };
+
+  function setRegion(id: string) {
+    if (!tariffs[id]) return;
+    state.region = id;
+    state.customTariff = false;
+    const t = tariffs[id];
+    $<HTMLInputElement>('afc-tariff').value = (t.perKwh * 100).toFixed(2);
+    $('afc-tariff-unit').textContent = fill(c.tariffUnit, { MINOR: c.minor[t.currency] });
+    $('afc-tariff-note').textContent = t.note;
+    setSeg(document.getElementById(`afc-region-${id}`), document.getElementById(`afc-region-${id === 'uk' ? 'us' : 'uk'}`));
+  }
+
+  const money = (major: number) => fill(c.costTemplate, { N: formatMinor(major, locale), MINOR: c.minor[tariffs[state.region].currency] });
+
+  function params(): CostParams {
+    return { ovenWarmUpKwh: num('afc-p-warm'), ovenHoldKw: num('afc-p-hold'), airFryerKw: num('afc-p-af') };
+  }
+
+  function render() {
+    const food = $<HTMLSelectElement>('afc-food').value as FoodKey;
+    const input = {
+      ovenTemp: num('afc-temp'), unit: state.unit, ovenMinutes: num('afc-time'), food, style: state.style,
+      tariff: num('afc-tariff') / 100, ovenPreheat: num('afc-pre-ov'), airFryerPreheat: num('afc-pre-af'),
+      ovenWatts: num('afc-ov-w'), airFryerWatts: num('afc-af-w'), params: params(),
+    };
+    const r = computeCost(input);
+    const set = (id: string, text: string) => ($(id).textContent = text);
+    if (!r) {
+      for (const id of ['afc-af-cost', 'afc-ov-cost', 'afc-af-setting', 'afc-ov-setting', 'afc-af-kwh', 'afc-ov-kwh', 'afc-af-range', 'afc-ov-range', 'afc-saving', 'afc-rated']) set(id, c.invalid);
+      return;
+    }
+    set('afc-af-cost', money(r.airFryer.cost));
+    set('afc-ov-cost', money(r.oven.cost));
+    set('afc-af-setting', fill(c.airFryerSettingTemplate, { AF_TEMP: state.unit === 'F' ? `${r.airFryerF}°F` : `${r.airFryerC}°C`, AF_MIN: String(r.airFryerMinutes), PRE: String(input.airFryerPreheat), TOTAL: String(r.airFryer.minutes) }));
+    set('afc-ov-setting', fill(c.ovenSettingTemplate, { MIN: String(input.ovenMinutes), PRE: String(input.ovenPreheat), TOTAL: String(r.oven.minutes) }));
+    set('afc-af-kwh', `${formatNumber(r.airFryer.kwh, locale, 2)} kWh`);
+    set('afc-ov-kwh', `${formatNumber(r.oven.kwh, locale, 2)} kWh`);
+    set('afc-af-range', fill(c.rangeTemplate, { LOW: money(r.airFryer.costLow), HIGH: money(r.airFryer.costHigh) }));
+    set('afc-ov-range', fill(c.rangeTemplate, { LOW: money(r.oven.costLow), HIGH: money(r.oven.costHigh) }));
+    set('afc-saving', r.saving >= 0
+      ? fill(c.savingTemplate, { SAVING: money(r.saving), PCT: String(Math.round(r.savingPct * 100)) })
+      : fill(c.ovenCheaperTemplate, { DIFF: money(-r.saving) }));
+    set('afc-rated', fill(c.ratedTemplate, {
+      AF_RATED: formatNumber(r.airFryer.ratedKwh, locale, 2), OV_RATED: formatNumber(r.oven.ratedKwh, locale, 2),
+      AF_RATIO: formatNumber(r.airFryer.ratedRatio, locale, 1), OV_RATIO: formatNumber(r.oven.ratedRatio, locale, 1),
+    }));
+    writeQuery(input);
+  }
+
+  // Shareable state: ?temp=&unit=&t=&food=&style=&tariff=(major units/kWh)&region=&af=&ov= (rated W).
+  function writeQuery(input: { ovenTemp: number; ovenMinutes: number; food: string; tariff: number; ovenWatts: number; airFryerWatts: number }) {
+    const q = new URLSearchParams();
+    q.set('temp', String(input.ovenTemp));
+    q.set('unit', state.unit);
+    q.set('t', String(input.ovenMinutes));
+    q.set('food', input.food);
+    q.set('style', state.style);
+    if (Object.keys(tariffs).length > 1) q.set('region', state.region);
+    if (state.customTariff) q.set('tariff', String(Math.round(input.tariff * 10000) / 10000));
+    q.set('af', String(input.airFryerWatts));
+    q.set('ov', String(input.ovenWatts));
+    history.replaceState(null, '', `${location.pathname}?${q}`);
+  }
+
+  function readQuery() {
+    const q = new URLSearchParams(location.search);
+    const setNum = (id: string, key: string) => {
+      const v = q.get(key);
+      if (v !== null && v.trim() !== '' && Number.isFinite(Number(v))) $<HTMLInputElement>(id).value = v;
+    };
+    const unit = q.get('unit');
+    if (unit === 'F' || unit === 'C') {
+      state.unit = unit;
+      setSeg($(`afc-unit-${unit.toLowerCase()}`), $(`afc-unit-${unit === 'F' ? 'c' : 'f'}`));
+    }
+    setNum('afc-temp', 'temp');
+    setNum('afc-time', 't');
+    const food = q.get('food');
+    const sel = $<HTMLSelectElement>('afc-food');
+    if (food && [...sel.options].some((o) => o.value === food)) sel.value = food;
+    const style = q.get('style');
+    if (style === 'basket' || style === 'oven') {
+      state.style = style;
+      setSeg($(`afc-style-${style}`), $(`afc-style-${style === 'basket' ? 'oven' : 'basket'}`));
+    }
+    setNum('afc-af-w', 'af');
+    setNum('afc-ov-w', 'ov');
+    // Region: ?region= wins over the time zone; ?tariff= wins over both.
+    const region = q.get('region');
+    if (region && tariffs[region]) setRegion(region);
+    else if (tariffs.us && w.__afcUsZones.includes(Intl.DateTimeFormat().resolvedOptions().timeZone)) setRegion('us');
+    const tariff = Number(q.get('tariff'));
+    if (q.get('tariff') !== null && Number.isFinite(tariff) && tariff > 0) {
+      $<HTMLInputElement>('afc-tariff').value = (tariff * 100).toFixed(2);
+      state.customTariff = true;
+      $('afc-tariff-note').textContent = c.tariffCustom;
+    }
+  }
+
+  for (const id of ['afc-temp', 'afc-time', 'afc-pre-ov', 'afc-pre-af', 'afc-p-warm', 'afc-p-hold', 'afc-p-af', 'afc-ov-w', 'afc-af-w']) $(id).addEventListener('input', render);
+  $('afc-food').addEventListener('change', render);
+  $('afc-tariff').addEventListener('input', () => {
+    state.customTariff = true;
+    $('afc-tariff-note').textContent = c.tariffCustom;
+    render();
+  });
+  $('afc-unit-f').addEventListener('click', () => { state.unit = 'F'; setSeg($('afc-unit-f'), $('afc-unit-c')); render(); });
+  $('afc-unit-c').addEventListener('click', () => { state.unit = 'C'; setSeg($('afc-unit-c'), $('afc-unit-f')); render(); });
+  $('afc-style-basket').addEventListener('click', () => { state.style = 'basket'; setSeg($('afc-style-basket'), $('afc-style-oven')); render(); });
+  $('afc-style-oven').addEventListener('click', () => { state.style = 'oven'; setSeg($('afc-style-oven'), $('afc-style-basket')); render(); });
+  document.getElementById('afc-region-uk')?.addEventListener('click', () => { setRegion('uk'); render(); });
+  document.getElementById('afc-region-us')?.addEventListener('click', () => { setRegion('us'); render(); });
+  $('afc-reset').addEventListener('click', () => {
+    $<HTMLInputElement>('afc-p-warm').value = String(DEFAULT_PARAMS.ovenWarmUpKwh);
+    $<HTMLInputElement>('afc-p-hold').value = String(DEFAULT_PARAMS.ovenHoldKw);
+    $<HTMLInputElement>('afc-p-af').value = String(DEFAULT_PARAMS.airFryerKw);
+    render();
+  });
+
+  readQuery();
+  render();
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap { max-width: 860px; margin-inline: auto; padding-inline: 24px; }
+  .page-main { padding: 40px 0 80px; }
+  .tool-header { margin-bottom: 32px; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-bottom: 8px;
+    font-size: var(--text-caption); font-weight: 600; letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase; color: var(--site-text-muted); transition: color 0.15s ease;
+  }
+  .back-link:hover { color: var(--site-text); }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.03em; color: var(--site-text); line-height: 1.1; margin: 0 0 12px; }
+  .tool-desc {
+    font-size: var(--text-subheading); line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing); color: var(--site-text-muted); margin: 0; max-width: 64ch;
+  }
+  .tool-area { margin-bottom: 32px; }
+
+  .widget-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 24px; }
+  .widget-head {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    font-size: var(--text-caption); letter-spacing: var(--text-caption--letter-spacing); font-weight: 600;
+    text-transform: uppercase; color: var(--site-text-muted);
+  }
+  .live-badge { display: flex; align-items: center; gap: 6px; color: var(--site-text); }
+  .dot { display: block; width: 6px; height: 6px; border-radius: 999px; background: var(--site-accent); }
+  .field-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+  .field-row:first-of-type { margin-top: 0; }
+  .field { flex: 1 1 200px; min-width: min(180px, 100%); }
+  .field.grow { flex: 1 1 240px; min-width: min(230px, 100%); }
+  .field.narrow { flex: 0 1 160px; min-width: min(140px, 100%); }
+  .field label, .field-label { display: block; font-size: 13px; font-weight: 600; color: var(--site-text-muted); margin-bottom: 8px; }
+  .field input, .field select {
+    height: 48px; padding: 0 16px; width: 100%; border: 1px solid var(--site-border); border-radius: var(--radius-site-card);
+    background: var(--site-bg-card); color: var(--site-text); font-family: var(--font-archivo); font-size: 15px;
+  }
+  .field input { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .field select { cursor: pointer; }
+  .input-with-toggle, .input-with-suffix { display: flex; align-items: center; gap: 8px; }
+  .input-with-toggle input, .input-with-suffix input { flex: 1 1 auto; min-width: 0; }
+  .input-with-toggle.wide { width: 100%; }
+  .suffix { font-size: 13px; color: var(--site-text-muted); white-space: nowrap; }
+  .seg-btn {
+    display: flex; align-items: center; justify-content: center; height: 48px; padding: 0 14px; flex: 0 0 auto;
+    border-radius: var(--radius-site-card); border: 1px solid var(--site-border); background: var(--site-bg-card);
+    color: var(--site-text); font-family: var(--font-archivo); font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.12s ease;
+  }
+  .seg-btn.wide { flex: 1 1 0; min-width: 0; }
+  .seg-btn.active { background: var(--site-text); border-color: var(--site-text); color: var(--site-bg-card); }
+  .seg-btn.reset { margin-top: 16px; }
+  .field-note { font-size: 13px; line-height: 1.45; color: var(--site-text-muted); margin: 8px 0 0; }
+
+  .assumptions { margin-top: 20px; border-top: 1px solid var(--site-border); padding-top: 8px; }
+  .assumptions summary {
+    display: flex; align-items: center; min-height: 44px; cursor: pointer; list-style: none;
+    font-size: 14px; font-weight: 600; color: var(--site-text);
+  }
+  .assumptions summary::-webkit-details-marker { display: none; }
+  .assumptions summary::after { content: '+'; margin-left: auto; font-size: 20px; color: var(--site-text-muted); }
+  .assumptions[open] summary::after { content: '\2212'; }
+
+  .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px; margin-top: 24px; }
+  .result-block { padding: 20px; border-radius: var(--radius-site-card); background: var(--site-bg); }
+  .eyebrow {
+    font-size: var(--text-caption); letter-spacing: var(--text-caption--letter-spacing); font-weight: 600;
+    text-transform: uppercase; color: var(--site-text-muted); margin: 0 0 12px;
+  }
+  .result-main { font-size: clamp(2rem, 7vw, 2.75rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; color: var(--site-text); margin: 0 0 12px; }
+  .result-line { font-size: 14px; line-height: 1.45; font-variant-numeric: tabular-nums; color: var(--site-text-muted); margin: 4px 0 0; }
+  .saving { font-size: var(--text-body); font-weight: 600; color: var(--site-text); margin: 16px 0 0; }
+
+  .content-section, .faq-section, .table-section { margin: 40px 0; }
+  .content-section h2, .faq-section h2, .table-section h2 {
+    font-size: var(--text-heading-sm); line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing); font-weight: 600; color: var(--site-text); margin: 0 0 16px;
+  }
+  .content-section h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.18px; color: var(--site-text); margin: 28px 0 8px; }
+  .content-section p, .table-intro, .source-line {
+    font-size: var(--text-body); line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing); color: var(--site-text-muted); margin: 0 0 16px; max-width: 72ch;
+  }
+  .source-line { font-size: 13px; margin: 12px 0 0; }
+  .source-line a { display: inline-block; min-height: 44px; line-height: 44px; color: var(--site-text); text-decoration: underline; }
+  .related-link { margin: 16px 0 0 !important; }
+  .related-link a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
+  .related-link a:hover { color: var(--site-accent); }
+
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td {
+    text-align: left; vertical-align: top; padding: 10px 6px; border-bottom: 1px solid var(--site-border);
+    font-size: 13px; font-variant-numeric: tabular-nums; color: var(--site-text); word-break: break-word;
+  }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--site-text-muted); }
+  tbody tr:last-child td { border-bottom: none; }
+  td a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); text-decoration: underline; }
+  .cell-note { display: block; font-size: 12px; color: var(--site-text-muted); }
+</style>

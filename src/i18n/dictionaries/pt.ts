@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/pt';
+import cost from './cost/pt';
 import { presets, presetsIndex } from './presets/pt';
 
 const pt: Dictionary = {
@@ -166,7 +167,7 @@ const pt: Dictionary = {
       { title: 'Forno → Air fryer', desc: 'O principal. Multiplicadores por tipo de alimento, cesto vs. tipo forno, limite máximo de temperatura, °F/°C/nível de gás.' },
       { title: 'Convecção → Air fryer', desc: 'Receitas de convecção já vêm ajustadas pelo ventilador, por isso precisam de um corte mais suave. A maioria das ferramentas erra isso.' },
       { title: 'Ajuste por lote e porções', desc: 'Ajuste o tempo quando o cesto está cheio ou você cozinha em duas leva.' },
-      { title: 'Ajuste por wattagem', desc: 'Cestos compactos de 1200 W funcionam mais devagar que modelos de 1700 W. Corrija para o seu.' },
+      { title: 'Custo: air fryer vs forno', desc: 'Quanto custa uma receita em cada aparelho ao seu preço da luz, com energia medida, não a da etiqueta.' },
     ],
     reverseCards: [
       { title: 'Air fryer → Forno', desc: 'Cozinhando para muitas pessoas, ou o cesto está ocupado. Volte para o forno.' },
@@ -290,6 +291,10 @@ const pt: Dictionary = {
       {
         q: 'Quão preciso é o resultado?',
         a: 'As temperaturas são arredondadas para o múltiplo de 5 mais próximo, do jeito que os mostradores e controles digitais das air fryers realmente avançam. Trate o resultado como um ponto de partida, não uma garantia — verifique o alimento um pouco antes do tempo sugerido, principalmente na primeira vez que você cozinha algo em um aparelho novo.',
+      },
+      {
+        q: 'Uma air fryer com mais watts cozinha mais rápido?',
+        a: 'Não muito depois de quente. O termostato mantém a temperatura escolhida, então uma resistência mais potente encurta sobretudo o pré-aquecimento e a recuperação depois de colocar comida fria. Na primeira vez com uma air fryer nova, confira a comida alguns minutos antes e anote do que ela precisa.',
       },
       {
         q: 'Preciso pré-aquecer?',
@@ -562,6 +567,7 @@ const pt: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cost,
   chart: {
     metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',
     metaDescription:

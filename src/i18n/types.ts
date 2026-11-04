@@ -1,6 +1,7 @@
 import type { FoodKey, FrozenFoodKey } from '../lib/converter';
 import type { TempLandingF } from '../lib/temp-landings';
 import type { PresetCategory, PresetSizeId, PresetSlug } from '../data/presets';
+import type { TariffId, WhichFood } from '../data/energy';
 
 /** One food preset page's own copy (Dictionary['presets'].pages). Numbers are {KEY} placeholders from presetValues. */
 export interface PresetCopy {
@@ -46,6 +47,100 @@ export interface TempLandingCopy {
   workedExampleTemplate: string;
   styleHeading: string;
   styleBody: string;
+  faqs: { q: string; a: string }[];
+}
+
+/**
+ * /air-fryer-vs-oven-cost copy (Dictionary['cost']). Every number is a {KEY} placeholder filled by
+ * costValues() in src/lib/cost-page.ts from src/data/energy.ts and the engine; widget strings take
+ * the live values the same way.
+ */
+export interface CostCopy {
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
+  backLink: string;
+  heading: string;
+  subDesc: string;
+  widgetLabel: string;
+  live: string;
+  ovenTemperature: string;
+  ovenTime: string;
+  foodType: string;
+  airFryerStyle: string;
+  basket: string;
+  ovenStyle: string;
+  min: string;
+  tariffLabel: string;
+  /** Unit after the tariff input: {MINOR}. */
+  tariffUnit: string;
+  /** English only (UK / US switch); other locales leave it out. */
+  region?: { label: string; uk: string; us: string };
+  /** Under the tariff field: {COUNTRY}, {PERIOD}, {SOURCE}. Custom value: tariffCustom. */
+  tariffDefaultTemplate: string;
+  tariffCustom: string;
+  countries: Record<TariffId, string>;
+  /** Minor-unit symbol per currency, and how a cost is written: {N}, {MINOR}. */
+  minor: { GBP: string; USD: string; EUR: string };
+  costTemplate: string;
+  preheatOven: string;
+  preheatAirFryer: string;
+  assumptionsSummary: string;
+  assumptionsIntro: string;
+  ovenWarmUpLabel: string;
+  ovenHoldLabel: string;
+  airFryerKwLabel: string;
+  ovenWattsLabel: string;
+  airFryerWattsLabel: string;
+  resetLabel: string;
+  resultAirFryer: string;
+  resultOven: string;
+  /** {AF_TEMP} (°F or °C, as the oven input), {AF_MIN}, {PRE}, {TOTAL}. */
+  airFryerSettingTemplate: string;
+  /** {MIN}, {PRE}, {TOTAL}. */
+  ovenSettingTemplate: string;
+  /** {LOW}, {HIGH}: likely cost range. */
+  rangeTemplate: string;
+  /** {SAVING}, {PCT}. */
+  savingTemplate: string;
+  /** Air fryer not cheaper: {DIFF}. */
+  ovenCheaperTemplate: string;
+  /** {AF_RATED}, {OV_RATED}, {AF_RATIO}, {OV_RATIO}. */
+  ratedTemplate: string;
+  /** {WHICH_DATE}. */
+  estimateNote: string;
+  invalid: string;
+  /** Eurostat half-year: {N}, {YEAR}. */
+  halfYearTemplate: string;
+  leadHeading: string;
+  leadBody: string;
+  modelHeading: string;
+  modelBody: string;
+  exampleHeading: string;
+  exampleBody: string;
+  ovenWinsHeading: string;
+  ovenWinsBody: string;
+  referenceHeading: string;
+  referenceIntro: string;
+  referenceHeaders: { food: string; airFryer: string; oven: string };
+  /** One cell: {MIN}, {KWH}. */
+  referenceCell: string;
+  foods: Record<WhichFood, string>;
+  referenceSource: string;
+  tariffHeading: string;
+  tariffIntro: string;
+  tariffHeaders: { country: string; rate: string; period: string; source: string };
+  /** {RATE}, {MINOR}. */
+  tariffRateCell: string;
+  /** {CHECKED}. */
+  tariffChecked: string;
+  /** UK row: {FROM}, {TO}. */
+  vatNote: string;
+  relatedHeading: string;
+  relatedFlagshipLink: string;
+  relatedMaxTempLink: string;
+  relatedCosoriLink: string;
+  faqHeading: string;
   faqs: { q: string; a: string }[];
 }
 
@@ -395,6 +490,7 @@ export interface Dictionary {
     /** Copy written per temperature; every engine number is a {KEY} placeholder filled by tempLandingValues. */
     pages: Record<TempLandingF, TempLandingCopy>;
   };
+  cost: CostCopy;
   chart: {
     metaTitle: string;
     metaDescription: string;

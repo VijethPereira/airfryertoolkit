@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/en';
+import cost from './cost/en';
 import { presets, presetsIndex } from './presets/en';
 
 const en: Dictionary = {
@@ -166,7 +167,7 @@ const en: Dictionary = {
       { title: 'Oven → Air Fryer', desc: 'The flagship. Food-type multipliers, basket vs. oven-style, max-temp ceiling, °F/°C/gas mark.' },
       { title: 'Convection → Air Fryer', desc: 'Convection recipes are already fan-adjusted, so they need a gentler cut. Most tools get this wrong.' },
       { title: 'Batch & serving scaler', desc: 'Adjust time when the basket is crowded or you are cooking in two loads.' },
-      { title: 'Wattage adjustment', desc: 'Compact 1,200 W baskets run slower than 1,700 W models. Correct for yours.' },
+      { title: 'Air fryer vs oven cost', desc: 'What a recipe costs in each appliance at your electricity price, from measured energy, not the label.' },
     ],
     reverseCards: [
       { title: 'Air Fryer → Oven', desc: 'Cooking for a crowd, or the basket is busy. Go back the other way.' },
@@ -290,6 +291,10 @@ const en: Dictionary = {
       {
         q: 'How precise is the result?',
         a: 'Temperatures round to the nearest 5° to match how air fryer dials and digital controls actually step. Treat the result as a starting point, not a guarantee — check food a little before the suggested time, especially the first time you cook something in a new appliance.',
+      },
+      {
+        q: 'Does a higher-wattage air fryer cook faster?',
+        a: 'Not by much once it is hot. The thermostat holds the temperature you set, so a bigger element mainly shortens preheating and the recovery after you load cold food. Check the food a few minutes early the first time you use a new air fryer, and note what it needs.',
       },
       {
         q: 'Do I need to preheat?',
@@ -562,6 +567,7 @@ const en: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cost,
   chart: {
     metaTitle: 'Free Printable Air Fryer Conversion Chart',
     metaDescription:

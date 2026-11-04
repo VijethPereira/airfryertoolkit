@@ -1,0 +1,103 @@
+import type { CostCopy } from '../../types';
+
+const cost: CostCopy = {
+  metaTitle: 'Stromkosten Heißluftfritteuse vs. Backofen — Rechner mit gemessener Energie',
+  metaDescription:
+    'Was ein Backofenrezept in der Heißluftfritteuse und im Backofen kostet, zu deinem Strompreis. Geschätzt aus der im Which?-Labor gemessenen Energie, nicht aus Watt × Zeit.',
+  metaKeywords: 'Heißluftfritteuse vs Backofen Stromverbrauch, Heißluftfritteuse Stromkosten, Airfryer oder Backofen was verbraucht mehr, Stromkosten Airfryer Rechner',
+  backLink: 'Alle Tools',
+  heading: 'Heißluftfritteuse vs. Backofen: Stromkosten',
+  subDesc:
+    'Gib ein Backofenrezept und deinen Strompreis ein. Die Seite rechnet das Rezept auf eine Einstellung für die Heißluftfritteuse um und schätzt, was jedes Gerät kostet, auf Basis von im Labor gemessener Energie statt der Wattzahl auf dem Typenschild.',
+  widgetLabel: 'Stromkosten',
+  live: 'Live',
+  ovenTemperature: 'Ofentemperatur',
+  ovenTime: 'Ofenzeit',
+  foodType: 'Lebensmittel',
+  airFryerStyle: 'Bauart',
+  basket: 'Korb',
+  ovenStyle: 'Ofen-Typ',
+  min: 'Min.',
+  tariffLabel: 'Strompreis',
+  tariffUnit: '{MINOR}/kWh',
+  tariffDefaultTemplate: '{COUNTRY}, {PERIOD} ({SOURCE})',
+  tariffCustom: 'Dein Preis',
+  countries: { uk: 'Durchschnitt Vereinigtes Königreich', us: 'Durchschnitt USA', es: 'Durchschnitt Spanien', pt: 'Durchschnitt Portugal', fr: 'Durchschnitt Frankreich', de: 'Durchschnitt Deutschland' },
+  minor: { GBP: 'p', USD: '¢', EUR: 'ct' },
+  costTemplate: '{N} {MINOR}',
+  preheatOven: 'Ofen vorheizen',
+  preheatAirFryer: 'Fritteuse vorheizen',
+  assumptionsSummary: 'Annahmen',
+  assumptionsIntro:
+    'Die drei Energiewerte sind an die Messungen von Which? angepasst. Die Nennleistung dient nur der Vergleichszeile „Watt × Zeit“.',
+  ovenWarmUpLabel: 'Aufheizen des Ofens (kWh)',
+  ovenHoldLabel: 'Ofen beim Garen (kW)',
+  airFryerKwLabel: 'Fritteuse im Mittel (kW)',
+  ovenWattsLabel: 'Nennleistung Ofen (W)',
+  airFryerWattsLabel: 'Nennleistung Fritteuse (W)',
+  resetLabel: 'Annahmen zurücksetzen',
+  resultAirFryer: 'Heißluftfritteuse',
+  resultOven: 'Backofen',
+  airFryerSettingTemplate: '{AF_TEMP}, {AF_MIN} Min. + {PRE} Min. Vorheizen = {TOTAL} Min.',
+  ovenSettingTemplate: '{MIN} Min. + {PRE} Min. Vorheizen = {TOTAL} Min.',
+  rangeTemplate: 'wahrscheinlich {LOW}–{HIGH}',
+  savingTemplate: 'Die Heißluftfritteuse spart bei diesem Rezept etwa {SAVING} ({PCT} % weniger).',
+  ovenCheaperTemplate: 'Mit diesen Werten ist der Backofen {DIFF} günstiger.',
+  ratedTemplate: 'Nennleistung × Zeit ergäbe {AF_RATED} und {OV_RATED} kWh: das {AF_RATIO}- und {OV_RATIO}-Fache der Schätzung.',
+  estimateNote: 'Schätzung aus den Labormessungen von Which? ({WHICH_DATE}); die Zeiten enthalten das Vorheizen.',
+  invalid: '—',
+  halfYearTemplate: '{N}. Halbjahr {YEAR}',
+  leadHeading: 'Die Wattzahl auf dem Typenschild übertreibt den Verbrauch beider Geräte',
+  leadBody:
+    'Die meisten Stromkostenrechner multiplizieren die Wattzahl auf dem Typenschild mit der Garzeit. Das setzt voraus, dass das Heizelement nie abschaltet, doch sobald der Garraum warm ist, taktet der Thermostat es, um die Temperatur zu halten. Im Labortest von Which? ergab {OV_W} W × Garzeit das {OV_RATED_MIN}- bis {OV_RATED_MAX}-Fache dessen, was der Ofen tatsächlich verbrauchte: {LEAD_OV_RATED} kWh für {LEAD_MIN} Minuten Tiefkühl-Pommes, gegenüber {LEAD_OV_KWH} kWh am Zähler. Das Ergebnis zeigt den Nennwert als Obergrenze, nicht als Kosten.',
+  modelHeading: 'So funktioniert die Schätzung',
+  modelBody:
+    'Which? hat Brathähnchen, Tiefkühl-Pommes, eine Ofenkartoffel und einen Rührkuchen in beiden Geräten gegart und die Energie gemessen, Vorheizen eingeschlossen. Eine Ausgleichsrechnung gibt dem Ofen ein Aufheizen von {OV_WARM} kWh plus {OV_HOLD} kW je Stunde und der Fritteuse im Mittel {AF_KW} kW, über Rezeptzeit plus Vorheizen (standardmäßig {PRE_OV} und {PRE_AF} Minuten). Bei den vier Lebensmitteln liegt sie beim Ofen um {OV_RES_MIN} % bis {OV_RES_MAX} % daneben, bei der Fritteuse um {AF_RES_MIN} % bis {AF_RES_MAX} %; diese größten Abweichungen bilden die wahrscheinliche Spanne. Gegen den CHOICE-Test von {CHOICE_YEAR} lag sie ohne Neuanpassung {CHOICE_LOW_MIN} % bis {CHOICE_LOW_MAX} % zu niedrig, der eingesparte Anteil aber auf {CHOICE_GAP} Prozentpunkte genau. Vertrau der Ersparnis mehr als den Cent-Beträgen. Die Gartemperatur geht nicht ins Modell ein.',
+  exampleHeading: 'Rechenbeispiel',
+  exampleBody:
+    '{EX_OVEN_TEMP} für {EX_OVEN_MIN} Minuten werden in einer Korb-Heißluftfritteuse zu {EX_AF_TEMP} für {EX_AF_MIN} Minuten: {EX_AF_TOTAL} Minuten mit Vorheizen, gegenüber {EX_OV_TOTAL} im Ofen. Bei {TARIFF_RATE} ({TARIFF_COUNTRY}) sind das etwa {EX_AF_KWH} kWh ({EX_AF_COST}) gegenüber {EX_OV_KWH} kWh ({EX_OV_COST}), rund {EX_PCT} % weniger. Cent-Beträge pro Mahlzeit, über ein Jahr mehr.',
+  ovenWinsHeading: 'Wann der Backofen gewinnt',
+  ovenWinsBody:
+    'Die Fritteuse gewinnt durch ihren kleinen Garraum, deshalb schrumpft der Vorteil, sobald das Essen einen Ofen füllt. Which? schreibt: „if you’re making a full roast dinner, your oven may still be cheaper overall“ (bei einem kompletten Braten kann der Ofen günstiger sein). Consumer NZ ({CNZ_DATE}): „large quantities of food + more than 30 minutes’ cooking time = oven is cheaper“ (viel Essen und über eine halbe Stunde: der Ofen gewinnt). Zwei Fritteusen-Durchgänge sind zwei Läufe, ein voller Ofen ist einer.',
+  referenceHeading: 'Die Messungen von Which?',
+  referenceIntro: 'Dasselbe Essen in beiden Geräten, Energie im Labor gemessen, Vorheizen eingeschlossen. Veröffentlicht am {WHICH_DATE}.',
+  referenceHeaders: { food: 'Lebensmittel', airFryer: 'Heißluftfritteuse', oven: 'Backofen' },
+  referenceCell: '{MIN} Min., {KWH} kWh',
+  foods: { roastChicken: 'Brathähnchen', chips: 'Tiefkühl-Pommes', jacketPotato: 'Ofenkartoffel', cake: 'Rührkuchen' },
+  referenceSource: 'Quelle: Which?, „Air fryer vs oven: energy usage, costs and cooking results compared“',
+  tariffHeading: 'Woher die Strompreise kommen',
+  tariffIntro: 'Der Standardwert ist ein Landesdurchschnitt für den angegebenen Zeitraum. Trag den Arbeitspreis je kWh aus deiner Rechnung ein, um einen genauen Wert zu bekommen.',
+  tariffHeaders: { country: 'Standard', rate: 'Preis', period: 'Zeitraum', source: 'Quelle' },
+  tariffRateCell: '{RATE} {MINOR}/kWh',
+  tariffChecked: 'geprüft am {CHECKED}',
+  vatNote: 'Ohne Mehrwertsteuer, die vom {FROM} bis {TO} von Stromrechnungen gestrichen ist.',
+  relatedHeading: 'Weiterlesen',
+  relatedFlagshipLink: 'Umrechner Backofen zu Heißluftfritteuse',
+  relatedMaxTempLink: 'Höchsttemperatur nach Modell',
+  relatedCosoriLink: 'Cosori-Heißluftfritteusen ({W_N} Anleitungen nennen {W_MIN}–{W_MAX} W)',
+  faqHeading: 'Häufige Fragen',
+  faqs: [
+    {
+      q: 'Verbraucht eine Heißluftfritteuse weniger Strom als ein Backofen?',
+      a: 'Für einen Durchgang ja. Im Labortest von Which? brauchte sie bei allen vier Lebensmitteln {WHICH_SAVE_MIN} % bis {WHICH_SAVE_MAX} % weniger Energie als der Ofen. Quelle: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Warum nicht einfach Watt mal Zeit rechnen?',
+      a: 'Weil das Heizelement nach dem Aufheizen taktet, also überschätzt Watt × Zeit die Energie: beim Ofen von Which? um das {OV_RATED_MIN}- bis {OV_RATED_MAX}-Fache. Quelle: Which?, {WHICH_DATE}; Nennleistung laut Händlerangabe.',
+    },
+    {
+      q: 'Wann ist der Backofen günstiger?',
+      a: 'Wenn du viel auf einmal kochst. Which?: „an oven may still be the most economical choice when cooking for a crowd“ (für viele Leute kann der Ofen am sparsamsten sein). Quelle: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Warum kann mein Preis abweichen?',
+      a: 'Der Standardwert ist der Eurostat-Durchschnitt für Haushalte mit {BAND_MIN} bis {BAND_MAX} kWh im Jahr, alle Steuern eingeschlossen, für das {TARIFF_PERIOD}: {TARIFF_RATE} ({TARIFF_COUNTRY}). Trag den Preis je kWh aus deiner Rechnung ein. Quelle: Eurostat (nrg_pc_204).',
+    },
+    {
+      q: 'Zählt die Vorheizzeit mit?',
+      a: 'Ja. Die Zeiten und kWh von Which? enthalten sie, daher kommen {PRE_OV} Minuten für den Ofen und {PRE_AF} für die Fritteuse dazu; setz die Fritteuse auf null, wenn deine kein Vorheizen braucht. Quelle: Which?, {WHICH_DATE}.',
+    },
+  ],
+};
+
+export default cost;

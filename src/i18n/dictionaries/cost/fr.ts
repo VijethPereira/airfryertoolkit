@@ -1,0 +1,103 @@
+import type { CostCopy } from '../../types';
+
+const cost: CostCopy = {
+  metaTitle: 'Coût friteuse à air vs four — calculateur sur énergie mesurée',
+  metaDescription:
+    'Ce que coûte une recette de four dans la friteuse à air et dans le four, à votre prix de l’électricité. Estimé d’après l’énergie mesurée au laboratoire de Which?, pas watts × temps.',
+  metaKeywords: 'friteuse à air vs four consommation, combien consomme une friteuse à air, coût électricité airfryer, airfryer ou four lequel consomme le plus',
+  backLink: 'Tous les outils',
+  heading: 'Friteuse à air vs four : coût d’utilisation',
+  subDesc:
+    'Saisissez une recette de four et votre prix de l’électricité : vous obtenez le réglage pour friteuse à air et le coût de chaque appareil, d’après une énergie mesurée en laboratoire.',
+  widgetLabel: 'Coût d’utilisation',
+  live: 'En direct',
+  ovenTemperature: 'Température du four',
+  ovenTime: 'Temps au four',
+  foodType: 'Type d’aliment',
+  airFryerStyle: 'Type de friteuse',
+  basket: 'Panier',
+  ovenStyle: 'Type four',
+  min: 'min',
+  tariffLabel: 'Prix de l’électricité',
+  tariffUnit: '{MINOR}/kWh',
+  tariffDefaultTemplate: '{COUNTRY}, {PERIOD} ({SOURCE})',
+  tariffCustom: 'Votre prix',
+  countries: { uk: 'Moyenne du Royaume-Uni', us: 'Moyenne des États-Unis', es: 'Moyenne de l’Espagne', pt: 'Moyenne du Portugal', fr: 'Moyenne de la France', de: 'Moyenne de l’Allemagne' },
+  minor: { GBP: 'p', USD: '¢', EUR: 'c' },
+  costTemplate: '{N} {MINOR}',
+  preheatOven: 'Préchauffage du four',
+  preheatAirFryer: 'Préchauffage de la friteuse',
+  assumptionsSummary: 'Hypothèses',
+  assumptionsIntro:
+    'Les trois valeurs d’énergie sont ajustées sur les mesures de Which?. Les watts nominaux ne servent qu’à la ligne de comparaison « watts × temps ».',
+  ovenWarmUpLabel: 'Montée en température du four (kWh)',
+  ovenHoldLabel: 'Four pendant la cuisson (kW)',
+  airFryerKwLabel: 'Moyenne de la friteuse (kW)',
+  ovenWattsLabel: 'Puissance nominale du four (W)',
+  airFryerWattsLabel: 'Puissance nominale de la friteuse (W)',
+  resetLabel: 'Réinitialiser les hypothèses',
+  resultAirFryer: 'Friteuse à air',
+  resultOven: 'Four',
+  airFryerSettingTemplate: '{AF_TEMP}, {AF_MIN} min + {PRE} min de préchauffage = {TOTAL} min',
+  ovenSettingTemplate: '{MIN} min + {PRE} min de préchauffage = {TOTAL} min',
+  rangeTemplate: 'probablement {LOW}–{HIGH}',
+  savingTemplate: 'La friteuse à air économise environ {SAVING} sur cette recette ({PCT} % de moins).',
+  ovenCheaperTemplate: 'Avec ces valeurs, le four revient {DIFF} moins cher.',
+  ratedTemplate: 'Watts nominaux × temps donneraient {AF_RATED} et {OV_RATED} kWh : {AF_RATIO}× et {OV_RATIO}× l’estimation.',
+  estimateNote: 'Estimation d’après les mesures de laboratoire de Which? ({WHICH_DATE}) ; les temps incluent le préchauffage.',
+  invalid: '—',
+  halfYearTemplate: 'semestre {N} de {YEAR}',
+  leadHeading: 'Les watts de l’étiquette surestiment ce que consomment les deux appareils',
+  leadBody:
+    'La plupart des calculateurs multiplient les watts de l’étiquette par le temps. Or, une fois le four chaud, le thermostat coupe et relance la résistance. Dans l’essai de Which?, {OV_W} W × temps donnait {OV_RATED_MIN} à {OV_RATED_MAX} fois ce que le four a consommé : {LEAD_OV_RATED} kWh pour {LEAD_MIN} minutes de frites surgelées, contre {LEAD_OV_KWH} kWh au compteur. Le résultat affiche le chiffre nominal comme plafond, pas comme coût.',
+  modelHeading: 'Comment l’estimation fonctionne',
+  modelBody:
+    'Which? a cuit un poulet rôti, des frites surgelées, une pomme de terre au four et un gâteau dans les deux appareils et mesuré l’énergie, préchauffage compris. Un ajustement par moindres carrés donne au four une montée en température de {OV_WARM} kWh plus {OV_HOLD} kW par heure, et à la friteuse {AF_KW} kW en moyenne, sur le temps de recette plus le préchauffage ({PRE_OV} et {PRE_AF} minutes par défaut). L’ajustement s’écarte de {OV_RES_MIN} % à {OV_RES_MAX} % pour le four et de {AF_RES_MIN} % à {AF_RES_MAX} % pour la friteuse ; ces pires écarts donnent la fourchette probable. Face à l’essai CHOICE de {CHOICE_YEAR}, sans réajustement, il sous-estimait de {CHOICE_LOW_MIN} % à {CHOICE_LOW_MAX} %, mais la part économisée restait à moins de {CHOICE_GAP} points. La température n’entre pas dans le modèle.',
+  exampleHeading: 'Exemple concret',
+  exampleBody:
+    '{EX_OVEN_TEMP} pendant {EX_OVEN_MIN} minutes devient {EX_AF_TEMP} pendant {EX_AF_MIN} minutes dans une friteuse à panier : {EX_AF_TOTAL} minutes avec le préchauffage, contre {EX_OV_TOTAL} au four. À {TARIFF_RATE} ({TARIFF_COUNTRY}), cela fait environ {EX_AF_KWH} kWh ({EX_AF_COST}) contre {EX_OV_KWH} kWh ({EX_OV_COST}), soit {EX_PCT} % de moins.',
+  ovenWinsHeading: 'Quand le four l’emporte',
+  ovenWinsBody:
+    'La friteuse gagne grâce à sa petite enceinte, donc l’avantage fond quand le plat remplit un four. Which? note que « if you’re making a full roast dinner, your oven may still be cheaper overall » (pour un rôti complet, le four peut revenir moins cher). Consumer NZ ({CNZ_DATE}) : « large quantities of food + more than 30 minutes’ cooking time = oven is cheaper » (beaucoup de nourriture et plus d’une demi-heure : le four gagne).',
+  referenceHeading: 'Les mesures de Which?',
+  referenceIntro: 'Les mêmes aliments dans les deux appareils, énergie mesurée en laboratoire, préchauffage compris. Publié le {WHICH_DATE}.',
+  referenceHeaders: { food: 'Aliment', airFryer: 'Friteuse à air', oven: 'Four' },
+  referenceCell: '{MIN} min, {KWH} kWh',
+  foods: { roastChicken: 'Poulet rôti', chips: 'Frites surgelées', jacketPotato: 'Pomme de terre au four', cake: 'Gâteau' },
+  referenceSource: 'Source : Which?, « Air fryer vs oven: energy usage, costs and cooking results compared »',
+  tariffHeading: 'D’où viennent les prix de l’électricité',
+  tariffIntro: 'La valeur par défaut est une moyenne nationale sur la période indiquée. Saisissez le prix du kWh de votre facture pour un chiffre exact.',
+  tariffHeaders: { country: 'Par défaut', rate: 'Prix', period: 'Période', source: 'Source' },
+  tariffRateCell: '{RATE} {MINOR}/kWh',
+  tariffChecked: 'vérifié le {CHECKED}',
+  vatNote: 'Hors TVA, supprimée des factures d’électricité du {FROM} au {TO}.',
+  relatedHeading: 'Voir aussi',
+  relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
+  relatedMaxTempLink: 'Température maximale par modèle',
+  relatedCosoriLink: 'Friteuses Cosori ({W_N} manuels indiquent {W_MIN}–{W_MAX} W)',
+  faqHeading: 'Questions fréquentes',
+  faqs: [
+    {
+      q: 'Une friteuse à air consomme-t-elle moins qu’un four ?',
+      a: 'Pour une fournée, oui. Dans l’essai de Which?, elle a consommé de {WHICH_SAVE_MIN} % à {WHICH_SAVE_MAX} % d’énergie en moins que le four pour les quatre aliments. Source : Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Pourquoi ne pas multiplier les watts par le temps ?',
+      a: 'Parce qu’une fois à température la résistance s’allume et s’éteint, donc watts × temps surestime : de {OV_RATED_MIN} à {OV_RATED_MAX} fois pour le four de Which?. Source : Which?, {WHICH_DATE} ; puissance d’après la fiche du revendeur.',
+    },
+    {
+      q: 'Quand le four revient-il moins cher ?',
+      a: 'Quand vous cuisinez beaucoup à la fois. Which? : « an oven may still be the most economical choice when cooking for a crowd » (pour beaucoup de convives, le four peut rester le plus économique). Source : Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Pourquoi mon prix peut-il différer ?',
+      a: 'La valeur par défaut est la moyenne Eurostat des ménages consommant de {BAND_MIN} à {BAND_MAX} kWh par an, toutes taxes comprises, pour le {TARIFF_PERIOD} : {TARIFF_RATE} ({TARIFF_COUNTRY}). Saisissez le prix du kWh de votre facture. Source : Eurostat (nrg_pc_204).',
+    },
+    {
+      q: 'Faut-il compter le préchauffage ?',
+      a: 'Oui. Les temps et kWh de Which? l’incluent, donc on ajoute {PRE_OV} minutes au four et {PRE_AF} à la friteuse ; mettez zéro si la vôtre n’en a pas besoin. Source : Which?, {WHICH_DATE}.',
+    },
+  ],
+};
+
+export default cost;

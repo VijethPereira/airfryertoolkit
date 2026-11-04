@@ -42,6 +42,8 @@ export interface FryerModel {
   otherMax?: { f: number; label: OtherMaxLabel };
   /** `maxF` is the function's default setting; the source states no maximum (a default cannot exceed it). */
   maxIsDefault?: true;
+  /** Rated power in watts, only where the source states it (Cosori manuals: "Rated Power"). */
+  watts?: number;
   preheat: PreheatMode;
   /** Built-in programs as the manual's program table lists them (only where the table is unambiguous). */
   programs?: ModelProgram[];
@@ -72,9 +74,9 @@ export const MODELS: FryerModel[] = [
   // Air Fry, Air Roast and Bake 250–450°F; Dehydrate 105–195°F; PRE flashes while it preheats.
   { id: 'ninja-foodi-oven-sp101', brand: 'ninja', modelNumber: 'SP101', type: 'toaster-oven', capacity: null, maxF: 450, minF: 105, tempUnit: 'F', preheat: 'auto', source: `${NINJA}SP100-Series-Ninja-Foodi-Digital-Air-Fry-Oven-Owner-s-Guide`, sourced: READ },
   // Cosori — cosori.com/pages/user-manuals
-  { id: 'cosori-pro-le-5', brand: 'cosori', modelNumber: 'CAF-L501-KUS', type: 'basket', capacity: { qt: 5.0 }, maxF: 450, minF: 170, tempUnit: 'F', preheat: 'auto', source: `${COSORI}Pro_LE_manual.pdf`, sourced: READ },
+  { id: 'cosori-pro-le-5', brand: 'cosori', modelNumber: 'CAF-L501-KUS', type: 'basket', capacity: { qt: 5.0 }, maxF: 450, minF: 170, tempUnit: 'F', watts: 1500, preheat: 'auto', source: `${COSORI}Pro_LE_manual.pdf`, sourced: READ },
   {
-    id: 'cosori-turboblaze-6', brand: 'cosori', modelNumber: 'CAF-DC601-KUS', type: 'basket', capacity: { qt: 6 }, maxF: 450, minF: 90, tempUnit: 'F', preheat: 'auto',
+    id: 'cosori-turboblaze-6', brand: 'cosori', modelNumber: 'CAF-DC601-KUS', type: 'basket', capacity: { qt: 6 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1725, preheat: 'auto',
     programs: [
       { key: 'airFry', defaultF: 385, minF: 300, maxF: 450 },
       { key: 'roast', defaultF: 425, minF: 350, maxF: 450 },
@@ -87,11 +89,11 @@ export const MODELS: FryerModel[] = [
     ],
     source: `${COSORI}TurboBlaze_Manual_US.pdf`, sourced: READ,
   },
-  { id: 'cosori-stainless-6-5', brand: 'cosori', modelNumber: 'CAF-SE601S-CUS', type: 'basket', capacity: { qt: 6.5 }, maxF: 450, minF: 90, tempUnit: 'F', preheat: 'auto', source: `${COSORI}CPDV_2412_CAF-SE601S-CUS_M1__Shake_Reminder__us_Preview_v7.pdf`, sourced: READ },
-  { id: 'cosori-lite-2-1', brand: 'cosori', modelNumber: 'CAF-LI211', type: 'basket', capacity: { qt: 2.1 }, maxF: 400, minF: 170, tempUnit: 'F', preheat: 'none', source: `${COSORI}D2_01.00_M1_CAF-LI211_2022-11-29_US_en.pdf`, sourced: READ },
-  { id: 'cosori-twinfry-9', brand: 'cosori', modelNumber: 'CAF-TF901-KUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 465, label: 'broil' }, preheat: 'none', source: `${COSORI}6100000107_Air_Fryer_Manual_US_A1-260528.pdf`, sourced: READ },
-  { id: 'cosori-dual-basket-9', brand: 'cosori', modelNumber: 'CAF-R901-AUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 450, minF: 95, tempUnit: 'F', preheat: 'auto', source: `${COSORI}CPDV_2308_CAF-R901-AUS_M1_print_en_V7.pdf`, sourced: READ },
-  { id: 'cosori-oven-13', brand: 'cosori', modelNumber: 'CAF-R121-SUS', type: 'toaster-oven', capacity: { qt: 13 }, maxF: 450, minF: 90, tempUnit: 'F', preheat: 'auto', source: `${COSORI}D2_01.00_M1_CAF-R121-SUS_2022-11-02_US_en.pdf`, sourced: READ },
+  { id: 'cosori-stainless-6-5', brand: 'cosori', modelNumber: 'CAF-SE601S-CUS', type: 'basket', capacity: { qt: 6.5 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1725, preheat: 'auto', source: `${COSORI}CPDV_2412_CAF-SE601S-CUS_M1__Shake_Reminder__us_Preview_v7.pdf`, sourced: READ },
+  { id: 'cosori-lite-2-1', brand: 'cosori', modelNumber: 'CAF-LI211', type: 'basket', capacity: { qt: 2.1 }, maxF: 400, minF: 170, tempUnit: 'F', watts: 900, preheat: 'none', source: `${COSORI}D2_01.00_M1_CAF-LI211_2022-11-29_US_en.pdf`, sourced: READ },
+  { id: 'cosori-twinfry-9', brand: 'cosori', modelNumber: 'CAF-TF901-KUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 465, label: 'broil' }, watts: 1750, preheat: 'none', source: `${COSORI}6100000107_Air_Fryer_Manual_US_A1-260528.pdf`, sourced: READ },
+  { id: 'cosori-dual-basket-9', brand: 'cosori', modelNumber: 'CAF-R901-AUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 450, minF: 95, tempUnit: 'F', watts: 1750, preheat: 'auto', source: `${COSORI}CPDV_2308_CAF-R901-AUS_M1_print_en_V7.pdf`, sourced: READ },
+  { id: 'cosori-oven-13', brand: 'cosori', modelNumber: 'CAF-R121-SUS', type: 'toaster-oven', capacity: { qt: 13 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1800, preheat: 'auto', source: `${COSORI}D2_01.00_M1_CAF-R121-SUS_2022-11-02_US_en.pdf`, sourced: READ },
 
   // Philips — usa.philips.com product pages and documents.philips.com spec sheets
   { id: 'philips-1000-na110', brand: 'philips', modelNumber: 'NA110/00', type: 'basket', capacity: { qt: 3.4 }, maxF: 392, minF: null, tempUnit: 'F', preheat: 'unknown', source: 'https://www.usa.philips.com/c-p/NA110_00/1000-series-airfryer-1000-series-32l', sourced: READ },

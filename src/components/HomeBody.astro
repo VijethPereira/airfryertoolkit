@@ -11,6 +11,7 @@ import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
 import { BRANDS, MODEL_MAX_TEMP_PATH, brandModels } from '../lib/brands';
 import { MODELS } from '../data/models';
+import { COST_PATH } from '../lib/cost';
 
 interface Props {
   locale?: LocaleCode;
@@ -54,7 +55,7 @@ function cardHref({ href, fallback }: CardTarget): string | null {
   return isLive(path) ? `${hrefFor(path)}${query ? `?${query}` : ''}` : null;
 }
 
-const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', '/wattage-adjustment'].map((href) => ({ href }));
+const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', COST_PATH].map((href) => ({ href }));
 const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'].map((href) => ({ href }));
 const frozenTargets: CardTarget[] = HOME_FROZEN_CARDS;
 const frozenCardSpecs = HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, locale));

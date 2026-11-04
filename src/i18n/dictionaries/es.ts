@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/es';
+import cost from './cost/es';
 import { presets, presetsIndex } from './presets/es';
 
 const es: Dictionary = {
@@ -166,7 +167,7 @@ const es: Dictionary = {
       { title: 'Horno → Freidora de aire', desc: 'El principal. Multiplicadores por tipo de alimento, cesta vs. tipo horno, límite máximo de temperatura, °F/°C/nivel de gas.' },
       { title: 'Convección → Freidora de aire', desc: 'Las recetas de convección ya están ajustadas por ventilador, así que necesitan un recorte más suave. La mayoría de las herramientas se equivocan aquí.' },
       { title: 'Ajuste por porciones y lotes', desc: 'Ajusta el tiempo cuando la cesta está llena o cocinas en dos tandas.' },
-      { title: 'Ajuste por vatiaje', desc: 'Las cestas compactas de 1200 W funcionan más lento que los modelos de 1700 W. Corrígelo para la tuya.' },
+      { title: 'Coste: freidora de aire vs horno', desc: 'Lo que cuesta una receta en cada aparato a tu precio de la luz, con energía medida, no la de la etiqueta.' },
     ],
     reverseCards: [
       { title: 'Freidora de aire → Horno', desc: 'Cocinas para muchos o la cesta está ocupada. Vuelve al horno.' },
@@ -290,6 +291,10 @@ const es: Dictionary = {
       {
         q: '¿Qué tan preciso es el resultado?',
         a: 'Las temperaturas se redondean al múltiplo de 5 más cercano, igual que avanzan las perillas y controles digitales reales de las freidoras de aire. Trata el resultado como un punto de partida, no una garantía — revisa el alimento un poco antes del tiempo sugerido, sobre todo la primera vez que cocinas algo en un equipo nuevo.',
+      },
+      {
+        q: '¿Una freidora de aire con más vatios cocina más rápido?',
+        a: 'No mucho una vez caliente. El termostato mantiene la temperatura que eliges, así que una resistencia más potente sobre todo acorta el precalentamiento y la recuperación al meter comida fría. La primera vez que uses una freidora nueva, revisa la comida unos minutos antes y apunta lo que necesita.',
       },
       {
         q: '¿Necesito precalentar?',
@@ -562,6 +567,7 @@ const es: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cost,
   chart: {
     metaTitle: 'Tabla de conversión de freidora de aire imprimible gratis',
     metaDescription:

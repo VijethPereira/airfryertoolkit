@@ -131,6 +131,12 @@ function build() {
         [tempDict, entryRange(tempDict, t, 4)],
       ]);
     }
+    // The cost page: its own dictionary file plus the energy and tariff data.
+    const costDict = `src/i18n/dictionaries/cost/${l}.ts`;
+    dates[`${l}:/air-fryer-vs-oven-cost`] = latest([
+      [costDict, [0, fileLines(costDict).length - 1]],
+      ['src/data/energy.ts', [0, fileLines('src/data/energy.ts').length - 1]],
+    ]);
     const presetsLines = fileLines(presetsDict);
     const indexStart = presetsLines.findIndex((x) => x.startsWith('export const presetsIndex'));
     dates[`${l}:/presets`] = latest([[presetsDict, [indexStart, presetsLines.length - 1]]]);

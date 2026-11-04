@@ -12,6 +12,7 @@ import { PRESETS_INDEX_PATH, presetCard, presetPath } from './presets';
 import { TEMP_LANDINGS, tempLandingSlug } from './temp-landings';
 import { BRANDS, MODEL_MAX_TEMP_PATH } from './brands';
 import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
+import { COST_PATH } from './cost';
 
 type Crumb = { name: string; path: string };
 
@@ -27,6 +28,7 @@ export function breadcrumbTrail(locale: LocaleCode, slug: string): Crumb[] | nul
     '/air-fryer-to-convection': dict.reverseConvectionTool.heading,
     '/frozen': dict.frozenTool.heading,
     '/chart': dict.chart.heading,
+    [COST_PATH]: dict.cost.heading,
   };
 
   if (slug === '/') return null;

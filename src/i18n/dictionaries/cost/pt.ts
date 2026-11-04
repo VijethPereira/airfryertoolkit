@@ -1,0 +1,103 @@
+import type { CostCopy } from '../../types';
+
+const cost: CostCopy = {
+  metaTitle: 'Custo da air fryer vs forno — calculadora com energia medida',
+  metaDescription:
+    'Quanto custa uma receita de forno na air fryer e no forno, ao seu preço da luz. Estimado com a energia medida no laboratório da Which?, não com watts × tempo.',
+  metaKeywords: 'air fryer vs forno consumo, quanto gasta uma air fryer, custo air fryer energia, air fryer ou forno gasta mais',
+  backLink: 'Todas as ferramentas',
+  heading: 'Air fryer vs forno: custo de uso',
+  subDesc:
+    'Coloque uma receita de forno e o seu preço da luz. A página converte-a para um ajuste de air fryer e estima quanto custa cada aparelho, com energia medida em laboratório e não com os watts da etiqueta.',
+  widgetLabel: 'Custo de uso',
+  live: 'Ao vivo',
+  ovenTemperature: 'Temperatura do forno',
+  ovenTime: 'Tempo no forno',
+  foodType: 'Tipo de alimento',
+  airFryerStyle: 'Tipo de air fryer',
+  basket: 'Cesto',
+  ovenStyle: 'Tipo forno',
+  min: 'min',
+  tariffLabel: 'Preço da eletricidade',
+  tariffUnit: '{MINOR}/kWh',
+  tariffDefaultTemplate: '{COUNTRY}, {PERIOD} ({SOURCE})',
+  tariffCustom: 'O seu preço',
+  countries: { uk: 'Média do Reino Unido', us: 'Média dos EUA', es: 'Média de Espanha', pt: 'Média de Portugal', fr: 'Média de França', de: 'Média da Alemanha' },
+  minor: { GBP: 'p', USD: '¢', EUR: 'c' },
+  costTemplate: '{N} {MINOR}',
+  preheatOven: 'Pré-aquecer forno',
+  preheatAirFryer: 'Pré-aquecer air fryer',
+  assumptionsSummary: 'Pressupostos',
+  assumptionsIntro:
+    'Os três valores de energia são ajustados às medições da Which?. Os watts nominais servem apenas para a linha de comparação «watts × tempo».',
+  ovenWarmUpLabel: 'Aquecimento do forno (kWh)',
+  ovenHoldLabel: 'Forno durante a cozedura (kW)',
+  airFryerKwLabel: 'Média da air fryer (kW)',
+  ovenWattsLabel: 'Potência nominal do forno (W)',
+  airFryerWattsLabel: 'Potência nominal da air fryer (W)',
+  resetLabel: 'Repor pressupostos',
+  resultAirFryer: 'Air fryer',
+  resultOven: 'Forno',
+  airFryerSettingTemplate: '{AF_TEMP}, {AF_MIN} min + {PRE} min de pré-aquecimento = {TOTAL} min',
+  ovenSettingTemplate: '{MIN} min + {PRE} min de pré-aquecimento = {TOTAL} min',
+  rangeTemplate: 'provável {LOW}–{HIGH}',
+  savingTemplate: 'A air fryer poupa cerca de {SAVING} nesta receita ({PCT}% menos).',
+  ovenCheaperTemplate: 'Com estes dados o forno fica {DIFF} mais barato.',
+  ratedTemplate: 'Watts nominais × tempo dariam {AF_RATED} e {OV_RATED} kWh: {AF_RATIO}× e {OV_RATIO}× a estimativa.',
+  estimateNote: 'Estimativa a partir das medições de laboratório da Which? ({WHICH_DATE}); os tempos incluem o pré-aquecimento.',
+  invalid: '—',
+  halfYearTemplate: '{N}.º semestre de {YEAR}',
+  leadHeading: 'Os watts da etiqueta exageram o que os dois aparelhos gastam',
+  leadBody:
+    'Quase todas as calculadoras multiplicam os watts da etiqueta pelo tempo. Isso supõe que a resistência nunca desliga, mas com o interior quente o termóstato liga-a e desliga-a para manter a temperatura. No ensaio da Which?, {OV_W} W × tempo dava entre {OV_RATED_MIN} e {OV_RATED_MAX} vezes o que o forno gastou: {LEAD_OV_RATED} kWh para {LEAD_MIN} minutos de batatas fritas congeladas, contra {LEAD_OV_KWH} kWh no contador. O resultado mostra o valor nominal como limite superior, não como custo.',
+  modelHeading: 'Como funciona a estimativa',
+  modelBody:
+    'A Which? cozinhou frango assado, batatas fritas congeladas, uma batata assada e um bolo nos dois aparelhos e mediu a energia, pré-aquecimento incluído. Um ajuste por mínimos quadrados dá ao forno um aquecimento de {OV_WARM} kWh mais {OV_HOLD} kW por hora, e à air fryer {AF_KW} kW em média, sobre o tempo da receita mais o pré-aquecimento ({PRE_OV} e {PRE_AF} minutos por padrão). O ajuste falha entre {OV_RES_MIN}% e {OV_RES_MAX}% no forno e entre {AF_RES_MIN}% e {AF_RES_MAX}% na air fryer; esses piores erros dão a faixa provável. Contra o teste da CHOICE de {CHOICE_YEAR}, sem reajustar, ficou entre {CHOICE_LOW_MIN}% e {CHOICE_LOW_MAX}% abaixo, mas a percentagem poupada ficou a menos de {CHOICE_GAP} pontos. Confie mais na poupança do que nos cêntimos. A temperatura não entra no modelo.',
+  exampleHeading: 'Exemplo prático',
+  exampleBody:
+    '{EX_OVEN_TEMP} durante {EX_OVEN_MIN} minutos passa a {EX_AF_TEMP} durante {EX_AF_MIN} minutos numa air fryer de cesto: {EX_AF_TOTAL} minutos com pré-aquecimento, contra {EX_OV_TOTAL} no forno. Com {TARIFF_RATE} ({TARIFF_COUNTRY}) são cerca de {EX_AF_KWH} kWh ({EX_AF_COST}) contra {EX_OV_KWH} kWh ({EX_OV_COST}), cerca de {EX_PCT}% menos.',
+  ovenWinsHeading: 'Quando o forno ganha',
+  ovenWinsBody:
+    'A air fryer ganha porque a cavidade é pequena, por isso a vantagem diminui quando a comida enche um forno. A Which? nota que «if you’re making a full roast dinner, your oven may still be cheaper overall» (num assado completo, o forno pode sair mais barato). Consumer NZ ({CNZ_DATE}): «large quantities of food + more than 30 minutes’ cooking time = oven is cheaper» (muita comida e mais de meia hora: ganha o forno).',
+  referenceHeading: 'As medições da Which?',
+  referenceIntro: 'A mesma comida nos dois aparelhos, energia medida em laboratório, pré-aquecimento incluído. Publicado em {WHICH_DATE}.',
+  referenceHeaders: { food: 'Alimento', airFryer: 'Air fryer', oven: 'Forno' },
+  referenceCell: '{MIN} min, {KWH} kWh',
+  foods: { roastChicken: 'Frango assado', chips: 'Batatas fritas congeladas', jacketPotato: 'Batata assada', cake: 'Bolo' },
+  referenceSource: 'Fonte: Which?, «Air fryer vs oven: energy usage, costs and cooking results compared»',
+  tariffHeading: 'De onde vem o preço da luz',
+  tariffIntro: 'O valor padrão é uma média nacional do período indicado. Escreva o preço por kWh da sua fatura para um valor exato.',
+  tariffHeaders: { country: 'Padrão', rate: 'Preço', period: 'Período', source: 'Fonte' },
+  tariffRateCell: '{RATE} {MINOR}/kWh',
+  tariffChecked: 'verificado em {CHECKED}',
+  vatNote: 'Sem IVA, retirado das faturas de eletricidade de {FROM} a {TO}.',
+  relatedHeading: 'Relacionado',
+  relatedFlagshipLink: 'Conversor de forno para air fryer',
+  relatedMaxTempLink: 'Temperatura máxima por modelo',
+  relatedCosoriLink: 'Air fryers Cosori ({W_N} manuais indicam {W_MIN}–{W_MAX} W)',
+  faqHeading: 'Perguntas frequentes',
+  faqs: [
+    {
+      q: 'Uma air fryer gasta menos do que um forno?',
+      a: 'Para uma só leva, sim. No ensaio da Which? usou entre {WHICH_SAVE_MIN}% e {WHICH_SAVE_MAX}% menos energia do que o forno nos quatro alimentos. Fonte: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Porque não multiplicar os watts pelo tempo?',
+      a: 'Porque, já à temperatura, a resistência liga e desliga, por isso watts × tempo exagera: entre {OV_RATED_MIN} e {OV_RATED_MAX} vezes no forno da Which?. Fonte: Which?, {WHICH_DATE}; potência segundo a ficha do vendedor.',
+    },
+    {
+      q: 'Quando é que o forno fica mais barato?',
+      a: 'Quando cozinha muito de uma vez. Which?: «an oven may still be the most economical choice when cooking for a crowd» (para muita gente, o forno pode ser o mais económico). Fonte: Which?, {WHICH_DATE}.',
+    },
+    {
+      q: 'Porque é que o meu preço pode não coincidir?',
+      a: 'O padrão é a média do Eurostat para casas de {BAND_MIN} a {BAND_MAX} kWh por ano, impostos incluídos, no {TARIFF_PERIOD}: {TARIFF_RATE} ({TARIFF_COUNTRY}). Escreva o preço por kWh da sua fatura. Fonte: Eurostat (nrg_pc_204).',
+    },
+    {
+      q: 'É preciso contar o pré-aquecimento?',
+      a: 'Sim. Os tempos e kWh da Which? incluem-no, por isso somam-se {PRE_OV} minutos ao forno e {PRE_AF} à air fryer; ponha zero se a sua não precisar. Fonte: Which?, {WHICH_DATE}.',
+    },
+  ],
+};
+
+export default cost;

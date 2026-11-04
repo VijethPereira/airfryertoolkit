@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/fr';
+import cost from './cost/fr';
 import { presets, presetsIndex } from './presets/fr';
 
 const fr: Dictionary = {
@@ -166,7 +167,7 @@ const fr: Dictionary = {
       { title: 'Four → Friteuse à air', desc: 'L’outil phare. Multiplicateurs par type d’aliment, panier vs. type four, plafond de température, °F/°C/thermostat.' },
       { title: 'Convection → Friteuse à air', desc: 'Les recettes à convection sont déjà ajustées pour le ventilateur, elles ont donc besoin d’une réduction plus douce. La plupart des outils se trompent ici.' },
       { title: 'Ajustement par portions et lots', desc: 'Ajustez le temps quand le panier est chargé ou que vous cuisinez en deux fournées.' },
-      { title: 'Ajustement par puissance', desc: 'Les paniers compacts de 1200 W cuisent plus lentement que les modèles de 1700 W. Corrigez pour le vôtre.' },
+      { title: 'Coût : friteuse à air vs four', desc: 'Ce que coûte une recette dans chaque appareil à votre prix de l’électricité, d’après l’énergie mesurée, pas l’étiquette.' },
     ],
     reverseCards: [
       { title: 'Friteuse à air → Four', desc: 'Vous cuisinez pour beaucoup de monde, ou le panier est occupé. Revenez au four.' },
@@ -290,6 +291,10 @@ const fr: Dictionary = {
       {
         q: 'Quelle est la précision du résultat ?',
         a: 'Les températures sont arrondies au multiple de 5 le plus proche, comme progressent réellement les cadrans et commandes numériques des friteuses à air. Considérez le résultat comme un point de départ, pas une garantie — vérifiez la cuisson un peu avant le temps suggéré, surtout la première fois que vous cuisinez quelque chose dans un nouvel appareil.',
+      },
+      {
+        q: 'Une friteuse à air plus puissante cuit-elle plus vite ?',
+        a: 'Pas beaucoup une fois chaude. Le thermostat maintient la température choisie : une résistance plus puissante raccourcit surtout le préchauffage et la remontée en température après l’ajout d’aliments froids. La première fois avec une nouvelle friteuse, vérifiez quelques minutes plus tôt et notez ce qu’il lui faut.',
       },
       {
         q: 'Dois-je préchauffer ?',
@@ -562,6 +567,7 @@ const fr: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cost,
   chart: {
     metaTitle: 'Tableau de conversion friteuse à air imprimable gratuit',
     metaDescription:
