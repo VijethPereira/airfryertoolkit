@@ -16,6 +16,7 @@ import {
   formatPeriod,
   ratedOverstatement,
   ratedWattsRange,
+  whichSavingRange,
   type CostInput,
 } from './cost';
 import { computeAirFryerSetting } from './converter';
@@ -45,7 +46,7 @@ export const money = (major: number, t: Tariff, locale: LocaleCode, c: CostCopy)
 export const rate = (t: Tariff, locale: LocaleCode, c: CostCopy) =>
   fillPlaceholders(c.tariffRateCell, { RATE: formatNumber(t.perKwh * 100, locale, 2), MINOR: c.minor[t.currency] });
 
-const pct = (x: number) => String(Math.round(Math.abs(x) * 100));
+export const pct = (x: number) => String(Math.round(Math.abs(x) * 100));
 const signedPct = (x: number) => `${x < 0 ? '−' : '+'}${pct(x)}`;
 
 export function costValues(locale: LocaleCode, c: CostCopy): Record<string, string> {
@@ -53,7 +54,7 @@ export function costValues(locale: LocaleCode, c: CostCopy): Record<string, stri
   const over = ratedOverstatement();
   const chips = WHICH_MEASUREMENTS.find((m) => m.food === 'chips')!;
   const choice = choiceCheck();
-  const savings = WHICH_MEASUREMENTS.map((m) => 1 - m.airFryer.kwh / m.oven.kwh);
+  const savings = whichSavingRange();
   const watts = ratedWattsRange();
   const input = defaultCostInput(locale, tariff);
   const ex = computeCost(input)!;
@@ -72,10 +73,10 @@ export function costValues(locale: LocaleCode, c: CostCopy): Record<string, stri
     AF_KW: formatNumber(COST_MODEL.airFryer.averageKw, locale, 2),
     PRE_OV: String(COST_MODEL.preheatMinutes.oven),
     PRE_AF: String(COST_MODEL.preheatMinutes.airFryer),
-    OV_RES_MIN: signedPct(COST_MODEL.oven.residuals.min),
-    OV_RES_MAX: signedPct(COST_MODEL.oven.residuals.max),
-    AF_RES_MIN: signedPct(COST_MODEL.airFryer.residuals.min),
-    AF_RES_MAX: signedPct(COST_MODEL.airFryer.residuals.max),
+    OV_RES_MIN: signedPct(COST_MODEL.oven.residuals.which.min),
+    OV_RES_MAX: signedPct(COST_MODEL.oven.residuals.which.max),
+    AF_RES_MIN: signedPct(COST_MODEL.airFryer.residuals.which.min),
+    AF_RES_MAX: signedPct(COST_MODEL.airFryer.residuals.which.max),
     // Every CHOICE error is negative (tested), so the copy says "low".
     CHOICE_LOW_MIN: pct(choice.errorMax),
     CHOICE_LOW_MAX: pct(choice.errorMin),
@@ -83,8 +84,8 @@ export function costValues(locale: LocaleCode, c: CostCopy): Record<string, stri
     CHOICE_YEAR: CHOICE_TEST.updated.slice(0, 4),
     WHICH_DATE: formatDate(WHICH_TEST.published, locale),
     CNZ_DATE: formatDate(CONSUMER_NZ.published, locale),
-    WHICH_SAVE_MIN: pct(Math.min(...savings)),
-    WHICH_SAVE_MAX: pct(Math.max(...savings)),
+    WHICH_SAVE_MIN: pct(savings.min),
+    WHICH_SAVE_MAX: pct(savings.max),
     UK_STANDING: fillPlaceholders(c.costTemplate, { N: formatNumber(uk.standingChargePerDay! * 100, locale, 2), MINOR: c.minor.GBP }),
     UK_PERIOD: formatPeriod(uk.period, locale, c.halfYearTemplate),
     UK_RATE: rate(uk, locale, c),

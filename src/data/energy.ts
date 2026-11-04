@@ -35,11 +35,19 @@ export const WHICH_MEASUREMENTS: EnergyMeasurement[] = [
 /**
  * Least-squares fit to all four WHICH_MEASUREMENTS (tests/e2e/cost.spec.ts refits and checks these):
  * oven kWh = warmUpKwh + holdKw × hours, air fryer kWh = airFryerKw × hours.
- * `residuals` are (model − measured) / measured per food: the worst ones set the likely range.
+ * `residuals` are (model − measured) / measured, per measurement set, rounded outward:
+ * `which` are the fit's own misses; `choice` are the same model against CHOICE_TEST (no refit).
+ * The likely range spans the worst of both sets (cost.ts `rangeResiduals`).
  */
 export const COST_MODEL = {
-  oven: { warmUpKwh: 0.5265, holdKw: 0.4398, residuals: { min: -0.110, max: 0.320 } },
-  airFryer: { averageKw: 0.5473, residuals: { min: -0.269, max: 0.350 } },
+  oven: {
+    warmUpKwh: 0.5265, holdKw: 0.4398,
+    residuals: { which: { min: -0.1097, max: 0.3197 }, choice: { min: -0.3355, max: -0.1841 } },
+  },
+  airFryer: {
+    averageKw: 0.5473,
+    residuals: { which: { min: -0.2690, max: 0.3499 }, choice: { min: -0.3514, max: -0.3189 } },
+  },
   /** Preheat minutes added to the recipe time (the presets' baseline: oven 10, basket 3). */
   preheatMinutes: { oven: 10, airFryer: 3 },
 } as const;

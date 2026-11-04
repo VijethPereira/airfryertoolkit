@@ -4,17 +4,18 @@
  * Pass the text already filled; the caller's FAQPage JSON-LD must use the same strings.
  */
 interface Props {
-  items: { q: string; a: string }[];
+  /** `link` renders under the answer; it is not part of the answer text (or the JSON-LD). */
+  items: { q: string; a: string; link?: { href: string; label: string } }[];
 }
 
 const { items } = Astro.props;
 ---
 
 <div class="faq-list">
-  {items.map(({ q, a }) => (
+  {items.map(({ q, a, link }) => (
     <details class="faq-item">
       <summary class="faq-q">{q}<span class="faq-icon" aria-hidden="true"></span></summary>
-      <div class="faq-a"><p>{a}</p></div>
+      <div class="faq-a"><p>{a}</p>{link && <p class="faq-link"><a href={link.href}>{link.label} &rarr;</a></p>}</div>
     </details>
   ))}
 </div>
@@ -40,6 +41,10 @@ const { items } = Astro.props;
     margin: 0; font-size: var(--text-body); line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing); color: var(--site-text-muted);
   }
+
+  .faq-a .faq-link { margin-top: 8px; }
+  .faq-link a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--site-text); }
+  .faq-link a:hover { color: var(--site-accent); }
 
   /* Answers print expanded: a closed <details> hides its content in ::details-content. */
   @media print {

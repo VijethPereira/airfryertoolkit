@@ -259,13 +259,13 @@ const es: Dictionary = {
       'La mayoría de las calculadoras de horno a freidora de aire aplican una sola regla fija a todos los alimentos: resta 25°F, recorta el tiempo un 20%. Es un punto de partida razonable, pero trata una bandeja de papas finas igual que un guiso denso, y nunca verifica si el resultado es una temperatura que tu freidora de aire realmente puede alcanzar. Esta herramienta hace dos cosas distinto: ajusta el multiplicador según el tipo de alimento, y limita el resultado al techo real de tu equipo en vez de devolver un número que no existe en tu perilla.',
     multipliersHeading: 'Cómo funcionan los multiplicadores por tipo de alimento',
     multipliersBody:
-      'La cámara compacta y el aire forzado de una freidora de aire transfieren calor al alimento mucho más rápido que un horno de tamaño completo, así que los tiempos de cocción siempre bajan — pero cuánto depende de la superficie y densidad del alimento. Los alimentos delgados y de mucha superficie, como papas fritas o tocino, pierden más tiempo (un recorte cercano al 30%) porque el aire caliente llega a todos los lados casi de inmediato. Los alimentos densos, como guisos o repostería, pierden menos (cerca del 15%) porque el calor todavía tiene que abrirse paso hasta el centro. El pollo, el pescado y las verduras quedan en un punto intermedio. El conversor busca el multiplicador correcto para el alimento que seleccionaste en vez de aplicar un solo número a todo.',
+      'La cámara compacta y el aire forzado de una freidora de aire transfieren calor al alimento mucho más rápido que un horno de tamaño completo, así que los tiempos de cocción siempre bajan — pero cuánto depende de la superficie y densidad del alimento. Los alimentos delgados y de mucha superficie, como papas fritas o tocino, pierden más tiempo (un recorte cercano al {MAX_CUT}%) porque el aire caliente llega a todos los lados casi de inmediato. Los alimentos densos, como guisos o repostería, pierden menos (cerca del {MIN_CUT}%) porque el calor todavía tiene que abrirse paso hasta el centro. El pollo, el pescado y las verduras quedan en un punto intermedio. El conversor busca el multiplicador correcto para el alimento que seleccionaste en vez de aplicar un solo número a todo.',
     basketVsOvenHeading: 'Flujo de aire: cesta vs. tipo horno',
     basketVsOvenBody:
-      'Una freidora de aire de cesta empaca el alimento en una cámara pequeña con aire circulando por todos lados, lo que cocina rápido pero tiene un límite seguro más bajo — la mayoría de las cestas topan cerca de 400°F. Las unidades tipo horno (hornos freidora y cestas tipo horno tostador) tienen más volumen de aire alrededor del alimento, así que el efecto es un poco más suave: esta herramienta resta 5°F menos de la temperatura del horno y añade un pequeño extra de tiempo para las unidades tipo horno, y permite que el resultado llegue hasta 450°F antes de limitarlo.',
+      'Una freidora de aire de cesta empaca el alimento en una cámara pequeña con aire circulando por todos lados, lo que cocina rápido pero tiene un límite seguro más bajo — la mayoría de las cestas topan cerca de {CEIL_BASKET}°F. Las unidades tipo horno (hornos freidora y cestas tipo horno tostador) tienen más volumen de aire alrededor del alimento, así que el efecto es un poco más suave: esta herramienta resta {OS_DT}°F menos de la temperatura del horno y añade un pequeño extra de tiempo para las unidades tipo horno, y permite que el resultado llegue hasta {CEIL_OVEN}°F antes de limitarlo.',
     whatHappensHeading: 'Qué pasa cuando una receta necesita más calor del que tu freidora de aire puede dar',
     whatHappensBody:
-      'Una receta de 450°F convertida con una regla fija en una freidora de aire de cesta con máximo de 400°F devolvería 425°F — un ajuste que no existe en la perilla. Esta herramienta limita el resultado al techo real del equipo (400°F cesta, 450°F tipo horno) y añade tiempo de vuelta para compensar el menor calor, con una nota en lenguaje claro que explica qué pasó y qué esperar (una superficie un poco menos crujiente, así que revisa un poco antes). Es el vacío más común entre las demás calculadoras de freidora de aire, y la razón de ser de esta herramienta.',
+      'Una receta de 450°F convertida con una regla fija en una freidora de aire de cesta con máximo de {CEIL_BASKET}°F devolvería 425°F — un ajuste que no existe en la perilla. Esta herramienta limita el resultado al techo real del equipo ({CEIL_BASKET}°F cesta, {CEIL_OVEN}°F tipo horno) y añade tiempo de vuelta para compensar el menor calor, con una nota en lenguaje claro que explica qué pasó y qué esperar (una superficie un poco menos crujiente, así que revisa un poco antes). Es el vacío más común entre las demás calculadoras de freidora de aire, y la razón de ser de esta herramienta.',
     relatedChartLink: 'Tabla de conversión imprimible',
     relatedReverseLink: 'Conversor de freidora de aire a horno',
     relatedConvectionLink: "Conversor de convección a freidora de aire",
@@ -274,11 +274,11 @@ const es: Dictionary = {
     faqs: [
       {
         q: '¿Por qué no simplemente restar 25°F y recortar el tiempo un 20% para todo?',
-        a: 'Porque los distintos alimentos responden de forma diferente al flujo de aire más rápido de la freidora de aire. Un alimento delgado y de mucha superficie como las papas fritas necesita un recorte de tiempo mayor (cerca del 30%) o se reseca; un guiso denso apenas necesita uno (cerca del 15%). Este conversor aplica un multiplicador distinto por tipo de alimento en vez de una sola regla fija.',
+        a: 'Porque los distintos alimentos responden de forma diferente al flujo de aire más rápido de la freidora de aire. Un alimento delgado y de mucha superficie como las papas fritas necesita un recorte de tiempo mayor (cerca del {MAX_CUT}%) o se reseca; un guiso denso apenas necesita uno (cerca del {MIN_CUT}%). Este conversor aplica un multiplicador distinto por tipo de alimento en vez de una sola regla fija.',
       },
       {
         q: '¿Qué pasa si la temperatura convertida es más alta de lo que mi freidora de aire puede alcanzar?',
-        a: 'El resultado se limita al techo realista de tu equipo — 400°F para una freidora de aire de cesta, 450°F para tipo horno — y se añaden unos minutos extra para compensar, con una nota que explica por qué. La mayoría de las calculadoras devuelven en silencio un número que tu equipo en realidad no puede alcanzar.',
+        a: 'El resultado se limita al techo realista de tu equipo — {CEIL_BASKET}°F para una freidora de aire de cesta, {CEIL_OVEN}°F para tipo horno — y se añaden unos minutos extra para compensar, con una nota que explica por qué. La mayoría de las calculadoras devuelven en silencio un número que tu equipo en realidad no puede alcanzar.',
       },
       {
         q: '¿Cuál es la diferencia entre los ajustes de cesta y tipo horno?',
@@ -286,11 +286,11 @@ const es: Dictionary = {
       },
       {
         q: '¿Funciona para alimentos directo del congelador?',
-        a: 'Los alimentos congelados siguen una lógica distinta a una receta fresca recién sacada del refrigerador — mantén la temperatura del empaque más o menos igual y recorta el tiempo cerca de un 30%, lo opuesto a la regla habitual, ya que el alimento necesita todo el calor solo para descongelarse antes de poder cocinarse.',
+        a: 'Los alimentos congelados siguen una lógica distinta a una receta fresca recién sacada del refrigerador — mantén la temperatura del empaque más o menos igual y recorta el tiempo entre un {FZ_CUT_MIN} y un {FZ_CUT_MAX}%, lo opuesto a la regla habitual, ya que el alimento necesita todo el calor solo para descongelarse antes de poder cocinarse.',
       },
       {
         q: '¿Qué tan preciso es el resultado?',
-        a: 'Las temperaturas se redondean al múltiplo de 5 más cercano, igual que avanzan las perillas y controles digitales reales de las freidoras de aire. Trata el resultado como un punto de partida, no una garantía — revisa el alimento un poco antes del tiempo sugerido, sobre todo la primera vez que cocinas algo en un equipo nuevo.',
+        a: 'Las temperaturas se redondean al múltiplo de {DIAL} más cercano, igual que avanzan las perillas y controles digitales reales de las freidoras de aire. Trata el resultado como un punto de partida, no una garantía — revisa el alimento un poco antes del tiempo sugerido, sobre todo la primera vez que cocinas algo en un equipo nuevo.',
       },
       {
         q: '¿Una freidora de aire con más vatios cocina más rápido?',
@@ -306,7 +306,7 @@ const es: Dictionary = {
       },
       {
         q: '¿200 grados en una freidora de aire es lo mismo que en un horno?',
-        a: 'No. Las freidoras de aire hacen circular aire caliente directamente alrededor del alimento en una cámara pequeña, así que 200° en una freidora de aire cocina notablemente más rápido y dora más que 200° en un horno convencional. Como regla general, baja la temperatura unos 20°F (o aproximadamente de 20°C a 180°C) y acorta el tiempo para compensar — usa la calculadora de arriba para un número ajustado a tu alimento específico.',
+        a: 'No. Las freidoras de aire hacen circular aire caliente directamente alrededor del alimento en una cámara pequeña, así que 200° en una freidora de aire cocina notablemente más rápido y dora más que 200° en un horno convencional. Como regla general, baja la temperatura unos {GEN_DT}°F (200°C pasan a unos {C200_AF}°C) y acorta el tiempo para compensar — usa la calculadora de arriba para un número ajustado a tu alimento específico.',
       },
       {
         q: '¿Qué es la regla 20/20 para freidoras de aire?',
@@ -314,15 +314,15 @@ const es: Dictionary = {
       },
       {
         q: '¿Cuánto son 30 minutos de horno en una freidora de aire?',
-        a: 'Aproximadamente 21–25 minutos, según lo que estés cocinando. Los alimentos delgados y de mucha superficie, como papas fritas o alitas, pierden más cerca del 30% del tiempo (unos 21 minutos), mientras que los alimentos densos, como guisos, pierden más cerca del 15% (unos 25 minutos). Ingresa 30 minutos y tu tipo de alimento arriba para una cifra exacta.',
+        a: 'Aproximadamente {T30_LO}–{T30_HI} minutos, según lo que estés cocinando. Los alimentos delgados y de mucha superficie, como papas fritas o tocino, pierden más cerca del {MAX_CUT}% del tiempo (unos {T30_LO} minutos), mientras que los alimentos densos, como guisos, pierden más cerca del {MIN_CUT}% (unos {T30_HI} minutos). Ingresa 30 minutos y tu tipo de alimento arriba para una cifra exacta.',
       },
       {
         q: '¿Cómo convierto 200°C por 15 minutos en el horno a freidora de aire?',
-        a: 'Como punto de partida, 200°C por 15 minutos en el horno se convierten en aproximadamente 180°C por 12 minutos en una freidora de aire — una caída de 20° y un recorte de tiempo del 20%. Los números exactos cambian según el tipo de alimento y si tienes una unidad de cesta o tipo horno, que es justo lo que toma en cuenta la calculadora de arriba.',
+        a: 'Como punto de partida, 200°C por 15 minutos en el horno se convierten en aproximadamente {C200_AF}°C por {C200_MIN} minutos en una freidora de aire de cesta — una caída de {C200_DROP}° y un recorte de tiempo del {GEN_CUT}%. Los números exactos cambian según el tipo de alimento y si tienes una unidad de cesta o tipo horno, que es justo lo que toma en cuenta la calculadora de arriba.',
       },
       {
         q: '¿Es una freidora de aire más rápida que un horno?',
-        a: 'Sí, típicamente entre un 20 y un 30% más rápida. La cámara de cocción pequeña de una freidora de aire, la resistencia más cercana y la circulación de aire forzado transfieren calor al alimento mucho más rápido que un horno de tamaño completo, y necesita poco o nada de tiempo de precalentado comparado con los 10–15 minutos de un horno.',
+        a: 'Sí, típicamente entre un {MIN_CUT} y un {MAX_CUT}% más rápida. La cámara de cocción pequeña de una freidora de aire, la resistencia más cercana y la circulación de aire forzado transfieren calor al alimento mucho más rápido que un horno de tamaño completo, y necesita poco o nada de tiempo de precalentado en comparación.',
       },
       {
         q: '¿Puedo reemplazar mi horno con una freidora de aire?',
@@ -334,7 +334,7 @@ const es: Dictionary = {
       },
       {
         q: '¿Cuánto son 20 minutos de horno en una freidora de aire?',
-        a: 'Alrededor de 14–17 minutos para la mayoría de los alimentos — un recorte de aproximadamente 15–30% según el tipo de alimento. Los alimentos delgados como papas fritas o tocino quedan más cerca de 14 minutos; los alimentos densos como repostería quedan más cerca de 17. Usa la calculadora de arriba con tu alimento específico para una cifra precisa.',
+        a: 'Alrededor de {T20_LO}–{T20_HI} minutos para la mayoría de los alimentos — un recorte de aproximadamente {MIN_CUT}–{MAX_CUT}% según el tipo de alimento. Los alimentos delgados como papas fritas o tocino quedan más cerca de {T20_LO} minutos; los alimentos densos como repostería quedan más cerca de {T20_HI}. Usa la calculadora de arriba con tu alimento específico para una cifra precisa.',
       },
       {
         q: '¿Puedo usar papel aluminio en una freidora de aire?',
@@ -342,7 +342,7 @@ const es: Dictionary = {
       },
       {
         q: '¿Qué es más saludable, una freidora de aire o un horno?',
-        a: 'Son más o menos equivalentes — ambos cocinan con poco o nada de aceite añadido, a diferencia de freír en aceite profundo. La ventaja de salud de una freidora de aire es específicamente frente a freír en aceite profundo (hasta un 70–80% menos aceite), no frente al horneado, que ya usa poco aceite. La diferencia principal frente a un horno es conveniencia y velocidad, no nutrición.',
+        a: 'Son más o menos equivalentes — ambos cocinan con poco o nada de aceite añadido, a diferencia de freír en aceite profundo. La ventaja de salud de una freidora de aire es específicamente frente a freír en aceite profundo, no frente al horneado, que ya usa poco aceite. La diferencia principal frente a un horno es conveniencia y velocidad, no nutrición.',
       },
       {
         q: '¿Cuál es la diferencia entre una freidora de aire y un horno de convección?',
@@ -350,7 +350,8 @@ const es: Dictionary = {
       },
       {
         q: '¿Las freidoras de aire usan menos energía que un horno?',
-        a: 'Sí. Una freidora de aire típica consume entre 1200 y 1800 vatios y funciona durante una fracción del tiempo que necesita un horno (sin precalentado largo, menos volumen que calentar), así que una sola comida generalmente cuesta notablemente menos energía que calentar un horno de tamaño completo para el mismo alimento.',
+        a: 'Sí, para una sola tanda. Which? midió los mismos alimentos en ambos aparatos, precalentado incluido, y la freidora de aire gastó entre un {WHICH_SAVE_MIN}% y un {WHICH_SAVE_MAX}% menos energía cada vez, aunque un horno lleno para muchos comensales todavía puede salir más barato. Fuente: Which?, {WHICH_DATE}.',
+        link: 'cost',
       },
       {
         q: '¿Puedo poner un molde metálico o un recipiente apto para horno en una freidora de aire?',

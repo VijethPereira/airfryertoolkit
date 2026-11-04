@@ -259,13 +259,13 @@ const fr: Dictionary = {
       'La plupart des calculateurs four vers friteuse à air appliquent une seule règle fixe à tout aliment : retirez 25°F, réduisez le temps de 20 %. C’est un point de départ raisonnable, mais cela traite une plaque de frites fines comme un gratin dense, et cela ne vérifie jamais si le résultat est une température que votre friteuse à air peut réellement atteindre. Cet outil fait deux choses différemment : il ajuste le multiplicateur selon le type d’aliment, et il plafonne le résultat au vrai maximum de votre appareil au lieu de renvoyer un chiffre qui n’existe pas sur votre cadran.',
     multipliersHeading: 'Comment fonctionnent les multiplicateurs par type d’aliment',
     multipliersBody:
-      'La chambre compacte et l’air pulsé d’une friteuse à air transfèrent la chaleur à l’aliment bien plus vite qu’un four de taille normale, donc les temps de cuisson baissent toujours — mais de combien dépend de la surface et de la densité de l’aliment. Les aliments fins à grande surface comme les frites ou le bacon perdent le plus de temps (une réduction d’environ 30 %) car l’air chaud atteint chaque face presque immédiatement. Les aliments denses comme les gratins ou les pâtisseries en perdent le moins (environ 15 %) car la chaleur doit encore se frayer un chemin jusqu’au centre. Le poulet, le poisson et les légumes se situent entre les deux. Le convertisseur recherche le bon multiplicateur pour l’aliment que vous avez sélectionné plutôt que d’appliquer un seul chiffre à tout.',
+      'La chambre compacte et l’air pulsé d’une friteuse à air transfèrent la chaleur à l’aliment bien plus vite qu’un four de taille normale, donc les temps de cuisson baissent toujours — mais de combien dépend de la surface et de la densité de l’aliment. Les aliments fins à grande surface comme les frites ou le bacon perdent le plus de temps (une réduction d’environ {MAX_CUT} %) car l’air chaud atteint chaque face presque immédiatement. Les aliments denses comme les gratins ou les pâtisseries en perdent le moins (environ {MIN_CUT} %) car la chaleur doit encore se frayer un chemin jusqu’au centre. Le poulet, le poisson et les légumes se situent entre les deux. Le convertisseur recherche le bon multiplicateur pour l’aliment que vous avez sélectionné plutôt que d’appliquer un seul chiffre à tout.',
     basketVsOvenHeading: 'Flux d’air : panier vs. type four',
     basketVsOvenBody:
-      'Une friteuse à panier compacte l’aliment dans une petite chambre avec de l’air circulant de tous les côtés, ce qui cuit vite mais a un plafond sûr plus bas — la plupart des paniers plafonnent autour de 400°F. Les unités de type four (fours friteuse à air et paniers type four grille-pain) ont plus de volume d’air autour de l’aliment, donc l’effet est un peu plus doux : cet outil retire 5°F de moins à la température du four et ajoute un petit supplément de temps pour les unités de type four, et permet au résultat de monter jusqu’à 450°F avant de plafonner.',
+      'Une friteuse à panier compacte l’aliment dans une petite chambre avec de l’air circulant de tous les côtés, ce qui cuit vite mais a un plafond sûr plus bas — la plupart des paniers plafonnent autour de {CEIL_BASKET}°F. Les unités de type four (fours friteuse à air et paniers type four grille-pain) ont plus de volume d’air autour de l’aliment, donc l’effet est un peu plus doux : cet outil retire {OS_DT}°F de moins à la température du four et ajoute un petit supplément de temps pour les unités de type four, et permet au résultat de monter jusqu’à {CEIL_OVEN}°F avant de plafonner.',
     whatHappensHeading: 'Que se passe-t-il quand une recette demande plus de chaleur que votre friteuse à air ne peut donner',
     whatHappensBody:
-      'Une recette à 450°F convertie avec une règle fixe sur une friteuse à panier plafonnée à 400°F donnerait 425°F — un réglage qui n’existe pas sur le cadran. Cet outil plafonne le résultat au vrai maximum de l’appareil (400°F panier, 450°F type four) et rajoute du temps pour compenser la chaleur plus faible, avec une note en langage clair expliquant ce qui s’est passé et à quoi s’attendre (une surface légèrement moins croustillante, donc vérifiez un peu plus tôt). C’est la lacune la plus fréquente chez les autres calculateurs de friteuse à air, et la raison d’être de cet outil.',
+      'Une recette à 450°F convertie avec une règle fixe sur une friteuse à panier plafonnée à {CEIL_BASKET}°F donnerait 425°F — un réglage qui n’existe pas sur le cadran. Cet outil plafonne le résultat au vrai maximum de l’appareil ({CEIL_BASKET}°F panier, {CEIL_OVEN}°F type four) et rajoute du temps pour compenser la chaleur plus faible, avec une note en langage clair expliquant ce qui s’est passé et à quoi s’attendre (une surface légèrement moins croustillante, donc vérifiez un peu plus tôt). C’est la lacune la plus fréquente chez les autres calculateurs de friteuse à air, et la raison d’être de cet outil.',
     relatedChartLink: 'Tableau de conversion imprimable',
     relatedReverseLink: 'Convertisseur friteuse à air vers four',
     relatedConvectionLink: "Convertisseur convection vers friteuse à air",
@@ -274,11 +274,11 @@ const fr: Dictionary = {
     faqs: [
       {
         q: 'Pourquoi ne pas simplement retirer 25°F et réduire le temps de 20 % pour tout ?',
-        a: 'Parce que les aliments réagissent différemment au flux d’air plus rapide de la friteuse à air. Un aliment fin à grande surface comme les frites a besoin d’une réduction de temps plus importante (environ 30 %) sinon il se dessèche ; un gratin dense en a à peine besoin (environ 15 %). Ce convertisseur applique un multiplicateur différent par type d’aliment plutôt qu’une seule règle fixe.',
+        a: 'Parce que les aliments réagissent différemment au flux d’air plus rapide de la friteuse à air. Un aliment fin à grande surface comme les frites a besoin d’une réduction de temps plus importante (environ {MAX_CUT} %) sinon il se dessèche ; un gratin dense en a à peine besoin (environ {MIN_CUT} %). Ce convertisseur applique un multiplicateur différent par type d’aliment plutôt qu’une seule règle fixe.',
       },
       {
         q: 'Que se passe-t-il si la température convertie est plus élevée que ce que ma friteuse à air peut atteindre ?',
-        a: 'Le résultat est plafonné au maximum réaliste de votre appareil — 400°F pour une friteuse à panier, 450°F pour un type four — et quelques minutes supplémentaires sont rajoutées en compensation, avec une note expliquant pourquoi. La plupart des calculateurs renvoient silencieusement un chiffre que votre appareil ne peut en réalité pas atteindre.',
+        a: 'Le résultat est plafonné au maximum réaliste de votre appareil — {CEIL_BASKET}°F pour une friteuse à panier, {CEIL_OVEN}°F pour un type four — et quelques minutes supplémentaires sont rajoutées en compensation, avec une note expliquant pourquoi. La plupart des calculateurs renvoient silencieusement un chiffre que votre appareil ne peut en réalité pas atteindre.',
       },
       {
         q: 'Quelle est la différence entre les réglages panier et type four ?',
@@ -286,11 +286,11 @@ const fr: Dictionary = {
       },
       {
         q: 'Est-ce que ça fonctionne pour un aliment sorti directement du congélateur ?',
-        a: 'Les aliments surgelés suivent une logique différente d’une recette fraîche sortie du réfrigérateur — gardez à peu près la température de l’emballage et réduisez le temps d’environ 30 %, l’inverse de la règle habituelle, car l’aliment a besoin de toute la chaleur juste pour décongeler avant de pouvoir cuire.',
+        a: 'Les aliments surgelés suivent une logique différente d’une recette fraîche sortie du réfrigérateur — gardez à peu près la température de l’emballage et réduisez le temps de {FZ_CUT_MIN} à {FZ_CUT_MAX} %, l’inverse de la règle habituelle, car l’aliment a besoin de toute la chaleur juste pour décongeler avant de pouvoir cuire.',
       },
       {
         q: 'Quelle est la précision du résultat ?',
-        a: 'Les températures sont arrondies au multiple de 5 le plus proche, comme progressent réellement les cadrans et commandes numériques des friteuses à air. Considérez le résultat comme un point de départ, pas une garantie — vérifiez la cuisson un peu avant le temps suggéré, surtout la première fois que vous cuisinez quelque chose dans un nouvel appareil.',
+        a: 'Les températures sont arrondies au multiple de {DIAL} le plus proche, comme progressent réellement les cadrans et commandes numériques des friteuses à air. Considérez le résultat comme un point de départ, pas une garantie — vérifiez la cuisson un peu avant le temps suggéré, surtout la première fois que vous cuisinez quelque chose dans un nouvel appareil.',
       },
       {
         q: 'Une friteuse à air plus puissante cuit-elle plus vite ?',
@@ -306,7 +306,7 @@ const fr: Dictionary = {
       },
       {
         q: '200 degrés dans une friteuse à air, est-ce pareil qu’au four ?',
-        a: 'Non. Les friteuses à air font circuler l’air chaud directement autour de l’aliment dans une petite chambre, donc 200° dans une friteuse à air cuit nettement plus vite et dore davantage que 200° dans un four classique. En règle générale, baissez la température d’environ 20°F (ou d’environ 20°C à 180°C) et raccourcissez le temps en compensation — utilisez le calculateur ci-dessus pour un chiffre ajusté à votre aliment précis.',
+        a: 'Non. Les friteuses à air font circuler l’air chaud directement autour de l’aliment dans une petite chambre, donc 200° dans une friteuse à air cuit nettement plus vite et dore davantage que 200° dans un four classique. En règle générale, baissez la température d’environ {GEN_DT}°F (200°C deviennent environ {C200_AF}°C) et raccourcissez le temps en compensation — utilisez le calculateur ci-dessus pour un chiffre ajusté à votre aliment précis.',
       },
       {
         q: 'Qu’est-ce que la règle du 20/20 pour les friteuses à air ?',
@@ -314,15 +314,15 @@ const fr: Dictionary = {
       },
       {
         q: 'Combien font 30 minutes de four à la friteuse à air ?',
-        a: 'Environ 21 à 25 minutes, selon ce que vous cuisinez. Les aliments fins à grande surface comme les frites ou les ailes perdent plus près de 30 % du temps (environ 21 minutes), tandis que les aliments denses comme les gratins en perdent plus près de 15 % (environ 25 minutes). Entrez 30 minutes et votre type d’aliment ci-dessus pour un chiffre exact.',
+        a: 'Environ {T30_LO} à {T30_HI} minutes, selon ce que vous cuisinez. Les aliments fins à grande surface comme les frites ou le bacon perdent plus près de {MAX_CUT} % du temps (environ {T30_LO} minutes), tandis que les aliments denses comme les gratins en perdent plus près de {MIN_CUT} % (environ {T30_HI} minutes). Entrez 30 minutes et votre type d’aliment ci-dessus pour un chiffre exact.',
       },
       {
         q: 'Comment convertir 200°C pendant 15 minutes au four en friteuse à air ?',
-        a: 'Comme point de départ, 200°C pendant 15 minutes au four deviennent environ 180°C pendant 12 minutes en friteuse à air — une baisse de 20° et une réduction de temps de 20 %. Les chiffres exacts varient selon le type d’aliment et selon que vous avez une unité à panier ou de type four, ce dont tient compte le calculateur ci-dessus.',
+        a: 'Comme point de départ, 200°C pendant 15 minutes au four deviennent environ {C200_AF}°C pendant {C200_MIN} minutes en friteuse à panier — une baisse de {C200_DROP}° et une réduction de temps de {GEN_CUT} %. Les chiffres exacts varient selon le type d’aliment et selon que vous avez une unité à panier ou de type four, ce dont tient compte le calculateur ci-dessus.',
       },
       {
         q: 'Une friteuse à air est-elle plus rapide qu’un four ?',
-        a: 'Oui, généralement 20 à 30 % plus rapide. La petite chambre de cuisson, la résistance plus proche et la circulation d’air pulsé d’une friteuse à air transfèrent la chaleur à l’aliment bien plus vite qu’un four de taille normale, et elle nécessite peu ou pas de préchauffage comparé aux 10 à 15 minutes d’un four.',
+        a: 'Oui, généralement {MIN_CUT} à {MAX_CUT} % plus rapide. La petite chambre de cuisson, la résistance plus proche et la circulation d’air pulsé d’une friteuse à air transfèrent la chaleur à l’aliment bien plus vite qu’un four de taille normale, et elle nécessite peu ou pas de préchauffage en comparaison.',
       },
       {
         q: 'Puis-je remplacer mon four par une friteuse à air ?',
@@ -334,7 +334,7 @@ const fr: Dictionary = {
       },
       {
         q: 'Combien font 20 minutes de four à la friteuse à air ?',
-        a: 'Environ 14 à 17 minutes pour la plupart des aliments — une réduction d’environ 15 à 30 % selon le type d’aliment. Les aliments fins comme les frites ou le bacon se rapprochent de 14 minutes ; les aliments denses comme les pâtisseries se rapprochent de 17. Utilisez le calculateur ci-dessus avec votre aliment précis pour un chiffre exact.',
+        a: 'Environ {T20_LO} à {T20_HI} minutes pour la plupart des aliments — une réduction d’environ {MIN_CUT} à {MAX_CUT} % selon le type d’aliment. Les aliments fins comme les frites ou le bacon se rapprochent de {T20_LO} minutes ; les aliments denses comme les pâtisseries se rapprochent de {T20_HI}. Utilisez le calculateur ci-dessus avec votre aliment précis pour un chiffre exact.',
       },
       {
         q: 'Puis-je utiliser du papier aluminium dans une friteuse à air ?',
@@ -342,7 +342,7 @@ const fr: Dictionary = {
       },
       {
         q: 'Qu’est-ce qui est plus sain, une friteuse à air ou un four ?',
-        a: 'Ils sont à peu près équivalents — tous deux cuisent avec peu ou pas d’huile ajoutée, contrairement à la friture par immersion. L’avantage santé d’une friteuse à air se situe spécifiquement par rapport à la friture par immersion (jusqu’à 70 à 80 % d’huile en moins), pas par rapport à la cuisson au four, qui utilise déjà très peu d’huile. La principale différence par rapport à un four est la commodité et la rapidité, pas la nutrition.',
+        a: 'Ils sont à peu près équivalents — tous deux cuisent avec peu ou pas d’huile ajoutée, contrairement à la friture par immersion. L’avantage santé d’une friteuse à air se situe spécifiquement par rapport à la friture par immersion, pas par rapport à la cuisson au four, qui utilise déjà très peu d’huile. La principale différence par rapport à un four est la commodité et la rapidité, pas la nutrition.',
       },
       {
         q: 'Quelle est la différence entre une friteuse à air et un four à convection ?',
@@ -350,7 +350,8 @@ const fr: Dictionary = {
       },
       {
         q: 'Les friteuses à air consomment-elles moins d’énergie qu’un four ?',
-        a: 'Oui. Une friteuse à air typique consomme entre 1200 et 1800 watts et fonctionne pendant une fraction du temps qu’un four nécessite (pas de long préchauffage, moins de volume à chauffer), donc un seul repas coûte généralement nettement moins d’énergie que de chauffer un four de taille normale pour le même aliment.',
+        a: 'Oui, pour une seule fournée. Which? a mesuré les mêmes aliments dans les deux appareils, préchauffage compris, et la friteuse à air a consommé de {WHICH_SAVE_MIN} % à {WHICH_SAVE_MAX} % d’énergie en moins à chaque fois, même si un four plein pour une grande tablée peut rester moins cher. Source : Which?, {WHICH_DATE}.',
+        link: 'cost',
       },
       {
         q: 'Puis-je mettre un plat métallique ou un récipient allant au four dans une friteuse à air ?',

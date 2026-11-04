@@ -129,12 +129,17 @@ interface StyledProfile extends FoodProfile {
   ceiling: number;
 }
 
+/** Default ceiling per style when no model maxF is given (°F). */
+export const STYLE_CEILING_F: Record<FryerStyle, number> = { basket: 400, oven: 450 };
+/** Oven-style units: this much less off the temperature, this much more time multiplier. */
+export const OVEN_STYLE_ADJUST = { dT: 5, f: 0.05 } as const;
+
 function styleProfile(rules: ProfileRules, food: FoodProfile, style: FryerStyle): StyledProfile {
   const ovenStyle = style === 'oven';
   return {
-    dT: Math.max(rules.dTFloor, food.dT - (ovenStyle ? 5 : 0)),
-    f: Math.min(rules.fCap, food.f + (ovenStyle ? 0.05 : 0)),
-    ceiling: ovenStyle ? 450 : 400,
+    dT: Math.max(rules.dTFloor, food.dT - (ovenStyle ? OVEN_STYLE_ADJUST.dT : 0)),
+    f: Math.min(rules.fCap, food.f + (ovenStyle ? OVEN_STYLE_ADJUST.f : 0)),
+    ceiling: STYLE_CEILING_F[style],
   };
 }
 

@@ -259,13 +259,13 @@ const en: Dictionary = {
       "Most oven-to-air-fryer calculators apply one flat rule to every food: subtract 25°F, cut the time by 20%. It's a reasonable starting point, but it treats a tray of thin fries the same as a dense casserole, and it never checks whether the result is a temperature your air fryer can actually reach. This tool does two things differently: it adjusts the multiplier per food type, and it clamps the output to your unit's real ceiling instead of returning a number that doesn't exist on your dial.",
     multipliersHeading: 'How the food-type multipliers work',
     multipliersBody:
-      "An air fryer's compact chamber and forced air move heat onto food far faster than a full-size oven, so cook times always drop — but by how much depends on the food's surface area and density. Thin, high-surface-area foods like fries or bacon lose the most time (roughly a 30% cut) because the hot air reaches every side almost immediately. Dense foods like casseroles or baked goods lose the least (roughly 15%) because heat still has to work its way to the center. Chicken, fish, and vegetables fall in between. The converter looks up the right multiplier for your selected food instead of applying one number to everything.",
+      "An air fryer's compact chamber and forced air move heat onto food far faster than a full-size oven, so cook times always drop — but by how much depends on the food's surface area and density. Thin, high-surface-area foods like fries or bacon lose the most time (roughly a {MAX_CUT}% cut) because the hot air reaches every side almost immediately. Dense foods like casseroles or baked goods lose the least (roughly {MIN_CUT}%) because heat still has to work its way to the center. Chicken, fish, and vegetables fall in between. The converter looks up the right multiplier for your selected food instead of applying one number to everything.",
     basketVsOvenHeading: 'Basket vs. oven-style airflow',
     basketVsOvenBody:
-      "A basket-style air fryer packs food into a small chamber with air circulating on every side, which cooks fast but has a lower safe ceiling — most baskets top out around 400°F. Oven-style units (air fryer ovens and toaster-oven-style baskets) have more air volume around the food, so the effect is slightly gentler: this tool cuts 5°F less off the oven temperature and adds a small time bump for oven-style units, and allows the result to run up to 450°F before clamping.",
+      "A basket-style air fryer packs food into a small chamber with air circulating on every side, which cooks fast but has a lower safe ceiling — most baskets top out around {CEIL_BASKET}°F. Oven-style units (air fryer ovens and toaster-oven-style baskets) have more air volume around the food, so the effect is slightly gentler: this tool cuts {OS_DT}°F less off the oven temperature and adds a small time bump for oven-style units, and allows the result to run up to {CEIL_OVEN}°F before clamping.",
     whatHappensHeading: 'What happens when a recipe runs hotter than your air fryer can go',
     whatHappensBody:
-      "A 450°F recipe converted with a flat rule on a 400°F-max basket air fryer would return 425°F — a setting that doesn't exist on the dial. This tool clamps the result to the unit's real ceiling (400°F basket, 450°F oven-style) and adds time back to compensate for the lower heat, with a plain-language note explaining what happened and what to expect (a slightly softer surface, so check a little early). It's the single most common gap across other air fryer calculators, and the reason this tool exists.",
+      "A 450°F recipe converted with a flat rule on a {CEIL_BASKET}°F-max basket air fryer would return 425°F — a setting that doesn't exist on the dial. This tool clamps the result to the unit's real ceiling ({CEIL_BASKET}°F basket, {CEIL_OVEN}°F oven-style) and adds time back to compensate for the lower heat, with a plain-language note explaining what happened and what to expect (a slightly softer surface, so check a little early). It's the single most common gap across other air fryer calculators, and the reason this tool exists.",
     relatedChartLink: 'Printable conversion chart',
     relatedReverseLink: 'Air Fryer → Oven converter',
     relatedConvectionLink: "Convection → Air Fryer converter",
@@ -274,11 +274,11 @@ const en: Dictionary = {
     faqs: [
       {
         q: 'Why not just subtract 25°F and cut the time by 20% for everything?',
-        a: "Because different foods respond differently to the air fryer's faster airflow. Thin, high-surface-area food like fries needs a bigger time cut (about 30%) or it dries out; a dense casserole barely needs one (about 15%). This converter applies a separate multiplier per food type instead of one flat rule.",
+        a: "Because different foods respond differently to the air fryer's faster airflow. Thin, high-surface-area food like fries needs a bigger time cut (about {MAX_CUT}%) or it dries out; a dense casserole barely needs one (about {MIN_CUT}%). This converter applies a separate multiplier per food type instead of one flat rule.",
       },
       {
         q: 'What happens if the converted temperature is higher than my air fryer can reach?',
-        a: "The result is clamped to your unit's realistic ceiling — 400°F for a basket-style air fryer, 450°F for oven-style — and a few extra minutes are added back to compensate, with a note explaining why. Most calculators silently return a number your appliance can't actually hit.",
+        a: "The result is clamped to your unit's realistic ceiling — {CEIL_BASKET}°F for a basket-style air fryer, {CEIL_OVEN}°F for oven-style — and a few extra minutes are added back to compensate, with a note explaining why. Most calculators silently return a number your appliance can't actually hit.",
       },
       {
         q: "What's the difference between basket and oven-style settings?",
@@ -286,11 +286,11 @@ const en: Dictionary = {
       },
       {
         q: 'Does this work for food straight from the freezer?',
-        a: 'Frozen food follows different logic than a fresh-from-the-fridge recipe — keep the package temperature roughly as-is and cut the time by about 30%, the opposite of the usual rule, since the food needs the full heat just to thaw before it can cook through.',
+        a: 'Frozen food follows different logic than a fresh-from-the-fridge recipe — keep the package temperature roughly as-is and cut the time by {FZ_CUT_MIN}–{FZ_CUT_MAX}%, the opposite of the usual rule, since the food needs the full heat just to thaw before it can cook through.',
       },
       {
         q: 'How precise is the result?',
-        a: 'Temperatures round to the nearest 5° to match how air fryer dials and digital controls actually step. Treat the result as a starting point, not a guarantee — check food a little before the suggested time, especially the first time you cook something in a new appliance.',
+        a: 'Temperatures round to the nearest {DIAL}° to match how air fryer dials and digital controls actually step. Treat the result as a starting point, not a guarantee — check food a little before the suggested time, especially the first time you cook something in a new appliance.',
       },
       {
         q: 'Does a higher-wattage air fryer cook faster?',
@@ -306,7 +306,7 @@ const en: Dictionary = {
       },
       {
         q: 'Is 200 degrees in an air fryer the same as an oven?',
-        a: 'No. Air fryers circulate hot air directly around food in a small chamber, so 200° in an air fryer cooks noticeably faster and browns more than 200° in a conventional oven. As a rule of thumb, drop the temperature by about 20°F (or roughly 20°C to 180°C) and shorten the time to compensate — use the calculator above for a number tuned to your specific food.',
+        a: 'No. Air fryers circulate hot air directly around food in a small chamber, so 200° in an air fryer cooks noticeably faster and browns more than 200° in a conventional oven. As a rule of thumb, drop the temperature by about {GEN_DT}°F (200°C becomes roughly {C200_AF}°C) and shorten the time to compensate — use the calculator above for a number tuned to your specific food.',
       },
       {
         q: 'What is the 20/20 rule for air fryers?',
@@ -314,15 +314,15 @@ const en: Dictionary = {
       },
       {
         q: 'What is 30 minutes in the oven in an air fryer?',
-        a: "Roughly 21–25 minutes, depending on what you're cooking. Thin, high-surface-area foods like fries or wings lose closer to 30% of the time (about 21 minutes), while dense foods like casseroles lose closer to 15% (about 25 minutes). Enter 30 minutes and your food type above for an exact figure.",
+        a: "Roughly {T30_LO}–{T30_HI} minutes, depending on what you're cooking. Thin, high-surface-area foods like fries or bacon lose closer to {MAX_CUT}% of the time (about {T30_LO} minutes), while dense foods like casseroles lose closer to {MIN_CUT}% (about {T30_HI} minutes). Enter 30 minutes and your food type above for an exact figure.",
       },
       {
         q: 'How do I convert oven 200°C for 15 minutes to air fryer?',
-        a: 'As a starting point, 200°C for 15 minutes in the oven becomes roughly 180°C for 12 minutes in an air fryer — a 20° drop and a 20% time cut. The exact numbers shift with food type and whether you have a basket or oven-style unit, which is what the calculator above accounts for.',
+        a: 'As a starting point, 200°C for 15 minutes in the oven becomes roughly {C200_AF}°C for {C200_MIN} minutes in a basket air fryer — a {C200_DROP}° drop and a {GEN_CUT}% time cut. The exact numbers shift with food type and whether you have a basket or oven-style unit, which is what the calculator above accounts for.',
       },
       {
         q: 'Is an air fryer faster than an oven?',
-        a: "Yes, typically 20–30% faster. An air fryer's small cooking chamber, closer heating element, and forced-air circulation transfer heat to food much faster than a full-size oven, and it needs little to no preheat time compared to an oven's 10–15 minutes.",
+        a: "Yes, typically {MIN_CUT}–{MAX_CUT}% faster. An air fryer's small cooking chamber, closer heating element, and forced-air circulation transfer heat to food much faster than a full-size oven, and it needs little to no preheat time by comparison.",
       },
       {
         q: 'Can I replace my oven with an air fryer?',
@@ -334,7 +334,7 @@ const en: Dictionary = {
       },
       {
         q: 'How long is 20 minutes in an oven in an air fryer?',
-        a: 'Around 14–17 minutes for most foods — roughly a 15–30% cut depending on food type. Thin foods like fries or bacon land closer to 14 minutes; dense foods like baked goods land closer to 17. Use the calculator above with your specific food for a precise number.',
+        a: 'Around {T20_LO}–{T20_HI} minutes for most foods — roughly a {MIN_CUT}–{MAX_CUT}% cut depending on food type. Thin foods like fries or bacon land closer to {T20_LO} minutes; dense foods like baked goods land closer to {T20_HI}. Use the calculator above with your specific food for a precise number.',
       },
       {
         q: 'Can I use aluminum foil in an air fryer?',
@@ -342,7 +342,7 @@ const en: Dictionary = {
       },
       {
         q: 'Which is healthier, an air fryer or an oven?',
-        a: "They're roughly equivalent — both cook with little to no added oil, unlike deep frying. An air fryer's health advantage is specifically over deep frying (up to 70–80% less oil), not over oven baking, which already uses minimal oil. The main difference versus an oven is convenience and speed, not nutrition.",
+        a: "They're roughly equivalent — both cook with little to no added oil, unlike deep frying. An air fryer's health advantage is specifically over deep frying, not over oven baking, which already uses minimal oil. The main difference versus an oven is convenience and speed, not nutrition.",
       },
       {
         q: "What's the difference between an air fryer and a convection oven?",
@@ -350,7 +350,8 @@ const en: Dictionary = {
       },
       {
         q: 'Do air fryers use less energy than an oven?',
-        a: 'Yes. A typical air fryer draws 1,200–1,800 watts and runs for a fraction of the time an oven needs (no lengthy preheat, smaller volume to heat), so a single meal generally costs noticeably less energy than heating a full-size oven for the same food.',
+        a: 'Yes, for a single batch. Which? measured the same foods in both appliances, preheating included, and the air fryer used {WHICH_SAVE_MIN}% to {WHICH_SAVE_MAX}% less energy each time, though a full oven cooking for a crowd can still work out cheaper. Source: Which?, {WHICH_DATE}.',
+        link: 'cost',
       },
       {
         q: 'Can I put a metal pan or oven-safe dish in an air fryer?',

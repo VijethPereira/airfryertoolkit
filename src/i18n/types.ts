@@ -277,7 +277,8 @@ export interface Dictionary {
     relatedConvectionLink: string;
     relatedFrozenLink: string;
     faqHeading: string;
-    faqs: { q: string; a: string }[];
+    /** Numbers are {KEY} placeholders filled by flagshipValues() (src/lib/flagship-copy.ts). `link: 'cost'` adds a link to the cost page under the answer. */
+    faqs: { q: string; a: string; link?: 'cost' }[];
   };
   reverseTool: {
     metaTitle: string;

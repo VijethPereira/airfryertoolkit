@@ -2,11 +2,13 @@ import { test, expect } from '@playwright/test';
 import { CHOICE_TEST, COST_MODEL, TARIFFS, WHICH_MEASUREMENTS, WHICH_OVEN_RATED } from '../../src/data/energy';
 import { MODELS } from '../../src/data/models';
 import {
-  COST_PATH, LOCALE_TARIFF, US_TIME_ZONES, choiceCheck, computeCost, expiredTariffs, fitCostModel, ratedOverstatement,
+  COST_PATH, LOCALE_TARIFF, US_TIME_ZONES, airFryerKwh, choiceCheck, computeCost, expiredTariffs, fitCostModel, likelyRange, ovenKwh,
+  rangeBand, rangeResiduals, ratedOverstatement,
 } from '../../src/lib/cost';
 import { costValues, fillCost } from '../../src/lib/cost-page';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
 import { getDictionary } from '../../src/i18n/dictionaries';
+import { flagshipProse } from '../../src/lib/flagship-copy';
 import { LOCALES } from '../../src/i18n/locales';
 import { localizedPath, localizedUrl } from '../../src/i18n/utils';
 import type { LocaleCode } from '../../src/i18n/locales';
@@ -38,10 +40,54 @@ test.describe('cost model data (src/data/energy.ts)', () => {
     expect(params.ovenWarmUpKwh).toBeCloseTo(COST_MODEL.oven.warmUpKwh, 4);
     expect(params.ovenHoldKw).toBeCloseTo(COST_MODEL.oven.holdKw, 4);
     expect(params.airFryerKw).toBeCloseTo(COST_MODEL.airFryer.averageKw, 4);
-    expect(Math.min(...residuals.map((r) => r.oven))).toBeCloseTo(COST_MODEL.oven.residuals.min, 3);
-    expect(Math.max(...residuals.map((r) => r.oven))).toBeCloseTo(COST_MODEL.oven.residuals.max, 3);
-    expect(Math.min(...residuals.map((r) => r.airFryer))).toBeCloseTo(COST_MODEL.airFryer.residuals.min, 3);
-    expect(Math.max(...residuals.map((r) => r.airFryer))).toBeCloseTo(COST_MODEL.airFryer.residuals.max, 3);
+    for (const a of ['oven', 'airFryer'] as const) {
+      const which = COST_MODEL[a].residuals.which;
+      expect(which.min, a).toBeCloseTo(Math.min(...residuals.map((r) => r[a])), 3);
+      expect(which.max, a).toBeCloseTo(Math.max(...residuals.map((r) => r[a])), 3);
+    }
+  });
+
+  test('CHOICE residuals stored next to Which?’s are the unrefitted model against CHOICE, rounded outward', () => {
+    const rows = choiceCheck().rows;
+    for (const [a, key] of [['oven', 'ovenError'], ['airFryer', 'airFryerError']] as const) {
+      const lo = Math.min(...rows.map((r) => r[key]));
+      const hi = Math.max(...rows.map((r) => r[key]));
+      const choice = COST_MODEL[a].residuals.choice;
+      expect(choice.min, a).toBeLessThanOrEqual(lo);
+      expect(choice.max, a).toBeGreaterThanOrEqual(hi);
+      expect(lo - choice.min, a).toBeLessThan(0.0002);
+      expect(choice.max - hi, a).toBeLessThan(0.0002);
+    }
+  });
+
+  test('the likely range covers every Which? and CHOICE measurement, through the page’s own computation', () => {
+    const cases = [
+      ...WHICH_MEASUREMENTS.map((m) => ({ id: `which ${m.food}`, af: m.airFryer, ov: m.oven })),
+      ...CHOICE_TEST.meals.map((m) => ({
+        id: `choice ${m.meal}`,
+        af: { minutes: m.airFryer.minutes, kwh: m.airFryer.cents / CHOICE_TEST.tariffAudCents },
+        ov: { minutes: m.oven.minutes, kwh: m.oven.cents / CHOICE_TEST.tariffAudCents },
+      })),
+    ];
+    expect(cases).toHaveLength(7);
+    for (const k of cases) {
+      for (const [a, kwh, meas] of [['airFryer', airFryerKwh, k.af], ['oven', ovenKwh, k.ov]] as const) {
+        const { low, high } = likelyRange(kwh(meas.minutes), rangeResiduals(a));
+        expect(meas.kwh, `${k.id} ${a}`).toBeGreaterThanOrEqual(low);
+        expect(meas.kwh, `${k.id} ${a}`).toBeLessThanOrEqual(high);
+      }
+    }
+    // computeCost builds its range from the same residuals (no preheat, so oven minutes are the input's).
+    const r = computeCost({ ovenTemp: 400, unit: 'F', ovenMinutes: 30, food: 'general', style: 'basket', tariff: 1, ovenPreheat: 0, airFryerPreheat: 0, ovenWatts: 2400, airFryerWatts: 1500 })!;
+    expect(r.oven.kwhLow).toBeCloseTo(likelyRange(ovenKwh(30), rangeResiduals('oven')).low, 10);
+    expect(r.oven.kwhHigh).toBeCloseTo(likelyRange(ovenKwh(30), rangeResiduals('oven')).high, 10);
+    expect(r.airFryer.kwhHigh).toBeCloseTo(likelyRange(airFryerKwh(r.airFryer.minutes), rangeResiduals('airFryer')).high, 10);
+    const bands = { oven: rangeBand('oven'), airFryer: rangeBand('airFryer') };
+    console.log(`range bands (x estimate): ${JSON.stringify(bands)}`);
+    expect(bands.oven.low).toBeCloseTo(0.758, 3);
+    expect(bands.oven.high).toBeCloseTo(1.505, 3);
+    expect(bands.airFryer.low).toBeCloseTo(0.741, 3);
+    expect(bands.airFryer.high).toBeCloseTo(1.542, 3);
   });
 
   test('CHOICE is a check, not a fit: every model error is negative (the copy says "low"), saving within the stated points', () => {
@@ -135,8 +181,8 @@ test.describe('cost math, checked by hand (3 cases per locale, default tariff)',
         // Likely range brackets the estimate: measured = model / (1 + residual).
         expect(r.airFryer.costLow).toBeLessThan(r.airFryer.cost);
         expect(r.airFryer.costHigh).toBeGreaterThan(r.airFryer.cost);
-        expect(r.oven.costLow).toBeCloseTo(r.oven.cost / (1 + COST_MODEL.oven.residuals.max), 10);
-        expect(r.oven.costHigh).toBeCloseTo(r.oven.cost / (1 + COST_MODEL.oven.residuals.min), 10);
+        expect(r.oven.costLow).toBeCloseTo(r.oven.cost / (1 + rangeResiduals('oven').max), 10);
+        expect(r.oven.costHigh).toBeCloseTo(r.oven.cost / (1 + rangeResiduals('oven').min), 10);
       });
     });
   }
@@ -177,8 +223,7 @@ test.describe('cost page copy', () => {
 
   test('no template of the flagship: 4-gram Jaccard < 0.15 in every locale', () => {
     for (const { code } of LOCALES) {
-      const t = getDictionary(code).tool;
-      const flagship = [t.subDesc, t.aboutBody, t.multipliersBody, t.basketVsOvenBody, t.whatHappensBody, ...t.faqs.flatMap((f) => [f.q, f.a])].join(' ');
+      const flagship = flagshipProse(code);
       const j = jaccard(shingles(costCopy(code)), shingles(flagship));
       console.log(`cost ${code} vs flagship: ${j.toFixed(3)}`);
       expect(j, code).toBeLessThan(0.15);

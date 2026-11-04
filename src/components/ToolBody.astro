@@ -6,6 +6,7 @@ import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES } from '../site.config';
+import { flagshipCopy } from '../lib/flagship-copy';
 
 interface Props {
   locale?: LocaleCode;
@@ -16,6 +17,7 @@ const dict = getDictionary(locale).tool;
 const reverseLive = LIVE_PAGES.has('/air-fryer-to-oven');
 const convectionLive = LIVE_PAGES.has('/convection-to-air-fryer');
 const frozenLive = LIVE_PAGES.has('/frozen');
+const copy = flagshipCopy(locale);
 ---
 
 <main class="page-main">
@@ -24,7 +26,7 @@ const frozenLive = LIVE_PAGES.has('/frozen');
     <header class="tool-header">
       <a href={localizedPath(locale, '/')} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
       <h1>{dict.heading}</h1>
-      <p class="tool-desc">{dict.subDesc}</p>
+      <p class="tool-desc">{copy.subDesc}</p>
     </header>
 
     <section class="tool-area" aria-label="Converter">
@@ -35,16 +37,16 @@ const frozenLive = LIVE_PAGES.has('/frozen');
 
     <section class="content-section">
       <h2>{dict.aboutHeading}</h2>
-      <p>{dict.aboutBody}</p>
+      <p>{copy.aboutBody}</p>
 
       <h3>{dict.multipliersHeading}</h3>
-      <p>{dict.multipliersBody}</p>
+      <p>{copy.multipliersBody}</p>
 
       <h3>{dict.basketVsOvenHeading}</h3>
-      <p>{dict.basketVsOvenBody}</p>
+      <p>{copy.basketVsOvenBody}</p>
 
       <h3>{dict.whatHappensHeading}</h3>
-      <p>{dict.whatHappensBody}</p>
+      <p>{copy.whatHappensBody}</p>
 
       <p class="related-link"><a href={localizedPath(locale, '/chart')}>{dict.relatedChartLink} &rarr;</a></p>
       {reverseLive && (
@@ -62,7 +64,7 @@ const frozenLive = LIVE_PAGES.has('/frozen');
 
     <section class="faq-section">
       <h2>{dict.faqHeading}</h2>
-      <Faq items={dict.faqs} />
+      <Faq items={copy.faqs} />
     </section>
 
   </div>

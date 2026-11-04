@@ -57,6 +57,25 @@ export function likelyRange(kwh: number, r: { min: number; max: number }): { low
   return { low: kwh / (1 + r.max), high: kwh / (1 + r.min) };
 }
 
+export type Appliance = 'oven' | 'airFryer';
+
+/** The residual span the likely range is built from: the worst of the Which? and CHOICE sets. */
+export function rangeResiduals(a: Appliance): { min: number; max: number } {
+  const { which, choice } = COST_MODEL[a].residuals;
+  return { min: Math.min(which.min, choice.min), max: Math.max(which.max, choice.max) };
+}
+
+/** The likely range as multiples of the estimate (low × kWh … high × kWh). */
+export function rangeBand(a: Appliance): { low: number; high: number } {
+  return likelyRange(1, rangeResiduals(a));
+}
+
+/** Share of energy the air fryer saved in each Which? measurement: the flagship and cost FAQs both quote this range. */
+export function whichSavingRange(): { min: number; max: number } {
+  const s = WHICH_MEASUREMENTS.map((m) => 1 - m.airFryer.kwh / m.oven.kwh);
+  return { min: Math.min(...s), max: Math.max(...s) };
+}
+
 /** Which?'s oven: rated watts × time over measured kWh, per food (the lead misconception). */
 export function ratedOverstatement(): { min: number; max: number } {
   const ratios = WHICH_MEASUREMENTS.map((m) => ((WHICH_OVEN_RATED.watts / 1000) * m.oven.minutes) / 60 / m.oven.kwh);
@@ -156,8 +175,8 @@ export function computeCost(input: CostInput): CostResult | null {
   };
   const afMinutes = setting.outMinutes + input.airFryerPreheat;
   const ovMinutes = input.ovenMinutes + input.ovenPreheat;
-  const airFryer = appliance(afMinutes, airFryerKwh(afMinutes, p), COST_MODEL.airFryer.residuals, input.airFryerWatts);
-  const oven = appliance(ovMinutes, ovenKwh(ovMinutes, p), COST_MODEL.oven.residuals, input.ovenWatts);
+  const airFryer = appliance(afMinutes, airFryerKwh(afMinutes, p), rangeResiduals('airFryer'), input.airFryerWatts);
+  const oven = appliance(ovMinutes, ovenKwh(ovMinutes, p), rangeResiduals('oven'), input.ovenWatts);
   const saving = oven.cost - airFryer.cost;
   return { airFryerMinutes: setting.outMinutes, airFryerF: setting.outF, airFryerC: setting.outC ?? 0, airFryer, oven, saving, savingPct: oven.cost > 0 ? saving / oven.cost : 0 };
 }

@@ -259,13 +259,13 @@ const de: Dictionary = {
       'Die meisten Ofen-zu-Heißluftfritteuse-Rechner wenden eine einzige pauschale Regel auf jedes Lebensmittel an: 25°F abziehen, Zeit um 20 % kürzen. Das ist ein vernünftiger Ausgangspunkt, behandelt aber ein Blech dünner Pommes genauso wie einen dichten Auflauf und prüft nie, ob das Ergebnis eine Temperatur ist, die deine Heißluftfritteuse tatsächlich erreichen kann. Dieses Tool macht zwei Dinge anders: Es passt den Multiplikator je nach Lebensmittelart an und begrenzt das Ergebnis auf die reale Obergrenze deines Geräts, statt eine Zahl zurückzugeben, die es auf deinem Regler gar nicht gibt.',
     multipliersHeading: 'So funktionieren die Multiplikatoren je Lebensmittelart',
     multipliersBody:
-      'Die kompakte Kammer und die forcierte Luft einer Heißluftfritteuse übertragen Wärme viel schneller auf das Lebensmittel als ein normal großer Ofen, deshalb sinken die Garzeiten immer — aber wie stark, hängt von Oberfläche und Dichte des Lebensmittels ab. Dünne Lebensmittel mit großer Oberfläche wie Pommes oder Bacon verlieren am meisten Zeit (ein Abzug von etwa 30 %), weil die heiße Luft fast sofort jede Seite erreicht. Dichte Lebensmittel wie Aufläufe oder Gebäck verlieren am wenigsten (etwa 15 %), weil sich die Wärme noch bis zum Kern vorarbeiten muss. Hähnchen, Fisch und Gemüse liegen dazwischen. Der Umrechner sucht den richtigen Multiplikator für dein ausgewähltes Lebensmittel, statt eine einzige Zahl auf alles anzuwenden.',
+      'Die kompakte Kammer und die forcierte Luft einer Heißluftfritteuse übertragen Wärme viel schneller auf das Lebensmittel als ein normal großer Ofen, deshalb sinken die Garzeiten immer — aber wie stark, hängt von Oberfläche und Dichte des Lebensmittels ab. Dünne Lebensmittel mit großer Oberfläche wie Pommes oder Bacon verlieren am meisten Zeit (ein Abzug von etwa {MAX_CUT} %), weil die heiße Luft fast sofort jede Seite erreicht. Dichte Lebensmittel wie Aufläufe oder Gebäck verlieren am wenigsten (etwa {MIN_CUT} %), weil sich die Wärme noch bis zum Kern vorarbeiten muss. Hähnchen, Fisch und Gemüse liegen dazwischen. Der Umrechner sucht den richtigen Multiplikator für dein ausgewähltes Lebensmittel, statt eine einzige Zahl auf alles anzuwenden.',
     basketVsOvenHeading: 'Luftstrom: Korb vs. Ofen-Typ',
     basketVsOvenBody:
-      'Eine Korb-Heißluftfritteuse packt das Lebensmittel in eine kleine Kammer mit Luft, die von allen Seiten zirkuliert — das gart schnell, hat aber eine niedrigere sichere Obergrenze, die meisten Körbe stoßen bei etwa 400°F an ihre Grenze. Ofen-artige Geräte (Heißluftfritteusen-Öfen und Toaster-Ofen-artige Körbe) haben mehr Luftvolumen um das Lebensmittel, sodass der Effekt etwas milder ist: Dieses Tool zieht 5°F weniger von der Ofentemperatur ab und fügt für Ofen-artige Geräte etwas zusätzliche Zeit hinzu, und lässt das Ergebnis bis zu 450°F steigen, bevor es begrenzt wird.',
+      'Eine Korb-Heißluftfritteuse packt das Lebensmittel in eine kleine Kammer mit Luft, die von allen Seiten zirkuliert — das gart schnell, hat aber eine niedrigere sichere Obergrenze, die meisten Körbe stoßen bei etwa {CEIL_BASKET}°F an ihre Grenze. Ofen-artige Geräte (Heißluftfritteusen-Öfen und Toaster-Ofen-artige Körbe) haben mehr Luftvolumen um das Lebensmittel, sodass der Effekt etwas milder ist: Dieses Tool zieht {OS_DT}°F weniger von der Ofentemperatur ab und fügt für Ofen-artige Geräte etwas zusätzliche Zeit hinzu, und lässt das Ergebnis bis zu {CEIL_OVEN}°F steigen, bevor es begrenzt wird.',
     whatHappensHeading: 'Was passiert, wenn ein Rezept mehr Hitze braucht, als deine Heißluftfritteuse geben kann',
     whatHappensBody:
-      'Ein 450°F-Rezept, das mit einer pauschalen Regel für eine Korb-Heißluftfritteuse mit maximal 400°F umgerechnet wird, würde 425°F ergeben — eine Einstellung, die es auf dem Regler gar nicht gibt. Dieses Tool begrenzt das Ergebnis auf die reale Obergrenze des Geräts (400°F Korb, 450°F Ofen-Typ) und fügt Zeit hinzu, um die niedrigere Hitze auszugleichen, mit einem klar formulierten Hinweis, was passiert ist und was zu erwarten ist (eine etwas weniger knusprige Oberfläche, also etwas früher prüfen). Es ist die häufigste Lücke bei anderen Heißluftfritteusen-Rechnern und der Grund, warum es dieses Tool gibt.',
+      'Ein 450°F-Rezept, das mit einer pauschalen Regel für eine Korb-Heißluftfritteuse mit maximal {CEIL_BASKET}°F umgerechnet wird, würde 425°F ergeben — eine Einstellung, die es auf dem Regler gar nicht gibt. Dieses Tool begrenzt das Ergebnis auf die reale Obergrenze des Geräts ({CEIL_BASKET}°F Korb, {CEIL_OVEN}°F Ofen-Typ) und fügt Zeit hinzu, um die niedrigere Hitze auszugleichen, mit einem klar formulierten Hinweis, was passiert ist und was zu erwarten ist (eine etwas weniger knusprige Oberfläche, also etwas früher prüfen). Es ist die häufigste Lücke bei anderen Heißluftfritteusen-Rechnern und der Grund, warum es dieses Tool gibt.',
     relatedChartLink: 'Druckbare Umrechnungstabelle',
     relatedReverseLink: 'Heißluftfritteuse-zu-Ofen-Umrechner',
     relatedConvectionLink: "Umluft-zu-Heißluftfritteuse-Umrechner",
@@ -274,11 +274,11 @@ const de: Dictionary = {
     faqs: [
       {
         q: 'Warum nicht einfach 25°F abziehen und die Zeit für alles um 20 % kürzen?',
-        a: 'Weil unterschiedliche Lebensmittel unterschiedlich auf den schnelleren Luftstrom der Heißluftfritteuse reagieren. Ein dünnes Lebensmittel mit großer Oberfläche wie Pommes braucht einen größeren Zeitabzug (etwa 30 %), sonst trocknet es aus; ein dichter Auflauf braucht kaum einen (etwa 15 %). Dieser Umrechner wendet einen eigenen Multiplikator je Lebensmittelart an statt einer einzigen pauschalen Regel.',
+        a: 'Weil unterschiedliche Lebensmittel unterschiedlich auf den schnelleren Luftstrom der Heißluftfritteuse reagieren. Ein dünnes Lebensmittel mit großer Oberfläche wie Pommes braucht einen größeren Zeitabzug (etwa {MAX_CUT} %), sonst trocknet es aus; ein dichter Auflauf braucht kaum einen (etwa {MIN_CUT} %). Dieser Umrechner wendet einen eigenen Multiplikator je Lebensmittelart an statt einer einzigen pauschalen Regel.',
       },
       {
         q: 'Was passiert, wenn die umgerechnete Temperatur höher ist, als meine Heißluftfritteuse erreichen kann?',
-        a: 'Das Ergebnis wird auf die realistische Obergrenze deines Geräts begrenzt — 400°F für eine Korb-Heißluftfritteuse, 450°F für Ofen-Typ — und es werden ein paar Minuten zusätzlich hinzugefügt, um das auszugleichen, mit einem Hinweis, der erklärt, warum. Die meisten Rechner geben stillschweigend eine Zahl aus, die dein Gerät in Wirklichkeit gar nicht erreichen kann.',
+        a: 'Das Ergebnis wird auf die realistische Obergrenze deines Geräts begrenzt — {CEIL_BASKET}°F für eine Korb-Heißluftfritteuse, {CEIL_OVEN}°F für Ofen-Typ — und es werden ein paar Minuten zusätzlich hinzugefügt, um das auszugleichen, mit einem Hinweis, der erklärt, warum. Die meisten Rechner geben stillschweigend eine Zahl aus, die dein Gerät in Wirklichkeit gar nicht erreichen kann.',
       },
       {
         q: 'Was ist der Unterschied zwischen Korb- und Ofen-Einstellungen?',
@@ -286,11 +286,11 @@ const de: Dictionary = {
       },
       {
         q: 'Funktioniert das auch für Lebensmittel direkt aus dem Gefrierschrank?',
-        a: 'Tiefkühlkost folgt einer anderen Logik als ein frisches Rezept aus dem Kühlschrank — behalte die Verpackungstemperatur ungefähr bei und kürze die Zeit um etwa 30 %, das Gegenteil der üblichen Regel, da das Lebensmittel die volle Hitze erst zum Auftauen braucht, bevor es durchgaren kann.',
+        a: 'Tiefkühlkost folgt einer anderen Logik als ein frisches Rezept aus dem Kühlschrank — behalte die Verpackungstemperatur ungefähr bei und kürze die Zeit um {FZ_CUT_MIN}–{FZ_CUT_MAX} %, das Gegenteil der üblichen Regel, da das Lebensmittel die volle Hitze erst zum Auftauen braucht, bevor es durchgaren kann.',
       },
       {
         q: 'Wie genau ist das Ergebnis?',
-        a: 'Temperaturen werden auf die nächsten 5° gerundet, entsprechend den tatsächlichen Schritten der Regler und Digitalsteuerungen von Heißluftfritteusen. Betrachte das Ergebnis als Ausgangspunkt, nicht als Garantie — prüfe das Gericht etwas vor der vorgeschlagenen Zeit, besonders beim ersten Mal, wenn du in einem neuen Gerät kochst.',
+        a: 'Temperaturen werden auf die nächsten {DIAL}° gerundet, entsprechend den tatsächlichen Schritten der Regler und Digitalsteuerungen von Heißluftfritteusen. Betrachte das Ergebnis als Ausgangspunkt, nicht als Garantie — prüfe das Gericht etwas vor der vorgeschlagenen Zeit, besonders beim ersten Mal, wenn du in einem neuen Gerät kochst.',
       },
       {
         q: 'Gart eine Heißluftfritteuse mit mehr Watt schneller?',
@@ -306,7 +306,7 @@ const de: Dictionary = {
       },
       {
         q: 'Ist 200 Grad in einer Heißluftfritteuse dasselbe wie im Ofen?',
-        a: 'Nein. Heißluftfritteusen lassen heiße Luft direkt um das Lebensmittel in einer kleinen Kammer zirkulieren, sodass 200° in einer Heißluftfritteuse merklich schneller gart und stärker bräunt als 200° in einem klassischen Ofen. Als Faustregel: die Temperatur um etwa 20°F senken (oder etwa von 20°C auf 180°C) und die Zeit zum Ausgleich verkürzen — nutze den Rechner oben für eine auf dein spezifisches Gericht abgestimmte Zahl.',
+        a: 'Nein. Heißluftfritteusen lassen heiße Luft direkt um das Lebensmittel in einer kleinen Kammer zirkulieren, sodass 200° in einer Heißluftfritteuse merklich schneller gart und stärker bräunt als 200° in einem klassischen Ofen. Als Faustregel: die Temperatur um etwa {GEN_DT}°F senken (aus 200°C werden etwa {C200_AF}°C) und die Zeit zum Ausgleich verkürzen — nutze den Rechner oben für eine auf dein spezifisches Gericht abgestimmte Zahl.',
       },
       {
         q: 'Was ist die 20/20-Regel für Heißluftfritteusen?',
@@ -314,15 +314,15 @@ const de: Dictionary = {
       },
       {
         q: 'Was sind 30 Minuten im Ofen in der Heißluftfritteuse?',
-        a: 'Etwa 21–25 Minuten, je nachdem, was du zubereitest. Dünne Lebensmittel mit großer Oberfläche wie Pommes oder Wings verlieren eher nahe 30 % der Zeit (etwa 21 Minuten), während dichte Lebensmittel wie Aufläufe eher nahe 15 % verlieren (etwa 25 Minuten). Gib 30 Minuten und deine Lebensmittelart oben ein für eine genaue Zahl.',
+        a: 'Etwa {T30_LO}–{T30_HI} Minuten, je nachdem, was du zubereitest. Dünne Lebensmittel mit großer Oberfläche wie Pommes oder Bacon verlieren eher nahe {MAX_CUT} % der Zeit (etwa {T30_LO} Minuten), während dichte Lebensmittel wie Aufläufe eher nahe {MIN_CUT} % verlieren (etwa {T30_HI} Minuten). Gib 30 Minuten und deine Lebensmittelart oben ein für eine genaue Zahl.',
       },
       {
         q: 'Wie rechne ich 200°C für 15 Minuten im Ofen in die Heißluftfritteuse um?',
-        a: 'Als Ausgangspunkt werden 200°C für 15 Minuten im Ofen etwa zu 180°C für 12 Minuten in einer Heißluftfritteuse — eine Senkung um 20° und eine Zeitkürzung um 20 %. Die genauen Zahlen ändern sich je nach Lebensmittelart und ob du ein Korb- oder Ofen-Gerät hast, was der Rechner oben berücksichtigt.',
+        a: 'Als Ausgangspunkt werden 200°C für 15 Minuten im Ofen etwa zu {C200_AF}°C für {C200_MIN} Minuten in einer Korb-Heißluftfritteuse — eine Senkung um {C200_DROP}° und eine Zeitkürzung um {GEN_CUT} %. Die genauen Zahlen ändern sich je nach Lebensmittelart und ob du ein Korb- oder Ofen-Gerät hast, was der Rechner oben berücksichtigt.',
       },
       {
         q: 'Ist eine Heißluftfritteuse schneller als ein Ofen?',
-        a: 'Ja, typischerweise 20–30 % schneller. Die kleine Garkammer, das näher liegende Heizelement und die forcierte Luftzirkulation einer Heißluftfritteuse übertragen Wärme viel schneller auf das Lebensmittel als ein normal großer Ofen, und sie braucht kaum oder gar keine Vorheizzeit im Vergleich zu den 10–15 Minuten eines Ofens.',
+        a: 'Ja, typischerweise {MIN_CUT}–{MAX_CUT} % schneller. Die kleine Garkammer, das näher liegende Heizelement und die forcierte Luftzirkulation einer Heißluftfritteuse übertragen Wärme viel schneller auf das Lebensmittel als ein normal großer Ofen, und sie braucht kaum oder gar keine Vorheizzeit im Vergleich dazu.',
       },
       {
         q: 'Kann ich meinen Ofen durch eine Heißluftfritteuse ersetzen?',
@@ -334,7 +334,7 @@ const de: Dictionary = {
       },
       {
         q: 'Wie lange sind 20 Minuten im Ofen in der Heißluftfritteuse?',
-        a: 'Etwa 14–17 Minuten für die meisten Lebensmittel — ein Abzug von etwa 15–30 %, je nach Lebensmittelart. Dünne Lebensmittel wie Pommes oder Bacon liegen eher bei 14 Minuten; dichte Lebensmittel wie Gebäck eher bei 17. Nutze den Rechner oben mit deinem spezifischen Lebensmittel für eine genaue Zahl.',
+        a: 'Etwa {T20_LO}–{T20_HI} Minuten für die meisten Lebensmittel — ein Abzug von etwa {MIN_CUT}–{MAX_CUT} %, je nach Lebensmittelart. Dünne Lebensmittel wie Pommes oder Bacon liegen eher bei {T20_LO} Minuten; dichte Lebensmittel wie Gebäck eher bei {T20_HI}. Nutze den Rechner oben mit deinem spezifischen Lebensmittel für eine genaue Zahl.',
       },
       {
         q: 'Kann ich Alufolie in einer Heißluftfritteuse verwenden?',
@@ -342,7 +342,7 @@ const de: Dictionary = {
       },
       {
         q: 'Was ist gesünder, eine Heißluftfritteuse oder ein Ofen?',
-        a: 'Sie sind ungefähr gleichwertig — beide garen mit wenig bis keinem zusätzlichen Öl, anders als beim Frittieren. Der gesundheitliche Vorteil einer Heißluftfritteuse besteht speziell gegenüber dem Frittieren in Öl (bis zu 70–80 % weniger Öl), nicht gegenüber dem Backen im Ofen, das ohnehin nur minimal Öl verwendet. Der Hauptunterschied zum Ofen liegt in Bequemlichkeit und Geschwindigkeit, nicht in der Ernährung.',
+        a: 'Sie sind ungefähr gleichwertig — beide garen mit wenig bis keinem zusätzlichen Öl, anders als beim Frittieren. Der gesundheitliche Vorteil einer Heißluftfritteuse besteht speziell gegenüber dem Frittieren in Öl, nicht gegenüber dem Backen im Ofen, das ohnehin nur minimal Öl verwendet. Der Hauptunterschied zum Ofen liegt in Bequemlichkeit und Geschwindigkeit, nicht in der Ernährung.',
       },
       {
         q: 'Was ist der Unterschied zwischen einer Heißluftfritteuse und einem Umluftofen?',
@@ -350,7 +350,8 @@ const de: Dictionary = {
       },
       {
         q: 'Verbrauchen Heißluftfritteusen weniger Energie als ein Ofen?',
-        a: 'Ja. Eine typische Heißluftfritteuse zieht 1200–1800 Watt und läuft nur einen Bruchteil der Zeit, die ein Ofen braucht (kein langes Vorheizen, weniger zu erhitzendes Volumen), sodass eine einzelne Mahlzeit in der Regel deutlich weniger Energie kostet, als denselben Ofen für dasselbe Gericht auf volle Größe zu erhitzen.',
+        a: 'Ja, für eine einzelne Ladung. Which? hat dieselben Lebensmittel in beiden Geräten gemessen, Vorheizen eingeschlossen, und die Heißluftfritteuse brauchte jedes Mal {WHICH_SAVE_MIN} % bis {WHICH_SAVE_MAX} % weniger Energie, auch wenn ein voller Ofen für viele Gäste günstiger sein kann. Quelle: Which?, {WHICH_DATE}.',
+        link: 'cost',
       },
       {
         q: 'Kann ich eine Metallform oder ofenfestes Geschirr in eine Heißluftfritteuse stellen?',

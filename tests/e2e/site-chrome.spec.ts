@@ -61,6 +61,8 @@ test('FAQ answers print expanded', async ({ page }) => {
 });
 
 test('no page ships the old FAQ toggle script or <dd hidden> markup', async ({ page }) => {
+  // One goto per FAQ page: past the 30s default under full-suite load.
+  test.setTimeout(120_000);
   for (const path of FAQ_PAGES) {
     await page.goto(path);
     await expect(page.locator('.faq-toggle, dd.faq-a')).toHaveCount(0);

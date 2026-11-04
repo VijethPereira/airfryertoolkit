@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import ToolBody from '../components/ToolBody.astro';
 import siteConfig from '../site.config.ts';
 import { getDictionary } from '../i18n/dictionaries';
+import { flagshipFaqJsonLd } from '../lib/flagship-copy';
 
 const locale = 'en' as const;
 const dict = getDictionary(locale).tool;
@@ -29,11 +30,7 @@ const jsonLd = {
     },
     {
       '@type': 'FAQPage',
-      mainEntity: dict.faqs.map(({ q, a }) => ({
-        '@type': 'Question',
-        name: q,
-        acceptedAnswer: { '@type': 'Answer', text: a },
-      })),
+      mainEntity: flagshipFaqJsonLd(locale),
     },
   ],
 };

@@ -259,13 +259,13 @@ const pt: Dictionary = {
       'A maioria das calculadoras de forno para air fryer aplica uma única regra fixa a todo alimento: subtrai 25°F, corta o tempo em 20%. É um ponto de partida razoável, mas trata uma forma de batata fina do mesmo jeito que um gratinado denso, e nunca verifica se o resultado é uma temperatura que a sua air fryer realmente consegue atingir. Esta ferramenta faz duas coisas de forma diferente: ajusta o multiplicador por tipo de alimento, e limita o resultado ao teto real do seu aparelho em vez de devolver um número que não existe no seu mostrador.',
     multipliersHeading: 'Como funcionam os multiplicadores por tipo de alimento',
     multipliersBody:
-      'A câmara compacta e o ar forçado de uma air fryer transferem calor para o alimento muito mais rápido do que um forno de tamanho normal, então os tempos de cozimento sempre caem — mas o quanto depende da superfície e da densidade do alimento. Alimentos finos e com muita superfície, como batata frita ou bacon, perdem mais tempo (um corte de cerca de 30%) porque o ar quente chega a todos os lados quase imediatamente. Alimentos densos, como gratinados ou assados, perdem menos (cerca de 15%) porque o calor ainda precisa avançar até o centro. Frango, peixe e legumes ficam no meio termo. O conversor busca o multiplicador certo para o alimento que você selecionou em vez de aplicar um único número para tudo.',
+      'A câmara compacta e o ar forçado de uma air fryer transferem calor para o alimento muito mais rápido do que um forno de tamanho normal, então os tempos de cozimento sempre caem — mas o quanto depende da superfície e da densidade do alimento. Alimentos finos e com muita superfície, como batata frita ou bacon, perdem mais tempo (um corte de cerca de {MAX_CUT}%) porque o ar quente chega a todos os lados quase imediatamente. Alimentos densos, como gratinados ou assados, perdem menos (cerca de {MIN_CUT}%) porque o calor ainda precisa avançar até o centro. Frango, peixe e legumes ficam no meio termo. O conversor busca o multiplicador certo para o alimento que você selecionou em vez de aplicar um único número para tudo.',
     basketVsOvenHeading: 'Fluxo de ar: cesto vs. tipo forno',
     basketVsOvenBody:
-      'Uma air fryer de cesto empacota o alimento em uma câmara pequena com ar circulando por todos os lados, o que cozinha rápido mas tem um teto seguro mais baixo — a maioria dos cestos para perto de 400°F. Unidades tipo forno (fornos air fryer e cestos tipo forno tostadeira) têm mais volume de ar ao redor do alimento, então o efeito é um pouco mais suave: esta ferramenta reduz 5°F a menos da temperatura do forno e adiciona um pequeno extra de tempo para unidades tipo forno, e permite que o resultado chegue até 450°F antes de limitar.',
+      'Uma air fryer de cesto empacota o alimento em uma câmara pequena com ar circulando por todos os lados, o que cozinha rápido mas tem um teto seguro mais baixo — a maioria dos cestos para perto de {CEIL_BASKET}°F. Unidades tipo forno (fornos air fryer e cestos tipo forno tostadeira) têm mais volume de ar ao redor do alimento, então o efeito é um pouco mais suave: esta ferramenta reduz {OS_DT}°F a menos da temperatura do forno e adiciona um pequeno extra de tempo para unidades tipo forno, e permite que o resultado chegue até {CEIL_OVEN}°F antes de limitar.',
     whatHappensHeading: 'O que acontece quando uma receita pede mais calor do que a sua air fryer consegue dar',
     whatHappensBody:
-      'Uma receita de 450°F convertida com uma regra fixa em uma air fryer de cesto com máximo de 400°F retornaria 425°F — um ajuste que não existe no mostrador. Esta ferramenta limita o resultado ao teto real do aparelho (400°F cesto, 450°F tipo forno) e adiciona tempo de volta para compensar o calor menor, com uma nota em linguagem simples explicando o que aconteceu e o que esperar (uma superfície um pouco menos crocante, então verifique um pouco antes). É a lacuna mais comum entre as demais calculadoras de air fryer, e o motivo desta ferramenta existir.',
+      'Uma receita de 450°F convertida com uma regra fixa em uma air fryer de cesto com máximo de {CEIL_BASKET}°F retornaria 425°F — um ajuste que não existe no mostrador. Esta ferramenta limita o resultado ao teto real do aparelho ({CEIL_BASKET}°F cesto, {CEIL_OVEN}°F tipo forno) e adiciona tempo de volta para compensar o calor menor, com uma nota em linguagem simples explicando o que aconteceu e o que esperar (uma superfície um pouco menos crocante, então verifique um pouco antes). É a lacuna mais comum entre as demais calculadoras de air fryer, e o motivo desta ferramenta existir.',
     relatedChartLink: 'Tabela de conversão para imprimir',
     relatedReverseLink: 'Conversor de air fryer para forno',
     relatedConvectionLink: "Conversor de convecção para air fryer",
@@ -274,11 +274,11 @@ const pt: Dictionary = {
     faqs: [
       {
         q: 'Por que não simplesmente subtrair 25°F e cortar o tempo em 20% para tudo?',
-        a: 'Porque alimentos diferentes respondem de forma diferente ao fluxo de ar mais rápido da air fryer. Um alimento fino e com muita superfície, como batata frita, precisa de um corte de tempo maior (cerca de 30%) ou resseca; um gratinado denso quase não precisa de corte (cerca de 15%). Este conversor aplica um multiplicador diferente por tipo de alimento em vez de uma única regra fixa.',
+        a: 'Porque alimentos diferentes respondem de forma diferente ao fluxo de ar mais rápido da air fryer. Um alimento fino e com muita superfície, como batata frita, precisa de um corte de tempo maior (cerca de {MAX_CUT}%) ou resseca; um gratinado denso quase não precisa de corte (cerca de {MIN_CUT}%). Este conversor aplica um multiplicador diferente por tipo de alimento em vez de uma única regra fixa.',
       },
       {
         q: 'O que acontece se a temperatura convertida for maior do que a minha air fryer consegue atingir?',
-        a: 'O resultado é limitado ao teto realista do seu aparelho — 400°F para uma air fryer de cesto, 450°F para tipo forno — e alguns minutos extras são adicionados de volta para compensar, com uma nota explicando o motivo. A maioria das calculadoras devolve silenciosamente um número que o seu aparelho na verdade não consegue atingir.',
+        a: 'O resultado é limitado ao teto realista do seu aparelho — {CEIL_BASKET}°F para uma air fryer de cesto, {CEIL_OVEN}°F para tipo forno — e alguns minutos extras são adicionados de volta para compensar, com uma nota explicando o motivo. A maioria das calculadoras devolve silenciosamente um número que o seu aparelho na verdade não consegue atingir.',
       },
       {
         q: 'Qual a diferença entre os ajustes de cesto e tipo forno?',
@@ -286,11 +286,11 @@ const pt: Dictionary = {
       },
       {
         q: 'Funciona para alimentos direto do congelador?',
-        a: 'Alimentos congelados seguem uma lógica diferente de uma receita fresca tirada da geladeira — mantenha a temperatura da embalagem praticamente igual e corte o tempo em cerca de 30%, o oposto da regra habitual, já que o alimento precisa do calor total só para descongelar antes de poder cozinhar.',
+        a: 'Alimentos congelados seguem uma lógica diferente de uma receita fresca tirada da geladeira — mantenha a temperatura da embalagem praticamente igual e corte o tempo em {FZ_CUT_MIN}–{FZ_CUT_MAX}%, o oposto da regra habitual, já que o alimento precisa do calor total só para descongelar antes de poder cozinhar.',
       },
       {
         q: 'Quão preciso é o resultado?',
-        a: 'As temperaturas são arredondadas para o múltiplo de 5 mais próximo, do jeito que os mostradores e controles digitais das air fryers realmente avançam. Trate o resultado como um ponto de partida, não uma garantia — verifique o alimento um pouco antes do tempo sugerido, principalmente na primeira vez que você cozinha algo em um aparelho novo.',
+        a: 'As temperaturas são arredondadas para o múltiplo de {DIAL} mais próximo, do jeito que os mostradores e controles digitais das air fryers realmente avançam. Trate o resultado como um ponto de partida, não uma garantia — verifique o alimento um pouco antes do tempo sugerido, principalmente na primeira vez que você cozinha algo em um aparelho novo.',
       },
       {
         q: 'Uma air fryer com mais watts cozinha mais rápido?',
@@ -306,7 +306,7 @@ const pt: Dictionary = {
       },
       {
         q: '200 graus na air fryer é o mesmo que no forno?',
-        a: 'Não. As air fryers fazem o ar quente circular diretamente ao redor do alimento em uma câmara pequena, então 200° na air fryer cozinha visivelmente mais rápido e doura mais do que 200° em um forno convencional. Como regra geral, reduza a temperatura em cerca de 20°F (ou aproximadamente de 20°C para 180°C) e diminua o tempo para compensar — use a calculadora acima para um número ajustado ao seu alimento específico.',
+        a: 'Não. As air fryers fazem o ar quente circular diretamente ao redor do alimento em uma câmara pequena, então 200° na air fryer cozinha visivelmente mais rápido e doura mais do que 200° em um forno convencional. Como regra geral, reduza a temperatura em cerca de {GEN_DT}°F (200°C viram cerca de {C200_AF}°C) e diminua o tempo para compensar — use a calculadora acima para um número ajustado ao seu alimento específico.',
       },
       {
         q: 'O que é a regra 20/20 para air fryers?',
@@ -314,15 +314,15 @@ const pt: Dictionary = {
       },
       {
         q: 'Quanto são 30 minutos de forno em uma air fryer?',
-        a: 'Aproximadamente 21–25 minutos, dependendo do que você está cozinhando. Alimentos finos e com muita superfície, como batata frita ou asinhas, perdem mais perto de 30% do tempo (cerca de 21 minutos), enquanto alimentos densos, como gratinados, perdem mais perto de 15% (cerca de 25 minutos). Digite 30 minutos e o seu tipo de alimento acima para um número exato.',
+        a: 'Aproximadamente {T30_LO}–{T30_HI} minutos, dependendo do que você está cozinhando. Alimentos finos e com muita superfície, como batata frita ou bacon, perdem mais perto de {MAX_CUT}% do tempo (cerca de {T30_LO} minutos), enquanto alimentos densos, como gratinados, perdem mais perto de {MIN_CUT}% (cerca de {T30_HI} minutos). Digite 30 minutos e o seu tipo de alimento acima para um número exato.',
       },
       {
         q: 'Como converto 200°C por 15 minutos no forno para air fryer?',
-        a: 'Como ponto de partida, 200°C por 15 minutos no forno viram aproximadamente 180°C por 12 minutos na air fryer — uma queda de 20° e um corte de tempo de 20%. Os números exatos mudam conforme o tipo de alimento e se você tem uma unidade de cesto ou tipo forno, que é exatamente o que a calculadora acima leva em conta.',
+        a: 'Como ponto de partida, 200°C por 15 minutos no forno viram aproximadamente {C200_AF}°C por {C200_MIN} minutos na air fryer de cesto — uma queda de {C200_DROP}° e um corte de tempo de {GEN_CUT}%. Os números exatos mudam conforme o tipo de alimento e se você tem uma unidade de cesto ou tipo forno, que é exatamente o que a calculadora acima leva em conta.',
       },
       {
         q: 'A air fryer é mais rápida do que o forno?',
-        a: 'Sim, tipicamente 20–30% mais rápida. A câmara de cozimento pequena da air fryer, a resistência mais próxima e a circulação de ar forçado transferem calor ao alimento muito mais rápido do que um forno de tamanho normal, e ela precisa de pouco ou nenhum tempo de pré-aquecimento comparado aos 10–15 minutos de um forno.',
+        a: 'Sim, tipicamente {MIN_CUT}–{MAX_CUT}% mais rápida. A câmara de cozimento pequena da air fryer, a resistência mais próxima e a circulação de ar forçado transferem calor ao alimento muito mais rápido do que um forno de tamanho normal, e ela precisa de pouco ou nenhum tempo de pré-aquecimento em comparação.',
       },
       {
         q: 'Posso substituir meu forno por uma air fryer?',
@@ -334,7 +334,7 @@ const pt: Dictionary = {
       },
       {
         q: 'Quanto são 20 minutos de forno em uma air fryer?',
-        a: 'Cerca de 14–17 minutos para a maioria dos alimentos — um corte de aproximadamente 15–30% dependendo do tipo de alimento. Alimentos finos como batata frita ou bacon ficam mais perto de 14 minutos; alimentos densos como assados ficam mais perto de 17. Use a calculadora acima com o seu alimento específico para um número preciso.',
+        a: 'Cerca de {T20_LO}–{T20_HI} minutos para a maioria dos alimentos — um corte de aproximadamente {MIN_CUT}–{MAX_CUT}% dependendo do tipo de alimento. Alimentos finos como batata frita ou bacon ficam mais perto de {T20_LO} minutos; alimentos densos como assados ficam mais perto de {T20_HI}. Use a calculadora acima com o seu alimento específico para um número preciso.',
       },
       {
         q: 'Posso usar papel-alumínio na air fryer?',
@@ -342,7 +342,7 @@ const pt: Dictionary = {
       },
       {
         q: 'O que é mais saudável, air fryer ou forno?',
-        a: 'São mais ou menos equivalentes — os dois cozinham com pouco ou nenhum óleo adicionado, ao contrário da fritura por imersão. A vantagem de saúde da air fryer é especificamente em relação à fritura por imersão (até 70–80% menos óleo), não em relação a assar no forno, que já usa pouco óleo. A principal diferença em relação ao forno é conveniência e velocidade, não nutrição.',
+        a: 'São mais ou menos equivalentes — os dois cozinham com pouco ou nenhum óleo adicionado, ao contrário da fritura por imersão. A vantagem de saúde da air fryer é especificamente em relação à fritura por imersão, não em relação a assar no forno, que já usa pouco óleo. A principal diferença em relação ao forno é conveniência e velocidade, não nutrição.',
       },
       {
         q: 'Qual a diferença entre air fryer e forno de convecção?',
@@ -350,7 +350,8 @@ const pt: Dictionary = {
       },
       {
         q: 'Air fryers usam menos energia do que um forno?',
-        a: 'Sim. Uma air fryer típica consome entre 1200 e 1800 watts e funciona por uma fração do tempo que um forno precisa (sem pré-aquecimento longo, menos volume para aquecer), então uma única refeição geralmente custa visivelmente menos energia do que aquecer um forno de tamanho normal para o mesmo alimento.',
+        a: 'Sim, para uma única fornada. A Which? mediu os mesmos alimentos nos dois aparelhos, pré-aquecimento incluído, e a air fryer gastou entre {WHICH_SAVE_MIN}% e {WHICH_SAVE_MAX}% menos energia em cada um, embora um forno cheio para muita gente ainda possa sair mais barato. Fonte: Which?, {WHICH_DATE}.',
+        link: 'cost',
       },
       {
         q: 'Posso colocar uma forma de metal ou um recipiente próprio para forno na air fryer?',

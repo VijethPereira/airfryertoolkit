@@ -12,6 +12,7 @@ import { TEMP_STEPS } from '../../src/lib/chart-data';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
 import { brands as dict } from '../../src/i18n/dictionaries/brands/en';
 import { getDictionary } from '../../src/i18n/dictionaries';
+import { flagshipProse } from '../../src/lib/flagship-copy';
 import { LOCALES, DEFAULT_LOCALE } from '../../src/i18n/locales';
 import { localizedPath } from '../../src/i18n/utils';
 
@@ -206,8 +207,7 @@ test.describe('English-only pages', () => {
 
 test.describe('brand pages', () => {
   test('each page leads with a different failure mode, and no page is a template (4-gram Jaccard < 0.15 vs each other and the flagship)', () => {
-    const en = getDictionary('en');
-    const flagship = [en.tool.subDesc, en.tool.aboutBody, en.tool.multipliersBody, en.tool.basketVsOvenBody, en.tool.whatHappensBody, ...en.tool.faqs.flatMap((f) => [f.q, f.a])].join(' ');
+    const flagship = flagshipProse('en');
     const sets = LIVE_KEYS.map((k) => shingles(brandCopy(k)));
     const flag = shingles(flagship);
     for (let i = 0; i < sets.length; i++) {
