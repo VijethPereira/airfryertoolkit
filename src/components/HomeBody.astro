@@ -348,7 +348,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   @reference '../styles/global.css';
 
   .wrap {
-    max-width: 1200px;
+    max-width: var(--site-max-width);
     margin-inline: auto;
     padding-inline: 24px;
   }
@@ -729,7 +729,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .chart-grid {
-    max-width: 1200px;
+    max-width: var(--site-max-width);
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));

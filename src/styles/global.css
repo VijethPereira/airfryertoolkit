@@ -51,6 +51,8 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 
 /* Site tokens: plain CSS variables, not Tailwind utilities */
 :root {
+  /* Width of the header, footer and homepage. Pages with long text use a narrower column inside it. */
+  --site-max-width: 1280px;
   --site-bg: #f0e9e5;
   --site-bg-deep: #e3d7cd;
   --site-bg-card: #ffffff;
