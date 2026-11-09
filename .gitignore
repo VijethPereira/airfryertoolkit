@@ -15,6 +15,9 @@ competitor-analysis.md
 # Agent tooling cache, not project source
 .agents/
 
+# Manuals downloaded for sourced values, kept locally for re-readability
+manuals/
+
 # Playwright output
 test-results/
 playwright-report/

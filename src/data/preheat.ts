@@ -11,6 +11,7 @@
  */
 
 const READ = '2026-11-09';
+const NINJA_READ = '2026-10-28, page not recorded';
 
 export interface PreheatChartRow {
   /** Inclusive °F range, as printed. */
@@ -86,10 +87,12 @@ const instant = (modelId: string, pages: number[], programs: PreheatProgram[]): 
   ({ modelId, kind: 'auto', docType: 'manual', pages, read: READ, programs });
 
 export const MODEL_PREHEAT: ModelPreheat[] = [
-  // Ninja: the owner's guides read in 10.7 are no longer on file, and this page does not reuse notes from them.
-  ...['ninja-af101', 'ninja-pro-af141', 'ninja-max-xl-af161', 'ninja-doublestack-sl401', 'ninja-foodi-oven-sp101'].map(
-    (modelId): ModelPreheat => ({ modelId, kind: 'notReread', docType: 'ownersGuide', pages: [], read: null }),
-  ),
+  // Ninja: owner's guides read 2026-10-28 (manuals/ninja/). AF101 p7: "recommended to let the unit preheat for 3 minutes". AF141 p3: "3 MIN Preheat ... always preheat ... for 3 minutes". AF161 p8 (Air Fry): "For best results, let the unit preheat for 3 minutes". SL401: no preheat mentioned. SP101: Air Fry, Roast, Grill, Bake, Dehydrate preheat automatically (PRE flashes, timer starts after preheat).
+  { modelId: 'ninja-af101', kind: 'fixed', docType: 'ownersGuide', pages: [7], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },
+  { modelId: 'ninja-pro-af141', kind: 'fixed', docType: 'ownersGuide', pages: [3], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },
+  { modelId: 'ninja-max-xl-af161', kind: 'fixed', docType: 'ownersGuide', pages: [8], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },
+  { modelId: 'ninja-doublestack-sl401', kind: 'none', docType: 'ownersGuide', pages: [], read: NINJA_READ },
+  { modelId: 'ninja-foodi-oven-sp101', kind: 'auto', docType: 'ownersGuide', pages: [10, 11, 12, 13, 15], read: NINJA_READ, programs: ['airFry', 'roast', 'bake', 'broil', 'pizza', 'dehydrate'] },
 
   // Cosori
   { modelId: 'cosori-pro-le-5', kind: 'chart', docType: 'manual', pages: [10], read: READ },
