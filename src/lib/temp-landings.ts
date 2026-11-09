@@ -4,6 +4,7 @@
  * (LIVE_PAGES / TRANSLATED_PAGES), ChartBody's row links, HomeBody's rail, and the e2e
  * suite. Every number a page shows comes from `tempLandingValues`, never from copy.
  */
+import { basketPreheatMinutes } from './preheat';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import {
   FOODS,
@@ -89,8 +90,7 @@ export function tempLandingValues(landing: TempLanding, locale: LocaleCode = DEF
     OS_F: String(oven.outF),
     OS_C: String(oven.outC),
     OS_PCT: String(timeCutPercent(tempF, 'general', 'oven')),
-    PREHEAT: String(basket.preheatMinutes),
-    OS_PREHEAT: String(oven.preheatMinutes),
+    PREHEAT: String(basketPreheatMinutes(basket.outF!)),
     CEILING: String(basket.ceiling),
     OS_CEILING: String(oven.ceiling),
     EX_OVEN_MIN: String(example.ovenMinutes),

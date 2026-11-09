@@ -84,7 +84,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         'Una receta asa contramuslos de pollo con hueso a {OVEN_F}°F durante {EX_OVEN_MIN} minutos. En una freidora de cesta pasa a {EX_F}°F ({EX_C}°C) durante {EX_MIN} minutos; empieza a comprobar el más grueso a los {EX_CHECK} minutos y sigue hasta que marque al menos 165°F junto al hueso. En una freidora tipo horno, que se parece más a un pequeño horno de convección, son {EX_OS_F}°F durante {EX_OS_MIN} minutos. Dales la vuelta una vez a mitad de cocción en los dos tipos.',
       styleHeading: 'Cesta o tipo horno a 375°F',
       styleBody:
-        'Aquí los dos tipos solo se separan unos grados — {AF_F}°F en cesta, {OS_F}°F tipo horno — pero el tiempo cambia más: un {PCT}% menos que el horno en una cesta y un {OS_PCT}% menos en un aparato tipo horno. La cesta mueve el aire más rápido alrededor de una carga pequeña y termina antes; el tipo horno reparte la comida en bandejas y cocina más como un horno con ventilador. Si el tuyo tiene dos bandejas, cámbialas a mitad, porque la más cercana a la resistencia dora más. Precalienta {PREHEAT} minutos en una cesta o {OS_PREHEAT} en un tipo horno. {OVEN_F}°F son {OVEN_C}°C, y el conversor acepta las dos unidades.',
+        'Aquí los dos tipos solo se separan unos grados — {AF_F}°F en cesta, {OS_F}°F tipo horno — pero el tiempo cambia más: un {PCT}% menos que el horno en una cesta y un {OS_PCT}% menos en un aparato tipo horno. La cesta mueve el aire más rápido alrededor de una carga pequeña y termina antes; el tipo horno reparte la comida en bandejas y cocina más como un horno con ventilador. Si el tuyo tiene dos bandejas, cámbialas a mitad, porque la más cercana a la resistencia dora más. Precalienta una cesta {PREHEAT} minutos; un tipo horno se precalienta solo y avisa cuándo meter la comida. {OVEN_F}°F son {OVEN_C}°C, y el conversor acepta las dos unidades.',
       faqs: [
         {
           q: '¿A cuánto equivalen {OVEN_F}°F en una freidora de aire?',
@@ -100,7 +100,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         },
         {
           q: '¿Hay que precalentar la freidora para una receta a {OVEN_F}°F?',
-          a: 'Un precalentado corto — {PREHEAT} minutos en cesta, {OS_PREHEAT} en tipo horno — ayuda a que el hojaldre suba y la piel quede crujiente. En albóndigas y pimientos rellenos apenas cambia nada; mejor añade un minuto al tiempo.',
+          a: 'Un precalentado corto — {PREHEAT} minutos en cesta, automático en tipo horno — ayuda a que el hojaldre suba y la piel quede crujiente. En albóndigas y pimientos rellenos apenas cambia nada; mejor añade un minuto al tiempo.',
         },
         {
           q: '¿Puedo hacer una cena completa de bandeja con una receta a {OVEN_F}°F?',

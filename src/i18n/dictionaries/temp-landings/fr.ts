@@ -84,7 +84,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         'Une recette rôtit des hauts de cuisse de poulet avec os à {OVEN_F}°F pendant {EX_OVEN_MIN} minutes. Dans une friteuse à panier, cela devient {EX_F}°F ({EX_C}°C) pendant {EX_MIN} minutes ; commencez à contrôler le plus épais à {EX_CHECK} minutes et continuez jusqu’à au moins 165°F près de l’os. Dans une friteuse type four, qui se comporte davantage comme un petit four à chaleur tournante, c’est {EX_OS_F}°F pendant {EX_OS_MIN} minutes. Retournez les morceaux une fois à mi-cuisson dans les deux cas.',
       styleHeading: 'Panier ou type four à 375°F',
       styleBody:
-        'Ici, les deux types ne diffèrent que de quelques degrés — {AF_F}°F en panier, {OS_F}°F en type four — mais le temps varie davantage : environ {PCT} % de moins que le four en panier et environ {OS_PCT} % de moins en type four. Le panier brasse l’air plus vite autour d’une petite charge et finit plus tôt ; le type four répartit les aliments sur des grilles et cuit plutôt comme un four à chaleur tournante. Si le vôtre a deux grilles, intervertissez-les à mi-cuisson, car celle qui est près de la résistance dore plus vite. Préchauffez {PREHEAT} minutes en panier ou {OS_PREHEAT} en type four. {OVEN_F}°F font {OVEN_C}°C, et le convertisseur accepte les deux unités.',
+        'Ici, les deux types ne diffèrent que de quelques degrés — {AF_F}°F en panier, {OS_F}°F en type four — mais le temps varie davantage : environ {PCT} % de moins que le four en panier et environ {OS_PCT} % de moins en type four. Le panier brasse l’air plus vite autour d’une petite charge et finit plus tôt ; le type four répartit les aliments sur des grilles et cuit plutôt comme un four à chaleur tournante. Si le vôtre a deux grilles, intervertissez-les à mi-cuisson, car celle qui est près de la résistance dore plus vite. Préchauffez un panier {PREHEAT} minutes ; un appareil type four préchauffe seul et signale quand ajouter les aliments. {OVEN_F}°F font {OVEN_C}°C, et le convertisseur accepte les deux unités.',
       faqs: [
         {
           q: 'Combien font {OVEN_F}°F dans une friteuse à air ?',
@@ -100,7 +100,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         },
         {
           q: 'Faut-il préchauffer la friteuse pour une recette à {OVEN_F}°F ?',
-          a: 'Un court préchauffage — {PREHEAT} minutes en panier, {OS_PREHEAT} en type four — aide la pâte feuilletée à monter et la peau à croustiller. Pour les boulettes et les poivrons farcis, cela change peu de chose ; ajoutez plutôt une minute au temps.',
+          a: 'Un court préchauffage — {PREHEAT} minutes en panier, automatique en type four — aide la pâte feuilletée à monter et la peau à croustiller. Pour les boulettes et les poivrons farcis, cela change peu de chose ; ajoutez plutôt une minute au temps.',
         },
         {
           q: 'Peut-on faire tout un dîner sur plaque à partir d’une recette à {OVEN_F}°F ?',

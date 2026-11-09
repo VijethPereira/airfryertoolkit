@@ -1,6 +1,7 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/pt';
 import cost from './cost/pt';
+import preheat from './preheat/pt';
 import { presets, presetsIndex } from './presets/pt';
 
 const pt: Dictionary = {
@@ -38,6 +39,7 @@ const pt: Dictionary = {
     airFryerSetting: 'Ajuste da air fryer',
     checkAt: 'Verificar aos',
     preheat: 'Pré-aquecer',
+    preheatAuto: 'automático',
     gasMark: 'Nível de gás',
     gasMarkDash: 'Nível de gás —',
     unitBasket: 'air fryer de cesto',
@@ -166,7 +168,7 @@ const pt: Dictionary = {
     convertCards: [
       { title: 'Forno → Air fryer', desc: 'O principal. Multiplicadores por tipo de alimento, cesto vs. tipo forno, limite máximo de temperatura, °F/°C/nível de gás.' },
       { title: 'Convecção → Air fryer', desc: 'Receitas de convecção já vêm ajustadas pelo ventilador, por isso precisam de um corte mais suave. A maioria das ferramentas erra isso.' },
-      { title: 'Ajuste por lote e porções', desc: 'Ajuste o tempo quando o cesto está cheio ou você cozinha em duas leva.' },
+      { title: 'Guia de pré-aquecimento', desc: 'Quanto pré-aquecer conforme a temperatura, segundo os manuais. Os tipo forno fazem isso sozinhos.' },
       { title: 'Custo: air fryer vs forno', desc: 'Quanto custa uma receita em cada aparelho ao seu preço da luz, com energia medida, não a da etiqueta.' },
     ],
     reverseCards: [
@@ -221,7 +223,7 @@ const pt: Dictionary = {
       },
       {
         heading: 'Como funciona a conversão de forno para air fryer',
-        body: 'A maioria dos conselhos de conversão de forno para air fryer na internet se resume a uma linha: subtraia 25°F e corte o tempo em um quinto. Essa regra não está exatamente errada — air fryers são pequenos fornos de convecção com ar forçado, então transferem calor mais rápido e precisam de menos temperatura e menos tempo do que um forno convencional. Mas tratar todo alimento da mesma forma é onde as regras fixas falham. Uma regra fixa assume que uma forma de batata frita fina e um bolo denso de banana respondem igual ao fluxo de ar mais rápido. Não respondem. Alimentos finos e com muita superfície, como batata frita, bacon e asinhas de frango, ficam cercados de ar quente em quase todos os lados, então cozinham muito mais rápido — geralmente precisando de 25–30% menos tempo. Um gratinado denso ou um corte grosso de carne ainda precisa conduzir o calor até o centro do mesmo jeito que faria no forno, então a economia é menor, mais perto de 10–15%. Aplique o multiplicador da batata frita no gratinado e ele sairá mal passado; aplique o multiplicador do gratinado na batata frita e ela vai ressecar. É por isso que uma conversão adequada de forno convencional para air fryer precisa de um multiplicador por categoria de alimento em vez de um único número para tudo — o conversor acima observa o que você selecionou e aplica a redução de tempo que aquele tipo de alimento realmente precisa, junto com a queda padrão de temperatura.',
+        body: 'A maioria dos conselhos de conversão de forno para air fryer na internet se resume a uma linha: subtraia 25°F e corte o tempo em um quinto. Essa regra não está exatamente errada — air fryers são pequenos fornos de convecção com ar forçado, então transferem calor mais rápido e precisam de menos temperatura e menos tempo do que um forno convencional. Mas tratar todo alimento da mesma forma é onde as regras fixas falham. Uma regra fixa assume que uma forma de batata frita fina e um bolo denso de banana respondem igual ao fluxo de ar mais rápido. Não respondem. Alimentos finos e com muita superfície, como batata frita, bacon e asinhas de frango, ficam cercados de ar quente em quase todos os lados, então cozinham muito mais rápido — geralmente precisando de até {MAX_CUT}% menos tempo. Um gratinado denso ou um corte grosso de carne ainda precisa conduzir o calor até o centro do mesmo jeito que faria no forno, então a economia é menor, mais perto de {MIN_CUT}%. Aplique o multiplicador da batata frita no gratinado e ele sairá mal passado; aplique o multiplicador do gratinado na batata frita e ela vai ressecar. É por isso que uma conversão adequada de forno convencional para air fryer precisa de um multiplicador por categoria de alimento em vez de um único número para tudo — o conversor acima observa o que você selecionou e aplica a redução de tempo que aquele tipo de alimento realmente precisa, junto com a queda padrão de temperatura.',
       },
       {
         heading: 'Passo a passo: como converter de forno para air fryer',
@@ -229,19 +231,19 @@ const pt: Dictionary = {
       },
       {
         heading: 'Conversão do tempo de cozimento de forno para air fryer',
-        body: 'A temperatura é só metade do trabalho — a conversão do tempo de cozimento de forno para air fryer importa igualmente, e é a parte que as calculadoras de regra fixa costumam errar. Como as air fryers fazem o ar quente circular diretamente ao redor do alimento em uma câmara pequena, o calor chega à superfície mais rápido e o cozimento termina antes mesmo em uma temperatura menor. É por isso que um assado de 45 minutos no forno pode virar um cozimento de 32 minutos na air fryer, em vez de uma simples porcentagem do número original: a redução de tempo depende de quanta superfície o alimento expõe àquele fluxo de ar, não só da mudança de temperatura.',
+        body: 'A temperatura é só metade do trabalho — a conversão do tempo de cozimento de forno para air fryer importa igualmente, e é a parte que as calculadoras de regra fixa costumam errar. Como as air fryers fazem o ar quente circular diretamente ao redor do alimento em uma câmara pequena, o calor chega à superfície mais rápido e o cozimento termina antes mesmo em uma temperatura menor. É por isso que um assado de 45 minutos no forno pode virar um cozimento de {T45_FAST} minutos na air fryer, em vez de uma simples porcentagem do número original: a redução de tempo depende de quanta superfície o alimento expõe àquele fluxo de ar, não só da mudança de temperatura.',
       },
       {
         heading: 'Conversão de air fryer para forno (o caminho inverso)',
-        body: 'A conversão funciona nos dois sentidos. Às vezes você tem uma receita de air fryer ou uma predefinição do manual do seu aparelho e precisa converter para ajustes de forno — porque está cozinhando um lote maior do que o cesto comporta, a air fryer já está ocupada com outra coisa, ou você está servindo a mesa toda usando o forno completo. A conversão de air fryer para forno geralmente significa aumentar a temperatura e adicionar tempo de cozimento de volta, já que a cavidade maior e o fluxo de ar mais lento de um forno convencional não conseguem igualar o calor concentrado da air fryer. Uma calculadora de air fryer para forno aplica isso ao contrário: soma cerca de 25°F de volta à temperatura da air fryer, depois estende o tempo pela mesma porcentagem sensível ao tipo de alimento que a conversão direta havia subtraído. É a mesma lógica de base, aplicada ao contrário, e é igualmente sensível ao tipo de alimento — um lote de nuggets ampliado para o forno precisa de um ajuste de tempo diferente do de um frango inteiro.',
+        body: 'A conversão funciona nos dois sentidos. Às vezes você tem uma receita de air fryer ou uma predefinição do manual do seu aparelho e precisa converter para ajustes de forno — porque está cozinhando um lote maior do que o cesto comporta, a air fryer já está ocupada com outra coisa, ou você está servindo a mesa toda usando o forno completo. A conversão de air fryer para forno geralmente significa aumentar a temperatura e adicionar tempo de cozimento de volta, já que a cavidade maior e o fluxo de ar mais lento de um forno convencional não conseguem igualar o calor concentrado da air fryer. Uma calculadora de air fryer para forno aplica isso ao contrário: soma cerca de {GEN_DT}°F de volta à temperatura da air fryer, depois estende o tempo pela mesma porcentagem sensível ao tipo de alimento que a conversão direta havia subtraído. É a mesma lógica de base, aplicada ao contrário, e é igualmente sensível ao tipo de alimento — um lote de nuggets ampliado para o forno precisa de um ajuste de tempo diferente do de um frango inteiro.',
       },
       {
         heading: 'Air fryer de cesto vs. tipo forno',
-        body: 'Nem toda air fryer se comporta da mesma forma, por isso este conversor pergunta qual tipo você tem antes de terminar a conversão. Air fryers de cesto empacotam o alimento em uma câmara pequena e fechada com ar circulando por todos os lados — é isso que as torna rápidas, mas também significa que a maioria dos modelos tem um limite perto de 400°F, e ultrapassar esse limite não é realista, não importa o que uma calculadora genérica sugira. Unidades tipo forno (incluindo fornos air fryer e cestos tipo forno tostadeira) têm mais volume de ar ao redor do alimento, então o efeito é mais suave: as temperaturas podem ser um pouco mais altas, até perto de 450°F, antes de atingir um limite prático. Levar o tipo do seu aparelho em conta na conversão, em vez de ignorá-lo, é o que mantém o resultado realista.',
+        body: 'Nem toda air fryer se comporta da mesma forma, por isso este conversor pergunta qual tipo você tem antes de terminar a conversão. Air fryers de cesto empacotam o alimento em uma câmara pequena e fechada com ar circulando por todos os lados — é isso que as torna rápidas, mas também significa que a maioria dos modelos tem um limite perto de {CEIL_BASKET}°F, e ultrapassar esse limite não é realista, não importa o que uma calculadora genérica sugira. Unidades tipo forno (incluindo fornos air fryer e cestos tipo forno tostadeira) têm mais volume de ar ao redor do alimento, então o efeito é mais suave: as temperaturas podem ser um pouco mais altas, até perto de {CEIL_OVEN}°F, antes de atingir um limite prático. Levar o tipo do seu aparelho em conta na conversão, em vez de ignorá-lo, é o que mantém o resultado realista.',
       },
       {
         heading: 'Dicas para obter os melhores resultados',
-        body: 'Algumas coisas ajudam qualquer resultado de conversor de forno para air fryer a ficar mais certo já na primeira tentativa. Pré-aqueça rapidamente — cerca de 3 minutos para um cesto, 4 para tipo forno — já que as air fryers perdem mais calor relativo do que um forno quando a porta ou a gaveta é aberta. Não sobrecarregue o cesto; uma única camada, sem apertar demais, é o que os multiplicadores por tipo de alimento assumem, e um cesto lotado precisa de tempo extra, mais próximo do que um forno completo precisaria. Verifique o alimento alguns minutos antes do tempo convertido sugerido, principalmente na primeira vez que você converte uma receita nova, já que a potência e a calibração variam entre modelos de air fryer. E trate alimentos congelados de forma diferente — eles seguem o padrão oposto de uma receita fresca, mantendo a temperatura da embalagem enquanto ainda reduz o tempo, já que o alimento precisa do calor inicial só para descongelar antes de poder cozinhar.',
+        body: 'Algumas coisas ajudam qualquer resultado de conversor de forno para air fryer a ficar mais certo já na primeira tentativa. Pré-aqueça rapidamente um cesto — de {PRE_MIN} a {PRE_MAX} minutos, mais quanto mais alta a temperatura; os tipo forno preaquecem sozinhos — já que as air fryers perdem mais calor relativo do que um forno quando a porta ou a gaveta é aberta. Não sobrecarregue o cesto; uma única camada, sem apertar demais, é o que os multiplicadores por tipo de alimento assumem, e um cesto lotado precisa de tempo extra, mais próximo do que um forno completo precisaria. Verifique o alimento alguns minutos antes do tempo convertido sugerido, principalmente na primeira vez que você converte uma receita nova, já que a potência e a calibração variam entre modelos de air fryer. E trate alimentos congelados de forma diferente — eles seguem o padrão oposto de uma receita fresca, mantendo a temperatura da embalagem enquanto ainda reduz o tempo, já que o alimento precisa do calor inicial só para descongelar antes de poder cozinhar.',
       },
     ],
   },
@@ -298,7 +300,8 @@ const pt: Dictionary = {
       },
       {
         q: 'Preciso pré-aquecer?',
-        a: 'Um pré-aquecimento curto ajuda o resultado a ficar no alvo: cerca de 3 minutos para uma unidade de cesto, 4 minutos para tipo forno (mostrado no painel de resultado acima). Pular o pré-aquecimento geralmente só significa adicionar um ou dois minutos ao tempo de cozimento.',
+        a: 'Sim, por pouco tempo: de {PRE_MIN} a {PRE_MAX} minutos num cesto, conforme a temperatura (mostrado no painel de resultado acima); os tipo forno preaquecem sozinhos e avisam quando colocar a comida.',
+        link: 'preheat',
       },
       {
         q: 'Dá para converter um forno em uma air fryer?',
@@ -383,7 +386,7 @@ const pt: Dictionary = {
       'A air fryer ganha em velocidade para uma única camada de alimento sem apertar, mas o forno ainda é a melhor ferramenta em algumas situações comuns: cozinhar mais do que o cesto comporta em uma única leva, preparar dois pratos em grades diferentes ao mesmo tempo, uma air fryer ocupada no meio de outro ciclo, ou um corte grande demais para caber em um cesto — um frango inteiro, uma assadeira cheia de biscoitos, uma bandeja grande de legumes para muita gente. Em qualquer um desses casos, converter o ajuste de air fryer que você já conhece de volta para um número de forno é mais rápido do que chutar do zero, e mantém intacta a lógica por tipo de alimento — a batata frita precisa recuperar mais tempo do que um gratinado — nas duas direções.',
     ovenCaveatHeading: 'Uma coisa para saber: um forno padrão não foi feito para fritar',
     ovenCaveatBody:
-      'Um forno convencional não tem a circulação de ar forçado que o cesto de uma air fryer tem, então duas coisas mudam. O pré-aquecimento importa mais, já que o forno precisa de todo o seu tempo de aquecimento para chegar à temperatura alvo de forma uniforme, em vez dos 3–4 minutos que uma air fryer precisa. E uma única camada de alimento não vai ficar tão crocante quanto no cesto, já que há menos fluxo de ar concentrado batendo em cada lado ao mesmo tempo. Nenhum dos dois é um problema para contornar — só não espere que uma assadeira de asinhas no forno fique idêntica à versão feita na air fryer, e use um ajuste de convecção ou "air fry" do forno se o seu tiver, já que isso fecha a maior parte da diferença.',
+      'Um forno convencional não tem a circulação de ar forçado que o cesto de uma air fryer tem, então duas coisas mudam. O pré-aquecimento importa mais, já que o forno precisa de todo o seu tempo de aquecimento para chegar à temperatura alvo de forma uniforme, em vez dos poucos minutos de que o cesto de uma air fryer precisa. E uma única camada de alimento não vai ficar tão crocante quanto no cesto, já que há menos fluxo de ar concentrado batendo em cada lado ao mesmo tempo. Nenhum dos dois é um problema para contornar — só não espere que uma assadeira de asinhas no forno fique idêntica à versão feita na air fryer, e use um ajuste de convecção ou "air fry" do forno se o seu tiver, já que isso fecha a maior parte da diferença.',
     relatedFlagshipLink: 'Conversor de forno para air fryer',
     relatedChartLink: 'Tabela de conversão para imprimir',
     relatedConvectionLink: "Conversor de air fryer para convecção",
@@ -561,7 +564,7 @@ const pt: Dictionary = {
       },
       {
         q: "Preciso preaquecer a air fryer para congelados?",
-        a: "Um preaquecimento curto de 3 minutos no cesto, ou 4 no tipo forno, dá um dourado mais uniforme à batata e aos empanados. Pizza congelada e itens reaquecidos vão bem sem ele.",
+        a: "Um preaquecimento curto dá um dourado mais uniforme (alguns minutos no cesto, um pouco mais em temperatura alta; os tipo forno preaquecem sozinhos) à batata e aos empanados. Pizza congelada e itens reaquecidos vão bem sem ele.",
       },
     ],
   },
@@ -569,6 +572,7 @@ const pt: Dictionary = {
   presetsIndex,
   tempLanding,
   cost,
+  preheat,
   chart: {
     metaTitle: 'Tabela de conversão de air fryer para imprimir grátis',
     metaDescription:

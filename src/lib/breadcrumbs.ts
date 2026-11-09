@@ -13,6 +13,7 @@ import { TEMP_LANDINGS, tempLandingSlug } from './temp-landings';
 import { BRANDS, MODEL_MAX_TEMP_PATH } from './brands';
 import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
 import { COST_PATH } from './cost';
+import { PREHEAT_PATH } from './preheat';
 
 type Crumb = { name: string; path: string };
 
@@ -29,6 +30,7 @@ export function breadcrumbTrail(locale: LocaleCode, slug: string): Crumb[] | nul
     '/frozen': dict.frozenTool.heading,
     '/chart': dict.chart.heading,
     [COST_PATH]: dict.cost.heading,
+    [PREHEAT_PATH]: dict.preheat.heading,
   };
 
   if (slug === '/') return null;

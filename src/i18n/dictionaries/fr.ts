@@ -1,6 +1,7 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/fr';
 import cost from './cost/fr';
+import preheat from './preheat/fr';
 import { presets, presetsIndex } from './presets/fr';
 
 const fr: Dictionary = {
@@ -38,6 +39,7 @@ const fr: Dictionary = {
     airFryerSetting: 'Réglage de la friteuse à air',
     checkAt: 'Vérifier à',
     preheat: 'Préchauffage',
+    preheatAuto: 'automatique',
     gasMark: 'Th.',
     gasMarkDash: 'Th. —',
     unitBasket: 'friteuse à panier',
@@ -166,7 +168,7 @@ const fr: Dictionary = {
     convertCards: [
       { title: 'Four → Friteuse à air', desc: 'L’outil phare. Multiplicateurs par type d’aliment, panier vs. type four, plafond de température, °F/°C/thermostat.' },
       { title: 'Convection → Friteuse à air', desc: 'Les recettes à convection sont déjà ajustées pour le ventilateur, elles ont donc besoin d’une réduction plus douce. La plupart des outils se trompent ici.' },
-      { title: 'Ajustement par portions et lots', desc: 'Ajustez le temps quand le panier est chargé ou que vous cuisinez en deux fournées.' },
+      { title: 'Guide du préchauffage', desc: 'Combien de temps préchauffer selon la température, d’après les notices. Les types four le font seuls.' },
       { title: 'Coût : friteuse à air vs four', desc: 'Ce que coûte une recette dans chaque appareil à votre prix de l’électricité, d’après l’énergie mesurée, pas l’étiquette.' },
     ],
     reverseCards: [
@@ -221,7 +223,7 @@ const fr: Dictionary = {
       },
       {
         heading: 'Comment fonctionne la conversion four vers friteuse à air',
-        body: 'La plupart des conseils de conversion four vers friteuse à air en ligne se résument à une phrase : retirez 25°F et réduisez le temps d’un cinquième. Cette règle n’est pas totalement fausse — les friteuses à air sont de petits fours à convection à air pulsé, elles transfèrent donc la chaleur plus vite et ont besoin d’une température plus basse et d’un temps de cuisson plus court qu’un four classique. Mais traiter tous les aliments de la même façon, c’est là que les règles fixes échouent. Une règle fixe suppose qu’une plaque de frites fines et un pain de banane dense réagissent de façon identique à un flux d’air plus rapide. Ce n’est pas le cas. Les aliments fins à grande surface comme les frites, le bacon et les ailes de poulet sont entourés d’air chaud sur presque toutes les faces, donc ils cuisent nettement plus vite — souvent avec 25 à 30 % de temps en moins. Un gratin dense ou une pièce de viande épaisse doit encore conduire la chaleur jusqu’au centre comme dans un four, donc l’économie de temps est plus faible, plus proche de 10 à 15 %. Appliquez le multiplicateur des frites à un gratin et vous le sortirez pas assez cuit ; appliquez le multiplicateur du gratin aux frites et vous les dessécherez. C’est pourquoi une conversion correcte du four classique vers la friteuse à air nécessite un multiplicateur par catégorie d’aliment plutôt qu’un seul chiffre pour tout — le convertisseur ci-dessus regarde ce que vous avez sélectionné et applique la réduction de temps que ce type d’aliment nécessite réellement, en plus de la baisse de température standard.',
+        body: 'La plupart des conseils de conversion four vers friteuse à air en ligne se résument à une phrase : retirez 25°F et réduisez le temps d’un cinquième. Cette règle n’est pas totalement fausse — les friteuses à air sont de petits fours à convection à air pulsé, elles transfèrent donc la chaleur plus vite et ont besoin d’une température plus basse et d’un temps de cuisson plus court qu’un four classique. Mais traiter tous les aliments de la même façon, c’est là que les règles fixes échouent. Une règle fixe suppose qu’une plaque de frites fines et un pain de banane dense réagissent de façon identique à un flux d’air plus rapide. Ce n’est pas le cas. Les aliments fins à grande surface comme les frites, le bacon et les ailes de poulet sont entourés d’air chaud sur presque toutes les faces, donc ils cuisent nettement plus vite — souvent avec jusqu’à {MAX_CUT} % de temps en moins. Un gratin dense ou une pièce de viande épaisse doit encore conduire la chaleur jusqu’au centre comme dans un four, donc l’économie de temps est plus faible, plus proche de {MIN_CUT} %. Appliquez le multiplicateur des frites à un gratin et vous le sortirez pas assez cuit ; appliquez le multiplicateur du gratin aux frites et vous les dessécherez. C’est pourquoi une conversion correcte du four classique vers la friteuse à air nécessite un multiplicateur par catégorie d’aliment plutôt qu’un seul chiffre pour tout — le convertisseur ci-dessus regarde ce que vous avez sélectionné et applique la réduction de temps que ce type d’aliment nécessite réellement, en plus de la baisse de température standard.',
       },
       {
         heading: 'Étape par étape : comment convertir du four vers la friteuse à air',
@@ -229,19 +231,19 @@ const fr: Dictionary = {
       },
       {
         heading: 'Conversion du temps de cuisson four vers friteuse à air',
-        body: 'La température n’est que la moitié du travail — la conversion du temps de cuisson four vers friteuse à air compte tout autant, et c’est la partie que les calculateurs à règle fixe ratent généralement. Comme les friteuses à air font circuler l’air chaud directement autour de l’aliment dans une petite chambre, la chaleur atteint la surface plus vite et la cuisson se termine plus tôt même à température plus basse. C’est pourquoi une cuisson au four de 45 minutes peut devenir une cuisson de 32 minutes à la friteuse à air plutôt qu’un simple pourcentage du chiffre d’origine : la réduction de temps dépend de la surface que l’aliment expose à ce flux d’air, pas seulement du changement de température.',
+        body: 'La température n’est que la moitié du travail — la conversion du temps de cuisson four vers friteuse à air compte tout autant, et c’est la partie que les calculateurs à règle fixe ratent généralement. Comme les friteuses à air font circuler l’air chaud directement autour de l’aliment dans une petite chambre, la chaleur atteint la surface plus vite et la cuisson se termine plus tôt même à température plus basse. C’est pourquoi une cuisson au four de 45 minutes peut devenir une cuisson de {T45_FAST} minutes à la friteuse à air plutôt qu’un simple pourcentage du chiffre d’origine : la réduction de temps dépend de la surface que l’aliment expose à ce flux d’air, pas seulement du changement de température.',
       },
       {
         heading: 'Conversion friteuse à air vers four (dans l’autre sens)',
-        body: 'La conversion fonctionne dans les deux sens. Parfois vous avez une recette de friteuse à air ou un préréglage du manuel de votre appareil et vous devez le convertir en réglages de four — parce que vous cuisinez un lot plus grand que ce que contient le panier, que la friteuse à air est déjà occupée avec autre chose, ou que vous nourrissez une tablée avec le four complet. La conversion friteuse à air vers four signifie généralement augmenter la température et rajouter du temps de cuisson, car la cavité plus grande et le flux d’air plus lent d’un four classique ne peuvent pas égaler la chaleur concentrée de la friteuse à air. Un calculateur friteuse à air vers four applique cela à l’inverse : rajoutez environ 25°F à la température de la friteuse à air, puis prolongez le temps du même pourcentage, sensible au type d’aliment, que la conversion directe avait soustrait. C’est la même logique de base, exécutée à l’envers, et elle est tout aussi sensible au type d’aliment — un lot de nuggets agrandi pour le four nécessite un ajustement de temps différent de celui d’un poulet entier.',
+        body: 'La conversion fonctionne dans les deux sens. Parfois vous avez une recette de friteuse à air ou un préréglage du manuel de votre appareil et vous devez le convertir en réglages de four — parce que vous cuisinez un lot plus grand que ce que contient le panier, que la friteuse à air est déjà occupée avec autre chose, ou que vous nourrissez une tablée avec le four complet. La conversion friteuse à air vers four signifie généralement augmenter la température et rajouter du temps de cuisson, car la cavité plus grande et le flux d’air plus lent d’un four classique ne peuvent pas égaler la chaleur concentrée de la friteuse à air. Un calculateur friteuse à air vers four applique cela à l’inverse : rajoutez environ {GEN_DT}°F à la température de la friteuse à air, puis prolongez le temps du même pourcentage, sensible au type d’aliment, que la conversion directe avait soustrait. C’est la même logique de base, exécutée à l’envers, et elle est tout aussi sensible au type d’aliment — un lot de nuggets agrandi pour le four nécessite un ajustement de temps différent de celui d’un poulet entier.',
       },
       {
         heading: 'Friteuses à air à panier vs. de type four',
-        body: 'Toutes les friteuses à air ne se comportent pas de la même façon, c’est pourquoi ce convertisseur demande quel type vous possédez avant de terminer la conversion. Les friteuses à panier compactent l’aliment dans une petite chambre fermée avec de l’air circulant de tous les côtés — c’est ce qui les rend rapides, mais cela signifie aussi que la plupart des modèles plafonnent autour de 400°F, et dépasser ce plafond n’est pas réaliste, peu importe ce que suggère un calculateur générique. Les unités de type four (y compris les fours friteuse à air et les paniers de type four grille-pain) ont plus de volume d’air autour de l’aliment, donc l’effet est plus doux : les températures peuvent monter un peu plus haut, jusqu’à environ 450°F, avant d’atteindre un plafond pratique. Prendre en compte le type de votre appareil dans la conversion, plutôt que de l’ignorer, est ce qui garde le résultat réaliste.',
+        body: 'Toutes les friteuses à air ne se comportent pas de la même façon, c’est pourquoi ce convertisseur demande quel type vous possédez avant de terminer la conversion. Les friteuses à panier compactent l’aliment dans une petite chambre fermée avec de l’air circulant de tous les côtés — c’est ce qui les rend rapides, mais cela signifie aussi que la plupart des modèles plafonnent autour de {CEIL_BASKET}°F, et dépasser ce plafond n’est pas réaliste, peu importe ce que suggère un calculateur générique. Les unités de type four (y compris les fours friteuse à air et les paniers de type four grille-pain) ont plus de volume d’air autour de l’aliment, donc l’effet est plus doux : les températures peuvent monter un peu plus haut, jusqu’à environ {CEIL_OVEN}°F, avant d’atteindre un plafond pratique. Prendre en compte le type de votre appareil dans la conversion, plutôt que de l’ignorer, est ce qui garde le résultat réaliste.',
       },
       {
         heading: 'Conseils pour de meilleurs résultats',
-        body: 'Quelques éléments aident tout résultat de convertisseur four vers friteuse à air à être plus juste dès le premier essai. Préchauffez brièvement — environ 3 minutes pour un panier, 4 pour un type four — car les friteuses à air perdent proportionnellement plus de chaleur qu’un four quand la porte ou le tiroir s’ouvre. Ne surchargez pas le panier ; une seule couche, sans trop serrer, c’est ce que supposent les multiplicateurs par type d’aliment, et un panier bondé a besoin de temps supplémentaire, plus proche de ce que demanderait un four complet. Vérifiez la cuisson quelques minutes avant le temps converti suggéré, surtout la première fois que vous convertissez une nouvelle recette, car la puissance et le calibrage varient selon les modèles de friteuse à air. Et traitez les aliments surgelés différemment — ils suivent le schéma inverse d’une recette fraîche, en gardant la température de l’emballage tout en réduisant quand même le temps, car l’aliment a besoin de la chaleur initiale simplement pour décongeler avant de pouvoir cuire.',
+        body: 'Quelques éléments aident tout résultat de convertisseur four vers friteuse à air à être plus juste dès le premier essai. Préchauffez brièvement un panier — de {PRE_MIN} à {PRE_MAX} minutes, plus longtemps à haute température ; les types four préchauffent seuls — car les friteuses à air perdent proportionnellement plus de chaleur qu’un four quand la porte ou le tiroir s’ouvre. Ne surchargez pas le panier ; une seule couche, sans trop serrer, c’est ce que supposent les multiplicateurs par type d’aliment, et un panier bondé a besoin de temps supplémentaire, plus proche de ce que demanderait un four complet. Vérifiez la cuisson quelques minutes avant le temps converti suggéré, surtout la première fois que vous convertissez une nouvelle recette, car la puissance et le calibrage varient selon les modèles de friteuse à air. Et traitez les aliments surgelés différemment — ils suivent le schéma inverse d’une recette fraîche, en gardant la température de l’emballage tout en réduisant quand même le temps, car l’aliment a besoin de la chaleur initiale simplement pour décongeler avant de pouvoir cuire.',
       },
     ],
   },
@@ -298,7 +300,8 @@ const fr: Dictionary = {
       },
       {
         q: 'Dois-je préchauffer ?',
-        a: 'Un court préchauffage aide le résultat à tomber juste : environ 3 minutes pour une unité à panier, 4 minutes pour un type four (affiché dans le panneau de résultat ci-dessus). Sauter le préchauffage signifie généralement juste rajouter une ou deux minutes au temps de cuisson.',
+        a: 'Oui, brièvement : de {PRE_MIN} à {PRE_MAX} minutes pour un panier selon la température (affiché dans le panneau de résultat ci-dessus) ; les types four préchauffent seuls et signalent quand ajouter les aliments.',
+        link: 'preheat',
       },
       {
         q: 'Peut-on convertir un four en friteuse à air ?',
@@ -383,7 +386,7 @@ const fr: Dictionary = {
       'La friteuse à air gagne en rapidité pour une seule couche d’aliments non tassés, mais le four reste le meilleur outil dans plusieurs situations courantes : cuisiner plus que ce que le panier contient en une seule fournée, préparer deux plats sur des grilles différentes en même temps, une friteuse à air déjà occupée en plein cycle, ou une pièce trop grande pour tenir dans un panier — un poulet entier, une plaque entière de biscuits, un grand plateau de légumes pour beaucoup de monde. Dans tous ces cas, reconvertir le réglage de friteuse à air que vous connaissez déjà vers un chiffre de four est plus rapide que de deviner à partir de zéro, et cela garde intacte la logique par type d’aliment — les frites doivent récupérer plus de temps qu’un gratin — dans les deux sens.',
     ovenCaveatHeading: 'À savoir : un four standard n’est pas fait pour frire',
     ovenCaveatBody:
-      'Un four classique n’a pas la circulation d’air pulsé d’un panier de friteuse à air, donc deux choses changent. Le préchauffage compte davantage, car le four a besoin de tout son temps de montée en température pour l’atteindre uniformément, contrairement aux 3 à 4 minutes que demande une friteuse à air. Et une seule couche d’aliments ne croustillera pas aussi fort qu’au panier, faute d’un flux d’air aussi concentré frappant chaque face à la fois. Aucun des deux n’est un problème à contourner — attendez-vous simplement à ce qu’une plaque d’ailes au four ne soit pas identique à la version faite à la friteuse à air, et misez sur un réglage convection ou « air fry » du four si le vôtre en a un, car cela comble l’essentiel de l’écart.',
+      'Un four classique n’a pas la circulation d’air pulsé d’un panier de friteuse à air, donc deux choses changent. Le préchauffage compte davantage, car le four a besoin de tout son temps de montée en température pour l’atteindre uniformément, contrairement aux quelques minutes que demande le panier d’une friteuse à air. Et une seule couche d’aliments ne croustillera pas aussi fort qu’au panier, faute d’un flux d’air aussi concentré frappant chaque face à la fois. Aucun des deux n’est un problème à contourner — attendez-vous simplement à ce qu’une plaque d’ailes au four ne soit pas identique à la version faite à la friteuse à air, et misez sur un réglage convection ou « air fry » du four si le vôtre en a un, car cela comble l’essentiel de l’écart.',
     relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
     relatedChartLink: 'Tableau de conversion imprimable',
     relatedConvectionLink: "Convertisseur friteuse à air vers convection",
@@ -561,7 +564,7 @@ const fr: Dictionary = {
       },
       {
         q: "Faut-il préchauffer la friteuse à air pour les surgelés ?",
-        a: "Un court préchauffage de 3 minutes pour un panier, ou 4 pour un type four, donne une coloration plus régulière aux frites et aux panés. La pizza surgelée et les plats réchauffés s’en passent très bien.",
+        a: "Un court préchauffage donne une coloration plus régulière (quelques minutes en panier, un peu plus à haute température ; les types four préchauffent seuls) aux frites et aux panés. La pizza surgelée et les plats réchauffés s’en passent très bien.",
       },
     ],
   },
@@ -569,6 +572,7 @@ const fr: Dictionary = {
   presetsIndex,
   tempLanding,
   cost,
+  preheat,
   chart: {
     metaTitle: 'Tableau de conversion friteuse à air imprimable gratuit',
     metaDescription:

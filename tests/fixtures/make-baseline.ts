@@ -1,6 +1,8 @@
 // Regenerates tests/fixtures/no-model-baseline.json: every page-level number the engine produces today
 // (preset values, round trips and size rows; temperature-page values and rows; chart grid; raw engine grid).
 // Committed once before the optional maxF input landed; engine-baseline.spec.ts requires it to stay identical.
+// Regenerated 2026-11-09 (row 15) when preheat left the engine for src/lib/preheat.ts: the only differences were
+// the removed preheatMinutes / OS_PREHEAT fields and PREHEAT 3 -> 4 at basket settings of 345°F and up.
 import { writeFileSync } from 'node:fs';
 import { PRESETS } from '../../src/data/presets';
 import { presetValues, presetRoundTrip, presetSizeRows, presetOven, presetFan } from '../../src/lib/presets';

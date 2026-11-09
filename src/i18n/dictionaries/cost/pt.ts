@@ -52,7 +52,7 @@ const cost: CostCopy = {
     'Quase todas as calculadoras multiplicam os watts da etiqueta pelo tempo. Isso supõe que a resistência nunca desliga, mas com o interior quente o termóstato liga-a e desliga-a para manter a temperatura. No ensaio da Which?, {OV_W} W × tempo dava entre {OV_RATED_MIN} e {OV_RATED_MAX} vezes o que o forno gastou: {LEAD_OV_RATED} kWh para {LEAD_MIN} minutos de batatas fritas congeladas, contra {LEAD_OV_KWH} kWh no contador. O resultado mostra o valor nominal como limite superior, não como custo.',
   modelHeading: 'Como funciona a estimativa',
   modelBody:
-    'A Which? cozinhou frango assado, batatas fritas congeladas, uma batata assada e um bolo nos dois aparelhos e mediu a energia, pré-aquecimento incluído. Um ajuste por mínimos quadrados dá ao forno um aquecimento de {OV_WARM} kWh mais {OV_HOLD} kW por hora, e à air fryer {AF_KW} kW em média, sobre o tempo da receita mais o pré-aquecimento ({PRE_OV} e {PRE_AF} minutos por padrão). O ajuste falha entre {OV_RES_MIN}% e {OV_RES_MAX}% no forno e entre {AF_RES_MIN}% e {AF_RES_MAX}% na air fryer. Contra o teste da CHOICE de {CHOICE_YEAR}, sem reajustar, ficou entre {CHOICE_LOW_MIN}% e {CHOICE_LOW_MAX}% abaixo, mas a percentagem poupada ficou a menos de {CHOICE_GAP} pontos. A faixa provável cobre os piores erros dos dois testes. Confie mais na poupança do que nos cêntimos. A temperatura não entra no modelo.',
+    'A Which? cozinhou frango assado, batatas fritas congeladas, uma batata assada e um bolo nos dois aparelhos e mediu a energia, pré-aquecimento incluído. Um ajuste por mínimos quadrados dá ao forno um aquecimento de {OV_WARM} kWh mais {OV_HOLD} kW por hora, e à air fryer {AF_KW} kW em média, sobre o tempo da receita mais o pré-aquecimento ({PRE_OV} minutos no forno, de {PRE_AF_MIN} a {PRE_AF_MAX} na air fryer). O ajuste falha entre {OV_RES_MIN}% e {OV_RES_MAX}% no forno e entre {AF_RES_MIN}% e {AF_RES_MAX}% na air fryer. Contra o teste da CHOICE de {CHOICE_YEAR}, sem reajustar, ficou entre {CHOICE_LOW_MIN}% e {CHOICE_LOW_MAX}% abaixo, mas a percentagem poupada ficou a menos de {CHOICE_GAP} pontos. A faixa provável cobre os piores erros dos dois testes. Confie mais na poupança do que nos cêntimos. A temperatura não entra no modelo.',
   exampleHeading: 'Exemplo prático',
   exampleBody:
     '{EX_OVEN_TEMP} durante {EX_OVEN_MIN} minutos passa a {EX_AF_TEMP} durante {EX_AF_MIN} minutos numa air fryer de cesto: {EX_AF_TOTAL} minutos com pré-aquecimento, contra {EX_OV_TOTAL} no forno. Com {TARIFF_RATE} ({TARIFF_COUNTRY}) são cerca de {EX_AF_KWH} kWh ({EX_AF_COST}) contra {EX_OV_KWH} kWh ({EX_OV_COST}), cerca de {EX_PCT}% menos.',
@@ -95,7 +95,8 @@ const cost: CostCopy = {
     },
     {
       q: 'É preciso contar o pré-aquecimento?',
-      a: 'Sim. Os tempos e kWh da Which? incluem-no, por isso somam-se {PRE_OV} minutos ao forno e {PRE_AF} à air fryer; ponha zero se a sua não precisar. Fonte: Which?, {WHICH_DATE}.',
+      a: 'Sim. Os tempos e kWh da Which? incluem-no, por isso somam-se {PRE_OV} minutos ao forno e de {PRE_AF_MIN} a {PRE_AF_MAX} à air fryer, mais em temperaturas altas; ponha zero se a sua não precisar. Fonte: Which?, {WHICH_DATE}.',
+      link: 'preheat',
     },
   ],
 };

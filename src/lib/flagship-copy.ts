@@ -1,13 +1,14 @@
 /**
- * Server-side values for the flagship (/oven-to-air-fryer) copy: every {KEY} in Dictionary['tool']
- * prose is filled from the converter engine or src/data/energy.ts, never typed.
+ * Server-side values for the flagship (/oven-to-air-fryer) and homepage guide copy: every {KEY} in
+ * Dictionary['tool'] prose and Dictionary['home'].guide is filled from the converter engine,
+ * src/data/energy.ts or src/data/preheat.ts, never typed.
  *
  * Numbers that stay typed in the copy, on purpose:
  * - the flat "subtract 25°F, cut 20%" rule and the "20/20 rule": other calculators' shortcuts, quoted
  *   by name (Section 1), not our data; the 450°F → 425°F flat-rule example follows from them;
  * - inputs a question asks about ("30 minutes", "200°C for 15 minutes", "200 degrees"), repeated in
  *   its answer. FAQ_INPUTS holds them and tests check the question text matches;
- * - the preheat minutes, until row 15 sources them.
+ * - homepage guide inputs: the "425°F oven" recipe and the "45-minute oven bake" (FAQ_INPUTS.homeBakeMinutes).
  */
 import { DIAL_STEP, FOODS, FROZEN_FOODS, OVEN_STYLE_ADJUST, STYLE_CEILING_F, computeAirFryerSetting, type FoodKey } from './converter';
 import { COST_PATH, formatDate, whichSavingRange } from './cost';
@@ -18,12 +19,14 @@ import { getDictionary } from '../i18n/dictionaries';
 import { localizedPath } from '../i18n/utils';
 import type { LocaleCode } from '../i18n/locales';
 import { LIVE_PAGES } from '../site.config';
+import { DEFAULT_MINUTES, PREHEAT_PATH } from './preheat';
 
 /** The inputs the worked-number FAQs ask about (the question text carries them). */
 export const FAQ_INPUTS = {
   thirtyMinutes: 30,
   twentyMinutes: 20,
   celsius: { ovenTemp: 200, ovenMinutes: 15 },
+  homeBakeMinutes: 45,
 } as const;
 
 const foodsBy = (pick: (a: number, b: number) => boolean): FoodKey =>
@@ -62,6 +65,9 @@ export function flagshipValues(locale: LocaleCode): Record<string, string> {
     WHICH_SAVE_MIN: pct(saving.min),
     WHICH_SAVE_MAX: pct(saving.max),
     WHICH_DATE: formatDate(WHICH_TEST.published, locale),
+    PRE_MIN: String(DEFAULT_MINUTES.min),
+    PRE_MAX: String(DEFAULT_MINUTES.max),
+    T45_FAST: String(basketMinutes(FAQ_INPUTS.homeBakeMinutes, FASTEST_FOOD)),
   };
 }
 
@@ -77,11 +83,14 @@ export function flagshipCopy(locale: LocaleCode) {
   const t = dict.tool;
   const v = flagshipValues(locale);
   const fill = (s: string) => fillPlaceholders(s, v);
-  const costLive = LIVE_PAGES.has(COST_PATH);
+  const links = {
+    cost: LIVE_PAGES.has(COST_PATH) ? { href: localizedPath(locale, COST_PATH), label: dict.cost.heading } : null,
+    preheat: LIVE_PAGES.has(PREHEAT_PATH) ? { href: localizedPath(locale, PREHEAT_PATH), label: dict.preheat.heading } : null,
+  };
   const faqs: FlagshipFaq[] = t.faqs.map(({ q, a, link }) => ({
     q: fill(q),
     a: fill(a),
-    ...(link === 'cost' && costLive ? { link: { href: localizedPath(locale, COST_PATH), label: dict.cost.heading } } : {}),
+    ...(link && links[link] ? { link: links[link]! } : {}),
   }));
   return {
     subDesc: fill(t.subDesc),
@@ -91,6 +100,12 @@ export function flagshipCopy(locale: LocaleCode) {
     whatHappensBody: fill(t.whatHappensBody),
     faqs,
   };
+}
+
+/** The homepage guide with every {KEY} filled (same values as the flagship; throws on an unknown key). */
+export function homeGuide(locale: LocaleCode): { heading: string; body: string }[] {
+  const v = flagshipValues(locale);
+  return getDictionary(locale).home.guide.map((g) => ({ heading: g.heading, body: fillPlaceholders(g.body, v) }));
 }
 
 /** FAQPage JSON-LD entries for the flagship, the same strings the page renders. */

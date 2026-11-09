@@ -3,6 +3,7 @@
  * sizing rows, cross-links and the {KEY} placeholder values for preset copy. The data
  * file stores the authored air fryer baseline only; every other number comes from here.
  */
+import { basketPreheatMinutes } from './preheat';
 import { PRESETS, type FoodPreset, type PresetCategory, type PresetSlug } from '../data/presets';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
@@ -212,7 +213,7 @@ export function presetValues(preset: FoodPreset, locale: LocaleCode = DEFAULT_LO
     FAN_MIN: String(fan.outMinutes),
     OS_F: String(ovenStyle.outF),
     OS_MIN: String(ovenStyle.outMinutes),
-    PREHEAT: String(presetRoundTrip(preset).preheatMinutes),
+    PREHEAT: String(basketPreheatMinutes(preset.tempF)),
   };
   const { flipAt, shakes } = presetTurns(preset);
   if (flipAt !== undefined) values.FLIP = String(flipAt);

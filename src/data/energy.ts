@@ -48,8 +48,11 @@ export const COST_MODEL = {
     averageKw: 0.5473,
     residuals: { which: { min: -0.2690, max: 0.3499 }, choice: { min: -0.3514, max: -0.3189 } },
   },
-  /** Preheat minutes added to the recipe time (the presets' baseline: oven 10, basket 3). */
-  preheatMinutes: { oven: 10, airFryer: 3 },
+  /**
+   * Oven preheat minutes added to the recipe time. The air fryer's default is not stored here: it is
+   * the preheat chart minutes at the converted temperature (src/lib/preheat.ts, row 15).
+   */
+  preheatMinutes: { oven: 10 },
 } as const;
 
 /**

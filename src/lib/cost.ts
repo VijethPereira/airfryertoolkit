@@ -13,6 +13,7 @@ import {
 } from '../data/energy';
 import { MODELS } from '../data/models';
 import { computeAirFryerSetting, type FoodKey, type FryerStyle, type TempUnit } from './converter';
+import { defaultPreheatMinutes } from './preheat';
 import type { LocaleCode } from '../i18n/locales';
 
 export const COST_PATH = '/air-fryer-vs-oven-cost';
@@ -122,7 +123,8 @@ export interface CostInput {
   /** Major currency units per kWh. */
   tariff: number;
   ovenPreheat: number;
-  airFryerPreheat: number;
+  /** Omitted: the preheat chart default at the converted air fryer temperature (src/lib/preheat.ts). */
+  airFryerPreheat?: number;
   /** Rated watts: only for the "rated watts × time" comparison. */
   ovenWatts: number;
   airFryerWatts: number;
@@ -145,6 +147,8 @@ export interface ApplianceCost {
 
 export interface CostResult {
   airFryerMinutes: number;
+  /** The air fryer preheat minutes used: the input's, or the chart default. */
+  airFryerPreheat: number;
   airFryerF: number;
   airFryerC: number;
   airFryer: ApplianceCost;
@@ -161,24 +165,26 @@ export function computeCost(input: CostInput): CostResult | null {
   if (
     // Oven recipes run 200–550°F (about 95–290°C); outside that the engine would extrapolate.
     !finite(input.unit === 'F' ? input.ovenTemp : input.ovenTemp * 9 / 5 + 32, 200, 550) ||
-    !finite(input.ovenMinutes, 1, 480) || !finite(input.tariff, 0, 5) || !finite(input.ovenPreheat, 0, 60) || !finite(input.airFryerPreheat, 0, 60) ||
+    !finite(input.ovenMinutes, 1, 480) || !finite(input.tariff, 0, 5) || !finite(input.ovenPreheat, 0, 60) || (input.airFryerPreheat !== undefined && !finite(input.airFryerPreheat, 0, 60)) ||
     !finite(input.ovenWatts, 100, 6000) || !finite(input.airFryerWatts, 100, 6000) ||
     !finite(p.ovenWarmUpKwh, 0, 10) || !finite(p.ovenHoldKw, 0, 10) || !finite(p.airFryerKw, 0, 10)
   ) return null;
   const setting = computeAirFryerSetting({ ovenTemp: input.ovenTemp, unit: input.unit, ovenMinutes: input.ovenMinutes, food: input.food, style: input.style });
   if (setting.outF === null || setting.outMinutes === null) return null;
+  const airFryerPreheat = input.airFryerPreheat ?? defaultPreheatMinutes(setting.outF);
+  if (airFryerPreheat === null) return null;
 
   const appliance = (minutes: number, kwh: number, r: { min: number; max: number }, watts: number): ApplianceCost => {
     const { low, high } = likelyRange(kwh, r);
     const ratedKwh = (watts / 1000) * (minutes / 60);
     return { minutes, kwh, kwhLow: low, kwhHigh: high, cost: kwh * input.tariff, costLow: low * input.tariff, costHigh: high * input.tariff, ratedKwh, ratedRatio: kwh > 0 ? ratedKwh / kwh : 0 };
   };
-  const afMinutes = setting.outMinutes + input.airFryerPreheat;
+  const afMinutes = setting.outMinutes + airFryerPreheat;
   const ovMinutes = input.ovenMinutes + input.ovenPreheat;
   const airFryer = appliance(afMinutes, airFryerKwh(afMinutes, p), rangeResiduals('airFryer'), input.airFryerWatts);
   const oven = appliance(ovMinutes, ovenKwh(ovMinutes, p), rangeResiduals('oven'), input.ovenWatts);
   const saving = oven.cost - airFryer.cost;
-  return { airFryerMinutes: setting.outMinutes, airFryerF: setting.outF, airFryerC: setting.outC ?? 0, airFryer, oven, saving, savingPct: oven.cost > 0 ? saving / oven.cost : 0 };
+  return { airFryerMinutes: setting.outMinutes, airFryerPreheat, airFryerF: setting.outF, airFryerC: setting.outC ?? 0, airFryer, oven, saving, savingPct: oven.cost > 0 ? saving / oven.cost : 0 };
 }
 
 /** Intl locale: English formats as en-GB, since the UK is its default tariff and reference data. */

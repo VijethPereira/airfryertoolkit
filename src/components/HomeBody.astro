@@ -6,6 +6,8 @@ import { localizedPath } from '../i18n/utils';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../site.config';
 import { computeAirFryerSetting, type FrozenFoodKey } from '../lib/converter';
 import { HOME_FROZEN_CARDS, frozenCardSpec } from '../lib/home-cards';
+import { homeGuide } from '../lib/flagship-copy';
+import { PREHEAT_PATH } from '../lib/preheat';
 import { TEMP_LANDINGS, TEMP_LANDING_MINUTES, fillPlaceholders, tempLandingSlug, tempLandingValues, timeCutPercent } from '../lib/temp-landings';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
@@ -55,7 +57,7 @@ function cardHref({ href, fallback }: CardTarget): string | null {
   return isLive(path) ? `${hrefFor(path)}${query ? `?${query}` : ''}` : null;
 }
 
-const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', '/batch-scaler', COST_PATH].map((href) => ({ href }));
+const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', PREHEAT_PATH, COST_PATH].map((href) => ({ href }));
 const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'].map((href) => ({ href }));
 const frozenTargets: CardTarget[] = HOME_FROZEN_CARDS;
 const frozenCardSpecs = HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, locale));
@@ -322,7 +324,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{getDictionary(locale).nav.guide}</h2>
       <div class="prose">
-        {dict.guide.map((g) => (
+        {homeGuide(locale).map((g) => (
           <>
             <h3>{g.heading}</h3>
             <p>{g.body}</p>

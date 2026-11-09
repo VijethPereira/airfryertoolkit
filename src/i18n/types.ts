@@ -141,6 +141,55 @@ export interface CostCopy {
   relatedMaxTempLink: string;
   relatedCosoriLink: string;
   faqHeading: string;
+  /** `link: 'preheat'` adds a link to /preheat under the answer. */
+  faqs: { q: string; a: string; link?: 'preheat' }[];
+}
+
+/**
+ * /preheat copy (Dictionary['preheat'], all 5 locales). Every number is a {KEY} placeholder filled by
+ * preheatValues() in src/lib/preheat-page.ts from src/data/preheat.ts. The model picker and per-model
+ * table are English only (PreheatModelCopy in src/i18n/dictionaries/preheat/en.ts).
+ */
+export interface PreheatCopy {
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
+  heading: string;
+  intro: string;
+  widgetLabel: string;
+  temperature: string;
+  style: string;
+  basket: string;
+  ovenStyle: string;
+  answerLabel: string;
+  /** {MIN}, {TEMP}: the default for a basket at this temperature. */
+  answerBasket: string;
+  answerOvenStyle: string;
+  /** {MIN_F}, {MAX_F}, {MIN_C}, {MAX_C}: the charted range. */
+  answerOutOfRange: string;
+  answerInvalid: string;
+  /** {PRO}, {TB}: each chart's minutes at this temperature. */
+  sourceBasket: string;
+  sourceOvenStyle: string;
+  leadHeading: string;
+  leadBody: string;
+  defaultHeading: string;
+  defaultBody: string;
+  chartsHeading: string;
+  chartsBody: string;
+  /** {MODEL}, {PAGE}. */
+  chartCaption: string;
+  tableTemp: string;
+  tableMinutes: string;
+  styleHeading: string;
+  styleBody: string;
+  skipHeading: string;
+  skipBody: string;
+  relatedHeading: string;
+  relatedFlagshipLink: string;
+  relatedCostLink: string;
+  relatedPresetsLink: string;
+  faqHeading: string;
   faqs: { q: string; a: string }[];
 }
 
@@ -180,6 +229,8 @@ export interface Dictionary {
     airFryerSetting: string;
     checkAt: string;
     preheat: string;
+    /** Result panel, oven-style: the unit preheats on its own (no minutes stated by any manual read). */
+    preheatAuto: string;
     gasMark: string;
     gasMarkDash: string;
     unitBasket: string;
@@ -278,7 +329,7 @@ export interface Dictionary {
     relatedFrozenLink: string;
     faqHeading: string;
     /** Numbers are {KEY} placeholders filled by flagshipValues() (src/lib/flagship-copy.ts). `link: 'cost'` adds a link to the cost page under the answer. */
-    faqs: { q: string; a: string; link?: 'cost' }[];
+    faqs: { q: string; a: string; link?: 'cost' | 'preheat' }[];
   };
   reverseTool: {
     metaTitle: string;
@@ -492,6 +543,7 @@ export interface Dictionary {
     pages: Record<TempLandingF, TempLandingCopy>;
   };
   cost: CostCopy;
+  preheat: PreheatCopy;
   chart: {
     metaTitle: string;
     metaDescription: string;

@@ -84,7 +84,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         'Ein Rezept brät Hähnchenschenkel mit Knochen bei {OVEN_F}°F für {EX_OVEN_MIN} Minuten. In einer Korb-Heißluftfritteuse werden daraus {EX_F}°F ({EX_C}°C) für {EX_MIN} Minuten; prüf den dicksten Schenkel ab {EX_CHECK} Minuten und gare weiter, bis er am Knochen mindestens 165°F zeigt. In einer Heißluftfritteuse im Ofen-Typ, die eher wie ein kleiner Umluftofen arbeitet, sind es {EX_OS_F}°F für {EX_OS_MIN} Minuten. Wende die Stücke bei beiden Typen einmal zur Hälfte der Zeit.',
       styleHeading: 'Korb oder Ofen-Typ bei 375°F',
       styleBody:
-        'Hier liegen die beiden Typen nur ein paar Grad auseinander — {AF_F}°F im Korb, {OS_F}°F im Ofen-Typ —, aber die Zeit unterscheidet sich stärker: etwa {PCT} % weniger als im Backofen beim Korb und etwa {OS_PCT} % weniger beim Ofen-Typ. Ein Korb bewegt die Luft schneller um eine kleine Menge und ist früher fertig; ein Gerät im Ofen-Typ verteilt das Essen auf Roste und gart eher wie ein Umluftofen. Hat deins zwei Roste, tausch sie zur Hälfte, denn der Rost näher am Heizelement bräunt schneller. Heiz {PREHEAT} Minuten im Korb oder {OS_PREHEAT} im Ofen-Typ vor. {OVEN_F}°F sind {OVEN_C}°C, und der Umrechner nimmt beide Einheiten an.',
+        'Hier liegen die beiden Typen nur ein paar Grad auseinander — {AF_F}°F im Korb, {OS_F}°F im Ofen-Typ —, aber die Zeit unterscheidet sich stärker: etwa {PCT} % weniger als im Backofen beim Korb und etwa {OS_PCT} % weniger beim Ofen-Typ. Ein Korb bewegt die Luft schneller um eine kleine Menge und ist früher fertig; ein Gerät im Ofen-Typ verteilt das Essen auf Roste und gart eher wie ein Umluftofen. Hat deins zwei Roste, tausch sie zur Hälfte, denn der Rost näher am Heizelement bräunt schneller. Heiz einen Korb {PREHEAT} Minuten vor; ein Gerät im Ofen-Stil heizt selbst vor und meldet, wann das Essen hinein kann. {OVEN_F}°F sind {OVEN_C}°C, und der Umrechner nimmt beide Einheiten an.',
       faqs: [
         {
           q: 'Wie viel sind {OVEN_F}°F in der Heißluftfritteuse?',
@@ -100,7 +100,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         },
         {
           q: 'Muss ich die Heißluftfritteuse für ein {OVEN_F}°F-Rezept vorheizen?',
-          a: 'Kurzes Vorheizen — {PREHEAT} Minuten beim Korb, {OS_PREHEAT} beim Ofen-Typ — hilft dem Blätterteig beim Aufgehen und der Haut beim Knusprigwerden. Bei Fleischbällchen und gefüllter Paprika macht es kaum einen Unterschied; gib lieber eine Minute dazu.',
+          a: 'Kurzes Vorheizen — {PREHEAT} Minuten beim Korb, beim Ofen-Typ automatisch — hilft dem Blätterteig beim Aufgehen und der Haut beim Knusprigwerden. Bei Fleischbällchen und gefüllter Paprika macht es kaum einen Unterschied; gib lieber eine Minute dazu.',
         },
         {
           q: 'Kann ich ein ganzes Blechgericht aus einem {OVEN_F}°F-Rezept garen?',

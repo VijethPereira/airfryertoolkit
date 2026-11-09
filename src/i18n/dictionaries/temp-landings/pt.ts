@@ -84,7 +84,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         'Uma receita assa sobrecoxas de frango com osso a {OVEN_F}°F por {EX_OVEN_MIN} minutos. Numa air fryer de cesto isso vira {EX_F}°F ({EX_C}°C) por {EX_MIN} minutos; comece a conferir a mais grossa aos {EX_CHECK} minutos e continue até marcar pelo menos 165°F junto ao osso. Numa air fryer tipo forno, que funciona mais como um pequeno forno de convecção, são {EX_OS_F}°F por {EX_OS_MIN} minutos. Vire os pedaços uma vez na metade do tempo nos dois tipos.',
       styleHeading: 'Cesto ou tipo forno a 375°F',
       styleBody:
-        'Aqui os dois tipos ficam a poucos graus um do outro — {AF_F}°F no cesto, {OS_F}°F no tipo forno — mas o tempo muda mais: cerca de {PCT}% menos que o forno num cesto e cerca de {OS_PCT}% menos num aparelho tipo forno. O cesto movimenta o ar mais rápido em volta de uma carga pequena e termina antes; o tipo forno espalha a comida em grades e cozinha mais como um forno com ventilador. Se o seu tiver duas grades, troque-as na metade, porque a que fica mais perto da resistência doura mais. Preaqueça {PREHEAT} minutos no cesto ou {OS_PREHEAT} no tipo forno. {OVEN_F}°F são {OVEN_C}°C, e o conversor aceita as duas unidades.',
+        'Aqui os dois tipos ficam a poucos graus um do outro — {AF_F}°F no cesto, {OS_F}°F no tipo forno — mas o tempo muda mais: cerca de {PCT}% menos que o forno num cesto e cerca de {OS_PCT}% menos num aparelho tipo forno. O cesto movimenta o ar mais rápido em volta de uma carga pequena e termina antes; o tipo forno espalha a comida em grades e cozinha mais como um forno com ventilador. Se o seu tiver duas grades, troque-as na metade, porque a que fica mais perto da resistência doura mais. Preaqueça um cesto por {PREHEAT} minutos; um tipo forno preaquece sozinho e avisa quando colocar a comida. {OVEN_F}°F são {OVEN_C}°C, e o conversor aceita as duas unidades.',
       faqs: [
         {
           q: 'Quanto é {OVEN_F}°F na air fryer?',
@@ -100,7 +100,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         },
         {
           q: 'Preciso preaquecer a air fryer para uma receita a {OVEN_F}°F?',
-          a: 'Um preaquecimento curto — {PREHEAT} minutos no cesto, {OS_PREHEAT} no tipo forno — ajuda a massa folhada a crescer e a pele a ficar crocante. Em almôndegas e pimentões recheados quase não faz diferença; acrescente um minuto ao tempo.',
+          a: 'Um preaquecimento curto — {PREHEAT} minutos no cesto, automático no tipo forno — ajuda a massa folhada a crescer e a pele a ficar crocante. Em almôndegas e pimentões recheados quase não faz diferença; acrescente um minuto ao tempo.',
         },
         {
           q: 'Dá para fazer um jantar inteiro de assadeira a partir de uma receita a {OVEN_F}°F?',

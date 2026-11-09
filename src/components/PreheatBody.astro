@@ -1,0 +1,335 @@
+---
+/**
+ * /preheat body (row 15), all 5 locales. English adds the model picker (and the page puts the
+ * per-model table in the default slot); translated pages carry the temperature default, both
+ * Cosori charts, basket vs oven-style guidance and the FAQs.
+ */
+import Faq from './Faq.astro';
+import AdSlot from './AdSlot.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import { preheatModels as modelCopy } from '../i18n/dictionaries/preheat/en';
+import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
+import { PREHEAT_CHARTS } from '../data/preheat';
+import { MODELS } from '../data/models';
+import { BRANDS, modelStyle } from '../lib/brands';
+import { COST_PATH } from '../lib/cost';
+import { PRESETS_INDEX_PATH } from '../lib/preset-paths';
+import { chartSource } from '../lib/preheat';
+import { chartTable, defaultAnswer, defaultTable, inputToF, preheatValues } from '../lib/preheat-page';
+import { fillPlaceholders } from '../lib/temp-landings';
+import { LIVE_PAGES } from '../site.config';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const all = getDictionary(locale);
+const c = all.preheat;
+const v = preheatValues();
+const fill = (s: string) => fillPlaceholders(s, v);
+const withModels = locale === 'en';
+
+const unit = locale === 'en' ? 'F' : 'C';
+const startTemp = unit === 'F' ? 400 : 200;
+const initial = defaultAnswer(c, inputToF(startTemp, unit), 'basket', unit);
+
+const chartName = (modelId: string) => brandsDict.modelNames[modelId]?.replace(/^Cosori\s+/, '') ?? modelId;
+const modelGroups = withModels
+  ? BRANDS.map((b) => ({ key: b.key, label: modelCopy.brandNames[b.key], models: MODELS.filter((m) => m.brand === b.key) })).filter((g) => g.models.length)
+  : [];
+const clientModels = withModels ? Object.fromEntries(MODELS.map((m) => [m.id, { style: modelStyle(m) }])) : {};
+
+const links = [
+  { slug: '/oven-to-air-fryer', label: c.relatedFlagshipLink },
+  { slug: COST_PATH, label: c.relatedCostLink },
+  { slug: PRESETS_INDEX_PATH, label: c.relatedPresetsLink },
+].filter(({ slug }) => LIVE_PAGES.has(slug)).map(({ slug, label }) => ({ href: localizedPath(locale, slug), label }));
+---
+
+<main class="page-main">
+  <div class="wrap">
+    <header class="tool-header">
+      <a href={localizedPath(locale, '/')} class="back-link" aria-label={all.cost.backLink}>&larr; {all.cost.backLink}</a>
+      <h1>{c.heading}</h1>
+      <p class="tool-desc">{c.intro}{withModels && <> {modelCopy.pickerIntro}</>}</p>
+    </header>
+
+    <section class="tool-area" aria-label={c.widgetLabel}>
+      <div class="widget-card" id="aph" data-locale={locale}>
+        <div class="widget-head">
+          <span>{c.widgetLabel}</span>
+          <span class="live-badge"><span class="dot"></span>{all.cost.live}</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field grow">
+            <label for="aph-temp">{c.temperature}</label>
+            <div class="input-with-toggle">
+              <input id="aph-temp" type="number" inputmode="numeric" value={startTemp} />
+              <button type="button" id="aph-unit-f" class:list={['seg-btn', { active: unit === 'F' }]}>°F</button>
+              <button type="button" id="aph-unit-c" class:list={['seg-btn', { active: unit === 'C' }]}>°C</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label">{c.style}</span>
+            <div class="input-with-toggle wide">
+              <button type="button" id="aph-style-basket" class="seg-btn wide active">{c.basket}</button>
+              <button type="button" id="aph-style-oven" class="seg-btn wide">{c.ovenStyle}</button>
+            </div>
+          </div>
+        </div>
+
+        {withModels && (
+          <div class="field-row">
+            <div class="field">
+              <label for="aph-model">{modelCopy.model}</label>
+              <select id="aph-model">
+                <option value="">{modelCopy.modelNone}</option>
+                {modelGroups.map((g) => (
+                  <optgroup label={g.label}>
+                    {g.models.map((m) => <option value={m.id}>{brandsDict.modelNames[m.id] ?? m.modelNumber}</option>)}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+          </div>
+        )}
+
+        <div class="result-block" aria-live="polite">
+          <p class="eyebrow">{c.answerLabel}</p>
+          <p id="aph-answer" class="answer">{initial.answer}</p>
+          <p id="aph-source" class="result-line">{initial.source}</p>
+        </div>
+      </div>
+    </section>
+
+    <slot />
+
+    <section class="content-section">
+      <h2>{c.leadHeading}</h2>
+      <p>{fill(c.leadBody)}</p>
+    </section>
+
+    <section class="table-section" aria-labelledby="aph-default-heading">
+      <h2 id="aph-default-heading">{c.defaultHeading}</h2>
+      <p class="table-intro">{fill(c.defaultBody)}</p>
+      <div class="table-card">
+        <table id="aph-default">
+          <thead><tr><th>{c.tableTemp}</th><th>{c.tableMinutes}</th></tr></thead>
+          <tbody>{defaultTable().map((r) => <tr><td>{r.range}</td><td>{r.minutes}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="table-section" aria-labelledby="aph-charts-heading">
+      <h2 id="aph-charts-heading">{c.chartsHeading}</h2>
+      <p class="table-intro">{c.chartsBody}</p>
+      <div class="charts">
+        {PREHEAT_CHARTS.map((chart) => (
+          <figure class="table-card" data-chart={chart.modelId}>
+            <table>
+              <thead><tr><th>{c.tableTemp}</th><th>{c.tableMinutes}</th></tr></thead>
+              <tbody>{chartTable(chart).map((r) => <tr><td>{r.range}</td><td>{r.minutes}</td></tr>)}</tbody>
+            </table>
+            <figcaption class="source-line">
+              <a href={chartSource(chart)} rel="nofollow noopener" target="_blank">{fillPlaceholders(c.chartCaption, { MODEL: chartName(chart.modelId), PAGE: String(chart.page) })}</a>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>{c.styleHeading}</h2>
+      <p>{c.styleBody}</p>
+      <h2>{c.skipHeading}</h2>
+      <p>{c.skipBody}</p>
+    </section>
+
+    {links.length > 0 && (
+      <section class="content-section">
+        <h2>{c.relatedHeading}</h2>
+        {links.map(({ href, label }) => <p class="related-link"><a href={href}>{label}</a> &rarr;</p>)}
+      </section>
+    )}
+
+    <AdSlot slot="8877665545" />
+
+    <section class="faq-section">
+      <h2>{c.faqHeading}</h2>
+      <Faq items={c.faqs.map(({ q, a }) => ({ q: fill(q), a: fill(a) }))} />
+    </section>
+  </div>
+</main>
+
+<script is:inline define:vars={{ preheatDict: c, modelDict: withModels ? modelCopy : null, clientModels }}>
+  window.__aphDict = preheatDict;
+  window.__aphModels = modelDict;
+  window.__aphModelStyles = clientModels;
+</script>
+
+<script>
+  import { MODELS } from '../data/models';
+  import { defaultAnswer, inputToF, modelAnswerText } from '../lib/preheat-page';
+  import type { FryerStyle, TempUnit } from '../lib/converter';
+  import type { PreheatCopy } from '../i18n/types';
+  import type { PreheatModelCopy } from '../i18n/dictionaries/preheat/en';
+
+  const w = window as unknown as { __aphDict: PreheatCopy; __aphModels: PreheatModelCopy | null; __aphModelStyles: Record<string, { style: FryerStyle }> };
+  const c = w.__aphDict;
+  const m = w.__aphModels;
+  const $ = <T = HTMLElement,>(id: string) => document.getElementById(id) as unknown as T;
+  const modelSelect = document.getElementById('aph-model') as HTMLSelectElement | null;
+
+  const state: { unit: TempUnit; style: FryerStyle } = {
+    unit: $<HTMLButtonElement>('aph-unit-c').classList.contains('active') ? 'C' : 'F',
+    style: 'basket',
+  };
+  const setSeg = (on: HTMLElement, off: HTMLElement) => {
+    on.classList.add('active');
+    off.classList.remove('active');
+  };
+  const setStyle = (style: FryerStyle) => {
+    state.style = style;
+    setSeg($(`aph-style-${style}`), $(`aph-style-${style === 'basket' ? 'oven' : 'basket'}`));
+  };
+
+  function render() {
+    const tempF = inputToF($<HTMLInputElement>('aph-temp').valueAsNumber, state.unit);
+    const model = modelSelect?.value ? MODELS.find((x) => x.id === modelSelect.value) : undefined;
+    const r = model && m ? modelAnswerText(c, m, model, tempF, state.unit, state.style) : defaultAnswer(c, tempF, state.style, state.unit);
+    $('aph-answer').textContent = r.answer;
+    $('aph-source').textContent = r.source;
+    writeQuery(model?.id);
+  }
+
+  // Shareable state: ?temp=&unit=&style=&model=
+  function writeQuery(model?: string) {
+    const q = new URLSearchParams();
+    q.set('temp', $<HTMLInputElement>('aph-temp').value);
+    q.set('unit', state.unit);
+    q.set('style', state.style);
+    if (model) q.set('model', model);
+    history.replaceState(null, '', `${location.pathname}?${q}`);
+  }
+
+  function readQuery() {
+    const q = new URLSearchParams(location.search);
+    const unit = q.get('unit');
+    if (unit === 'F' || unit === 'C') {
+      state.unit = unit;
+      setSeg($(`aph-unit-${unit.toLowerCase()}`), $(`aph-unit-${unit === 'F' ? 'c' : 'f'}`));
+    }
+    const temp = q.get('temp');
+    if (temp !== null && temp.trim() !== '' && Number.isFinite(Number(temp))) $<HTMLInputElement>('aph-temp').value = temp;
+    const style = q.get('style');
+    if (style === 'basket' || style === 'oven') setStyle(style);
+    const model = q.get('model');
+    if (model && modelSelect && [...modelSelect.options].some((o) => o.value === model)) {
+      modelSelect.value = model;
+      setStyle(w.__aphModelStyles[model].style);
+    }
+  }
+
+  $('aph-temp').addEventListener('input', render);
+  $('aph-unit-f').addEventListener('click', () => { state.unit = 'F'; setSeg($('aph-unit-f'), $('aph-unit-c')); render(); });
+  $('aph-unit-c').addEventListener('click', () => { state.unit = 'C'; setSeg($('aph-unit-c'), $('aph-unit-f')); render(); });
+  $('aph-style-basket').addEventListener('click', () => { setStyle('basket'); render(); });
+  $('aph-style-oven').addEventListener('click', () => { setStyle('oven'); render(); });
+  modelSelect?.addEventListener('change', () => {
+    if (modelSelect.value) setStyle(w.__aphModelStyles[modelSelect.value].style);
+    render();
+  });
+
+  readQuery();
+  render();
+</script>
+
+<style>
+  @reference '../styles/global.css';
+
+  .wrap { max-width: 860px; margin-inline: auto; padding-inline: 24px; }
+  .page-main { padding: 40px 0 80px; }
+  .tool-header { margin-bottom: 32px; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-bottom: 8px;
+    font-size: var(--text-caption); font-weight: 600; letter-spacing: var(--text-caption--letter-spacing);
+    text-transform: uppercase; color: var(--site-text-muted); transition: color 0.15s ease;
+  }
+  .back-link:hover { color: var(--site-text); }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.03em; color: var(--site-text); line-height: 1.1; margin: 0 0 12px; }
+  .tool-desc {
+    font-size: var(--text-subheading); line-height: var(--text-subheading--line-height);
+    letter-spacing: var(--text-subheading--letter-spacing); color: var(--site-text-muted); margin: 0; max-width: 64ch;
+  }
+  .tool-area { margin-bottom: 32px; }
+
+  .widget-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 24px; }
+  .widget-head {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    font-size: var(--text-caption); letter-spacing: var(--text-caption--letter-spacing); font-weight: 600;
+    text-transform: uppercase; color: var(--site-text-muted);
+  }
+  .live-badge { display: flex; align-items: center; gap: 6px; color: var(--site-text); }
+  .dot { display: block; width: 6px; height: 6px; border-radius: 999px; background: var(--site-accent); }
+  .field-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+  .field-row:first-of-type { margin-top: 0; }
+  .field { flex: 1 1 200px; min-width: min(180px, 100%); }
+  .field.grow { flex: 1 1 240px; min-width: min(230px, 100%); }
+  .field label, .field-label { display: block; font-size: 13px; font-weight: 600; color: var(--site-text-muted); margin-bottom: 8px; }
+  .field input, .field select {
+    height: 48px; padding: 0 16px; width: 100%; border: 1px solid var(--site-border); border-radius: var(--radius-site-card);
+    background: var(--site-bg-card); color: var(--site-text); font-family: var(--font-archivo); font-size: 15px;
+  }
+  .field input { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .field select { cursor: pointer; }
+  .input-with-toggle { display: flex; align-items: center; gap: 8px; }
+  .input-with-toggle input { flex: 1 1 auto; min-width: 0; }
+  .input-with-toggle.wide { width: 100%; }
+  .seg-btn {
+    display: flex; align-items: center; justify-content: center; height: 48px; padding: 0 14px; flex: 0 0 auto;
+    border-radius: var(--radius-site-card); border: 1px solid var(--site-border); background: var(--site-bg-card);
+    color: var(--site-text); font-family: var(--font-archivo); font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.12s ease;
+  }
+  .seg-btn.wide { flex: 1 1 0; min-width: 0; }
+  .seg-btn.active { background: var(--site-text); border-color: var(--site-text); color: var(--site-bg-card); }
+
+  .result-block { margin-top: 24px; padding: 20px; border-radius: var(--radius-site-card); background: var(--site-bg); }
+  .eyebrow {
+    font-size: var(--text-caption); letter-spacing: var(--text-caption--letter-spacing); font-weight: 600;
+    text-transform: uppercase; color: var(--site-text-muted); margin: 0 0 12px;
+  }
+  .answer { font-size: clamp(1.15rem, 3.6vw, 1.5rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--site-text); margin: 0; }
+  .result-line { font-size: 14px; line-height: 1.45; color: var(--site-text-muted); margin: 10px 0 0; }
+
+  .content-section, .faq-section, .table-section { margin: 40px 0; }
+  .content-section h2, .faq-section h2, .table-section h2 {
+    font-size: var(--text-heading-sm); line-height: var(--text-heading-sm--line-height);
+    letter-spacing: var(--text-heading-sm--letter-spacing); font-weight: 600; color: var(--site-text); margin: 0 0 16px;
+  }
+  .content-section h2 + p + h2 { margin-top: 32px; }
+  .content-section p, .table-intro {
+    font-size: var(--text-body); line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing); color: var(--site-text-muted); margin: 0 0 16px; max-width: 72ch;
+  }
+  .related-link { margin: 16px 0 0 !important; }
+  .related-link a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
+  .related-link a:hover { color: var(--site-accent); }
+
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 12px; }
+  figure { margin: 0; }
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td {
+    text-align: left; vertical-align: top; padding: 10px 6px; border-bottom: 1px solid var(--site-border);
+    font-size: 13px; font-variant-numeric: tabular-nums; color: var(--site-text); word-break: break-word;
+  }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--site-text-muted); }
+  tbody tr:last-child td { border-bottom: none; }
+  .source-line { font-size: 13px; color: var(--site-text-muted); margin: 8px 0 0; }
+  .source-line a { display: inline-block; min-height: 44px; line-height: 44px; color: var(--site-text); text-decoration: underline; }
+</style>

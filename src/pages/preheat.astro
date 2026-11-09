@@ -1,0 +1,174 @@
+---
+// /preheat (row 15). Rendered on request so the per-model table's sorting and filtering are plain
+// links (?brand=&kind=&sort=) that work without JavaScript; every variant canonicals to the bare URL.
+// The tool's own state (?temp=&unit=&style=&model=) is read in the browser. Translated pages
+// (/es … /de) are prerendered and carry no model table.
+export const prerender = false;
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer.astro';
+import PreheatBody from '../components/PreheatBody.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import { localizedUrl } from '../i18n/utils';
+import { preheatModels as m } from '../i18n/dictionaries/preheat/en';
+import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
+import type { BrandKey } from '../data/models';
+import { PREHEAT_CHARTS, type PreheatKind } from '../data/preheat';
+import { BRANDS, brandConfig } from '../lib/brands';
+import { DEFAULT_MINUTES, PREHEAT_PATH } from '../lib/preheat';
+import { preheatModels, sourceLine, tempLabel } from '../lib/preheat-page';
+import { preheatJsonLd } from '../lib/preheat-jsonld';
+import { fillPlaceholders } from '../lib/temp-landings';
+import { LIVE_PAGES } from '../site.config';
+
+const locale = 'en' as const;
+const dict = getDictionary(locale).preheat;
+
+const KINDS: PreheatKind[] = ['chart', 'fixed', 'auto', 'none', 'notMentioned', 'notReread'];
+type SortKey = 'brand' | 'kind';
+const params = Astro.url.searchParams;
+const all = preheatModels();
+const brandKeys = BRANDS.map((b) => b.key).filter((k) => all.some((r) => r.model.brand === k));
+const brand = brandKeys.find((k) => k === params.get('brand')) ?? null;
+const kind = KINDS.filter((k) => all.some((r) => r.preheat.kind === k)).find((k) => k === params.get('kind')) ?? null;
+const sort: SortKey = params.get('sort') === 'kind' ? 'kind' : 'brand';
+
+const name = (id: string, fallback: string) => brandsDict.modelNames[id] ?? fallback;
+const rows = all
+  .filter((r) => (!brand || r.model.brand === brand) && (!kind || r.preheat.kind === kind))
+  .sort((a, b) => {
+    const byBrand = a.model.brand.localeCompare(b.model.brand) || name(a.model.id, a.model.modelNumber).localeCompare(name(b.model.id, b.model.modelNumber));
+    return sort === 'kind' ? KINDS.indexOf(a.preheat.kind) - KINDS.indexOf(b.preheat.kind) || byBrand : byBrand;
+  });
+
+function href(change: Record<string, string | null>): string {
+  const next = { brand, kind, sort: sort === 'brand' ? null : sort, ...change };
+  const q = Object.entries(next).filter(([, v]) => v) as [string, string][];
+  return q.length ? `${PREHEAT_PATH}?${new URLSearchParams(q)}#models` : `${PREHEAT_PATH}#models`;
+}
+
+function minutesCell(r: (typeof all)[number]): string {
+  const p = r.preheat;
+  if (p.kind === 'chart') {
+    const chart = PREHEAT_CHARTS.find((c) => c.modelId === r.model.id)!;
+    const mins = chart.rows.map((x) => x.minutes);
+    return fillPlaceholders(m.minutesCell.chart, { MIN_MIN: String(Math.min(...mins)), MIN_MAX: String(Math.max(...mins)) });
+  }
+  if (p.kind === 'fixed') return fillPlaceholders(m.minutesCell.fixed, { MIN: String(p.fixed!.minutes), TEMP: tempLabel(p.fixed!.tempF, 'F') });
+  if (p.kind === 'auto') return m.minutesCell.auto;
+  if (p.kind === 'none') return m.minutesCell.none;
+  return `${m.minutesCell.default} (${DEFAULT_MINUTES.min}–${DEFAULT_MINUTES.max})`;
+}
+const brandPage = (k: BrandKey) => (LIVE_PAGES.has(brandConfig(k).path) ? brandConfig(k).path : null);
+---
+
+<Layout
+  title={dict.metaTitle}
+  description={dict.metaDescription}
+  canonical={localizedUrl(locale, PREHEAT_PATH)}
+  keywords={dict.metaKeywords}
+  jsonLd={preheatJsonLd(locale)}
+  locale={locale}
+  translatedSlug={PREHEAT_PATH}
+>
+  <SiteNav currentPath={PREHEAT_PATH} locale={locale} translatedSlug={PREHEAT_PATH} />
+  <PreheatBody locale={locale}>
+    <section class="models" id="models" aria-labelledby="aph-models-heading">
+      <h2 id="aph-models-heading">{m.tableHeading}</h2>
+      <p class="intro">{m.tableIntro}</p>
+      <nav class="filters" aria-label={`${m.filterBrand} / ${m.filterKind}`}>
+        <div class="filter-group">
+          <span class="filter-label">{m.filterBrand}</span>
+          <a href={href({ brand: null })} class:list={['chip', { active: !brand }]} aria-current={!brand ? 'true' : undefined}>{m.all}</a>
+          {brandKeys.map((k) => (
+            <a href={href({ brand: k })} class:list={['chip', { active: brand === k }]} aria-current={brand === k ? 'true' : undefined} data-brand={k}>{m.brandNames[k]}</a>
+          ))}
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">{m.filterKind}</span>
+          <a href={href({ kind: null })} class:list={['chip', { active: !kind }]} aria-current={!kind ? 'true' : undefined}>{m.all}</a>
+          {KINDS.filter((k) => all.some((r) => r.preheat.kind === k)).map((k) => (
+            <a href={href({ kind: k })} class:list={['chip', { active: kind === k }]} aria-current={kind === k ? 'true' : undefined} data-kind={k}>{m.kinds[k]}</a>
+          ))}
+        </div>
+      </nav>
+      <p id="aph-count" class="count">{fillPlaceholders(m.showing, { N: String(rows.length), TOTAL: String(all.length) })}</p>
+      <div class="table-card">
+        {rows.length === 0 ? (
+          <p class="none">{m.none}</p>
+        ) : (
+          <table id="aph-models">
+            <thead>
+              <tr>
+                <th aria-sort={sort === 'brand' ? 'ascending' : undefined}><a href={href({ sort: null })} data-sort="brand">{m.headers.model}</a></th>
+                <th aria-sort={sort === 'kind' ? 'ascending' : undefined}><a href={href({ sort: 'kind' })} data-sort="kind">{m.headers.says}</a></th>
+                <th>{m.headers.minutes}</th>
+                <th>{m.headers.source}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => {
+                const bp = brandPage(r.model.brand);
+                return (
+                  <tr data-model={r.model.id} data-kind={r.preheat.kind}>
+                    <td>
+                      <span class="model-name">{name(r.model.id, r.model.modelNumber)}</span>
+                      <span class="model-meta">{brandsDict.types[r.model.type]}</span>
+                      {bp && <a href={bp} class="cell-link">{m.brandNames[r.model.brand]} &rarr;</a>}
+                    </td>
+                    <td>{m.kinds[r.preheat.kind]}</td>
+                    <td>{minutesCell(r)}</td>
+                    <td>
+                      {r.preheat.kind === 'notReread'
+                        ? <span>{sourceLine(m, r.preheat)}</span>
+                        : <a href={r.url} rel="nofollow noopener" target="_blank" class="cell-link">{sourceLine(m, r.preheat)}</a>}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+      <p class="related"><a href="/model-max-temp">{brandsDict.maxTemp.heading}</a> &rarr;</p>
+    </section>
+  </PreheatBody>
+  <Footer locale={locale} />
+</Layout>
+
+<style>
+  @reference '../styles/global.css';
+
+  .models { margin: 40px 0; }
+  .models h2 {
+    font-size: var(--text-heading-sm); line-height: var(--text-heading-sm--line-height); font-weight: 600;
+    color: var(--site-text); margin: 0 0 16px;
+  }
+  .intro { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0 0 8px; max-width: 72ch; }
+  .filters { display: flex; flex-direction: column; gap: 8px; margin: 16px 0 8px; }
+  .filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .filter-label { font-size: 13px; font-weight: 600; color: var(--site-text-muted); min-width: 48px; }
+  .chip {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
+    border: 1px solid var(--site-border); border-radius: var(--radius-site-card);
+    background: var(--site-bg-card); color: var(--site-text); font-size: 14px; font-weight: 600;
+  }
+  .chip.active { background: var(--site-text); border-color: var(--site-text); color: var(--site-bg-card); }
+  .count { font-size: 13px; color: var(--site-text-muted); margin: 8px 0 12px; }
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  .none { margin: 12px 0; color: var(--site-text-muted); }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td {
+    text-align: left; vertical-align: top; padding: 10px 6px; border-bottom: 1px solid var(--site-border);
+    font-size: 13px; color: var(--site-text); word-break: break-word;
+  }
+  th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--site-text-muted); }
+  th:first-child { width: 32%; }
+  th a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; }
+  th[aria-sort='ascending'] a::after { content: ' \2191'; }
+  tbody tr:last-child td { border-bottom: none; }
+  .model-name { display: block; font-weight: 600; }
+  .model-meta { display: block; color: var(--site-text-muted); font-size: 12px; }
+  .cell-link { display: inline-block; min-height: 44px; line-height: 1.4; padding: 12px 0; font-weight: 600; color: var(--site-text); text-decoration: underline; }
+  .related a { display: inline-block; min-height: 44px; line-height: 44px; font-weight: 600; color: var(--site-text); }
+</style>

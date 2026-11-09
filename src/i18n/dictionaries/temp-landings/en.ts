@@ -84,7 +84,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         'A recipe roasts bone-in chicken thighs at {OVEN_F}°F for {EX_OVEN_MIN} minutes. In a basket air fryer that becomes {EX_F}°F ({EX_C}°C) for {EX_MIN} minutes; start checking the thickest thigh at {EX_CHECK} minutes and keep going until it reads at least 165°F next to the bone. In an oven-style air fryer, which behaves more like a small convection oven, it is {EX_OS_F}°F for {EX_OS_MIN} minutes. Turn the pieces once at the halfway point in either style.',
       styleHeading: 'Basket or oven-style at 375°F',
       styleBody:
-        'Here the two styles differ by only a few degrees — {AF_F}°F in a basket, {OS_F}°F in an oven-style unit — but the time differs more: about {PCT}% less than the oven in a basket and about {OS_PCT}% less in an oven-style unit. A basket moves air faster around a smaller load, so it finishes sooner; an oven-style unit spreads food over racks and cooks more like a fan oven. If yours has two racks, swap them halfway, because the rack nearer the element browns faster. Preheat for {PREHEAT} minutes in a basket or {OS_PREHEAT} in an oven-style unit. {OVEN_F}°F is {OVEN_C}°C, and the converter accepts either unit.',
+        'Here the two styles differ by only a few degrees — {AF_F}°F in a basket, {OS_F}°F in an oven-style unit — but the time differs more: about {PCT}% less than the oven in a basket and about {OS_PCT}% less in an oven-style unit. A basket moves air faster around a smaller load, so it finishes sooner; an oven-style unit spreads food over racks and cooks more like a fan oven. If yours has two racks, swap them halfway, because the rack nearer the element browns faster. Preheat a basket for {PREHEAT} minutes; an oven-style unit preheats itself and signals when to add the food. {OVEN_F}°F is {OVEN_C}°C, and the converter accepts either unit.',
       faqs: [
         {
           q: 'What is {OVEN_F}°F in an air fryer?',
@@ -100,7 +100,7 @@ const tempLanding: Dictionary['tempLanding'] = {
         },
         {
           q: 'Do I need to preheat the air fryer for a {OVEN_F}°F recipe?',
-          a: 'A short preheat — {PREHEAT} minutes for a basket, {OS_PREHEAT} for an oven-style unit — helps pastry rise and skin crisp. For meatballs and stuffed peppers it makes little difference; add a minute to the time instead.',
+          a: 'A short preheat — {PREHEAT} minutes for a basket, automatic on an oven-style unit — helps pastry rise and skin crisp. For meatballs and stuffed peppers it makes little difference; add a minute to the time instead.',
         },
         {
           q: 'Can I cook a whole sheet-pan dinner from a {OVEN_F}°F recipe?',

@@ -137,6 +137,12 @@ function build() {
       [costDict, [0, fileLines(costDict).length - 1]],
       ['src/data/energy.ts', [0, fileLines('src/data/energy.ts').length - 1]],
     ]);
+    // The preheat page: its own dictionary plus the preheat data (English also lists the models).
+    const preheatDict = `src/i18n/dictionaries/preheat/${l}.ts`;
+    dates[`${l}:/preheat`] = latest([
+      [preheatDict, [0, fileLines(preheatDict).length - 1]],
+      ['src/data/preheat.ts', [0, fileLines('src/data/preheat.ts').length - 1]],
+    ]);
     const presetsLines = fileLines(presetsDict);
     const indexStart = presetsLines.findIndex((x) => x.startsWith('export const presetsIndex'));
     dates[`${l}:/presets`] = latest([[presetsDict, [indexStart, presetsLines.length - 1]]]);

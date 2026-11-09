@@ -44,6 +44,7 @@ export interface FryerModel {
   maxIsDefault?: true;
   /** Rated power in watts, only where the source states it (Cosori manuals: "Rated Power"). */
   watts?: number;
+  /** Summary for the brand tables; what the document says, with pages, is in src/data/preheat.ts (tested to agree). */
   preheat: PreheatMode;
   /** Built-in programs as the manual's program table lists them (only where the table is unambiguous). */
   programs?: ModelProgram[];
@@ -89,9 +90,9 @@ export const MODELS: FryerModel[] = [
     ],
     source: `${COSORI}TurboBlaze_Manual_US.pdf`, sourced: READ,
   },
-  { id: 'cosori-stainless-6-5', brand: 'cosori', modelNumber: 'CAF-SE601S-CUS', type: 'basket', capacity: { qt: 6.5 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1725, preheat: 'auto', source: `${COSORI}CPDV_2412_CAF-SE601S-CUS_M1__Shake_Reminder__us_Preview_v7.pdf`, sourced: READ },
-  { id: 'cosori-lite-2-1', brand: 'cosori', modelNumber: 'CAF-LI211', type: 'basket', capacity: { qt: 2.1 }, maxF: 400, minF: 170, tempUnit: 'F', watts: 900, preheat: 'none', source: `${COSORI}D2_01.00_M1_CAF-LI211_2022-11-29_US_en.pdf`, sourced: READ },
-  { id: 'cosori-twinfry-9', brand: 'cosori', modelNumber: 'CAF-TF901-KUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 465, label: 'broil' }, watts: 1750, preheat: 'none', source: `${COSORI}6100000107_Air_Fryer_Manual_US_A1-260528.pdf`, sourced: READ },
+  { id: 'cosori-stainless-6-5', brand: 'cosori', modelNumber: 'CAF-SE601S-CUS', type: 'basket', capacity: { qt: 6.5 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1725, preheat: 'manual', source: `${COSORI}CPDV_2412_CAF-SE601S-CUS_M1__Shake_Reminder__us_Preview_v7.pdf`, sourced: READ },
+  { id: 'cosori-lite-2-1', brand: 'cosori', modelNumber: 'CAF-LI211', type: 'basket', capacity: { qt: 2.1 }, maxF: 400, minF: 170, tempUnit: 'F', watts: 900, preheat: 'unknown', source: `${COSORI}D2_01.00_M1_CAF-LI211_2022-11-29_US_en.pdf`, sourced: READ },
+  { id: 'cosori-twinfry-9', brand: 'cosori', modelNumber: 'CAF-TF901-KUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 465, label: 'broil' }, watts: 1750, preheat: 'unknown', source: `${COSORI}6100000107_Air_Fryer_Manual_US_A1-260528.pdf`, sourced: READ },
   { id: 'cosori-dual-basket-9', brand: 'cosori', modelNumber: 'CAF-R901-AUS', type: 'dual-zone', capacity: { qt: 9.0 }, maxF: 450, minF: 95, tempUnit: 'F', watts: 1750, preheat: 'auto', source: `${COSORI}CPDV_2308_CAF-R901-AUS_M1_print_en_V7.pdf`, sourced: READ },
   { id: 'cosori-oven-13', brand: 'cosori', modelNumber: 'CAF-R121-SUS', type: 'toaster-oven', capacity: { qt: 13 }, maxF: 450, minF: 90, tempUnit: 'F', watts: 1800, preheat: 'auto', source: `${COSORI}D2_01.00_M1_CAF-R121-SUS_2022-11-02_US_en.pdf`, sourced: READ },
 
@@ -102,7 +103,7 @@ export const MODELS: FryerModel[] = [
   { id: 'philips-3000-dual-na351', brand: 'philips', modelNumber: 'NA351/00', type: 'dual-zone', capacity: { L: 9 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.usa.philips.com/c-p/NA351_00/3000-series-dual-basket-airfryer', sourced: READ },
   { id: 'philips-3000-dual-na350', brand: 'philips', modelNumber: 'NA350/03', type: 'dual-zone', capacity: { L: 9 }, maxF: C(200), minF: C(40), tempUnit: 'C', preheat: 'unknown', source: 'https://www.documents.philips.com/assets/20240111/dd265518eef34313afe9b0f4006336b3.pdf', sourced: READ },
   { id: 'philips-5000-dual-na555', brand: 'philips', modelNumber: 'NA555/00', type: 'dual-zone', capacity: { qt: 9.6 }, maxF: 400, minF: null, tempUnit: 'F', preheat: 'unknown', source: 'https://www.usa.philips.com/c-p/NA555_00/5000-series', sourced: READ },
-  { id: 'philips-premium-xxl-hd9650', brand: 'philips', modelNumber: 'HD9650', type: 'basket', capacity: null, capacityIsFoodLoad: true, maxF: C(200), minF: C(40), tempUnit: 'C', preheat: 'unknown', source: 'https://www.documents.philips.com/assets/20220207/59e4c869c4054da68f53ae350120bc70.pdf', sourced: READ },
+  { id: 'philips-premium-xxl-hd9650', brand: 'philips', modelNumber: 'HD9650', type: 'basket', capacity: null, capacityIsFoodLoad: true, maxF: C(200), minF: C(40), tempUnit: 'C', preheat: 'none', source: 'https://www.documents.philips.com/assets/20220207/59e4c869c4054da68f53ae350120bc70.pdf', sourced: READ },
   { id: 'philips-5000-xxl-hd9285', brand: 'philips', modelNumber: 'HD9285', type: 'basket', capacity: null, maxF: C(200), minF: C(40), tempUnit: 'C', preheat: 'unknown', source: 'https://www.documents.philips.com/assets/20230118/21a8e3001a6c4cfc937daf8e014f2039.pdf', sourced: READ },
 
   // Instant — manuals linked from instantpot.com/pages/air-fryer-product-manuals

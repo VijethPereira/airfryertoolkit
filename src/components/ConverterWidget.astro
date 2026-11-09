@@ -176,6 +176,7 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     type PackType,
     type TempUnit,
   } from '../lib/converter';
+  import { preheatForSetting } from '../lib/preheat';
   import type { Dictionary } from '../i18n/types';
 
   const {
@@ -287,7 +288,8 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     outAlt.textContent = ok ? `/ ${state.unit === 'C' ? result.outF : result.outC}°${state.unit === 'C' ? 'F' : 'C'}` : '/ —';
     outTime.textContent = okT ? String(result.outMinutes) : '—';
     checkAt.textContent = okT ? String(result.checkAtMinutes) : '—';
-    preheat.textContent = `${result.preheatMinutes} ${dict.min}`;
+    const pre = preheatForSetting(result.outF, state.style);
+    preheat.textContent = pre.kind === 'minutes' ? `${pre.minutes} ${dict.min}` : pre.kind === 'auto' ? dict.preheatAuto : '—';
     const mark = ovenMarkFor(result.outF, markScale);
     gasMarkEl.textContent = mark ? `${dict.gasMark} ${mark}` : dict.gasMarkDash;
     tipEl.textContent = tips[food] ?? '';

@@ -10,6 +10,7 @@ import { LOCALE_TARIFF, US_TIME_ZONES, computeCost, formatDate, formatNumber, fo
 import { costValues, defaultCostInput, fillCost, money, rate } from '../lib/cost-page';
 import { MODEL_MAX_TEMP_PATH, BRANDS } from '../lib/brands';
 import { LIVE_PAGES } from '../site.config';
+import { PREHEAT_PATH } from '../lib/preheat';
 
 interface Props {
   locale?: LocaleCode;
@@ -31,7 +32,7 @@ const tariffNote = (id: typeof tariffId) =>
 
 // Server HTML shows the defaults; the script below recomputes on every input.
 const r = {
-  afSetting: fillCost(c.airFryerSettingTemplate, { AF_TEMP: input.unit === 'F' ? `${result.airFryerF}°F` : `${result.airFryerC}°C`, AF_MIN: String(result.airFryerMinutes), PRE: String(input.airFryerPreheat), TOTAL: String(result.airFryer.minutes) }),
+  afSetting: fillCost(c.airFryerSettingTemplate, { AF_TEMP: input.unit === 'F' ? `${result.airFryerF}°F` : `${result.airFryerC}°C`, AF_MIN: String(result.airFryerMinutes), PRE: String(result.airFryerPreheat), TOTAL: String(result.airFryer.minutes) }),
   ovSetting: fillCost(c.ovenSettingTemplate, { MIN: String(input.ovenMinutes), PRE: String(input.ovenPreheat), TOTAL: String(result.oven.minutes) }),
   afCost: money(result.airFryer.cost, tariff, locale, c),
   ovCost: money(result.oven.cost, tariff, locale, c),
@@ -146,7 +147,7 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
           <div class="field">
             <label for="afc-pre-af">{c.preheatAirFryer}</label>
             <div class="input-with-suffix">
-              <input id="afc-pre-af" type="number" inputmode="numeric" value={input.airFryerPreheat} />
+              <input id="afc-pre-af" type="number" inputmode="numeric" value={result.airFryerPreheat} />
               <span class="suffix">{c.min}</span>
             </div>
           </div>
@@ -269,7 +270,7 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
 
     <section class="faq-section">
       <h2>{c.faqHeading}</h2>
-      <Faq items={c.faqs.map(({ q, a }) => ({ q: fill(q), a: fill(a) }))} />
+      <Faq items={c.faqs.map(({ q, a, link }) => ({ q: fill(q), a: fill(a), ...(link === 'preheat' && LIVE_PAGES.has(PREHEAT_PATH) ? { link: { href: localizedPath(locale, PREHEAT_PATH), label: all.preheat.heading } } : {}) }))} />
     </section>
   </div>
 </main>
@@ -302,11 +303,12 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
   const $ = <T = HTMLElement,>(id: string) => document.getElementById(id) as unknown as T;
   const num = (id: string) => $<HTMLInputElement>(id).valueAsNumber;
 
-  const state: { unit: TempUnit; style: FryerStyle; region: string; customTariff: boolean } = {
+  const state: { unit: TempUnit; style: FryerStyle; region: string; customTariff: boolean; customPreheat: boolean } = {
     unit: $<HTMLButtonElement>('afc-unit-c').classList.contains('active') ? 'C' : 'F',
     style: 'basket',
     region: w.__afcDefaultTariff,
     customTariff: false,
+    customPreheat: false,
   };
 
   const setSeg = (on: HTMLElement | null, off: HTMLElement | null) => {
@@ -335,7 +337,7 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
     const food = $<HTMLSelectElement>('afc-food').value as FoodKey;
     const input = {
       ovenTemp: num('afc-temp'), unit: state.unit, ovenMinutes: num('afc-time'), food, style: state.style,
-      tariff: num('afc-tariff') / 100, ovenPreheat: num('afc-pre-ov'), airFryerPreheat: num('afc-pre-af'),
+      tariff: num('afc-tariff') / 100, ovenPreheat: num('afc-pre-ov'), airFryerPreheat: state.customPreheat ? num('afc-pre-af') : undefined,
       ovenWatts: num('afc-ov-w'), airFryerWatts: num('afc-af-w'), params: params(),
     };
     const r = computeCost(input);
@@ -346,7 +348,9 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
     }
     set('afc-af-cost', money(r.airFryer.cost));
     set('afc-ov-cost', money(r.oven.cost));
-    set('afc-af-setting', fill(c.airFryerSettingTemplate, { AF_TEMP: state.unit === 'F' ? `${r.airFryerF}°F` : `${r.airFryerC}°C`, AF_MIN: String(r.airFryerMinutes), PRE: String(input.airFryerPreheat), TOTAL: String(r.airFryer.minutes) }));
+    set('afc-af-setting', fill(c.airFryerSettingTemplate, { AF_TEMP: state.unit === 'F' ? `${r.airFryerF}°F` : `${r.airFryerC}°C`, AF_MIN: String(r.airFryerMinutes), PRE: String(r.airFryerPreheat), TOTAL: String(r.airFryer.minutes) }));
+    // Until someone types their own, the air fryer preheat follows the chart at the converted temperature.
+    if (!state.customPreheat) $<HTMLInputElement>('afc-pre-af').value = String(r.airFryerPreheat);
     set('afc-ov-setting', fill(c.ovenSettingTemplate, { MIN: String(input.ovenMinutes), PRE: String(input.ovenPreheat), TOTAL: String(r.oven.minutes) }));
     set('afc-af-kwh', `${formatNumber(r.airFryer.kwh, locale, 2)} kWh`);
     set('afc-ov-kwh', `${formatNumber(r.oven.kwh, locale, 2)} kWh`);
@@ -412,6 +416,9 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
     }
   }
 
+  $('afc-pre-af').addEventListener('input', () => {
+    state.customPreheat = true;
+  });
   for (const id of ['afc-temp', 'afc-time', 'afc-pre-ov', 'afc-pre-af', 'afc-p-warm', 'afc-p-hold', 'afc-p-af', 'afc-ov-w', 'afc-af-w']) $(id).addEventListener('input', render);
   $('afc-food').addEventListener('change', render);
   $('afc-tariff').addEventListener('input', () => {

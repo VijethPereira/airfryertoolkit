@@ -29,7 +29,7 @@ for (const width of [641, 720, 800, 900, 1024]) {
 // Shared <details> FAQ (src/components/Faq.astro): one page per body that uses it.
 const FAQ_PAGES = [
   '/oven-to-air-fryer', '/air-fryer-to-oven', '/convection-to-air-fryer', '/air-fryer-to-convection',
-  '/frozen', '/350-to-air-fryer', '/air-fryer/salmon', '/chart', '/cosori', '/model-max-temp',
+  '/frozen', '/350-to-air-fryer', '/air-fryer/salmon', '/chart', '/cosori', '/model-max-temp', '/air-fryer-vs-oven-cost', '/preheat',
 ];
 
 test.describe('FAQ without JavaScript', () => {
@@ -60,11 +60,12 @@ test('FAQ answers print expanded', async ({ page }) => {
   for (const a of await answers.all()) await expect(a).toBeVisible();
 });
 
-test('no page ships the old FAQ toggle script or <dd hidden> markup', async ({ page }) => {
-  // One goto per FAQ page: past the 30s default under full-suite load.
-  test.setTimeout(120_000);
+// One test per page, so a slow page fails by name instead of timing out a loop.
+test.describe('no page ships the old FAQ toggle script or <dd hidden> markup', () => {
   for (const path of FAQ_PAGES) {
-    await page.goto(path);
-    await expect(page.locator('.faq-toggle, dd.faq-a')).toHaveCount(0);
+    test(path, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.locator('.faq-toggle, dd.faq-a')).toHaveCount(0);
+    });
   }
 });

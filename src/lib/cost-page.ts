@@ -21,6 +21,7 @@ import {
 } from './cost';
 import { computeAirFryerSetting } from './converter';
 import { fillPlaceholders } from './temp-landings';
+import { DEFAULT_MINUTES } from './preheat';
 
 /** The worked example's oven recipe: the flagship default, in the locale's oven unit. */
 export function exampleRecipe(locale: LocaleCode): Pick<CostInput, 'ovenTemp' | 'unit' | 'ovenMinutes' | 'food' | 'style'> {
@@ -34,7 +35,6 @@ export function defaultCostInput(locale: LocaleCode, tariff: Tariff = TARIFFS[LO
     ...exampleRecipe(locale),
     tariff: tariff.perKwh,
     ovenPreheat: COST_MODEL.preheatMinutes.oven,
-    airFryerPreheat: COST_MODEL.preheatMinutes.airFryer,
     ovenWatts: WHICH_OVEN_RATED.watts,
     airFryerWatts: defaultAirFryerWatts(),
   };
@@ -72,7 +72,9 @@ export function costValues(locale: LocaleCode, c: CostCopy): Record<string, stri
     OV_HOLD: formatNumber(COST_MODEL.oven.holdKw, locale, 2),
     AF_KW: formatNumber(COST_MODEL.airFryer.averageKw, locale, 2),
     PRE_OV: String(COST_MODEL.preheatMinutes.oven),
-    PRE_AF: String(COST_MODEL.preheatMinutes.airFryer),
+    PRE_AF_MIN: String(DEFAULT_MINUTES.min),
+    PRE_AF_MAX: String(DEFAULT_MINUTES.max),
+    EX_AF_PRE: String(ex.airFryerPreheat),
     OV_RES_MIN: signedPct(COST_MODEL.oven.residuals.which.min),
     OV_RES_MAX: signedPct(COST_MODEL.oven.residuals.which.max),
     AF_RES_MIN: signedPct(COST_MODEL.airFryer.residuals.which.min),

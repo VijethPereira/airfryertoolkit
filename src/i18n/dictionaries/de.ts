@@ -1,6 +1,7 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/de';
 import cost from './cost/de';
+import preheat from './preheat/de';
 import { presets, presetsIndex } from './presets/de';
 
 const de: Dictionary = {
@@ -38,6 +39,7 @@ const de: Dictionary = {
     airFryerSetting: 'Einstellung der Heißluftfritteuse',
     checkAt: 'Prüfen bei',
     preheat: 'Vorheizen',
+    preheatAuto: 'automatisch',
     gasMark: 'Gasstufe',
     gasMarkDash: 'Gasstufe —',
     unitBasket: 'Korb-Heißluftfritteuse',
@@ -166,7 +168,7 @@ const de: Dictionary = {
     convertCards: [
       { title: 'Ofen → Heißluftfritteuse', desc: 'Das Flaggschiff. Multiplikatoren je Lebensmittelart, Korb vs. Ofentyp, Temperaturobergrenze, °F/°C/Gasstufe.' },
       { title: 'Umluft → Heißluftfritteuse', desc: 'Umluftrezepte sind bereits ventilatorbedingt angepasst und brauchen daher einen sanfteren Abzug. Die meisten Tools machen das falsch.' },
-      { title: 'Portionen- & Mengenanpassung', desc: 'Zeit anpassen, wenn der Korb voll ist oder du in zwei Durchgängen kochst.' },
+      { title: 'Vorheiz-Ratgeber', desc: 'Wie lange vorheizen je nach Temperatur, laut Bedienungsanleitungen. Geräte im Ofen-Stil machen es selbst.' },
       { title: 'Kosten: Heißluftfritteuse vs. Backofen', desc: 'Was ein Rezept in jedem Gerät zu deinem Strompreis kostet, aus gemessener Energie, nicht vom Typenschild.' },
     ],
     reverseCards: [
@@ -221,7 +223,7 @@ const de: Dictionary = {
       },
       {
         heading: 'So funktioniert die Umrechnung von Ofen zu Heißluftfritteuse',
-        body: 'Die meisten Online-Ratschläge zur Umrechnung von Ofen zu Heißluftfritteuse laufen auf einen Satz hinaus: 25°F abziehen und die Zeit um ein Fünftel kürzen. Diese Regel ist nicht direkt falsch — Heißluftfritteusen sind kleine Umluftöfen mit forcierter Luftzirkulation, sie übertragen also Wärme schneller und brauchen sowohl eine niedrigere Temperatur als auch eine kürzere Garzeit als ein klassischer Ofen. Aber jedes Lebensmittel gleich zu behandeln ist der Punkt, an dem pauschale Regeln scheitern. Eine pauschale Regel geht davon aus, dass ein Blech dünner Pommes und ein dichtes Bananenbrot gleich auf schnelleren Luftstrom reagieren. Das tun sie nicht. Dünne Lebensmittel mit großer Oberfläche wie Pommes, Bacon und Chicken Wings sind fast von allen Seiten von heißer Luft umgeben, sie garen also deutlich schneller — oft braucht es 25–30 % weniger Zeit. Ein dichter Auflauf oder ein dickes Fleischstück muss die Wärme trotzdem bis zum Kern leiten, genau wie im Ofen, also fällt die Ersparnis geringer aus, eher bei 10–15 %. Wendest du den Pommes-Multiplikator auf den Auflauf an, ziehst du ihn nicht durchgegart heraus; wendest du den Auflauf-Multiplikator auf die Pommes an, trocknest du sie aus. Deshalb braucht eine korrekte Umrechnung von klassischem Ofen zu Heißluftfritteuse einen Multiplikator pro Lebensmittelkategorie statt einer einzigen Zahl für alles — der Umrechner oben schaut sich an, was du ausgewählt hast, und wendet die Zeitreduzierung an, die diese Lebensmittelart tatsächlich braucht, zusätzlich zur standardmäßigen Temperatursenkung.',
+        body: 'Die meisten Online-Ratschläge zur Umrechnung von Ofen zu Heißluftfritteuse laufen auf einen Satz hinaus: 25°F abziehen und die Zeit um ein Fünftel kürzen. Diese Regel ist nicht direkt falsch — Heißluftfritteusen sind kleine Umluftöfen mit forcierter Luftzirkulation, sie übertragen also Wärme schneller und brauchen sowohl eine niedrigere Temperatur als auch eine kürzere Garzeit als ein klassischer Ofen. Aber jedes Lebensmittel gleich zu behandeln ist der Punkt, an dem pauschale Regeln scheitern. Eine pauschale Regel geht davon aus, dass ein Blech dünner Pommes und ein dichtes Bananenbrot gleich auf schnelleren Luftstrom reagieren. Das tun sie nicht. Dünne Lebensmittel mit großer Oberfläche wie Pommes, Bacon und Chicken Wings sind fast von allen Seiten von heißer Luft umgeben, sie garen also deutlich schneller — oft braucht es bis zu {MAX_CUT} % weniger Zeit. Ein dichter Auflauf oder ein dickes Fleischstück muss die Wärme trotzdem bis zum Kern leiten, genau wie im Ofen, also fällt die Ersparnis geringer aus, eher bei {MIN_CUT} %. Wendest du den Pommes-Multiplikator auf den Auflauf an, ziehst du ihn nicht durchgegart heraus; wendest du den Auflauf-Multiplikator auf die Pommes an, trocknest du sie aus. Deshalb braucht eine korrekte Umrechnung von klassischem Ofen zu Heißluftfritteuse einen Multiplikator pro Lebensmittelkategorie statt einer einzigen Zahl für alles — der Umrechner oben schaut sich an, was du ausgewählt hast, und wendet die Zeitreduzierung an, die diese Lebensmittelart tatsächlich braucht, zusätzlich zur standardmäßigen Temperatursenkung.',
       },
       {
         heading: 'Schritt für Schritt: Ofen zu Heißluftfritteuse umrechnen',
@@ -229,19 +231,19 @@ const de: Dictionary = {
       },
       {
         heading: 'Umrechnung der Garzeit von Ofen zu Heißluftfritteuse',
-        body: 'Die Temperatur ist nur die halbe Aufgabe — die Umrechnung der Garzeit von Ofen zu Heißluftfritteuse ist genauso wichtig, und das ist der Teil, den pauschale Rechner meist falsch machen. Da Heißluftfritteusen heiße Luft direkt um das Lebensmittel in einer kleinen Kammer zirkulieren lassen, erreicht die Wärme die Oberfläche schneller, und das Garen ist selbst bei niedrigerer Temperatur früher abgeschlossen. Deshalb kann aus 45 Minuten Backzeit im Ofen eine 32-minütige Garzeit in der Heißluftfritteuse werden, statt einfach ein Prozentsatz der ursprünglichen Zahl: Die Zeitreduzierung richtet sich danach, wie viel Oberfläche das Lebensmittel diesem Luftstrom aussetzt, nicht nur nach der Temperaturänderung.',
+        body: 'Die Temperatur ist nur die halbe Aufgabe — die Umrechnung der Garzeit von Ofen zu Heißluftfritteuse ist genauso wichtig, und das ist der Teil, den pauschale Rechner meist falsch machen. Da Heißluftfritteusen heiße Luft direkt um das Lebensmittel in einer kleinen Kammer zirkulieren lassen, erreicht die Wärme die Oberfläche schneller, und das Garen ist selbst bei niedrigerer Temperatur früher abgeschlossen. Deshalb kann aus 45 Minuten Backzeit im Ofen eine {T45_FAST}-minütige Garzeit in der Heißluftfritteuse werden, statt einfach ein Prozentsatz der ursprünglichen Zahl: Die Zeitreduzierung richtet sich danach, wie viel Oberfläche das Lebensmittel diesem Luftstrom aussetzt, nicht nur nach der Temperaturänderung.',
       },
       {
         heading: 'Umrechnung von Heißluftfritteuse zu Ofen (der umgekehrte Weg)',
-        body: 'Die Umrechnung funktioniert in beide Richtungen. Manchmal hast du ein Heißluftfritteusen-Rezept oder eine Voreinstellung aus der Bedienungsanleitung deines Geräts und musst sie stattdessen in Ofeneinstellungen umrechnen — weil du eine größere Menge kochst, als in den Korb passt, die Heißluftfritteuse bereits mit etwas anderem beschäftigt ist, oder du eine ganze Tafel mit dem großen Ofen versorgst. Die Umrechnung von Heißluftfritteuse zu Ofen bedeutet in der Regel, die Temperatur zu erhöhen und Garzeit wieder hinzuzufügen, da der größere Innenraum und der langsamere Luftstrom eines klassischen Ofens nicht mit der konzentrierten Hitze der Heißluftfritteuse mithalten können. Ein Heißluftfritteuse-zu-Ofen-Rechner wendet dies umgekehrt an: etwa 25°F wieder zur Heißluftfritteusen-Temperatur addieren, dann die Zeit um denselben lebensmittelabhängigen Prozentsatz verlängern, den die Vorwärtsumrechnung abgezogen hatte. Es ist dieselbe zugrunde liegende Logik, nur rückwärts angewendet, und genauso empfindlich gegenüber der Lebensmittelart — eine für den Ofen hochskalierte Portion Nuggets braucht eine andere Zeitanpassung als ein ganzes Hähnchen.',
+        body: 'Die Umrechnung funktioniert in beide Richtungen. Manchmal hast du ein Heißluftfritteusen-Rezept oder eine Voreinstellung aus der Bedienungsanleitung deines Geräts und musst sie stattdessen in Ofeneinstellungen umrechnen — weil du eine größere Menge kochst, als in den Korb passt, die Heißluftfritteuse bereits mit etwas anderem beschäftigt ist, oder du eine ganze Tafel mit dem großen Ofen versorgst. Die Umrechnung von Heißluftfritteuse zu Ofen bedeutet in der Regel, die Temperatur zu erhöhen und Garzeit wieder hinzuzufügen, da der größere Innenraum und der langsamere Luftstrom eines klassischen Ofens nicht mit der konzentrierten Hitze der Heißluftfritteuse mithalten können. Ein Heißluftfritteuse-zu-Ofen-Rechner wendet dies umgekehrt an: etwa {GEN_DT}°F wieder zur Heißluftfritteusen-Temperatur addieren, dann die Zeit um denselben lebensmittelabhängigen Prozentsatz verlängern, den die Vorwärtsumrechnung abgezogen hatte. Es ist dieselbe zugrunde liegende Logik, nur rückwärts angewendet, und genauso empfindlich gegenüber der Lebensmittelart — eine für den Ofen hochskalierte Portion Nuggets braucht eine andere Zeitanpassung als ein ganzes Hähnchen.',
       },
       {
         heading: 'Korb- vs. Ofen-Heißluftfritteusen',
-        body: 'Nicht alle Heißluftfritteusen verhalten sich gleich, deshalb fragt dieser Umrechner, welchen Typ du besitzt, bevor die Umrechnung abgeschlossen wird. Korb-Heißluftfritteusen packen das Lebensmittel in eine kleine, geschlossene Kammer mit Luft, die von allen Seiten zirkuliert — das macht sie schnell, bedeutet aber auch, dass die meisten Modelle bei etwa 400°F an ihre Grenze stoßen, und dieses Limit zu überschreiten ist unrealistisch, egal was ein generischer Rechner vorschlägt. Ofen-artige Heißluftfritteusen (einschließlich Heißluftfritteusen-Öfen und Toaster-Ofen-artiger Körbe) haben mehr Luftvolumen um das Lebensmittel, sodass der Effekt milder ist: Temperaturen können etwas höher liegen, bis zu etwa 450°F, bevor eine praktische Obergrenze erreicht wird. Den Gerätetyp in die Umrechnung einzubeziehen, statt ihn zu ignorieren, hält das Ergebnis realistisch.',
+        body: 'Nicht alle Heißluftfritteusen verhalten sich gleich, deshalb fragt dieser Umrechner, welchen Typ du besitzt, bevor die Umrechnung abgeschlossen wird. Korb-Heißluftfritteusen packen das Lebensmittel in eine kleine, geschlossene Kammer mit Luft, die von allen Seiten zirkuliert — das macht sie schnell, bedeutet aber auch, dass die meisten Modelle bei etwa {CEIL_BASKET}°F an ihre Grenze stoßen, und dieses Limit zu überschreiten ist unrealistisch, egal was ein generischer Rechner vorschlägt. Ofen-artige Heißluftfritteusen (einschließlich Heißluftfritteusen-Öfen und Toaster-Ofen-artiger Körbe) haben mehr Luftvolumen um das Lebensmittel, sodass der Effekt milder ist: Temperaturen können etwas höher liegen, bis zu etwa {CEIL_OVEN}°F, bevor eine praktische Obergrenze erreicht wird. Den Gerätetyp in die Umrechnung einzubeziehen, statt ihn zu ignorieren, hält das Ergebnis realistisch.',
       },
       {
         heading: 'Tipps für die besten Ergebnisse',
-        body: 'Ein paar Dinge helfen dabei, dass das Ergebnis eines Ofen-zu-Heißluftfritteuse-Umrechners schon beim ersten Versuch näher am Richtigen liegt. Kurz vorheizen — etwa 3 Minuten für einen Korb, 4 für Ofen-Typ —, da Heißluftfritteusen beim Öffnen von Tür oder Schublade relativ mehr Wärme verlieren als ein Ofen. Den Korb nicht überladen; eine einzelne, nicht zu dicht gepackte Schicht ist das, wovon die Multiplikatoren je Lebensmittelart ausgehen, und ein voller Korb braucht zusätzliche Zeit, näher an dem, was ein voller Ofen bräuchte. Prüfe das Gericht ein paar Minuten vor der umgerechneten Zeit, besonders beim ersten Mal, wenn du ein neues Rezept umrechnest, da Wattzahl und Kalibrierung zwischen Heißluftfritteusen-Modellen variieren. Und behandle Tiefkühlkost anders — sie folgt dem umgekehrten Muster eines frischen Rezepts, behält in etwa die Verpackungstemperatur bei und kürzt trotzdem die Zeit, da das Lebensmittel die anfängliche Wärme erst zum Auftauen braucht, bevor es durchgaren kann.',
+        body: 'Ein paar Dinge helfen dabei, dass das Ergebnis eines Ofen-zu-Heißluftfritteuse-Umrechners schon beim ersten Versuch näher am Richtigen liegt. Einen Korb kurz vorheizen — {PRE_MIN} bis {PRE_MAX} Minuten, je höher die Temperatur, desto länger; Geräte im Ofen-Stil heizen selbst vor —, da Heißluftfritteusen beim Öffnen von Tür oder Schublade relativ mehr Wärme verlieren als ein Ofen. Den Korb nicht überladen; eine einzelne, nicht zu dicht gepackte Schicht ist das, wovon die Multiplikatoren je Lebensmittelart ausgehen, und ein voller Korb braucht zusätzliche Zeit, näher an dem, was ein voller Ofen bräuchte. Prüfe das Gericht ein paar Minuten vor der umgerechneten Zeit, besonders beim ersten Mal, wenn du ein neues Rezept umrechnest, da Wattzahl und Kalibrierung zwischen Heißluftfritteusen-Modellen variieren. Und behandle Tiefkühlkost anders — sie folgt dem umgekehrten Muster eines frischen Rezepts, behält in etwa die Verpackungstemperatur bei und kürzt trotzdem die Zeit, da das Lebensmittel die anfängliche Wärme erst zum Auftauen braucht, bevor es durchgaren kann.',
       },
     ],
   },
@@ -298,7 +300,8 @@ const de: Dictionary = {
       },
       {
         q: 'Muss ich vorheizen?',
-        a: 'Ein kurzes Vorheizen hilft dem Ergebnis, genauer zu treffen: etwa 3 Minuten für ein Korb-Gerät, 4 Minuten für Ofen-Typ (im Ergebnisfeld oben angezeigt). Das Auslassen des Vorheizens bedeutet in der Regel nur, ein bis zwei Minuten zur Garzeit hinzuzufügen.',
+        a: 'Ja, kurz: {PRE_MIN} bis {PRE_MAX} Minuten beim Korb, je nach Temperatur (im Ergebnisfeld oben angezeigt); Geräte im Ofen-Stil heizen selbst vor und melden, wann das Essen hinein kann.',
+        link: 'preheat',
       },
       {
         q: 'Kann man einen Ofen in eine Heißluftfritteuse umwandeln?',
@@ -383,7 +386,7 @@ const de: Dictionary = {
       'Die Heißluftfritteuse gewinnt bei der Geschwindigkeit für eine einzelne, nicht überfüllte Schicht Essen, aber der Ofen ist in einigen häufigen Situationen weiterhin das bessere Werkzeug: mehr kochen, als der Korb in einer Ladung fasst, zwei Gerichte gleichzeitig auf verschiedenen Einschüben garen, eine Heißluftfritteuse, die gerade mit etwas anderem beschäftigt ist, oder ein Stück, das gar nicht in einen Korb passt — ein ganzes Hähnchen, ein volles Blech Kekse, ein großes Tablett Gemüse für viele Leute. In all diesen Fällen ist es schneller, die bereits bekannte Heißluftfritteusen-Einstellung zurück in eine Ofen-Zahl umzurechnen, als von vorne zu raten, und die Logik je Lebensmittelart — Pommes brauchen mehr Zeit zurück als ein Auflauf — bleibt dabei in beide Richtungen erhalten.',
     ovenCaveatHeading: 'Eine Sache, die man wissen sollte: Ein normaler Ofen ist nicht zum Frittieren gebaut',
     ovenCaveatBody:
-      'Ein herkömmlicher Ofen hat nicht die forcierte Luftzirkulation eines Heißluftfritteusen-Korbs, deshalb ändern sich zwei Dinge. Vorheizen wird wichtiger, weil der Ofen seine volle Aufheizzeit braucht, um die Zieltemperatur gleichmäßig zu erreichen, statt der 3–4 Minuten Vorsprung, die eine Heißluftfritteuse benötigt. Und eine einzelne Schicht Essen wird nicht ganz so stark knusprig wie im Korb, weil weniger konzentrierter Luftstrom gleichzeitig jede Seite trifft. Beides ist kein Problem, das man umgehen muss — erwarte nur nicht, dass ein Blech Chicken Wings aus dem Ofen genauso aussieht wie die Version aus der Heißluftfritteuse, und nutze eine Umluft- oder „Air Fry“-Einstellung deines Ofens, falls vorhanden, denn das gleicht den größten Teil des Unterschieds aus.',
+      'Ein herkömmlicher Ofen hat nicht die forcierte Luftzirkulation eines Heißluftfritteusen-Korbs, deshalb ändern sich zwei Dinge. Vorheizen wird wichtiger, weil der Ofen seine volle Aufheizzeit braucht, um die Zieltemperatur gleichmäßig zu erreichen, statt der wenigen Minuten, die der Korb einer Heißluftfritteuse benötigt. Und eine einzelne Schicht Essen wird nicht ganz so stark knusprig wie im Korb, weil weniger konzentrierter Luftstrom gleichzeitig jede Seite trifft. Beides ist kein Problem, das man umgehen muss — erwarte nur nicht, dass ein Blech Chicken Wings aus dem Ofen genauso aussieht wie die Version aus der Heißluftfritteuse, und nutze eine Umluft- oder „Air Fry“-Einstellung deines Ofens, falls vorhanden, denn das gleicht den größten Teil des Unterschieds aus.',
     relatedFlagshipLink: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     relatedChartLink: 'Druckbare Umrechnungstabelle',
     relatedConvectionLink: "Heißluftfritteuse-zu-Umluft-Umrechner",
@@ -561,7 +564,7 @@ const de: Dictionary = {
       },
       {
         q: "Muss ich die Heißluftfritteuse für Tiefkühlkost vorheizen?",
-        a: "Kurzes Vorheizen, 3 Minuten beim Korb oder 4 beim Ofen-Typ, sorgt bei Pommes und Paniertem für gleichmäßigere Bräune. Tiefkühlpizza und Aufgewärmtes klappen auch ohne.",
+        a: "Kurzes Vorheizen (einige Minuten beim Korb, bei hoher Temperatur etwas länger; Geräte im Ofen-Stil heizen selbst vor) sorgt bei Pommes und Paniertem für gleichmäßigere Bräune. Tiefkühlpizza und Aufgewärmtes klappen auch ohne.",
       },
     ],
   },
@@ -569,6 +572,7 @@ const de: Dictionary = {
   presetsIndex,
   tempLanding,
   cost,
+  preheat,
   chart: {
     metaTitle: 'Kostenlose druckbare Umrechnungstabelle für die Heißluftfritteuse',
     metaDescription:

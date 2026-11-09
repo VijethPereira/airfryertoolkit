@@ -149,22 +149,25 @@ test.describe('cost math, checked by hand (3 cases per locale, default tariff)',
   // Hand-computed: air fryer kWh = 0.5473 × min/60; oven kWh = 0.5265 + 0.4398 × min/60; cost in minor units.
   const CASES = {
     F: [
-      { ovenTemp: 400, ovenMinutes: 25, food: 'general', style: 'basket', pre: [10, 3], afMin: 23, ovMin: 35 },
-      { ovenTemp: 425, ovenMinutes: 40, food: 'general', style: 'oven', pre: [10, 3], afMin: 37, ovMin: 50 },
+      // pre[1] null: the air fryer preheat default (chart minutes at the converted temperature; 4 here, was a flat 3).
+      { ovenTemp: 400, ovenMinutes: 25, food: 'general', style: 'basket', pre: [10, null], afMin: 24, ovMin: 35 },
+      { ovenTemp: 425, ovenMinutes: 40, food: 'general', style: 'oven', pre: [10, null], afMin: 38, ovMin: 50 },
       { ovenTemp: 350, ovenMinutes: 60, food: 'casserole', style: 'basket', pre: [15, 0], afMin: 51, ovMin: 75 },
     ],
     C: [
-      { ovenTemp: 200, ovenMinutes: 25, food: 'general', style: 'basket', pre: [10, 3], afMin: 23, ovMin: 35 },
-      { ovenTemp: 220, ovenMinutes: 40, food: 'general', style: 'oven', pre: [10, 3], afMin: 37, ovMin: 50 },
+      { ovenTemp: 200, ovenMinutes: 25, food: 'general', style: 'basket', pre: [10, null], afMin: 24, ovMin: 35 },
+      { ovenTemp: 220, ovenMinutes: 40, food: 'general', style: 'oven', pre: [10, null], afMin: 38, ovMin: 50 },
       { ovenTemp: 180, ovenMinutes: 60, food: 'casserole', style: 'basket', pre: [15, 0], afMin: 51, ovMin: 75 },
     ],
   } as const;
   const EXPECTED: Record<LocaleCode, [number, number][]> = {
-    en: [[5.5, 20.6], [8.9, 23.5], [12.2, 28.3]],
-    es: [[5.3, 19.6], [8.5, 22.4], [11.7, 27.0]],
-    pt: [[5.0, 18.5], [8.0, 21.1], [11.0, 25.5]],
-    fr: [[5.2, 19.5], [8.4, 22.2], [11.6, 26.7]],
-    de: [[7.6, 28.3], [12.2, 32.3], [16.8, 38.9]],
+    // Air fryer costs of cases 0 and 1 moved with the preheat default (2026-11-09, row 15): en 5.5 → 5.8, 8.9 → 9.1;
+    // es 5.3 → 5.5, 8.5 → 8.7; pt 5.0 → 5.2, 8.0 → 8.2; fr 5.2 → 5.4, 8.4 → 8.6; de 7.6 → 7.9, 12.2 → 12.5. Ovens unchanged.
+    en: [[5.8, 20.6], [9.1, 23.5], [12.2, 28.3]],
+    es: [[5.5, 19.6], [8.7, 22.4], [11.7, 27.0]],
+    pt: [[5.2, 18.5], [8.2, 21.1], [11.0, 25.5]],
+    fr: [[5.4, 19.5], [8.6, 22.2], [11.6, 26.7]],
+    de: [[7.9, 28.3], [12.5, 32.3], [16.8, 38.9]],
   };
   for (const { code } of LOCALES) {
     test(`${code}: ${TARIFFS[LOCALE_TARIFF[code]].perKwh * 100} per kWh`, () => {
@@ -172,7 +175,7 @@ test.describe('cost math, checked by hand (3 cases per locale, default tariff)',
       CASES[unit].forEach((k, i) => {
         const r = computeCost({
           ovenTemp: k.ovenTemp, unit, ovenMinutes: k.ovenMinutes, food: k.food, style: k.style,
-          tariff: TARIFFS[LOCALE_TARIFF[code]].perKwh, ovenPreheat: k.pre[0], airFryerPreheat: k.pre[1], ovenWatts: 2400, airFryerWatts: 1500,
+          tariff: TARIFFS[LOCALE_TARIFF[code]].perKwh, ovenPreheat: k.pre[0], airFryerPreheat: k.pre[1] ?? undefined, ovenWatts: 2400, airFryerWatts: 1500,
         })!;
         expect(r.airFryer.minutes, `${code} case ${i}`).toBe(k.afMin);
         expect(r.oven.minutes, `${code} case ${i}`).toBe(k.ovMin);
@@ -288,10 +291,11 @@ test.describe('the page', () => {
       expect(await res.text()).toContain('value="26.32"');
       await page.goto(COST_PATH);
       await expect(page.locator('#afc-tariff')).toHaveValue('26.32');
-      await expect(page.locator('#afc-af-cost')).toHaveText('5.5p');
+      // Air fryer preheat comes from the Cosori charts (4 min at 375°F; was a flat 3): 5.5p → 5.8p.
+    await expect(page.locator('#afc-af-cost')).toHaveText('5.8p');
       await page.locator('#afc-region-us').click();
       await expect(page.locator('#afc-tariff')).toHaveValue('18.16');
-      await expect(page.locator('#afc-af-cost')).toHaveText('3.8¢');
+      await expect(page.locator('#afc-af-cost')).toHaveText('4.0¢'); // was 3.8¢
       await expect(page).toHaveURL(/region=us/);
     });
   });
@@ -315,7 +319,7 @@ test.describe('the page', () => {
     await page.goto(COST_PATH);
     await page.locator('#afc-time').fill('40');
     await page.locator('#afc-style-oven').click();
-    await expect(page.locator('#afc-af-cost')).toHaveText('8.9p');
+    await expect(page.locator('#afc-af-cost')).toHaveText('9.1p'); // was 8.9p with the flat 3-minute preheat
     await expect(page.locator('#afc-ov-cost')).toHaveText('23.5p');
     const shared = page.url();
     expect(shared).toMatch(/t=40/);
@@ -333,9 +337,9 @@ test.describe('the page', () => {
     await expect(page.locator('#afc-ov-w')).toHaveValue('3000');
     await page.locator('.assumptions summary').click();
     await page.locator('#afc-p-af').fill('1');
-    await expect(page.locator('#afc-af-kwh')).toHaveText('0.38 kWh');
+    await expect(page.locator('#afc-af-kwh')).toHaveText('0.40 kWh'); // was 0.38 with the flat 3-minute preheat
     await page.locator('#afc-reset').click();
-    await expect(page.locator('#afc-af-kwh')).toHaveText('0.21 kWh');
+    await expect(page.locator('#afc-af-kwh')).toHaveText('0.22 kWh'); // was 0.21
   });
 
   for (const width of [375, 412]) {

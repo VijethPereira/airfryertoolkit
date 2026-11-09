@@ -1,6 +1,7 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/es';
 import cost from './cost/es';
+import preheat from './preheat/es';
 import { presets, presetsIndex } from './presets/es';
 
 const es: Dictionary = {
@@ -38,6 +39,7 @@ const es: Dictionary = {
     airFryerSetting: 'Ajuste de la freidora de aire',
     checkAt: 'Revisar a los',
     preheat: 'Precalentar',
+    preheatAuto: 'automático',
     gasMark: 'Nivel de gas',
     gasMarkDash: 'Nivel de gas —',
     unitBasket: 'freidora de cesta',
@@ -166,7 +168,7 @@ const es: Dictionary = {
     convertCards: [
       { title: 'Horno → Freidora de aire', desc: 'El principal. Multiplicadores por tipo de alimento, cesta vs. tipo horno, límite máximo de temperatura, °F/°C/nivel de gas.' },
       { title: 'Convección → Freidora de aire', desc: 'Las recetas de convección ya están ajustadas por ventilador, así que necesitan un recorte más suave. La mayoría de las herramientas se equivocan aquí.' },
-      { title: 'Ajuste por porciones y lotes', desc: 'Ajusta el tiempo cuando la cesta está llena o cocinas en dos tandas.' },
+      { title: 'Guía de precalentado', desc: 'Cuánto precalentar según temperatura, sacado de los manuales. Los tipo horno lo hacen solos.' },
       { title: 'Coste: freidora de aire vs horno', desc: 'Lo que cuesta una receta en cada aparato a tu precio de la luz, con energía medida, no la de la etiqueta.' },
     ],
     reverseCards: [
@@ -221,7 +223,7 @@ const es: Dictionary = {
       },
       {
         heading: 'Cómo funciona la conversión de horno a freidora de aire',
-        body: 'La mayoría de los consejos de conversión de horno a freidora de aire en internet se reducen a una sola línea: resta 25°F y recorta el tiempo una quinta parte. Esa regla no está del todo mal — las freidoras de aire son hornos de convección pequeños con aire forzado, así que transfieren calor más rápido y necesitan menos temperatura y menos tiempo que un horno convencional. Pero tratar todos los alimentos igual es donde las reglas fijas fallan. Una regla fija asume que una bandeja de papas finas y un pan de plátano denso responden igual al flujo de aire más rápido. No es así. Los alimentos delgados y de mucha superficie, como papas fritas, tocino y alitas de pollo, quedan rodeados de aire caliente por casi todos lados, así que se cocinan mucho más rápido — a menudo necesitan 25–30% menos tiempo. Un guiso denso o un corte grueso de carne todavía tiene que conducir el calor hasta el centro igual que en un horno, así que el ahorro es menor, más cerca del 10–15%. Aplica el multiplicador de las papas fritas al guiso y lo sacarás crudo; aplica el multiplicador del guiso a las papas fritas y las resecarás. Por eso una conversión adecuada de horno convencional a freidora de aire necesita un multiplicador por categoría de alimento en vez de un solo número para todo — el conversor de arriba observa lo que seleccionaste y aplica la reducción de tiempo que ese alimento realmente necesita, junto con la caída estándar de temperatura.',
+        body: 'La mayoría de los consejos de conversión de horno a freidora de aire en internet se reducen a una sola línea: resta 25°F y recorta el tiempo una quinta parte. Esa regla no está del todo mal — las freidoras de aire son hornos de convección pequeños con aire forzado, así que transfieren calor más rápido y necesitan menos temperatura y menos tiempo que un horno convencional. Pero tratar todos los alimentos igual es donde las reglas fijas fallan. Una regla fija asume que una bandeja de papas finas y un pan de plátano denso responden igual al flujo de aire más rápido. No es así. Los alimentos delgados y de mucha superficie, como papas fritas, tocino y alitas de pollo, quedan rodeados de aire caliente por casi todos lados, así que se cocinan mucho más rápido — a menudo necesitan hasta un {MAX_CUT}% menos tiempo. Un guiso denso o un corte grueso de carne todavía tiene que conducir el calor hasta el centro igual que en un horno, así que el ahorro es menor, más cerca del {MIN_CUT}%. Aplica el multiplicador de las papas fritas al guiso y lo sacarás crudo; aplica el multiplicador del guiso a las papas fritas y las resecarás. Por eso una conversión adecuada de horno convencional a freidora de aire necesita un multiplicador por categoría de alimento en vez de un solo número para todo — el conversor de arriba observa lo que seleccionaste y aplica la reducción de tiempo que ese alimento realmente necesita, junto con la caída estándar de temperatura.',
       },
       {
         heading: 'Paso a paso: cómo convertir de horno a freidora de aire',
@@ -229,19 +231,19 @@ const es: Dictionary = {
       },
       {
         heading: 'Conversión del tiempo de cocción de horno a freidora de aire',
-        body: 'La temperatura es solo la mitad del trabajo — la conversión del tiempo de cocción de horno a freidora de aire importa igual, y es la parte que las calculadoras de regla fija suelen fallar. Como las freidoras de aire hacen circular aire caliente directamente alrededor del alimento en una cámara pequeña, el calor llega a la superficie más rápido y la cocción termina antes incluso a menor temperatura. Por eso un horneado de 45 minutos en el horno puede convertirse en una cocción de 32 minutos en la freidora de aire en lugar de un simple porcentaje del número original: la reducción de tiempo depende de cuánta superficie expone el alimento a ese flujo de aire, no solo del cambio de temperatura.',
+        body: 'La temperatura es solo la mitad del trabajo — la conversión del tiempo de cocción de horno a freidora de aire importa igual, y es la parte que las calculadoras de regla fija suelen fallar. Como las freidoras de aire hacen circular aire caliente directamente alrededor del alimento en una cámara pequeña, el calor llega a la superficie más rápido y la cocción termina antes incluso a menor temperatura. Por eso un horneado de 45 minutos en el horno puede convertirse en una cocción de {T45_FAST} minutos en la freidora de aire en lugar de un simple porcentaje del número original: la reducción de tiempo depende de cuánta superficie expone el alimento a ese flujo de aire, no solo del cambio de temperatura.',
       },
       {
         heading: 'Conversión de freidora de aire a horno (el camino inverso)',
-        body: 'La conversión funciona en ambos sentidos. A veces tienes una receta de freidora de aire o una preconfiguración del manual de tu equipo y necesitas convertirla a ajustes de horno — porque cocinas un lote más grande de lo que cabe en la cesta, la freidora de aire ya está ocupada con otra cosa, o alimentas a la mesa usando el horno completo. La conversión de freidora de aire a horno generalmente implica subir la temperatura y añadir tiempo de cocción, ya que la cavidad más grande y el flujo de aire más lento de un horno convencional no pueden igualar el calor concentrado de la freidora de aire. Una calculadora de freidora de aire a horno aplica esto al revés: añade aproximadamente 25°F a la temperatura de la freidora de aire, luego extiende el tiempo con el mismo porcentaje según el tipo de alimento que la conversión hacia adelante había restado. Es la misma lógica de fondo, aplicada al revés, y es igual de sensible al tipo de alimento — un lote de nuggets ampliado para el horno necesita un ajuste de tiempo distinto al de un pollo entero.',
+        body: 'La conversión funciona en ambos sentidos. A veces tienes una receta de freidora de aire o una preconfiguración del manual de tu equipo y necesitas convertirla a ajustes de horno — porque cocinas un lote más grande de lo que cabe en la cesta, la freidora de aire ya está ocupada con otra cosa, o alimentas a la mesa usando el horno completo. La conversión de freidora de aire a horno generalmente implica subir la temperatura y añadir tiempo de cocción, ya que la cavidad más grande y el flujo de aire más lento de un horno convencional no pueden igualar el calor concentrado de la freidora de aire. Una calculadora de freidora de aire a horno aplica esto al revés: añade aproximadamente {GEN_DT}°F a la temperatura de la freidora de aire, luego extiende el tiempo con el mismo porcentaje según el tipo de alimento que la conversión hacia adelante había restado. Es la misma lógica de fondo, aplicada al revés, y es igual de sensible al tipo de alimento — un lote de nuggets ampliado para el horno necesita un ajuste de tiempo distinto al de un pollo entero.',
       },
       {
         heading: 'Freidoras de aire de cesta vs. tipo horno',
-        body: 'No todas las freidoras de aire se comportan igual, por eso este conversor pregunta qué tipo tienes antes de terminar la conversión. Las freidoras de aire de cesta empacan el alimento en una cámara pequeña y sellada con aire moviéndose por todos lados — eso las hace rápidas, pero también significa que la mayoría de los modelos tienen un límite cercano a 400°F, y pasar ese límite no es realista sin importar lo que sugiera una calculadora genérica. Las unidades tipo horno (incluidos los hornos freidora y las cestas tipo horno tostador) tienen más volumen de aire alrededor del alimento, así que el efecto es más suave: las temperaturas pueden ser un poco más altas, hasta cerca de 450°F, antes de llegar a un límite práctico. Incluir el tipo de equipo en la conversión, en vez de ignorarlo, es lo que mantiene el resultado realista.',
+        body: 'No todas las freidoras de aire se comportan igual, por eso este conversor pregunta qué tipo tienes antes de terminar la conversión. Las freidoras de aire de cesta empacan el alimento en una cámara pequeña y sellada con aire moviéndose por todos lados — eso las hace rápidas, pero también significa que la mayoría de los modelos tienen un límite cercano a {CEIL_BASKET}°F, y pasar ese límite no es realista sin importar lo que sugiera una calculadora genérica. Las unidades tipo horno (incluidos los hornos freidora y las cestas tipo horno tostador) tienen más volumen de aire alrededor del alimento, así que el efecto es más suave: las temperaturas pueden ser un poco más altas, hasta cerca de {CEIL_OVEN}°F, antes de llegar a un límite práctico. Incluir el tipo de equipo en la conversión, en vez de ignorarlo, es lo que mantiene el resultado realista.',
       },
       {
         heading: 'Consejos para obtener los mejores resultados',
-        body: 'Unas cuantas cosas ayudan a que cualquier resultado de un conversor de horno a freidora de aire quede más cerca de lo correcto desde el primer intento. Precalienta brevemente — unos 3 minutos para una cesta, 4 para tipo horno — ya que las freidoras de aire pierden más calor relativo que un horno cuando se abre la puerta o el cajón. No sobrecargues la cesta; una sola capa, sin apretar demasiado, es lo que asumen los multiplicadores por tipo de alimento, y una cesta llena necesita tiempo extra, más cercano a lo que necesitaría un horno completo. Revisa el alimento unos minutos antes de lo que sugiere el tiempo convertido, sobre todo la primera vez que conviertes una receta nueva, ya que el vatiaje y la calibración varían entre modelos de freidora de aire. Y trata los alimentos congelados de forma distinta — siguen el patrón opuesto al de una receta fresca, manteniendo cerca la temperatura del empaque mientras aun así se recorta el tiempo, ya que el alimento necesita el calor inicial solo para descongelarse antes de poder cocinarse.',
+        body: 'Unas cuantas cosas ayudan a que cualquier resultado de un conversor de horno a freidora de aire quede más cerca de lo correcto desde el primer intento. Precalienta brevemente una cesta — de {PRE_MIN} a {PRE_MAX} minutos, más cuanto más alta la temperatura; los tipo horno se precalientan solos — ya que las freidoras de aire pierden más calor relativo que un horno cuando se abre la puerta o el cajón. No sobrecargues la cesta; una sola capa, sin apretar demasiado, es lo que asumen los multiplicadores por tipo de alimento, y una cesta llena necesita tiempo extra, más cercano a lo que necesitaría un horno completo. Revisa el alimento unos minutos antes de lo que sugiere el tiempo convertido, sobre todo la primera vez que conviertes una receta nueva, ya que el vatiaje y la calibración varían entre modelos de freidora de aire. Y trata los alimentos congelados de forma distinta — siguen el patrón opuesto al de una receta fresca, manteniendo cerca la temperatura del empaque mientras aun así se recorta el tiempo, ya que el alimento necesita el calor inicial solo para descongelarse antes de poder cocinarse.',
       },
     ],
   },
@@ -298,7 +300,8 @@ const es: Dictionary = {
       },
       {
         q: '¿Necesito precalentar?',
-        a: 'Un precalentado breve ayuda a que el resultado quede en el punto correcto: unos 3 minutos para una unidad de cesta, 4 minutos para tipo horno (se muestra en el panel de resultados de arriba). Saltarse el precalentado por lo general solo significa añadir uno o dos minutos al tiempo de cocción.',
+        a: 'Sí, brevemente: de {PRE_MIN} a {PRE_MAX} minutos en una cesta según la temperatura (se muestra en el panel de resultados de arriba); los tipo horno se precalientan solos y avisan cuándo meter la comida.',
+        link: 'preheat',
       },
       {
         q: '¿Se puede convertir un horno en una freidora de aire?',
@@ -383,7 +386,7 @@ const es: Dictionary = {
       'La freidora de aire gana en velocidad para una sola capa de alimento sin apretar, pero el horno sigue siendo la mejor herramienta en algunas situaciones comunes: cocinar más de lo que cabe en la cesta en una sola tanda, preparar dos platillos en rejillas distintas al mismo tiempo, una freidora de aire ocupada a mitad de otro ciclo, o un corte demasiado grande para caber en una cesta — un pollo entero, una bandeja completa de galletas, una gran bandeja de verduras para muchos comensales. En cualquiera de esos casos, convertir el ajuste de freidora de aire que ya conoces de vuelta a un número de horno es más rápido que adivinar desde cero, y mantiene intacta la lógica por tipo de alimento — las papas fritas necesitan recuperar más tiempo que un guiso — en ambas direcciones.',
     ovenCaveatHeading: 'Algo que debes saber: un horno estándar no está hecho para freír',
     ovenCaveatBody:
-      'Un horno convencional no tiene la circulación de aire forzado que sí tiene una cesta de freidora, así que dos cosas cambian. El precalentado importa más, ya que el horno necesita todo su tiempo de calentamiento para llegar a la temperatura objetivo de forma pareja, en lugar de los 3–4 minutos que necesita una freidora de aire. Y una sola capa de alimento no quedará tan crujiente como en la cesta, ya que hay menos flujo de aire concentrado golpeando cada lado a la vez. Ninguno de los dos es un problema que evitar — solo no esperes que una bandeja de alitas al horno se vea idéntica a la versión hecha en freidora de aire, y apóyate en un ajuste de convección o "air fry" del horno si el tuyo lo tiene, ya que eso cierra la mayor parte de la diferencia.',
+      'Un horno convencional no tiene la circulación de aire forzado que sí tiene una cesta de freidora, así que dos cosas cambian. El precalentado importa más, ya que el horno necesita todo su tiempo de calentamiento para llegar a la temperatura objetivo de forma pareja, en lugar de los pocos minutos que necesita la cesta de una freidora de aire. Y una sola capa de alimento no quedará tan crujiente como en la cesta, ya que hay menos flujo de aire concentrado golpeando cada lado a la vez. Ninguno de los dos es un problema que evitar — solo no esperes que una bandeja de alitas al horno se vea idéntica a la versión hecha en freidora de aire, y apóyate en un ajuste de convección o "air fry" del horno si el tuyo lo tiene, ya que eso cierra la mayor parte de la diferencia.',
     relatedFlagshipLink: 'Conversor de horno a freidora de aire',
     relatedChartLink: 'Tabla de conversión imprimible',
     relatedConvectionLink: "Conversor de freidora de aire a convección",
@@ -561,7 +564,7 @@ const es: Dictionary = {
       },
       {
         q: "¿Hay que precalentar la freidora de aire para congelados?",
-        a: "Un precalentado corto de 3 minutos en cesta, o 4 en tipo horno, da un dorado más parejo a las papas y a lo empanizado. La pizza congelada y lo recalentado van bien sin él.",
+        a: "Un precalentado corto da un dorado más parejo (unos minutos en cesta, algo más a mayor temperatura; los tipo horno se precalientan solos) a las papas y a lo empanizado. La pizza congelada y lo recalentado van bien sin él.",
       },
     ],
   },
@@ -569,6 +572,7 @@ const es: Dictionary = {
   presetsIndex,
   tempLanding,
   cost,
+  preheat,
   chart: {
     metaTitle: 'Tabla de conversión de freidora de aire imprimible gratis',
     metaDescription:

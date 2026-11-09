@@ -1,6 +1,7 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/en';
 import cost from './cost/en';
+import preheat from './preheat/en';
 import { presets, presetsIndex } from './presets/en';
 
 const en: Dictionary = {
@@ -38,6 +39,7 @@ const en: Dictionary = {
     airFryerSetting: 'Air fryer setting',
     checkAt: 'Check at',
     preheat: 'Preheat',
+    preheatAuto: 'automatic',
     gasMark: 'Gas mark',
     gasMarkDash: 'Gas mark —',
     unitBasket: 'basket model',
@@ -166,7 +168,7 @@ const en: Dictionary = {
     convertCards: [
       { title: 'Oven → Air Fryer', desc: 'The flagship. Food-type multipliers, basket vs. oven-style, max-temp ceiling, °F/°C/gas mark.' },
       { title: 'Convection → Air Fryer', desc: 'Convection recipes are already fan-adjusted, so they need a gentler cut. Most tools get this wrong.' },
-      { title: 'Batch & serving scaler', desc: 'Adjust time when the basket is crowded or you are cooking in two loads.' },
+      { title: 'Preheat guide', desc: 'How long to preheat by temperature and model, from the manuals. Oven-style units do it for you.' },
       { title: 'Air fryer vs oven cost', desc: 'What a recipe costs in each appliance at your electricity price, from measured energy, not the label.' },
     ],
     reverseCards: [
@@ -221,7 +223,7 @@ const en: Dictionary = {
       },
       {
         heading: 'How Oven to Air Fryer Conversion Works',
-        body: "Most oven to air fryer conversion advice online reduces to one line: subtract 25°F and cut the time by a fifth. That rule isn't wrong exactly — air fryers are small, forced-air convection ovens, so they transfer heat faster and need both a lower temperature and a shorter cook time than a conventional oven. But treating every food the same way is where flat rules break down. A flat rule assumes a tray of thin-cut fries and a dense loaf of banana bread respond to faster airflow identically. They don't. Thin, high-surface-area foods like fries, bacon, and chicken wings are surrounded by hot air on nearly every side, so they cook dramatically faster — often needing 25–30% less time. A dense casserole or a thick cut of meat still has to conduct heat to its center the same way it would in an oven, so the savings are smaller, closer to 10–15%. Apply the fries multiplier to the casserole and you'll pull it out underdone; apply the casserole multiplier to the fries and you'll dry them out. That's why a proper conventional oven to air fryer conversion needs a multiplier per food category instead of one number for everything — the converter above looks at what you selected and applies the time reduction that food type actually needs, alongside the standard temperature drop.",
+        body: "Most oven to air fryer conversion advice online reduces to one line: subtract 25°F and cut the time by a fifth. That rule isn't wrong exactly — air fryers are small, forced-air convection ovens, so they transfer heat faster and need both a lower temperature and a shorter cook time than a conventional oven. But treating every food the same way is where flat rules break down. A flat rule assumes a tray of thin-cut fries and a dense loaf of banana bread respond to faster airflow identically. They don't. Thin, high-surface-area foods like fries, bacon, and chicken wings are surrounded by hot air on nearly every side, so they cook dramatically faster — often needing up to {MAX_CUT}% less time. A dense casserole or a thick cut of meat still has to conduct heat to its center the same way it would in an oven, so the savings are smaller, closer to {MIN_CUT}%. Apply the fries multiplier to the casserole and you'll pull it out underdone; apply the casserole multiplier to the fries and you'll dry them out. That's why a proper conventional oven to air fryer conversion needs a multiplier per food category instead of one number for everything — the converter above looks at what you selected and applies the time reduction that food type actually needs, alongside the standard temperature drop.",
       },
       {
         heading: 'Step by Step: How to Convert Oven to Air Fryer',
@@ -229,19 +231,19 @@ const en: Dictionary = {
       },
       {
         heading: 'Oven to Air Fryer Cooking Time Conversion',
-        body: "Temperature is only half the job — oven to air fryer cooking time conversion matters just as much, and it's the part flat-rule calculators usually get wrong. Because air fryers circulate hot air directly around food in a small chamber, heat reaches the surface faster and cooking finishes sooner even at a lower temperature. That's why a 45-minute oven bake might become a 32-minute air fryer cook rather than a simple percentage of the original number: the time reduction scales with how much surface area the food exposes to that airflow, not just with the temperature change.",
+        body: "Temperature is only half the job — oven to air fryer cooking time conversion matters just as much, and it's the part flat-rule calculators usually get wrong. Because air fryers circulate hot air directly around food in a small chamber, heat reaches the surface faster and cooking finishes sooner even at a lower temperature. That's why a 45-minute oven bake might become a {T45_FAST}-minute air fryer cook rather than a simple percentage of the original number: the time reduction scales with how much surface area the food exposes to that airflow, not just with the temperature change.",
       },
       {
         heading: 'Air Fryer to Oven Conversion (Going the Other Way)',
-        body: "Conversion works in both directions. Sometimes you have an air fryer recipe or a preset from your appliance's manual and need to convert air fryer to oven settings instead — because you're cooking a bigger batch than the basket can hold, the air fryer is already busy with something else, or you're feeding a table using the full-size oven. Air fryer to oven conversion generally means raising the temperature and adding back cooking time, since a conventional oven's larger cavity and slower airflow can't match the air fryer's concentrated heat. An air fryer to oven calculator applies this in reverse: add roughly 25°F back to the air fryer temperature, then extend the time by the same food-type-aware percentage the forward conversion subtracted. It's the same underlying logic, run backward, and it's just as sensitive to food type — a batch of nuggets scaled up for the oven needs a different time adjustment than a whole chicken would.",
+        body: "Conversion works in both directions. Sometimes you have an air fryer recipe or a preset from your appliance's manual and need to convert air fryer to oven settings instead — because you're cooking a bigger batch than the basket can hold, the air fryer is already busy with something else, or you're feeding a table using the full-size oven. Air fryer to oven conversion generally means raising the temperature and adding back cooking time, since a conventional oven's larger cavity and slower airflow can't match the air fryer's concentrated heat. An air fryer to oven calculator applies this in reverse: add roughly {GEN_DT}°F back to the air fryer temperature, then extend the time by the same food-type-aware percentage the forward conversion subtracted. It's the same underlying logic, run backward, and it's just as sensitive to food type — a batch of nuggets scaled up for the oven needs a different time adjustment than a whole chicken would.",
       },
       {
         heading: 'Basket vs. Oven-Style Air Fryers',
-        body: "Not all air fryers behave the same, which is why this converter asks which type you own before finishing the conversion. Basket-style air fryers pack food into a small, sealed chamber with air moving on every side — that's what makes them fast, but it also means most models cap out around 400°F, and pushing past that ceiling isn't realistic no matter what a generic calculator suggests. Oven-style air fryers (including air fryer ovens and toaster-oven-style baskets) have more air volume around the food, so the effect is gentler: temperatures can run a little higher, up to around 450°F, before hitting a practical ceiling. Feeding your appliance type into the conversion, instead of ignoring it, is what keeps the output realistic.",
+        body: "Not all air fryers behave the same, which is why this converter asks which type you own before finishing the conversion. Basket-style air fryers pack food into a small, sealed chamber with air moving on every side — that's what makes them fast, but it also means most models cap out around {CEIL_BASKET}°F, and pushing past that ceiling isn't realistic no matter what a generic calculator suggests. Oven-style air fryers (including air fryer ovens and toaster-oven-style baskets) have more air volume around the food, so the effect is gentler: temperatures can run a little higher, up to around {CEIL_OVEN}°F, before hitting a practical ceiling. Feeding your appliance type into the conversion, instead of ignoring it, is what keeps the output realistic.",
       },
       {
         heading: 'Tips for Getting the Best Results',
-        body: "A few things help any oven to air fryer converter output land closer to right on the first try. Preheat briefly — about 3 minutes for a basket, 4 for oven-style — since air fryers lose more relative heat than an oven does when the door or drawer opens. Don't overcrowd the basket; a single, mostly uncrowded layer is what the food-type multipliers assume, and a packed basket needs extra time closer to what a full oven would. Check food a few minutes before the converted time suggests, especially the first time you're converting a new recipe, since wattage and calibration vary between air fryer models. And treat frozen food differently — it follows the opposite pattern from a fresh recipe, keeping close to the package temperature while still cutting time, since the food needs the initial heat just to thaw before it can cook through.",
+        body: "A few things help any oven to air fryer converter output land closer to right on the first try. Preheat a basket briefly — {PRE_MIN} to {PRE_MAX} minutes, longer at higher settings; oven-style units preheat themselves — since air fryers lose more relative heat than an oven does when the door or drawer opens. Don't overcrowd the basket; a single, mostly uncrowded layer is what the food-type multipliers assume, and a packed basket needs extra time closer to what a full oven would. Check food a few minutes before the converted time suggests, especially the first time you're converting a new recipe, since wattage and calibration vary between air fryer models. And treat frozen food differently — it follows the opposite pattern from a fresh recipe, keeping close to the package temperature while still cutting time, since the food needs the initial heat just to thaw before it can cook through.",
       },
     ],
   },
@@ -298,7 +300,8 @@ const en: Dictionary = {
       },
       {
         q: 'Do I need to preheat?',
-        a: 'A short preheat helps the result land on target: about 3 minutes for a basket-style unit, 4 minutes for oven-style (shown in the result panel above). Skipping preheat generally just means adding a minute or two to the cook time.',
+        a: 'Yes, briefly: {PRE_MIN} to {PRE_MAX} minutes for a basket depending on the temperature (shown in the result panel above), while oven-style units preheat on their own and signal when to add the food.',
+        link: 'preheat',
       },
       {
         q: 'Can you convert an oven to an air fryer?',
@@ -383,7 +386,7 @@ const en: Dictionary = {
       'The air fryer wins on speed for a single crowded-free layer of food, but the oven is still the better tool in a few common situations: cooking more than the basket holds in one load, running two dishes on different racks at the same time, an air fryer that is mid-cycle on something else, or a cut too large to fit a basket at all — a whole chicken, a full sheet of cookies, a big tray of vegetables for a crowd. In any of those, converting the air fryer setting you already know back to an oven number is faster than guessing from scratch, and it keeps the food-type logic — fries needing more time back than a casserole does — intact in both directions.',
     ovenCaveatHeading: "One thing to know: a standard oven isn't built to fry",
     ovenCaveatBody:
-      "A conventional oven doesn't have the forced-air circulation a fryer basket does, so two things change. Preheat matters more, since the oven needs its full ramp-up time to reach the target temperature evenly rather than the 3–4 minute head start an air fryer needs. And a single layer of food won't crisp quite as aggressively as it did in the basket, since there's less concentrated airflow hitting every side at once. Neither is a problem to work around — just don't expect an oven tray of wings to look identical to the air-fried version, and lean on a convection or \"air fry\" oven setting if yours has one, since that closes most of the gap.",
+      "A conventional oven doesn't have the forced-air circulation a fryer basket does, so two things change. Preheat matters more, since the oven needs its full ramp-up time to reach the target temperature evenly rather than the few minutes an air fryer basket needs. And a single layer of food won't crisp quite as aggressively as it did in the basket, since there's less concentrated airflow hitting every side at once. Neither is a problem to work around — just don't expect an oven tray of wings to look identical to the air-fried version, and lean on a convection or \"air fry\" oven setting if yours has one, since that closes most of the gap.",
     relatedFlagshipLink: 'Oven → Air Fryer converter',
     relatedChartLink: 'Printable conversion chart',
     relatedConvectionLink: "Air Fryer → Convection converter",
@@ -561,7 +564,7 @@ const en: Dictionary = {
       },
       {
         q: "Do I need to preheat the air fryer for frozen food?",
-        a: "A short preheat of 3 minutes for a basket, or 4 for oven-style, gives more even browning on fries and breaded food. Frozen pizza and reheated items do fine without one.",
+        a: "A short preheat gives more even browning (a few minutes in a basket, longer at higher temperatures; oven-style units preheat on their own) on fries and breaded food. Frozen pizza and reheated items do fine without one.",
       },
     ],
   },
@@ -569,6 +572,7 @@ const en: Dictionary = {
   presetsIndex,
   tempLanding,
   cost,
+  preheat,
   chart: {
     metaTitle: 'Free Printable Air Fryer Conversion Chart',
     metaDescription:

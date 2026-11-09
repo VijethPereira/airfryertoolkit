@@ -2,6 +2,7 @@ import { TEMP_LANDING_SLUGS } from './lib/temp-landings';
 import { PRESETS_INDEX_PATH, PRESET_PATHS } from './lib/preset-paths';
 import { BRAND_PATHS, MODEL_MAX_TEMP_PATH } from './lib/brands';
 import { COST_PATH } from './lib/cost';
+import { PREHEAT_PATH } from './lib/preheat';
 
 const siteConfig = {
   siteName: 'Air Fryer Toolkit',
@@ -73,6 +74,7 @@ export const LIVE_PAGES = new Set<string>([
   ...PRESET_PATHS,
   '/chart',
   COST_PATH,
+  PREHEAT_PATH,
   // English only: live but not in TRANSLATED_PAGES (see src/lib/brands.ts).
   ...BRAND_PATHS,
   MODEL_MAX_TEMP_PATH,
@@ -99,4 +101,6 @@ export const TRANSLATED_PAGES: { slug: string }[] = [
   ...PRESET_PATHS.map((slug) => ({ slug })),
   { slug: '/chart' },
   { slug: COST_PATH },
+  // The per-model table and model picker are English only; /es … /de carry the rest of the page.
+  { slug: PREHEAT_PATH },
 ];

@@ -52,7 +52,7 @@ const cost: CostCopy = {
     'Casi todas las calculadoras multiplican los vatios de la etiqueta por el tiempo. Pero, ya caliente, el termostato apaga y enciende la resistencia. En el ensayo de Which?, {OV_W} W × tiempo daba entre {OV_RATED_MIN} y {OV_RATED_MAX} veces lo que el horno gastó: {LEAD_OV_RATED} kWh para {LEAD_MIN} minutos de patatas fritas congeladas, frente a {LEAD_OV_KWH} kWh en el contador. El resultado muestra la cifra nominal como límite superior, no como coste.',
   modelHeading: 'Cómo funciona la estimación',
   modelBody:
-    'Which? cocinó pollo asado, patatas fritas congeladas, una patata asada y un bizcocho en ambos aparatos y midió la energía, precalentado incluido. Un ajuste por mínimos cuadrados da al horno un calentamiento de {OV_WARM} kWh más {OV_HOLD} kW por hora, y a la freidora {AF_KW} kW de media, sobre el tiempo de receta más el precalentado ({PRE_OV} y {PRE_AF} minutos por defecto). El ajuste falla entre {OV_RES_MIN} % y {OV_RES_MAX} % en el horno y entre {AF_RES_MIN} % y {AF_RES_MAX} % en la freidora. Frente a la prueba de CHOICE de {CHOICE_YEAR}, sin reajustar, se quedó entre un {CHOICE_LOW_MIN} % y un {CHOICE_LOW_MAX} % corto, pero el porcentaje ahorrado quedó a menos de {CHOICE_GAP} puntos. El rango probable abarca los peores errores de ambas pruebas. La temperatura no entra en el modelo.',
+    'Which? cocinó pollo asado, patatas fritas congeladas, una patata asada y un bizcocho en ambos aparatos y midió la energía, precalentado incluido. Un ajuste por mínimos cuadrados da al horno un calentamiento de {OV_WARM} kWh más {OV_HOLD} kW por hora, y a la freidora {AF_KW} kW de media, sobre el tiempo de receta más el precalentado ({PRE_OV} minutos en el horno, de {PRE_AF_MIN} a {PRE_AF_MAX} en la freidora). El ajuste falla entre {OV_RES_MIN} % y {OV_RES_MAX} % en el horno y entre {AF_RES_MIN} % y {AF_RES_MAX} % en la freidora. Frente a la prueba de CHOICE de {CHOICE_YEAR}, sin reajustar, se quedó entre un {CHOICE_LOW_MIN} % y un {CHOICE_LOW_MAX} % corto, pero el porcentaje ahorrado quedó a menos de {CHOICE_GAP} puntos. El rango probable abarca los peores errores de ambas pruebas. La temperatura no entra en el modelo.',
   exampleHeading: 'Ejemplo práctico',
   exampleBody:
     '{EX_OVEN_TEMP} durante {EX_OVEN_MIN} minutos pasa a {EX_AF_TEMP} durante {EX_AF_MIN} minutos en una freidora de cesta: {EX_AF_TOTAL} minutos con precalentado, frente a {EX_OV_TOTAL} en el horno. Con {TARIFF_RATE} ({TARIFF_COUNTRY}) son unos {EX_AF_KWH} kWh ({EX_AF_COST}) frente a {EX_OV_KWH} kWh ({EX_OV_COST}), un {EX_PCT} % menos.',
@@ -95,7 +95,8 @@ const cost: CostCopy = {
     },
     {
       q: '¿Hay que contar el precalentado?',
-      a: 'Sí. Los tiempos y kWh de Which? lo incluyen, así que se suman {PRE_OV} minutos al horno y {PRE_AF} a la freidora; pon cero si la tuya no lo necesita. Fuente: Which?, {WHICH_DATE}.',
+      a: 'Sí. Los tiempos y kWh de Which? lo incluyen, así que se suman {PRE_OV} minutos al horno y de {PRE_AF_MIN} a {PRE_AF_MAX} a la freidora, más a mayor temperatura; pon cero si la tuya no lo necesita. Fuente: Which?, {WHICH_DATE}.',
+      link: 'preheat',
     },
   ],
 };

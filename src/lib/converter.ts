@@ -205,7 +205,6 @@ export interface ConversionResult {
   /** The ceiling used: the model's floored maxF, or the unit-style ceiling (400°F basket / 450°F oven-style). */
   ceiling: number;
   checkAtMinutes: number | null;
-  preheatMinutes: number;
   gasMark: number | null;
 }
 
@@ -224,7 +223,6 @@ export const modelCeiling = (maxF: number) => Math.floor(maxF / DIAL_STEP) * DIA
 
 function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>): ConversionResult {
   const ovenF = input.unit === 'C' ? (input.ovenTemp * 9) / 5 + 32 : input.ovenTemp;
-  const ovenStyle = input.style === 'oven';
   const { dT, f: baseF } = profile;
   const ceiling = input.maxF !== undefined ? modelCeiling(input.maxF) : profile.ceiling;
   let f = baseF;
@@ -250,7 +248,6 @@ function toAirFryer(profile: StyledProfile, input: Omit<ConversionInput, 'food'>
     capped,
     ceiling,
     checkAtMinutes: outMinutes !== null ? Math.max(2, Math.round(outMinutes * 0.7)) : null,
-    preheatMinutes: ovenStyle ? 4 : 3,
     gasMark: outF !== null ? gasMarkFor(outF) : null,
   };
 }
