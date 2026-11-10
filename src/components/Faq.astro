@@ -24,22 +24,22 @@ const { items } = Astro.props;
   @reference '../styles/global.css';
 
   .faq-list { display: flex; flex-direction: column; gap: 8px; }
-  .faq-item { border-radius: var(--radius-site-card); background: var(--site-bg-card); box-shadow: var(--shadow-site); overflow: hidden; }
+  .faq-item { border-radius: var(--radius-lg); background: var(--site-bg-card); box-shadow: none; overflow: hidden; border: 1px solid var(--site-rule); }
   .faq-q {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     min-height: 44px; padding: 16px 20px; cursor: pointer; list-style: none;
-    font-family: var(--font-archivo); font-size: 15px; font-weight: 600; color: var(--site-text);
+    font-family: var(--font-archivo); font-size: 18px; font-weight: 600; color: var(--site-text);
     transition: background 0.15s ease;
   }
   .faq-q::-webkit-details-marker { display: none; }
   .faq-q:hover { background: var(--site-bg-hover); }
   .faq-icon { flex-shrink: 0; }
   .faq-icon::before { content: '+'; font-size: 20px; line-height: 1; color: var(--site-text-muted); }
-  details[open] .faq-icon::before { content: '\2212'; }
+  details[open] .faq-icon::before { content: '\2212'; color: var(--site-accent-text); }
   .faq-a { padding: 0 20px 16px; }
   .faq-a p {
     margin: 0; font-size: var(--text-body); line-height: var(--text-body--line-height);
-    letter-spacing: var(--text-body--letter-spacing); color: var(--site-text-muted);
+    letter-spacing: var(--text-body--letter-spacing); color: var(--site-text-body);
   }
 
   .faq-a .faq-link { margin-top: 8px; }

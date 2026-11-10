@@ -137,7 +137,7 @@ const dict = getDictionary(locale).nav;
     z-index: 200;
     height: 64px;
     background: var(--site-nav-bg);
-    box-shadow: var(--shadow-site);
+    border-bottom: 1px solid var(--site-hairline);
   }
 
   .nav-inner {
@@ -154,9 +154,10 @@ const dict = getDictionary(locale).nav;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 15px;
+    font-family: var(--font-archivo);
+    font-size: 17px;
     font-weight: 600;
-    letter-spacing: -0.45px;
+    letter-spacing: -0.02em;
     color: var(--site-text);
     margin-right: auto;
     flex-shrink: 0;
@@ -168,8 +169,8 @@ const dict = getDictionary(locale).nav;
 
   .logo-mark {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
   }
 
@@ -190,13 +191,21 @@ const dict = getDictionary(locale).nav;
     display: block;
     padding: 0 12px;
     line-height: 32px;
-    font-size: 14px;
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 500;
     color: var(--site-text);
     transition: color 0.15s ease;
   }
 
   .nav-link:hover {
     color: var(--site-text-muted);
+  }
+
+  /* Current page: 2px terracotta-text underline, offset 6px (DESIGN.md Section 5) */
+  .nav-link.active {
+    border-bottom: 2px solid var(--site-accent-text);
+    padding-bottom: 6px;
   }
 
   .theme-toggle {

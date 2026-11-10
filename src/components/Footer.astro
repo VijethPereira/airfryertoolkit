@@ -54,9 +54,9 @@ const footerLinks = [
   @reference '../styles/global.css';
 
   .site-footer {
-    background: var(--site-bg-deep);
-    border-top: 1px solid var(--site-border);
-    padding: 64px 0;
+    background: var(--site-footer);
+    border-top: 1px solid var(--site-hairline);
+    padding: 56px 0;
   }
 
   .footer-inner {
@@ -71,10 +71,11 @@ const footerLinks = [
   }
 
   .footer-brand {
+    font-family: var(--font-archivo);
     font-size: 15px;
     font-weight: 600;
-    letter-spacing: -0.45px;
-    color: var(--site-text);
+    letter-spacing: -0.02em;
+    color: var(--site-on-panel);
     margin: 0;
   }
 
@@ -89,13 +90,14 @@ const footerLinks = [
   }
 
   .footer-links a {
+    font-family: var(--font-archivo);
     font-size: 14px;
-    color: var(--site-text);
+    color: var(--site-on-panel);
     transition: color 0.15s ease;
   }
 
   .footer-links a:hover {
-    color: var(--site-text-muted);
+    color: var(--site-on-panel-muted);
   }
 
   .sister-pill {
@@ -111,24 +113,25 @@ const footerLinks = [
   }
 
   .sister-pill > span:first-child {
-    color: var(--site-text-muted);
+    color: var(--site-on-panel-muted);
   }
 
   .sister-pill a {
-    color: var(--site-text);
+    color: var(--site-on-panel);
     font-weight: 600;
   }
 
   .sep {
-    color: var(--site-border);
+    color: var(--site-hairline);
   }
 
   .copyright {
+    font-family: var(--font-archivo);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.66px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--site-text-muted);
+    color: var(--site-on-panel-muted);
     margin: 0;
   }
 </style>
