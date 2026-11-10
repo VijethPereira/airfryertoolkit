@@ -68,7 +68,7 @@ const cTempLanding: {
   widgetNote: 'Wechseln Sie zwischen Ober-/Unterhitze, Umluft und Gasstufe. Der Konverter nutzt die Haupt-Engine für Ober-/Unterhitze, die Konvektions-Engine für Umluft, und mappt Gasstufe auf °C Ober-/Unterhitze.',
   pages: {
     160: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Backofen zur Heißluftfritteuse — Temperatur & Zeit',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, Gasstufe {OVEN_MARK}) im Backofen sind {AF_C}°C ({AF_F}°F) in der Heißluftfritteuse-Korb mit ca. {PCT}% weniger Zeit. Lebensmittel-Tabelle für Kuchen, Cremes und langsames Garen, mit Live-Konverter.',
       metaKeywords: '160c heißluftfritteuse, 160c backofen heißluftfritteuse, 160 celsius heißluftfritteuse, Gasstufe {OVEN_MARK} heißluftfritteuse',
       heading: '{OVEN_C}°C Backofen zur Heißluftfritteuse',
@@ -92,7 +92,7 @@ const cTempLanding: {
       ],
     },
     180: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Backofen zur Heißluftfritteuse — Temperatur & Zeit',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, Gasstufe {OVEN_MARK}) im Backofen sind {AF_C}°C ({AF_F}°F) in der Heißluftfritteuse-Korb mit ca. {PCT}% weniger Zeit. Lebensmittel-Tabelle für Kuchen, Brot, Hähnchen und Fisch, mit Live-Konverter.',
       metaKeywords: '180c heißluftfritteuse, 180c backofen heißluftfritteuse, 180 celsius heißluftfritteuse, 180c umluft heißluftfritteuse, Gasstufe {OVEN_MARK} heißluftfritteuse',
       heading: '{OVEN_C}°C Backofen zur Heißluftfritteuse',
@@ -116,7 +116,7 @@ const cTempLanding: {
       ],
     },
     200: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Backofen zur Heißluftfritteuse — Temperatur & Zeit',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, Gasstufe {OVEN_MARK}) im Backofen sind {AF_C}°C ({AF_F}°F) in der Heißluftfritteuse-Korb mit ca. {PCT}% weniger Zeit. Lebensmittel-Tabelle für Ofengemüse, Hähnchenbrust, Pommes, mit Live-Konverter.',
       metaKeywords: '200c heißluftfritteuse, 200c backofen heißluftfritteuse, 200 celsius heißluftfritteuse, 180c umluft heißluftfritteuse, Gasstufe {OVEN_MARK} heißluftfritteuse',
       heading: '{OVEN_C}°C Backofen zur Heißluftfritteuse',

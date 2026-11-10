@@ -68,7 +68,7 @@ const cTempLanding: {
   widgetNote: 'Cambia entre entradas convencional, ventilador y marca de gas. El convertidor usa el motor principal para convencional, el de convección para ventilador, y mapea marca de gas a °C convencional.',
   pages: {
     160: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Horno a Freidora de Aire — Temperatura y Tiempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gas {OVEN_MARK}) en el horno son {AF_C}°C ({AF_F}°F) en freidora de aire tipo cesta con aproximadamente {PCT}% menos tiempo. Tabla por alimento para pasteles, natillas y cocciones lentas, con convertidor en vivo.',
       metaKeywords: '160c a freidora de aire, 160c horno a freidora de aire, 160 celsius freidora de aire, marca de gas {OVEN_MARK} freidora de aire',
       heading: '{OVEN_C}°C horno a freidora de aire',
@@ -92,7 +92,7 @@ const cTempLanding: {
       ],
     },
     180: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Horno a Freidora de Aire — Temperatura y Tiempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gas {OVEN_MARK}) en el horno son {AF_C}°C ({AF_F}°F) en freidora de aire tipo cesta con aproximadamente {PCT}% menos tiempo. Tabla por alimento para pasteles, panes, pollo y pescado, con convertidor en vivo.',
       metaKeywords: '180c a freidora de aire, 180c horno a freidora de aire, 180 celsius freidora de aire, 180c ventilador a freidora de aire, marca de gas {OVEN_MARK} freidora de aire',
       heading: '{OVEN_C}°C horno a freidora de aire',
@@ -116,7 +116,7 @@ const cTempLanding: {
       ],
     },
     200: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Horno a Freidora de Aire — Temperatura y Tiempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gas {OVEN_MARK}) en el horno son {AF_C}°C ({AF_F}°F) en freidora de aire tipo cesta con aproximadamente {PCT}% menos tiempo. Tabla por alimento para verduras asadas, pechuga de pollo, patatas fritas, con convertidor en vivo.',
       metaKeywords: '200c a freidora de aire, 200c horno a freidora de aire, 200 celsius freidora de aire, 180c ventilador a freidora de aire, marca de gas {OVEN_MARK} freidora de aire',
       heading: '{OVEN_C}°C horno a freidora de aire',

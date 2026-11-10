@@ -68,7 +68,7 @@ const cTempLanding: {
   widgetNote: 'Basculez entre entrées conventionnel, ventilation et thermostat. Le convertisseur utilise le moteur principal pour conventionnel, le moteur convection pour ventilation, et mappe le thermostat au °C conventionnel.',
   pages: {
     160: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Four vers Friteuse à Air — Température et Temps',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, thermostat {OVEN_MARK}) au four font {AF_C}°C ({AF_F}°F) en friteuse panier avec environ {PCT}% moins de temps. Table par aliment pour gâteaux, crèmes et cuissons lentes, convertisseur en direct.',
       metaKeywords: '160c friteuse à air, 160c four friteuse à air, 160 celsius friteuse à air, thermostat {OVEN_MARK} friteuse à air',
       heading: '{OVEN_C}°C four vers friteuse à air',
@@ -92,7 +92,7 @@ const cTempLanding: {
       ],
     },
     180: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Four vers Friteuse à Air — Température et Temps',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, thermostat {OVEN_MARK}) au four font {AF_C}°C ({AF_F}°F) en friteuse panier avec environ {PCT}% moins de temps. Table par aliment pour gâteaux, pains, poulet et poisson, convertisseur en direct.',
       metaKeywords: '180c friteuse à air, 180c four friteuse à air, 180 celsius friteuse à air, 180c ventilation friteuse à air, thermostat {OVEN_MARK} friteuse à air',
       heading: '{OVEN_C}°C four vers friteuse à air',
@@ -116,7 +116,7 @@ const cTempLanding: {
       ],
     },
     200: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Four vers Friteuse à Air — Température et Temps',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, thermostat {OVEN_MARK}) au four font {AF_C}°C ({AF_F}°F) en friteuse panier avec environ {PCT}% moins de temps. Table par aliment pour légumes rôtis, blanc de poulet, frites, convertisseur en direct.',
       metaKeywords: '200c friteuse à air, 200c four friteuse à air, 200 celsius friteuse à air, 180c ventilation friteuse à air, thermostat {OVEN_MARK} friteuse à air',
       heading: '{OVEN_C}°C four vers friteuse à air',

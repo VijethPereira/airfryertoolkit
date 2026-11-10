@@ -68,7 +68,7 @@ const cTempLanding: {
   widgetNote: 'Alterne entre entradas convencional, ventilador e marca de gás. O conversor usa o motor principal para convencional, o de convecção para ventilador, e mapeia marca de gás para °C convencional.',
   pages: {
     160: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Forno para Air Fryer — Temperatura e Tempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gás {OVEN_MARK}) no forno são {AF_C}°C ({AF_F}°F) na air fryer cesto com cerca de {PCT}% menos tempo. Tabela por alimento para bolos, cremes e cozimentos lentos, com conversor ao vivo.',
       metaKeywords: '160c air fryer, 160c forno air fryer, 160 celsius air fryer, marca de gás {OVEN_MARK} air fryer',
       heading: '{OVEN_C}°C forno para air fryer',
@@ -92,7 +92,7 @@ const cTempLanding: {
       ],
     },
     180: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Forno para Air Fryer — Temperatura e Tempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gás {OVEN_MARK}) no forno são {AF_C}°C ({AF_F}°F) na air fryer cesto com cerca de {PCT}% menos tempo. Tabela por alimento para bolos, pães, frango e peixe, com conversor ao vivo.',
       metaKeywords: '180c air fryer, 180c forno air fryer, 180 celsius air fryer, 180c ventilador air fryer, marca de gás {OVEN_MARK} air fryer',
       heading: '{OVEN_C}°C forno para air fryer',
@@ -116,7 +116,7 @@ const cTempLanding: {
       ],
     },
     200: {
-      metaTitle: '{OVEN_C}°C Oven to Air Fryer — Temperature & Time',
+      metaTitle: '{OVEN_C}°C Forno para Air Fryer — Temperatura e Tempo',
       metaDescription: '{OVEN_C}°C ({OVEN_F}°F, marca de gás {OVEN_MARK}) no forno são {AF_C}°C ({AF_F}°F) na air fryer cesto com cerca de {PCT}% menos tempo. Tabela por alimento para legumes assados, peito de frango, batatas fritas, com conversor ao vivo.',
       metaKeywords: '200c air fryer, 200c forno air fryer, 200 celsius air fryer, 180c ventilador air fryer, marca de gás {OVEN_MARK} air fryer',
       heading: '{OVEN_C}°C forno para air fryer',

@@ -14,6 +14,7 @@ import {
   FAN_OFFSET_C,
 } from '../../src/lib/temp-landings';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
+import siteConfig from '../../src/site.config';
 import { OVEN_MARK_SCALE } from '../../src/i18n/locales';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, DEFAULT_LOCALE } from '../../src/i18n/locales';
@@ -376,6 +377,48 @@ test.describe('°C landing pages: typed numbers and registration', () => {
       }
       // Also verify the related link to /frozen is present
       await expect(page.locator(`.related-link a[href$="/frozen"]`)).toHaveCount(1);
+    }
+  });
+
+  // Regression for 8d5692e: the translated metaTitle was replaced with the English
+  // template on the es/pt/fr/de pages, and metaKeywords was never wrapped in fill().
+  // Every °C page's <title> must be in its own language, and no meta tag or visible
+  // text may carry an unfilled {KEY} placeholder.
+  const ENGLISH_TITLE = '{OVEN_C}°C Oven to Air Fryer — Temperature & Time';
+
+  test('every °C page title is translated per locale, not the English template', async ({ page }) => {
+    for (const l of LOCALES) {
+      const dict = getDictionary(l.code).cTempLanding;
+      for (const landing of ALL_C) {
+        const response = await page.goto(localizedPath(l.code, cTempLandingSlug(landing.tempC)));
+        expect(response?.status(), `${l.code} ${landing.tempC}`).toBe(200);
+        const filled = fillPlaceholders(dict.pages[landing.tempC].metaTitle, cTempLandingValues(landing, l.code));
+        expect(filled, `${l.code} ${landing.tempC} metaTitle`).not.toBe(ENGLISH_TITLE);
+        // Layout appends " | Air Fryer Toolkit" to every title
+        await expect(page).toHaveTitle(`${filled} | ${siteConfig.siteName}`);
+      }
+    }
+  });
+
+  test('no <title>, meta description, meta keywords or visible text on any °C page has an unfilled {KEY}', async ({ page }) => {
+    const keyRe = /\{[A-Z][A-Z0-9_]*\}/;
+    for (const l of LOCALES) {
+      const dict = getDictionary(l.code).cTempLanding;
+      for (const landing of ALL_C) {
+        await page.goto(localizedPath(l.code, cTempLandingSlug(landing.tempC)));
+        const values = cTempLandingValues(landing, l.code);
+        const pageCopy = dict.pages[landing.tempC];
+        // <title>
+        expect(await page.title(), `${l.code} ${landing.tempC} title`).not.toMatch(keyRe);
+        // meta description and meta keywords come from the Layout props; assert the
+        // source strings fill cleanly, then assert the rendered tags carry no placeholder.
+        expect(fillPlaceholders(pageCopy.metaDescription, values), `${l.code} ${landing.tempC} metaDescription`).not.toMatch(keyRe);
+        expect(fillPlaceholders(pageCopy.metaKeywords, values), `${l.code} ${landing.tempC} metaKeywords`).not.toMatch(keyRe);
+        await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', fillPlaceholders(pageCopy.metaDescription, values));
+        await expect(page.locator('meta[name="keywords"]')).toHaveAttribute('content', fillPlaceholders(pageCopy.metaKeywords, values));
+        // Visible text
+        expect(await page.locator('body').innerText(), `${l.code} ${landing.tempC} body`).not.toMatch(keyRe);
+      }
     }
   });
 });
