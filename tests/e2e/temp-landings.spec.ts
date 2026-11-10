@@ -2,14 +2,19 @@ import { test, expect, type Page } from '@playwright/test';
 import { computeAirFryerSetting, FOODS, type FoodKey, type FryerStyle } from '../../src/lib/converter';
 import { TEMP_STEPS } from '../../src/lib/chart-data';
 import {
+  C_TEMP_LANDINGS,
   TEMP_LANDINGS,
   TEMP_LANDING_MINUTES,
   fillPlaceholders,
   tempLandingSlug,
   tempLandingValues,
   type TempLandingF,
+  cTempLandingSlug,
+  cTempLandingValues,
+  FAN_OFFSET_C,
 } from '../../src/lib/temp-landings';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
+import { OVEN_MARK_SCALE } from '../../src/i18n/locales';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, DEFAULT_LOCALE } from '../../src/i18n/locales';
 import { localizedPath, localizedUrl } from '../../src/i18n/utils';
@@ -285,3 +290,119 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
     });
   }
 });
+
+test.describe('°C landing pages: typed numbers and registration', () => {
+  // Every {KEY} in a c-temp-landing dictionary entry is filled from cTempLandingValues,
+  // so no engine number may be typed into the prose. The °C pages are data-driven from
+  // C_TEMP_LANDINGS, so the test iterates the array and the dictionary together.
+  const ALL_C = C_TEMP_LANDINGS;
+
+  test('no engine number is typed into the copy: every °C/°F/gas mark in the prose comes from a placeholder', () => {
+    for (const l of LOCALES) {
+      const dict = getDictionary(l.code).cTempLanding;
+      for (const landing of ALL_C) {
+        // Check the FILLED dictionary strings AFTER fillPlaceholders, like the presets test does.
+        // Strip placeholders and verify the page's own temperature and gas mark don't appear as raw numbers.
+        const values = cTempLandingValues(landing, l.code);
+        const prose = cTempStrings(dict, landing)
+          .map((s) => fillPlaceholders(s, values))
+          .join(' ')
+          .replace(/\{[A-Z][A-Z0-9_]*\}/g, '');
+        // The typed numbers that must NOT appear after stripping placeholders:
+        // the page's conventional temperature, fan input, oven F, air fryer answers, and gas mark.
+        const typed = [
+          landing.tempC,
+          Number(values.FAN_C),
+          Number(values.OVEN_F),
+          Number(values.AF_C),
+          Number(values.AF_F),
+          Number(values.FAN_AF_C),
+          Number(values.FAN_AF_F),
+        ];
+        for (const n of typed) {
+          expect(prose, `${l.code} ${landing.tempC}°C typed ${n}`).not.toMatch(new RegExp(`(?:^|\\D)${n}(?:°C|°F)`));
+        }
+        expect(prose, `${l.code} ${landing.tempC}°C typed gas mark`).not.toMatch(new RegExp(`(?:gas mark|Gasstufe|marca de gas|thermostat) ${values.OVEN_MARK}\\b`));
+      }
+    }
+  });
+
+  test('every °C page in every locale returns 200 and renders translated', async ({ page }) => {
+    for (const l of LOCALES) {
+      for (const landing of ALL_C) {
+        const slug = cTempLandingSlug(landing.tempC);
+        const response = await page.goto(localizedPath(l.code, slug));
+        expect(response?.status(), `${l.code} ${slug}`).toBe(200);
+        const dict = getDictionary(l.code).cTempLanding;
+        await expect(page.locator('.tool-header h1')).toHaveText(
+          fillPlaceholders(dict.pages[landing.tempC].heading, cTempLandingValues(landing, l.code)),
+        );
+        expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
+      }
+    }
+  });
+
+  test('conventional / fan / gas mark inputs return the flagship, convection and mark-mapped answers', async ({ page }) => {
+    for (const landing of ALL_C) {
+      const slug = cTempLandingSlug(landing.tempC);
+      await page.goto(slug);
+      const values = cTempLandingValues(landing, 'en');
+      // Conventional °C -> flagship engine answer
+      await expect(page.locator('#ctl-answer')).toHaveText(
+        fillPlaceholders(getDictionary('en').cTempLanding.answerTemplate, values),
+      );
+      // Fan °C -> convection engine answer
+      await page.click('#tl-mode-fan');
+      await expect(page.locator('#ctl-answer-fan')).toHaveText(
+        fillPlaceholders(getDictionary('en').cTempLanding.answerFanTemplate, values),
+      );
+      // Gas mark -> mark-mapped conventional °C
+      await page.click('#tl-mode-gas');
+      await expect(page.locator('#tl-mode-gas')).toHaveClass(/active/);
+      await expect(page.locator('#ctl-answer')).toContainText(String(landing.tempC));
+      await page.click('#tl-mode-c');
+    }
+  });
+
+  test('each °C page has a frozen-pack FAQ that mentions /frozen', async ({ page }) => {
+    for (const landing of ALL_C) {
+      await page.goto(cTempLandingSlug(landing.tempC));
+      const frozenFaqs = getDictionary('en').cTempLanding.pages[landing.tempC].faqs
+        .filter((f) => /frozen|congelados|surgelés|congelados|tiefkühl/i.test(f.q))
+        .map((f) => f.q);
+      for (const q of frozenFaqs) {
+        const card = page.locator('.faq-item', { hasText: q });
+        await expect(card, q).toBeVisible();
+      }
+      // Also verify the related link to /frozen is present
+      await expect(page.locator(`.related-link a[href$="/frozen"]`)).toHaveCount(1);
+    }
+  });
+});
+
+/** All copy strings for a °C landing page, across the shared keys and the per-temperature page. */
+function cTempStrings(dict: ReturnType<typeof getDictionary>['cTempLanding'], landing: (typeof C_TEMP_LANDINGS)[number]): string[] {
+  const page = dict.pages[landing.tempC];
+  return [
+    dict.answerTemplate,
+    dict.answerCappedTemplate,
+    dict.answerFanTemplate,
+    dict.answerFanCappedTemplate,
+    dict.answerOvenStyleTemplate,
+    dict.tableHeading,
+    dict.tableIntro,
+    dict.neighbourLinkTemplate,
+    dict.relatedNearestFLink,
+    dict.widgetNote,
+    page.metaTitle,
+    page.metaDescription,
+    page.heading,
+    page.subDesc,
+    page.recipesBody,
+    page.failureBody,
+    page.workedExampleTemplate,
+    page.fanWorkedExampleTemplate,
+    page.styleBody,
+    ...page.faqs.flatMap((f) => [f.q, f.a]),
+  ];
+}

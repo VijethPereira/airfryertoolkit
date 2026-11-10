@@ -151,6 +151,8 @@ export const C_TEMP_LANDING_SLUGS = C_TEMP_LANDINGS.map((l) => cTempLandingSlug(
 
 /** Fan offset for UK/EU recipes: conventional °C minus fan °C. The UK convention is 20°C. */
 export const FAN_OFFSET_C = 20;
+/** The time cut frozen packs apply (they keep the temperature and cut ~30% of the time). */
+export const FROZEN_TIME_CUT = 30;
 
 /**
  * Placeholder values for a °C landing page. Every {KEY} in a c-temp-landing dictionary entry
@@ -211,6 +213,11 @@ export function cTempLandingValues(landing: CTempLanding, locale: LocaleCode = D
     FAN_OS_C: String(ovenFan.outC),
     FAN_OS_F: String(ovenFan.outF),
     FAN_OS_PCT: String(timeCutPercent(Math.round((fanC * 9) / 5 + 32), 'general', 'oven')),
+    // Shared constants used in prose: the fan offset (°C) and the frozen-pack time cut (%).
+    FAN_OFFSET_C: String(FAN_OFFSET_C),
+    FROZEN_PCT: String(FROZEN_TIME_CUT),
+    // Nearest °F page cross-link token
+    F: String(nearestF),
     // Worked example (conventional)
     EX_OVEN_MIN: String(example.ovenMinutes),
     EX_C: String(exBasketConv.outC),

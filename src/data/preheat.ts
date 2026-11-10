@@ -11,7 +11,7 @@
  */
 
 const READ = '2026-11-09';
-const NINJA_READ = '2026-10-28';
+const NINJA_READ = '2026-11-10';
 
 export interface PreheatChartRow {
   /** Inclusive °F range, as printed. */
