@@ -1,0 +1,79 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import CTempLandingBody from '../../components/CTempLandingBody.astro';
+import siteConfig from '../../site.config.ts';
+import { getDictionary } from '../../i18n/dictionaries';
+import { localizedUrl } from '../../i18n/utils';
+import {
+  C_TEMP_LANDINGS,
+  cTempLandingSlug,
+  fillPlaceholders,
+  cTempLandingValues,
+  type CTempLanding,
+  type CTempLandingC,
+} from '../../lib/temp-landings';
+
+export function getStaticPaths() {
+  return C_TEMP_LANDINGS.map((landing) => ({ params: { cTemp: String(landing.tempC) }, props: { landing } }));
+}
+
+const { landing } = Astro.props as { landing: CTempLanding };
+const locale = 'fr' as const;
+const copy = getDictionary(locale).cTempLanding.pages[landing.tempC as CTempLandingC];
+const fill = (text: string) => fillPlaceholders(text, cTempLandingValues(landing, locale));
+const slug = cTempLandingSlug(landing.tempC);
+const url = localizedUrl(locale, slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: `${fill(copy.heading)} — ${siteConfig.siteName}`,
+      description: fill(copy.metaDescription),
+      url,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: copy.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: fill(q),
+        acceptedAnswer: { '@type': 'Answer', text: fill(a) },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: siteConfig.domain },
+        { '@type': 'ListItem', position: 2, name: 'Convertir', item: `${siteConfig.domain}/#convert` },
+        { '@type': 'ListItem', position: 3, name: fill(copy.heading), item: url },
+      ],
+    },
+  ],
+};
+---
+
+<Layout
+  title={fill(copy.metaTitle)}
+  description={fill(copy.metaDescription)}
+  canonical={url}
+  keywords={copy.metaKeywords}
+  jsonLd={jsonLd}
+  locale={locale}
+  translatedSlug={slug}
+>
+  <SiteNav currentPath={slug} locale={locale} translatedSlug={slug} />
+  <CTempLandingBody locale={locale} landing={landing} />
+  <Footer locale={locale} />
+</Layout>

@@ -19,6 +19,8 @@ interface Props {
   initialFood?: FoodKey | FrozenFoodKey;
   /** Frozen mode: the preset's own turn type/count for `initialFood` (applies only while that food is selected). */
   initialTurn?: { turn: 'shake' | 'flip'; turns: number };
+  /** Temperature unit the initialTemp is in (°F or °C). */
+  initialUnit?: 'F' | 'C';
   /**
    * Brand pages: a model picker. Choosing a model sets its style and clamps to its own air-fry
    * maximum (engine `maxF`); the "any model" option keeps today's 400/450 style ceiling.

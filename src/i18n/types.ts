@@ -1,5 +1,5 @@
 import type { FoodKey, FrozenFoodKey } from '../lib/converter';
-import type { TempLandingF } from '../lib/temp-landings';
+import type { TempLandingF, CTempLandingC } from '../lib/temp-landings';
 import type { PresetCategory, PresetSizeId, PresetSlug } from '../data/presets';
 import type { TariffId, WhichFood } from '../data/energy';
 
@@ -47,6 +47,31 @@ export interface TempLandingCopy {
   workedExampleTemplate: string;
   styleHeading: string;
   styleBody: string;
+  faqs: { q: string; a: string }[];
+}
+
+/** One °C temperature landing page's own copy (Dictionary['cTempLanding'].pages). */
+export interface CTempLandingCopy {
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
+  heading: string;
+  subDesc: string;
+  recipesHeading: string;
+  recipesBody: string;
+  failureHeading: string;
+  failureBody: string;
+  workedExampleHeading: string;
+  /** Conventional example: {EX_OVEN_MIN}, {EX_F}, {EX_C}, {EX_MIN}, {EX_CHECK}, {EX_OS_F}, {EX_OS_MIN}, {EX_OS_C}. */
+  workedExampleTemplate: string;
+  /** Fan example: {EX_FAN_C}, {EX_FAN_F}, {EX_FAN_MIN}, {EX_FAN_CHECK}, {EX_FAN_OS_C}, {EX_FAN_OS_F}, {EX_FAN_OS_MIN}. */
+  fanWorkedExampleHeading: string;
+  fanWorkedExampleTemplate: string;
+  styleHeading: string;
+  styleBody: string;
+  /** Widget intro text for this specific temperature (optional; dictionary-level widgetHeading/widgetNote used if omitted). */
+  widgetHeading?: string;
+  widgetNote?: string;
   faqs: { q: string; a: string }[];
 }
 
@@ -541,6 +566,41 @@ export interface Dictionary {
     faqHeading: string;
     /** Copy written per temperature; every engine number is a {KEY} placeholder filled by tempLandingValues. */
     pages: Record<TempLandingF, TempLandingCopy>;
+  };
+  cTempLanding: {
+    backLink: string;
+    pageTag: string;
+    /** Conventional direct answer. {OVEN_C}, {OVEN_F}, {OVEN_MARK}, {AF_C}, {AF_F}, {AF_MARK}, {PCT}. */
+    answerTemplate: string;
+    /** Conventional, when clamped. Adds {CEILING}. */
+    answerCappedTemplate: string;
+    /** Fan direct answer. {FAN_C}, {FAN_F}, {FAN_AF_C}, {FAN_AF_F}, {FAN_AF_MARK}, {FAN_PCT}. */
+    answerFanTemplate: string;
+    /** Fan, when clamped. Adds {CEILING}. */
+    answerFanCappedTemplate: string;
+    /** Oven-style. {OS_F}, {OS_C}, {OS_PCT}. */
+    answerOvenStyleTemplate: string;
+    /** {OVEN_C}. */
+    tableHeading: string;
+    tableIntro: string;
+    tableHeaders: { food: string; conventional: string; fan: string; basket: string; ovenStyle: string };
+    /** {PCT}: share of the oven time saved for that cell. */
+    timeLessTemplate: string;
+    cappedCell: string;
+    /** Shown under the table when any cell is clamped. {CEILING}, {OS_CEILING}. */
+    cappedFootnote: string;
+    neighboursHeading: string;
+    /** {OVEN_C} is the neighbouring page's temperature. */
+    neighbourLinkTemplate: string;
+    relatedFlagshipLink: string;
+    relatedChartLink: string;
+    relatedFrozenLink: string;
+    relatedConvectionLink: string;
+    relatedNearestFLink: string;
+    faqHeading: string;
+    widgetHeading: string;
+    widgetNote: string;
+    pages: Record<CTempLandingC, CTempLandingCopy>;
   };
   cost: CostCopy;
   preheat: PreheatCopy;

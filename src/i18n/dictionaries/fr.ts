@@ -1,5 +1,6 @@
 import type { Dictionary } from '../types';
 import tempLanding from './temp-landings/fr';
+import cTempLanding from './c-temp-landing/fr';
 import cost from './cost/fr';
 import preheat from './preheat/fr';
 import { presets, presetsIndex } from './presets/fr';
@@ -571,6 +572,7 @@ const fr: Dictionary = {
   presets,
   presetsIndex,
   tempLanding,
+  cTempLanding,
   cost,
   preheat,
   chart: {

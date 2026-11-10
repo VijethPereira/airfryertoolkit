@@ -1,4 +1,4 @@
-import { TEMP_LANDING_SLUGS } from './lib/temp-landings';
+import { TEMP_LANDING_SLUGS, C_TEMP_LANDING_SLUGS } from './lib/temp-landings';
 import { PRESETS_INDEX_PATH, PRESET_PATHS } from './lib/preset-paths';
 import { BRAND_PATHS, MODEL_MAX_TEMP_PATH } from './lib/brands';
 import { COST_PATH } from './lib/cost';
@@ -70,6 +70,7 @@ export const LIVE_PAGES = new Set<string>([
   '/air-fryer-to-convection',
   '/frozen',
   ...TEMP_LANDING_SLUGS,
+  ...C_TEMP_LANDING_SLUGS,
   PRESETS_INDEX_PATH,
   ...PRESET_PATHS,
   '/chart',
@@ -97,6 +98,7 @@ export const TRANSLATED_PAGES: { slug: string }[] = [
   { slug: '/air-fryer-to-convection' },
   { slug: '/frozen' },
   ...TEMP_LANDING_SLUGS.map((slug) => ({ slug })),
+  ...C_TEMP_LANDING_SLUGS.map((slug) => ({ slug })),
   { slug: PRESETS_INDEX_PATH },
   ...PRESET_PATHS.map((slug) => ({ slug })),
   { slug: '/chart' },
