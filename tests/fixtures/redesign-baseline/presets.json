@@ -1,0 +1,285 @@
+{
+  "slug": "presets",
+  "title": "Air Fryer Food Presets: Time &amp; Temperature for Each Food | Air Fryer Toolkit",
+  "visibleText": ".ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} .wrap[data-astro-cid-4l5nzdvp]{max-width:860px;margin-inline:auto;padding-inline:24px}.page-main[data-astro-cid-4l5nzdvp]{padding:40px 0 80px}.tool-header[data-astro-cid-4l5nzdvp]{margin-bottom:24px}.back-link[data-astro-cid-4l5nzdvp]{font-size:var(--text-caption);letter-spacing:var(--text-caption--letter-spacing);text-transform:uppercase;color:var(--site-text-muted);align-items:center;gap:6px;margin-bottom:16px;font-weight:600;transition:color .15s;display:inline-flex}.back-link[data-astro-cid-4l5nzdvp]:hover{color:var(--site-text)}h1[data-astro-cid-4l5nzdvp]{letter-spacing:-.03em;color:var(--site-text);margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.1}.tool-desc[data-astro-cid-4l5nzdvp]{font-size:var(--text-subheading);line-height:var(--text-subheading--line-height);letter-spacing:var(--text-subheading--letter-spacing);color:var(--site-text-muted);max-width:64ch;margin:0}.group[data-astro-cid-4l5nzdvp]{margin:32px 0}.group[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp],.content-section[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp]{font-size:var(--text-heading-sm);line-height:var(--text-heading-sm--line-height);letter-spacing:var(--text-heading-sm--letter-spacing);color:var(--site-text);margin:0 0 12px;font-weight:600}.card-grid[data-astro-cid-4l5nzdvp]{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.card[data-astro-cid-4l5nzdvp]{border-radius:var(--radius-site-card);background:var(--site-bg-card);min-height:44px;box-shadow:var(--shadow-site);color:var(--site-text);flex-direction:column;gap:4px;padding:16px 18px;transition:background .15s;display:flex}.card[data-astro-cid-4l5nzdvp]:hover{background:var(--site-bg-hover)}.card-title[data-astro-cid-4l5nzdvp]{font-size:16px;font-weight:600}.card-spec[data-astro-cid-4l5nzdvp]{font-variant-numeric:tabular-nums;color:var(--site-accent);font-size:13px;font-weight:600}.card-desc[data-astro-cid-4l5nzdvp]{color:var(--site-text-muted);font-size:13px;line-height:1.45}.content-section[data-astro-cid-4l5nzdvp]{margin:40px 0}.content-section[data-astro-cid-4l5nzdvp] p[data-astro-cid-4l5nzdvp]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);max-width:72ch;margin:0 0 16px}.related-link[data-astro-cid-4l5nzdvp]{margin:24px 0 0!important}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]{min-height:44px;color:var(--site-text);font-weight:600;line-height:44px;display:inline-block}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]:hover{color:var(--site-accent)} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; All tools Air fryer food presets One page per food, each a working tool rather than a chart row: the setting, when to flip or shake, the internal temperature for every protein, times by size, and the oven equivalent both ways. Poultry Chicken breast 375°F · 16 min · flip at 8 The most-searched preset. Pull it at 165°F internal. Chicken wings 400°F · 22 min · flip at 11 Pat dry first; sauce only after cooking. Chicken thighs 380°F · 24 min · flip at 12 Skin down first, skin up to finish. Chicken drumsticks 380°F · 22 min · flip at 11 Safe at 165°F, tender closer to 185°F. Chicken tenders 400°F · 10 min · flip at 5 Small and quick: set a timer for the low end. Meat Bacon 350°F · 9 min A lower temperature stops the fat smoking. Steak 400°F · 10 min · flip at 5 Dry the surface and rest it for a real crust. Pork chops 400°F · 12 min · flip at 6 Pull at 145°F and rest; brine if you can. Sausages 370°F · 12 min · flip at 6 Moderate heat keeps the casings from bursting. Burgers 375°F · 10 min · flip at 5 Ground beef: 160°F, not steak doneness. Pork tenderloin 400°F · 20 min · flip at 10 Tuck the tail, then let the rest finish it. Fish and seafood Salmon 390°F · 9 min Skin down, no flip. Time it by thickness. Shrimp 400°F · 7 min · shake ×1 Minutes matter: time it by size. White fish 400°F · 10 min Do not flip: lift it out whole on parchment. Vegetables and potatoes Baked potato 400°F · 40 min · flip at 20 Check with a thermometer, not a fork. Homemade fries 380°F · 18 min · shake ×2 Soak, dry, one layer, two shakes. Broccoli 375°F · 8 min · shake ×1 Cut stems thin so the tips do not burn first. Brussels sprouts 375°F · 15 min · shake ×2 Halve them and start cut side down. Sweet potato fries 375°F · 16 min · shake ×2 Cooler than white fries: sugar burns first. Potato wedges 390°F · 20 min · shake ×1 Thick cuts: spread them out and turn once. Corn on the cob 400°F · 12 min · flip at 6 Halve long cobs and coat them in butter or oil. Baking Cookies 325°F · 8 min Weigh the parchment down with the dough. Muffins 325°F · 15 min Silicone cups, and judge the centre, not the top. Brownies 325°F · 22 min Use a 6–7 inch pan and halve a 9×9 recipe. Garlic bread 375°F · 6 min Keep the garlic under the butter, not on top. Reheating Leftover pizza 350°F · 4 min A lower heat lets the base catch up with the cheese. Leftover fries 375°F · 4 min · shake ×1 Short and hot, with a little oil, in one layer. Leftover fried chicken 375°F · 8 min · flip at 4 Let it sit out first so the crust dries. Leftover wings 375°F · 5 min · shake ×1 Scrape off thick sauce first and re-sauce after. Leftover steak 300°F · 8 min · flip at 4 Low heat, and check with a thermometer at the flip. Frozen food Frozen fries 400°F · 15 min · shake ×2 Straight from the bag, one layer, two shakes. Frozen chicken wings 390°F · 26 min · shake ×2 Raw from frozen: separate them at the first shake. Frozen chicken breast 360°F · 24 min · flip at 12 Lower and slower than fresh: check it with a thermometer. Frozen chicken nuggets 400°F · 10 min · shake ×1 Already cooked: you are only reheating them. Frozen tater tots 400°F · 14 min · shake ×2 Shake twice so every side gets a crust. Frozen pizza 380°F · 9 min Personal size fits a basket; a family pizza does not. Frozen fish sticks 400°F · 10 min · flip at 5 Flip gently: the crumb sets before the fish does. Frozen chicken tenders 400°F · 12 min · flip at 6 Read the pack: many are sold raw. Frozen hash browns 400°F · 12 min · flip at 6 Flat patties: one flip at halfway. Frozen egg rolls 390°F · 11 min · flip at 6 Spray the wrapper and turn once. Frozen vegetables 400°F · 12 min · shake ×2 Never thaw them: straight in, half a basket at most. How these presets are set Every preset starts from a basket air fryer of 4–6 quarts, preheated, with the food in a single layer. For cooking presets, the oven and fan-oven equivalents are calculated by the same engine as the converter, so they agree with each other, and the converter on the page is already set to that food. Frozen presets show what the pack says instead. Reheating settings are different: the engine converts cooking recipes, not reheats, so the reheat times and their oven equivalents are written in by hand, and the converter on those pages converts oven recipes. Each page leads with the specific way that food goes wrong in an air fryer, because that decides the result more than the number on the dial. No email, no sign-up, nothing to install. Oven to air fryer converter &rarr; Printable conversion chart &rarr; Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://airfryertoolkit.com/presets#page",
+      "name": "Air fryer food presets — Air Fryer Toolkit",
+      "description": "Air fryer time and temperature for chicken, salmon, steak, potatoes, baking, frozen food and leftovers: each preset with the internal temperature or doneness check, times by size and the oven equivalent.",
+      "url": "https://airfryertoolkit.com/presets",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Chicken breast",
+            "url": "https://airfryertoolkit.com/air-fryer/chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Chicken wings",
+            "url": "https://airfryertoolkit.com/air-fryer/chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Chicken thighs",
+            "url": "https://airfryertoolkit.com/air-fryer/chicken-thighs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Salmon",
+            "url": "https://airfryertoolkit.com/air-fryer/salmon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Bacon",
+            "url": "https://airfryertoolkit.com/air-fryer/bacon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Steak",
+            "url": "https://airfryertoolkit.com/air-fryer/steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Pork chops",
+            "url": "https://airfryertoolkit.com/air-fryer/pork-chops"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Shrimp",
+            "url": "https://airfryertoolkit.com/air-fryer/shrimp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Baked potato",
+            "url": "https://airfryertoolkit.com/air-fryer/baked-potato"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Homemade fries",
+            "url": "https://airfryertoolkit.com/air-fryer/homemade-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Chicken drumsticks",
+            "url": "https://airfryertoolkit.com/air-fryer/chicken-drumsticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Chicken tenders",
+            "url": "https://airfryertoolkit.com/air-fryer/chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Sausages",
+            "url": "https://airfryertoolkit.com/air-fryer/sausages"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "Burgers",
+            "url": "https://airfryertoolkit.com/air-fryer/burgers"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "Pork tenderloin",
+            "url": "https://airfryertoolkit.com/air-fryer/pork-tenderloin"
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "name": "White fish",
+            "url": "https://airfryertoolkit.com/air-fryer/white-fish"
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "name": "Broccoli",
+            "url": "https://airfryertoolkit.com/air-fryer/broccoli"
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "name": "Brussels sprouts",
+            "url": "https://airfryertoolkit.com/air-fryer/brussels-sprouts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "name": "Sweet potato fries",
+            "url": "https://airfryertoolkit.com/air-fryer/sweet-potato-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "name": "Potato wedges",
+            "url": "https://airfryertoolkit.com/air-fryer/potato-wedges"
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "name": "Frozen fries",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "name": "Frozen chicken wings",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "name": "Frozen chicken breast",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "name": "Frozen chicken nuggets",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-chicken-nuggets"
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "name": "Frozen tater tots",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-tater-tots"
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "name": "Frozen pizza",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "name": "Frozen fish sticks",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-fish-sticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "name": "Frozen chicken tenders",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "name": "Frozen hash browns",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-hash-browns"
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "name": "Frozen egg rolls",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-egg-rolls"
+          },
+          {
+            "@type": "ListItem",
+            "position": 31,
+            "name": "Leftover pizza",
+            "url": "https://airfryertoolkit.com/air-fryer/reheat-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 32,
+            "name": "Leftover fries",
+            "url": "https://airfryertoolkit.com/air-fryer/reheat-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 33,
+            "name": "Leftover fried chicken",
+            "url": "https://airfryertoolkit.com/air-fryer/reheat-fried-chicken"
+          },
+          {
+            "@type": "ListItem",
+            "position": 34,
+            "name": "Leftover wings",
+            "url": "https://airfryertoolkit.com/air-fryer/reheat-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 35,
+            "name": "Leftover steak",
+            "url": "https://airfryertoolkit.com/air-fryer/reheat-steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 36,
+            "name": "Cookies",
+            "url": "https://airfryertoolkit.com/air-fryer/cookies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 37,
+            "name": "Muffins",
+            "url": "https://airfryertoolkit.com/air-fryer/muffins"
+          },
+          {
+            "@type": "ListItem",
+            "position": 38,
+            "name": "Brownies",
+            "url": "https://airfryertoolkit.com/air-fryer/brownies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 39,
+            "name": "Garlic bread",
+            "url": "https://airfryertoolkit.com/air-fryer/garlic-bread"
+          },
+          {
+            "@type": "ListItem",
+            "position": 40,
+            "name": "Corn on the cob",
+            "url": "https://airfryertoolkit.com/air-fryer/corn-on-the-cob"
+          },
+          {
+            "@type": "ListItem",
+            "position": 41,
+            "name": "Frozen vegetables",
+            "url": "https://airfryertoolkit.com/air-fryer/frozen-vegetables"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenpresets"
+}

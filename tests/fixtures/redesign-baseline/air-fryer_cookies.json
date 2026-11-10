@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\cookies",
+  "title": "Cookies in the Air Fryer: Time, Temp &amp; Parchment Tips | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Oven Small, a level tablespoon 325°F / 165°C · 6 min 350°F / 175°C · 7 min Medium, about 2 tablespoons 325°F / 165°C · 8 min 350°F / 175°C · 9 min Large, bakery size 325°F / 165°C · 10 min 350°F / 175°C · 12 min Why the parchment and the dough lift into the fan An air fryer fan is strong, and a loose sheet of parchment is light. Put the paper in to preheat on its own and it flies up into the heating element, where it can scorch. Even with dough on it, a corner left bare flaps up and folds over the cookies. The dough itself is the second issue: soft cookie dough spreads as it warms, and the air blowing across the top sets the surface early, so cookies dome and crack instead of spreading evenly. The fixes are simple. Only add the parchment with the dough already on it, trim it so no edge sticks out, and leave space between balls. The lower setting slows the top so the cookie can spread before it sets. Worked example: chocolate chip cookies A batch of chocolate chip cookie dough that says 350°F for 9 minutes in the oven. In a basket air fryer, bake at 325°F for 8 minutes. Preheat 3 minutes, place four balls of about two tablespoons on trimmed parchment and slide it in. Small cookies take about 6 minutes and large bakery-style ones about 10. Let each batch firm up on the paper before moving it. How to tell they are done The edges should be set and lightly golden while the centre still looks a little soft and puffed; it firms as it cools. A toothpick in the middle should come out with moist crumbs, not wet dough. Dark brown cookies have gone too far. Leave them on the paper until they firm up, then move them to a rack, where the bases stay crisp. Before they go in Chill very soft dough briefly so it holds its shape. Cut the parchment to the floor of the basket, smaller than the base, or use a perforated liner. Bake four to six at a time with room to spread. Frozen dough balls go in as they are, with a minute or two more. Related presets Muffins 325°F · 15 min Brownies 325°F · 22 min Garlic bread 375°F · 6 min 350°F oven to air fryer, every food &rarr; Oven to air fryer converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do cookies take in the air fryer? About 8 minutes at 325°F for medium cookies. Small ones take around 6 minutes and large ones around 10. Do I need parchment for air fryer cookies? It helps them lift off cleanly, but only put it in with dough on top, trimmed to fit, so the fan cannot blow it into the element. Can I bake frozen cookie dough in the air fryer? Yes, straight from the freezer. Add a minute or two and check the centre with a toothpick. Why are my air fryer cookies domed and pale underneath? The top set before the dough could spread. Use the lower setting and flatten the balls slightly. What is the oven equivalent? 350°F for around 9 minutes on a lined baking sheet in a conventional oven. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/cookies#app",
+          "name": "Cookies in the air fryer — Air Fryer Toolkit",
+          "description": "Bake cookies in the air fryer: 325°F for 8 minutes from dough. Why light dough and parchment lift into the fan, times by cookie size and the oven equivalent.",
+          "url": "https://airfryertoolkit.com/air-fryer/cookies",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do cookies take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 8 minutes at 325°F for medium cookies. Small ones take around 6 minutes and large ones around 10."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need parchment for air fryer cookies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It helps them lift off cleanly, but only put it in with dough on top, trimmed to fit, so the fan cannot blow it into the element."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I bake frozen cookie dough in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, straight from the freezer. Add a minute or two and check the centre with a toothpick."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are my air fryer cookies domed and pale underneath?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The top set before the dough could spread. Use the lower setting and flatten the balls slightly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the oven equivalent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "350°F for around 9 minutes on a lined baking sheet in a conventional oven."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cookies",
+          "item": "https://airfryertoolkit.com/air-fryer/cookies"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\cookies"
+}

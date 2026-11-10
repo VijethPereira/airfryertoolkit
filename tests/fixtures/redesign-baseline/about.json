@@ -1,0 +1,34 @@
+{
+  "slug": "about",
+  "title": "About | Air Fryer Toolkit",
+  "visibleText": "Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); About About Air Fryer Toolkit A free, browser-based tool for converting oven recipes to air fryer settings — adjusted for what you're actually cooking, not a single flat rule. What Is Air Fryer Toolkit? Air Fryer Toolkit is a free oven-to-air-fryer conversion calculator. Enter the temperature and time from any recipe and get back the matching air fryer setting — and the reverse, if you want to go from an air fryer setting back to a conventional oven. The tool runs entirely in your browser: nothing is installed, no account is required, and the calculation never touches a server. Why We Built It The advice you'll find most places is a flat rule: \"subtract 25°F and cut the time by 20%.\" That rule is a reasonable average, but it treats fries, chicken breast, and a frozen casserole identically — and it doesn't distinguish between a basket-style air fryer and an oven-style one, which circulate air differently and top out at different temperatures. Air Fryer Toolkit replaces the flat rule with per-food adjustments and a hardware ceiling, so the number you get back is one your appliance can actually reach. How the Conversion Works Every food type in the converter carries its own temperature offset and time multiplier, tuned from how that food actually behaves in an air fryer: Food-type adjustment — fries, wings, chicken breast, steak, fish, bacon, vegetables, baked goods, pizza, and casseroles each use a different temperature offset and time multiplier, instead of one number for everything. Basket vs. oven-style — basket-style air fryers and oven-style (convection toaster oven) units circulate air differently, so the offset and multiplier shift slightly depending on which one you select. Ceiling clamp — basket-style units are capped at 400°F and oven-style units at 450°F, matching real hardware limits. If a recipe would convert above that, the result is held at the ceiling and time is added back rather than suggesting a setting your unit can't reach. Gas mark &amp; check-in time — results also show the nearest UK gas mark and a suggested check-in point at roughly 70% of the cook time, so you can catch food before it's overdone. Who Uses Air Fryer Toolkit? Home cooks converting a favorite oven recipe for the first time, air fryer beginners who only have the oven instructions on a box, and anyone meal-prepping who wants a faster appliance without guessing at the settings. What's Coming Next More food presets and brand-specific notes are in progress. If there's a food type, appliance brand, or feature you'd like to see, get in touch — we read every message. Who Made This? Air Fryer Toolkit is designed and built by Vijeth Pereira , an independent developer focused on building fast, free, single-purpose web tools. You can learn more at vijeth-portfolio.pages.dev . Air Fryer Toolkit is part of a small family of free browser-based tools: Quick Measure Tool for unit and measurement conversions, and Snap Image Tools for free online image editing, resizing, and compression. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://airfryertoolkit.com/about#page",
+          "url": "https://airfryertoolkit.com/about",
+          "name": "About Air Fryer Toolkit",
+          "description": "Learn how Air Fryer Toolkit converts oven settings to air fryer settings using food-type multipliers and a ceiling clamp — not a flat 25° rule.",
+          "isPartOf": {
+            "@id": "https://airfryertoolkit.com/#website"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://airfryertoolkit.com/#org",
+          "name": "Air Fryer Toolkit",
+          "url": "https://airfryertoolkit.com",
+          "founder": {
+            "@type": "Person",
+            "name": "Vijeth Pereira",
+            "url": "https://vijeth-portfolio.pages.dev/"
+          }
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenabout"
+}

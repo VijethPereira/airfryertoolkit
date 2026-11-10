@@ -1,0 +1,98 @@
+{
+  "slug": "es\\chart",
+  "title": "Tabla de conversión de freidora de aire imprimible gratis | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convertir Inverso Alimentos Marcas Tabla Guía ES English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Conversor completo Imprimible · Sin correo · Sin ventana emergente Tabla de conversión de freidora de aire Tablas de temperatura, tiempo y multiplicadores por alimento para convertir de horno a freidora de aire, en una sola hoja imprimible. Todos los sitios de tablas dedicados en este nicho bloquean su versión imprimible detrás de un registro por correo — este no. Imprimir esta tabla Temperatura — Horno → Freidora de aire (cesta) Horno °F Freidora °F Freidora °C Nivel de gas 250°F 225°F 105°C — 275°F 250°F 120°C — 300°F 275°F 135°C 1 325°F 300°F 150°C 2 350°F 325°F 165°C 3 375°F 350°F 175°C 4 400°F 375°F 190°C 5 425°F 400°F 205°C 6 450°F 400°F &dagger; 205°C 6 475°F 400°F &dagger; 205°C 6 † Se mantuvo en el límite de 400°F de cesta — mira la nota de abajo. Tiempo — General / variado, cesta Tiempo de horno Tiempo de freidora 10 min 8 min 15 min 12 min 20 min 16 min 25 min 20 min 30 min 24 min 35 min 28 min 40 min 32 min 45 min 36 min 60 min 48 min Multiplicadores por tipo de alimento Alimento Ajuste de temp. Multiplicador de tiempo Nota General / variado −25°F &times;0.8 Agita o voltea a la mitad del tiempo. Papas fritas −25°F &times;0.7 Agita dos veces — una al inicio, otra a la mitad. Mantén una sola capa. Alitas de pollo −25°F &times;0.8 Sécalas antes de cocinar y voltéalas a la mitad para una piel pareja. Pechuga de pollo (deshuesada) −25°F &times;0.75 Retira a 165°F internos — la temperatura sigue subiendo mientras reposa. Muslos de pollo / con hueso −25°F &times;0.8 Piel hacia arriba todo el tiempo. No necesita voltearse. Bistec y cortes gruesos −20°F &times;0.8 Voltea una vez y deja reposar 5 minutos antes de cortar. Pescado y salmón −20°F &times;0.8 No voltear. Revisa antes de tiempo — el pescado se pasa de cocción en menos de un minuto. Tocino −25°F &times;0.7 Una sola capa. Escurre la grasa a la mitad si empieza a humear. Verduras −25°F &times;0.75 Corta las piezas de tamaño parejo y revuelve a la mitad. Repostería y galletas −20°F &times;0.85 Un ajuste más suave — la masa se cuaja más lento de lo que dora la superficie. Pizza y recalentado −25°F &times;0.75 No hace falta precalentar para recalentar. Vigila la costra, no el reloj. Guisos y horneados gruesos −20°F &times;0.85 Cubre con papel aluminio si la superficie dora antes de que el centro esté caliente. Las freidoras de aire de cesta topan cerca de 400°F; las unidades tipo horno topan cerca de 450°F. Si esta tabla muestra una temperatura que tu equipo no puede alcanzar, usa el conversor en vivo — limita el resultado al techo real de tu equipo y añade el tiempo de vuelta automáticamente. Cómo leer esta tabla Cada tabla de arriba asume una freidora de aire de cesta con el ajuste &quot;general / variado&quot;, la misma base con la que empieza el conversor en vivo. Busca tu temperatura o tiempo de horno en la columna izquierda y lee hacia la derecha para el equivalente en la freidora de aire, en Fahrenheit, Celsius y nivel de gas del Reino Unido. La tabla por tipo de alimento ajusta esa base para doce categorías, de papas fritas a guisos, porque un solo ajuste fijo no refleja lo distinto que se comportan esos alimentos en una cámara con aire forzado. Una cruz junto a una temperatura significa que la conversión superó lo que puede alcanzar una unidad de cesta — la tabla la mantiene en el límite en vez de imprimir un ajuste que no existe en tu perilla. Por qué la regla fija de −25°F / −20% falla con masas húmedas y repostería La mayoría de las tablas imprimibles de este nicho aplican una sola regla a todo alimento: resta 25°F, recorta el tiempo una quinta parte. Es un buen promedio para las verduras, pero falla con cualquier cosa de interior húmedo que todavía tiene que cuajar antes de estar lista — masa de pastel, panecillos, guisos, repostería densa. El aire forzado de una freidora de cesta dora la superficie de la masa casi de inmediato, y un recorte fijo del 20% confunde ese dorado temprano con &quot;listo&quot; mucho antes de que el centro haya cuajado, dejando una costra cocida sobre un centro crudo. Toma una receta de repostería de 350°F por 30 minutos. La regla fija la convierte a 325°F por 24 minutos. El multiplicador de repostería de esta tabla la mantiene más cerca del calor original, en 330°F por 26 minutos — un recorte de tiempo menor y unos grados más de calor, porque la masa necesita esos minutos extra para terminar de cuajar mientras la superficie dora rápido. La misma lógica aplica a cada categoría: los alimentos delgados y de mucha superficie, como papas fritas y tocino, ceden cerca del 30% de su tiempo, mientras que los alimentos densos, como guisos y repostería, ceden más cerca del 15%, ya que el calor todavía tiene que llegar al centro antes de que esté listo. Preguntas frecuentes ¿Necesito dar un correo electrónico para imprimir esta tabla? No. Todos los sitios de tablas dedicados en este nicho bloquean su versión imprimible detrás de un registro por correo o una ventana emergente. Este no — las tablas de arriba son toda la tabla, y el botón de imprimir las envía directo a tu impresora. ¿Por qué la tabla muestra 400°F tanto para un horno a 425°F como a 450°F? Una freidora de aire de cesta topa cerca de 400°F, así que en cuanto la conversión bruta supera eso, la tabla mantiene el resultado en el límite en vez de imprimir un ajuste que tu equipo no puede alcanzar. La cruz marca qué filas se mantuvieron así. ¿Esta tabla aplica también a freidoras de aire tipo horno? Estas tablas están ajustadas para unidades de cesta, que topan cerca de 400°F. Las unidades tipo horno hacen circular el aire de forma más suave y pueden llegar hasta cerca de 450°F antes de limitarse — para cifras exactas tipo horno, usa el conversor en vivo y cambia el interruptor de tipo. ¿Por qué el recorte de tiempo es distinto para las papas fritas que para un guiso? El ahorro de tiempo depende de la superficie y la densidad, no solo de la categoría. Las papas fritas y el tocino reciben aire caliente por casi todos lados a la vez, así que pierden cerca del 30% del tiempo de horno; un guiso denso pierde más cerca del 15%. ¿Puedo usar esta tabla para alimentos directo del congelador? No directamente. Los alimentos congelados siguen una lógica invertida — mantén la temperatura del empaque y recorta el tiempo cerca de un 30%, ya que el alimento necesita todo el calor solo para descongelarse antes de poder cocinarse. ¿Qué pasa si mi temperatura o tiempo exacto de horno no está en la tabla? Esta tabla cubre valores comunes en pasos de 25°F y tiempos redondos para mantenerla en una sola hoja. Para una cifra exacta, el conversor en vivo toma cualquier temperatura y tiempo de horno y se ajusta con cada tecla. Herramientas relacionadas Conversor de horno a freidora de aire — la herramienta en vivo, se ajusta por tipo de alimento y cesta vs. tipo horno, con el límite máximo al que apuntan las filas con cruz de esta tabla. Páginas de °C y nivel de gas — para recetas europeas que indican °C, la temperatura con ventilador o el nivel de gas. Conversor de freidora de aire a horno — la dirección inversa, para cuando el horno es la mejor opción. Conversor de convección a freidora de aire — un recorte más suave para recetas de horno con ventilador que ya están ajustadas. Conversor de freidora de aire a convección — lleva un ajuste de freidora a un horno con ventilador para tandas más grandes. Modo de alimentos congelados — de las instrucciones del envase a la freidora: mantén el calor, recorta el tiempo, agita a su hora. globalThis.process??={};globalThis.process.env??={};document.getElementById(\"chart-print-btn\")?.addEventListener(\"click\",()=>window.print()); Air Fryer Toolkit Conversor Alimentos preconfigurados Congelados Tabla de conversión Acerca de Contacto Política de privacidad Términos y condiciones Más herramientas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — herramientas gratuitas de conversión de cocina en el navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/es/chart#app",
+          "name": "Tabla de conversión de freidora de aire imprimible gratis — Air Fryer Toolkit",
+          "description": "Una tabla imprimible de temperatura, tiempo y multiplicadores por alimento para convertir de horno a freidora de aire — una hoja, °F y °C, sin correo electrónico, sin ventana emergente.",
+          "url": "https://airfryertoolkit.com/es/chart",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Necesito dar un correo electrónico para imprimir esta tabla?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Todos los sitios de tablas dedicados en este nicho bloquean su versión imprimible detrás de un registro por correo o una ventana emergente. Este no — las tablas de arriba son toda la tabla, y el botón de imprimir las envía directo a tu impresora."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Por qué la tabla muestra 400°F tanto para un horno a 425°F como a 450°F?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Una freidora de aire de cesta topa cerca de 400°F, así que en cuanto la conversión bruta supera eso, la tabla mantiene el resultado en el límite en vez de imprimir un ajuste que tu equipo no puede alcanzar. La cruz marca qué filas se mantuvieron así."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Esta tabla aplica también a freidoras de aire tipo horno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Estas tablas están ajustadas para unidades de cesta, que topan cerca de 400°F. Las unidades tipo horno hacen circular el aire de forma más suave y pueden llegar hasta cerca de 450°F antes de limitarse — para cifras exactas tipo horno, usa el conversor en vivo y cambia el interruptor de tipo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Por qué el recorte de tiempo es distinto para las papas fritas que para un guiso?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El ahorro de tiempo depende de la superficie y la densidad, no solo de la categoría. Las papas fritas y el tocino reciben aire caliente por casi todos lados a la vez, así que pierden cerca del 30% del tiempo de horno; un guiso denso pierde más cerca del 15%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Puedo usar esta tabla para alimentos directo del congelador?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No directamente. Los alimentos congelados siguen una lógica invertida — mantén la temperatura del empaque y recorta el tiempo cerca de un 30%, ya que el alimento necesita todo el calor solo para descongelarse antes de poder cocinarse."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué pasa si mi temperatura o tiempo exacto de horno no está en la tabla?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Esta tabla cubre valores comunes en pasos de 25°F y tiempos redondos para mantenerla en una sola hoja. Para una cifra exacta, el conversor en vivo toma cualquier temperatura y tiempo de horno y se ajusta con cada tecla."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://airfryertoolkit.com/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tabla de conversión de freidora de aire",
+          "item": "https://airfryertoolkit.com/es/chart"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenes\\chart"
+}

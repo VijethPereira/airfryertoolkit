@@ -1,0 +1,90 @@
+{
+  "slug": "fr\\air-fryer-vs-oven-cost",
+  "title": "Coût friteuse à air vs four — calculateur sur énergie mesurée | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convertir Inverse Aliments Marques Tableau Guide FR English Español Português Français Deutsch Air Fryer Toolkit Convertisseur Aliments préréglés Surgelés Tableau de conversion À propos Contact Politique de confidentialité Conditions d’utilisation Plus d’outils gratuits : Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — outils gratuits de conversion culinaire dans le navigateur",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/fr/air-fryer-vs-oven-cost#app",
+          "name": "Friteuse à air vs four : coût d’utilisation — Air Fryer Toolkit",
+          "description": "Ce que coûte une recette de four dans la friteuse à air et dans le four, à votre prix de l’électricité. Estimé d’après l’énergie mesurée au laboratoire de Which?, pas watts × temps.",
+          "url": "https://airfryertoolkit.com/fr/air-fryer-vs-oven-cost",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Une friteuse à air consomme-t-elle moins qu’un four ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pour une fournée, oui. Dans l’essai de Which?, elle a consommé de 53 % à 69 % d’énergie en moins que le four pour les quatre aliments. Source : Which?, 23 octobre 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Pourquoi ne pas multiplier les watts par le temps ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Parce qu’une fois à température la résistance s’allume et s’éteint, donc watts × temps surestime : de 1,5 à 3,2 fois pour le four de Which?. Source : Which?, 23 octobre 2026 ; puissance d’après la fiche du revendeur."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quand le four revient-il moins cher ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Quand vous cuisinez beaucoup à la fois. Which? : « an oven may still be the most economical choice when cooking for a crowd » (pour beaucoup de convives, le four peut rester le plus économique). Source : Which?, 23 octobre 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Pourquoi mon prix peut-il différer ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La valeur par défaut est la moyenne Eurostat des ménages consommant de 2 500 à 4 999 kWh par an, toutes taxes comprises, pour le semestre 1 de 2026 : 24,85 c/kWh (Moyenne de la France). Saisissez le prix du kWh de votre facture. Source : Eurostat (nrg_pc_204)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Faut-il compter le préchauffage ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui. Les temps et kWh de Which? l’incluent, donc on ajoute 10 minutes au four et de 2 à 4 à la friteuse ; mettez zéro si la vôtre n’en a pas besoin. Source : Which?, 23 octobre 2026."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://airfryertoolkit.com/fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Friteuse à air vs four : coût d’utilisation",
+          "item": "https://airfryertoolkit.com/fr/air-fryer-vs-oven-cost"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenfr\\air-fryer-vs-oven-cost"
+}

@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\frozen-hash-browns",
+  "title": "Frozen Hash Browns in the Air Fryer: Patties, Time &amp; Temp | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Pack says Mini rounds or bites 400°F / 205°C · 10 min 425°F / 220°C · 13 min Standard patties 400°F / 205°C · 12 min 425°F / 220°C · 15 min Thick or oversized patties 400°F / 205°C · 15 min 425°F / 220°C · 19 min Why one side stays pale and sticks A hash brown patty is flat, so it sits on the basket with one whole face pressed against the mesh. The top face gets the full blast of the fan and browns, while the bottom face gets far less air and stays pale. Shaking does not help, because a flat patty just slides around on the same side. Shredded potato also releases starch as it heats, and on a dry basket that starch glues the underside to the metal, so the crust tears off when you finally try to move it. The fix is a single flip at halfway, done with a spatula, and a light film of oil on the basket or the patties so the starch browns instead of sticking. After the flip the pale side faces the fan and catches up. Worked example: breakfast for four A box of hash brown patties says 425°F for 15 minutes, turning once. In a basket air fryer that becomes 400°F for 12 minutes. Preheat 4 minutes, lay four patties flat without overlapping, and flip them at 6 minutes. Mini rounds need about 10 minutes and thick patties about 15. They make room for nothing else, so cook bacon or sausages before or after, not alongside. How to tell they are done Both faces should be deep golden and crisp, and the edges slightly darker. Press the middle with a spatula: it should feel firm, not soft, and the inside should be hot and tender when you cut one. If the second side is still pale, give it one or two more minutes rather than turning the heat up. Before they go in Cook from frozen and do not stack them. Brush or spray the patties lightly with oil, or oil the basket, so the starch browns instead of welding to the mesh. Season with salt and pepper after the flip. Related presets Frozen fries 400°F · 15 min · shake ×2 Frozen chicken wings 390°F · 26 min · shake ×2 Frozen chicken breast 360°F · 24 min · flip at 12 425°F oven to air fryer, every food &rarr; Frozen pack converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do frozen hash browns take in the air fryer? About 12 minutes at 400°F, flipped at 6 minutes. Mini rounds take about 10 minutes and thick patties about 15. Do I need to flip hash browns? Yes. They are flat, so shaking leaves the same face down. One flip at halfway browns both sides. Why do hash browns stick to the basket? Starch from the potato glues them to a dry basket. A light spray of oil prevents it. Can I cook loose shredded hash browns? Yes, in a thin layer on a liner, pressed flat. Turn them in sections at halfway; they take a few minutes longer than patties. How are hash browns different from tater tots here? Patties are flat and get flipped once. Tots are round, so they are shaken instead and roll onto new sides by themselves. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/frozen-hash-browns#app",
+          "name": "Frozen hash browns in the air fryer — Air Fryer Toolkit",
+          "description": "Frozen hash brown patties in the air fryer: 400°F for 12 minutes, flipped at 6. Mini rounds to thick patties, browned on both faces without sticking.",
+          "url": "https://airfryertoolkit.com/air-fryer/frozen-hash-browns",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do frozen hash browns take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 12 minutes at 400°F, flipped at 6 minutes. Mini rounds take about 10 minutes and thick patties about 15."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to flip hash browns?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. They are flat, so shaking leaves the same face down. One flip at halfway browns both sides."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do hash browns stick to the basket?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Starch from the potato glues them to a dry basket. A light spray of oil prevents it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I cook loose shredded hash browns?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, in a thin layer on a liner, pressed flat. Turn them in sections at halfway; they take a few minutes longer than patties."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How are hash browns different from tater tots here?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Patties are flat and get flipped once. Tots are round, so they are shaken instead and roll onto new sides by themselves."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Frozen hash browns",
+          "item": "https://airfryertoolkit.com/air-fryer/frozen-hash-browns"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\frozen-hash-browns"
+}

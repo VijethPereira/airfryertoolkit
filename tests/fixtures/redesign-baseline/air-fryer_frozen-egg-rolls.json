@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\frozen-egg-rolls",
+  "title": "Frozen Egg Rolls in the Air Fryer: Time, Temp &amp; Crisp Wrappers | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Pack says Mini spring rolls 390°F / 200°C · 8 min 400°F / 205°C · 11 min Standard egg rolls 390°F / 200°C · 11 min 400°F / 205°C · 16 min Large egg rolls or samosas 390°F / 200°C · 13 min 400°F / 205°C · 19 min Why the ends burn and the middle is cold An egg roll is a thin, dry wrapper wrapped around a thick, wet filling. The wrapper takes colour in minutes, and the folded ends, where the pastry is thinnest and sticks out into the airflow, blister and darken first. Meanwhile the cabbage and meat filling started frozen solid and is slow to heat, so a roll that looks perfect outside can still be icy in the middle. Two things fix it. A light spray of oil over the wrapper lets it brown evenly and slowly instead of drying out and scorching at the tips. And a turn at halfway brings the pale underside up to the fan while giving the filling time to catch up. Leave space between rolls so the sides crisp as well as the tops. Worked example: a box of egg rolls A box of frozen egg rolls says 400°F for 16 minutes on a baking sheet, turning once. In a basket air fryer that becomes 390°F for 11 minutes. Preheat 4 minutes, spray the rolls lightly, lay them in one layer with a gap between each, and turn them at 6 minutes. Mini spring rolls need about 8 minutes and large egg rolls about 13. Let them stand for two minutes before biting: the filling holds a lot of heat. How to tell they are done The wrapper should be golden and blistered all over, with no white, chalky patches, and should crackle when you press it. The real test is the filling: cut one in half and check it is steaming right through the middle. If the wrapper is ready but the centre is cool, give them two more minutes; the ends take a little more colour but should not burn at this setting. Before they go in Cook from frozen; thawed wrappers turn soggy and tear. Spray or brush them lightly with oil on all sides, which matters more for these than for anything else in the freezer. Separate rolls that froze together carefully so the wrapper does not split. Serve with dipping sauce on the side so the wrapper stays crisp. Related presets Frozen fries 400°F · 15 min · shake ×2 Frozen chicken wings 390°F · 26 min · shake ×2 Frozen chicken breast 360°F · 24 min · flip at 12 400°F oven to air fryer, every food &rarr; Frozen pack converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do frozen egg rolls take in the air fryer? About 11 minutes at 390°F, turned at 6 minutes. Mini spring rolls take about 8 minutes and large egg rolls about 13. Do frozen egg rolls need oil in the air fryer? A light spray, yes. Without it the wrapper dries out, turns chalky and scorches at the ends. Why are my egg rolls cold inside? The filling started frozen and needs the full time. Cut one open to check rather than going by the colour. Does this work for samosas and spring rolls? Yes. Mini spring rolls are quicker and thick samosas take about as long as large egg rolls. Should I thaw egg rolls first? No. Thawed wrappers absorb moisture from the filling and tear when you move them. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/frozen-egg-rolls#app",
+          "name": "Frozen egg rolls in the air fryer — Air Fryer Toolkit",
+          "description": "Frozen egg rolls and spring rolls in the air fryer: 390°F for 11 minutes, turned at 6. Crisp, blistered wrappers with a hot filling.",
+          "url": "https://airfryertoolkit.com/air-fryer/frozen-egg-rolls",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do frozen egg rolls take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 11 minutes at 390°F, turned at 6 minutes. Mini spring rolls take about 8 minutes and large egg rolls about 13."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do frozen egg rolls need oil in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A light spray, yes. Without it the wrapper dries out, turns chalky and scorches at the ends."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are my egg rolls cold inside?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The filling started frozen and needs the full time. Cut one open to check rather than going by the colour."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this work for samosas and spring rolls?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Mini spring rolls are quicker and thick samosas take about as long as large egg rolls."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should I thaw egg rolls first?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Thawed wrappers absorb moisture from the filling and tear when you move them."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Frozen egg rolls",
+          "item": "https://airfryertoolkit.com/air-fryer/frozen-egg-rolls"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\frozen-egg-rolls"
+}

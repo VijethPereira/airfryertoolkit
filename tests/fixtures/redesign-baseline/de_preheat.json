@@ -1,0 +1,90 @@
+{
+  "slug": "de\\preheat",
+  "title": "Wie lange Heißluftfritteuse vorheizen (nach Temperatur) | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Umrechnen Umgekehrt Lebensmittel Marken Tabelle Ratgeber DE English Español Português Français Deutsch Air Fryer Toolkit Umrechner Voreingestellte Lebensmittel Tiefkühlkost Umrechnungstabelle Über uns Kontakt Datenschutzerklärung Allgemeine Geschäftsbedingungen Weitere kostenlose Tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — kostenlose browserbasierte Koch-Umrechnungstools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/de/preheat#app",
+          "name": "Wie lange Heißluftfritteuse vorheizen — Air Fryer Toolkit",
+          "description": "Vorheizzeit nach eingestellter Temperatur, aus den gedruckten Tabellen von Cosori, und was Geräte im Ofen-Stil tun. Ohne Konto, ohne Anmeldung.",
+          "url": "https://airfryertoolkit.com/de/preheat",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie lange sollte man eine Heißluftfritteuse vorheizen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2 bis 4 Minuten beim Korb, je nach Temperatur: 4 Minuten ab 345°F (175°C), nach der längeren der beiden Cosori-Tabellen. Geräte im Ofen-Stil heizen selbst vor und melden, wann das Essen hinein kann."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Muss man eine Heißluftfritteuse vorheizen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Für die meisten Gerichte ja. Laut den Cosori-Anleitungen gart das Essen ohne Vorheizen nicht vollständig durch. Das Datenblatt der Philips Premium XXL sagt, dass dieses Modell keines braucht, also schau in die Anleitung deines Geräts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Muss man jedes Mal vorheizen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nein. Lass es weg, wenn die Fritteuse vom letzten Durchgang noch heiß ist, die Ausnahme, die Cosoris Anleitungen machen, und bei Bacon, der kalt gut startet. Paniertes und Tiefkühlware bräunen im heißen Korb gleichmäßiger."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Muss eine Heißluftfritteuse im Ofen-Stil vorgeheizt werden?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sie macht es selbst. Cosoris Heißluft-Backofen und die Instant-Vortex-Modelle zeigen Add Food, sobald sie heiß sind. Keine der beiden Anleitungen nennt eine Zeit, also auf das Signal warten statt einen Timer zu stellen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie heizen Cosori, Instant, Philips und Ninja vor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cosori-Körbe mit Preheat-Taste stellen die Zeit nach ihrer Tabelle ein; Instant-Vortex-Modelle heizen automatisch vor und zeigen Add Food; Philips nennt für die Premium XXL kein Vorheizen; Ninjas Anleitungen wurden für diese Seite nicht erneut gelesen."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://airfryertoolkit.com/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wie lange Heißluftfritteuse vorheizen",
+          "item": "https://airfryertoolkit.com/de/preheat"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comende\\preheat"
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "fr\\chart",
+  "title": "Tableau de conversion friteuse à air imprimable gratuit | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convertir Inverse Aliments Marques Tableau Guide FR English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Convertisseur complet Imprimable · Sans e-mail · Sans fenêtre pop-up Tableau de conversion friteuse à air Tableaux de température, de temps et de multiplicateurs par aliment pour convertir du four à la friteuse à air, sur une seule page imprimable. Tous les sites de tableaux dédiés de ce secteur verrouillent leur version imprimable derrière une inscription par e-mail — pas celui-ci. Imprimer ce tableau Température — Four → Friteuse à air (panier) Four °F Friteuse °F Friteuse °C Thermostat 250°F 225°F 105°C 4 275°F 250°F 120°C 4 300°F 275°F 135°C 5 325°F 300°F 150°C 5 350°F 325°F 165°C 5 375°F 350°F 175°C 6 400°F 375°F 190°C 6 425°F 400°F 205°C 7 450°F 400°F &dagger; 205°C 7 475°F 400°F &dagger; 205°C 7 † Maintenu au plafond de 400°F pour panier — voir la note ci-dessous. Temps — Général / mixte, panier Temps au four Temps friteuse à air 10 min 8 min 15 min 12 min 20 min 16 min 25 min 20 min 30 min 24 min 35 min 28 min 40 min 32 min 45 min 36 min 60 min 48 min Multiplicateurs par type d’aliment Aliment Ajustement temp. Multiplicateur de temps Remarque Général / mixte −25°F &times;0.8 Secouez ou retournez à mi-cuisson. Frites et pommes de terre −25°F &times;0.7 Secouez deux fois — une fois tôt, une fois à mi-cuisson. Gardez une seule couche. Ailes de poulet −25°F &times;0.8 Séchez-les avant cuisson et retournez à mi-cuisson pour une peau uniforme. Blanc de poulet (désossé) −25°F &times;0.75 Retirez à 165°F à cœur — la température continue de grimper pendant le repos. Cuisses de poulet / avec os −25°F &times;0.8 Peau vers le haut du début à la fin. Pas besoin de retourner. Steak et pièces épaisses −20°F &times;0.8 Retournez une fois, puis laissez reposer 5 minutes avant de trancher. Poisson et saumon −20°F &times;0.8 Ne pas retourner. Vérifiez au temps minimum — le poisson est trop cuit en moins d’une minute. Lard / bacon −25°F &times;0.7 Une seule couche. Égouttez la graisse à mi-cuisson si elle commence à fumer. Légumes −25°F &times;0.75 Coupez en morceaux de taille égale et remuez à mi-cuisson. Pâtisseries et biscuits −20°F &times;0.85 Une réduction plus douce — la pâte prend plus lentement que le dessus ne dore. Pizza et réchauffage −25°F &times;0.75 Pas besoin de préchauffer pour réchauffer. Surveillez la croûte, pas l’horloge. Gratins et plats épais −20°F &times;0.85 Couvrez de papier aluminium si le dessus dore avant que le centre soit chaud. Les friteuses à air à panier plafonnent autour de 400°F ; les modèles type four plafonnent autour de 450°F. Si ce tableau indique une température que votre appareil ne peut pas atteindre, utilisez le convertisseur en direct — il limite le résultat au plafond réel de votre appareil et rajoute le temps automatiquement. Comment lire ce tableau Chaque tableau ci-dessus suppose une friteuse à air à panier sur le réglage « général / mixte », la même base que celle du convertisseur en direct. Trouvez votre température ou votre temps de four dans la colonne de gauche et lisez la ligne pour l’équivalent en friteuse à air, en Fahrenheit, Celsius et thermostat. Le tableau par type d’aliment ajuste cette base pour douze catégories, des frites aux gratins, parce qu’un seul ajustement fixe ne rend pas compte de la façon très différente dont ces aliments se comportent dans une chambre à air pulsé. Une croix à côté d’une température signifie que la conversion a dépassé ce qu’un appareil à panier peut atteindre — le tableau la maintient au plafond plutôt que d’imprimer un réglage qui n’existe pas sur votre appareil. Pourquoi la règle fixe de −25°F / −20% échoue avec les pâtes liquides et la pâtisserie La plupart des tableaux imprimables de ce secteur appliquent une seule règle à tous les aliments : retirer 25°F, réduire le temps d’un cinquième. C’est une bonne moyenne pour les légumes, mais cela échoue pour tout ce qui a un intérieur liquide qui doit encore prendre avant d’être cuit — pâte à gâteau, muffins, gratins, pâtisserie dense. L’air pulsé d’une friteuse à panier dore la surface de la pâte presque immédiatement, et une réduction fixe de 20% confond ce brunissement précoce avec « cuit » bien avant que le centre n’ait pris, laissant une croûte cuite sur un centre cru. Prenez une recette de pâtisserie à 350°F pendant 30 minutes. La règle fixe la convertit à 325°F pendant 24 minutes. Le multiplicateur pâtisserie de ce tableau la maintient plus proche de la chaleur d’origine, à 330°F pendant 26 minutes — une réduction de temps moindre et quelques degrés de plus, parce que la pâte a besoin de ces minutes supplémentaires pour finir de prendre pendant que la surface dore vite. La même logique s’applique à chaque catégorie : les aliments fins à grande surface comme les frites et le bacon perdent près de 30% de leur temps, tandis que les aliments denses comme les gratins et la pâtisserie perdent plutôt 15%, car la chaleur doit encore atteindre le centre avant que ce soit cuit. Questions fréquentes Dois-je fournir un e-mail pour imprimer ce tableau ? Non. Tous les sites de tableaux dédiés de ce secteur verrouillent leur version imprimable derrière une inscription par e-mail ou une fenêtre pop-up. Pas celui-ci — les tableaux ci-dessus sont l’intégralité du tableau, et le bouton d’impression les envoie directement à votre imprimante. Pourquoi le tableau affiche-t-il 400°F à la fois pour un four à 425°F et à 450°F ? Une friteuse à air à panier plafonne autour de 400°F, donc dès que la conversion brute dépasse ce seuil, le tableau maintient le résultat au plafond plutôt que d’imprimer un réglage que votre appareil ne peut pas atteindre. La croix indique quelles lignes ont été maintenues ainsi. Ce tableau s’applique-t-il aussi aux friteuses à air type four ? Ces tableaux sont calibrés pour les modèles à panier, qui plafonnent autour de 400°F. Les modèles type four font circuler l’air plus doucement et peuvent monter jusqu’à environ 450°F avant de plafonner — pour des chiffres exacts type four, utilisez le convertisseur en direct et changez le type d’appareil. Pourquoi la réduction de temps est-elle différente pour des frites que pour un gratin ? Les économies de temps dépendent de la surface et de la densité, pas seulement de la catégorie. Les frites et le bacon reçoivent de l’air chaud sur presque toutes les faces à la fois, donc ils perdent près de 30% du temps au four ; un gratin dense perd plutôt 15%. Puis-je utiliser ce tableau pour des aliments directement sortis du congélateur ? Pas directement. Les aliments congelés suivent une logique inversée — gardez la température de l’emballage et réduisez le temps d’environ 30%, car l’aliment a besoin de toute la chaleur juste pour dégeler avant de pouvoir cuire. Que faire si ma température ou mon temps de four exact ne figure pas dans le tableau ? Ce tableau couvre des valeurs courantes par paliers de 25°F et des temps arrondis pour tenir sur une page. Pour un chiffre exact, le convertisseur en direct accepte n’importe quelle température et temps de four et s’ajuste à chaque frappe. Outils associés Convertisseur four → friteuse à air — l’outil en direct, s’ajuste selon le type d’aliment et panier vs. type four, avec le plafond que les lignes marquées d’une croix de ce tableau renvoient. Pages °C et thermostat — pour les recettes européennes qui donnent les °C, la chaleur tournante ou le thermostat. Convertisseur friteuse à air vers four — le sens inverse, pour les cas où le four est le meilleur choix. Convertisseur convection vers friteuse à air — une réduction plus douce pour les recettes à chaleur tournante, déjà ajustées. Convertisseur friteuse à air vers convection — passez d’un réglage de friteuse à un four à chaleur tournante pour de plus grandes quantités. Mode surgelés — des instructions de l’emballage à la friteuse à air : gardez la chaleur, réduisez le temps, secouez au bon moment. globalThis.process??={};globalThis.process.env??={};document.getElementById(\"chart-print-btn\")?.addEventListener(\"click\",()=>window.print()); Air Fryer Toolkit Convertisseur Aliments préréglés Surgelés Tableau de conversion À propos Contact Politique de confidentialité Conditions d’utilisation Plus d’outils gratuits : Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — outils gratuits de conversion culinaire dans le navigateur",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/fr/chart#app",
+          "name": "Tableau de conversion friteuse à air imprimable gratuit — Air Fryer Toolkit",
+          "description": "Un tableau imprimable de température, de temps et de multiplicateurs par aliment pour convertir du four à la friteuse à air — une page, °F et °C, sans e-mail, sans fenêtre pop-up.",
+          "url": "https://airfryertoolkit.com/fr/chart",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Dois-je fournir un e-mail pour imprimer ce tableau ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. Tous les sites de tableaux dédiés de ce secteur verrouillent leur version imprimable derrière une inscription par e-mail ou une fenêtre pop-up. Pas celui-ci — les tableaux ci-dessus sont l’intégralité du tableau, et le bouton d’impression les envoie directement à votre imprimante."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Pourquoi le tableau affiche-t-il 400°F à la fois pour un four à 425°F et à 450°F ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Une friteuse à air à panier plafonne autour de 400°F, donc dès que la conversion brute dépasse ce seuil, le tableau maintient le résultat au plafond plutôt que d’imprimer un réglage que votre appareil ne peut pas atteindre. La croix indique quelles lignes ont été maintenues ainsi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ce tableau s’applique-t-il aussi aux friteuses à air type four ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ces tableaux sont calibrés pour les modèles à panier, qui plafonnent autour de 400°F. Les modèles type four font circuler l’air plus doucement et peuvent monter jusqu’à environ 450°F avant de plafonner — pour des chiffres exacts type four, utilisez le convertisseur en direct et changez le type d’appareil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Pourquoi la réduction de temps est-elle différente pour des frites que pour un gratin ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les économies de temps dépendent de la surface et de la densité, pas seulement de la catégorie. Les frites et le bacon reçoivent de l’air chaud sur presque toutes les faces à la fois, donc ils perdent près de 30% du temps au four ; un gratin dense perd plutôt 15%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Puis-je utiliser ce tableau pour des aliments directement sortis du congélateur ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pas directement. Les aliments congelés suivent une logique inversée — gardez la température de l’emballage et réduisez le temps d’environ 30%, car l’aliment a besoin de toute la chaleur juste pour dégeler avant de pouvoir cuire."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Que faire si ma température ou mon temps de four exact ne figure pas dans le tableau ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ce tableau couvre des valeurs courantes par paliers de 25°F et des temps arrondis pour tenir sur une page. Pour un chiffre exact, le convertisseur en direct accepte n’importe quelle température et temps de four et s’ajuste à chaque frappe."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://airfryertoolkit.com/fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tableau de conversion friteuse à air",
+          "item": "https://airfryertoolkit.com/fr/chart"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenfr\\chart"
+}

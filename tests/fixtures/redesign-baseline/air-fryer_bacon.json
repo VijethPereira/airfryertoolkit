@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\bacon",
+  "title": "Bacon in the Air Fryer: Time, Temp &amp; No Smoke | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Oven Thin-cut slices 350°F / 175°C · 7 min 375°F / 190°C · 10 min Regular slices 350°F / 175°C · 9 min 375°F / 190°C · 13 min Thick-cut slices 350°F / 175°C · 13 min 375°F / 190°C · 19 min Why bacon smokes in the air fryer Bacon is the one food where the usual air fryer instinct, hotter and faster, backfires. As it cooks, the fat renders and drips into the drawer below the basket, and at high settings that pool of fat gets hot enough to smoke and spit. The kitchen fills with smoke, the alarm goes off, and the bacon tastes acrid. That is why this preset sits at 350°F rather than the higher temperatures most meats use: the fat renders steadily instead of burning, and the slices still crisp because they are so thin. Two habits finish the job. Lay the slices flat without overlapping, since overlapped parts stay flabby, and pour off or wipe out the fat between batches. Worked example Six regular slices laid flat across the basket, cut in half if they are too long to lie flat. Cook at 350°F for 9 minutes; thin-cut bacon is ready in about 7, thick-cut in around 13. There is no need to turn it. For comparison, the same bacon on a tray in a conventional oven takes 375°F for about 13 minutes. How to tell it is done Bacon is cured, so it is judged by colour and texture rather than a thermometer. Take it out when the fat has turned from white to translucent and golden and the lean has darkened. It firms up as it cools, so slices that still bend slightly in the basket will be crisp a minute later on paper towel. For chewy bacon, take it out a minute or two early; for shatter-crisp, leave it until the edges just begin to darken. Before it goes in There is no need to preheat or oil anything; bacon brings its own fat. Use the basket, not a solid tray, so fat can drain away from the slices. A slice of bread or a splash of water in the drawer under the basket catches the fat and reduces smoke. Thick-cut bacon can be laid in a slightly overlapping row, but separate the slices halfway through. Related presets Steak 400°F · 10 min · flip at 5 Pork chops 400°F · 12 min · flip at 6 Sausages 370°F · 12 min · flip at 6 375°F oven to air fryer, every food &rarr; Oven to air fryer converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long does bacon take in the air fryer? About 9 minutes at 350°F for regular slices. Thin-cut takes around 7 minutes and thick-cut around 13. Why does my air fryer smoke when I cook bacon? Fat drips into the drawer and burns at high temperatures. Cook at 350°F, empty the fat between batches and put a little water or a slice of bread in the drawer. Do I need to flip bacon in the air fryer? No. The air reaches both sides of thin slices. Only thick-cut bacon laid overlapping needs separating halfway through. Do I need to preheat the air fryer for bacon? No. Starting cold lets the fat render more gently, which helps the bacon cook evenly. What is the oven equivalent for bacon? 375°F for around 13 minutes on a rack in a conventional oven. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/bacon#app",
+          "name": "Bacon in the air fryer — Air Fryer Toolkit",
+          "description": "Bacon in the air fryer: 350°F for 9 minutes for regular slices. Why a lower temperature stops the smoke, times for thin and thick cut, oven equivalent.",
+          "url": "https://airfryertoolkit.com/air-fryer/bacon",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does bacon take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 9 minutes at 350°F for regular slices. Thin-cut takes around 7 minutes and thick-cut around 13."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does my air fryer smoke when I cook bacon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fat drips into the drawer and burns at high temperatures. Cook at 350°F, empty the fat between batches and put a little water or a slice of bread in the drawer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to flip bacon in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The air reaches both sides of thin slices. Only thick-cut bacon laid overlapping needs separating halfway through."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to preheat the air fryer for bacon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Starting cold lets the fat render more gently, which helps the bacon cook evenly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the oven equivalent for bacon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "375°F for around 13 minutes on a rack in a conventional oven."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bacon",
+          "item": "https://airfryertoolkit.com/air-fryer/bacon"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\bacon"
+}

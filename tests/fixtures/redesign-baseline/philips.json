@@ -1,0 +1,90 @@
+{
+  "slug": "philips",
+  "title": "Philips Airfryer Conversion: Oven to Philips Time &amp; Temp (200°C Limit) | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Models and their limits Every limit below is copied from the manufacturer&#39;s manual or spec page, with the link, and the date we read it. Models we could not source are left out. Model Air fry max Preheat Source Philips 1000 Series NA110 Basket · 3.4 qt / 3.2 L 392°F / 200°C Not stated Spec page 2026-10-28 Philips 2000 Series NA220 Basket · 4.2 L / 4.4 qt 200°C / 392°F Not stated Spec page 2026-10-28 Philips 2000 Series NA230 Basket · 6.2 L / 6.6 qt 200°C / 392°F Not stated Spec page 2026-10-28 Philips 3000 Series Dual Basket NA351 Dual-zone · 9 L / 9.5 qt 200°C / 392°F Not stated Spec page 2026-10-28 Philips 3000 Series Dual Basket NA350 (EU) Dual-zone · 9 L / 9.5 qt 200°C / 392°F Not stated Spec page 2026-10-28 Philips 5000 Series Dual Basket with Steam NA555 Dual-zone · 9.6 qt / 9.1 L 400°F / 205°C Not stated Spec page 2026-10-28 Philips Premium Airfryer XXL HD9650 Basket · — The source gives a food load in kilograms, not a volume. 200°C / 392°F None Spec page 2026-10-28 Philips 5000 Series XXL Connected HD9285 Basket · — 200°C / 392°F Not stated Spec page 2026-10-28 Max temperature of every sourced model &rarr; Why a 400°F recipe needs more time in a Philips Take a tray of vegetables roasted in the oven at 425°F for 20 minutes. For a standard basket that converts to 400°F for 15 minutes. A Philips NA230 cannot reach that, so the converter holds it at 390°F and gives 17 minutes instead: the lower heat needs a little longer to brown the same amount. Check from minute 12. Recipes written for other brands do the same thing silently. If a recipe says 400°F for a set time, a Philips at its limit will be a shade paler at that time. Give it the extra minutes rather than raising anything, since there is nothing higher to raise. Reading Philips settings in °C Philips states its limits in °C. 200°C is 392°F, and a 5° dial lands on 390°F, never above the limit. The converter floors to that step for the same reason: a setting the appliance cannot accept is no use. The Premium Airfryer XXL spec sheet gives its size as a food load in kilograms rather than a volume, so our table shows no capacity for it instead of guessing. Dual-basket Philips models The 3000 Series dual basket has the same 200°C limit in both drawers. The US 5000 Series dual basket with steam lists 400°F on its product page, so pick it from the list and the converter allows the full standard ceiling. Related Potato wedges 390°F · 20 min · shake ×1 Broccoli 375°F · 8 min · shake ×1 Chicken thighs 380°F · 24 min · flip at 12 Oven to air fryer converter &rarr; Ninja air fryer conversion &rarr; Cosori air fryer conversion &rarr; Instant Vortex air fryer conversion &rarr; Frequently asked questions What is the maximum temperature of a Philips Airfryer? Most Philips models we have sourced stop at 200°C, which is 392°F. The US 5000 Series dual basket lists 400°F. Each model&#39;s limit is linked to its Philips spec page in the table. My recipe says 400°F. What do I set on a Philips? Set 390°F, the highest setting below the limit, and add a few minutes. Pick your model in the converter and it gives you the adjusted time. Why does the converter give longer times for Philips? When a recipe needs more heat than the model can reach, the converter holds at the limit and adds time back so the food still browns. Without that, food comes out pale at the recipe&#39;s time. Does the Philips Airfryer XXL hold more than the regular size? Philips gives the XXL&#39;s capacity as a food load in kilograms, not a volume, so we do not list it in quarts or litres. Cook in a single layer either way. Is the temperature the same in both baskets of a Philips dual model? Yes, each drawer has the same limit. The difference is that you can run two settings at once, so convert each food on its own. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/philips#app",
+          "name": "Philips Airfryer conversion — Air Fryer Toolkit",
+          "description": "Convert oven recipes for your Philips Airfryer: most models stop at 200°C (392°F), so hot recipes are held at 390°F with time added back. Pick your model for its real limit.",
+          "url": "https://airfryertoolkit.com/philips",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the maximum temperature of a Philips Airfryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most Philips models we have sourced stop at 200°C, which is 392°F. The US 5000 Series dual basket lists 400°F. Each model's limit is linked to its Philips spec page in the table."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "My recipe says 400°F. What do I set on a Philips?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Set 390°F, the highest setting below the limit, and add a few minutes. Pick your model in the converter and it gives you the adjusted time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does the converter give longer times for Philips?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When a recipe needs more heat than the model can reach, the converter holds at the limit and adds time back so the food still browns. Without that, food comes out pale at the recipe's time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the Philips Airfryer XXL hold more than the regular size?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Philips gives the XXL's capacity as a food load in kilograms, not a volume, so we do not list it in quarts or litres. Cook in a single layer either way."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the temperature the same in both baskets of a Philips dual model?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, each drawer has the same limit. The difference is that you can run two settings at once, so convert each food on its own."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Philips Airfryer conversion",
+          "item": "https://airfryertoolkit.com/philips"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenphilips"
+}

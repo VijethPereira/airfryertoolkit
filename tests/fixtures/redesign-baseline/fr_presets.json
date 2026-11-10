@@ -1,0 +1,285 @@
+{
+  "slug": "fr\\presets",
+  "title": "Préréglages friteuse à air : temps et température pour chaque aliment | Air Fryer Toolkit",
+  "visibleText": ".ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} .wrap[data-astro-cid-4l5nzdvp]{max-width:860px;margin-inline:auto;padding-inline:24px}.page-main[data-astro-cid-4l5nzdvp]{padding:40px 0 80px}.tool-header[data-astro-cid-4l5nzdvp]{margin-bottom:24px}.back-link[data-astro-cid-4l5nzdvp]{font-size:var(--text-caption);letter-spacing:var(--text-caption--letter-spacing);text-transform:uppercase;color:var(--site-text-muted);align-items:center;gap:6px;margin-bottom:16px;font-weight:600;transition:color .15s;display:inline-flex}.back-link[data-astro-cid-4l5nzdvp]:hover{color:var(--site-text)}h1[data-astro-cid-4l5nzdvp]{letter-spacing:-.03em;color:var(--site-text);margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.1}.tool-desc[data-astro-cid-4l5nzdvp]{font-size:var(--text-subheading);line-height:var(--text-subheading--line-height);letter-spacing:var(--text-subheading--letter-spacing);color:var(--site-text-muted);max-width:64ch;margin:0}.group[data-astro-cid-4l5nzdvp]{margin:32px 0}.group[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp],.content-section[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp]{font-size:var(--text-heading-sm);line-height:var(--text-heading-sm--line-height);letter-spacing:var(--text-heading-sm--letter-spacing);color:var(--site-text);margin:0 0 12px;font-weight:600}.card-grid[data-astro-cid-4l5nzdvp]{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.card[data-astro-cid-4l5nzdvp]{border-radius:var(--radius-site-card);background:var(--site-bg-card);min-height:44px;box-shadow:var(--shadow-site);color:var(--site-text);flex-direction:column;gap:4px;padding:16px 18px;transition:background .15s;display:flex}.card[data-astro-cid-4l5nzdvp]:hover{background:var(--site-bg-hover)}.card-title[data-astro-cid-4l5nzdvp]{font-size:16px;font-weight:600}.card-spec[data-astro-cid-4l5nzdvp]{font-variant-numeric:tabular-nums;color:var(--site-accent);font-size:13px;font-weight:600}.card-desc[data-astro-cid-4l5nzdvp]{color:var(--site-text-muted);font-size:13px;line-height:1.45}.content-section[data-astro-cid-4l5nzdvp]{margin:40px 0}.content-section[data-astro-cid-4l5nzdvp] p[data-astro-cid-4l5nzdvp]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);max-width:72ch;margin:0 0 16px}.related-link[data-astro-cid-4l5nzdvp]{margin:24px 0 0!important}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]{min-height:44px;color:var(--site-text);font-weight:600;line-height:44px;display:inline-block}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]:hover{color:var(--site-accent)} Air Fryer Toolkit Convertir Inverse Aliments Marques Tableau Guide FR English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Tous les outils Préréglages d’aliments pour friteuse à air Une page par aliment, chacune un véritable outil plutôt qu’une ligne de tableau : le réglage, quand retourner ou secouer, la température à cœur de chaque protéine, les durées par taille et l’équivalent au four dans les deux sens. Volaille Blanc de poulet 375°F · 16 min · retourner à 8 Le préréglage le plus recherché. Sortez-le à 165°F à cœur. Ailes de poulet 400°F · 22 min · retourner à 11 Séchez-les d’abord ; la sauce seulement après cuisson. Cuisses de poulet 380°F · 24 min · retourner à 12 Peau dessous d’abord, peau dessus pour finir. Pilons de poulet 380°F · 22 min · retourner à 11 Sûr à 165°F, fondant vers 185°F. Aiguillettes de poulet 400°F · 10 min · retourner à 5 Petites et rapides : minuteur sur le temps le plus court. Viande Bacon 350°F · 9 min Une température plus basse empêche le gras de fumer. Steak 400°F · 10 min · retourner à 5 Séchez la surface et laissez reposer pour une vraie croûte. Côtes de porc 400°F · 12 min · retourner à 6 Sortez-les à 145°F et laissez reposer ; saumurez si possible. Saucisses 370°F · 12 min · retourner à 6 Chaleur modérée pour que le boyau n’éclate pas. Steaks hachés 375°F · 10 min · retourner à 5 Viande hachée : 160°F, pas la cuisson d’un steak. Filet mignon de porc 400°F · 20 min · retourner à 10 Repliez la pointe, le repos fait le reste. Poissons et fruits de mer Saumon 390°F · 9 min Peau dessous, sans retourner. Durée selon l’épaisseur. Crevettes 400°F · 7 min · secouer ×1 Chaque minute compte : réglez la durée selon la taille. Poisson blanc 400°F · 10 min Ne le retournez pas : sortez-le entier sur le papier. Légumes et pommes de terre Pomme de terre au four 400°F · 40 min · retourner à 20 Vérifiez au thermomètre, pas à la fourchette. Frites maison 380°F · 18 min · secouer ×2 Tremper, sécher, une couche, deux secousses. Brocoli 375°F · 8 min · secouer ×1 Coupez les tiges fines pour que les têtes ne brûlent pas. Choux de Bruxelles 375°F · 15 min · secouer ×2 Coupez-les en deux, face coupée vers le bas. Frites de patate douce 375°F · 16 min · secouer ×2 Plus bas que les frites : le sucre brûle d’abord. Potatoes 390°F · 20 min · secouer ×1 Morceaux épais : espacez-les et retournez une fois. Épis de maïs 400°F · 12 min · retourner à 6 Coupez les épis longs et enrobez-les de beurre ou d’huile. Pâtisserie Cookies 325°F · 8 min Lestez le papier avec la pâte elle-même. Muffins 325°F · 15 min Moules en silicone, et jugez le centre, pas le dessus. Brownies 325°F · 22 min Un moule de 15–18 cm, et une recette de 23×23 divisée par deux. Pain à l’ail 375°F · 6 min Gardez l’ail sous le beurre, pas dessus. Réchauffer Restes de pizza 350°F · 4 min Une chaleur modérée laisse la pâte rattraper le fromage. Restes de frites 375°F · 4 min · secouer ×1 Court et chaud, avec un peu d’huile, en une couche. Restes de poulet frit 375°F · 8 min · retourner à 4 Laissez-le dehors un moment pour sécher la croûte. Restes d’ailes de poulet 375°F · 5 min · secouer ×1 Retirez la sauce épaisse avant, remettez-en après. Reste de steak 300°F · 8 min · retourner à 4 Chaleur basse, et thermomètre dès le retournement. Surgelés Frites surgelées 400°F · 15 min · secouer ×2 Directement du sachet, une couche, deux secousses. Ailes de poulet surgelées 390°F · 26 min · secouer ×2 Crues et surgelées : séparez-les à la première secousse. Blanc de poulet surgelé 360°F · 24 min · retourner à 12 Plus bas et plus long que le frais : vérifiez au thermomètre. Nuggets de poulet surgelés 400°F · 10 min · secouer ×1 Déjà cuits : vous ne faites que les réchauffer. Tater tots surgelés 400°F · 14 min · secouer ×2 Secouez deux fois pour que chaque face croûte. Pizza surgelée 380°F · 9 min L’individuelle rentre dans un panier ; la familiale non. Bâtonnets de poisson surgelés 400°F · 10 min · retourner à 5 Retournez délicatement : la panure prend avant le poisson. Aiguillettes de poulet surgelées 400°F · 12 min · retourner à 6 Lisez l’emballage : beaucoup sont vendues crues. Galettes de pommes de terre surgelées 400°F · 12 min · retourner à 6 Galettes plates : un retournement à mi-cuisson. Nems et rouleaux de printemps surgelés 390°F · 11 min · retourner à 6 Vaporisez la feuille et retournez une fois. Légumes surgelés 400°F · 12 min · secouer ×2 Ne les décongelez jamais : directement, un demi-panier au plus. Comment ces préréglages sont établis Chaque préréglage part d’une friteuse à air à panier de 4 à 6 litres, préchauffée, avec l’aliment en une seule couche. Pour les préréglages de cuisson, les équivalents au four traditionnel et à chaleur tournante sont calculés par le même moteur que le convertisseur, ils concordent donc entre eux, et le convertisseur de la page est déjà réglé sur cet aliment. Les préréglages surgelés affichent à la place ce que dit l’emballage. Le réchauffage est différent : le moteur convertit des recettes de cuisson, pas des réchauffages, donc les durées de réchauffage et leurs équivalents au four sont saisis à la main, et le convertisseur de ces pages convertit des recettes au four. Chaque page commence par la façon précise dont cet aliment rate à la friteuse à air, car c’est cela qui décide du résultat plus que le chiffre sur le cadran. Pas d’e-mail, pas d’inscription, rien à installer. Convertisseur four vers friteuse à air &rarr; Tableau de conversion à imprimer &rarr; Air Fryer Toolkit Convertisseur Aliments préréglés Surgelés Tableau de conversion À propos Contact Politique de confidentialité Conditions d’utilisation Plus d’outils gratuits : Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — outils gratuits de conversion culinaire dans le navigateur",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://airfryertoolkit.com/fr/presets#page",
+      "name": "Préréglages d’aliments pour friteuse à air — Air Fryer Toolkit",
+      "description": "Temps et température à la friteuse à air pour le poulet, le saumon, le steak, les pommes de terre, la pâtisserie, les surgelés et les restes : chaque préréglage avec la température à cœur ou le test de cuisson, les durées par taille et l’équivalent au four.",
+      "url": "https://airfryertoolkit.com/fr/presets",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Blanc de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ailes de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cuisses de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/chicken-thighs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Saumon",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/salmon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Bacon",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/bacon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Steak",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Côtes de porc",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/pork-chops"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Crevettes",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/shrimp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Pomme de terre au four",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/baked-potato"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Frites maison",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/homemade-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Pilons de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/chicken-drumsticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Aiguillettes de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Saucisses",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/sausages"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "Steaks hachés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/burgers"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "Filet mignon de porc",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/pork-tenderloin"
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "name": "Poisson blanc",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/white-fish"
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "name": "Brocoli",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/broccoli"
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "name": "Choux de Bruxelles",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/brussels-sprouts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "name": "Frites de patate douce",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/sweet-potato-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "name": "Potatoes",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/potato-wedges"
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "name": "Frites surgelées",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "name": "Ailes de poulet surgelées",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "name": "Blanc de poulet surgelé",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "name": "Nuggets de poulet surgelés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-chicken-nuggets"
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "name": "Tater tots surgelés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-tater-tots"
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "name": "Pizza surgelée",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "name": "Bâtonnets de poisson surgelés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-fish-sticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "name": "Aiguillettes de poulet surgelées",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "name": "Galettes de pommes de terre surgelées",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-hash-browns"
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "name": "Nems et rouleaux de printemps surgelés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-egg-rolls"
+          },
+          {
+            "@type": "ListItem",
+            "position": 31,
+            "name": "Restes de pizza",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/reheat-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 32,
+            "name": "Restes de frites",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/reheat-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 33,
+            "name": "Restes de poulet frit",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/reheat-fried-chicken"
+          },
+          {
+            "@type": "ListItem",
+            "position": 34,
+            "name": "Restes d’ailes de poulet",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/reheat-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 35,
+            "name": "Reste de steak",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/reheat-steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 36,
+            "name": "Cookies",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/cookies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 37,
+            "name": "Muffins",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/muffins"
+          },
+          {
+            "@type": "ListItem",
+            "position": 38,
+            "name": "Brownies",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/brownies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 39,
+            "name": "Pain à l’ail",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/garlic-bread"
+          },
+          {
+            "@type": "ListItem",
+            "position": 40,
+            "name": "Épis de maïs",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/corn-on-the-cob"
+          },
+          {
+            "@type": "ListItem",
+            "position": 41,
+            "name": "Légumes surgelés",
+            "url": "https://airfryertoolkit.com/fr/air-fryer/frozen-vegetables"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://airfryertoolkit.com/fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Préréglages d’aliments pour friteuse à air",
+          "item": "https://airfryertoolkit.com/fr/presets"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenfr\\presets"
+}

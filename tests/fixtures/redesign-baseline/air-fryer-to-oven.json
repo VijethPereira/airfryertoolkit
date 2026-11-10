@@ -1,0 +1,98 @@
+{
+  "slug": "air-fryer-to-oven",
+  "title": "Air Fryer to Oven Converter | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} .wrap[data-astro-cid-6ws6ugjr]{max-width:860px;margin-inline:auto;padding-inline:24px}.page-main[data-astro-cid-6ws6ugjr]{padding:40px 0 80px}.tool-header[data-astro-cid-6ws6ugjr]{margin-bottom:32px}.back-link[data-astro-cid-6ws6ugjr]{font-size:var(--text-caption);letter-spacing:var(--text-caption--letter-spacing);text-transform:uppercase;color:var(--site-text-muted);align-items:center;gap:6px;margin-bottom:16px;font-weight:600;transition:color .15s;display:inline-flex}.back-link[data-astro-cid-6ws6ugjr]:hover{color:var(--site-text)}h1[data-astro-cid-6ws6ugjr]{letter-spacing:-.03em;color:var(--site-text);margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.1}.tool-desc[data-astro-cid-6ws6ugjr]{font-size:var(--text-subheading);line-height:var(--text-subheading--line-height);letter-spacing:var(--text-subheading--letter-spacing);color:var(--site-text-muted);max-width:64ch;margin:0}.tool-area[data-astro-cid-6ws6ugjr]{margin-bottom:32px}.content-section[data-astro-cid-6ws6ugjr],.faq-section[data-astro-cid-6ws6ugjr]{margin:40px 0}.content-section[data-astro-cid-6ws6ugjr] h2[data-astro-cid-6ws6ugjr],.faq-section[data-astro-cid-6ws6ugjr] h2[data-astro-cid-6ws6ugjr]{font-size:var(--text-heading-sm);line-height:var(--text-heading-sm--line-height);letter-spacing:var(--text-heading-sm--letter-spacing);color:var(--site-text);margin:0 0 16px;font-weight:600}.content-section[data-astro-cid-6ws6ugjr] h3[data-astro-cid-6ws6ugjr]{letter-spacing:-.18px;color:var(--site-text);margin:28px 0 8px;font-size:18px;font-weight:600}.content-section[data-astro-cid-6ws6ugjr] p[data-astro-cid-6ws6ugjr]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);max-width:72ch;margin:0 0 16px}.related-link[data-astro-cid-6ws6ugjr]{margin:24px 0 0!important}.related-link[data-astro-cid-6ws6ugjr] a[data-astro-cid-6ws6ugjr]{color:var(--site-text);font-weight:600}.related-link[data-astro-cid-6ws6ugjr] a[data-astro-cid-6ws6ugjr]:hover{color:var(--site-accent)} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch About air-fryer-to-oven conversion Most oven-to-air-fryer tools only run in one direction, but the reverse trip comes up just as often. A recipe card, a preset from your air fryer&#39;s manual, or a tip from a friend gives you an air fryer temperature and time, and you need the conventional-oven numbers instead — because you&#39;re cooking for more people than the basket holds, the air fryer is already busy with something else, or the oven is simply the right tool for what you&#39;re making today. This converter runs the flagship oven-to-air-fryer engine backward: enter the air fryer temperature and time, pick the food type and whether your unit is basket or oven-style, and it returns the oven setting that recipe would need — using the same per-food multipliers as the forward converter, not a flat number reversed. Why the oven result rounds to 25°F, not 5°F An air fryer&#39;s digital display can show any 5° step, but a real oven dial or knob only clicks in 25° increments — 325, 350, 375, 400, and so on. Round a reverse conversion to the air fryer&#39;s finer 5° grid and you&#39;d get numbers like 405°F or 415°F that don&#39;t exist on an oven dial, and running a recipe both ways — oven to air fryer and back to oven — would drift a little further off the original number every time it changed hands. Snapping the oven result to the nearest 25° instead keeps every result a setting you can actually turn a dial to, and it&#39;s why converting the same recipe in both directions lands back close to where it started instead of wandering off. Worked example Take a basket air fryer recipe running general food at 375°F for 20 minutes: convert it back and the oven setting comes out to 400°F for 25 minutes — the air fryer&#39;s usual 25° temperature cut and 20% time savings added back. Fries behave differently: 400°F for 12 minutes in a basket becomes 425°F for 17 minutes in the oven, a bigger time increase, because fries lose more time than average going into the air fryer and need more of it back coming out. When the oven is actually the better choice The air fryer wins on speed for a single crowded-free layer of food, but the oven is still the better tool in a few common situations: cooking more than the basket holds in one load, running two dishes on different racks at the same time, an air fryer that is mid-cycle on something else, or a cut too large to fit a basket at all — a whole chicken, a full sheet of cookies, a big tray of vegetables for a crowd. In any of those, converting the air fryer setting you already know back to an oven number is faster than guessing from scratch, and it keeps the food-type logic — fries needing more time back than a casserole does — intact in both directions. One thing to know: a standard oven isn&#39;t built to fry A conventional oven doesn&#39;t have the forced-air circulation a fryer basket does, so two things change. Preheat matters more, since the oven needs its full ramp-up time to reach the target temperature evenly rather than the few minutes an air fryer basket needs. And a single layer of food won&#39;t crisp quite as aggressively as it did in the basket, since there&#39;s less concentrated airflow hitting every side at once. Neither is a problem to work around — just don&#39;t expect an oven tray of wings to look identical to the air-fried version, and lean on a convection or &quot;air fry&quot; oven setting if yours has one, since that closes most of the gap. Oven → Air Fryer converter &rarr; Printable conversion chart &rarr; Air Fryer → Convection converter &rarr; Frequently Asked Questions How do I convert air fryer settings to a conventional oven? Add the same per-food temperature offset back to the air fryer temperature (25°F for most foods, 20°F for steak, fish, baked goods, and casseroles), and divide the air fryer time by that food&#39;s time multiplier instead of multiplying by it. The calculator above does this automatically and rounds the oven temperature to a real 25° dial step. Why does the oven temperature round to a 25° step instead of an exact number? Because a real oven dial or digital control only clicks in 25°F increments — 350, 375, 400 — not the finer 5° steps an air fryer uses. Rounding to what the dial can actually show is also what keeps a recipe converted both directions (oven to air fryer, then back to oven) landing close to the number it started at instead of drifting. Will the oven give exactly the same result as the air fryer did? Close, but not identical. A conventional oven lacks the forced-air circulation of a fryer basket, so preheat matters more and a single layer of food won&#39;t crisp quite as much. If your oven has a convection or &quot;air fry&quot; fan setting, use it — that closes most of the difference. When should I use the oven instead of the air fryer? Whenever the basket can&#39;t do the job in one load: a batch bigger than the basket holds, two dishes cooking on separate racks at once, an air fryer that&#39;s already busy, or food too large to fit a basket at all, like a whole chicken or a full tray of cookies. Does the food-type multiplier still matter converting this direction? Yes — it inverts rather than disappears. Thin, high-surface-area foods like fries and bacon needed the biggest time cut going into the air fryer, so they need the biggest time increase coming back out to the oven. Dense foods like casseroles need the smallest adjustment either way. What internal temperature should I still check for, regardless of appliance? Internal temperature targets don&#39;t change between an air fryer and an oven — pull poultry at 165°F internal and fish, steak, or chops at 145°F. The appliance changes the time and dial setting to get there; it doesn&#39;t change what &quot;done&quot; means. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer-to-oven#app",
+          "name": "Air Fryer to Oven Converter — Air Fryer Toolkit",
+          "description": "Enter the air fryer temperature and time from a recipe, a preset, or your appliance's manual. Get the matching oven setting, adjusted for food type and basket vs. oven-style, rounded to the 25° steps a real oven dial uses.",
+          "url": "https://airfryertoolkit.com/air-fryer-to-oven",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I convert air fryer settings to a conventional oven?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Add the same per-food temperature offset back to the air fryer temperature (25°F for most foods, 20°F for steak, fish, baked goods, and casseroles), and divide the air fryer time by that food's time multiplier instead of multiplying by it. The calculator above does this automatically and rounds the oven temperature to a real 25° dial step."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does the oven temperature round to a 25° step instead of an exact number?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because a real oven dial or digital control only clicks in 25°F increments — 350, 375, 400 — not the finer 5° steps an air fryer uses. Rounding to what the dial can actually show is also what keeps a recipe converted both directions (oven to air fryer, then back to oven) landing close to the number it started at instead of drifting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will the oven give exactly the same result as the air fryer did?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Close, but not identical. A conventional oven lacks the forced-air circulation of a fryer basket, so preheat matters more and a single layer of food won't crisp quite as much. If your oven has a convection or \"air fry\" fan setting, use it — that closes most of the difference."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I use the oven instead of the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Whenever the basket can't do the job in one load: a batch bigger than the basket holds, two dishes cooking on separate racks at once, an air fryer that's already busy, or food too large to fit a basket at all, like a whole chicken or a full tray of cookies."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the food-type multiplier still matter converting this direction?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — it inverts rather than disappears. Thin, high-surface-area foods like fries and bacon needed the biggest time cut going into the air fryer, so they need the biggest time increase coming back out to the oven. Dense foods like casseroles need the smallest adjustment either way."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What internal temperature should I still check for, regardless of appliance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Internal temperature targets don't change between an air fryer and an oven — pull poultry at 165°F internal and fish, steak, or chops at 145°F. The appliance changes the time and dial setting to get there; it doesn't change what \"done\" means."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air Fryer to Oven Converter",
+          "item": "https://airfryertoolkit.com/air-fryer-to-oven"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer-to-oven"
+}

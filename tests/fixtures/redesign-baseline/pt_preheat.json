@@ -1,0 +1,90 @@
+{
+  "slug": "pt\\preheat",
+  "title": "Quanto tempo pré-aquecer a air fryer (por temperatura) | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Converter Inverso Alimentos Marcas Tabela Guia PT English Español Português Français Deutsch Air Fryer Toolkit Conversor Alimentos predefinidos Congelados Tabela de conversão Sobre Contato Política de privacidade Termos e condições Mais ferramentas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — ferramentas gratuitas de conversão culinária no navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/pt/preheat#app",
+          "name": "Quanto tempo pré-aquecer a air fryer — Air Fryer Toolkit",
+          "description": "Tempo de pré-aquecimento pela temperatura que você usa, das tabelas impressas da Cosori, e o que fazem os modelos tipo forno. Sem conta, sem cadastro.",
+          "url": "https://airfryertoolkit.com/pt/preheat",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quanto tempo devo pré-aquecer a air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "De 2 a 4 minutos num cesto, conforme a temperatura: 4 minutos a partir de 345°F (175°C), pela mais longa das duas tabelas da Cosori. Os tipo forno preaquecem sozinhos e avisam quando colocar a comida."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Precisa pré-aquecer a air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Para quase tudo, sim. Os manuais da Cosori dizem que sem pré-aquecer a comida não cozinha por completo. A ficha técnica da Philips Premium XXL diz que esse modelo não precisa, então confira o manual do seu."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "É preciso pré-aquecer toda vez?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Pule quando a air fryer ainda está quente da leva anterior, a exceção que os manuais da Cosori fazem, e no bacon, que começa bem a frio."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Uma air fryer tipo forno precisa pré-aquecer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ela faz isso sozinha. O forno air fryer da Cosori e os modelos Instant Vortex mostram Add Food quando já estão quentes. Nenhum dos dois manuais dá um tempo, então espere o aviso em vez de usar um timer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como pré-aquecem as air fryers Cosori, Instant, Philips e Ninja?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Os cestos Cosori com botão Preheat definem o tempo pela tabela; os Instant Vortex preaquecem sozinhos e mostram Add Food; a Philips indica que a Premium XXL não precisa de pré-aquecimento; os guias da Ninja não foram relidos para esta página."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://airfryertoolkit.com/pt"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quanto tempo pré-aquecer a air fryer",
+          "item": "https://airfryertoolkit.com/pt/preheat"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenpt\\preheat"
+}
