@@ -71,7 +71,7 @@ export const MODELS: FryerModel[] = [
   { id: 'ninja-max-xl-af161', brand: 'ninja', modelNumber: 'AF161', type: 'basket', capacity: null, maxF: 400, minF: null, tempUnit: 'F', otherMax: { f: 450, label: 'maxCrisp' }, preheat: 'manual', source: `${NINJA}AF160-Series-Ninja-Air-Fryer-Max-XL-Owner-s-Guide`, sourced: READ },
   // Quick start guide: Air Fry defaults to 450°F, "full 10-qt cooking capacity". Owner's guide: "does not need to preheat".
   // Source note: default setting, max not stated.
-  { id: 'ninja-doublestack-sl401', brand: 'ninja', modelNumber: 'SL401', type: 'dual-zone', capacity: { qt: 10 }, maxF: 450, maxIsDefault: true, minF: null, tempUnit: 'F', preheat: 'none', source: `${NINJA}SL401-Series-Ninja-DoubleStack-XL-10-QT-2-Basket-Air-Fryer-Quick-Start-Guide`, sourced: READ },
+  { id: 'ninja-doublestack-sl401', brand: 'ninja', modelNumber: 'SL401', type: 'dual-zone', capacity: { qt: 10 }, maxF: 450, maxIsDefault: true, minF: null, tempUnit: 'F', preheat: 'unknown', source: `${NINJA}SL401-Series-Ninja-DoubleStack-XL-10-QT-2-Basket-Air-Fryer-Quick-Start-Guide`, sourced: READ },
   // Air Fry, Air Roast and Bake 250–450°F; Dehydrate 105–195°F; PRE flashes while it preheats.
   { id: 'ninja-foodi-oven-sp101', brand: 'ninja', modelNumber: 'SP101', type: 'toaster-oven', capacity: null, maxF: 450, minF: 105, tempUnit: 'F', preheat: 'auto', source: `${NINJA}SP100-Series-Ninja-Foodi-Digital-Air-Fry-Oven-Owner-s-Guide`, sourced: READ },
   // Cosori — cosori.com/pages/user-manuals

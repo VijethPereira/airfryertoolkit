@@ -21,7 +21,7 @@ export function getStaticPaths() {
 }
 
 const { landing } = Astro.props as { landing: CTempLanding };
-const locale = 'es' as const;
+const locale = 'de' as const;
 const copy = getDictionary(locale).cTempLanding.pages[landing.tempC as CTempLandingC];
 const fill = (text: string) => fillPlaceholders(text, cTempLandingValues(landing, locale));
 const slug = cTempLandingSlug(landing.tempC);
@@ -51,14 +51,6 @@ const jsonLd = {
         name: fill(q),
         acceptedAnswer: { '@type': 'Answer', text: fill(a) },
       })),
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteConfig.domain },
-        { '@type': 'ListItem', position: 2, name: 'Convertir', item: `${siteConfig.domain}/#convert` },
-        { '@type': 'ListItem', position: 3, name: fill(copy.heading), item: url },
-      ],
     },
   ],
 };

@@ -67,8 +67,8 @@ test.describe('preheat data (src/data/preheat.ts)', () => {
       if (p.kind === 'fixed') expect(p.fixed, p.modelId).toBeTruthy();
       if (p.kind === 'none') expect(p.docType, p.modelId).toBe('specSheet');
     }
-    // Ninja: the 10.7 guides are not on file, so nothing is claimed.
-    expect(MODEL_PREHEAT.filter((p) => p.modelId.startsWith('ninja-')).every((p) => p.kind === 'notReread')).toBe(true);
+    // Ninja: the guides in manuals/ninja/ were re-read, so no Ninja entry is left as notReread.
+    expect(MODEL_PREHEAT.filter((p) => p.modelId.startsWith('ninja-')).every((p) => p.kind !== 'notReread')).toBe(true);
   });
 
   test('the brand tables agree with what each document says', () => {
@@ -214,8 +214,10 @@ test.describe('/preheat page', () => {
     await page.selectOption('#aph-model', 'instant-vortex-6');
     await expect(answer).toContainText('Add Food');
     await page.selectOption('#aph-model', 'ninja-af101');
-    await expect(answer).toContainText('not re-read');
-    await expect(page.locator('#aph-source')).toHaveText('Not re-read');
+    await expect(answer).toContainText('400°F for 3 minutes');
+    await expect(page.locator('#aph-source')).toHaveText('owner’s guide, page 7, read 2026-10-28');
+    await page.selectOption('#aph-model', 'ninja-doublestack-sl401');
+    await expect(answer).toContainText('does not mention preheating');
     await page.selectOption('#aph-model', 'cosori-oven-13');
     await expect(page.locator('#aph-style-oven')).toHaveClass(/active/);
     expect(new URL(page.url()).searchParams.get('model')).toBe('cosori-oven-13');
@@ -237,8 +239,8 @@ test.describe('/preheat page', () => {
     await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODELS.filter((m) => m.brand === 'instant').length);
     await page.locator('.filters a[data-kind="auto"]').click();
     await expect(page.locator('#aph-models tbody tr[data-kind="auto"]')).toHaveCount(MODELS.filter((m) => m.brand === 'instant').length);
-    await page.goto(`${PREHEAT_PATH}?kind=notReread`);
-    await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODEL_PREHEAT.filter((p) => p.kind === 'notReread').length);
+    await page.goto(`${PREHEAT_PATH}?kind=notMentioned`);
+    await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODEL_PREHEAT.filter((p) => p.kind === 'notMentioned').length);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://airfryertoolkit.com/preheat');
     await ctx.close();
   });

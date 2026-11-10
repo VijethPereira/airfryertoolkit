@@ -106,6 +106,7 @@ function slugsFrom(file, pattern) {
 function build() {
   const presetSlugs = slugsFrom('src/data/presets.ts', /^ {4}slug: '([a-z0-9-]+)'/gm);
   const temps = slugsFrom('src/lib/temp-landings.ts', /^ {2}\{ tempF: (\d+),/gm);
+  const cTemps = slugsFrom('src/lib/temp-landings.ts', /^ {2}\{ tempC: (\d+),/gm);
   // Tool pages: their own sections of the main locale dictionary.
   const toolSections = {
     '/': ['home'],
@@ -129,6 +130,14 @@ function build() {
       dates[`${l}:/${t}-to-air-fryer`] = latest([
         ['src/lib/temp-landings.ts', arrayElementRange('src/lib/temp-landings.ts', `{ tempF: ${t},`)],
         [tempDict, entryRange(tempDict, t, 4)],
+      ]);
+    }
+    // °C landing pages (/160c-to-air-fryer …): their C_TEMP_LANDINGS element plus their dictionary entry.
+    const cTempDict = `src/i18n/dictionaries/c-temp-landing/${l}.ts`;
+    for (const t of cTemps) {
+      dates[`${l}:/${t}c-to-air-fryer`] = latest([
+        ['src/lib/temp-landings.ts', arrayElementRange('src/lib/temp-landings.ts', `{ tempC: ${t},`)],
+        [cTempDict, entryRange(cTempDict, t, 4)],
       ]);
     }
     // The cost page: its own dictionary file plus the energy and tariff data.

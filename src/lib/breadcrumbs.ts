@@ -9,7 +9,7 @@ import type { LocaleCode } from '../i18n/locales';
 import { localizedUrl } from '../i18n/utils';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetPath } from './presets';
-import { TEMP_LANDINGS, tempLandingSlug } from './temp-landings';
+import { TEMP_LANDINGS, tempLandingSlug, C_TEMP_LANDINGS, cTempLandingSlug } from './temp-landings';
 import { BRANDS, MODEL_MAX_TEMP_PATH } from './brands';
 import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
 import { COST_PATH } from './cost';
@@ -40,6 +40,8 @@ export function breadcrumbTrail(locale: LocaleCode, slug: string): Crumb[] | nul
   if (preset) return [home, presetsIndex, { name: presetCard(preset, locale).label, path: slug }];
   const landing = TEMP_LANDINGS.find((l) => tempLandingSlug(l.tempF) === slug);
   if (landing) return [home, chart, { name: `${landing.tempF}°F`, path: slug }];
+  const cLanding = C_TEMP_LANDINGS.find((l) => cTempLandingSlug(l.tempC) === slug);
+  if (cLanding) return [home, chart, { name: `${cLanding.tempC}°C`, path: slug }];
   // English-only pages (brand pages and the model table).
   if (slug === MODEL_MAX_TEMP_PATH) return [home, { name: brandsDict.maxTemp.heading, path: slug }];
   const brand = BRANDS.find((b) => b.path === slug);

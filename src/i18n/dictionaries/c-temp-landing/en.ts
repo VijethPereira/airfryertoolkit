@@ -22,6 +22,8 @@ const cTempLanding: {
   relatedConvectionLink: string;
   relatedNearestFLink: string;
   faqHeading: string;
+  widgetHeading: string;
+  widgetNote: string;
   pages: Record<CTempLandingC, {
     metaTitle: string;
     metaDescription: string;
