@@ -4,65 +4,95 @@
 ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 
 @theme {
-  /* Colors */
+  /* Colors — from DESIGN.md Section 3 */
   --color-ink: #1e1e1e;
-  --color-cream-canvas: #e3d7cd;
-  --color-warm-white: #f0e9e5;
-  --color-paper-white: #f5f2f0;
-  --color-pure-white: #ffffff;
-  --color-sand-border: #c9c9c7;
-  --color-stone-text: #767676;
+  --color-body: #3d3833;
+  --color-muted: #5c5650;       /* Replaces #767676 (3.8:1 failed); 6.3:1 on canvas */
   --color-terracotta: #ee884f;
   --color-terracotta-hover: #e57d42;
+  --color-terracotta-text: #9e4a1a;
 
-  /* Typography */
+  /* Typography — from DESIGN.md Section 2 */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-archivo: 'Archivo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Type scale — from DESIGN.md */
-  --text-caption: 11px;
-  --text-caption--line-height: 1.4;
-  --text-caption--letter-spacing: 0.66px;
-  --text-body: 15px;
-  --text-body--line-height: 1.5;
-  --text-body--letter-spacing: -0.15px;
-  --text-subheading: 18px;
-  --text-subheading--line-height: 1.4;
-  --text-subheading--letter-spacing: -0.18px;
-  --text-heading-sm: 36px;
-  --text-heading-sm--line-height: 1.2;
-  --text-heading-sm--letter-spacing: -1.08px;
-  --text-heading: 44px;
-  --text-heading--line-height: 1.1;
-  --text-heading--letter-spacing: -1.32px;
-  --text-heading-lg: 52px;
-  --text-heading-lg--line-height: 1;
-  --text-heading-lg--letter-spacing: -1.56px;
-  --text-display: 68px;
-  --text-display--line-height: 0.9;
-  --text-display--letter-spacing: -2.04px;
+  /* Google Fonts: preconnect + display=swap + only listed weights */
+  --font-display-preconnect: '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+  --font-display-link: '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">';
 
-  /* Border radius */
-  --radius-site-card: 4px;
-  --radius-site-pill: 4800px;
+  /* Type scale — from DESIGN.md Section 3 */
+  --text-display: clamp(42px, 6vw, 68px);         /* Fraunces 400, h1 */
+  --text-heading: 40px;                            /* Fraunces 400, h2 */
+  --text-heading-sm: 26px;                         /* Fraunces 400, card titles, h3 */
+  --text-result: 56px;                             /* Fraunces 400, converter answer */
+  --text-lead: 19px;                               /* Archivo 400, hero sub, intro */
+  --text-subheading: 18px;                         /* Archivo 600, list-row titles, table heads */
+  --text-body: 16px;                               /* Archivo 400, default body (was 15px) */
+  --text-small: 15px;                              /* Archivo 400, card descriptions, footnotes */
+  --text-label: 13px;                              /* Archivo 600, form labels */
+  --text-eyebrow: 12px;                            /* Archivo 600, 0.12em tracking, uppercase, section labels */
 
-  /* Shadows */
-  --shadow-site: 0px 1px 1px 0px rgba(0, 0, 0, 0.06), 0px 2px 1px 0px rgba(0, 0, 0, 0.04), 0px 4px 1px 0px rgba(0, 0, 0, 0.01);
+  /* Border radius — from DESIGN.md Section 4 */
+  --radius-sm: 7px;                                /* Segment buttons inside the track */
+  --radius-md: 8px;                                /* Buttons, inputs, selects, language chips (no pills) */
+  --radius-lg: 12px;                               /* Feature cards, brand cards, result panel */
+  --radius-xl: 16px;                               /* Converter card, callout band */
+  --radius-full: 9999px;                           /* Status dots only */
+
+  /* Shadows — from DESIGN.md Section 4 */
+  --shadow-site: 0px 1px 2px rgba(30,30,30,0.04); /* Converter card only */
 }
 
 /* Site tokens: plain CSS variables, not Tailwind utilities */
 :root {
-  /* Width of the header, footer and homepage. Pages with long text use a narrower column inside it. */
   --site-max-width: 1280px;
-  --site-bg: #f0e9e5;
-  --site-bg-deep: #e3d7cd;
+  --site-content-width: 1200px;
+  --site-bg: #f5efe9;
+  --site-bg-deep: #efe6dd;
   --site-bg-card: #ffffff;
-  --site-bg-hover: #f5f2f0;
+  --site-bg-field: #fbf8f5;
+  --site-bg-hover: #f2ebe4;
   --site-text: #1e1e1e;
-  --site-text-muted: #767676;
-  --site-border: #c9c9c7;
+  --site-text-body: #3d3833;
+  --site-text-muted: #5c5650;       /* Replaces #767676 (passes 4.5:1) */
+  --site-border: #e3d7cd;
+  --site-rule: #d9ccc0;
+  --site-input-border: #8f8173;
   --site-accent: #ee884f;
   --site-accent-hover: #e57d42;
-  --site-nav-bg: #f0e9e5;
+  --site-accent-text: #9e4a1a;
+  --site-panel: #1e1e1e;
+  --site-on-panel: #f5efe9;
+  --site-on-panel-muted: #c9bfb6;
+  --site-footer: #131110;
+  --site-nav-bg: #f5efe9;
+  --site-section-gap: 88px;
+}
+
+html.dark {
+  --site-bg: #1b1614;
+  --site-bg-deep: #211b18;
+  --site-bg-card: #252120;
+  --site-bg-field: #1f1a17;
+  --site-bg-hover: #2e2a27;
+  --site-text: #f0e9e5;
+  --site-text-body: #ddd4cd;
+  --site-text-muted: #a89f99;       /* 6.9:1 on canvas */
+  --site-border: #373230;
+  --site-rule: #3f3935;
+  --site-input-border: #7a6d64;    /* 3.2:1 on card */
+  --site-accent: #ee884f;
+  --site-accent-hover: #f49960;
+  --site-accent-text: #f0a06f;     /* 8.5:1 on dark */
+  --site-panel: #2e2723;
+  --site-on-panel: #f5efe9;
+  --site-on-panel-muted: #c9bfb6;
+  --site-footer: #131110;
+  --site-nav-bg: #1b1614;
+}
+
+@media (max-width: 767px) {
+  :root { --site-section-gap: 56px; }
 }
 
 html.dark {
