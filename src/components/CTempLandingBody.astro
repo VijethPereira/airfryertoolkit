@@ -170,19 +170,19 @@ const nearestFHref = localizedPath(locale, nearestFSlug);
     </section>
 
     <section class="content-section">
-      <h2>{copy.recipesHeading}</h2>
+      <h2>{fill(copy.recipesHeading)}</h2>
       <p>{fill(copy.recipesBody)}</p>
 
-      <h3>{copy.failureHeading}</h3>
+      <h3>{fill(copy.failureHeading)}</h3>
       <p>{fill(copy.failureBody)}</p>
 
-      <h3>{copy.workedExampleHeading}</h3>
+      <h3>{fill(copy.workedExampleHeading)}</h3>
       <p>{fill(copy.workedExampleTemplate)}</p>
 
-      <h3>{copy.fanWorkedExampleHeading}</h3>
+      <h3>{fill(copy.fanWorkedExampleHeading)}</h3>
       <p>{fill(copy.fanWorkedExampleTemplate)}</p>
 
-      <h3>{copy.styleHeading}</h3>
+      <h3>{fill(copy.styleHeading)}</h3>
       <p>{fill(copy.styleBody)}</p>
 
       {neighbourLinks.length > 0 && (
