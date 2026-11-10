@@ -175,7 +175,7 @@ const fr: Dictionary = {
     reverseCards: [
       { title: 'Friteuse à air → Four', desc: 'Vous cuisinez pour beaucoup de monde, ou le panier est occupé. Revenez au four.' },
       { title: 'Friteuse à air → Convection', desc: 'Même principe de ventilateur, cavité plus grande. Ajoute du temps, pas de la température.' },
-      { title: '°F / °C / thermostat', desc: 'Conversion directe de température pour les recettes britanniques, européennes et américaines.' },
+      { title: '°C et thermostat → Friteuse à air', desc: 'Recettes européennes : chaleur statique, chaleur tournante ou thermostat, converties en une étape.' },
       { title: 'Tableau de conversion imprimable', desc: 'Tableau complet en °F et °C à coller sur le frigo. Une page, sans inscription par e-mail.' },
     ],
     frozenTeaser: {
@@ -636,8 +636,8 @@ const fr: Dictionary = {
     relatedConverterLabel: 'Convertisseur four → friteuse à air',
     relatedConverterDesc:
       '— l’outil en direct, s’ajuste selon le type d’aliment et panier vs. type four, avec le plafond que les lignes marquées d’une croix de ce tableau renvoient.',
-    relatedGasMarkLabel: 'Convertisseur °F / °C / thermostat',
-    relatedGasMarkDesc: '— une conversion de température directe pour les recettes du Royaume-Uni, de l’UE et des États-Unis.',
+    relatedGasMarkLabel: 'Pages °C et thermostat',
+    relatedGasMarkDesc: '— pour les recettes européennes qui donnent les °C, la chaleur tournante ou le thermostat.',
     relatedReverseLabel: 'Convertisseur friteuse à air vers four',
     relatedReverseDesc: '— le sens inverse, pour les cas où le four est le meilleur choix.',
     relatedConvectionLabel: "Convertisseur convection vers friteuse à air",

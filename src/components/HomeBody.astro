@@ -8,7 +8,7 @@ import { computeAirFryerSetting, type FrozenFoodKey } from '../lib/converter';
 import { HOME_FROZEN_CARDS, frozenCardSpec } from '../lib/home-cards';
 import { homeGuide } from '../lib/flagship-copy';
 import { PREHEAT_PATH } from '../lib/preheat';
-import { TEMP_LANDINGS, TEMP_LANDING_MINUTES, fillPlaceholders, tempLandingSlug, tempLandingValues, timeCutPercent } from '../lib/temp-landings';
+import { TEMP_LANDINGS, TEMP_LANDING_MINUTES, fillPlaceholders, tempLandingSlug, tempLandingValues, timeCutPercent, cTempLandingSlug } from '../lib/temp-landings';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
 import { BRANDS, MODEL_MAX_TEMP_PATH, brandModels } from '../lib/brands';
@@ -58,7 +58,7 @@ function cardHref({ href, fallback }: CardTarget): string | null {
 }
 
 const convertTargets: CardTarget[] = ['/oven-to-air-fryer', '/convection-to-air-fryer', PREHEAT_PATH, COST_PATH].map((href) => ({ href }));
-const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', '/fahrenheit-celsius-gas-mark', '/chart'].map((href) => ({ href }));
+const reverseTargets: CardTarget[] = ['/air-fryer-to-oven', '/air-fryer-to-convection', cTempLandingSlug(180), '/chart'].map((href) => ({ href }));
 const frozenTargets: CardTarget[] = HOME_FROZEN_CARDS;
 const frozenCardSpecs = HOME_FROZEN_CARDS.map((c) => frozenCardSpec(c, locale));
 // FROZEN_FOODS key for each frozenTeaser.options entry, in order — sent to /frozen as ?food= to preselect it.

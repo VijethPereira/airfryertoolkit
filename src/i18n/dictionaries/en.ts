@@ -175,7 +175,7 @@ const en: Dictionary = {
     reverseCards: [
       { title: 'Air Fryer → Oven', desc: 'Cooking for a crowd, or the basket is busy. Go back the other way.' },
       { title: 'Air Fryer → Convection', desc: 'Same fan principle, larger cavity. Adds back time, not temperature.' },
-      { title: '°F / °C / gas mark', desc: 'Straight temperature conversion for UK, EU, and US recipes.' },
+      { title: '°C & gas mark → Air Fryer', desc: 'UK and EU recipes: conventional, fan or gas mark, converted in one step.' },
       { title: 'Printable conversion chart', desc: 'Full °F and °C table for the fridge door. One page, no email signup.' },
     ],
     frozenTeaser: {
@@ -636,8 +636,8 @@ const en: Dictionary = {
     relatedConverterLabel: 'Oven → Air Fryer converter',
     relatedConverterDesc:
       "— the live tool, adjusts for food type and basket vs. oven-style, with the ceiling clamp this chart's dagger rows point back to.",
-    relatedGasMarkLabel: '°F / °C / gas mark converter',
-    relatedGasMarkDesc: '— a straight temperature conversion for UK, EU, and US recipes.',
+    relatedGasMarkLabel: '°C and gas mark pages',
+    relatedGasMarkDesc: '— for UK and EU recipes that give °C, a fan figure or a gas mark.',
     relatedReverseLabel: 'Air Fryer → Oven converter',
     relatedReverseDesc: '— the reverse direction, for when the oven is the better choice.',
     relatedConvectionLabel: "Convection → Air Fryer converter",

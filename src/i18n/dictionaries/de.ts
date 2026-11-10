@@ -175,7 +175,7 @@ const de: Dictionary = {
     reverseCards: [
       { title: 'Heißluftfritteuse → Ofen', desc: 'Du kochst für viele Leute, oder der Korb ist besetzt. Zurück zum Ofen.' },
       { title: 'Heißluftfritteuse → Umluft', desc: 'Gleiches Ventilatorprinzip, größerer Innenraum. Fügt Zeit hinzu, nicht Temperatur.' },
-      { title: '°F / °C / Gasstufe', desc: 'Direkte Temperaturumrechnung für britische, EU- und US-Rezepte.' },
+      { title: '°C & Gasstufe → Heißluftfritteuse', desc: 'Rezepte aus Europa: Ober-/Unterhitze, Umluft oder Gasstufe, in einem Schritt umgerechnet.' },
       { title: 'Druckbare Umrechnungstabelle', desc: 'Vollständige °F- und °C-Tabelle für die Kühlschranktür. Eine Seite, keine E-Mail-Anmeldung.' },
     ],
     frozenTeaser: {
@@ -636,8 +636,8 @@ const de: Dictionary = {
     relatedConverterLabel: 'Ofen → Heißluftfritteuse Umrechner',
     relatedConverterDesc:
       '— das Live-Tool, passt sich an Lebensmittelart und Korb vs. Ofen-Typ an, mit der Obergrenze, auf die die Kreuz-Zeilen dieser Tabelle verweisen.',
-    relatedGasMarkLabel: '°F / °C / Gasstufe Umrechner',
-    relatedGasMarkDesc: '— eine direkte Temperaturumrechnung für britische, EU- und US-Rezepte.',
+    relatedGasMarkLabel: '°C- und Gasstufen-Seiten',
+    relatedGasMarkDesc: '— für europäische Rezepte mit °C-Angabe, Umluft-Temperatur oder Gasstufe.',
     relatedReverseLabel: 'Heißluftfritteuse-zu-Ofen-Umrechner',
     relatedReverseDesc: '— die umgekehrte Richtung, für die Fälle, in denen der Ofen die bessere Wahl ist.',
     relatedConvectionLabel: "Umluft-zu-Heißluftfritteuse-Umrechner",

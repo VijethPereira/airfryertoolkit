@@ -175,7 +175,7 @@ const es: Dictionary = {
     reverseCards: [
       { title: 'Freidora de aire → Horno', desc: 'Cocinas para muchos o la cesta está ocupada. Vuelve al horno.' },
       { title: 'Freidora de aire → Convección', desc: 'Mismo principio de ventilador, cavidad más grande. Añade tiempo, no temperatura.' },
-      { title: '°F / °C / nivel de gas', desc: 'Conversión directa de temperatura para recetas del Reino Unido, la UE y EE. UU.' },
+      { title: '°C y nivel de gas → Freidora de aire', desc: 'Recetas europeas: convencional, con ventilador o nivel de gas, convertidos en un paso.' },
       { title: 'Tabla de conversión imprimible', desc: 'Tabla completa en °F y °C para pegar en el refrigerador. Una hoja, sin registro por correo.' },
     ],
     frozenTeaser: {
@@ -636,8 +636,8 @@ const es: Dictionary = {
     relatedConverterLabel: 'Conversor de horno a freidora de aire',
     relatedConverterDesc:
       '— la herramienta en vivo, se ajusta por tipo de alimento y cesta vs. tipo horno, con el límite máximo al que apuntan las filas con cruz de esta tabla.',
-    relatedGasMarkLabel: 'Conversor de °F / °C / nivel de gas',
-    relatedGasMarkDesc: '— una conversión directa de temperatura para recetas del Reino Unido, la UE y EE. UU.',
+    relatedGasMarkLabel: 'Páginas de °C y nivel de gas',
+    relatedGasMarkDesc: '— para recetas europeas que indican °C, la temperatura con ventilador o el nivel de gas.',
     relatedReverseLabel: 'Conversor de freidora de aire a horno',
     relatedReverseDesc: '— la dirección inversa, para cuando el horno es la mejor opción.',
     relatedConvectionLabel: "Conversor de convección a freidora de aire",

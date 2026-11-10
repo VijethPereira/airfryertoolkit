@@ -6,7 +6,7 @@ import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locale
 import { localizedPath } from '../i18n/utils';
 import { FOODS, computeAirFryerSetting, formatTempAdjustment, ovenMarkFor, type FoodKey } from '../lib/converter';
 import { TEMP_STEPS, TIME_STEPS } from '../lib/chart-data';
-import { tempLandingSlug } from '../lib/temp-landings';
+import { tempLandingSlug, cTempLandingSlug } from '../lib/temp-landings';
 import { LIVE_PAGES } from '../site.config';
 
 interface Props {
@@ -51,7 +51,7 @@ const workedExampleBody = dict.workedExampleTemplate
 const [ceilingBefore, ceilingAfter] = dict.ceilingNoteTemplate.split('{link}');
 
 const converterHref = localizedPath(locale, '/oven-to-air-fryer');
-const gasMarkSlug = '/fahrenheit-celsius-gas-mark';
+const gasMarkSlug = cTempLandingSlug(180);
 const gasMarkLive = LIVE_PAGES.has(gasMarkSlug);
 const gasMarkHref = localizedPath(locale, gasMarkSlug);
 const reverseSlug = '/air-fryer-to-oven';

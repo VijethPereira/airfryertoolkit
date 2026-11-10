@@ -175,7 +175,7 @@ const pt: Dictionary = {
     reverseCards: [
       { title: 'Air fryer → Forno', desc: 'Cozinhando para muitas pessoas, ou o cesto está ocupado. Volte para o forno.' },
       { title: 'Air fryer → Convecção', desc: 'Mesmo princípio de ventilação, cavidade maior. Adiciona tempo, não temperatura.' },
-      { title: '°F / °C / nível de gás', desc: 'Conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.' },
+      { title: '°C e nível de gás → Air fryer', desc: 'Receitas europeias: convencional, com ventilador ou nível de gás, convertidos de uma vez.' },
       { title: 'Tabela de conversão para imprimir', desc: 'Tabela completa em °F e °C para colar na geladeira. Uma página, sem cadastro por e-mail.' },
     ],
     frozenTeaser: {
@@ -636,8 +636,8 @@ const pt: Dictionary = {
     relatedConverterLabel: 'Conversor de forno para air fryer',
     relatedConverterDesc:
       '— a ferramenta ao vivo, ajusta por tipo de alimento e cesto vs. tipo forno, com o limite máximo para o qual as linhas com cruz desta tabela apontam.',
-    relatedGasMarkLabel: 'Conversor de °F / °C / nível de gás',
-    relatedGasMarkDesc: '— uma conversão direta de temperatura para receitas do Reino Unido, da UE e dos EUA.',
+    relatedGasMarkLabel: 'Páginas de °C e nível de gás',
+    relatedGasMarkDesc: '— para receitas europeias que indicam °C, a temperatura com ventilador ou o nível de gás.',
     relatedReverseLabel: 'Conversor de air fryer para forno',
     relatedReverseDesc: '— o sentido inverso, para quando o forno é a melhor escolha.',
     relatedConvectionLabel: "Conversor de convecção para air fryer",
