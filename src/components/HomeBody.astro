@@ -900,14 +900,20 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   .callout-band {
     background: var(--site-accent);
     border-radius: var(--radius-xl);
-    margin: var(--site-section-gap) -24px;
+    margin: var(--site-section-gap) calc(24px - var(--site-content-width) / 2);
     padding: 56px 48px;
+    max-width: var(--site-content-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: 767px) {
     .callout-band {
-      margin: var(--site-section-gap) -24px;
+      margin: var(--site-section-gap) calc(16px - var(--site-content-width) / 2);
       padding: 32px 24px;
+      max-width: var(--site-content-width);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
