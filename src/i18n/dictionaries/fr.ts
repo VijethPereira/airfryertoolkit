@@ -217,6 +217,12 @@ const fr: Dictionary = {
     brandCardSpec: 'Jusqu\u2019à {MAX_F}°F · {N} modèles',
     modelTableSpec: '{N} modèles sourcés',
     chartStrip: ['Multiplicateurs par aliment', 'Panier et type four', '°F · °C · thermostat', 'Gratuit — sans compte'],
+    frozenCallout: {
+      heading: 'Mode aliments surgel�s',
+      desc: 'Les instructions du paquet sont pour fours classiques. Gardez la temp�rature, r�duisez le temps - la friteuse fait le reste.',
+      cta: 'Ouvrir mode surgel�s',
+    },
+    flagshipBadge: 'Principal',
     guide: [
       {
         heading: 'Qu’est-ce qu’un convertisseur four vers friteuse à air ?',

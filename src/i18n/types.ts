@@ -330,6 +330,8 @@ export interface Dictionary {
     brandCards: Record<'ninja' | 'cosori' | 'philips' | 'instant' | 'modelMaxTemp', { title: string; desc: string }>;
     brandCardSpec: string;
     modelTableSpec: string;
+    frozenCallout: { heading: string; desc: string; cta: string };
+    flagshipBadge: string;
     chartStrip: [string, string, string, string];
     guide: { heading: string; body: string }[];
   };
