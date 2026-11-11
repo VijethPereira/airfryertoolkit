@@ -106,9 +106,9 @@ const footerLinks = [
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    padding: 6px 16px;
-    background: var(--site-bg);
-    border-radius: 999px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
     font-size: 13px;
   }
 
@@ -121,8 +121,12 @@ const footerLinks = [
     font-weight: 600;
   }
 
+  .sister-pill a:hover {
+    color: var(--site-on-panel-muted);
+  }
+
   .sep {
-    color: var(--site-hairline);
+    color: var(--site-on-panel-muted);
   }
 
   .copyright {
