@@ -1,6 +1,7 @@
 ---
 import Faq from './Faq.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -70,6 +71,8 @@ const frozenHref = localizedPath(locale, frozenSlug);
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale={locale} translatedSlug="/chart" />
 
     <header class="chart-header">
       <a href={converterHref} class="back-link">&larr; {dict.backLink}</a>

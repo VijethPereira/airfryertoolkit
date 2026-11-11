@@ -6,6 +6,7 @@
  */
 import Faq from './Faq.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -51,6 +52,9 @@ const links = [
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale={locale} translatedSlug="/preheat" />
+
     <header class="tool-header">
       <a href={localizedPath(locale, '/')} class="back-link" aria-label={all.cost.backLink}>&larr; {all.cost.backLink}</a>
       <h1>{c.heading}</h1>

@@ -212,6 +212,169 @@ input[type='number']::-webkit-inner-spin-button {
   }
 }
 
+/* Shared button styles — from DESIGN.md Section 5 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-md);
+  background: var(--site-accent);
+  color: var(--site-text);
+  font-family: var(--font-archivo);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  min-height: 44px;
+}
+
+.btn-primary:hover {
+  background: var(--site-accent-hover);
+  color: var(--site-text);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--site-text);
+  font-family: var(--font-archivo);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border: 1px solid var(--site-rule);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  min-height: 44px;
+}
+
+.btn-secondary:hover {
+  background: var(--site-bg-hover);
+  border-color: var(--site-border);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-md);
+  background: var(--site-text);
+  color: var(--site-on-panel);
+  font-family: var(--font-archivo);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  min-height: 44px;
+}
+
+.btn-dark:hover {
+  background: var(--site-text-body);
+}
+
+/* Text links — from DESIGN.md Section 5 */
+.text-link {
+  color: var(--site-accent-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: text-decoration 0.15s ease;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Breadcrumbs — from DESIGN.md Section 5 */
+.breadcrumb {
+  font-family: var(--font-archivo);
+  font-size: 13px;
+  color: var(--site-text-muted);
+  line-height: 1.5;
+}
+
+.breadcrumb a {
+  color: var(--site-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--site-text);
+}
+
+.breadcrumb-current {
+  color: var(--site-text);
+  font-weight: 600;
+}
+
+.breadcrumb-sep {
+  color: var(--site-rule);
+  margin: 0 4px;
+}
+
+/* Focus rings — from DESIGN.md Section 5 */
+:focus-visible {
+  outline: 3px solid rgba(238, 136, 79, 0.45);
+  outline-offset: 2px;
+}
+
+/* Back links */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-archivo);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--site-accent-text);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--site-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Related links — from DESIGN.md Section 5 */
+.related-link {
+  font-family: var(--font-archivo);
+  font-size: 15px;
+  color: var(--site-text-muted);
+  margin: 8px 0;
+}
+
+.related-link a {
+  color: var(--site-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.related-link a:hover {
+  color: var(--site-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Shared layout for content pages (About, Contact, Privacy Policy, Terms) */
 .page-main {
   padding: 48px 0 96px;

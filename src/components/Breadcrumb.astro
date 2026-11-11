@@ -1,0 +1,72 @@
+---
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import { breadcrumbTrail } from '../lib/breadcrumbs';
+
+interface Props {
+  locale?: LocaleCode;
+  /** Path (starting with "/") of this page's translated slug, e.g. "/" or "/oven-to-air-fryer" */
+  translatedSlug: string;
+}
+
+const { locale = DEFAULT_LOCALE, translatedSlug } = Astro.props;
+const trail = breadcrumbTrail(locale, translatedSlug);
+---
+
+{trail && trail.length > 1 && (
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      {trail.map((crumb, i) => (
+        <li class:list={['breadcrumb-item', { current: i === trail.length - 1 }]}>
+          {i > 0 && <span class="breadcrumb-sep" aria-hidden="true">›</span>}
+          {i === trail.length - 1 ? (
+            <span class="breadcrumb-current">{crumb.name}</span>
+          ) : (
+            <a href={localizedPath(locale, crumb.path)}>{crumb.name}</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  @reference '../styles/global.css';
+
+  .breadcrumb {
+    font-family: var(--font-archivo);
+    font-size: 13px;
+    color: var(--site-text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb a {
+    color: var(--site-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--site-text);
+  }
+
+  .breadcrumb-current {
+    color: var(--site-text);
+    font-weight: 600;
+  }
+
+  .breadcrumb-sep {
+    color: var(--site-rule);
+    margin: 0 4px;
+  }
+</style>

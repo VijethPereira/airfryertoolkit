@@ -2,6 +2,7 @@
 import Faq from './Faq.astro';
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import type { BrandKey } from '../data/models';
 import { PRESETS } from '../data/presets';
 import { brands as dict } from '../i18n/dictionaries/brands/en';
@@ -26,6 +27,9 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale="en" translatedSlug={`/${brand}`} />
+
     <header class="tool-header">
       <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
       <h1>{copy.heading}</h1>

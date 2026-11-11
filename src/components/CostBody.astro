@@ -1,6 +1,7 @@
 ---
 import Faq from './Faq.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -69,6 +70,9 @@ const tariffRows = locale === 'en' ? Object.values(TARIFFS) : [tariff];
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale={locale} translatedSlug="/air-fryer-vs-oven-cost" />
+
     <header class="tool-header">
       <a href={localizedPath(locale, '/')} class="back-link" aria-label={c.backLink}>&larr; {c.backLink}</a>
       <h1>{c.heading}</h1>

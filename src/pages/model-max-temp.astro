@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
 import Faq from '../components/Faq.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import siteConfig from '../site.config.ts';
 import { LIVE_PAGES } from '../site.config';
 import { MODELS, type BrandKey, type ModelType } from '../data/models';
@@ -81,8 +82,9 @@ const jsonLd = {
 };
 ---
 
-<Layout title={mt.metaTitle} description={fill(mt.metaDescription)} canonical={url} keywords={mt.metaKeywords} jsonLd={jsonLd} breadcrumbSlug={MODEL_MAX_TEMP_PATH}>
+<Layout title={mt.metaTitle} description={fill(mt.metaDescription)} canonical={url} keywords={mt.metaKeywords} jsonLd={jsonLd} translatedSlug={MODEL_MAX_TEMP_PATH}>
   <SiteNav currentPath={MODEL_MAX_TEMP_PATH} />
+  <Breadcrumb locale="en" translatedSlug={MODEL_MAX_TEMP_PATH} />
   <main class="page-main">
     <div class="wrap">
       <header class="tool-header">
