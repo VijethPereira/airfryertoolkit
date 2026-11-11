@@ -1,398 +1,347 @@
-# Getanchor — Style Reference
-> Warm terracotta on sun-bleached cream.
+# Air Fryer Toolkit — Design System
+> Cookbook calm, tool-grade answers. Warm cream, serif headlines, one terracotta accent, and the result on a dark panel.
 
-**Theme:** light
+**Theme:** light, with a dark mode (`html.dark`)
+**Direction:** "A · Editorial" (chosen 2026-11-10; mockup on the claude.ai canvas *Air Fryer Toolkit Redesign*, artboard `Main.dc.html`)
+**Replaces:** the "Getanchor" style reference (4px cards, pill buttons, Archivo-only headlines)
 
-Anchor's visual system reads as a warm editorial workspace: a sun-bleached cream canvas, one quiet terracotta accent, and type that feels set rather than styled. The dominant page surface is never pure white — it sits in the #f0e9e5 to #e3d7cd warm-cream range, which makes white product cards look lifted off the page like paper on paper. Color is rationed: roughly 99% of every screen is neutral, and the single warm orange (#ee884f) only fires on the primary action, earning attention by scarcity. Components stay flat and light — pill buttons, 4px-radius cards, hairline borders, and shadows so thin they read as paper grain rather than elevation. The tone is confident and unhurried, closer to a printed quarterly than a dashboard.
+The site should read like a well-set cookbook page that happens to contain a precise instrument. The canvas is a warm cream, never pure white. Headlines are a soft serif at regular weight; everything you read or tap is Archivo. Colour is rationed: almost every pixel is cream, beige or ink, and terracotta `#ee884f` appears only on the primary action, the result label and one full-width band per page. The converter's **result** is the darkest, strongest object on the screen: a dark ink panel with a large serif number. That's the product, so it gets the visual weight.
 
-## Tokens — Colors
+This file describes airfryertoolkit only. It borrows structure from editorial product sites, not anyone's brand: no other company's colours, fonts, logos or marks go into this site.
 
-| Name | Value | Token | Role |
-|------|-------|-------|------|
-| Ink | `#1e1e1e` | `--color-ink` | Body text, headings, primary borders, icon strokes — the dominant neutral that carries almost all type and structural lines |
-| Cream Canvas | `#e3d7cd` | `--color-cream-canvas` | Page background and deepest warm surface — the base tone of the entire site |
-| Warm White | `#f0e9e5` | `--color-warm-white` | Primary card and section surface, nav background, soft fills |
-| Paper White | `#f5f2f0` | `--color-paper-white` | Button hover surfaces and elevated neutral blocks, slightly cooler than Warm White |
-| Pure White | `#ffffff` | `--color-pure-white` | Top-level product card surfaces and modal panels that need to float above cream |
-| Sand Border | `#c9c9c7` | `--color-sand-border` | Subtle warm-gray dividers and disabled controls |
-| Stone Text | `#767676` | `--color-stone-text` | Secondary and helper text, muted labels, description copy |
-| Charcoal | `#000000` | `--color-charcoal` | Pure black for SVG icon fills in dark contexts only |
-| Terracotta | `#ee884f` | `--color-terracotta` | Primary action button fill, the one chromatic accent — warm orange against cream creates urgency without aggression |
+---
 
-## Tokens — Typography
+## 1. Non-negotiables (site rules that outrank everything below)
 
-### Archivo — Single typeface system. Weight 400 carries body, captions, and descriptions; weight 600 is reserved for headings, nav items, and button labels. Archivo's geometric warmth matches the cream palette — its straight-sided 'A' and open apertures read as set type, not screen type. · `--font-archivo`
-- **Substitute:** Inter, Manrope, or DM Sans
-- **Weights:** 400, 600
-- **Sizes:** 11px, 13px, 14px, 15px, 16px, 18px, 36px, 44px, 52px, 68px
-- **Line height:** 1.20–1.50 for body, 0.80–1.10 for display
-- **Letter spacing:** -0.03em on display and headings (36–68px), -0.01em on body and subheadings (13–18px), 0.06em on uppercase caption labels (11px)
-- **OpenType features:** `"ss01" on`
-- **Role:** Single typeface system. Weight 400 carries body, captions, and descriptions; weight 600 is reserved for headings, nav items, and button labels. Archivo's geometric warmth matches the cream palette — its straight-sided 'A' and open apertures read as set type, not screen type.
+- **One chromatic accent: terracotta `#ee884f`.** Never blue or violet (those are the sister sites, quickmeasuretool and snapimagetools). No second accent.
+- **No emoji anywhere.** Geometric inline SVG marks only.
+- **Live output.** No Calculate button on any tool.
+- **Ads in dead zones only**, after the result, never over or above a tool. Unfilled ad slots collapse (`ins.adsbygoogle[data-ad-status="unfilled"]`).
+- **Contrast:** body text ≥ 4.5:1, large text (≥ 24px) ≥ 3:1, input borders and focus rings ≥ 3:1. Every pair in this file has been checked (Section 3.4).
+- **Tap targets ≥ 44px**, tested at 375px and 412–430px.
+- **No email gates, interstitials or popups.**
+- Numbers never typed into copy (see `competitor-analysis.md` Section 6). Design never changes that.
 
-### Type Scale
+---
 
-| Role | Size | Line Height | Letter Spacing | Token |
-|------|------|-------------|----------------|-------|
-| caption | 11px | 1.4 | 0.66px | `--text-caption` |
-| body | 15px | 1.5 | -0.15px | `--text-body` |
-| subheading | 18px | 1.4 | -0.18px | `--text-subheading` |
-| heading-sm | 36px | 1.2 | -1.08px | `--text-heading-sm` |
-| heading | 44px | 1.1 | -1.32px | `--text-heading` |
-| heading-lg | 52px | 1 | -1.56px | `--text-heading-lg` |
-| display | 68px | 0.9 | -2.04px | `--text-display` |
+## 2. Typography
 
-## Tokens — Spacing & Shapes
+### 2.1 Families
 
-**Base unit:** 4px
+| Role | Family | Weights | Token |
+|---|---|---|---|
+| Display (h1–h3, the result number, card titles) | **Fraunces** (Google Fonts, variable, `opsz` 9–144) | 400, 500 | `--font-display` |
+| Everything else: body, labels, nav, buttons, inputs, tables | **Archivo** (Google Fonts) | 400, 500, 600 | `--font-sans` |
 
-**Density:** comfortable
-
-### Spacing Scale
-
-| Name | Value | Token |
-|------|-------|-------|
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
-| 12 | 12px | `--spacing-12` |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 24 | 24px | `--spacing-24` |
-| 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
-| 40 | 40px | `--spacing-40` |
-| 48 | 48px | `--spacing-48` |
-| 52 | 52px | `--spacing-52` |
-| 64 | 64px | `--spacing-64` |
-| 80 | 80px | `--spacing-80` |
-| 88 | 88px | `--spacing-88` |
-| 120 | 120px | `--spacing-120` |
-| 128 | 128px | `--spacing-128` |
-
-### Border Radius
-
-| Element | Value |
-|---------|-------|
-| nav | 4px |
-| cards | 4px |
-| icons | 4800px (pill containers) |
-| inputs | 4px |
-| buttons | 4800px (full pill) |
-
-### Shadows
-
-| Name | Value | Token |
-|------|-------|-------|
-| subtle | `rgba(0, 0, 0, 0.01) 0px 4px 1px 0px, rgba(0, 0, 0, 0.04) ...` | `--shadow-subtle` |
-
-### Layout
-
-- **Page max-width:** 1200px
-- **Section gap:** 80-120px
-- **Card padding:** 24px
-- **Element gap:** 24px
-
-## Components
-
-### Primary CTA Button (Terracotta Pill)
-**Role:** Hero and section-level conversion — Book a demo, Get started
-
-Fill #ee884f, text white, Archivo 600 at 14-15px, fully pill-shaped at 4800px radius, 8px 24px padding. No border, no shadow. Carries the only chromatic color in the system — by scarcity it reads as the single confident action.
-
-### Dark CTA Button (Ink Pill)
-**Role:** Inverse primary action on cream or white surfaces
-
-Fill #1e1e1, text white, Archivo 600 at 14px, pill radius 4800px, 8px 24px padding. Used for the header "Book a demo" button. Sits one step below Terracotta in the action hierarchy.
-
-### Ghost Nav Button
-**Role:** Header navigation items — Product, Use cases, Security, About, Blog
-
-No fill, no border. Text #1e1e1, Archivo 400 at 14px. No background change on hover; underline or chevron indicates expandable. Maximum restraint in the nav.
-
-### Section Eyebrow Label
-**Role:** Tiny uppercase label above section headlines
-
-Archivo 600 at 11px, letter-spacing 0.06em, color #1e1e1 or #767676. Sets the editorial tone — the same scale a magazine uses for kicker copy.
-
-### Editorial Headline
-**Role:** Primary section and hero headlines
-
-Archivo 600 at 44–68px, color #1e1e1, tight tracking at -0.03em, line-height 0.9–1.1. Sizes down to 36px for sub-section headings. The weight-600 choice against a cream background makes headlines feel printed.
-
-### Product Card (Hero Mock)
-**Role:** The floating opportunities/data card on the hero right panel
-
-Pure white #ffffff surface, 4px radius, subtle three-layer shadow (rgba 0.01/0.04/0.06 at 1-4px offsets). Sits on a warm peach gradient panel. Internal padding 24px, table-style rows with #f5f2f0 alternating fills.
-
-### Tabbed Feature Section
-**Role:** Knowledge Management, Response Automation, Document Intelligence, Collaboration
-
-Left sidebar lists tabs in 11px Archivo 600 uppercase with 0.06em tracking; active tab has a small terracotta dot prefix. Right panel holds a 4px-radius #ffffff card on a cream-tinted diagram background.
-
-### AI Generation Input
-**Role:** Prompt and status interface inside feature demos
-
-Light cream #f0e9e5 container with 4px radius. Input text in Archivo 400 #1e1e1e. Right-side action button is a Pill in dark #1e1e1 fill with white text. Status pill below: small dot + 'Searching sources' in #767676.
-
-### Status Badge (Pill)
-**Role:** In-flow status indicators — Generating..., Something
-
-Fully pill-shaped (4800px radius), small Archivo 400 at 13px, with a leading dot in the same hue. Neutral variants use #767676 text on #f0e9e5; accent variants use terracotta.
-
-### Knowledge Hub Diagram Card
-**Role:** Integration/source visual in feature sections
-
-#f0e9e5 background, 4px radius, centered diagram. Shows source icons in 4px white pill tiles connected to a central Anchor hub tile, then output destinations. Very flat, no shadow on this card.
-
-### Feature Sub-Item Card
-**Role:** Four-up grid items below a feature card — 'Connect all your knowledge', etc.
-
-Warm white #f0e9e5 surface, 4px radius, 24px padding, Archivo 400 at 15px title and #767676 description. No border, no shadow. Quiet by design.
-
-### Partner Logo Bar
-**Role:** Social-proof strip — Papaya Global, Coralogix, Deel, etc.
-
-Horizontal row on cream canvas, 80-120px section gap above and below. Logos in #1e1e1, no color treatment, evenly spaced. Above-bar eyebrow: "Trusted by leading sales, solutions, and security teams" in 11px uppercase.
-
-### Search/Text Input
-**Role:** Inline search or generation field
-
-White #ffffff background, 1px #c9c9c7 border, 4px radius, 12-16px padding. Placeholder in #767676. Optional leading icon in #1e1e1e.
-
-## Do's and Don'ts
-
-### Do
-- Use only #ee884f for primary action fills — never introduce a second chromatic accent
-- Set headlines in Archivo 600 with -0.03em tracking; do not use 400 for display sizes
-- Use the warm cream surface stack (#e3d7cd → #f0e9e5 → #f5f2f0 → #ffffff) for elevation — never pure white as the page base
-- Apply 4800px radius to all buttons, badges, and icon containers — pill shape is signature
-- Use 4px radius for all cards, inputs, and nav containers
-- Keep shadows under 4px blur with opacity ≤ 0.06 — shadows should read as paper grain, not depth
-- Set eyebrows and nav labels in 11px Archivo 600 with 0.06em letter-spacing in uppercase
-
-### Don't
-- Do not add a second accent color — the entire chromatic story is one warm orange
-- Do not use pure black #000000 for body text; use #1e1e1
-- Do not round cards to 8px, 12px, or 16px — the 4px card + 4800px button contrast is the system
-- Do not apply heavy drop shadows or colored glows; the system is nearly flat
-- Do not center body copy in paragraphs — keep paragraphs left-aligned
-- Do not use weight 700 or 800 — Archivo only ships 400 and 600 in this system
-- Do not mix cream and pure-white backgrounds within a single section; pick one surface tone and commit
-
-## Surfaces
-
-| Level | Name | Value | Purpose |
-|-------|------|-------|---------|
-| 0 | Cream Canvas | `#e3d7cd` | Deepest page background, sets warm tone |
-| 1 | Warm White | `#f0e9e5` | Default section and card surface |
-| 2 | Paper White | `#f5f2f0` | Lighter neutral block, button hover |
-| 3 | Pure White | `#ffffff` | Elevated product cards that need to float above the warm layers |
-
-## Elevation
-
-- **Product Card (Hero):** `0px 1px 1px 0px rgba(0,0,0,0.06), 0px 2px 1px 0px rgba(0,0,0,0.04), 0px 4px 1px 0px rgba(0,0,0,0.01)`
-- **Navigation Bar:** `0px 1px 1px 0px rgba(0,0,0,0.06), 0px 2px 1px 0px rgba(0,0,0,0.04), 0px 4px 1px 0px rgba(0,0,0,0.01)`
-
-## Imagery
-
-Imagery is minimal and product-led: the hero right panel uses a warm peach-to-cream gradient as a stage for a single white product card. Subsequent sections replace photography with UI mockups — knowledge diagrams, AI generation interfaces, opportunity tables. No lifestyle photography, no stock imagery, no illustration. The product IS the hero. Partner logos in the social-proof strip appear as flat monochrome #1e1e1 marks, no color treatment, evenly spaced. Icon style throughout is a mix of minimal outlined line icons in the nav and filled brand logos in integration diagrams.
-
-## Layout
-
-Max-width ~1200px centered content with full-bleed cream background. Hero is a two-column split: text-left (eyebrow, headline, description, CTA) and visual-right (product card on a warm gradient panel). Below the hero, a centered partner-logo bar introduces a three-act body. The main body alternates between a two-column intro (eyebrow tabs on the left, headline + description on the right) and a single full-width media card underneath — Knowledge Management, Response Automation, etc. Section gaps are generous (80-120px), and vertical rhythm is built on a 24px base. Navigation is a flat top bar with no sticky behavior visible — simple logo left, centered nav, single dark CTA right. Content density is low and editorial, never dashboard-busy.
-
-## Agent Prompt Guide
-
-Quick Color Reference
-• text: #1e1e1e
-• background (page): #e3d7cd or #f0e9e5
-• surface (card): #ffffff or #f5f2f0
-• border: #c9c9c7 or #f0e9e5
-• accent: #ee884f
-• primary action: #ee884f (filled action)
-
-3-5 Example Component Prompts
-
-1. Create a hero section. Page background #f0e9e5. Eyebrow label in Archivo 600, 11px, letter-spacing 0.66px, color #1e1e1e, uppercase. Headline in Archivo 600, 68px, color #1e1e1e, letter-spacing -2.04px, line-height 0.9. Body description in Archivo 400, 16px, color #1e1e1e. primary action: #ee884f (filled action)
-
-2. Create a tabbed feature section. Cream #f0e9e5 page background. Left sidebar: tab list in 11px Archivo 600 uppercase, letter-spacing 0.66px, color #767676, with active tab prefixed by a 6px terracotta #ee884f dot. Right column: headline in Archivo 600, 36px, color #1e1e1e, letter-spacing -1.08px; subhead in Archivo 400, 18px, color #767676. Below: a white #ffffff card with 4px radius containing a centered integration diagram (source tiles in 4px white pills, central hub tile, destination tiles).
-
-3. Create an AI generation interface card. Card background #f0e9e5, 4px radius, 24px padding. Top: a #ffffff input row with 1px #c9c9c7 border, 4px radius, 16px padding, placeholder in #767676. Right-aligned dark pill action: #1e1e1e fill, white text, 4800px radius, Archivo 600 14px, 8px 16px padding. Below: a status row with a small terracotta dot + 'Searching sources' in Archivo 400, 13px, #767676.
-
-4. Create a partner logo bar. Cream #e3d9cd page background. Centered eyebrow in 11px Archivo 600 uppercase, letter-spacing 0.66px, #1e1e1e. Below: a single horizontal row of 6-8 logos in monochrome #1e1e1e, evenly spaced, 80-120px section gap top and bottom. No card, no border, no shadow.
-
-5. Create a four-up feature grid. Section background #f0e9e5. Each card: background #f0e9e5 (sits one tone lighter than the page if the page is #e3d7cd), 4px radius, 24px padding, no border, no shadow. Title in Archivo 600, 15px, #1e1e1e. Description in Archivo 400, 15px, #767676. 24px gap between cards.
-
-## Gradient & Atmosphere
-
-The hero right panel uses a soft warm gradient from a deeper peach through to cream — this is the only place in the system where a non-solid color appears, and it exists purely to stage the product card. Reuse the gradient for any single full-bleed media container (product mockup, feature demo) but never as a section background or button fill. Approximate value: linear-gradient(180deg, #e8a87a 0%, #f0c9a3 40%, #f0e9e5 100%).
-
-## Similar Brands
-
-- **Linear** — Same single-accent restraint, dark ink on warm neutral, Archivo-family geometric type, and pill-shaped primary actions
-- **Notion** — Shared editorial whitespace, warm off-white canvas rather than pure white, and UI-as-hero product cards floating on the page
-- **Framer** — Similar generous section gaps, monochrome base with one warm chromatic punctuation, and pill CTA on cream
-- **Vercel** — Confident oversized headlines with tight tracking, quiet neutrals, and a single action color used sparingly
-- **Raycast** — Geometric sans (Archivo/Inter family) with weight-600 headlines, flat surfaces, and minimal shadow language
-
-## Quick Start
-
-### CSS Custom Properties
-
-```css
-:root {
-  /* Colors */
-  --color-ink: #1e1e1e;
-  --color-cream-canvas: #e3d7cd;
-  --color-warm-white: #f0e9e5;
-  --color-paper-white: #f5f2f0;
-  --color-pure-white: #ffffff;
-  --color-sand-border: #c9c9c7;
-  --color-stone-text: #767676;
-  --color-charcoal: #000000;
-  --color-terracotta: #ee884f;
-
-  /* Typography — Font Families */
-  --font-archivo: 'Archivo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  /* Typography — Scale */
-  --text-caption: 11px;
-  --leading-caption: 1.4;
-  --tracking-caption: 0.66px;
-  --text-body: 15px;
-  --leading-body: 1.5;
-  --tracking-body: -0.15px;
-  --text-subheading: 18px;
-  --leading-subheading: 1.4;
-  --tracking-subheading: -0.18px;
-  --text-heading-sm: 36px;
-  --leading-heading-sm: 1.2;
-  --tracking-heading-sm: -1.08px;
-  --text-heading: 44px;
-  --leading-heading: 1.1;
-  --tracking-heading: -1.32px;
-  --text-heading-lg: 52px;
-  --leading-heading-lg: 1;
-  --tracking-heading-lg: -1.56px;
-  --text-display: 68px;
-  --leading-display: 0.9;
-  --tracking-display: -2.04px;
-
-  /* Typography — Weights */
-  --font-weight-regular: 400;
-  --font-weight-semibold: 600;
-
-  /* Spacing */
-  --spacing-unit: 4px;
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-52: 52px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-88: 88px;
-  --spacing-120: 120px;
-  --spacing-128: 128px;
-
-  /* Layout */
-  --page-max-width: 1200px;
-  --section-gap: 80-120px;
-  --card-padding: 24px;
-  --element-gap: 24px;
-
-  /* Border Radius */
-  --radius-md: 4px;
-  --radius-full: 4800px;
-
-  /* Named Radii */
-  --radius-nav: 4px;
-  --radius-cards: 4px;
-  --radius-icons: 4800px (pill containers);
-  --radius-inputs: 4px;
-  --radius-buttons: 4800px (full pill);
-
-  /* Shadows */
-  --shadow-subtle: rgba(0, 0, 0, 0.01) 0px 4px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px;
-
-  /* Surfaces */
-  --surface-cream-canvas: #e3d7cd;
-  --surface-warm-white: #f0e9e5;
-  --surface-paper-white: #f5f2f0;
-  --surface-pure-white: #ffffff;
-}
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
 ```
 
-### Tailwind v4
+Fallbacks: `Fraunces, Georgia, 'Times New Roman', serif` and `Archivo, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif`. Keep `font-feature-settings: 'ss01' on` on Archivo.
+
+### 2.2 Rules
+
+- Display is **Fraunces 400**, never bold (500 only for the result number on small screens if 400 looks thin). Negative tracking on every display size.
+- **One italic terracotta-dark phrase per page at most** (the hero), set in Fraunces italic `#9e4a1a`. Never italic elsewhere.
+- Archivo 600 for labels, nav and buttons; 500 for input values; 400 for paragraphs. No 700+.
+- Eyebrows and section labels: Archivo 600, 12px, uppercase, `0.12em` tracking, muted colour.
+- Never set paragraphs in Fraunces. Never set inputs, tables or numbers inside tables in Fraunces (they need Archivo's tabular figures).
+- All languages (en/es/pt/fr/de) use the same families; both cover Latin Extended.
+
+### 2.3 Scale
+
+| Token | Family | Size | Line height | Tracking | Use |
+|---|---|---|---|---|---|
+| `--text-display` | Fraunces 400 | `clamp(42px, 6vw, 68px)` | 1.02 | -0.025em | Hero h1 |
+| `--text-heading` | Fraunces 400 | 40px (32px < 768px) | 1.1 | -0.02em | Section h2 |
+| `--text-heading-sm` | Fraunces 400 | 26px | 1.15 | -0.01em | Card titles, h3 |
+| `--text-result` | Fraunces 400 | 56px (44px < 768px) | 1.0 | -0.02em | The converter's answer |
+| `--text-lead` | Archivo 400 | 19px | 1.5 | 0 | Hero sub, intro paragraphs |
+| `--text-subheading` | Archivo 600 | 18px | 1.4 | -0.01em | List-row titles, table heads |
+| `--text-body` | Archivo 400 | 16px | 1.55 | 0 | Default body (was 15px) |
+| `--text-small` | Archivo 400 | 15px | 1.5 | 0 | Card descriptions, footnotes |
+| `--text-label` | Archivo 600 | 13px | 1.4 | 0 | Form labels |
+| `--text-eyebrow` | Archivo 600 | 12px | 1.4 | 0.12em, uppercase | Eyebrows, section labels, "Air fry at" |
+
+---
+
+## 3. Colour
+
+### 3.1 Light (default)
+
+| Name | Value | Token | Role |
+|---|---|---|---|
+| Ink | `#1e1e1e` | `--color-ink` | Headings, primary text, dark panels, footer, flagship card |
+| Body | `#3d3833` | `--color-body` | Lead paragraphs, card descriptions on beige |
+| Muted | `#5c5650` | `--color-muted` | Secondary text, eyebrows, helper text, units (°F, min). **Replaces `#767676`, which failed (3.8:1).** |
+| Canvas | `#f5efe9` | `--color-canvas` | Page background |
+| Band | `#efe6dd` | `--color-band` | Thin full-width strips (Common conversions rail, table header rows) |
+| Card | `#ebe2d9` | `--color-card` | Feature cards on canvas |
+| Paper | `#ffffff` | `--color-paper` | The converter card, brand cards, inputs' container |
+| Field | `#fbf8f5` | `--color-field` | Input fill inside a white card |
+| Segment | `#f2ebe4` | `--color-segment` | Segmented-control track (Basket / Oven-style) |
+| Hairline | `#e3d7cd` | `--color-hairline` | Dividers, card borders, header rule (decorative, not a control boundary) |
+| Rule | `#d9ccc0` | `--color-rule` | List-row dividers, secondary button outline |
+| Input border | `#8f8173` | `--color-input-border` | Text inputs and selects (3.8:1 on white, meets 1.4.11) |
+| Terracotta | `#ee884f` | `--color-accent` | Primary button fill, "Air fry at" label on dark, the frozen band, focus ring |
+| Terracotta hover | `#e57d42` | `--color-accent-hover` | Primary button hover |
+| Terracotta text | `#9e4a1a` | `--color-accent-text` | Text links and the hero italic phrase on light surfaces (bright terracotta is too light for text) |
+| Panel sub | `#c9bfb6` | `--color-on-dark-muted` | Secondary text on ink panels and the footer |
+| On dark | `#f5efe9` | `--color-on-dark` | Primary text on ink |
+
+### 3.2 Dark (`html.dark`)
+
+| Token | Value | Note |
+|---|---|---|
+| `--color-canvas` | `#1b1614` | unchanged from today |
+| `--color-band` | `#211b18` | |
+| `--color-card` | `#252120` | |
+| `--color-paper` | `#252120` | converter card |
+| `--color-field` | `#1f1a17` | |
+| `--color-segment` | `#2e2a27` | |
+| `--color-ink` (text) | `#f0e9e5` | |
+| `--color-body` | `#ddd4cd` | |
+| `--color-muted` | `#a89f99` | 6.9:1 on canvas (was `#9c9390`) |
+| `--color-hairline` | `#373230` | |
+| `--color-rule` | `#3f3935` | |
+| `--color-input-border` | `#7a6d64` | 3.2:1 on card |
+| `--color-accent` | `#ee884f` | |
+| `--color-accent-hover` | `#f49960` | |
+| `--color-accent-text` | `#f0a06f` | links on dark, 8.5:1 |
+| Result panel | `#2e2723` | in dark mode the panel is one step *lighter* than the page so it still reads as the object |
+| Footer | `#131110` | |
+
+### 3.3 Where terracotta is allowed (and nowhere else)
+
+1. Primary button fill (text on it is **ink**, never white: white is 2.5:1).
+2. The "Air fry at" eyebrow on the dark result panel.
+3. One full-width **callout band** per page (on the homepage: Frozen food mode).
+4. The logo mark.
+5. Focus rings (`0 0 0 3px rgba(238,136,79,0.45)` plus a 1px ink outline on light).
+6. The "Flagship" eyebrow on the dark flagship card.
+
+Links use `--color-accent-text` (`#9e4a1a`), not bright terracotta.
+
+### 3.4 Checked contrast pairs
+
+| Pair | Ratio |
+|---|---|
+| Ink on canvas | 14.6 |
+| Body on canvas | 10.2 |
+| Muted on canvas / band / card | 6.3 / 5.9 / 5.7 |
+| Link `#9e4a1a` on canvas / white | 5.3 / 6.1 |
+| Ink on terracotta (buttons, band) | 6.6 |
+| Terracotta on ink (result label) | 6.6 |
+| Panel sub on ink | 9.2 |
+| Input border on white / field | 3.8 / 3.6 |
+| Dark: text / muted / link on canvas | 14.9 / 6.9 / 8.5 |
+
+---
+
+## 4. Shape, spacing, elevation
+
+| Token | Value | Use |
+|---|---|---|
+| `--radius-sm` | 7px | Segment buttons inside the track |
+| `--radius-md` | 8px | Buttons, inputs, selects, language chip (**no pills any more**) |
+| `--radius-lg` | 12px | Feature cards, brand cards, the result panel |
+| `--radius-xl` | 16px | The converter card, the callout band |
+| `--radius-full` | 9999px | Status dots only |
+
+- Base unit 4px. Card padding 24–28px; converter card 28px; callout band 56px × 48px (32px × 24px under 768px).
+- Section rhythm: **88px** between major sections (56px under 768px). Within a section, 28px between heading row and content.
+- Container: `--site-max-width: 1200px` content width with 24px gutters (the header and footer may stay 1280px).
+- Elevation is **colour-block first**: cream → beige → white → ink. Shadows only on the converter card: `0 1px 2px rgba(30,30,30,0.04)`. No glows, no gradients (the old peach gradient is retired).
+
+---
+
+## 5. Components
+
+### Header
+Canvas background, 1px hairline bottom border, not sticky. Logo mark (28px) + "airfryertoolkit" in Archivo 600 17px. Nav links Archivo 500 15px ink; the current page underlined 2px terracotta-text offset 6px. Language chip: 1px rule border, 8px radius, muted text. Collapses at 900px (existing behaviour).
+
+### Buttons
+- **Primary:** terracotta fill, ink text, Archivo 600 15px, 8px radius, 13px × 22px, min-height 44px. Hover `--color-accent-hover`. One per view.
+- **Secondary:** transparent, ink text, 1px `#cdbfb2` border, same size.
+- **Dark:** ink fill, on-dark text. Used inside the terracotta band ("Go") and where a second strong action sits next to a primary.
+- **Text link:** `--color-accent-text`, underline on hover.
+
+### Converter card (every tool page and the homepage hero)
+White paper, 1px hairline, 16px radius, 28px padding, 18px gap.
+- **Inputs:** label above (Archivo 600 13px, body colour), field 48px tall, `--color-field` fill, 1px `--color-input-border`, 8px radius; value Archivo 500 20px; unit suffix (°F, min) muted 15px inside the field on the right.
+- **Segmented control** (Basket / Oven-style, °F / °C): `--color-segment` track, 4px padding, 10px radius; active segment white, Archivo 600, 1px shadow `0 1px 2px rgba(30,30,30,0.08)`; inactive transparent, muted, Archivo 500. Real `<button aria-pressed>`.
+- **Result panel** (`<output>`): ink fill, 12px radius, 22px × 24px padding. Eyebrow "Air fry at" in terracotta. The answer in Fraunces 56px on-dark, time in Archivo 600 22px beside it, then one line of panel-sub text (°C · gas mark · shake/flip). It updates live; it is the only dark object inside a light card.
+- Clamp warnings (model ceiling) sit under the panel as a beige note with a 6px terracotta dot, never as a red alert.
+
+### Common-conversions rail
+Full-width band strip with hairline top and bottom. Eyebrow left, then inline links: muted oven value → ink 600 air-fryer value. Wraps on mobile.
+
+### Feature cards (tool grid)
+`--color-card` beige, 12px radius, 28px padding, min-height 200px, no border. Title Fraunces 24–26px, description Archivo 15px body colour. Grid `repeat(auto-fit, minmax(240px, 1fr))`, 16px gap.
+- **Flagship card:** ink fill, on-dark text, terracotta "Flagship" eyebrow. Exactly one per grid.
+
+### List rows (secondary links: reverse tools, related links)
+No card. 1px rule top border on the group, 1px rule bottom per row, 24px vertical padding. Title Archivo 600 18px ink, description 15px muted. Use these where cards would make the page busy.
+
+### Callout band
+Full-width-in-container terracotta block, 16px radius, 56px × 48px padding, ink text. Fraunces heading 32–44px, Archivo 18px paragraph, and a form or dark button on the right. **One per page.** On tool pages it holds the next logical step (e.g. "Frozen? Use frozen mode").
+
+### Brand cards
+White paper, 1px hairline, 12px radius, 24px padding. Brand name Archivo 600 20px, spec line muted.
+
+### Tables (chart, per-food tables, model max-temp)
+Archivo only. Header row `--color-band`, Archivo 600 13px uppercase-free. Rows 1px hairline dividers, 12px × 16px cells, numbers right-aligned with `font-variant-numeric: tabular-nums`. Wide tables scroll inside an `overflow-x: auto` box. The clamped-row marker is a terracotta dot plus text, never colour alone.
+
+### FAQ (`Faq.astro`, `<details>`)
+1px rule dividers, question Archivo 600 18px, marker `+` drawn in CSS in muted colour, rotating to `×` when open (terracotta only on the open marker). Answer Archivo 16px body colour, 12px top gap. Prints expanded.
+
+### Breadcrumbs
+Archivo 13px muted, `›` separators, current page ink.
+
+### Footer
+Ink background (`#131110` in dark mode), panel-sub text, 56px padding. Logo + one line of positioning ("Free oven to air fryer conversions. No account, no email, no popups."), then link row in on-dark. Sister-site links stay plain text, no colour treatment.
+
+### Icons and marks
+Inline stroke SVG, 1.75px stroke, ink or muted, `aria-hidden="true"` when decorative. The logo mark stays as is (terracotta square, ink arrow).
+
+---
+
+## 6. Layout patterns
+
+- **Homepage:** header → hero (6/6: copy left, converter card right; stacks under 900px, copy first) → common-conversions rail → Convert grid (flagship dark + 3 beige) → Reverse & reference list rows → terracotta Frozen band → brand cards → guide copy → FAQ → dark footer.
+- **Tool page:** breadcrumb → Fraunces h1 + one-line direct answer → converter card full width (max 760px) → per-food table → copy column (max 68ch) → FAQ → related list rows → one callout band → footer.
+- **Preset / temperature / °C landing pages:** same as tool page; the direct-answer line sits directly under the h1 in Archivo 19px with the key numbers in ink 600.
+- Body copy column max **68ch**. Never centre paragraphs.
+- Surface sequence down a page alternates: canvas → band strip → canvas with beige cards → terracotta band → canvas → ink footer. Never two terracotta or two ink bands in a row.
+
+---
+
+## 7. Pinterest pins (1000 × 1500, `Pinterest Pin.dc.html` template)
+
+Same system: canvas `#f5efe9`, Fraunces 400 headline (~88px, -0.03em), Archivo for everything else, white converter card with the **dark result panel**, terracotta only on the CTA chip and the result eyebrow. Ink footer strip with the domain. One pin per new page; numbers from the engine.
+
+---
+
+## 8. Do / Don't
+
+**Do**
+- Make the result panel the strongest object on every tool page.
+- Use Fraunces 400 with negative tracking for every display line; Archivo for everything you read or tap.
+- Ration terracotta to the six places in 3.3.
+- Use beige cards on canvas and white only for the converter and brand cards.
+- Keep 88px between sections and 68ch for copy.
+
+**Don't**
+- Don't bring back pill buttons or 4px cards.
+- Don't bold Fraunces or set paragraphs, inputs or table numbers in it.
+- Don't put white text on terracotta.
+- Don't use `#767676`; use `#5c5650`.
+- Don't add gradients, glows, photos or illustrations of food.
+- Don't copy any other company's colours, typefaces or marks into the site.
+
+---
+
+## 9. Tokens (drop-in for `src/styles/global.css`)
+
+Keep the existing `--site-*` names so components change as little as possible; new tokens are added alongside.
 
 ```css
 @theme {
-  /* Colors */
   --color-ink: #1e1e1e;
-  --color-cream-canvas: #e3d7cd;
-  --color-warm-white: #f0e9e5;
-  --color-paper-white: #f5f2f0;
-  --color-pure-white: #ffffff;
-  --color-sand-border: #c9c9c7;
-  --color-stone-text: #767676;
-  --color-charcoal: #000000;
+  --color-body: #3d3833;
+  --color-muted: #5c5650;
+  --color-canvas: #f5efe9;
+  --color-band: #efe6dd;
+  --color-card: #ebe2d9;
+  --color-paper: #ffffff;
+  --color-field: #fbf8f5;
+  --color-segment: #f2ebe4;
+  --color-hairline: #e3d7cd;
+  --color-rule: #d9ccc0;
+  --color-input-border: #8f8173;
   --color-terracotta: #ee884f;
+  --color-terracotta-hover: #e57d42;
+  --color-terracotta-text: #9e4a1a;
 
-  /* Typography */
-  --font-archivo: 'Archivo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-archivo: 'Archivo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Typography — Scale */
-  --text-caption: 11px;
-  --leading-caption: 1.4;
-  --tracking-caption: 0.66px;
-  --text-body: 15px;
-  --leading-body: 1.5;
-  --tracking-body: -0.15px;
-  --text-subheading: 18px;
-  --leading-subheading: 1.4;
-  --tracking-subheading: -0.18px;
-  --text-heading-sm: 36px;
-  --leading-heading-sm: 1.2;
-  --tracking-heading-sm: -1.08px;
-  --text-heading: 44px;
-  --leading-heading: 1.1;
-  --tracking-heading: -1.32px;
-  --text-heading-lg: 52px;
-  --leading-heading-lg: 1;
-  --tracking-heading-lg: -1.56px;
-  --text-display: 68px;
-  --leading-display: 0.9;
-  --tracking-display: -2.04px;
+  --radius-sm: 7px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
 
-  /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-52: 52px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-88: 88px;
-  --spacing-120: 120px;
-  --spacing-128: 128px;
+:root {
+  --site-max-width: 1280px;
+  --site-content-width: 1200px;
+  --site-bg: #f5efe9;
+  --site-bg-deep: #efe6dd;
+  --site-bg-card: #ffffff;
+  --site-bg-feature: #ebe2d9;
+  --site-bg-field: #fbf8f5;
+  --site-bg-hover: #f2ebe4;
+  --site-text: #1e1e1e;
+  --site-text-body: #3d3833;
+  --site-text-muted: #5c5650;
+  --site-border: #e3d7cd;
+  --site-rule: #d9ccc0;
+  --site-input-border: #8f8173;
+  --site-accent: #ee884f;
+  --site-accent-hover: #e57d42;
+  --site-accent-text: #9e4a1a;
+  --site-panel: #1e1e1e;
+  --site-on-panel: #f5efe9;
+  --site-on-panel-muted: #c9bfb6;
+  --site-footer: #1e1e1e;
+  --site-nav-bg: #f5efe9;
+  --site-section-gap: 88px;
+}
 
-  /* Border Radius */
-  --radius-md: 4px;
-  --radius-full: 4800px;
+html.dark {
+  --site-bg: #1b1614;
+  --site-bg-deep: #211b18;
+  --site-bg-card: #252120;
+  --site-bg-feature: #252120;
+  --site-bg-field: #1f1a17;
+  --site-bg-hover: #2e2a27;
+  --site-text: #f0e9e5;
+  --site-text-body: #ddd4cd;
+  --site-text-muted: #a89f99;
+  --site-border: #373230;
+  --site-rule: #3f3935;
+  --site-input-border: #7a6d64;
+  --site-accent: #ee884f;
+  --site-accent-hover: #f49960;
+  --site-accent-text: #f0a06f;
+  --site-panel: #2e2723;
+  --site-on-panel: #f5efe9;
+  --site-on-panel-muted: #c9bfb6;
+  --site-footer: #131110;
+  --site-nav-bg: #1b1614;
+}
 
-  /* Shadows */
-  --shadow-subtle: rgba(0, 0, 0, 0.01) 0px 4px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px;
+@media (max-width: 767px) {
+  :root { --site-section-gap: 56px; }
 }
 ```
+
+---
+
+## 10. Migration from the Getanchor reference
+
+| Before | After |
+|---|---|
+| Archivo 600 headlines | Fraunces 400 headlines, Archivo for the rest |
+| Body 15px | Body 16px, lead 19px |
+| Pill buttons (4800px) | 8px radius buttons |
+| 4px cards | 12px cards, 16px converter card and band |
+| `#767676` secondary text | `#5c5650` (passes) |
+| Canvas `#f0e9e5` / deep `#e3d7cd` | Canvas `#f5efe9`, band `#efe6dd`, beige cards `#ebe2d9` |
+| Result shown on white | Result on an ink panel with a Fraunces number |
+| Peach hero gradient | Retired; no gradients |
+| Links ink, hover grey | Links `#9e4a1a`, underline on hover |
+
+Order of work: tokens and fonts → header/footer → converter card + result panel (shared widget) → cards, list rows, band → tables and FAQ → every page type in all 5 locales → Pinterest pin template. Visual changes only: no copy, URL, engine or structured-data changes.

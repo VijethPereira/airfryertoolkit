@@ -64,9 +64,16 @@ const links = [
     <section class="content-section">
       <h2>{dict.howHeading}</h2>
       <p>{dict.howBody}</p>
-      {links.map(({ href, label }) => (
-        <p class="related-link"><a href={href}>{label}</a> &rarr;</p>
-      ))}
+      <div class="related-links">
+        {links.map(({ href, label }) => (
+          <a href={href} class="related-link">
+            <div class="related-link-content">
+              <span class="related-link-title">{label}</span>
+            </div>
+            <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        ))}
+      </div>
     </section>
 
   </div>
@@ -76,24 +83,25 @@ const links = [
   @reference '../styles/global.css';
 
   .wrap {
-    max-width: 860px;
+    max-width: var(--site-content-width);
     margin-inline: auto;
     padding-inline: 24px;
   }
 
   .page-main {
-    padding: 40px 0 80px;
+    padding: var(--site-section-gap) 0;
   }
 
   .tool-header {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .back-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: var(--text-caption);
+    font-family: var(--font-archivo);
+    font-size: var(--text-eyebrow);
     font-weight: 600;
     letter-spacing: var(--text-caption--letter-spacing);
     text-transform: uppercase;
@@ -107,104 +115,163 @@ const links = [
   }
 
   h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
     color: var(--site-text);
     line-height: 1.1;
     margin: 0 0 12px;
   }
 
   .tool-desc {
-    font-size: var(--text-subheading);
-    line-height: var(--text-subheading--line-height);
-    letter-spacing: var(--text-subheading--letter-spacing);
-    color: var(--site-text-muted);
+    font-family: var(--font-archivo);
+    font-size: var(--text-lead);
+    line-height: var(--text-body--line-height);
+    letter-spacing: 0;
+    color: var(--site-text-body);
     margin: 0;
-    max-width: 64ch;
+    max-width: 68ch;
   }
 
   .group {
-    margin: 32px 0;
+    margin: var(--site-section-gap) 0;
   }
 
-  .group h2,
-  .content-section h2 {
+  .group h2 {
+    font-family: var(--font-display);
     font-size: var(--text-heading-sm);
-    line-height: var(--text-heading-sm--line-height);
-    letter-spacing: var(--text-heading-sm--letter-spacing);
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     color: var(--site-text);
-    margin: 0 0 12px;
+    margin: 0 0 16px;
   }
 
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 12px;
+    gap: 16px;
   }
 
   .card {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     min-height: 44px;
-    padding: 16px 18px;
-    border-radius: var(--radius-site-card);
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
     background: var(--site-bg-card);
-    box-shadow: var(--shadow-site);
+    border: 1px solid var(--site-hairline);
     color: var(--site-text);
-    transition: background 0.15s ease;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
   }
 
   .card:hover {
     background: var(--site-bg-hover);
+    border-color: var(--site-rule);
+    color: var(--site-text);
   }
 
   .card-title {
+    font-family: var(--font-archivo);
     font-size: 16px;
     font-weight: 600;
+    margin-bottom: 4px;
   }
 
   .card-spec {
-    font-size: 13px;
+    font-family: var(--font-archivo);
+    font-size: 15px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    color: var(--site-accent);
+    color: var(--site-text);
+    margin-bottom: 6px;
   }
 
   .card-desc {
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--site-text-muted);
-  }
-
-  .content-section {
-    margin: 40px 0;
-  }
-
-  .content-section p {
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
     color: var(--site-text-muted);
+  }
+
+  .content-section {
+    margin: var(--site-section-gap) 0;
+  }
+
+  .content-section h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-heading-sm);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--site-text);
     margin: 0 0 16px;
-    max-width: 72ch;
+  }
+
+  .content-section p {
+    font-family: var(--font-archivo);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-body);
+    margin: 0 0 16px;
+    max-width: 68ch;
+  }
+
+  .related-links {
+    margin: 32px 0;
   }
 
   .related-link {
-    margin: 24px 0 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--site-rule);
+    color: var(--site-text);
+    text-decoration: none;
+    transition: background 0.15s ease;
   }
 
-  .related-link a {
-    display: inline-block;
-    min-height: 44px;
-    line-height: 44px;
-    font-weight: 600;
+  .related-link:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .related-link:hover {
     color: var(--site-text);
   }
 
-  .related-link a:hover {
-    color: var(--site-accent);
+  .related-link-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .related-link-title {
+    display: block;
+    font-family: var(--font-archivo);
+    font-size: var(--text-subheading);
+    font-weight: 600;
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text);
+    margin-bottom: 4px;
+  }
+
+  .related-link-desc {
+    display: block;
+    font-family: var(--font-archivo);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  .related-link-arrow {
+    color: var(--site-text-muted);
+    flex-shrink: 0;
+    font-size: 18px;
   }
 </style>
