@@ -51,6 +51,7 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
   --site-bg-deep: #efe6dd;
   --site-bg-card: #ffffff;
   --site-bg-field: #fbf8f5;
+  --site-bg-segment: #f2ebe4;
   --site-bg-hover: #f2ebe4;
   --site-text: #1e1e1e;
   --site-text-body: #3d3833;
@@ -74,6 +75,7 @@ html.dark {
   --site-bg-deep: #211b18;
   --site-bg-card: #252120;
   --site-bg-field: #1f1a17;
+  --site-bg-segment: #2e2a27;
   --site-bg-hover: #2e2a27;
   --site-text: #f0e9e5;
   --site-text-body: #ddd4cd;

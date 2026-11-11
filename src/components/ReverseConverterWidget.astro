@@ -27,8 +27,8 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
       <label for="afo-temp">{dict.airFryerTemperature}</label>
       <div class="input-with-toggle">
         <input id="afo-temp" type="number" inputmode="numeric" value="375" />
-        <button type="button" id="afo-unit-f" class="seg-btn">°F</button>
-        <button type="button" id="afo-unit-c" class="seg-btn">°C</button>
+        <button type="button" id="afo-unit-f" class="seg-btn" aria-pressed="true">°F</button>
+        <button type="button" id="afo-unit-c" class="seg-btn" aria-pressed="false">°C</button>
       </div>
     </div>
     <div class="field narrow">
@@ -52,19 +52,19 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     <div class="field">
       <span class="field-label">{converterDict.airFryerStyle}</span>
       <div class="input-with-toggle wide">
-        <button type="button" id="afo-style-basket" class="seg-btn wide">{converterDict.basket}</button>
-        <button type="button" id="afo-style-oven" class="seg-btn wide">{converterDict.ovenStyle}</button>
+        <button type="button" id="afo-style-basket" class="seg-btn wide" aria-pressed="true">{converterDict.basket}</button>
+        <button type="button" id="afo-style-oven" class="seg-btn wide" aria-pressed="false">{converterDict.ovenStyle}</button>
       </div>
     </div>
   </div>
 
-  <div class="result-block">
-    <p class="eyebrow">{dict.ovenSetting}</p>
+  <div class="result-panel" role="status" aria-live="polite">
+    <p class="result-eyebrow">{dict.ovenSetting}</p>
     <div class="result-row">
       <span id="afo-out-main" class="result-main">—</span>
       <span id="afo-out-alt" class="result-alt">/ —</span>
       <span class="spacer"></span>
-      <span id="afo-out-time" class="result-main">—</span>
+      <span id="afo-out-time" class="result-time">—</span>
       <span class="result-alt">{converterDict.min}</span>
     </div>
     <div class="result-meta">
@@ -74,8 +74,8 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   </div>
 
   <p id="afo-tip" class="tip"></p>
-  <p id="afo-ambiguous" class="ambiguous-note" hidden>
-    <span class="ambiguous-dot"></span>
+  <p id="afo-ambiguous" class="capped-note" hidden>
+    <span class="capped-dot"></span>
     <span id="afo-ambiguous-text"></span>
   </p>
   <p class="oven-note">{dict.ovenCaveat}</p>
@@ -183,6 +183,8 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     const v = parseFloat(tempInput.value);
     if (Number.isFinite(v)) tempInput.value = String(Math.round(((v * 9) / 5 + 32) / 5) * 5);
     state.unit = 'F';
+    unitFBtn.setAttribute('aria-pressed', 'true');
+    unitCBtn.setAttribute('aria-pressed', 'false');
     render();
   });
 
@@ -191,15 +193,21 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     const v = parseFloat(tempInput.value);
     if (Number.isFinite(v)) tempInput.value = String(Math.round(((v - 32) * 5) / 9 / 5) * 5);
     state.unit = 'C';
+    unitFBtn.setAttribute('aria-pressed', 'false');
+    unitCBtn.setAttribute('aria-pressed', 'true');
     render();
   });
 
   styleBasketBtn.addEventListener('click', () => {
     state.style = 'basket';
+    styleBasketBtn.setAttribute('aria-pressed', 'true');
+    styleOvenBtn.setAttribute('aria-pressed', 'false');
     render();
   });
   styleOvenBtn.addEventListener('click', () => {
     state.style = 'oven';
+    styleBasketBtn.setAttribute('aria-pressed', 'false');
+    styleOvenBtn.setAttribute('aria-pressed', 'true');
     render();
   });
 
@@ -210,7 +218,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   @reference '../styles/global.css';
 
   .eyebrow {
-    font-size: var(--text-caption);
+    font-size: var(--text-eyebrow);
     line-height: var(--text-caption--line-height);
     letter-spacing: var(--text-caption--letter-spacing);
     font-weight: 600;
@@ -223,25 +231,29 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     flex: 1 1 440px;
     min-width: min(300px, 100%);
     background: var(--site-bg-card);
-    border-radius: var(--radius-site-card);
+    border: 1px solid var(--site-hairline);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-site);
-    padding: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 
   .widget-card .eyebrow {
-    margin: 0 0 20px;
+    margin: 0 0 4px;
   }
 
   .widget-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: var(--text-caption);
+    font-size: var(--text-eyebrow);
     letter-spacing: var(--text-caption--letter-spacing);
     font-weight: 600;
     text-transform: uppercase;
     color: var(--site-text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 4px;
   }
 
   .live-badge {
@@ -263,7 +275,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
   .field-row:first-of-type {
@@ -288,9 +300,10 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   .field label,
   .field-label {
     display: block;
+    font-family: var(--font-archivo);
     font-size: 13px;
     font-weight: 600;
-    color: var(--site-text-muted);
+    color: var(--site-text-body);
     margin-bottom: 8px;
   }
 
@@ -298,9 +311,9 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   .field select {
     height: 48px;
     padding: 0 16px;
-    border: 1px solid var(--site-border);
-    border-radius: var(--radius-site-card);
-    background: var(--site-bg-card);
+    border: 1px solid var(--site-input-border);
+    border-radius: var(--radius-md);
+    background: var(--site-bg-field);
     color: var(--site-text);
     font-family: var(--font-archivo);
     font-size: 15px;
@@ -308,9 +321,10 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   }
 
   .field input {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 500;
     font-variant-numeric: tabular-nums;
+    font-family: var(--font-archivo);
   }
 
   .field select {
@@ -341,6 +355,7 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   .suffix {
     font-size: 13px;
     color: var(--site-text-muted);
+    margin-right: 12px;
   }
 
   .seg-btn {
@@ -349,16 +364,16 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     justify-content: center;
     height: 48px;
     padding: 0 14px;
-    border-radius: var(--radius-site-card);
+    border-radius: var(--radius-sm);
     font-family: var(--font-archivo);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     flex: 0 0 auto;
-    background: var(--site-bg-card);
-    border: 1px solid var(--site-border);
-    color: var(--site-text);
-    transition: background 0.12s ease;
+    background: var(--site-bg-segment);
+    border: 1px solid transparent;
+    color: var(--site-text-muted);
+    transition: all 0.12s ease;
   }
 
   .seg-btn.wide {
@@ -367,16 +382,29 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   }
 
   .seg-btn.active {
-    background: var(--site-text);
-    border-color: var(--site-text);
-    color: var(--site-bg-card);
+    background: var(--site-bg-card);
+    border: 1px solid transparent;
+    color: var(--site-text);
+    box-shadow: 0 1px 2px rgba(30,30,30,0.08);
+    font-weight: 600;
   }
 
-  .result-block {
-    margin-top: 24px;
-    padding: 24px;
-    border-radius: var(--radius-site-card);
-    background: var(--site-bg);
+  .result-panel {
+    margin-top: 8px;
+    padding: 22px 24px;
+    border-radius: var(--radius-lg);
+    background: var(--site-panel);
+    color: var(--site-on-panel);
+  }
+
+  .result-eyebrow {
+    font-family: var(--font-archivo);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--text-caption--letter-spacing);
+    color: var(--site-accent);
+    margin: 0 0 12px;
   }
 
   .result-row {
@@ -387,12 +415,13 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
   }
 
   .result-main {
-    font-size: clamp(2.5rem, 8vw, 3.25rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 0.9;
+    font-family: var(--font-display);
+    font-size: var(--text-result);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
     font-variant-numeric: tabular-nums;
-    color: var(--site-text);
+    color: var(--site-on-panel);
     transition: color 0.32s ease;
   }
 
@@ -405,16 +434,27 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
       color: var(--site-accent);
     }
     100% {
-      color: var(--site-text);
+      color: var(--site-on-panel);
     }
   }
 
   .result-alt {
-    font-size: 18px;
+    font-family: var(--font-display);
+    font-size: 28px;
     font-weight: 400;
-    letter-spacing: -0.18px;
-    color: var(--site-text-muted);
+    letter-spacing: -0.01em;
+    color: var(--site-on-panel-muted);
     line-height: 1;
+  }
+
+  .result-time {
+    font-family: var(--font-archivo);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+    color: var(--site-on-panel);
+    font-variant-numeric: tabular-nums;
   }
 
   .spacer {
@@ -427,15 +467,17 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     gap: 8px 20px;
     margin-top: 16px;
     padding-top: 16px;
-    border-top: 1px solid var(--site-border);
-    font-size: var(--text-caption);
+    border-top: 1px solid var(--site-on-panel-muted);
+    font-family: var(--font-archivo);
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: var(--text-caption--letter-spacing);
     text-transform: uppercase;
-    color: var(--site-text-muted);
+    color: var(--site-on-panel-muted);
   }
 
   .tip {
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
@@ -444,46 +486,40 @@ const foodKeys = Object.keys(FOODS) as FoodKey[];
     min-height: 1.5em;
   }
 
-  .oven-note {
-    display: flex;
-    font-size: var(--text-body);
-    line-height: var(--text-body--line-height);
-    letter-spacing: var(--text-body--letter-spacing);
-    color: var(--site-text);
-    background: var(--site-bg);
-    border-radius: var(--radius-site-card);
-    padding: 14px 16px;
-    margin: 8px 0 0;
-  }
-
-  .ambiguous-note {
+  .capped-note {
     display: flex;
     gap: 10px;
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
     color: var(--site-text);
+    background: var(--site-bg-deep);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
     margin: 12px 0 0;
-    animation: afo-rise 0.22s ease both;
+    animation: afk-rise 0.22s ease both;
   }
 
-  .ambiguous-dot {
+  .capped-dot {
     flex: 0 0 auto;
     margin-top: 8px;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: var(--site-accent);
     border-radius: 999px;
   }
 
-  @keyframes afo-rise {
-    from {
-      opacity: 0;
-      transform: translateY(2px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .oven-note {
+    display: flex;
+    font-family: var(--font-archivo);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text);
+    background: var(--site-bg-deep);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin: 8px 0 0;
   }
 </style>
