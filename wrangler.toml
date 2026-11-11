@@ -4,7 +4,7 @@ compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 workers_dev = true
 
 [assets]
-directory = "./dist"
+directory = "./dist/client"
 binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "drop-trailing-slash"
@@ -18,3 +18,8 @@ id = "7ce9f80b413e4505a03ce9230e2e741a"
 [[send_email]]
 name = "EMAIL"
 destination_address = "pereiravijeth@gmail.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "airfryertoolkit-db"
+database_id = "dummy"

@@ -3,6 +3,7 @@ import Faq from './Faq.astro';
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
 import Breadcrumb from './Breadcrumb.astro';
+import { presetPath } from '../lib/preset-paths';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -91,7 +92,7 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
 <main class="page-main">
   <div class="wrap">
 
-    <Breadcrumb locale={locale} translatedSlug={preset.slug} />
+    <Breadcrumb locale={locale} translatedSlug={presetPath(preset.slug)} />
 
     <header class="tool-header">
       <a href={backHref} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>

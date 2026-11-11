@@ -2,15 +2,20 @@
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
 import { breadcrumbTrail } from '../lib/breadcrumbs';
+import { getDictionary } from '../i18n/dictionaries';
 
 interface Props {
   locale?: LocaleCode;
   /** Path (starting with "/") of this page's translated slug, e.g. "/" or "/oven-to-air-fryer" */
   translatedSlug: string;
+  /** For pages outside the breadcrumb data (about, contact, legal): Home › name. */
+  name?: string;
 }
 
-const { locale = DEFAULT_LOCALE, translatedSlug } = Astro.props;
-const trail = breadcrumbTrail(locale, translatedSlug);
+const { locale = DEFAULT_LOCALE, translatedSlug, name } = Astro.props;
+const trail = name
+  ? [{ name: getDictionary(locale).nav.home, path: '/' }, { name, path: translatedSlug }]
+  : breadcrumbTrail(locale, translatedSlug);
 ---
 
 {trail && trail.length > 1 && (

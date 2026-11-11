@@ -28,7 +28,7 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
 <main class="page-main">
   <div class="wrap">
 
-    <Breadcrumb locale="en" translatedSlug={`/${brand}`} />
+    <Breadcrumb locale="en" translatedSlug={cfg.path} />
 
     <header class="tool-header">
       <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
