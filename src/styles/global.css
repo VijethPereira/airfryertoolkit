@@ -273,30 +273,6 @@ input[type='number']::-webkit-inner-spin-button {
   height: 48px;
   padding: 0 24px;
   border-radius: var(--radius-md);
-  background: var(--site-text);
-  color: var(--site-on-panel);
-  font-family: var(--font-archivo);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  border: none;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  min-height: 44px;
-}
-
-.btn-dark:hover {
-  background: var(--site-text-body);
-}
-
-.btn-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 24px;
-  border-radius: var(--radius-md);
   background: var(--site-panel);
   color: var(--site-on-panel);
   font-family: var(--font-archivo);
