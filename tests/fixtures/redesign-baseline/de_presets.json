@@ -1,0 +1,285 @@
+{
+  "slug": "de\\presets",
+  "title": "Voreinstellungen für die Heißluftfritteuse: Zeit und Temperatur je Lebensmittel | Air Fryer Toolkit",
+  "visibleText": ".ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} .wrap[data-astro-cid-4l5nzdvp]{max-width:860px;margin-inline:auto;padding-inline:24px}.page-main[data-astro-cid-4l5nzdvp]{padding:40px 0 80px}.tool-header[data-astro-cid-4l5nzdvp]{margin-bottom:24px}.back-link[data-astro-cid-4l5nzdvp]{font-size:var(--text-caption);letter-spacing:var(--text-caption--letter-spacing);text-transform:uppercase;color:var(--site-text-muted);align-items:center;gap:6px;margin-bottom:16px;font-weight:600;transition:color .15s;display:inline-flex}.back-link[data-astro-cid-4l5nzdvp]:hover{color:var(--site-text)}h1[data-astro-cid-4l5nzdvp]{letter-spacing:-.03em;color:var(--site-text);margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.1}.tool-desc[data-astro-cid-4l5nzdvp]{font-size:var(--text-subheading);line-height:var(--text-subheading--line-height);letter-spacing:var(--text-subheading--letter-spacing);color:var(--site-text-muted);max-width:64ch;margin:0}.group[data-astro-cid-4l5nzdvp]{margin:32px 0}.group[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp],.content-section[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp]{font-size:var(--text-heading-sm);line-height:var(--text-heading-sm--line-height);letter-spacing:var(--text-heading-sm--letter-spacing);color:var(--site-text);margin:0 0 12px;font-weight:600}.card-grid[data-astro-cid-4l5nzdvp]{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.card[data-astro-cid-4l5nzdvp]{border-radius:var(--radius-site-card);background:var(--site-bg-card);min-height:44px;box-shadow:var(--shadow-site);color:var(--site-text);flex-direction:column;gap:4px;padding:16px 18px;transition:background .15s;display:flex}.card[data-astro-cid-4l5nzdvp]:hover{background:var(--site-bg-hover)}.card-title[data-astro-cid-4l5nzdvp]{font-size:16px;font-weight:600}.card-spec[data-astro-cid-4l5nzdvp]{font-variant-numeric:tabular-nums;color:var(--site-accent);font-size:13px;font-weight:600}.card-desc[data-astro-cid-4l5nzdvp]{color:var(--site-text-muted);font-size:13px;line-height:1.45}.content-section[data-astro-cid-4l5nzdvp]{margin:40px 0}.content-section[data-astro-cid-4l5nzdvp] p[data-astro-cid-4l5nzdvp]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);max-width:72ch;margin:0 0 16px}.related-link[data-astro-cid-4l5nzdvp]{margin:24px 0 0!important}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]{min-height:44px;color:var(--site-text);font-weight:600;line-height:44px;display:inline-block}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]:hover{color:var(--site-accent)} Air Fryer Toolkit Umrechnen Umgekehrt Lebensmittel Marken Tabelle Ratgeber DE English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Alle Werkzeuge Lebensmittel-Voreinstellungen für die Heißluftfritteuse Eine Seite pro Lebensmittel, jede ein funktionierendes Werkzeug statt einer Tabellenzeile: die Einstellung, wann gewendet oder geschüttelt wird, die Kerntemperatur für jedes Eiweißprodukt, Zeiten nach Größe und die Ofen-Entsprechung in beide Richtungen. Geflügel Hähnchenbrust 375°F · 16 Min. · wenden nach 8 Die meistgesuchte Voreinstellung. Bei 165°F Kerntemperatur herausnehmen. Chicken Wings 400°F · 22 Min. · wenden nach 11 Erst trocken tupfen; Soße erst nach dem Garen. Hähnchenschenkel 380°F · 24 Min. · wenden nach 12 Erst mit der Haut nach unten, zum Schluss nach oben. Hähnchenunterschenkel 380°F · 22 Min. · wenden nach 11 Sicher bei 165°F, zart erst gegen 185°F. Hähnchenstreifen 400°F · 10 Min. · wenden nach 5 Klein und schnell: Timer auf die kürzeste Zeit. Fleisch Bacon 350°F · 9 Min. Eine niedrigere Temperatur verhindert, dass das Fett raucht. Steak 400°F · 10 Min. · wenden nach 5 Oberfläche trocknen und ruhen lassen für eine echte Kruste. Schweinekoteletts 400°F · 12 Min. · wenden nach 6 Bei 145°F herausnehmen und ruhen lassen; wenn möglich vorher in Salzlake. Würstchen 370°F · 12 Min. · wenden nach 6 Mäßige Hitze, damit die Haut nicht platzt. Burger-Patties 375°F · 10 Min. · wenden nach 5 Hackfleisch: 160°F, nicht Steak-Garpunkt. Schweinefilet 400°F · 20 Min. · wenden nach 10 Spitze einschlagen, dann gart die Ruhezeit fertig. Fisch und Meeresfrüchte Lachs 390°F · 9 Min. Haut nach unten, nicht wenden. Zeit nach Dicke. Garnelen 400°F · 7 Min. · ×1 schütteln Jede Minute zählt: Zeit nach Größe wählen. Weißfisch 400°F · 10 Min. Nicht wenden: auf Backpapier ganz herausheben. Gemüse und Kartoffeln Ofenkartoffel 400°F · 40 Min. · wenden nach 20 Mit dem Thermometer prüfen, nicht mit der Gabel. Selbstgemachte Pommes 380°F · 18 Min. · ×2 schütteln Wässern, trocknen, eine Lage, zweimal schütteln. Brokkoli 375°F · 8 Min. · ×1 schütteln Stiele dünn schneiden, sonst verbrennen die Spitzen zuerst. Rosenkohl 375°F · 15 Min. · ×2 schütteln Halbieren und mit der Schnittfläche nach unten starten. Süßkartoffelpommes 375°F · 16 Min. · ×2 schütteln Kühler als normale Pommes: Zucker verbrennt zuerst. Kartoffelspalten 390°F · 20 Min. · ×1 schütteln Dicke Stücke: verteilen und einmal wenden. Maiskolben 400°F · 12 Min. · wenden nach 6 Lange Kolben halbieren und mit Butter oder Öl bestreichen. Backen Cookies 325°F · 8 Min. Beschwer das Backpapier mit dem Teig selbst. Muffins 325°F · 15 Min. Silikonförmchen, und die Mitte zählt, nicht die Farbe. Brownies 325°F · 22 Min. Nimm eine 15–18-cm-Form und halbiere ein 23×23-Rezept. Knoblauchbrot 375°F · 6 Min. Der Knoblauch gehört unter die Butter, nicht obendrauf. Aufwärmen Pizza vom Vortag 350°F · 4 Min. Mit weniger Hitze holt der Boden den Käse ein. Pommes vom Vortag 375°F · 4 Min. · ×1 schütteln Kurz und heiß, mit etwas Öl, in einer Lage. Brathähnchen vom Vortag 375°F · 8 Min. · wenden nach 4 Erst offen liegen lassen, damit die Kruste trocknet. Chicken Wings vom Vortag 375°F · 5 Min. · ×1 schütteln Dicke Soße vorher abstreifen, danach neu glasieren. Steak vom Vortag 300°F · 8 Min. · wenden nach 4 Niedrige Hitze und ab dem Wenden das Thermometer. Tiefkühlkost Tiefkühl-Pommes 400°F · 15 Min. · ×2 schütteln Direkt aus dem Beutel, eine Lage, zweimal schütteln. Tiefkühl-Chicken-Wings 390°F · 26 Min. · ×2 schütteln Roh und gefroren: beim ersten Schütteln trennen. Tiefkühl-Hähnchenbrust 360°F · 24 Min. · wenden nach 12 Niedriger und langsamer als frisch: mit Thermometer prüfen. Tiefkühl-Chicken-Nuggets 400°F · 10 Min. · ×1 schütteln Schon gegart: du wärmst sie nur auf. Tiefkühl-Tater-Tots 400°F · 14 Min. · ×2 schütteln Zweimal schütteln, damit jede Seite Kruste bekommt. Tiefkühlpizza 380°F · 9 Min. Die kleine passt in den Korb, die große nicht. Tiefkühl-Fischstäbchen 400°F · 10 Min. · wenden nach 5 Vorsichtig wenden: Die Panade wird fest, bevor der Fisch es ist. Tiefkühl-Hähnchenstreifen 400°F · 12 Min. · wenden nach 6 Lies die Packung: Viele werden roh verkauft. Tiefkühl-Rösti 400°F · 12 Min. · wenden nach 6 Flache Stücke: einmal zur Hälfte wenden. Tiefkühl-Frühlingsrollen 390°F · 11 Min. · wenden nach 6 Teigmantel einsprühen und einmal wenden. Tiefkühlgemüse 400°F · 12 Min. · ×2 schütteln Nie auftauen: direkt hinein, höchstens ein halber Korb. Wie diese Voreinstellungen festgelegt sind Jede Voreinstellung geht von einer vorgeheizten Korb-Heißluftfritteuse mit 4–6 Litern aus, das Lebensmittel in einer Lage. Bei den Garvoreinstellungen berechnet derselbe Algorithmus wie der Umrechner die Entsprechungen für Ober-/Unterhitze und Umluft, sie stimmen also miteinander überein, und der Umrechner auf der Seite ist schon auf dieses Lebensmittel eingestellt. Tiefkühl-Voreinstellungen zeigen stattdessen, was auf der Packung steht. Beim Aufwärmen ist es anders: Der Algorithmus rechnet Garrezepte um, kein Aufwärmen, deshalb sind die Aufwärmzeiten und ihre Ofen-Entsprechungen von Hand eingetragen, und der Umrechner auf diesen Seiten rechnet Backofenrezepte um. Jede Seite beginnt mit der typischen Art, wie dieses Lebensmittel in der Heißluftfritteuse misslingt, denn das entscheidet über das Ergebnis mehr als die Zahl am Regler. Keine E-Mail, keine Anmeldung, nichts zu installieren. Umrechner Backofen zu Heißluftfritteuse &rarr; Umrechnungstabelle zum Ausdrucken &rarr; Air Fryer Toolkit Umrechner Voreingestellte Lebensmittel Tiefkühlkost Umrechnungstabelle Über uns Kontakt Datenschutzerklärung Allgemeine Geschäftsbedingungen Weitere kostenlose Tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — kostenlose browserbasierte Koch-Umrechnungstools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://airfryertoolkit.com/de/presets#page",
+      "name": "Lebensmittel-Voreinstellungen für die Heißluftfritteuse — Air Fryer Toolkit",
+      "description": "Zeit und Temperatur in der Heißluftfritteuse für Hähnchen, Lachs, Steak, Kartoffeln, Gebäck, Tiefkühlkost und Reste – jede Voreinstellung mit Kerntemperatur oder Garprobe, Zeiten nach Größe und Ofen-Entsprechung.",
+      "url": "https://airfryertoolkit.com/de/presets",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Hähnchenbrust",
+            "url": "https://airfryertoolkit.com/de/air-fryer/chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Chicken Wings",
+            "url": "https://airfryertoolkit.com/de/air-fryer/chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Hähnchenschenkel",
+            "url": "https://airfryertoolkit.com/de/air-fryer/chicken-thighs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Lachs",
+            "url": "https://airfryertoolkit.com/de/air-fryer/salmon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Bacon",
+            "url": "https://airfryertoolkit.com/de/air-fryer/bacon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Steak",
+            "url": "https://airfryertoolkit.com/de/air-fryer/steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Schweinekoteletts",
+            "url": "https://airfryertoolkit.com/de/air-fryer/pork-chops"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Garnelen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/shrimp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Ofenkartoffel",
+            "url": "https://airfryertoolkit.com/de/air-fryer/baked-potato"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Selbstgemachte Pommes",
+            "url": "https://airfryertoolkit.com/de/air-fryer/homemade-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Hähnchenunterschenkel",
+            "url": "https://airfryertoolkit.com/de/air-fryer/chicken-drumsticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Hähnchenstreifen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Würstchen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/sausages"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "Burger-Patties",
+            "url": "https://airfryertoolkit.com/de/air-fryer/burgers"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "Schweinefilet",
+            "url": "https://airfryertoolkit.com/de/air-fryer/pork-tenderloin"
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "name": "Weißfisch",
+            "url": "https://airfryertoolkit.com/de/air-fryer/white-fish"
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "name": "Brokkoli",
+            "url": "https://airfryertoolkit.com/de/air-fryer/broccoli"
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "name": "Rosenkohl",
+            "url": "https://airfryertoolkit.com/de/air-fryer/brussels-sprouts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "name": "Süßkartoffelpommes",
+            "url": "https://airfryertoolkit.com/de/air-fryer/sweet-potato-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "name": "Kartoffelspalten",
+            "url": "https://airfryertoolkit.com/de/air-fryer/potato-wedges"
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "name": "Tiefkühl-Pommes",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "name": "Tiefkühl-Chicken-Wings",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "name": "Tiefkühl-Hähnchenbrust",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "name": "Tiefkühl-Chicken-Nuggets",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-chicken-nuggets"
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "name": "Tiefkühl-Tater-Tots",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-tater-tots"
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "name": "Tiefkühlpizza",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "name": "Tiefkühl-Fischstäbchen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-fish-sticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "name": "Tiefkühl-Hähnchenstreifen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "name": "Tiefkühl-Rösti",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-hash-browns"
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "name": "Tiefkühl-Frühlingsrollen",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-egg-rolls"
+          },
+          {
+            "@type": "ListItem",
+            "position": 31,
+            "name": "Pizza vom Vortag",
+            "url": "https://airfryertoolkit.com/de/air-fryer/reheat-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 32,
+            "name": "Pommes vom Vortag",
+            "url": "https://airfryertoolkit.com/de/air-fryer/reheat-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 33,
+            "name": "Brathähnchen vom Vortag",
+            "url": "https://airfryertoolkit.com/de/air-fryer/reheat-fried-chicken"
+          },
+          {
+            "@type": "ListItem",
+            "position": 34,
+            "name": "Chicken Wings vom Vortag",
+            "url": "https://airfryertoolkit.com/de/air-fryer/reheat-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 35,
+            "name": "Steak vom Vortag",
+            "url": "https://airfryertoolkit.com/de/air-fryer/reheat-steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 36,
+            "name": "Cookies",
+            "url": "https://airfryertoolkit.com/de/air-fryer/cookies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 37,
+            "name": "Muffins",
+            "url": "https://airfryertoolkit.com/de/air-fryer/muffins"
+          },
+          {
+            "@type": "ListItem",
+            "position": 38,
+            "name": "Brownies",
+            "url": "https://airfryertoolkit.com/de/air-fryer/brownies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 39,
+            "name": "Knoblauchbrot",
+            "url": "https://airfryertoolkit.com/de/air-fryer/garlic-bread"
+          },
+          {
+            "@type": "ListItem",
+            "position": 40,
+            "name": "Maiskolben",
+            "url": "https://airfryertoolkit.com/de/air-fryer/corn-on-the-cob"
+          },
+          {
+            "@type": "ListItem",
+            "position": 41,
+            "name": "Tiefkühlgemüse",
+            "url": "https://airfryertoolkit.com/de/air-fryer/frozen-vegetables"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://airfryertoolkit.com/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Lebensmittel-Voreinstellungen für die Heißluftfritteuse",
+          "item": "https://airfryertoolkit.com/de/presets"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comende\\presets"
+}

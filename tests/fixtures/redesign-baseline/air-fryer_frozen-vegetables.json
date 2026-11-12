@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\frozen-vegetables",
+  "title": "Frozen Vegetables in the Air Fryer: Roasted, Not Soggy | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Pack says Peas, corn or diced mix 400°F / 205°C · 10 min 425°F / 220°C · 12 min Mixed vegetables 400°F / 205°C · 12 min 425°F / 220°C · 14 min Broccoli or cauliflower florets 400°F / 205°C · 15 min 425°F / 220°C · 18 min Why frozen vegetables come out soft and wet Frozen vegetables are blanched before freezing, and the ice crystals that form inside them burst many of the cell walls. As they heat, that broken structure lets go of its water all at once, on top of the frost on the outside. In a full basket the water has nowhere to go: it pools, turns to steam and boils the vegetables soft and grey before any of them can brown. The answer is less food and no thawing. Thawed vegetables have already leaked, so they go limp at once; frozen ones keep their shape while the outside dries. Fill the basket no more than half full, so the steam escapes, and the vegetables roast in the dry heat that follows. Worked example: a bag of mixed vegetables Half a bag of frozen mixed vegetables that says to roast at 425°F for 14 minutes. In a basket air fryer, preheat 4 minutes, tip them in still frozen with a tablespoon of oil, and cook at 400°F for 12 minutes, shaking 2 times. Peas, corn and small diced mixes take about 10 minutes; large florets about 15. How to tell they are done The basket should be dry, with no water on the bottom, and the edges of the vegetables should have browned spots. Carrots and florets should be tender when pierced but not mushy. A puddle under pale, soft vegetables means the basket was too full. Before they go in Break up any frozen clumps in the bag. Toss with oil just before cooking; it will not stick to frosty pieces as well, so toss again at the first shake. Season with salt and spices at the end, since they wash off in the early steam. Bags of large and small pieces together cook unevenly, so pick the smaller pieces out if they start to burn, or cook the mix in two rounds. Sauced or seasoned vegetable packs with butter already in them often say to microwave only; the sauce burns in an air fryer, so use plain bags here. Related presets Frozen fries 400°F · 15 min · shake ×2 Frozen chicken wings 390°F · 26 min · shake ×2 Frozen chicken breast 360°F · 24 min · flip at 12 425°F oven to air fryer, every food &rarr; Frozen pack converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do frozen vegetables take in the air fryer? About 12 minutes at 400°F for mixed vegetables, shaken 2 times. Small pieces take around 10 minutes and large florets around 15. Should I thaw frozen vegetables before air frying? No. Thawed vegetables have already released their water and go limp. Cook them straight from frozen. Why are my air fried frozen vegetables soggy? The basket was too full, so their water steamed them. Use no more than half a basket at a time. Is this different from fresh broccoli? Yes. Fresh florets need a shorter, gentler setting; frozen ones need extra heat and time to clear the ice first. What does the pack say for the oven? Most bags say 425°F for around 14 minutes in a conventional oven. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/frozen-vegetables#app",
+          "name": "Frozen vegetables in the air fryer — Air Fryer Toolkit",
+          "description": "Frozen vegetables in the air fryer: 400°F for 12 minutes, shaken 2 times, straight from the bag. How to roast instead of steam, and the pack equivalent.",
+          "url": "https://airfryertoolkit.com/air-fryer/frozen-vegetables",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do frozen vegetables take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 12 minutes at 400°F for mixed vegetables, shaken 2 times. Small pieces take around 10 minutes and large florets around 15."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should I thaw frozen vegetables before air frying?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Thawed vegetables have already released their water and go limp. Cook them straight from frozen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are my air fried frozen vegetables soggy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The basket was too full, so their water steamed them. Use no more than half a basket at a time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this different from fresh broccoli?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Fresh florets need a shorter, gentler setting; frozen ones need extra heat and time to clear the ice first."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does the pack say for the oven?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most bags say 425°F for around 14 minutes in a conventional oven."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Frozen vegetables",
+          "item": "https://airfryertoolkit.com/air-fryer/frozen-vegetables"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\frozen-vegetables"
+}

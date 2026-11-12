@@ -1,0 +1,90 @@
+{
+  "slug": "air-fryer-vs-oven-cost",
+  "title": "Air Fryer vs Oven Running Cost Calculator — Measured, Not Rated | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer-vs-oven-cost#app",
+          "name": "Air fryer vs oven: running cost — Air Fryer Toolkit",
+          "description": "What an oven recipe costs to cook in an air fryer and in the oven, at your electricity price. Estimated from measured energy in Which?’s lab tests, not wattage × time.",
+          "url": "https://airfryertoolkit.com/air-fryer-vs-oven-cost",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is an air fryer cheaper to run than an oven?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For one batch, yes. In Which?’s lab test it used 53% to 69% less energy than the oven for each of the four foods. Source: Which?, 23 October 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why not just multiply the wattage by the time?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because the element cycles once the appliance is hot, so wattage × time overstates the energy: 1.5 to 3.2 times for Which?’s oven. Source: Which?, 23 October 2026; oven rating from the retailer listing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When is the oven cheaper?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When you cook a lot at once. Which?: “an oven may still be the most economical choice when cooking for a crowd.” Source: Which?, 23 October 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the standing charge change the answer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It is a fixed daily amount, 54.83p a day under the UK price cap for 1 Oct – 31 Dec 2026, paid whether you cook or not, so it is the same with either appliance. Source: Ofgem."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should preheat time be counted?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Which?’s times and kWh include preheating, so the defaults add 10 minutes for the oven and 2 to 4 for the air fryer, more at higher settings; set the air fryer’s to zero if yours needs none. Source: Which?, 23 October 2026."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer vs oven: running cost",
+          "item": "https://airfryertoolkit.com/air-fryer-vs-oven-cost"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer-vs-oven-cost"
+}

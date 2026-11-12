@@ -1,0 +1,90 @@
+{
+  "slug": "es\\air-fryer-vs-oven-cost",
+  "title": "Coste de la freidora de aire vs el horno — calculadora con energía medida | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convertir Inverso Alimentos Marcas Tabla Guía ES English Español Português Français Deutsch Air Fryer Toolkit Conversor Alimentos preconfigurados Congelados Tabla de conversión Acerca de Contacto Política de privacidad Términos y condiciones Más herramientas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — herramientas gratuitas de conversión de cocina en el navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/es/air-fryer-vs-oven-cost#app",
+          "name": "Freidora de aire vs horno: coste de uso — Air Fryer Toolkit",
+          "description": "Lo que cuesta una receta de horno en la freidora de aire y en el horno, a tu precio de la luz. Estimado con la energía medida en el laboratorio de Which?, no con vatios × tiempo.",
+          "url": "https://airfryertoolkit.com/es/air-fryer-vs-oven-cost",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Gasta menos una freidora de aire que un horno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Para una sola tanda, sí. En el ensayo de Which? usó entre un 53 % y un 69 % menos energía que el horno con los cuatro alimentos. Fuente: Which?, 23 de octubre de 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Por qué no multiplicar los vatios por el tiempo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Porque, ya en temperatura, la resistencia se apaga y enciende, así que vatios × tiempo exagera: entre 1,5 y 3,2 veces con el horno de Which?. Fuente: Which?, 23 de octubre de 2026; potencia según la ficha del vendedor."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuándo sale más barato el horno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cuando cocinas mucho a la vez. Which?: «an oven may still be the most economical choice when cooking for a crowd» (para mucha gente, el horno puede ser lo más económico). Fuente: Which?, 23 de octubre de 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Por qué mi precio puede no coincidir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El valor por defecto es la media de Eurostat para hogares de 2500 a 4999 kWh al año, impuestos incluidos, del 1.º semestre de 2026: 25,09 c/kWh (Media de España). Escribe el precio por kWh de tu factura. Fuente: Eurostat (nrg_pc_204)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Hay que contar el precalentado?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Los tiempos y kWh de Which? lo incluyen, así que se suman 10 minutos al horno y de 2 a 4 a la freidora, más a mayor temperatura; pon cero si la tuya no lo necesita. Fuente: Which?, 23 de octubre de 2026."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://airfryertoolkit.com/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Freidora de aire vs horno: coste de uso",
+          "item": "https://airfryertoolkit.com/es/air-fryer-vs-oven-cost"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenes\\air-fryer-vs-oven-cost"
+}

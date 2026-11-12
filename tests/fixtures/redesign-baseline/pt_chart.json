@@ -1,0 +1,98 @@
+{
+  "slug": "pt\\chart",
+  "title": "Tabela de conversão de air fryer para imprimir grátis | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Converter Inverso Alimentos Marcas Tabela Guia PT English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Conversor completo Para imprimir · Sem e-mail · Sem pop-up Tabela de conversão de air fryer Tabelas de temperatura, tempo e multiplicadores por alimento para converter forno em air fryer, em uma única página para imprimir. Todo site de tabela dedicado desse nicho bloqueia sua versão para imprimir atrás de um cadastro por e-mail — este não. Imprimir esta tabela Temperatura — Forno → Air fryer (cesto) Forno °F Air fryer °F Air fryer °C Nível de gás 250°F 225°F 105°C — 275°F 250°F 120°C — 300°F 275°F 135°C 1 325°F 300°F 150°C 2 350°F 325°F 165°C 3 375°F 350°F 175°C 4 400°F 375°F 190°C 5 425°F 400°F 205°C 6 450°F 400°F &dagger; 205°C 6 475°F 400°F &dagger; 205°C 6 † Mantido no limite de 400°F do cesto — veja a nota abaixo. Tempo — Geral / variado, cesto Tempo de forno Tempo de air fryer 10 min 8 min 15 min 12 min 20 min 16 min 25 min 20 min 30 min 24 min 35 min 28 min 40 min 32 min 45 min 36 min 60 min 48 min Multiplicadores por tipo de alimento Alimento Ajuste de temp. Multiplicador de tempo Nota Geral / variado −25°F &times;0.8 Agite ou vire na metade do tempo. Batata frita −25°F &times;0.7 Agite duas vezes — uma no início, outra na metade. Mantenha em uma única camada. Asinhas de frango −25°F &times;0.8 Seque bem antes de cozinhar e vire na metade para uma pele uniforme. Peito de frango (sem osso) −25°F &times;0.75 Retire a 165°F internos — a temperatura continua subindo durante o descanso. Coxa e sobrecoxa de frango −25°F &times;0.8 Pele para cima o tempo todo. Não precisa virar. Bife e cortes grossos −20°F &times;0.8 Vire uma vez e deixe descansar 5 minutos antes de fatiar. Peixe e salmão −20°F &times;0.8 Não vire. Verifique no tempo mínimo — o peixe passa do ponto em menos de um minuto. Bacon −25°F &times;0.7 Uma única camada. Escorra a gordura na metade se começar a soltar fumaça. Legumes −25°F &times;0.75 Corte em pedaços do mesmo tamanho e misture na metade. Assados e biscoitos −20°F &times;0.85 Um corte mais suave — a massa firma mais devagar do que o topo doura. Pizza e reaquecimento −25°F &times;0.75 Não precisa pré-aquecer para reaquecer. Fique de olho na crosta, não no relógio. Gratinados e assados espessos −20°F &times;0.85 Cubra com papel-alumínio se o topo dourar antes do centro esquentar. Air fryers de cesto chegam a cerca de 400°F; unidades tipo forno chegam a cerca de 450°F. Se esta tabela mostrar uma temperatura que seu aparelho não alcança, use o conversor ao vivo — ele limita o resultado ao teto real do seu aparelho e adiciona o tempo de volta automaticamente. Como ler esta tabela Cada tabela acima assume uma air fryer de cesto no ajuste &quot;geral / variado&quot;, a mesma base usada pelo conversor ao vivo. Encontre sua temperatura ou tempo de forno na coluna da esquerda e leia à direita para o equivalente na air fryer, em Fahrenheit, Celsius e nível de gás do Reino Unido. A tabela por tipo de alimento ajusta essa base para doze categorias, de batata frita a gratinados, porque um único ajuste fixo não reflete o quanto esses alimentos se comportam de forma diferente numa câmara com ar forçado. Um símbolo de cruz ao lado de uma temperatura significa que a conversão passou do que uma unidade de cesto alcança — a tabela mantém no limite em vez de imprimir um ajuste que não existe no seu aparelho. Por que a regra fixa de −25°F / −20% falha com massas úmidas e assados A maioria das tabelas para imprimir desse nicho aplica uma única regra para todo alimento: tire 25°F, corte o tempo em um quinto. É uma boa média para legumes, mas falha para qualquer coisa com interior úmido que ainda precisa firmar antes de ficar pronta — massa de bolo, muffins, gratinados, assados densos. O ar forçado de uma air fryer de cesto doura a superfície da massa quase de imediato, e um corte fixo de 20% confunde esse douramento precoce com &quot;pronto&quot; bem antes do centro ter firmado, deixando uma crosta cozida sobre um centro cru. Pegue uma receita de assado de 350°F por 30 minutos. A regra fixa a converte para 325°F por 24 minutos. O multiplicador de assados desta tabela a mantém mais perto do calor original, em 330°F por 26 minutos — um corte de tempo menor e alguns graus a mais, porque a massa precisa desses minutos extras para terminar de firmar enquanto a superfície doura rápido. A mesma lógica vale para cada categoria: alimentos finos e com muita superfície, como batata frita e bacon, perdem perto de 30% do tempo, enquanto alimentos densos, como gratinados e assados, perdem mais perto de 15%, já que o calor ainda precisa chegar ao centro antes de estar pronto. Perguntas frequentes Preciso dar um e-mail para imprimir esta tabela? Não. Todo site de tabela dedicado desse nicho bloqueia sua versão para imprimir atrás de um cadastro por e-mail ou um pop-up. Este não — as tabelas acima são a tabela inteira, e o botão de imprimir as envia direto para sua impressora. Por que a tabela mostra 400°F tanto para um forno a 425°F quanto a 450°F? Uma air fryer de cesto chega a cerca de 400°F, então assim que a conversão bruta passa disso, a tabela mantém o resultado no limite em vez de imprimir um ajuste que seu aparelho não alcança. A cruz marca quais linhas foram mantidas assim. Esta tabela vale também para air fryers tipo forno? Estas tabelas são ajustadas para unidades de cesto, que chegam a cerca de 400°F. Unidades tipo forno circulam o ar de forma mais suave e podem chegar a cerca de 450°F antes de limitar — para números exatos tipo forno, use o conversor ao vivo e troque a chave de tipo. Por que o corte de tempo é diferente para batata frita e para um gratinado? A economia de tempo depende da superfície e da densidade, não só da categoria. Batata frita e bacon recebem ar quente em quase todos os lados de uma vez, então perdem perto de 30% do tempo de forno; um gratinado denso perde mais perto de 15%. Posso usar esta tabela para alimentos direto do congelador? Não diretamente. Alimentos congelados seguem uma lógica invertida — mantenha a temperatura da embalagem e corte o tempo em cerca de 30%, já que o alimento precisa de todo o calor só para descongelar antes de poder cozinhar. E se minha temperatura ou tempo exato de forno não estiver na tabela? Esta tabela cobre valores comuns em passos de 25°F e tempos redondos para caber em uma página. Para um número exato, o conversor ao vivo aceita qualquer temperatura e tempo de forno e se ajusta a cada tecla. Ferramentas relacionadas Conversor de forno para air fryer — a ferramenta ao vivo, ajusta por tipo de alimento e cesto vs. tipo forno, com o limite máximo para o qual as linhas com cruz desta tabela apontam. Páginas de °C e nível de gás — para receitas europeias que indicam °C, a temperatura com ventilador ou o nível de gás. Conversor de air fryer para forno — o sentido inverso, para quando o forno é a melhor escolha. Conversor de convecção para air fryer — um corte mais suave para receitas de forno ventilado que já vêm ajustadas. Conversor de air fryer para convecção — leve um ajuste de air fryer para um forno ventilado em porções maiores. Modo de congelados — das instruções da embalagem para a air fryer: mantenha o calor, corte o tempo, agite na hora certa. globalThis.process??={};globalThis.process.env??={};document.getElementById(\"chart-print-btn\")?.addEventListener(\"click\",()=>window.print()); Air Fryer Toolkit Conversor Alimentos predefinidos Congelados Tabela de conversão Sobre Contato Política de privacidade Termos e condições Mais ferramentas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — ferramentas gratuitas de conversão culinária no navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/pt/chart#app",
+          "name": "Tabela de conversão de air fryer para imprimir grátis — Air Fryer Toolkit",
+          "description": "Uma tabela para imprimir de temperatura, tempo e multiplicadores por alimento para converter forno em air fryer — uma página, °F e °C, sem e-mail, sem pop-up.",
+          "url": "https://airfryertoolkit.com/pt/chart",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Preciso dar um e-mail para imprimir esta tabela?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Todo site de tabela dedicado desse nicho bloqueia sua versão para imprimir atrás de um cadastro por e-mail ou um pop-up. Este não — as tabelas acima são a tabela inteira, e o botão de imprimir as envia direto para sua impressora."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Por que a tabela mostra 400°F tanto para um forno a 425°F quanto a 450°F?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Uma air fryer de cesto chega a cerca de 400°F, então assim que a conversão bruta passa disso, a tabela mantém o resultado no limite em vez de imprimir um ajuste que seu aparelho não alcança. A cruz marca quais linhas foram mantidas assim."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Esta tabela vale também para air fryers tipo forno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Estas tabelas são ajustadas para unidades de cesto, que chegam a cerca de 400°F. Unidades tipo forno circulam o ar de forma mais suave e podem chegar a cerca de 450°F antes de limitar — para números exatos tipo forno, use o conversor ao vivo e troque a chave de tipo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Por que o corte de tempo é diferente para batata frita e para um gratinado?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A economia de tempo depende da superfície e da densidade, não só da categoria. Batata frita e bacon recebem ar quente em quase todos os lados de uma vez, então perdem perto de 30% do tempo de forno; um gratinado denso perde mais perto de 15%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Posso usar esta tabela para alimentos direto do congelador?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não diretamente. Alimentos congelados seguem uma lógica invertida — mantenha a temperatura da embalagem e corte o tempo em cerca de 30%, já que o alimento precisa de todo o calor só para descongelar antes de poder cozinhar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "E se minha temperatura ou tempo exato de forno não estiver na tabela?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Esta tabela cobre valores comuns em passos de 25°F e tempos redondos para caber em uma página. Para um número exato, o conversor ao vivo aceita qualquer temperatura e tempo de forno e se ajusta a cada tecla."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://airfryertoolkit.com/pt"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tabela de conversão de air fryer",
+          "item": "https://airfryertoolkit.com/pt/chart"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenpt\\chart"
+}

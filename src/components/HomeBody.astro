@@ -1,5 +1,6 @@
 ---
 import ConverterWidget from './ConverterWidget.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -89,61 +90,66 @@ const toolHref = hrefFor('/oven-to-air-fryer');
 ---
 
 <main>
-  <!-- Hero -->
+  <!-- Hero: 6/6 grid (copy left, converter right), stacks under 900px -->
   <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">{dict.eyebrow}</p>
-      <h1 class="hero-title">{dict.heroTitle}</h1>
-      <p class="hero-sub">{dict.heroSub}</p>
+    <div class="wrap hero-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">{dict.eyebrow}</p>
+        <h1 class="hero-title">{dict.heroTitle}</h1>
+        <p class="hero-sub">{dict.heroSub}</p>
+      </div>
 
-      <div class="hero-grid">
-        <!-- Live widget -->
+      <div class="hero-converter">
         <ConverterWidget locale={locale}>
-          <a href={toolHref} class="cta">{dict.ctaLabel} <span aria-hidden="true">&rarr;</span></a>
+          <a href={toolHref} class="cta btn-primary">{dict.ctaLabel} <span aria-hidden="true">&rarr;</span></a>
         </ConverterWidget>
-
-        <!-- Common conversions rail -->
-        <div class="rail">
-          <p class="eyebrow">{dict.commonConversionsHeading}</p>
-          <div class="rail-list">
-            {commonConversions.map((c, i) =>
-              isLive(c.href) ? (
-                <a href={hrefFor(c.href)} class:list={['rail-item', { first: i === 0 }]}>
-                  <span class="rail-num">{c.from}</span>
-                  <span class="rail-arrow">&rarr;</span>
-                  <span class="rail-num">{c.to}</span>
-                  <span class="rail-note">{c.note}</span>
-                </a>
-              ) : (
-                <div class:list={['rail-item', 'disabled', { first: i === 0 }]} aria-disabled="true">
-                  <span class="rail-num">{c.from}</span>
-                  <span class="rail-arrow">&rarr;</span>
-                  <span class="rail-num">{c.to}</span>
-                  <span class="badge">{dict.comingSoon}</span>
-                </div>
-              )
-            )}
-          </div>
-          <p class="rail-footnote">{dict.railFootnote}</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Convert -->
+  <!-- Common conversions rail -->
+  <section class="rail-section" aria-labelledby="rail-heading">
+    <div class="wrap">
+      <p id="rail-heading" class="eyebrow">{dict.commonConversionsHeading}</p>
+      <div class="rail-list">
+        {commonConversions.map((c, i) =>
+          isLive(c.href) ? (
+            <a href={hrefFor(c.href)} class:list={['rail-item', { first: i === 0 }]}>
+              <span class="rail-num">{c.from}</span>
+              <span class="rail-arrow">&rarr;</span>
+              <span class="rail-num">{c.to}</span>
+              <span class="rail-note">{c.note}</span>
+            </a>
+          ) : (
+            <div class:list={['rail-item', 'disabled', { first: i === 0 }]} aria-disabled="true">
+              <span class="rail-num">{c.from}</span>
+              <span class="rail-arrow">&rarr;</span>
+              <span class="rail-num">{c.to}</span>
+              <span class="badge">{dict.comingSoon}</span>
+            </div>
+          )
+        )}
+      </div>
+      <p class="rail-footnote">{dict.railFootnote}</p>
+    </div>
+  </section>
+
+  <!-- Convert grid: flagship dark + 3 beige cards -->
   <section id="convert" class="section">
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.convert}</h2>
-      <div class="card-grid">
+      <div class="card-grid convert-grid">
         {dict.convertCards.map((c, i) => {
           const href = cardHref(convertTargets[i]);
+          const isFlagship = i === 0;
           return href ? (
-            <a href={href} class="card">
-              <span class="card-title">{i === 0 && <span class="title-dot inline"></span>}{c.title}</span>
+            <a href={href} class:list={['card', { flagship: isFlagship }]}>
+              <span class="card-title">{isFlagship && <span class="title-dot inline"></span>}{c.title}</span>
+              {isFlagship && <span class="flagship-badge">{dict.flagshipBadge}</span>}
               <span class="card-desc">{c.desc}</span>
             </a>
           ) : (
-            <div class="card disabled" aria-disabled="true">
+            <div class:list={['card', 'disabled', { flagship: isFlagship }]} aria-disabled="true">
               <span class="card-title">{c.title}</span>
               <span class="card-desc">{c.desc}</span>
               <span class="badge">{dict.comingSoon}</span>
@@ -154,22 +160,27 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     </div>
   </section>
 
-  <!-- Reverse -->
+  <!-- Reverse: list rows -->
   <section id="reverse" class="section">
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.reverse}</h2>
-      <div class="card-grid">
+      <div class="list-rows">
         {dict.reverseCards.map((c, i) => {
           const href = cardHref(reverseTargets[i]);
           return href ? (
-            <a href={href} class="card">
-              <span class="card-title">{c.title}</span>
-              <span class="card-desc">{c.desc}</span>
+            <a href={href} class="list-row">
+              <div class="list-row-content">
+                <span class="list-row-title">{c.title}</span>
+                <span class="list-row-desc">{c.desc}</span>
+              </div>
+              <span class="list-row-arrow" aria-hidden="true">&rarr;</span>
             </a>
           ) : (
-            <div class="card disabled" aria-disabled="true">
-              <span class="card-title">{c.title}</span>
-              <span class="card-desc">{c.desc}</span>
+            <div class:list={['list-row', 'disabled']} aria-disabled="true">
+              <div class="list-row-content">
+                <span class="list-row-title">{c.title}</span>
+                <span class="list-row-desc">{c.desc}</span>
+              </div>
               <span class="badge">{dict.comingSoon}</span>
             </div>
           );
@@ -178,10 +189,11 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     </div>
   </section>
 
-  <!-- Frozen -->
+  <!-- Frozen: teaser + 4 cards + terracotta callout band -->
   <section id="frozen" class="section">
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.frozen}</h2>
+
       <div class="teaser">
         <div class="teaser-row">
           <div class="teaser-copy">
@@ -193,7 +205,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
               <select name="food" aria-label={dict.frozenTeaser.selectLabel}>
                 {dict.frozenTeaser.options.map((opt, i) => <option value={frozenTeaserFoods[i]}>{opt}</option>)}
               </select>
-              <button type="submit" class="go-btn">{dict.frozenTeaser.goLabel}</button>
+              <button type="submit" class="go-btn btn-primary">{dict.frozenTeaser.goLabel}</button>
             </form>
           ) : (
             <div class="teaser-action">
@@ -205,6 +217,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
           )}
         </div>
       </div>
+
       <div class="card-grid">
         {dict.frozenCards.map((c, i) => {
           const href = cardHref(frozenTargets[i]);
@@ -225,9 +238,22 @@ const toolHref = hrefFor('/oven-to-air-fryer');
         })}
       </div>
     </div>
+
+    <!-- Terracotta callout band (one per page) -->
+    <div class="callout-band">
+      <div class="wrap">
+        <div class="callout-content">
+          <h3 class="callout-heading">{dict.frozenCallout.heading}</h3>
+          <p class="callout-desc">{dict.frozenCallout.desc}</p>
+        </div>
+        {isLive('/frozen') && (
+          <a href={hrefFor('/frozen')} class="btn-dark">{dict.frozenCallout.cta}</a>
+        )}
+      </div>
+    </div>
   </section>
 
-  <!-- Presets -->
+  <!-- Presets: teaser + 4 cards + outline card -->
   <section id="presets" class="section">
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.presets}</h2>
@@ -242,7 +268,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
               <select aria-label={dict.presetsTeaser.selectLabel}>
                 {presetOptions.map((o) => <option value={o.href}>{o.label}</option>)}
               </select>
-              <button type="submit" class="go-btn">{dict.presetsTeaser.goLabel}</button>
+              <button type="submit" class="go-btn btn-primary">{dict.presetsTeaser.goLabel}</button>
             </form>
           ) : (
             <div class="teaser-action">
@@ -285,20 +311,20 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     </div>
   </section>
 
-  <!-- Brands -->
+  <!-- Brands: brand cards -->
   <section id="brands" class="section pad-lg">
     <div class="wrap">
       <h2 class="section-title"><span class="title-dot"></span>{dict.sectionTitles.brands}</h2>
-      <div class="card-grid">
+      <div class="card-grid brand-grid">
         {brandCards.map((c) =>
           c.href ? (
-            <a href={c.href} class="card">
+            <a href={c.href} class="card brand-card">
               <span class="card-title small">{c.title}</span>
               {c.spec && <span class="card-spec">{c.spec}</span>}
               <span class="card-desc">{c.desc}</span>
             </a>
           ) : (
-            <div class="card disabled" aria-disabled="true">
+            <div class="card brand-card disabled" aria-disabled="true">
               <span class="card-title small">{c.title}</span>
               {c.spec && <span class="card-spec">{c.spec}</span>}
               <span class="card-desc">{c.desc}</span>
@@ -350,13 +376,14 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   @reference '../styles/global.css';
 
   .wrap {
-    max-width: var(--site-max-width);
+    max-width: var(--site-content-width);
     margin-inline: auto;
     padding-inline: 24px;
   }
 
   .eyebrow {
-    font-size: var(--text-caption);
+    font-family: var(--font-archivo);
+    font-size: var(--text-eyebrow);
     line-height: var(--text-caption--line-height);
     letter-spacing: var(--text-caption--letter-spacing);
     font-weight: 600;
@@ -368,33 +395,43 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   /* Hero */
   .hero {
     background: var(--site-bg);
-    padding: 64px 0 80px;
+    padding: var(--site-section-gap) 0;
+  }
+
+  .hero-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .hero-copy {
+    min-width: 0;
   }
 
   .hero-title {
-    font-size: clamp(2.25rem, 5.6vw, 4.25rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 0.92;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
     color: var(--site-text);
     margin: 0 0 20px;
     max-width: 20ch;
   }
 
   .hero-sub {
-    font-size: var(--text-subheading);
-    line-height: var(--text-subheading--line-height);
-    letter-spacing: var(--text-subheading--letter-spacing);
-    color: var(--site-text);
+    font-family: var(--font-archivo);
+    font-size: var(--text-lead);
+    line-height: var(--text-body--line-height);
+    letter-spacing: 0;
+    color: var(--site-text-body);
     margin: 0 0 40px;
     max-width: 56ch;
   }
 
-  .hero-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: flex-start;
+  .hero-converter {
+    min-width: 0;
   }
 
   .cta {
@@ -404,9 +441,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     gap: 8px;
     height: 48px;
     margin-top: 24px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: var(--site-accent);
-    color: var(--site-text);
+    color: #1e1e1e; /* ink on terracotta, both themes */
+    font-family: var(--font-archivo);
     font-size: 15px;
     font-weight: 600;
     transition: background 0.15s ease;
@@ -414,13 +452,13 @@ const toolHref = hrefFor('/oven-to-air-fryer');
 
   .cta:hover {
     background: var(--site-accent-hover);
-    color: var(--site-text);
+    color: #1e1e1e; /* ink on terracotta, both themes */
   }
 
-  /* Rail */
-  .rail {
-    flex: 0 1 320px;
-    min-width: min(260px, 100%);
+  /* Rail section */
+  .rail-section {
+    background: var(--site-bg);
+    padding: var(--site-section-gap) 0;
   }
 
   .rail-list {
@@ -433,10 +471,11 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     align-items: center;
     gap: 12px;
     padding: 14px 4px;
-    border-top: 1px solid var(--site-border);
-    border-bottom: 1px solid var(--site-border);
+    border-top: 1px solid var(--site-hairline);
+    border-bottom: 1px solid var(--site-hairline);
     margin-bottom: -1px;
     color: var(--site-text);
+    text-decoration: none;
     transition: background 0.15s ease;
   }
 
@@ -450,6 +489,7 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .rail-num {
+    font-family: var(--font-archivo);
     font-size: 15px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
@@ -461,12 +501,14 @@ const toolHref = hrefFor('/oven-to-air-fryer');
 
   .rail-note {
     margin-left: auto;
+    font-family: var(--font-archivo);
     font-size: 13px;
     color: var(--site-text-muted);
   }
 
   .rail-footnote {
-    font-size: var(--text-caption);
+    font-family: var(--font-archivo);
+    font-size: var(--text-eyebrow);
     font-weight: 600;
     line-height: 1.7;
     letter-spacing: var(--text-caption--letter-spacing);
@@ -478,19 +520,20 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   /* Sections */
   .section {
     background: var(--site-bg);
-    padding: 0 0 48px;
+    padding: var(--site-section-gap) 0;
     scroll-margin-top: 80px;
   }
 
   .section.pad-lg {
-    padding-bottom: 80px;
+    padding-bottom: var(--site-section-gap);
   }
 
   .section-title {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: var(--text-caption);
+    font-family: var(--font-archivo);
+    font-size: var(--text-eyebrow);
     font-weight: 600;
     letter-spacing: var(--text-caption--letter-spacing);
     text-transform: uppercase;
@@ -511,25 +554,80 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     margin-right: 8px;
   }
 
+  /* Convert grid: flagship dark + beige cards */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 16px;
   }
 
+  .convert-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1024px) {
+    .convert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .convert-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .card {
     display: block;
-    padding: 24px;
-    border-radius: var(--radius-site-card);
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
     background: var(--site-bg-card);
-    box-shadow: var(--shadow-site);
+    box-shadow: none;
+    border: 1px solid var(--site-hairline);
     color: var(--site-text);
-    transition: background 0.15s ease;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
   }
 
   .card:hover {
     background: var(--site-bg-hover);
+    border-color: var(--site-rule);
     color: var(--site-text);
+  }
+
+  .card.flagship {
+    background: var(--site-panel);
+    color: var(--site-on-panel);
+    border-color: var(--site-on-panel-muted);
+  }
+
+  .card.flagship:hover {
+    background: #2a2420;
+    border-color: var(--site-accent-text);
+    color: var(--site-on-panel);
+  }
+
+  .card.flagship .card-title,
+  .card.flagship .card-desc {
+    color: var(--site-on-panel);
+  }
+
+  .card.flagship .card-desc {
+    color: var(--site-on-panel-muted);
+  }
+
+  .flagship-badge {
+    display: inline-block;
+    font-family: var(--font-archivo);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--site-accent);
+    background: rgba(238, 136, 79, 0.15);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    margin: 8px 0 12px;
   }
 
   .card.outline {
@@ -542,17 +640,64 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .card.disabled,
-  .rail-item.disabled {
+  .rail-item.disabled,
+  .list-row.disabled {
     cursor: not-allowed;
     opacity: 0.55;
+    pointer-events: none;
   }
 
   .card.disabled:hover {
     background: var(--site-bg-card);
+    border-color: var(--site-hairline);
+  }
+
+  .card.flagship.disabled:hover {
+    background: var(--site-panel);
   }
 
   .card.outline.disabled:hover {
     background: var(--site-bg);
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .card-title.small {
+    margin-bottom: 6px;
+  }
+
+  .card-spec {
+    display: block;
+    font-family: var(--font-archivo);
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--site-text);
+    margin-bottom: 6px;
+  }
+
+  .card.flagship .card-spec {
+    color: var(--site-on-panel);
+  }
+
+  .card-desc {
+    display: block;
+    font-family: var(--font-archivo);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--site-text-muted);
+  }
+
+  .card.flagship .card-desc {
+    color: var(--site-on-panel-muted);
   }
 
   .badge {
@@ -561,9 +706,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     align-self: flex-start;
     margin-top: 10px;
     padding: 3px 10px;
-    border-radius: var(--radius-site-pill);
+    border-radius: var(--radius-full);
     background: var(--site-bg-deep);
     color: var(--site-text-muted);
+    font-family: var(--font-archivo);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -584,39 +730,66 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     background: var(--site-accent);
   }
 
-  .card-title {
+  /* List rows (reverse) */
+  .list-rows {
+    border-top: 1px solid var(--site-rule);
+  }
+
+  .list-row {
     display: flex;
     align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .card-title.small {
-    margin-bottom: 6px;
-  }
-
-  .card-spec {
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--site-rule);
     color: var(--site-text);
-    margin-bottom: 6px;
+    text-decoration: none;
+    transition: background 0.15s ease;
   }
 
-  .card-desc {
+  .list-row:hover {
+    color: var(--site-text);
+  }
+
+  .list-row-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .list-row-title {
     display: block;
+    font-family: var(--font-archivo);
+    font-size: var(--text-subheading);
+    font-weight: 600;
+    letter-spacing: var(--text-subheading--letter-spacing);
+    color: var(--site-text);
+    margin-bottom: 4px;
+  }
+
+  .list-row-desc {
+    display: block;
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
     color: var(--site-text-muted);
   }
 
+  .list-row-arrow {
+    color: var(--site-text-muted);
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+
+  .list-row.disabled {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
   /* Teaser */
   .teaser {
-    padding: 24px;
-    border-radius: var(--radius-site-card);
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
     background: var(--site-bg-deep);
     margin-bottom: 16px;
   }
@@ -637,12 +810,14 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .teaser-heading {
+    font-family: var(--font-archivo);
     font-size: var(--text-subheading);
     font-weight: 600;
     letter-spacing: var(--text-subheading--letter-spacing);
   }
 
   .teaser-desc {
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
@@ -661,8 +836,8 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     min-width: 0;
     height: 44px;
     padding: 0 12px;
-    border: 1px solid var(--site-border);
-    border-radius: var(--radius-site-card);
+    border: 1px solid var(--site-rule);
+    border-radius: var(--radius-md);
     background: var(--site-bg-card);
     color: var(--site-text);
     font-family: var(--font-archivo);
@@ -675,32 +850,115 @@ const toolHref = hrefFor('/oven-to-air-fryer');
     align-items: center;
     justify-content: center;
     padding: 0 24px;
-    height: 44px;
-    border-radius: 6px;
+    height: 48px;
+    border-radius: var(--radius-md);
     background: var(--site-accent);
-    color: var(--site-text);
+    color: #1e1e1e; /* ink on terracotta, both themes */
+    font-family: var(--font-archivo);
     font-size: 15px;
     font-weight: 600;
     font-family: inherit;
     border: none;
     cursor: pointer;
     transition: background 0.15s ease;
+    min-height: 44px;
   }
 
   .go-btn:hover {
     background: var(--site-accent-hover);
+    color: #1e1e1e; /* ink on terracotta, both themes */
+  }
+
+  /* Brand grid */
+  .brand-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 1200px) {
+    .brand-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .brand-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .brand-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .brand-card .card-spec {
     color: var(--site-text);
+  }
+
+  /* Callout band (terracotta) */
+  .callout-band {
+    background: var(--site-accent);
+    border-radius: var(--radius-xl);
+    margin: var(--site-section-gap) calc(24px - var(--site-content-width) / 2);
+    padding: 56px 48px;
+    max-width: var(--site-content-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 767px) {
+    .callout-band {
+      margin: var(--site-section-gap) calc(16px - var(--site-content-width) / 2);
+      padding: 32px 24px;
+      max-width: var(--site-content-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .callout-band .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .callout-content {
+    flex: 1 1 320px;
+    min-width: 280px;
+  }
+
+  .callout-heading {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #1e1e1e; /* ink on terracotta, both themes */
+    margin: 0 0 12px;
+  }
+
+  .callout-desc {
+    font-family: var(--font-archivo);
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: #1e1e1e; /* ink on terracotta, both themes */
+    margin: 0;
   }
 
   /* Guide */
   .guide .prose {
-    max-width: 76ch;
+    max-width: 68ch;
   }
 
   .guide h3 {
-    font-size: 18px;
+    font-family: var(--font-archivo);
+    font-size: var(--text-subheading);
     font-weight: 600;
-    letter-spacing: -0.18px;
+    letter-spacing: var(--text-subheading--letter-spacing);
     color: var(--site-text);
     margin: 32px 0 8px;
   }
@@ -710,10 +968,11 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .guide p {
+    font-family: var(--font-archivo);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     letter-spacing: var(--text-body--letter-spacing);
-    color: var(--site-text-muted);
+    color: var(--site-text-body);
     margin: 0 0 16px;
   }
 
@@ -725,9 +984,10 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   /* Chart strip */
   .chart-strip {
     background: var(--site-bg-deep);
-    border-top: 1px solid var(--site-border);
-    border-bottom: 1px solid var(--site-border);
+    border-top: 1px solid var(--site-hairline);
+    border-bottom: 1px solid var(--site-hairline);
     scroll-margin-top: 80px;
+    padding: 40px 0;
   }
 
   .chart-grid {
@@ -740,7 +1000,8 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   .chart-cell {
     padding: 24px 16px;
     text-align: center;
-    font-size: var(--text-caption);
+    font-family: var(--font-archivo);
+    font-size: var(--text-eyebrow);
     font-weight: 600;
     letter-spacing: var(--text-caption--letter-spacing);
     text-transform: uppercase;
@@ -748,6 +1009,93 @@ const toolHref = hrefFor('/oven-to-air-fryer');
   }
 
   .chart-cell.border {
-    border-left: 1px solid var(--site-border);
+    border-left: 1px solid var(--site-hairline);
+  }
+
+  /* Hero responsive */
+  @media (max-width: 900px) {
+    .hero-wrap {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-copy {
+      order: 1;
+    }
+
+    .hero-converter {
+      order: 2;
+      width: 100%;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 56px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .section {
+      padding: var(--site-section-gap) 0;
+    }
+
+    .section.pad-lg {
+      padding-bottom: var(--site-section-gap);
+    }
+
+    .wrap {
+      padding-inline: 16px;
+    }
+
+    .hero {
+      padding: var(--site-section-gap) 0;
+    }
+
+    .rail-section {
+      padding: var(--site-section-gap) 0;
+    }
+
+    .teaser {
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    .teaser-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    .teaser-action {
+      width: 100%;
+    }
+
+    .teaser-action select {
+      flex: 1;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .convert-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .brand-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .callout-band {
+      margin: var(--site-section-gap) 0;
+      padding: 32px 24px;
+    }
+
+    .callout-heading {
+      font-size: 28px;
+    }
+
+    .chart-strip {
+      padding: 24px 0;
+    }
   }
 </style>

@@ -217,6 +217,12 @@ const de: Dictionary = {
     brandCardSpec: 'Bis {MAX_F}°F · {N} Modelle',
     modelTableSpec: '{N} Modelle mit Quelle',
     chartStrip: ['Multiplikatoren je Lebensmittel', 'Korb & Ofen-Typ', '°F · °C · Gasstufe', 'Kostenlos — ohne Konto'],
+    frozenCallout: {
+      heading: 'Modus für Tiefkühlkost',
+      desc: 'Verpackungsangaben gelten für Backöfen. Temperatur beibehalten, Zeit reduzieren - die Heißluftfritteuse macht den Rest.',
+      cta: 'Tiefkühlmodus öffnen',
+    },
+    flagshipBadge: 'Flaggschiff',
     guide: [
       {
         heading: 'Was ist ein Ofen-zu-Heißluftfritteuse-Umrechner?',

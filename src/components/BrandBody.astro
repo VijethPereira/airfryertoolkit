@@ -2,6 +2,7 @@
 import Faq from './Faq.astro';
 import ConverterWidget from './ConverterWidget.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import type { BrandKey } from '../data/models';
 import { PRESETS } from '../data/presets';
 import { brands as dict } from '../i18n/dictionaries/brands/en';
@@ -26,6 +27,9 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale="en" translatedSlug={cfg.path} />
+
     <header class="tool-header">
       <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
       <h1>{copy.heading}</h1>
@@ -155,12 +159,19 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
   .back-link:hover { color: var(--site-text); }
 
   h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--site-text);
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
     line-height: 1.1;
+    color: var(--site-text);
     margin: 0 0 12px;
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 32px;
+    }
   }
 
   .tool-desc {
@@ -172,7 +183,7 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
     max-width: 64ch;
   }
 
-  .direct-answer { border-left: 3px solid var(--site-accent); padding: 4px 0 4px 16px; margin-bottom: 24px; }
+  .direct-answer { background: var(--site-bg-card); border-radius: var(--radius-lg); padding: 16px 20px; margin-bottom: 24px; }
   .answer-main { font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--site-text); margin: 0; }
 
   .tool-area { margin-bottom: 32px; }
@@ -180,19 +191,19 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
   .widget-intro h2 { font-size: 15px; font-weight: 600; color: var(--site-text); margin: 0 0 4px; }
   .widget-intro p { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0; }
 
-  .table-section, .content-section, .faq-section { margin: 40px 0; }
   .table-section h2, .content-section h2, .faq-section h2 {
+    font-family: var(--font-display);
     font-size: var(--text-heading-sm);
-    line-height: var(--text-heading-sm--line-height);
-    letter-spacing: var(--text-heading-sm--letter-spacing);
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
     color: var(--site-text);
     margin: 0 0 16px;
   }
   .content-section h2 { margin-top: 32px; }
 
   .table-intro { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--site-text-muted); margin: 0 0 16px; max-width: 72ch; }
-  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-site); padding: 12px 16px; }
 
   table { width: 100%; table-layout: fixed; border-collapse: collapse; }
   th, td {
@@ -212,7 +223,15 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
   .model-name { display: block; font-weight: 600; }
   .model-meta { display: block; color: var(--site-text-muted); font-size: 12px; }
 
-  .content-section h3 { font-size: 18px; font-weight: 600; color: var(--site-text); margin: 28px 0 8px; }
+  .content-section h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--site-text);
+    margin: 28px 0 8px;
+  }
   .content-section p {
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);

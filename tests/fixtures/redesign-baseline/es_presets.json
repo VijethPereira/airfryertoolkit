@@ -1,0 +1,285 @@
+{
+  "slug": "es\\presets",
+  "title": "Preconfiguraciones para freidora de aire: tiempo y temperatura por alimento | Air Fryer Toolkit",
+  "visibleText": ".ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} .wrap[data-astro-cid-4l5nzdvp]{max-width:860px;margin-inline:auto;padding-inline:24px}.page-main[data-astro-cid-4l5nzdvp]{padding:40px 0 80px}.tool-header[data-astro-cid-4l5nzdvp]{margin-bottom:24px}.back-link[data-astro-cid-4l5nzdvp]{font-size:var(--text-caption);letter-spacing:var(--text-caption--letter-spacing);text-transform:uppercase;color:var(--site-text-muted);align-items:center;gap:6px;margin-bottom:16px;font-weight:600;transition:color .15s;display:inline-flex}.back-link[data-astro-cid-4l5nzdvp]:hover{color:var(--site-text)}h1[data-astro-cid-4l5nzdvp]{letter-spacing:-.03em;color:var(--site-text);margin:0 0 12px;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;line-height:1.1}.tool-desc[data-astro-cid-4l5nzdvp]{font-size:var(--text-subheading);line-height:var(--text-subheading--line-height);letter-spacing:var(--text-subheading--letter-spacing);color:var(--site-text-muted);max-width:64ch;margin:0}.group[data-astro-cid-4l5nzdvp]{margin:32px 0}.group[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp],.content-section[data-astro-cid-4l5nzdvp] h2[data-astro-cid-4l5nzdvp]{font-size:var(--text-heading-sm);line-height:var(--text-heading-sm--line-height);letter-spacing:var(--text-heading-sm--letter-spacing);color:var(--site-text);margin:0 0 12px;font-weight:600}.card-grid[data-astro-cid-4l5nzdvp]{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.card[data-astro-cid-4l5nzdvp]{border-radius:var(--radius-site-card);background:var(--site-bg-card);min-height:44px;box-shadow:var(--shadow-site);color:var(--site-text);flex-direction:column;gap:4px;padding:16px 18px;transition:background .15s;display:flex}.card[data-astro-cid-4l5nzdvp]:hover{background:var(--site-bg-hover)}.card-title[data-astro-cid-4l5nzdvp]{font-size:16px;font-weight:600}.card-spec[data-astro-cid-4l5nzdvp]{font-variant-numeric:tabular-nums;color:var(--site-accent);font-size:13px;font-weight:600}.card-desc[data-astro-cid-4l5nzdvp]{color:var(--site-text-muted);font-size:13px;line-height:1.45}.content-section[data-astro-cid-4l5nzdvp]{margin:40px 0}.content-section[data-astro-cid-4l5nzdvp] p[data-astro-cid-4l5nzdvp]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);max-width:72ch;margin:0 0 16px}.related-link[data-astro-cid-4l5nzdvp]{margin:24px 0 0!important}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]{min-height:44px;color:var(--site-text);font-weight:600;line-height:44px;display:inline-block}.related-link[data-astro-cid-4l5nzdvp] a[data-astro-cid-4l5nzdvp]:hover{color:var(--site-accent)} Air Fryer Toolkit Convertir Inverso Alimentos Marcas Tabla Guía ES English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Todas las herramientas Preconfiguraciones de alimentos para freidora de aire Una página por alimento, cada una una herramienta que funciona y no una fila de tabla: el ajuste, cuándo voltear o agitar, la temperatura interna de cada proteína, los tiempos por tamaño y el equivalente en horno en ambos sentidos. Aves Pechuga de pollo 375°F · 16 min · voltear a los 8 La preconfiguración más buscada. Retírala a 165°F internos. Alitas de pollo 400°F · 22 min · voltear a los 11 Sécalas primero; la salsa, solo después de cocinar. Muslos de pollo 380°F · 24 min · voltear a los 12 Piel abajo primero, piel arriba para terminar. Jamoncitos de pollo 380°F · 22 min · voltear a los 11 Seguro a 165°F, tierno cerca de 185°F. Tiras de pollo 400°F · 10 min · voltear a los 5 Pequeñas y rápidas: pon el temporizador al mínimo. Carne Beicon 350°F · 9 min Una temperatura más baja evita que la grasa humee. Filete de ternera 400°F · 10 min · voltear a los 5 Seca la superficie y deja reposar para una costra de verdad. Chuletas de cerdo 400°F · 12 min · voltear a los 6 Retíralas a 145°F y deja reposar; salmuera si puedes. Salchichas 370°F · 12 min · voltear a los 6 Calor moderado para que la tripa no reviente. Hamburguesas 375°F · 10 min · voltear a los 5 Carne picada: 160°F, no el punto del filete. Solomillo de cerdo 400°F · 20 min · voltear a los 10 Dobla la punta y deja que el reposo lo termine. Pescado y marisco Salmón 390°F · 9 min Piel abajo, sin voltear. Cuenta el tiempo por grosor. Gambas 400°F · 7 min · agitar ×1 Cuentan los minutos: calcula el tiempo por tamaño. Pescado blanco 400°F · 10 min No lo voltees: sácalo entero sobre papel. Verduras y patatas Patata asada 400°F · 40 min · voltear a los 20 Compruébala con termómetro, no con tenedor. Patatas fritas caseras 380°F · 18 min · agitar ×2 Remojar, secar, una capa, dos agitados. Brócoli 375°F · 8 min · agitar ×1 Corta los tallos finos para que no se quemen las puntas. Coles de Bruselas 375°F · 15 min · agitar ×2 Córtalas por la mitad y empieza con el corte abajo. Boniato frito 375°F · 16 min · agitar ×2 Más bajo que las patatas: el azúcar se quema antes. Patatas gajo 390°F · 20 min · agitar ×1 Piezas gruesas: repártelas y gíralas una vez. Mazorcas de maíz 400°F · 12 min · voltear a los 6 Parte las mazorcas largas y úntalas con mantequilla o aceite. Repostería Galletas 325°F · 8 min Sujeta el papel con la propia masa. Magdalenas 325°F · 15 min Moldes de silicona, y juzga el centro, no el color. Brownies 325°F · 22 min Usa un molde de 15–18 cm y reduce a la mitad una receta de 23×23. Pan de ajo 375°F · 6 min Deja el ajo bajo la mantequilla, no encima. Recalentar Pizza sobrante 350°F · 4 min Con menos calor, la base alcanza al queso. Patatas fritas sobrantes 375°F · 4 min · agitar ×1 Corto y fuerte, con un poco de aceite, en una capa. Pollo frito sobrante 375°F · 8 min · voltear a los 4 Déjalo fuera un rato para que la costra se seque. Alitas sobrantes 375°F · 5 min · agitar ×1 Quita la salsa espesa antes y vuelve a ponerla después. Filete sobrante 300°F · 8 min · voltear a los 4 Calor bajo y termómetro a partir de la vuelta. Congelados Papas fritas congeladas 400°F · 15 min · agitar ×2 Directo de la bolsa, una capa, dos agitadas. Alitas de pollo congeladas 390°F · 26 min · agitar ×2 Crudas y congeladas: sepáralas en la primera agitada. Pechuga de pollo congelada 360°F · 24 min · voltear a los 12 Más baja y más lenta que la fresca: compruébala con termómetro. Nuggets de pollo congelados 400°F · 10 min · agitar ×1 Ya vienen cocidos: solo los recalientas. Tater tots congelados 400°F · 14 min · agitar ×2 Agita dos veces para que cada lado forme costra. Pizza congelada 380°F · 9 min La individual cabe en la cesta; la familiar no. Palitos de pescado congelados 400°F · 10 min · voltear a los 5 Voltea con cuidado: el empanizado cuaja antes que el pescado. Tiras de pollo congeladas 400°F · 12 min · voltear a los 6 Lee el paquete: muchas se venden crudas. Hash browns congelados 400°F · 12 min · voltear a los 6 Tortitas planas: una vuelta a la mitad. Rollitos de primavera congelados 390°F · 11 min · voltear a los 6 Rocía la masa y dales una vuelta. Verduras congeladas 400°F · 12 min · agitar ×2 Nunca las descongeles: directas, media cesta como mucho. Cómo se fijan estas preconfiguraciones Cada preconfiguración parte de una freidora de cesta de 4–6 litros, precalentada, con el alimento en una sola capa. En las de cocinar, los equivalentes en horno y en horno con ventilador los calcula el mismo motor que el conversor, así que coinciden entre sí, y el conversor de la página ya tiene ese alimento elegido. Las de congelados muestran en su lugar lo que dice el paquete. Las de recalentar son distintas: el motor convierte recetas de cocción, no recalentados, así que los tiempos de recalentado y sus equivalentes en horno están escritos a mano, y el conversor de esas páginas convierte recetas de horno. Cada página empieza por la forma concreta en que ese alimento sale mal en la freidora, porque eso decide el resultado más que el número del dial. Sin correo, sin registro, nada que instalar. Conversor de horno a freidora de aire &rarr; Tabla de conversión imprimible &rarr; Air Fryer Toolkit Conversor Alimentos preconfigurados Congelados Tabla de conversión Acerca de Contacto Política de privacidad Términos y condiciones Más herramientas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — herramientas gratuitas de conversión de cocina en el navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://airfryertoolkit.com/es/presets#page",
+      "name": "Preconfiguraciones de alimentos para freidora de aire — Air Fryer Toolkit",
+      "description": "Tiempo y temperatura en freidora de aire para pollo, salmón, filete, patatas, repostería, congelados y sobras: cada preconfiguración con temperatura interna o prueba de punto, tiempos por tamaño y equivalente en horno.",
+      "url": "https://airfryertoolkit.com/es/presets",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Pechuga de pollo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Alitas de pollo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Muslos de pollo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/chicken-thighs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Salmón",
+            "url": "https://airfryertoolkit.com/es/air-fryer/salmon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Beicon",
+            "url": "https://airfryertoolkit.com/es/air-fryer/bacon"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Filete de ternera",
+            "url": "https://airfryertoolkit.com/es/air-fryer/steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Chuletas de cerdo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/pork-chops"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Gambas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/shrimp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Patata asada",
+            "url": "https://airfryertoolkit.com/es/air-fryer/baked-potato"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Patatas fritas caseras",
+            "url": "https://airfryertoolkit.com/es/air-fryer/homemade-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Jamoncitos de pollo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/chicken-drumsticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Tiras de pollo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Salchichas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/sausages"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "Hamburguesas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/burgers"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "Solomillo de cerdo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/pork-tenderloin"
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "name": "Pescado blanco",
+            "url": "https://airfryertoolkit.com/es/air-fryer/white-fish"
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "name": "Brócoli",
+            "url": "https://airfryertoolkit.com/es/air-fryer/broccoli"
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "name": "Coles de Bruselas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/brussels-sprouts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "name": "Boniato frito",
+            "url": "https://airfryertoolkit.com/es/air-fryer/sweet-potato-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "name": "Patatas gajo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/potato-wedges"
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "name": "Papas fritas congeladas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "name": "Alitas de pollo congeladas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-chicken-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "name": "Pechuga de pollo congelada",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-chicken-breast"
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "name": "Nuggets de pollo congelados",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-chicken-nuggets"
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "name": "Tater tots congelados",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-tater-tots"
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "name": "Pizza congelada",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "name": "Palitos de pescado congelados",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-fish-sticks"
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "name": "Tiras de pollo congeladas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-chicken-tenders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "name": "Hash browns congelados",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-hash-browns"
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "name": "Rollitos de primavera congelados",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-egg-rolls"
+          },
+          {
+            "@type": "ListItem",
+            "position": 31,
+            "name": "Pizza sobrante",
+            "url": "https://airfryertoolkit.com/es/air-fryer/reheat-pizza"
+          },
+          {
+            "@type": "ListItem",
+            "position": 32,
+            "name": "Patatas fritas sobrantes",
+            "url": "https://airfryertoolkit.com/es/air-fryer/reheat-fries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 33,
+            "name": "Pollo frito sobrante",
+            "url": "https://airfryertoolkit.com/es/air-fryer/reheat-fried-chicken"
+          },
+          {
+            "@type": "ListItem",
+            "position": 34,
+            "name": "Alitas sobrantes",
+            "url": "https://airfryertoolkit.com/es/air-fryer/reheat-wings"
+          },
+          {
+            "@type": "ListItem",
+            "position": 35,
+            "name": "Filete sobrante",
+            "url": "https://airfryertoolkit.com/es/air-fryer/reheat-steak"
+          },
+          {
+            "@type": "ListItem",
+            "position": 36,
+            "name": "Galletas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/cookies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 37,
+            "name": "Magdalenas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/muffins"
+          },
+          {
+            "@type": "ListItem",
+            "position": 38,
+            "name": "Brownies",
+            "url": "https://airfryertoolkit.com/es/air-fryer/brownies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 39,
+            "name": "Pan de ajo",
+            "url": "https://airfryertoolkit.com/es/air-fryer/garlic-bread"
+          },
+          {
+            "@type": "ListItem",
+            "position": 40,
+            "name": "Mazorcas de maíz",
+            "url": "https://airfryertoolkit.com/es/air-fryer/corn-on-the-cob"
+          },
+          {
+            "@type": "ListItem",
+            "position": 41,
+            "name": "Verduras congeladas",
+            "url": "https://airfryertoolkit.com/es/air-fryer/frozen-vegetables"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://airfryertoolkit.com/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Preconfiguraciones de alimentos para freidora de aire",
+          "item": "https://airfryertoolkit.com/es/presets"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenes\\presets"
+}

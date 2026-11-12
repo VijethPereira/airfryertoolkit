@@ -1,0 +1,90 @@
+{
+  "slug": "pt\\air-fryer-vs-oven-cost",
+  "title": "Custo da air fryer vs forno — calculadora com energia medida | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Converter Inverso Alimentos Marcas Tabela Guia PT English Español Português Français Deutsch Air Fryer Toolkit Conversor Alimentos predefinidos Congelados Tabela de conversão Sobre Contato Política de privacidade Termos e condições Mais ferramentas gratuitas: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — ferramentas gratuitas de conversão culinária no navegador",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/pt/air-fryer-vs-oven-cost#app",
+          "name": "Air fryer vs forno: custo de uso — Air Fryer Toolkit",
+          "description": "Quanto custa uma receita de forno na air fryer e no forno, ao seu preço da luz. Estimado com a energia medida no laboratório da Which?, não com watts × tempo.",
+          "url": "https://airfryertoolkit.com/pt/air-fryer-vs-oven-cost",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Uma air fryer gasta menos do que um forno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Para uma só leva, sim. No ensaio da Which? usou entre 53% e 69% menos energia do que o forno nos quatro alimentos. Fonte: Which?, 23 de outubro de 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Porque não multiplicar os watts pelo tempo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Porque, já à temperatura, a resistência liga e desliga, por isso watts × tempo exagera: entre 1,5 e 3,2 vezes no forno da Which?. Fonte: Which?, 23 de outubro de 2026; potência segundo a ficha do vendedor."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando é que o forno fica mais barato?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Quando cozinha muito de uma vez. Which?: «an oven may still be the most economical choice when cooking for a crowd» (para muita gente, o forno pode ser o mais económico). Fonte: Which?, 23 de outubro de 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Porque é que o meu preço pode não coincidir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O padrão é a média do Eurostat para casas de 2.500 a 4.999 kWh por ano, impostos incluídos, no 1.º semestre de 2026: 23,67 c/kWh (Média de Portugal). Escreva o preço por kWh da sua fatura. Fonte: Eurostat (nrg_pc_204)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "É preciso contar o pré-aquecimento?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Os tempos e kWh da Which? incluem-no, por isso somam-se 10 minutos ao forno e de 2 a 4 à air fryer, mais em temperaturas altas; ponha zero se a sua não precisar. Fonte: Which?, 23 de outubro de 2026."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://airfryertoolkit.com/pt"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer vs forno: custo de uso",
+          "item": "https://airfryertoolkit.com/pt/air-fryer-vs-oven-cost"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenpt\\air-fryer-vs-oven-cost"
+}

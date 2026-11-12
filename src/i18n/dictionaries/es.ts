@@ -216,6 +216,12 @@ const es: Dictionary = {
     },
     brandCardSpec: 'Hasta {MAX_F}°F · {N} modelos',
     modelTableSpec: '{N} modelos con fuente',
+    frozenCallout: {
+      heading: 'Modo alimentos congelados',
+      desc: 'Las instrucciones del envase son para hornos convencionales. Mantén la temperatura, reduce el tiempo — la freidora hace el resto.',
+      cta: 'Abrir modo congelados',
+    },
+    flagshipBadge: 'Estrella',
     chartStrip: ['Multiplicadores por alimento', 'Cesta y tipo horno', '°F · °C · nivel de gas', 'Gratis — sin cuenta'],
     guide: [
       {

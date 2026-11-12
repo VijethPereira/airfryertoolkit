@@ -1,0 +1,98 @@
+{
+  "slug": "chart",
+  "title": "Free Printable Air Fryer Conversion Chart | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch globalThis.process??={};globalThis.process.env??={};const d=document.querySelector(\".lang-switch\"),n=document.getElementById(\"lang-switch-btn\"),t=document.getElementById(\"lang-switch-menu\");function c(){!t||!n||(t.hidden=!0,n.setAttribute(\"aria-expanded\",\"false\"))}n?.addEventListener(\"click\",e=>{if(e.stopPropagation(),!t)return;const i=t.hidden;t.hidden=!i,n.setAttribute(\"aria-expanded\",String(i))});document.addEventListener(\"click\",e=>{d&&!d.contains(e.target)&&c()});document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&c()}); globalThis.process??={};globalThis.process.env??={};const n=document.querySelector(\".site-nav\"),o=n?.querySelector(\".nav-toggle\");o?.addEventListener(\"click\",()=>{const e=n?.classList.toggle(\"nav-open\")??!1;o.setAttribute(\"aria-expanded\",String(e))});n?.querySelectorAll(\".nav-link\").forEach(e=>{e.addEventListener(\"click\",()=>{n.classList.remove(\"nav-open\"),o?.setAttribute(\"aria-expanded\",\"false\")})});const s=document.getElementById(\"theme-toggle-btn\"),i=document.querySelector(\"#icon-moon\"),l=document.querySelector(\"#icon-sun\"),t=document.documentElement;function c(e){i.style.display=e?\"none\":\"block\",l.style.display=e?\"block\":\"none\"}c(t.classList.contains(\"dark\"));s?.addEventListener(\"click\",()=>{const e=!t.classList.contains(\"dark\");t.classList.add(\"theme-transitioning\"),t.classList.toggle(\"dark\",e),localStorage.setItem(\"theme\",e?\"dark\":\"light\"),c(e),s.classList.add(\"spinning\"),setTimeout(()=>{t.classList.remove(\"theme-transitioning\"),s.classList.remove(\"spinning\")},300)}); &larr; Full converter Printable · No email · No popup Air Fryer Conversion Chart Oven-to-air-fryer temperature, time, and food-multiplier tables on one printable page. Every dedicated chart site in this niche gates its printable version behind an email signup — this one doesn&#39;t. Print this chart Temperature — Oven → Air Fryer (Basket) Oven °F Air fryer °F Air fryer °C Gas mark 250°F 225°F 105°C — 275°F 250°F 120°C — 300°F 275°F 135°C 1 325°F 300°F 150°C 2 350°F 325°F 165°C 3 375°F 350°F 175°C 4 400°F 375°F 190°C 5 425°F 400°F 205°C 6 450°F 400°F &dagger; 205°C 6 475°F 400°F &dagger; 205°C 6 † Held at the 400°F basket ceiling — see the note below. Time — General / Mixed, Basket Oven time Air fryer time 10 min 8 min 15 min 12 min 20 min 16 min 25 min 20 min 30 min 24 min 35 min 28 min 40 min 32 min 45 min 36 min 60 min 48 min Food-type multipliers Food Temp adjustment Time multiplier Note General / mixed −25°F &times;0.8 Shake or flip at the halfway mark. Fries &amp; potatoes −25°F &times;0.7 Shake twice — once early, once at halfway. Keep to a single layer. Chicken wings −25°F &times;0.8 Pat dry before cooking and flip at halfway for even skin. Chicken breast (boneless) −25°F &times;0.75 Pull at 165°F internal — the temperature climbs while it rests. Chicken thighs / bone-in −25°F &times;0.8 Skin side up the whole way. No flip needed. Steak &amp; thick cuts −20°F &times;0.8 Flip once, then rest 5 minutes before slicing. Fish &amp; salmon −20°F &times;0.8 No flip. Check at the low end — fish overcooks in under a minute. Bacon −25°F &times;0.7 Single layer. Drain the fat at halfway if it starts to smoke. Vegetables −25°F &times;0.75 Cut pieces to an even size and toss at halfway. Baked goods &amp; cookies −20°F &times;0.85 A gentler cut — batter sets more slowly than the top browns. Pizza &amp; reheating −25°F &times;0.75 No preheat needed for reheating. Watch the crust, not the clock. Casseroles &amp; thick bakes −20°F &times;0.85 Cover with foil if the top browns before the middle is hot. Basket-style air fryers cap around 400°F; oven-style units cap around 450°F. If this chart shows a temperature your unit can&#39;t reach, use the live converter — it clamps to your unit&#39;s real ceiling and adds the time back automatically. How to Read This Chart Each table above assumes a basket-style air fryer on the &quot;general / mixed&quot; setting, the same baseline the live converter starts from. Find your oven temperature or time in the left column and read across for the air fryer equivalent in Fahrenheit, Celsius, and UK gas mark. The food-type table adjusts that baseline for twelve categories, from fries to casseroles, because one flat offset undersells how differently those foods behave in a fan-forced chamber. A dagger next to a temperature means the conversion landed above what a basket unit can reach — the chart holds it at the ceiling instead of printing a setting that doesn&#39;t exist on your dial. Why the Flat −25°F / −20% Rule Fails Wet Batter and Baked Goods Most printable charts in this niche apply one rule to every food: subtract 25°F, cut the time by a fifth. That&#39;s a fine average for vegetables, but it breaks down for anything with a wet interior that still has to finish setting before it&#39;s done — cake batter, muffins, casseroles, dense baked goods. A basket air fryer&#39;s forced air browns the surface of batter almost immediately, and a flat 20% time cut mistakes that early browning for &quot;done&quot; well before the center has set, leaving a cooked crust over a raw middle. Take a 350°F, 30-minute baked-good recipe. The flat rule converts it to 325°F for 24 minutes. This chart&#39;s baked-goods multiplier holds it closer to the original heat, at 330°F for 26 minutes instead — a smaller time cut and a few degrees warmer, because batter needs those extra minutes to finish setting even as the surface browns fast. The same logic runs across every category: thin, high-surface-area food like fries and bacon gives up close to 30% of its time, while dense food like casseroles and baked goods gives up closer to 15%, since heat still has to reach the center before it&#39;s done. Frequently Asked Questions Do I need an email address to print this chart? No. Every dedicated chart site in this niche gates its printable version behind an email signup or a popup. This one doesn&#39;t — the tables above are the whole chart, and the print button sends them straight to your printer. Why does the chart show 400°F for both a 425°F and a 450°F oven? A basket-style air fryer tops out around 400°F, so once the raw conversion lands above that, the chart holds the result at the ceiling instead of printing a setting your unit can&#39;t reach. The dagger marks which rows were held this way. Does this chart apply to oven-style air fryers too? These tables are tuned for basket-style units, which cap around 400°F. Oven-style units circulate air more gently and can run up to about 450°F before clamping — for exact oven-style numbers, use the live converter and switch the style toggle. Why is the time cut different for fries than for a casserole? Time savings track surface area and density, not category alone. Fries and bacon give hot air nearly every side at once, so they lose close to 30% of the oven time; a dense casserole loses closer to 15%. Can I use this chart for food straight from the freezer? Not directly. Frozen food follows inverted logic — keep the package temperature and cut the time by about 30%, since it needs the full heat just to thaw before it can cook through. What if my exact oven temperature or time isn&#39;t on the chart? This chart covers common values in 25°F and round-number time steps to keep it to one page. For an exact number, the live converter takes any oven temperature and time and adjusts on every keystroke. Related tools Oven → Air Fryer converter — the live tool, adjusts for food type and basket vs. oven-style, with the ceiling clamp this chart&#39;s dagger rows point back to. °C and gas mark pages — for UK and EU recipes that give °C, a fan figure or a gas mark. Air Fryer → Oven converter — the reverse direction, for when the oven is the better choice. Convection → Air Fryer converter — a gentler cut for fan-oven recipes that are already adjusted. Air Fryer → Convection converter — scale an air fryer setting up to a fan oven for bigger batches. Frozen food mode — packaging instructions to air fryer: keep the heat, cut the time, shake on schedule. globalThis.process??={};globalThis.process.env??={};document.getElementById(\"chart-print-btn\")?.addEventListener(\"click\",()=>window.print()); Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/chart#app",
+          "name": "Free Printable Air Fryer Conversion Chart — Air Fryer Toolkit",
+          "description": "A printable oven-to-air-fryer temperature, time, and food-multiplier chart — one page, °F and °C, no email address, no popup.",
+          "url": "https://airfryertoolkit.com/chart",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do I need an email address to print this chart?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Every dedicated chart site in this niche gates its printable version behind an email signup or a popup. This one doesn't — the tables above are the whole chart, and the print button sends them straight to your printer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does the chart show 400°F for both a 425°F and a 450°F oven?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A basket-style air fryer tops out around 400°F, so once the raw conversion lands above that, the chart holds the result at the ceiling instead of printing a setting your unit can't reach. The dagger marks which rows were held this way."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this chart apply to oven-style air fryers too?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "These tables are tuned for basket-style units, which cap around 400°F. Oven-style units circulate air more gently and can run up to about 450°F before clamping — for exact oven-style numbers, use the live converter and switch the style toggle."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is the time cut different for fries than for a casserole?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Time savings track surface area and density, not category alone. Fries and bacon give hot air nearly every side at once, so they lose close to 30% of the oven time; a dense casserole loses closer to 15%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this chart for food straight from the freezer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not directly. Frozen food follows inverted logic — keep the package temperature and cut the time by about 30%, since it needs the full heat just to thaw before it can cook through."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my exact oven temperature or time isn't on the chart?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This chart covers common values in 25°F and round-number time steps to keep it to one page. For an exact number, the live converter takes any oven temperature and time and adjusts on every keystroke."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air Fryer Conversion Chart",
+          "item": "https://airfryertoolkit.com/chart"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenchart"
+}

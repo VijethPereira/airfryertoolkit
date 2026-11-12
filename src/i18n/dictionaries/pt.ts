@@ -216,6 +216,12 @@ const pt: Dictionary = {
     },
     brandCardSpec: 'Até {MAX_F}°F · {N} modelos',
     modelTableSpec: '{N} modelos com fonte',
+    frozenCallout: {
+      heading: 'Modo alimentos congelados',
+      desc: 'As instruções da embalagem são para fornos convencionais. Mantenha a temperatura, reduza o tempo — a air fryer faz o resto.',
+      cta: 'Abrir modo congelados',
+    },
+    flagshipBadge: 'Principal',
     chartStrip: ['Multiplicadores por alimento', 'Cesto e tipo forno', '°F · °C · nível de gás', 'Grátis — sem cadastro'],
     guide: [
       {

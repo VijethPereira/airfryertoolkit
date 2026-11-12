@@ -216,6 +216,12 @@ const en: Dictionary = {
     },
     brandCardSpec: 'Up to {MAX_F}°F · {N} models',
     modelTableSpec: '{N} sourced models',
+    frozenCallout: {
+      heading: 'Frozen food mode',
+      desc: 'Pack instructions are for conventional ovens. Keep the temperature, cut the time — the air fryer does the rest.',
+      cta: 'Open frozen mode',
+    },
+    flagshipBadge: 'Flagship',
     chartStrip: ['Food-type multipliers', 'Basket & oven-style', '°F · °C · gas mark', 'Free — no account'],
     guide: [
       {

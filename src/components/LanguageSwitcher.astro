@@ -87,20 +87,21 @@ const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? locale;
     gap: 4px;
     height: 36px;
     padding: 0 10px;
-    border: none;
+    border: 1px solid var(--site-rule);
     background: transparent;
     cursor: pointer;
     color: var(--site-text);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     font-family: var(--font-archivo);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.4px;
-    transition: background-color 0.15s ease;
+    letter-spacing: 0.04em;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
   }
 
   .lang-switch-btn:hover {
     background: var(--site-bg-hover);
+    border-color: var(--site-border);
   }
 
   .lang-icon {
@@ -120,9 +121,9 @@ const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? locale;
     padding: 6px;
     list-style: none;
     background: var(--site-bg-card);
-    border: 1px solid var(--site-border);
-    border-radius: var(--radius-site-card);
-    box-shadow: var(--shadow-site);
+    border: 1px solid var(--site-rule);
+    border-radius: var(--radius-md);
+    box-shadow: none;
   }
 
   .lang-option {

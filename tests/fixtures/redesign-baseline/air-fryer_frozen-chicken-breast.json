@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\frozen-chicken-breast",
+  "title": "Frozen Chicken Breast in the Air Fryer: Time &amp; Safe Temp | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Pack says Small, 5–6 oz (150 g) 360°F / 180°C · 20 min 375°F / 190°C · 24 min Medium, 7–8 oz (220 g) 360°F / 180°C · 24 min 375°F / 190°C · 28 min Large, 10–12 oz (300 g) 360°F / 180°C · 30 min 375°F / 190°C · 35 min Why the outside dries before the middle is safe A frozen breast starts with a block of ice in the middle. Heat has to thaw the centre before it can cook it, while the outside keeps taking heat the whole time. That is why this preset sits lower and runs longer than fresh chicken: a gentler temperature narrows the gap between outside and inside, so the centre reaches a safe reading before the edges dry out. Thickness matters most, so cook pieces of a similar size together and check the biggest. Worked example: two breasts from a freezer bag A bag of individually frozen raw breasts says 375°F for 28 minutes in the oven. In a basket air fryer that becomes 360°F for about 24 minutes for a medium breast. Preheat 4 minutes, lay two breasts flat with space between them, and flip at 12 minutes, which is also when you add seasoning, because the thawed surface now holds it. Small breasts are usually done in about 20 minutes; large ones need about 30. Probe the thickest one before you take any out. How to tell it is done Only a thermometer is reliable here: 165°F (74°C) in the thickest part, with the probe pushed in from the side so the tip sits in the very middle. A frozen breast can be golden outside while the centre is still pink and cold. If one breast is done and another is not, take the finished one out and give the other a few more minutes. Rest it for three minutes before slicing. Before it goes in Separate breasts that froze together, rinse off any ice glaze and pat them dry. Brush with a little oil so the seasoning sticks later, but hold back the spices until the flip, since they slide off a frozen surface. Related presets Frozen fries 400°F · 15 min · shake ×2 Frozen chicken wings 390°F · 26 min · shake ×2 Frozen chicken nuggets 400°F · 10 min · shake ×1 375°F oven to air fryer, every food &rarr; Frozen pack converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long does a frozen chicken breast take in the air fryer? About 24 minutes at 360°F for a medium breast, flipped at 12 minutes. Small breasts take about 20 minutes and large ones about 30. Always finish with a thermometer check. Is it safe to cook chicken breast from frozen? Yes, as long as the thickest part reaches 165°F (74°C). It simply takes longer than fresh, and the lower setting keeps the outside from drying first. Why not use the fresh chicken breast setting? Fresh chicken runs hotter and shorter. On a frozen breast that browns the outside long before the centre has thawed and cooked through. When should I season it? At the flip. By then the surface has thawed and the seasoning sticks instead of sliding off the ice. Can I cook breaded frozen chicken breasts the same way? Check the pack. Many breaded products are sold raw and follow the frozen tenders page; fully cooked ones only need heating through. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/frozen-chicken-breast#app",
+          "name": "Frozen chicken breast in the air fryer — Air Fryer Toolkit",
+          "description": "Raw chicken breast straight from frozen in the air fryer: 360°F for 24 minutes, flipped at 12, done at 165°F. Times by weight and the oven equivalent.",
+          "url": "https://airfryertoolkit.com/air-fryer/frozen-chicken-breast",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does a frozen chicken breast take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 24 minutes at 360°F for a medium breast, flipped at 12 minutes. Small breasts take about 20 minutes and large ones about 30. Always finish with a thermometer check."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it safe to cook chicken breast from frozen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, as long as the thickest part reaches 165°F (74°C). It simply takes longer than fresh, and the lower setting keeps the outside from drying first."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why not use the fresh chicken breast setting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fresh chicken runs hotter and shorter. On a frozen breast that browns the outside long before the centre has thawed and cooked through."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I season it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "At the flip. By then the surface has thawed and the seasoning sticks instead of sliding off the ice."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I cook breaded frozen chicken breasts the same way?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check the pack. Many breaded products are sold raw and follow the frozen tenders page; fully cooked ones only need heating through."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Frozen chicken breast",
+          "item": "https://airfryertoolkit.com/air-fryer/frozen-chicken-breast"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\frozen-chicken-breast"
+}

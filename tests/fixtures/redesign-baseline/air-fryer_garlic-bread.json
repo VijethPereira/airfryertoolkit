@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\garlic-bread",
+  "title": "Garlic Bread in the Air Fryer: Fresh or Frozen, Time &amp; Temp | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Oven Sliced garlic bread 375°F / 190°C · 4 min 400°F / 205°C · 5 min Half a baguette, cut side up 375°F / 190°C · 6 min 400°F / 205°C · 8 min Thick toast or frozen garlic bread 375°F / 190°C · 8 min 400°F / 205°C · 11 min Why the garlic burns and turns bitter Minced garlic is small, dry and full of sugar, and on top of bread it sits right in the hottest air. It goes from golden to brown to bitter black in under a minute, often before the bread under it has toasted. The butter is part of the problem: it melts and runs off the surface, leaving the garlic exposed and dry. The fix is in how you spread it. Mash the garlic into soft butter so every piece is coated, spread it right to the edges, and press it into the crumb. Grated garlic burns less than chopped, and garlic powder hardly burns at all. A medium setting toasts the bread through while the top turns golden, not dark. Worked example: half a baguette Half a baguette split lengthways and spread with garlic butter. An oven recipe would say 400°F for about 8 minutes. In a basket air fryer, preheat 4 minutes and toast it cut side up at 375°F for 6 minutes. Individual slices take about 4 minutes, and thick toast or frozen garlic bread about 8. How to tell it is done The edges should be crisp and deep golden, and the butter should be bubbling into the bread rather than pooled on top. Press the middle: it should still be soft. Any dark brown garlic means the next batch needs less time or the garlic needs more butter around it. Before it goes in Use soft, not melted, butter so it stays where you spread it. Add parsley or grated cheese for the last minute only. Cut long loaves to fit the basket and lay pieces in a single layer. Day-old bread works well, because its drier crumb soaks up the butter instead of going soggy. For frozen garlic bread, take it straight from the freezer and do not thaw it, or the butter seeps out before the crust can crisp. Foil-wrapped garlic bread should come out of the foil for the air fryer. Related presets Cookies 325°F · 8 min Muffins 325°F · 15 min Brownies 325°F · 22 min 400°F oven to air fryer, every food &rarr; Oven to air fryer converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long does garlic bread take in the air fryer? About 6 minutes at 375°F for half a baguette. Slices take around 4 minutes and thick or frozen pieces around 8. Fresh or frozen garlic bread: what is the difference? Fresh garlic bread only needs toasting. Frozen garlic bread goes in straight from the freezer and needs the longer time, so the middle thaws and softens before the top crisps. Why does my garlic burn in the air fryer? It sits uncovered in the hottest air. Mash it into soft butter and press it into the bread so it is protected. Can I add cheese? Yes, for the last minute or two. Added at the start, it browns before the bread is toasted. What is the oven equivalent? 400°F for around 8 minutes on a tray in a conventional oven. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/garlic-bread#app",
+          "name": "Garlic bread in the air fryer — Air Fryer Toolkit",
+          "description": "Garlic bread in the air fryer: 375°F for 6 minutes, crisp and golden. Fresh slices, a halved baguette or frozen garlic bread, and the oven equivalent.",
+          "url": "https://airfryertoolkit.com/air-fryer/garlic-bread",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does garlic bread take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 6 minutes at 375°F for half a baguette. Slices take around 4 minutes and thick or frozen pieces around 8."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Fresh or frozen garlic bread: what is the difference?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fresh garlic bread only needs toasting. Frozen garlic bread goes in straight from the freezer and needs the longer time, so the middle thaws and softens before the top crisps."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does my garlic burn in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It sits uncovered in the hottest air. Mash it into soft butter and press it into the bread so it is protected."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I add cheese?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, for the last minute or two. Added at the start, it browns before the bread is toasted."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the oven equivalent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "400°F for around 8 minutes on a tray in a conventional oven."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Garlic bread",
+          "item": "https://airfryertoolkit.com/air-fryer/garlic-bread"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\garlic-bread"
+}

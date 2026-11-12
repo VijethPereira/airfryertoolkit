@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\muffins",
+  "title": "Muffins in the Air Fryer: Time, Temp &amp; Which Cups Fit | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Oven Mini muffins 325°F / 165°C · 8 min 350°F / 175°C · 9 min Standard muffins 325°F / 165°C · 15 min 350°F / 175°C · 18 min Jumbo or bakery muffins 325°F / 165°C · 20 min 350°F / 175°C · 24 min Why the tops brown while the centre stays raw In an oven, a muffin is heated from all sides in still air. In an air fryer the heat pours across the top, so the dome browns early and looks done while the centre is still batter. Colour is the trap: a golden muffin can be raw in the middle. The lower setting here slows the top so the inside can catch up, and the time assumes you check the centre, not the colour. Batter-heavy muffins with fruit or yoghurt hold more water and need the full time. If the tops are dark well before the end, lay a small sheet of foil loosely over them for the rest of the bake, tucked so the fan cannot lift it. Worked example: six blueberry muffins A blueberry muffin recipe that says 350°F for 18 minutes in the oven. In a basket air fryer, bake at 325°F for 15 minutes. Preheat 3 minutes, fill six silicone cups two-thirds full and set them in with space between them. Mini muffins take about 8 minutes and jumbo muffins about 20. Bake the rest of the batter in a second round. How to tell they are done Push a toothpick into the centre of the middle muffin: it should come out clean or with a few dry crumbs, never wet batter. The top should spring back when pressed lightly. Ignore the colour, which runs ahead of the inside in an air fryer. Muffins at the edge of the basket bake faster than the ones in the middle, so test the middle one and swap positions halfway if your basket browns unevenly. Let them rest in their cups before turning them out. Before they go in Use silicone muffin cups, foil cups set inside each other for strength, or a small muffin tin that fits flat on the basket floor. A standard 12-cup tin will not fit a 5 qt basket. Fill two-thirds full, and leave gaps so air moves between the cups. Related presets Cookies 325°F · 8 min Brownies 325°F · 22 min Garlic bread 375°F · 6 min 350°F oven to air fryer, every food &rarr; Oven to air fryer converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do muffins take in the air fryer? About 15 minutes at 325°F for standard muffins. Minis take around 8 minutes and jumbo muffins around 20. Will a muffin tin fit in my air fryer? A 12-cup tin will not fit a 5 qt basket. Use silicone cups, or a small 4- or 6-cup tin that sits flat on the floor. Can I use paper muffin cases? Only inside silicone or foil cups. On their own, paper cases are too floppy to hold the batter and can blow over. Why are my muffins raw in the middle? The top browned first and they came out on colour. Check the centre with a toothpick, and lower the heat if the tops darken early. What is the oven equivalent? 350°F for around 18 minutes in a 12-cup muffin tin in a conventional oven. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/muffins#app",
+          "name": "Muffins in the air fryer — Air Fryer Toolkit",
+          "description": "Bake muffins in the air fryer: 325°F for 15 minutes. Silicone cups or a small tin that fits, why a 12-cup tin will not, and how to check the centre.",
+          "url": "https://airfryertoolkit.com/air-fryer/muffins",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do muffins take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 15 minutes at 325°F for standard muffins. Minis take around 8 minutes and jumbo muffins around 20."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will a muffin tin fit in my air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 12-cup tin will not fit a 5 qt basket. Use silicone cups, or a small 4- or 6-cup tin that sits flat on the floor."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use paper muffin cases?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only inside silicone or foil cups. On their own, paper cases are too floppy to hold the batter and can blow over."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are my muffins raw in the middle?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The top browned first and they came out on colour. Check the centre with a toothpick, and lower the heat if the tops darken early."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the oven equivalent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "350°F for around 18 minutes in a 12-cup muffin tin in a conventional oven."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Muffins",
+          "item": "https://airfryertoolkit.com/air-fryer/muffins"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\muffins"
+}

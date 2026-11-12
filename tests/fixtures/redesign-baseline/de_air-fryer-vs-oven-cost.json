@@ -1,0 +1,90 @@
+{
+  "slug": "de\\air-fryer-vs-oven-cost",
+  "title": "Stromkosten Heißluftfritteuse vs. Backofen — Rechner mit gemessener Energie | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Umrechnen Umgekehrt Lebensmittel Marken Tabelle Ratgeber DE English Español Português Français Deutsch Air Fryer Toolkit Umrechner Voreingestellte Lebensmittel Tiefkühlkost Umrechnungstabelle Über uns Kontakt Datenschutzerklärung Allgemeine Geschäftsbedingungen Weitere kostenlose Tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — kostenlose browserbasierte Koch-Umrechnungstools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/de/air-fryer-vs-oven-cost#app",
+          "name": "Heißluftfritteuse vs. Backofen: Stromkosten — Air Fryer Toolkit",
+          "description": "Was ein Backofenrezept in der Heißluftfritteuse und im Backofen kostet, zu deinem Strompreis. Geschätzt aus der im Which?-Labor gemessenen Energie, nicht aus Watt × Zeit.",
+          "url": "https://airfryertoolkit.com/de/air-fryer-vs-oven-cost",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Verbraucht eine Heißluftfritteuse weniger Strom als ein Backofen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Für einen Durchgang ja. Im Labortest von Which? brauchte sie bei allen vier Lebensmitteln 53 % bis 69 % weniger Energie als der Ofen. Quelle: Which?, 23. Oktober 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Warum nicht einfach Watt mal Zeit rechnen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Weil das Heizelement nach dem Aufheizen taktet, also überschätzt Watt × Zeit die Energie: beim Ofen von Which? um das 1,5- bis 3,2-Fache. Quelle: Which?, 23. Oktober 2026; Nennleistung laut Händlerangabe."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wann ist der Backofen günstiger?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wenn du viel auf einmal kochst. Which?: „an oven may still be the most economical choice when cooking for a crowd“ (für viele Leute kann der Ofen am sparsamsten sein). Quelle: Which?, 23. Oktober 2026."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Warum kann mein Preis abweichen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Der Standardwert ist der Eurostat-Durchschnitt für Haushalte mit 2.500 bis 4.999 kWh im Jahr, alle Steuern eingeschlossen, für das 1. Halbjahr 2026: 36,18 ct/kWh (Durchschnitt Deutschland). Trag den Preis je kWh aus deiner Rechnung ein. Quelle: Eurostat (nrg_pc_204)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Zählt die Vorheizzeit mit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. Die Zeiten und kWh von Which? enthalten sie, daher kommen 10 Minuten für den Ofen und 2 bis 4 für die Fritteuse dazu, bei hoher Temperatur mehr; setz die Fritteuse auf null, wenn deine kein Vorheizen braucht. Quelle: Which?, 23. Oktober 2026."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://airfryertoolkit.com/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Heißluftfritteuse vs. Backofen: Stromkosten",
+          "item": "https://airfryertoolkit.com/de/air-fryer-vs-oven-cost"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comende\\air-fryer-vs-oven-cost"
+}

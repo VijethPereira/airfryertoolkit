@@ -1,6 +1,7 @@
 ---
 import Faq from './Faq.astro';
 import AdSlot from './AdSlot.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
@@ -70,6 +71,8 @@ const frozenHref = localizedPath(locale, frozenSlug);
 
 <main class="page-main">
   <div class="wrap">
+
+    <Breadcrumb locale={locale} translatedSlug="/chart" />
 
     <header class="chart-header">
       <a href={converterHref} class="back-link">&larr; {dict.backLink}</a>
@@ -230,17 +233,24 @@ const frozenHref = localizedPath(locale, frozenSlug);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--site-accent);
+    color: var(--site-text-muted);
     margin: 0 0 12px;
   }
 
   h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--site-text);
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
     line-height: 1.1;
+    color: var(--site-text);
     margin: 0 0 12px;
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 32px;
+    }
   }
 
   .chart-lead {
@@ -293,7 +303,7 @@ const frozenHref = localizedPath(locale, frozenSlug);
 
   .table-card {
     background: var(--site-bg-card);
-    border-radius: var(--radius-site-card);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-site);
     padding: 20px;
   }
@@ -387,18 +397,21 @@ const frozenHref = localizedPath(locale, frozenSlug);
   .content-section h2,
   .faq-section h2,
   .related-links h2 {
+    font-family: var(--font-display);
     font-size: var(--text-heading-sm);
-    line-height: var(--text-heading-sm--line-height);
-    letter-spacing: var(--text-heading-sm--letter-spacing);
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
     color: var(--site-text);
     margin: 0 0 16px;
   }
 
   .content-section h3 {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.18px;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
     color: var(--site-text);
     margin: 28px 0 8px;
   }

@@ -1,0 +1,90 @@
+{
+  "slug": "fr\\preheat",
+  "title": "Combien de temps préchauffer une friteuse à air (selon la température) | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convertir Inverse Aliments Marques Tableau Guide FR English Español Português Français Deutsch Air Fryer Toolkit Convertisseur Aliments préréglés Surgelés Tableau de conversion À propos Contact Politique de confidentialité Conditions d’utilisation Plus d’outils gratuits : Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — outils gratuits de conversion culinaire dans le navigateur",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/fr/preheat#app",
+          "name": "Combien de temps préchauffer une friteuse à air — Air Fryer Toolkit",
+          "description": "Temps de préchauffage selon la température réglée, d’après les tableaux imprimés de Cosori, et ce que font les modèles type four. Sans compte, sans inscription.",
+          "url": "https://airfryertoolkit.com/fr/preheat",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Combien de temps faut-il préchauffer une friteuse à air ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "De 2 à 4 minutes pour un panier, selon la température : 4 minutes à partir de 345°F (175°C), d’après le plus long des deux tableaux Cosori. Les types four préchauffent seuls et signalent quand ajouter les aliments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Faut-il préchauffer une friteuse à air ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pour la plupart des aliments, oui. Les notices Cosori disent que sans préchauffage les aliments ne cuisent pas à cœur. La fiche technique de la Philips Premium XXL indique que ce modèle n’en a pas besoin, donc vérifiez la notice du vôtre."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Faut-il préchauffer à chaque fois ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. Passez-vous-en quand la friteuse est encore chaude de la fournée précédente, l’exception que font les notices Cosori, et pour le bacon, qui démarre bien à froid."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Une friteuse à air type four a-t-elle besoin d’être préchauffée ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Elle le fait seule. Le four friteuse de Cosori et les modèles Instant Vortex affichent Add Food une fois chauds. Aucune des deux notices ne donne de durée, donc attendez le signal plutôt que de régler une minuterie."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Comment préchauffent les friteuses Cosori, Instant, Philips et Ninja ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les paniers Cosori avec bouton Preheat règlent la durée d’après leur tableau ; les Instant Vortex préchauffent seuls et affichent Add Food ; Philips indique que son Premium XXL n’a pas besoin de préchauffage ; les guides Ninja n’ont pas été relus pour cette page."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://airfryertoolkit.com/fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Combien de temps préchauffer une friteuse à air",
+          "item": "https://airfryertoolkit.com/fr/preheat"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenfr\\preheat"
+}

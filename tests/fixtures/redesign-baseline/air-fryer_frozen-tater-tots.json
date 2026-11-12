@@ -1,0 +1,96 @@
+{
+  "slug": "air-fryer\\frozen-tater-tots",
+  "title": "Frozen Tater Tots in the Air Fryer: Time, Temp &amp; Crunch | Air Fryer Toolkit",
+  "visibleText": ".faq-list[data-astro-cid-z6gx6xcw]{flex-direction:column;gap:8px;display:flex}.faq-item[data-astro-cid-z6gx6xcw]{border-radius:var(--radius-site-card);background:var(--site-bg-card);box-shadow:var(--shadow-site);overflow:hidden}.faq-q[data-astro-cid-z6gx6xcw]{cursor:pointer;min-height:44px;font-family:var(--font-archivo);color:var(--site-text);justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;font-size:15px;font-weight:600;list-style:none;transition:background .15s;display:flex}.faq-q[data-astro-cid-z6gx6xcw]::-webkit-details-marker{display:none}.faq-q[data-astro-cid-z6gx6xcw]:hover{background:var(--site-bg-hover)}.faq-icon[data-astro-cid-z6gx6xcw]{flex-shrink:0}.faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"+\";color:var(--site-text-muted);font-size:20px;line-height:1}details[data-astro-cid-z6gx6xcw][open] .faq-icon[data-astro-cid-z6gx6xcw]:before{content:\"−\"}.faq-a[data-astro-cid-z6gx6xcw]{padding:0 20px 16px}.faq-a[data-astro-cid-z6gx6xcw] p[data-astro-cid-z6gx6xcw]{font-size:var(--text-body);line-height:var(--text-body--line-height);letter-spacing:var(--text-body--letter-spacing);color:var(--site-text-muted);margin:0}.faq-a[data-astro-cid-z6gx6xcw] .faq-link[data-astro-cid-z6gx6xcw]{margin-top:8px}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]{min-height:44px;color:var(--site-text);align-items:center;font-weight:600;display:inline-flex}.faq-link[data-astro-cid-z6gx6xcw] a[data-astro-cid-z6gx6xcw]:hover{color:var(--site-accent)}@media print{.faq-item[data-astro-cid-z6gx6xcw]{box-shadow:none;border:1px solid var(--site-border);break-inside:avoid}.faq-item[data-astro-cid-z6gx6xcw]::details-content{content-visibility:visible;display:block}.faq-icon[data-astro-cid-z6gx6xcw]{display:none}} .ad-wrapper[data-astro-cid-fgwukgf6]{margin:2rem 0;text-align:center} Air Fryer Toolkit Convert Reverse Food presets Brands Chart Guide EN English Español Português Français Deutsch Time by size Same temperature, different time: thickness decides how long the heat takes to reach the middle. Size Air fryer Pack says Mini tots 400°F / 205°C · 12 min 425°F / 220°C · 15 min Regular tater tots 400°F / 205°C · 14 min 425°F / 220°C · 18 min Potato crowns or large puffs 400°F / 205°C · 16 min 425°F / 220°C · 21 min Why tots are crunchy outside and cold inside A tot is a little cylinder of grated potato pressed tight, which makes it much denser than a fry of the same size. The outside fries quickly in the hot air and sets into a crust within a few minutes, but the packed shreds in the middle are slow to warm, so a tot pulled when it looks golden can still be lukewarm and pasty in the centre. Crank the heat to rush it and the crust darkens before the middle catches up. The answer is a steady setting and enough time, with the basket shaken twice so the tots roll onto a new face each time. Because they are round, they roll rather than lie flat, and shaking does the turning for you. Worked example: a family bag A bag of tots says 425°F for 18 minutes in the oven, turning once. In a basket air fryer that becomes 400°F for 14 minutes. Preheat 4 minutes, pour in enough to cover the base in one layer, and shake twice, about a third and two thirds of the way through. Mini tots are ready in about 12 minutes and potato crowns in about 16. For a crowd, cook in two batches rather than piling them up. How to tell they are done Tots are pre-cooked, so you are judging crunch and heat. They should be deep golden all over and sound hollow when they knock together in the basket. Bite one from the middle of the batch: the inside should be soft, fluffy and hot. If the outside is ready but the centre is cool, do not raise the heat; add two minutes and shake again. Before they go in Cook them straight from frozen and break up any tots stuck together. Oil is not needed, but a light spray gives a darker, more even crust. Season with salt or a seasoning blend in the last shake or right after cooking, when the surface is still slightly oily and holds it. Related presets Frozen fries 400°F · 15 min · shake ×2 Frozen chicken wings 390°F · 26 min · shake ×2 Frozen chicken breast 360°F · 24 min · flip at 12 425°F oven to air fryer, every food &rarr; Frozen pack converter &rarr; All food presets &rarr; Printable conversion chart &rarr; Frequently asked questions How long do tater tots take in the air fryer? About 14 minutes at 400°F, shaken 2 times. Mini tots take about 12 minutes and large crowns about 16. Should I shake or flip tater tots? Shake. Tots are round and roll onto a new side when the basket is shaken, so two shakes brown them evenly without flipping each one. Why are my tots cold in the middle? They are denser than fries and need the full time. Pulling them as soon as they look golden leaves the packed centre cool. Do tater tots need oil? No, they were par-fried before freezing. A light spray only adds colour. Can I make loaded tots in the air fryer? Yes. Cook the tots fully, then add cheese and toppings and return them for a minute or two until the cheese melts. Air Fryer Toolkit Converter Food presets Frozen food Conversion chart About Contact Privacy Policy Terms &amp; Conditions More free tools: Quick Measure Tool &middot; Snap Image Tools &copy; 2026 Air Fryer Toolkit — free browser-based cooking conversion tools",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://airfryertoolkit.com/air-fryer/frozen-tater-tots#app",
+          "name": "Frozen tater tots in the air fryer — Air Fryer Toolkit",
+          "description": "Frozen tater tots in the air fryer: 400°F for 14 minutes, shaken 2 times. Mini tots to potato crowns, crisp outside and hot all the way through.",
+          "url": "https://airfryertoolkit.com/air-fryer/frozen-tater-tots",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do tater tots take in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About 14 minutes at 400°F, shaken 2 times. Mini tots take about 12 minutes and large crowns about 16."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should I shake or flip tater tots?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Shake. Tots are round and roll onto a new side when the basket is shaken, so two shakes brown them evenly without flipping each one."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are my tots cold in the middle?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They are denser than fries and need the full time. Pulling them as soon as they look golden leaves the packed centre cool."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do tater tots need oil?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, they were par-fried before freezing. A light spray only adds colour."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I make loaded tots in the air fryer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Cook the tots fully, then add cheese and toppings and return them for a minute or two until the cheese melts."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airfryertoolkit.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Air fryer food presets",
+          "item": "https://airfryertoolkit.com/presets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Frozen tater tots",
+          "item": "https://airfryertoolkit.com/air-fryer/frozen-tater-tots"
+        }
+      ]
+    }
+  ],
+  "url": "https://airfryertoolkit.comenair-fryer\\frozen-tater-tots"
+}
