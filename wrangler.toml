@@ -18,8 +18,3 @@ id = "7ce9f80b413e4505a03ce9230e2e741a"
 [[send_email]]
 name = "EMAIL"
 destination_address = "pereiravijeth@gmail.com"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "airfryertoolkit-db"
-database_id = "dummy"
