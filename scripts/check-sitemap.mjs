@@ -44,6 +44,7 @@ for (const block of urls) {
   if (file) {
     const html = readFileSync(file, 'utf8');
     if (!html.includes('</main>') || !html.includes('</html>')) problems.push(`${loc}: ${file} is truncated (no </main> or </html>), a prerender error`);
+    if (html.includes('\uFFFD')) problems.push(`${loc}: ${file} contains \uFFFD (a source file saved in the wrong encoding)`);
   }
   const serverRoute = existsSync(`src/pages${path}.astro`) || existsSync(`src/pages${path}/index.astro`);
   if (!built && !serverRoute) problems.push(`${loc}: no built page or route for ${path}`);

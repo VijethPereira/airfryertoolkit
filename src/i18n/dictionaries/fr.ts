@@ -218,9 +218,9 @@ const fr: Dictionary = {
     modelTableSpec: '{N} modèles sourcés',
     chartStrip: ['Multiplicateurs par aliment', 'Panier et type four', '°F · °C · thermostat', 'Gratuit — sans compte'],
     frozenCallout: {
-      heading: 'Mode aliments surgel�s',
-      desc: 'Les instructions du paquet sont pour fours classiques. Gardez la temp�rature, r�duisez le temps - la friteuse fait le reste.',
-      cta: 'Ouvrir mode surgel�s',
+      heading: 'Mode aliments surgelés',
+      desc: 'Les instructions du paquet sont pour fours classiques. Gardez la température, réduisez le temps - la friteuse fait le reste.',
+      cta: 'Ouvrir mode surgelés',
     },
     flagshipBadge: 'Principal',
     guide: [

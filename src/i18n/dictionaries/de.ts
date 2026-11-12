@@ -218,9 +218,9 @@ const de: Dictionary = {
     modelTableSpec: '{N} Modelle mit Quelle',
     chartStrip: ['Multiplikatoren je Lebensmittel', 'Korb & Ofen-Typ', 'Â°F Â· Â°C Â· Gasstufe', 'Kostenlos â€” ohne Konto'],
     frozenCallout: {
-      heading: 'Modus für Tiefkühlkost',
-      desc: 'Verpackungsangaben gelten für Backöfen. Temperatur beibehalten, Zeit reduzieren - die Heißüftfritteuse macht den Rest.',
-      cta: 'Tiefkühlmodus öffnen',
+      heading: 'Modus fÃ¼r TiefkÃ¼hlkost',
+      desc: 'Verpackungsangaben gelten fÃ¼r BackÃ¶fen. Temperatur beibehalten, Zeit reduzieren - die HeiÃŸluftfritteuse macht den Rest.',
+      cta: 'TiefkÃ¼hlmodus Ã¶ffnen',
     },
     flagshipBadge: 'Flaggschiff',
     guide: [

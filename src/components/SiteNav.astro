@@ -281,6 +281,12 @@ const dict = getDictionary(locale).nav;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
+  /* Small phones (360–400px): tighter gaps so logo, language, theme and menu buttons all fit. */
+  @media (max-width: 400px) {
+    .nav-inner { gap: 6px; padding-inline: 12px; }
+    .nav-toggle { margin-left: 0; }
+  }
+
   /* The six links overflow below ~900px in German, so the menu collapses up to there. */
   @media (max-width: 900px) {
     .nav-toggle {
