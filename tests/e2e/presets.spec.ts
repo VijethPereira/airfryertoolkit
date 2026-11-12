@@ -174,7 +174,7 @@ test.describe('food presets: data and copy', () => {
 
   test('internalAlt is display only: every locale has its line, and the engine, answer and JSON-LD description never use it', () => {
     const withAlt = ALL.filter((p) => p.internalAlt !== undefined);
-    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'reheat-steak', 'sausages']);
+    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'reheat-ham', 'reheat-steak', 'reheat-turkey', 'sausages']);
     for (const l of LOCALES) {
       const d = getDictionary(l.code).presets;
       expect(d.answerTemplate + d.answerFlipSuffix + d.answerShakeSuffix).not.toMatch(/INT_ALT_/);
