@@ -1939,6 +1939,334 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+
+    // Holiday batch - 2026-11-17 target
+    'turkey-breast': {
+      label: 'Pechuga de pavo',
+      metaTitle: 'Pechuga de pavo en la freidora de aire: tiempo, temperatura y reposo',
+      metaDescription:
+        'Pechuga de pavo con o sin hueso en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}, a {INT_F}°F. Tiempos por tamaño, el reposo que remata la cocción y el equivalente en horno.',
+      metaKeywords: 'pechuga de pavo freidora de aire, pavo air fryer tiempo, pechuga pavo air fryer temperatura, cómo cocinar pechuga de pavo en freidora de aire',
+      heading: 'Pechuga de pavo en la freidora de aire',
+      subDesc:
+        'Pechuga de pavo con o sin hueso, asada hasta que la piel esté dorada y el centro llegue a 165°F. El ajuste, la vuelta y por qué el reposo después de cocinar forma parte de la temperatura.',
+      cardDesc: 'Saca a 160°F y reposo tres minutos hasta 165°F.',
+      sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,8–2,3 kg', large: 'Pechuga con hueso, 2,7–3,2 kg' },
+      failureHeading: 'Por qué la pechuga se seca antes de que el centro sea seguro',
+      failureBody:
+        'Una pechuga de pavo es un músculo magro y cónico: el extremo fino se hace mucho antes que el grueso, y la piel de fuera recibe todo el empuje del ventilador. Cuando la parte más gruesa llega a una temperatura segura, el extremo fino y la piel pueden estar secos y fibrosos. Dos cosas lo cambian. Primero, igualar el grosor. Una pechuga sin hueso debe abrirse en mariposa o aplastarse a una altura constante; una con hueso se cocina de forma más uniforme si se meten las puntas de las alas y se ata para que mantenga una forma redondeada. Segundo, el reposo no es opcional. Saca la pechuga cuando la parte más gruesa marque 160°F, tápala con papel de aluminio y espera tres minutos. El calor guardado en las capas exteriores remata el centro a 165°F mientras los jugos se asientan en la carne en lugar de salir en la tabla.',
+      workedExampleHeading: 'Ejemplo práctico: una pechuga de pavo con hueso',
+      workedExampleTemplate:
+        'Una pechuga de 2,3 kg con hueso, atada, untada con aceite, sal y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, dándole la vuelta a los {FLIP} minutos. Una pechuga sin hueso de 1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 3,2 kg unos {LARGE_MIN}. Sácala a 160°F, reposo tres minutos y luego corta. Un horno convencional necesita {OVEN_F}°F durante unos {OVEN_MIN} minutos para la misma pechuga.',
+      donenessHeading: 'Cómo saber que está hecha',
+      donenessBody:
+        'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: 160°F es el objetivo de retirada, 165°F tras los tres minutos de reposo. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. Una pechuga con hueso puede mostrar un anillo rosa cerca del hueso a la temperatura correcta; es pigmento curado del hueso, no crudo. Corta contra la fibra tras el reposo.',
+      prepHeading: 'Antes de meterla',
+      prepBody:
+        'Para una pechuga sin hueso, ábrela en mariposa o aplástala a 3,5 cm de grosor constante. Para una con hueso, mete las puntas de las alas y átala con hilo de cocina para que se mantenga compacta. Unta con aceite y un adobo seco de sal y hierbas va bien con el pavo; 30 minutos sin tapar en la nevera seca la piel y ayuda a que cruja. Si la pechuga es muy grande para tu cesta, puede hacerse en dos fases: empieza con la piel abajo la primera mitad y luego vuélvela piel arriba para rematar.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda una pechuga de pavo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga con hueso de 1,8–2,3 kg, vuelta a los {FLIP} minutos. Una pechuga sin hueso de 0,9–1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 2,7–3,2 kg unos {LARGE_MIN}. Decide siempre por temperatura, no por tiempo.',
+        },
+        {
+          q: '¿A qué temperatura debe llegar la pechuga de pavo?',
+          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa es la temperatura segura del USDA. Sácala a 160°F y reposa tres minutos; subirá a 165°F.',
+        },
+        {
+          q: '¿Hay que voltear la pechuga de pavo en la freidora de aire?',
+          a: 'Sí, una vez, hacia la mitad. La cara de abajo recibe menos aire directo y se queda más pálida; voltearla da un color parejo en ambas caras.',
+        },
+        {
+          q: '¿Puedo cocinar una pechuga de pavo congelada en la freidora de aire?',
+          a: 'No con este ajuste. Una pechuga congelada necesita una temperatura más baja y mucho más tiempo para que el centro sea seguro antes de que el exterior se seque. Usa un modo congelado específico o descongélala antes.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno de este ajuste?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en un horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos en un horno con ventilador.',
+        },
+      ],
+    },
+    'reheat-turkey': {
+      label: 'Pavo sobrante',
+      metaTitle: 'Recalentar pavo en la freidora de aire: jugoso, no seco',
+      metaDescription:
+        'Recalienta pavo sobrante en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}, caliente a {INT_F}°F. Pechuga en lonchas y carne oscura, el chorrito de caldo y el método en horno.',
+      metaKeywords: 'recalentar pavo freidora de aire, cómo recalentar pavo en freidora de aire, pavo sobrante freidora de aire, recalentar pechuga de pavo freidora de aire',
+      heading: 'Recalentar pavo en la freidora de aire',
+      subDesc:
+        'Lonchas de pechuga de pavo y carne oscura de la nevera, devueltas a calientes y jugosas. El ajuste suave, el chorrito de caldo y por qué el papel de aluminio es tu aliado.',
+      cardDesc: 'Un chorrito de caldo y papel de aluminio mantienen la pechuga jugosa.',
+      sizeLabels: { small: 'Unas lonchas de pechuga', medium: 'Lonchas mixtas, pechuga y muslo', large: 'Una ración generosa de plato' },
+      internalLine: 'Caliente al centro a {INT_F}°F ({INT_C}°C) en la loncha más gruesa: guía USDA para sobras',
+      internalAltLine: 'Carne oscura (muslos, piernas) está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) y se mantiene jugosa más tiempo',
+      failureHeading: 'Por qué el pavo recalentado se vuelve cuero',
+      failureBody:
+        'La pechuga de pavo es magra, y en la nevera la poca grasa que tiene se solidifica y las fibras musculares se tensan. Mete lonchas frías directamente en una freidora caliente y la superficie se seca en una costra apretada antes de que el centro se haya calentado, dejándote trozos grises y masticables que ningún gravy arregla. La solución es calor suave y humedad. Un chorrito de caldo de pollo o pavo en el fondo del recipiente, o un ligero pincel de mantequilla derretida sobre las lonchas, da al aire algo de vapor para que la carne se caliente antes de que la superficie selle. Tapa el recipiente suelto con papel de aluminio la primera mitad del recalentado y luego quítalo para que los bordes coloreen. La carne oscura (muslos, piernas) perdona más: su grasa la mantiene jugosa y solo necesita llegar al extremo inferior del rango de temperatura.',
+      workedExampleHeading: 'Ejemplo práctico: un plato mixto de sobras',
+      workedExampleTemplate:
+        'Dos tazas de pavo en lonchas, mezcla de pechuga y muslo, extendidas en una fuente con dos cucharadas de caldo tibio. Tápalas suelto con papel de aluminio y recalienta a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando las piezas a los {FLIP} minutos. Un plato pequeño de lonchas de pechuga tarda unos {SMALL_MIN} minutos; una ración grande mixta unos {LARGE_MIN}. En horno convencional el mismo plato se recalienta a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapado la primera mitad.',
+      donenessHeading: 'Cómo saber que está listo',
+      donenessBody:
+        'Comprueba una loncha de pechuga con termómetro: la guía USDA dice {INT_F}°F ({INT_C}°C) para sobras recalentadas. La carne oscura está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F y se queda más jugosa. Las lonchas deben soltar vapor al levantar el papel, y la superficie debe verse brillante, no seca y mate. Una loncha de pechuga que se siente firme y elástica se ha pasado.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Saca el pavo de la nevera unos minutos antes para que se quite lo peor del frío. Separa pechuga de carne oscura si puedes, porque terminan en momentos distintos. Un gravy caliente al lado significa que puedes servir las lonchas en cuanto estén calientes.',
+      faqs: [
+        {
+          q: '¿Cuánto tardas en recalentar pavo en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para lonchas mixtas, vuelta a los {FLIP} minutos. Unas lonchas de pechuga tardan unos {SMALL_MIN} minutos y una ración grande mixta unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura debe llegar el pavo recalentado?',
+          a: '{INT_F}°F ({INT_C}°C) para lonchas de pechuga, que es la guía USDA para sobras. La carne oscura está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+        },
+        {
+          q: '¿Por qué mi pechuga de pavo recalentada queda seca?',
+          a: 'El calor era demasiado alto o las lonchas no tenían humedad. Un chorrito de caldo y papel de aluminio la primera mitad evitan que la superficie selle antes de que el centro se caliente.',
+        },
+        {
+          q: '¿Puedo recalentar una pechuga de pavo entera así?',
+          a: 'Sí, pero tarda más. Usa la preconfiguración de pechuga de pavo en su lugar, que está diseñada para cocinar desde crudo e incluye el reposo. Esta página es para sobras ya cocinadas.',
+        },
+        {
+          q: '¿Cómo recaliento el pavo en el horno?',
+          a: 'En una fuente tapada con caldo a {OVEN_F}°F durante unos {OVEN_MIN} minutos, destapando los últimos minutos si quieres color en los bordes.',
+        },
+      ],
+    },
+    'stuffing': {
+      label: 'Relleno',
+      metaTitle: 'Relleno en la freidora de aire: costra crujiente, centro caliente',
+      metaDescription:
+        'Hornea relleno en la freidora de aire: {AF_F}°F durante {MIN} minutos, a {INT_F}°F en el centro. Horneado en una fuente, no suelto en la cesta, tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'relleno freidora de aire, stuffing air fryer tiempo, cómo cocinar relleno en freidora de aire, dressing air fryer',
+      heading: 'Relleno en la freidora de aire',
+      subDesc:
+        'Relleno a base de pan horneado en una fuente que quepa en la cesta. El ajuste, por qué el centro debe llegar a 165°F y cómo conseguir una costra crujiente antes de que el centro se pase.',
+      cardDesc: 'Horneado en una fuente, no suelto: centro a 165°F.',
+      sizeLabels: { small: 'Fuente pequeña, 13×13 cm', medium: 'Fuente estándar, 18×13 cm', large: 'Fuente grande, 23×18 cm' },
+      failureHeading: 'Por qué la costra se quema antes de que el centro esté caliente',
+      failureBody:
+        'El relleno es una capa gruesa y húmeda de pan, caldo, verduras y grasa. En una freidora de aire el calor golpea la parte expuesta de arriba, así que la costra se dora y luego se quema mientras el centro sigue siendo pan frío y húmedo. La trampa es mirar la costra y suponer que la fuente está hecha. La única prueba fiable es el centro: el relleno con huevo o verduras crudas (cebolla, apio) debe llegar a {INT_F}°F para ser seguro, y eso lleva su tiempo. Las soluciones están en la fuente y la temperatura. Usa una fuente baja para que el calor tenga menos camino, y el ajuste más bajo de aquí para que la costra se dore al mismo ritmo que el centro se calienta. Si la costra está oscura antes de que el centro esté hecho, tapa la fuente con papel de aluminio el resto del horneado.',
+      workedExampleHeading: 'Ejemplo práctico: una fuente estándar de relleno de salchicha',
+      workedExampleTemplate:
+        'Una fuente de 18×13 cm de relleno de pan con salchicha, cebolla, apio y caldo, mezclado solo hasta que esté húmedo. Precalienta {PREHEAT} minutos, hornea a {AF_F}°F durante {MEDIUM_MIN} minutos. Una fuente pequeña de 13×13 cm tarda unos {SMALL_MIN} minutos y una grande de 23×18 cm unos {LARGE_MIN}. Comprueba el centro con termómetro; debe marcar {INT_F}°F. En horno convencional la misma fuente tarda {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que está hecho',
+      donenessBody:
+        'Clava un termómetro en el centro mismo de la fuente: {INT_F}°F ({INT_C}°C) es la temperatura segura para cualquier relleno con huevo, verduras crudas o carne. La costra debe estar dorada y crujiente, los bordes separándose ligeramente de la fuente. Si la costra está oscura y el centro por debajo de 165°F, tapa con papel de aluminio y dale tres minutos más.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Usa una fuente de metal o cerámica que quepa en la cesta con espacio alrededor; no cocines el relleno suelto en la cesta — las migas vuelan al ventilador y la capa de abajo se quema. Mezcla el relleno solo hasta que esté húmedo; una mezcla más húmeda se hace antes y queda más blanda, una más seca necesita el tiempo largo. Pon unas motas de mantequilla encima para una costra mejor.',
+      faqs: [
+        {
+          q: '¿Cuánto tarda el relleno en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una fuente estándar de 18×13 cm. Una fuente pequeña tarda unos {SMALL_MIN} minutos y una grande unos {LARGE_MIN}. Comprueba siempre el centro con termómetro.',
+        },
+        {
+          q: '¿A qué temperatura debe llegar el relleno?',
+          a: '{INT_F}°F ({INT_C}°C) en el centro. Es la temperatura segura del USDA para relleno con huevo o ingredientes crudos.',
+        },
+        {
+          q: '¿Puedo cocinar el relleno suelto en la cesta?',
+          a: 'No. Las migas vuelan al elemento y la capa de abajo se quema. Usa una fuente baja que quepa.',
+        },
+        {
+          q: '¿Qué hago si la costra se quema y el centro no está caliente?',
+          a: 'Tapa la fuente suelto con papel de aluminio y sigue horneando. El ajuste más bajo de aquí está pensado para frenar la costra, pero cada freidora funciona un poco distinto.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en un horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos en un horno con ventilador.',
+        },
+      ],
+    },
+    'dinner-rolls': {
+      label: 'Panecillos',
+      metaTitle: 'Recalentar panecillos en la freidora de aire: calientes, no quemados',
+      metaDescription:
+        'Recalienta panecillos en la freidora de aire: {AF_F}°F durante {MIN} minutos. Panecillos de hornear y servir y de panadería, tapados con papel de aluminio para que la corteza no se queme antes de que el centro se caliente.',
+      metaKeywords: 'recalentar panecillos freidora de aire, panecillos air fryer recalentar, panes hornear servir freidora de aire, recalentar panes panadería freidora de aire',
+      heading: 'Recalentar panecillos en la freidora de aire',
+      subDesc:
+        'Panecillos de hornear y servir, de panadería o precocidos de la nevera, calentados por dentro con el centro blando y la corteza ligeramente coloreada. El ajuste bajo, la tienda de papel de aluminio y por qué más calor quema la corona.',
+      cardDesc: 'Tapa con papel de aluminio: la corona se quema antes de que el centro se caliente.',
+      sizeLabels: { small: '2–3 panecillos pequeños', medium: '4–6 panecillos estándar', large: '8–10 panecillos o media docena de grandes' },
+      failureHeading: 'Por qué la corona se quema antes de que el centro esté tibio',
+      failureBody:
+        'Un panecillo es una cúpula de masa blanda con una corteza fina encima. En una freidora de aire el calor llega de arriba, así que la corona —el punto más alto— recibe el golpe lleno y se oscurece en minutos mientras el centro del panecillo sigue frío de la nevera. Un ajuste más alto solo ensancha esa brecha. La solución es una temperatura baja y una tienda de papel de aluminio. El papel refleja el calor directo para que la corteza se caliente al mismo ritmo que el interior, y el tiempo corto evita que los panecillos se sequen. Los de hornear y servir están precocidos y solo necesitan un calentón rápido; los de panadería de la nevera necesitan el tiempo completo para quitarse el frío.',
+      workedExampleHeading: 'Ejemplo práctico: una cesta de panecillos de hornear y servir',
+      workedExampleTemplate:
+        'Seis panecillos de hornear y servir, tapados con una hoja suelta de papel de aluminio. Precalienta {PREHEAT} minutos y calienta a {AF_F}°F durante {MEDIUM_MIN} minutos. Dos o tres panecillos tardan unos {SMALL_MIN} minutos; media docena de panecillos grandes de panadería tardan unos {LARGE_MIN}. En horno convencional los mismos panecillos se calientan a {OVEN_F}°F durante unos {OVEN_MIN} minutos en una bandeja.',
+      donenessHeading: 'Cómo saber que están listos',
+      donenessBody:
+        'Levanta el papel y presiona el lado de un panecillo: debe sentirse tibio y elástico, no caliente y duro. La corteza debe estar ligeramente coloreada, no marrón ni crujiente. Parte uno: la miga debe ser blanda y humeante, sin centro frío y denso. Un panecillo que se siente firme y seco ha estado demasiado tiempo.',
+      prepHeading: 'Antes de meterlos',
+      prepBody:
+        'Coloca los panecillos en una sola capa con un hueco pequeño entre ellos. Corta un trozo de papel de aluminio bastante grande para hacer tienda sobre todo el grupo sin tocar las copas, y mete los bordes bajo el fondo de la cesta. No hace falta aceite ni mantequilla; un pincel de mantequilla derretida va después si quieres una corteza brillante.',
+      faqs: [
+        {
+          q: '¿Cuánto tardas en recalentar panecillos en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para 4–6 panecillos estándar. Unos pocos tardan unos {SMALL_MIN} minutos y una tanda mayor unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Por qué se me queman los panecillos por arriba?',
+          a: 'El calor viene de arriba y la corona es el punto más cercano. Tápalos con papel de aluminio para que la corteza se caliente con el resto del panecillo.',
+        },
+        {
+          q: '¿Puedo recalentar panecillos congelados en la freidora de aire?',
+          a: 'Sí, directamente del congelador. Añade uno o dos minutos y mantén el papel la primera mitad.',
+        },
+        {
+          q: '¿Qué pasa con panecillos de ajo o con queso?',
+          a: 'El mismo ajuste bajo sirve. El queso encima va en el último minuto, o se quema.',
+        },
+        {
+          q: '¿Cómo recaliento panecillos en el horno?',
+          a: 'En una bandeja a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapados con papel de aluminio.',
+        },
+      ],
+    },
+    'roast-potatoes': {
+      label: 'Patatas asadas',
+      metaTitle: 'Patatas asadas en la freidora de aire: costra crujiente, centro esponjoso',
+      metaDescription:
+        'Patatas asadas estilo UK en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}. Escaldadas, borde rugoso y el meneo que las mantiene parejos. Tiempos por tamaño y equivalente en horno.',
+      metaKeywords: 'patatas asadas freidora de aire, roasties air fryer tiempo, cómo hacer patatas asadas en freidora de aire, patatas escaldadas air fryer',
+      heading: 'Patatas asadas en la freidora de aire',
+      subDesc:
+        'Roasties UK: trozos de patata escaldados con bordes rugosos, asados hasta que la costra es dorada y el centro esponjoso. El ajuste, la única vuelta y por qué la superficie rugosa importa.',
+      cardDesc: 'Escalda y ruga los bordes primero: la costra se forma en los bordes.',
+      sizeLabels: { small: 'Trozos pequeños, de patatas pequeñas', medium: 'Medianos, de patatas de 5–7 cm', large: 'Trozos grandes, de patatas grandes en cuartos' },
+      failureHeading: 'Por qué la costra está dura y el centro ceroso',
+      failureBody:
+        'Una patata asada no es una frita. Es un trozo grueso de patata con una costra deliberada fuera y un centro esponjoso, al vapor. En una freidora de aire los bordes se secan y endurecen rápido, y si el calor es demasiado alto la costra se vuelve una cáscara rígida antes de que el almidón del centro haya gelificado en esponjoso. El resultado es un exterior crujiente con un núcleo denso y ceroso. La preparación hace el trabajo pesado aquí. Escaldar los trozos cinco minutos empieza a hinchar el almidón, y rugosizar los bordes con un tenedor o un meneo en la sartén crea la superficie irregular que se vuelve la costra. Sin los dos pasos, la freidora solo fríe el exterior. La vuelta a mitad de cocción iguala el color para que las dos caras tengan la misma costra.',
+      workedExampleHeading: 'Ejemplo práctico: una bandeja de roasties para cuatro',
+      workedExampleTemplate:
+        'Cuatro patatas medianas, cada una en cuartos, escaldadas cinco minutos, escurridas y meneadas en la sartén para rugosizar los bordes. Mézclalas con una cucharada de aceite y sal. Precalienta {PREHEAT} minutos, extiéndelas con el corte abajo y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, girando a los {FLIP} minutos. Los trozos pequeños tardan unos {SMALL_MIN} minutos y los trozos grandes unos {LARGE_MIN}. En horno convencional las mismas roasties necesitan {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que están hechas',
+      donenessBody:
+        'Los bordes rugosos deben estar bien dorados y crujientes, y las caras planas deben tener una costra sólida. Clava un cuchillo en el centro de un trozo: debe entrar sin resistencia, y el interior debe verse blanco y esponjoso, no translúcido ni ceroso. Si el exterior está listo y el centro no, baja el calor un poco los últimos minutos en lugar de renunciar a la costra.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Usa patatas harinosas: Maris Piper, King Edward o russets. Córtalas en trozos parejos para que terminen juntas. Escalda en agua con sal cinco minutos exactos, escúrrelas bien y menea la sartén para rugosizar los bordes. Mézclalas con bastante aceite para cubrir cada trozo rugoso y sazona con sal. No llenes la cesta; los trozos necesitan aire en todas las caras para crujir.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan las patatas asadas en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para trozos medianos, vuelta a los {FLIP} minutos. Los trozos pequeños tardan unos {SMALL_MIN} minutos y los grandes unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Por qué hay que escaldar y rugosizar los bordes?',
+          a: 'El escaldado empieza a hinchar el almidón, y rugosizar los bordes crea la superficie que se vuelve la costra. Sin ambos, la freidora solo fríe el exterior y el centro se queda ceroso.',
+        },
+        {
+          q: '¿Es lo mismo que patata al horno o patatas fritas?',
+          a: 'No. La patata al horno es entera y se comprueba a 205°F dentro. Las fritas son finas y se hacen rápido. Las roasties son trozos gruesos escaldados que necesitan la costra y el centro esponjoso juntos.',
+        },
+        {
+          q: '¿Puedo usar patatas cerosas?',
+          a: 'No se volverán esponjosas. Las patatas cerosas dan una textura más firme y cremosa; la costra se forma igual pero el centro se queda denso.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en un horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos en un horno con ventilador.',
+        },
+      ],
+    },
+    'pigs-in-blankets': {
+      label: 'Salchichas envueltas en bacon',
+      metaTitle: 'Salchichas envueltas en bacon en la freidora de aire: chipolatas con bacon',
+      metaDescription:
+        'Salchichas envueltas en bacon (UK: chipolatas envueltas en bacon streaky) en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}, bacon crujiente y salchicha a {INT_F}°F. El ajuste moderado que evita que la grasa del bacon humee.',
+      metaKeywords: 'salchichas bacon freidora de aire, pigs in blankets air fryer tiempo, chipolatas bacon air fryer, cuánto tardan los pigs in blankets en freidora de aire',
+      heading: 'Salchichas envueltas en bacon en la freidora de aire',
+      subDesc:
+        'Pigs in blankets versión UK: chipolatas envueltas en bacon streaky, cocinadas hasta que el bacon está crujiente y la salchicha a salvo a 160°F. El ajuste moderado, la vuelta y la diferencia con los pigs in a blanket estadounidenses.',
+      cardDesc: 'Versión UK: chipolatas en bacon. Calor moderado evita que el bacon humee.',
+      sizeLabels: { small: 'Chipolatas mini, bacon fino', medium: 'Chipolatas estándar, bacon normal', large: 'Salchichas gruesas o bacon ahumado' },
+      failureHeading: 'Por qué el bacon humea y la salchicha sigue fría',
+      failureBody:
+        'Un pig in blanket es una carrera entre el bacon y la salchicha. El bacon es fino, graso y lleno de azúcares del curado, así que suelta grasa, se dora y luego humea en minutos. La salchicha de dentro es gruesa y densa, y necesita tiempo para que el calor llegue a su centro. Pon la freidora fuerte y el bacon está quemado y humeando antes de que la salchicha llegue a temperatura segura. Ponla demasiado suave y el bacon nunca cruje. El ajuste moderado de aquí (375°F) es el equilibrio: la grasa del bacon se derrite despacio en lugar de quemarse, y la salchicha tiene tiempo para subir a 160°F. Una vuelta a mitad lleva la cara pálida del bacon al flujo de aire para que las dos caras crujan parejo. La versión US (salchichas tipo hot dog en hojaldre) no está cubierta aquí: el hojaldre necesita otro ajuste y la salchicha ya está cocida, así que solo necesita calentarse.',
+      workedExampleHeading: 'Ejemplo práctico: una bandeja para la mañana de Navidad',
+      workedExampleTemplate:
+        'Doce chipolatas estándar, cada una envuelta en media tira de bacon streaky, con los extremos metidos debajo. Precalienta {PREHEAT} minutos, colócalas en una capa con un hueco pequeño entre cada una y cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, girando a los {FLIP} minutos. Las chipolatas mini tardan unos {SMALL_MIN} minutos y las salchichas gruesas unos {LARGE_MIN}. En horno convencional la misma bandeja tarda {OVEN_F}°F durante unos {OVEN_MIN} minutos.',
+      donenessHeading: 'Cómo saber que están hechas',
+      donenessBody:
+        'El bacon debe estar crujiente y bien dorado en las dos caras, sin manchas pálidas y blandas. La salchicha de dentro debe llegar a {INT_F}°F ({INT_C}°C) en el centro, medido con una sonda fina a través del bacon. Si el bacon está crujiente pero la salchicha está por debajo de 160°F, baja a 350°F y dale dos minutos más.',
+      prepHeading: 'Antes de meterlas',
+      prepBody:
+        'Usa chipolatas (salchichas pequeñas de cerdo), no frankfurters ni hot dogs. Envuelve cada una en media tira de bacon streaky, metiendo los extremos debajo para que no se abran. No hace falta aceite; el bacon suelta bastante grasa. Si tu cesta corre caliente, fórrala con papel perforado para recoger los goteos y reducir humo. Deja un hueco de un dedo entre rollos para que el bacon de los lados cruja también.',
+      faqs: [
+        {
+          q: '¿Cuánto tardan los pigs in blankets en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para chipolatas estándar, vuelta a los {FLIP} minutos. Las chipolatas mini tardan unos {SMALL_MIN} minutos y las salchichas gruesas unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿Por qué el bacon humea en la freidora de aire?',
+          a: 'La grasa del bacon gotea en el cajón y quema a temperaturas altas. Cocina a {AF_F}°F, no más alto, y un chorrito de agua en el cajón bajo la cesta recoge la grasa.',
+        },
+        {
+          q: '¿A qué temperatura debe llegar la salchicha?',
+          a: '{INT_F}°F ({INT_C}°C) en el centro. Es la temperatura segura para salchicha fresca de cerdo.',
+        },
+        {
+          q: '¿Es lo mismo que los pigs in a blanket estadounidenses?',
+          a: 'No. Los pigs in a blanket US son hot dogs o salchichas envueltos en masa (hojaldre o masa de medialuna). La masa necesita otro ajuste y el hot dog ya está cocido, así que solo hace falta calentarlo.',
+        },
+        {
+          q: '¿Cuál es el equivalente en horno?',
+          a: '{OVEN_F}°F durante unos {OVEN_MIN} minutos en un horno convencional, o {FAN_F}°F durante {FAN_MIN} minutos en un horno con ventilador.',
+        },
+      ],
+    },
+    'reheat-ham': {
+      label: 'Jamón sobrante',
+      metaTitle: 'Recalentar jamón en la freidora de aire: glaseado o natural, sin quemar',
+      metaDescription:
+        'Recalienta jamón sobrante en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}. Jamón cocido a 140°F, sobras a 165°F. Tapa primero, glasea al final.',
+      metaKeywords: 'recalentar jamón freidora de aire, cómo recalentar jamón en freidora de aire, jamón sobrante freidora de aire, recalentar jamón glaseado freidora de aire',
+      heading: 'Recalentar jamón en la freidora de aire',
+      subDesc:
+        'Jamón totalmente cocido (en espiral, con o sin hueso) y jamón sobrante de la nevera, calentados sin quemar el glaseado. El ajuste bajo, la tapa y los dos objetivos distintos para jamón entero vs sobras.',
+      cardDesc: 'Tapa, glasea al final: el azúcar se quema primero.',
+      sizeLabels: { small: 'Unas lonchas', medium: 'Medio jamón o 1,4–1,8 kg', large: 'Un jamón en espiral entero, 3–4 kg' },
+      internalLine: 'Jamón totalmente cocido (del paquete): {INT_F}°F ({INT_C}°C) para calentar, luego reposo',
+      internalAltLine: 'Sobras o jamón reenvasado: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guía USDA para sobras recalentadas',
+      failureHeading: 'Por qué el glaseado se quema antes de que el jamón esté tibio',
+      failureBody:
+        'La mayoría de los jamones vienen con un glaseado a base de azúcar (azúcar moreno, miel, arce, cola) que se carameliza a una temperatura mucho más baja que la que hace falta para calentar un jamón frío. En una freidora de aire el glaseado está fuera, en el aire caliente, así que se pone oscuro, luego amargo y negro, mientras la carne de dentro sigue fría de la nevera. La solución es separar los dos trabajos. Recalienta el jamón tapado, para que el calor suave penetre sin que el glaseado vea el ventilador. Luego destapa, pinta con glaseado fresco o tibio y dale uno o dos minutos a la misma temperatura para que cuaje. Los objetivos también difieren. Un jamón totalmente cocido del paquete solo necesita llegar a {INT_F}°F para servir (USDA dice 140°F para jamón cocido envasado al vacío). El jamón sobrante que se ha loncheado y guardado, o un jamón de charcutería, debe llegar a {INT_ALT_TO_F}°F, la guía USDA para sobras.',
+      workedExampleHeading: 'Ejemplo práctico: medio jamón en espiral',
+      workedExampleTemplate:
+        'Medio jamón en espiral de 1,8 kg, con cortes, tapado suelto con papel de aluminio. Precalienta {PREHEAT} minutos y calienta a {AF_F}°F durante {MEDIUM_MIN} minutos, girando a los {FLIP} minutos. Quita el papel, pinta con glaseado y vuelve dos minutos para que cuaje. Unas lonchas tardan unos {SMALL_MIN} minutos; un jamón entero de 3,6 kg unos {LARGE_MIN}. En horno convencional el mismo jamón se calienta a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapado, luego glaseado.',
+      donenessHeading: 'Cómo saber que está listo',
+      donenessBody:
+        'Para un jamón cocido del paquete, {INT_F}°F ({INT_C}°C) en la parte más gruesa, lejos del hueso, es el objetivo. Para sobras o jamón de charcutería, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) es la guía USDA. La carne debe verse jugosa y brillante, no seca ni gris por los bordes. El glaseado, si se pone, debe burbujear y ser pegajoso, no negro.',
+      prepHeading: 'Antes de meterlo',
+      prepBody:
+        'Saca el jamón de la nevera 20 minutos antes para que el centro esté menos frío. Si es un jamón en espiral, mantenlo en su red original o envuélvelo en papel de aluminio para que las lonchas no se abran y sequen. Reserva el sobre de glaseado para calentarlo aparte, o haz el tuyo. Un chorrito de agua o caldo en el paquete de papel mantiene el aire húmedo. No hace falta aceite; el jamón lleva su propia grasa.',
+      faqs: [
+        {
+          q: '¿Cuánto tardas en recalentar jamón en la freidora de aire?',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una porción de 1,4–1,8 kg, vuelta a los {FLIP} minutos. Unas lonchas tardan unos {SMALL_MIN} minutos y un jamón entero de 3–4 kg unos {LARGE_MIN}.',
+        },
+        {
+          q: '¿A qué temperatura debe llegar el jamón recalentado?',
+          a: 'Jamón cocido del paquete: {INT_F}°F ({INT_C}°C) para calentar. Sobras o jamón de charcutería: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), que es la guía USDA para sobras recalentadas.',
+        },
+        {
+          q: '¿Por qué se me quema el glaseado del jamón?',
+          a: 'El azúcar del glaseado se carameliza mucho antes de que el jamón frío se caliente. Tapa el jamón para el recalentado, luego destapa, glasea y dale un minuto para que cuaje.',
+        },
+        {
+          q: '¿Puedo recalentar un jamón en espiral sin que se seque?',
+          a: 'Sí. Mantenlo en su red o envuélvelo en papel de aluminio, añade un chorrito de agua dentro y recalienta tapado. Las lonchas se cuecen al vapor entre sí en lugar de secarse.',
+        },
+        {
+          q: '¿Cómo recaliento jamón en el horno?',
+          a: 'Tapado a {OVEN_F}°F durante unos {OVEN_MIN} minutos, luego destapa, glasea y remata unos minutos.',
+        },
+      ],
+    },
   },
 };
 

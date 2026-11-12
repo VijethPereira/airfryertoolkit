@@ -23,6 +23,8 @@ export interface FoodPreset {
     | { kind: 'oven'; food: FoodKey }
     | { kind: 'frozen'; food: FrozenFoodKey }
     | { kind: 'reheat'; food: FoodKey; ovenF: number; ovenMinutes: number };
+  /** 'holiday': this preset belongs to the holiday group on /presets. Not a category. */
+  seasonal?: 'holiday';
   /** Air fryer setting for the medium/standard portion. */
   tempF: number;
   minutes: number;
@@ -603,6 +605,119 @@ export const PRESETS = [
       { id: 'small', minutes: 10 },
       { id: 'medium', minutes: 12 },
       { id: 'large', minutes: 15 },
+    ],
+  },
+  {
+    // Holiday batch - 2026 holiday peak (2026-11-17 target)
+    slug: 'turkey-breast',
+    category: 'poultry',
+    engine: { kind: 'oven', food: 'breast' },
+    tempF: 375,
+    minutes: 15,
+    flipAt: 8,
+    internalF: 165,
+    seasonal: 'holiday',
+    sizes: [
+      { id: 'small', minutes: 11 },
+      { id: 'medium', minutes: 15 },
+      { id: 'large', minutes: 20 },
+    ],
+  },
+  {
+    slug: 'reheat-turkey',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'thigh', ovenF: 375, ovenMinutes: 18 },
+    tempF: 350,
+    minutes: 6,
+    flipAt: 3,
+    internalF: 165,
+    internalAlt: { f: 145, toF: 155 },
+    fresh: 'turkey-breast',
+    seasonal: 'holiday',
+    sizes: [
+      { id: 'small', minutes: 4 },
+      { id: 'medium', minutes: 6 },
+      { id: 'large', minutes: 9 },
+    ],
+  },
+  {
+    slug: 'stuffing',
+    category: 'baked',
+    engine: { kind: 'oven', food: 'baked' },
+    tempF: 350,
+    minutes: 25,
+    internalF: 165,
+    seasonal: 'holiday',
+    // No flip - baked in a dish, not loose. Shelf-life: one-tray bake.
+    sizes: [
+      { id: 'small', minutes: 18 },
+      { id: 'medium', minutes: 25 },
+      { id: 'large', minutes: 32 },
+    ],
+  },
+  {
+    slug: 'dinner-rolls',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'baked', ovenF: 350, ovenMinutes: 8 },
+    tempF: 300,
+    minutes: 4,
+    doneBy: 'toothpick',
+    fresh: 'cookies',
+    seasonal: 'holiday',
+    sizes: [
+      { id: 'small', minutes: 3 },
+      { id: 'medium', minutes: 4 },
+      { id: 'large', minutes: 6 },
+    ],
+  },
+  {
+    slug: 'roast-potatoes',
+    category: 'veg',
+    engine: { kind: 'oven', food: 'fries' },
+    tempF: 375,
+    minutes: 30,
+    flipAt: 15,
+    internalF: 205,
+    seasonal: 'holiday',
+    // Par-boiled potatoes, rough surface for crisp crust
+    sizes: [
+      { id: 'small', minutes: 22 },
+      { id: 'medium', minutes: 30 },
+      { id: 'large', minutes: 38 },
+    ],
+  },
+  {
+    slug: 'pigs-in-blankets',
+    category: 'meat',
+    engine: { kind: 'oven', food: 'steak' },
+    tempF: 375,
+    minutes: 12,
+    flipAt: 6,
+    internalF: 160,
+    seasonal: 'holiday',
+    // UK: chipolatas wrapped in bacon; bacon fat smokes, must reach 160°F
+    sizes: [
+      { id: 'small', minutes: 9 },
+      { id: 'medium', minutes: 12 },
+      { id: 'large', minutes: 15 },
+    ],
+  },
+  {
+    slug: 'reheat-ham',
+    category: 'reheat',
+    engine: { kind: 'reheat', food: 'thigh', ovenF: 350, ovenMinutes: 16 },
+    tempF: 325,
+    minutes: 6,
+    flipAt: 3,
+    internalF: 140,
+    // Fully cooked ham: 140°F rest, leftovers to 165°F
+    internalAlt: { f: 165, toF: 175 },
+    fresh: 'turkey-breast',
+    seasonal: 'holiday',
+    sizes: [
+      { id: 'small', minutes: 4 },
+      { id: 'medium', minutes: 6 },
+      { id: 'large', minutes: 8 },
     ],
   },
 ] as const satisfies readonly FoodPreset[];

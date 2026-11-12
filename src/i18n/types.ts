@@ -333,6 +333,8 @@ export interface Dictionary {
     frozenCallout: { heading: string; desc: string; cta: string };
     flagshipBadge: string;
     chartStrip: [string, string, string, string];
+    /** Seasonal: Holiday card (shown when any holiday preset is live). */
+    holidayCard: { heading: string; desc: string; cta: string };
     guide: { heading: string; body: string }[];
   };
   tool: {

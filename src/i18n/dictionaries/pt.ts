@@ -223,6 +223,12 @@ const pt: Dictionary = {
     },
     flagshipBadge: 'Principal',
     chartStrip: ['Multiplicadores por alimento', 'Cesto e tipo forno', '°F · °C · nível de gás', 'Grátis — sem cadastro'],
+    // Seasonal: Holiday card (shown when any holiday preset is live)
+    holidayCard: {
+      heading: 'Predefinições para cozinha natalina',
+      desc: 'Peito de peru, recheio (stuffing), salsichas no bacon, batatas assadas, presunto — os pratos natalinos que dão errado na air fryer, cada um com seu modo de falha e sua solução.',
+      cta: 'Ver predefinições natalinas',
+    },
     guide: [
       {
         heading: 'O que é um conversor de forno para air fryer?',

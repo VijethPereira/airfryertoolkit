@@ -1939,6 +1939,334 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+
+    // Holiday batch - 2026-11-17 target
+    'turkey-breast': {
+      label: 'Turkey breast',
+      metaTitle: 'Turkey Breast in the Air Fryer: Time, Temp & Resting',
+      metaDescription:
+        'Bone-in or boneless turkey breast in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Times by size, the rest that finishes the job, and the oven equivalent.',
+      metaKeywords: 'turkey breast air fryer time, air fryer turkey breast temp, how long to cook turkey breast in air fryer, bone in turkey breast air fryer',
+      heading: 'Turkey breast in the air fryer',
+      subDesc:
+        'Bone-in or boneless breast, roasted until the skin is golden and the centre hits 165°F. The setting, the flip, and why the rest after cooking is part of the temperature.',
+      cardDesc: 'Pull at 160°F and rest three minutes to reach 165°F.',
+      sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 4–5 lb (1.8–2.3 kg)', large: 'Bone-in breast, 6–7 lb (2.7–3.2 kg)' },
+      failureHeading: 'Why the breast dries out before the centre is safe',
+      failureBody:
+        'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Take the breast out when the thickest part reads 160°F, tent it with foil, and wait three minutes. The heat stored in the outer layers finishes the centre to 165°F while the juices settle back into the meat instead of running out on the board.',
+      workedExampleHeading: 'Worked example: a bone-in turkey breast',
+      workedExampleTemplate:
+        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Pull it at 160°F, rest three minutes, then slice. A conventional oven needs {OVEN_F}°F for around {OVEN_MIN} minutes for the same breast.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Probe the thickest part of the breast, from the side, avoiding the bone: 160°F is the take-out target, 165°F after the three-minute rest. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'For a boneless breast, butterfly or pound it to an even 1½-inch thickness. For bone-in, tuck the wing tips under and truss the breast with kitchen twine so it stays compact. Rub with oil and a dry brine of salt and herbs works well for turkey; 30 minutes uncovered in the fridge dries the skin and helps it crisp. If the breast is very large for your basket, it can be cooked in two stages: start breast side down for the first half, then turn it skin side up to finish.',
+      faqs: [
+        {
+          q: 'How long does a turkey breast take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a 4–5 lb bone-in breast, flipped at {FLIP} minutes. A 2–3 lb boneless breast takes around {SMALL_MIN} minutes and a 6–7 lb bone-in around {LARGE_MIN}. Always finish by temperature, not time.',
+        },
+        {
+          q: 'What temperature should turkey breast reach?',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest part is the USDA safe temperature. Take it out at 160°F and rest three minutes; it will rise to 165°F.',
+        },
+        {
+          q: 'Do I need to flip a turkey breast in the air fryer?',
+          a: 'Yes, once at about halfway. The underside gets less direct air and stays paler; turning it gives an even colour on both sides.',
+        },
+        {
+          q: 'Can I cook a frozen turkey breast in the air fryer?',
+          a: 'Not with this setting. A frozen breast needs a lower temperature and much more time so the centre is safe before the outside dries. Use a dedicated frozen mode or thaw it first.',
+        },
+        {
+          q: 'What is the oven equivalent of this air fryer setting?',
+          a: '{OVEN_F}°F for about {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'reheat-turkey': {
+      label: 'Leftover turkey',
+      metaTitle: 'Reheat Turkey in the Air Fryer: Moist Slices, Not Dry',
+      metaDescription:
+        'Reheat leftover turkey in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, hot to {INT_F}°F. Sliced breast and dark meat, the splash of stock, and the oven method.',
+      metaKeywords: 'reheat turkey air fryer, how to reheat turkey in air fryer, leftover turkey air fryer, reheat sliced turkey air fryer',
+      heading: 'Reheating turkey in the air fryer',
+      subDesc:
+        'Sliced turkey breast and dark meat from the fridge, brought back to hot and moist. The gentle setting, the splash of stock, and why foil is your friend.',
+      cardDesc: 'A splash of stock and foil keeps the breast moist.',
+      sizeLabels: { small: 'A few slices of breast', medium: 'Mixed slices, breast and thigh', large: 'A large platter portion' },
+      internalLine: 'Hot through at {INT_F}°F ({INT_C}°C) in the thickest slice: USDA guidance for leftovers',
+      internalAltLine: 'Dark meat (thighs, legs) is hot at {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) and stays moist longer',
+      failureHeading: 'Why reheated turkey breast turns into leather',
+      failureBody:
+        'Turkey breast is lean, and in the fridge the little fat it has solidifies and the muscle fibres tighten. Put cold slices straight into a hot air fryer and the surface dries into a tight crust before the middle has warmed through, leaving you with grey, chewy pieces that no gravy can fix. The fix is gentle heat and moisture. A splash of chicken or turkey stock in the bottom of the dish, or a light brush of melted butter on the slices, gives the air something to steam so the meat warms before the surface seals. Cover the dish loosely with foil for the first half of the reheat, then remove it so the edges can colour. Dark meat (thighs, legs) is more forgiving: its fat keeps it moist, and it only needs to reach the lower end of the temperature range.',
+      workedExampleHeading: 'Worked example: a mixed plate of leftovers',
+      workedExampleTemplate:
+        'Two cups of sliced turkey, mixed breast and thigh, spread in a baking dish with two tablespoons of warm stock. Cover loosely with foil and reheat at {AF_F}°F for {MEDIUM_MIN} minutes, flipping the pieces at {FLIP} minutes. A small plate of breast slices takes about {SMALL_MIN} minutes; a large mixed portion takes about {LARGE_MIN}. In a conventional oven the same plate reheats at {OVEN_F}°F for around {OVEN_MIN} minutes, covered for the first half.',
+      donenessHeading: 'How to tell it is ready',
+      donenessBody:
+        'Check a breast slice with a thermometer: USDA guidance is {INT_F}°F ({INT_C}°C) for reheated leftovers. Dark meat is hot through at {INT_ALT_F}–{INT_ALT_TO_F}°F and will stay juicier. The slices should steam when you lift the foil, and the surface should look glossy, not dry and matt. A breast slice that feels firm and springy has gone too far.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Take the turkey out of the fridge a few minutes early so the chill eases. Separate breast from dark meat if you can, since they finish at different times. A gravy boat warmed on the side means you can serve the slices the moment they are hot.',
+      faqs: [
+        {
+          q: 'How long do you reheat turkey in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for mixed slices, flipped at {FLIP} minutes. A few breast slices take around {SMALL_MIN} minutes and a large mixed platter around {LARGE_MIN}.',
+        },
+        {
+          q: 'What temperature should reheated turkey reach?',
+          a: '{INT_F}°F ({INT_C}°C) for breast slices, which is USDA guidance for leftovers. Dark meat is hot at {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+        },
+        {
+          q: 'Why does my reheated turkey breast get dry?',
+          a: 'The heat was too high or the slices had no moisture with them. A splash of stock and foil for the first half keeps the surface from sealing before the middle warms.',
+        },
+        {
+          q: 'Can I reheat a whole turkey breast this way?',
+          a: 'Yes, but it takes longer. Use the turkey breast preset instead, which is designed for cooking from raw and includes the rest. This page is for already-cooked leftovers.',
+        },
+        {
+          q: 'How do I reheat turkey in the oven?',
+          a: 'In a covered dish with stock at {OVEN_F}°F for around {OVEN_MIN} minutes, uncovering for the last few minutes if you want colour on the edges.',
+        },
+      ],
+    },
+    'stuffing': {
+      label: 'Stuffing',
+      metaTitle: 'Stuffing in the Air Fryer: Crisp Top, Hot Centre',
+      metaDescription:
+        'Bake stuffing in the air fryer: {AF_F}°F for {MIN} minutes, done at {INT_F}°F in the centre. Baked in a dish, not loose in the basket, times by dish size and the oven equivalent.',
+      metaKeywords: 'stuffing air fryer, air fryer stuffing time, how to cook stuffing in air fryer, dressing air fryer',
+      heading: 'Stuffing in the air fryer',
+      subDesc:
+        'Bread-based stuffing or dressing baked in a dish that fits the basket. The setting, why the centre must hit 165°F, and how to get a crisp top before the middle overcooks.',
+      cardDesc: 'Baked in a dish, not loose: centre to 165°F.',
+      sizeLabels: { small: 'Small dish, 5×5 inch (13×13 cm)', medium: 'Standard dish, 7×5 inch (18×13 cm)', large: 'Large dish, 9×7 inch (23×18 cm)' },
+      failureHeading: 'Why the top burns before the centre is hot',
+      failureBody:
+        'Stuffing is a thick, wet layer of bread, stock, vegetables and fat. In an air fryer the heat blasts the exposed top, so the crust browns and then burns while the middle is still cold, wet bread. The trap is checking the top and assuming the dish is done. The only reliable test is the centre: stuffing with egg or raw vegetables (onions, celery) must reach {INT_F}°F to be safe, and that takes time. The fixes are in the dish and the temperature. Use a shallow dish so the heat has less distance to travel, and run the lower setting here so the top browns at the same pace the centre warms. If the top is dark before the middle is done, tent the dish with foil for the rest of the bake.',
+      workedExampleHeading: 'Worked example: a standard dish of sausage stuffing',
+      workedExampleTemplate:
+        'A 7×5 inch dish of bread stuffing with sausage, onion, celery and stock, mixed just until moist. Preheat {PREHEAT} minutes, bake at {AF_F}°F for {MEDIUM_MIN} minutes. A small 5×5 inch dish takes about {SMALL_MIN} minutes and a large 9×7 inch dish about {LARGE_MIN}. Check the centre with a thermometer; it must read {INT_F}°F. In a conventional oven the same dish takes {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell it is done',
+      donenessBody:
+        'Push a thermometer into the very centre of the dish: {INT_F}°F ({INT_C}°C) is the safe temperature for any stuffing with egg, raw vegetables or meat. The top should be golden and crisp, the edges pulling away from the dish slightly. If the top is dark and the centre is below 165°F, cover with foil and give it three more minutes.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Use a metal or ceramic dish that fits the basket with room around it; do not cook stuffing loose in the basket — the crumbs blow around the fan and the bottom layer burns. Mix the stuffing just until moist; a wetter mix cooks faster and stays softer, a drier mix needs the longer end of the time. Dot the top with a little butter for a better crust.',
+      faqs: [
+        {
+          q: 'How long does stuffing take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a standard 7×5 inch dish. A small dish takes around {SMALL_MIN} minutes and a large dish around {LARGE_MIN}. Always check the centre with a thermometer.',
+        },
+        {
+          q: 'What temperature should stuffing reach?',
+          a: '{INT_F}°F ({INT_C}°C) in the centre. That is the USDA safe temperature for stuffing with egg or raw ingredients.',
+        },
+        {
+          q: 'Can I cook stuffing loose in the basket?',
+          a: 'No. The crumbs fly into the element and the bottom layer burns. Use a shallow dish that fits.',
+        },
+        {
+          q: 'What if the top is burning but the middle is not hot?',
+          a: 'Tent the dish loosely with foil and continue cooking. The lower setting here is meant to slow the top, but every air fryer runs a little differently.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'dinner-rolls': {
+      label: 'Dinner rolls',
+      metaTitle: 'Reheat Dinner Rolls in the Air Fryer: Warm, Not Burnt',
+      metaDescription:
+        'Reheat dinner rolls in the air fryer: {AF_F}°F for {MIN} minutes. Brown-and-serve and bakery rolls, tented with foil so the top does not burn before the middle warms.',
+      metaKeywords: 'reheat dinner rolls air fryer, air fryer rolls reheat, brown and serve rolls air fryer, reheat bakery rolls air fryer',
+      heading: 'Reheating dinner rolls in the air fryer',
+      subDesc:
+        'Brown-and-serve rolls, bakery rolls or par-baked rolls from the fridge, warmed through with a soft centre and a lightly coloured top. The low setting, the foil tent, and why hotter burns the crown.',
+      cardDesc: 'Tent with foil: the top burns before the centre warms.',
+      sizeLabels: { small: '2–3 small rolls', medium: '4–6 standard rolls', large: '8–10 rolls or a half-dozen large' },
+      failureHeading: 'Why the crown burns before the centre is warm',
+      failureBody:
+        'A dinner roll is a dome of soft dough with a thin crust on top. In an air fryer the heat arrives from above, so the crown — the highest point — takes the full blast and darkens in minutes while the centre of the roll is still fridge-cold. A higher setting only widens that gap. The fix is a low temperature and a foil tent. The foil reflects the direct heat so the top warms at the same pace as the inside, and the short time means the rolls do not dry out. Brown-and-serve rolls are par-baked and only need a quick warm-through; bakery rolls from the fridge need the full time to lose their chill.',
+      workedExampleHeading: 'Worked example: a basket of brown-and-serve rolls',
+      workedExampleTemplate:
+        'Six brown-and-serve rolls, tented with a loose sheet of foil. Preheat {PREHEAT} minutes and heat at {AF_F}°F for {MEDIUM_MIN} minutes. Two to three rolls take about {SMALL_MIN} minutes; a half-dozen large bakery rolls take about {LARGE_MIN}. In a conventional oven the same rolls warm at {OVEN_F}°F for around {OVEN_MIN} minutes on a tray.',
+      donenessHeading: 'How to tell they are ready',
+      donenessBody:
+        'Lift the foil and press the side of a roll: it should feel warm and springy, not hot and hard. The top should be lightly coloured, not brown or crisp. Break one open: the crumb should be soft and steamy, with no cold, dense centre. A roll that feels firm and dry has been in too long.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Arrange the rolls in a single layer with a small gap between them. Cut a piece of foil large enough to tent over the whole group without touching the tops, and tuck the edges under the basket floor. No oil or butter is needed; a brush of melted butter goes on after reheating if you want a shiny top.',
+      faqs: [
+        {
+          q: 'How long do you reheat dinner rolls in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for 4–6 standard rolls. A few rolls take around {SMALL_MIN} minutes and a larger batch around {LARGE_MIN}.',
+        },
+        {
+          q: 'Why do my rolls burn on top?',
+          a: 'The heat comes from above and the crown is the closest point. Tent them with foil so the top warms with the rest of the roll.',
+        },
+        {
+          q: 'Can I reheat frozen rolls in the air fryer?',
+          a: 'Yes, straight from the freezer. Add a minute or two to the time and keep the foil on for the first half.',
+        },
+        {
+          q: 'What about garlic rolls or cheese rolls?',
+          a: 'The same low setting works. Cheese on top goes on for the last minute only, or it will burn.',
+        },
+        {
+          q: 'How do I reheat rolls in the oven?',
+          a: 'On a tray at {OVEN_F}°F for around {OVEN_MIN} minutes, tented with foil.',
+        },
+      ],
+    },
+    'roast-potatoes': {
+      label: 'Roast potatoes',
+      metaTitle: 'Roast Potatoes in the Air Fryer: Crisp Crust, Fluffy Centre',
+      metaDescription:
+        'UK-style roast potatoes in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}. Par-boiled, roughed up, and the shake that keeps them even. Times by size and the oven equivalent.',
+      metaKeywords: 'roast potatoes air fryer, air fryer roasties time, how to cook roast potatoes in air fryer, par boiled potatoes air fryer',
+      heading: 'Roast potatoes in the air fryer',
+      subDesc:
+        'UK roasties: par-boiled potatoes with roughed-up edges, roasted until the crust is golden and the middle is fluffy. The setting, the single flip, and why the rough surface matters.',
+      cardDesc: 'Par-boil and rough up first: the crust forms on the edges.',
+      sizeLabels: { small: 'Small pieces, from small potatoes', medium: 'Medium, from 2–3 inch potatoes', large: 'Large chunks, from big potatoes quartered' },
+      failureHeading: 'Why the crust is hard and the middle is waxy',
+      failureBody:
+        'A roast potato is not a fry. It is a thick chunk of potato with a deliberate crust on the outside and a fluffy, steamed middle. In an air fryer the edges dry and harden fast, and if the heat is too high the crust becomes a rigid shell before the starch in the centre has gelled into fluff. The result is a crunchy outside with a dense, waxy core. The preparation does the heavy lifting here. Par-boiling the chunks for five minutes starts the starch swelling, and roughing up the edges with a fork or a shake in the pan creates the ragged surface that turns into the crust. Without both steps, the air fryer only fries the outside. The flip at halfway then evens the colour so both faces get the same crust.',
+      workedExampleHeading: 'Worked example: a tray of roasties for four',
+      workedExampleTemplate:
+        'Four medium potatoes, each cut into quarters, par-boiled for five minutes, drained and shaken in the pan to rough the edges. Toss with a tablespoon of oil and salt. Preheat {PREHEAT} minutes, spread them cut side down and cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. Small pieces take about {SMALL_MIN} minutes and large chunks about {LARGE_MIN}. In a conventional oven the same roasties take {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The rough edges should be deep golden and crisp, and the flat faces should have a solid crust. Push a knife into the middle of a chunk: it should slide in with no resistance, and the inside should look white and fluffy, not translucent or waxy. If the outside is ready and the centre is not, lower the heat a little for the last few minutes rather than giving up the crust.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Use floury potatoes: Maris Piper, King Edward, or russets. Cut into even chunks so they finish together. Par-boil in salted water for five minutes exactly, then drain well and shake the pan to rough the edges. Toss with enough oil to coat every rough bit, and season with salt. Do not crowd the basket; the pieces need air on all faces to crisp.',
+      faqs: [
+        {
+          q: 'How long do roast potatoes take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for medium chunks, flipped at {FLIP} minutes. Small pieces take around {SMALL_MIN} minutes and large chunks around {LARGE_MIN}.',
+        },
+        {
+          q: 'Why do I need to par-boil and rough up the edges?',
+          a: 'Par-boiling starts the starch swelling, and roughing the edges creates the surface that turns into the crust. Without both, the air fryer only fries the outside and the middle stays waxy.',
+        },
+        {
+          q: 'Is this the same as baked potato or fries?',
+          a: 'No. A baked potato is whole and checks at 205°F inside. Fries are thin and cook fast. Roasties are thick, par-boiled chunks that need the crust and the fluffy middle together.',
+        },
+        {
+          q: 'Can I use waxy potatoes?',
+          a: 'They will not go fluffy. Waxy potatoes give a firm, creamier texture; the crust still forms but the middle stays dense.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'pigs-in-blankets': {
+      label: 'Pigs in blankets',
+      metaTitle: 'Pigs in Blankets in the Air Fryer: Bacon-Wrapped Chipolatas',
+      metaDescription:
+        'Pigs in blankets (UK: chipolatas wrapped in bacon) in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, bacon crisp and sausage to {INT_F}°F. The moderate setting that stops the bacon fat smoking.',
+      metaKeywords: 'pigs in blankets air fryer, air fryer pigs in blankets time, chipolatas bacon air fryer, how long to cook pigs in blankets in air fryer',
+      heading: 'Pigs in blankets in the air fryer',
+      subDesc:
+        'UK pigs in blankets: chipolata sausages wrapped in streaky bacon, cooked until the bacon is crisp and the sausage is safe at 160°F. The moderate setting, the flip, and the difference from US pigs in a blanket.',
+      cardDesc: 'UK version: chipolatas wrapped in bacon. Moderate heat stops the bacon smoking.',
+      sizeLabels: { small: 'Mini chipolatas, thin bacon', medium: 'Standard chipolatas, regular bacon', large: 'Thick sausages or smoked bacon' },
+      failureHeading: 'Why the bacon smokes and the sausage is still cold',
+      failureBody:
+        'A pig in blanket is a race between the bacon and the sausage. The bacon is thin, fatty and full of sugar from the cure, so it renders, browns and then smokes in minutes. The sausage inside is thick and dense, and it needs time for the heat to reach its centre. Run the air fryer hot and the bacon is burnt and smoking before the sausage hits a safe temperature. Run it too cool and the bacon never crisps. The moderate setting here (375°F) is the balance: the bacon fat renders steadily instead of burning, and the sausage has time to come up to 160°F. A flip at halfway brings the pale underside of the bacon into the airflow so both sides crisp evenly. The US version (hot dogs in pastry) is not covered here: the pastry needs a different setting and the hot dog is already cooked, so it only needs warming through.',
+      workedExampleHeading: 'Worked example: a tray for Christmas morning',
+      workedExampleTemplate:
+        'Twelve standard chipolatas, each wrapped in a half-rashers of streaky bacon, ends tucked under. Preheat {PREHEAT} minutes, lay them in one layer with a small gap between each and cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. Mini chipolatas take about {SMALL_MIN} minutes and thick sausages about {LARGE_MIN}. In a conventional oven the same tray takes {OVEN_F}°F for around {OVEN_MIN} minutes.',
+      donenessHeading: 'How to tell they are done',
+      donenessBody:
+        'The bacon should be crisp and deep golden on both sides, with no pale, soft patches. The sausage inside should reach {INT_F}°F ({INT_C}°C) in the middle, measured with a thin probe through the bacon. If the bacon is crisp but the sausage is under 160°F, lower the heat to 350°F and give them two more minutes.',
+      prepHeading: 'Before they go in',
+      prepBody:
+        'Use chipolatas (small pork sausages), not frankfurters or hot dogs. Wrap each one in a half-rasher of streaky bacon, tucking the ends underneath so they do not unwrap. No oil is needed; the bacon releases plenty of fat. If your basket runs hot, line it with perforated parchment to catch the drips and reduce smoke. Leave a finger-width gap between rolls so the bacon on the sides crisps too.',
+      faqs: [
+        {
+          q: 'How long do pigs in blankets take in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for standard chipolatas, flipped at {FLIP} minutes. Mini chipolatas take around {SMALL_MIN} minutes and thick sausages around {LARGE_MIN}.',
+        },
+        {
+          q: 'Why does the bacon smoke in the air fryer?',
+          a: 'Bacon fat drips into the drawer and burns at high temperatures. Cook at {AF_F}°F, not higher, and a splash of water in the drawer under the basket catches the fat.',
+        },
+        {
+          q: 'What temperature should the sausage reach?',
+          a: '{INT_F}°F ({INT_C}°C) in the middle. That is the safe temperature for fresh pork sausage.',
+        },
+        {
+          q: 'Is this the same as US pigs in a blanket?',
+          a: 'No. US pigs in a blanket are hot dogs or sausages wrapped in pastry (crescent roll or puff pastry). The pastry needs a different setting and the hot dog is already cooked, so it only needs warming through.',
+        },
+        {
+          q: 'What is the oven equivalent?',
+          a: '{OVEN_F}°F for around {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+        },
+      ],
+    },
+    'reheat-ham': {
+      label: 'Leftover ham',
+      metaTitle: 'Reheat Ham in the Air Fryer: Glazed or Plain, Not Burnt',
+      metaDescription:
+        'Reheat leftover ham in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}. Fully cooked ham to 140°F, leftovers to 165°F. Cover first, then glaze at the end.',
+      metaKeywords: 'reheat ham air fryer, how to reheat ham in air fryer, leftover ham air fryer, reheat glazed ham air fryer',
+      heading: 'Reheating ham in the air fryer',
+      subDesc:
+        'Fully cooked ham (spiral-cut, bone-in or boneless) and leftover ham from the fridge, warmed through without burning the glaze. The low setting, the cover, and the two different targets for whole ham vs leftovers.',
+      cardDesc: 'Cover, then glaze at the end: the sugar burns first.',
+      sizeLabels: { small: 'A few slices', medium: 'A half-ham or 3–4 lb portion', large: 'A whole spiral-cut ham, 7–9 lb' },
+      internalLine: 'Fully cooked ham (from the pack): {INT_F}°F ({INT_C}°C) to warm through, then rest',
+      internalAltLine: 'Leftovers or repackaged ham: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — USDA guidance for reheated leftovers',
+      failureHeading: 'Why the glaze burns before the ham is warm',
+      failureBody:
+        'Most hams come with a sugar-based glaze (brown sugar, honey, maple, cola) that caramelises at a much lower temperature than it takes to heat a cold ham through. In an air fryer the glaze sits on the outside, right in the hot airflow, so it goes dark, then bitter and black, while the meat inside is still fridge-cold. The fix is to separate the two jobs. Reheat the ham covered, so the gentle heat penetrates without the glaze seeing the fan. Then uncover, brush with fresh or warmed glaze, and give it a minute or two at the same temperature to set. The targets differ too. A fully cooked ham straight from the pack only needs to reach {INT_F}°F to be ready to serve (USDA says 140°F for vacuum-packed cooked ham). Leftover ham that has been sliced and stored, or a ham from the deli, must reach {INT_ALT_TO_F}°F, the USDA leftover guidance.',
+      workedExampleHeading: 'Worked example: a half spiral-cut ham',
+      workedExampleTemplate:
+        'A 4 lb half spiral-cut ham, scored, covered loosely with foil. Preheat {PREHEAT} minutes and heat at {AF_F}°F for {MEDIUM_MIN} minutes, flipping at {FLIP} minutes. Remove the foil, brush with glaze, and return for two minutes to set it. A few slices take about {SMALL_MIN} minutes; a whole 8 lb ham takes about {LARGE_MIN}. In a conventional oven the same ham warms at {OVEN_F}°F for around {OVEN_MIN} minutes, covered, then glazed.',
+      donenessHeading: 'How to tell it is ready',
+      donenessBody:
+        'For a fully cooked ham from the pack, {INT_F}°F ({INT_C}°C) in the thickest part, away from the bone, is the target. For leftovers or deli ham, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) is USDA guidance. The meat should look moist and glossy, not dry or grey at the edges. The glaze, if applied, should be bubbling and sticky, not black.',
+      prepHeading: 'Before it goes in',
+      prepBody:
+        'Take the ham out of the fridge 20 minutes early so the centre is less cold. If it is a spiral-cut ham, keep it in its original netting or wrap it in foil so the slices do not fan out and dry. Reserve the glaze packet to warm separately, or make your own. A splash of water or stock in the foil packet keeps the air moist. No oil is needed; the ham carries its own fat.',
+      faqs: [
+        {
+          q: 'How long do you reheat ham in the air fryer?',
+          a: 'About {MIN} minutes at {AF_F}°F for a 3–4 lb portion, flipped at {FLIP} minutes. A few slices take around {SMALL_MIN} minutes and a whole 7–9 lb ham around {LARGE_MIN}.',
+        },
+        {
+          q: 'What temperature should reheated ham reach?',
+          a: 'Fully cooked ham from the pack: {INT_F}°F ({INT_C}°C) to warm through. Leftovers or deli ham: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), which is USDA guidance for reheated leftovers.',
+        },
+        {
+          q: 'Why does my ham glaze burn?',
+          a: 'The sugar in the glaze caramelises long before the cold ham warms through. Cover the ham for the reheat, then uncover, glaze, and give it a minute to set.',
+        },
+        {
+          q: 'Can I reheat a spiral-cut ham without it drying out?',
+          a: 'Yes. Keep it in its netting or wrap it in foil, add a splash of water inside, and reheat covered. The slices steam each other instead of drying.',
+        },
+        {
+          q: 'How do I reheat ham in the oven?',
+          a: 'Covered at {OVEN_F}°F for around {OVEN_MIN} minutes, then uncover, glaze, and finish for a few minutes.',
+        },
+      ],
+    },
   },
 };
 

@@ -15,6 +15,10 @@ import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
 import { BRANDS, MODEL_MAX_TEMP_PATH, brandModels } from '../lib/brands';
 import { MODELS } from '../data/models';
 import { COST_PATH } from '../lib/cost';
+import type { FoodPreset } from '../data/presets';
+
+// Holiday presets check
+const hasHolidayPresets = PRESETS.some((p: FoodPreset) => p.seasonal === 'holiday' && LIVE_PAGES.has(`/air-fryer/${p.slug}`));
 
 interface Props {
   locale?: LocaleCode;
@@ -310,6 +314,21 @@ const toolHref = hrefFor('/oven-to-air-fryer');
       </div>
     </div>
   </section>
+
+  <!-- Holiday seasonal card -->
+  {hasHolidayPresets && (
+    <section id="holiday" class="section seasonal-card">
+      <div class="wrap">
+        <div class="card seasonal">
+          <span class="card-title small">{dict.holidayCard.heading}</span>
+          <span class="card-desc">{dict.holidayCard.desc}</span>
+          {presetsIndexHref && (
+            <a href={presetsIndexHref} class="seasonal-cta btn-primary">{dict.holidayCard.cta}</a>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Brands: brand cards -->
   <section id="brands" class="section pad-lg">
@@ -1010,6 +1029,24 @@ const toolHref = hrefFor('/oven-to-air-fryer');
 
   .chart-cell.border {
     border-left: 1px solid var(--site-hairline);
+  }
+
+  /* Seasonal card */
+  .seasonal-card {
+    background: var(--site-bg);
+  }
+
+  .card.seasonal {
+    background: var(--site-bg-deep);
+    border: 1px solid var(--site-rule);
+  }
+
+  .card.seasonal .card-title {
+    color: var(--site-accent);
+  }
+
+  .seasonal-cta {
+    margin-top: 16px;
   }
 
   /* Hero responsive */

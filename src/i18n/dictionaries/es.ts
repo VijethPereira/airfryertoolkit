@@ -223,6 +223,12 @@ const es: Dictionary = {
     },
     flagshipBadge: 'Estrella',
     chartStrip: ['Multiplicadores por alimento', 'Cesta y tipo horno', '°F · °C · nivel de gas', 'Gratis — sin cuenta'],
+    // Seasonal: Holiday card (shown when any holiday preset is live)
+    holidayCard: {
+      heading: 'Preconfiguraciones para cocina navideña',
+      desc: 'Pechuga de pavo, relleno, salchichas en bacon, patatas asadas, jamón — los platos navideños que salen mal en la freidora de aire, cada uno con su fallo específico y su solución.',
+      cta: 'Ver preconfiguraciones navideñas',
+    },
     guide: [
       {
         heading: '¿Qué es un conversor de horno a freidora de aire?',

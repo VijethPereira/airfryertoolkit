@@ -223,6 +223,12 @@ const en: Dictionary = {
     },
     flagshipBadge: 'Flagship',
     chartStrip: ['Food-type multipliers', 'Basket & oven-style', '°F · °C · gas mark', 'Free — no account'],
+    // Seasonal: Holiday card (shown when any holiday preset is live)
+    holidayCard: {
+      heading: 'Holiday cooking presets',
+      desc: 'Turkey breast, stuffing, pigs in blankets, roast potatoes, ham — the holiday foods that go wrong in an air fryer, each with its own failure mode and fix.',
+      cta: 'View holiday presets',
+    },
     guide: [
       {
         heading: 'What Is an Oven to Air Fryer Converter?',

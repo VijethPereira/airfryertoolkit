@@ -1939,6 +1939,334 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+
+    // Holiday batch - 2026-11-17 target
+    'turkey-breast': {
+      label: 'Filet de dinde',
+      metaTitle: 'Filet de dinde à la friteuse à air : durée, température et repos',
+      metaDescription:
+        'Filet de dinde avec ou sans os à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}, à {INT_F}°F. Durées par taille, le repos qui finalise la cuisson et l’équivalent au four.',
+      metaKeywords: 'filet de dinde friteuse à air, dinde air fryer durée, filet dinde air fryer température, comment cuire filet de dinde friteuse à air',
+      heading: 'Filet de dinde à la friteuse à air',
+      subDesc:
+        'Filet de dinde avec ou sans os, rôti jusqu’à ce que la peau soit dorée et le centre atteigne 165°F. Le réglage, le retournement et pourquoi le repos après cuisson fait partie de la température.',
+      cardDesc: 'Sortez à 160°F et laissez reposer trois minutes jusqu’à 165°F.',
+      sizeLabels: { small: 'Filet sans os, 0,9–1,4 kg', medium: 'Filet avec os, 1,8–2,3 kg', large: 'Filet avec os, 2,7–3,2 kg' },
+      failureHeading: 'Pourquoi le filet sèche avant que le centre ne soit sûr',
+      failureBody:
+        'Un filet de dinde est un muscle maigre et conique : la pointe fine cuit bien avant la pointe épaisse, et la peau de dehors reçoit tout le souffle du ventilateur. Quand la partie la plus épaisse atteint une température sûre, la pointe fine et la peau peuvent être sèches et filandreuses. Deux choses changent cela. D’abord, égaliser l’épaisseur. Un filet sans os doit être ouvert en papillon ou aplati à une hauteur constante ; un filet avec os cuit plus uniformément si on rentre les pointes d’ailes et on le ficelle pour qu’il garde une forme arrondie. Ensuite, le repos n’est pas optionnel. Sortez le filet quand la partie la plus épaisse marque 160°F, couvrez-le de papier aluminium et attendez trois minutes. La chaleur stockée dans les couches extérieures finit le centre à 165°F pendant que les jus se réinstallent dans la viande au lieu de couler sur la planche.',
+      workedExampleHeading: 'Exemple concret : un filet de dinde avec os',
+      workedExampleTemplate:
+        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Sortez-le à 160°F, reposez trois minutes, puis tranchez. Un four traditionnel demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes pour le même filet.',
+      donenessHeading: 'Comment savoir qu’il est cuit',
+      donenessBody:
+        'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : 160°F est la cible de sortie, 165°F après les trois minutes de repos. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Pour un filet sans os, ouvrez-le en papillon ou aplatissez-le à 3,5 cm d’épaisseur constante. Pour un filet avec os, rentrez les pointes d’ailes et ficelez-le avec de la ficelle de cuisine pour qu’il reste compact. Badigeonnez d’huile et un mélange sec sel-herbes va bien avec la dinde ; 30 minutes à découvert au frigo sèche la peau et l’aide à croustiller. Si le filet est trop grand pour votre panier, on peut le cuire en deux phases : commencez peau en bas pour la première moitié, puis retournez peau en haut pour finir.',
+      faqs: [
+        {
+          q: 'Combien de temps cuit un filet de dinde à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour un filet avec os de 1,8–2,3 kg, retourné à {FLIP} minutes. Un filet sans os de 0,9–1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 2,7–3,2 kg environ {LARGE_MIN}. Décidez toujours par la température, pas par le temps.',
+        },
+        {
+          q: 'À quelle température le filet de dinde doit-il arriver ?',
+          a: '{INT_F}°F ({INT_C}°C) dans la partie la plus épaisse est la température sûre USDA. Sortez-le à 160°F et reposez trois minutes ; il montera à 165°F.',
+        },
+        {
+          q: 'Faut-il retourner le filet de dinde à la friteuse à air ?',
+          a: 'Oui, une fois, vers la moitié. La face du bas reçoit moins d’air direct et reste plus pâle ; le retourner donne une couleur pareille des deux côtés.',
+        },
+        {
+          q: 'Peut-on cuire un filet de dinde surgelé à la friteuse à air ?',
+          a: 'Pas avec ce réglage. Un filet surgelé a besoin d’une température plus basse et de beaucoup plus de temps pour que le centre soit sûr avant que l’extérieur ne sèche. Utilisez un mode surgelé dédié ou décongelez d’abord.',
+        },
+        {
+          q: 'Quel est l’équivalent au four de ce réglage ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes dans un four à chaleur tournante.',
+        },
+      ],
+    },
+    'reheat-turkey': {
+      label: 'Dinde restante',
+      metaTitle: 'Réchauffer la dinde à la friteuse à air : tranches moelleuses, pas sèches',
+      metaDescription:
+        'Réchauffez la dinde restante à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournée à {FLIP}, chaude à {INT_F}°F. Tranches de filet et viande foncée, le filet de bouillon et la méthode au four.',
+      metaKeywords: 'réchauffer dinde friteuse à air, comment réchauffer dinde friteuse sans huile, dinde restante air fryer, réchauffer filet de dinde friteuse à air',
+      heading: 'Réchauffer la dinde à la friteuse à air',
+      subDesc:
+        'Tranches de filet de dinde et viande foncée du frigo, remises au chaud et moelleuses. Le réglage doux, le filet de bouillon et pourquoi le papier aluminium est votre allié.',
+      cardDesc: 'Un filet de bouillon et du papier aluminium gardent le filet moelleux.',
+      sizeLabels: { small: 'Quelques tranches de filet', medium: 'Tranches mixtes, filet et cuisse', large: 'Une portion généreuse d’assiette' },
+      internalLine: 'Chaude au cœur à {INT_F}°F ({INT_C}°C) dans la tranche la plus épaisse : guide USDA pour les restes',
+      internalAltLine: 'Viande foncée (cuisses, pilons) est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) et reste moelleuse plus longtemps',
+      failureHeading: 'Pourquoi la dinde réchauffée devient du cuir',
+      failureBody:
+        'Le filet de dinde est maigre, et au frigo le peu de gras qu’il a se fige et les fibres musculaires se tendent. Mettez des tranches froides direct dans une friteuse chaude et la surface sèche en croûte serrée avant que le milieu ne s’est réchauffé, vous laissant des morceaux gris et caoutchouteux qu’aucune sauce ne rattrape. La solution : chaleur douce et humidité. Un filet de bouillon de poulet ou de dinde au fond du plat, ou un léger pinceau de beurre fondu sur les tranches, donne à l’air de quoi faire de la vapeur pour que la viande chauffe avant que la surface ne scelle. Couvrez le plat en vrac de papier aluminium la première moitié du réchauffage, puis ôtez-le pour que les bords colorent. La viande foncée (cuisses, pilons) pardonne plus : son gras la garde moelleuse, et elle n’a besoin que d’atteindre le bas de la plage de température.',
+      workedExampleHeading: 'Exemple concret : une assiette mixte de restes',
+      workedExampleTemplate:
+        'Deux tasses de dinde en tranches, mélange filet et cuisse, étalées dans un plat avec deux cuillères de bouillon tiède. Couvrez en vrac de papier aluminium et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en retournant les morceaux à {FLIP} minutes. Une petite assiette de tranches de filet demande environ {SMALL_MIN} minutes ; une grande portion mixte environ {LARGE_MIN}. Au four traditionnel la même assiette se réchauffe à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, couverte la première moitié.',
+      donenessHeading: 'Comment savoir qu’elle est prête',
+      donenessBody:
+        'Vérifiez une tranche de filet au thermomètre : le guide USDA dit {INT_F}°F ({INT_C}°C) pour les restes réchauffés. La viande foncée est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F et restera plus moelleuse. Les tranches doivent fumer quand on lève le papier, et la surface doit paraître brillante, pas sèche et mate. Une tranche de filet qui semble ferme et élastique a trop cuit.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Sortez la dinde du frigo quelques minutes avant pour ôter le pire du froid. Séparez filet et viande foncée si vous pouvez, car elles finissent à des moments différents. Une saucière chaude à côté veut dire que vous servez les tranches dès qu’elles sont chaudes.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer la dinde à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des tranches mixtes, retournées à {FLIP} minutes. Quelques tranches de filet demandent environ {SMALL_MIN} minutes et une grande portion mixte environ {LARGE_MIN}.',
+        },
+        {
+          q: 'À quelle température la dinde réchauffée doit-elle arriver ?',
+          a: '{INT_F}°F ({INT_C}°C) pour les tranches de filet, qui est le guide USDA pour les restes. La viande foncée est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+        },
+        {
+          q: 'Pourquoi mon filet de dinde réchauffé sèche ?',
+          a: 'La chaleur était trop forte ou les tranches n’avaient pas d’humidité. Un filet de bouillon et du papier aluminium la première moitié évitent que la surface ne scelle avant que le centre ne chauffe.',
+        },
+        {
+          q: 'Peut-on réchauffer un filet de dinde entier ainsi ?',
+          a: 'Oui, mais cela prend plus longtemps. Utilisez plutôt le préréglage filet de dinde, conçu pour cuire du cru et incluant le repos. Cette page est pour des restes déjà cuits.',
+        },
+        {
+          q: 'Comment réchauffer la dinde au four ?',
+          a: 'Dans un plat couvert avec bouillon à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, en découvrant les dernières minutes si vous voulez de la couleur sur les bords.',
+        },
+      ],
+    },
+    'stuffing': {
+      label: 'Farce (stuffing)',
+      metaTitle: 'Farce à la friteuse à air : croûte croustillante, cœur chaud',
+      metaDescription:
+        'Faites cuire la farce à la friteuse à air : {AF_F}°F pendant {MIN} minutes, à {INT_F}°F au cœur. Cuit dans un plat, pas en vrac dans le panier, durées par taille et équivalent au four.',
+      metaKeywords: 'farce friteuse à air, stuffing air fryer durée, comment cuire farce friteuse à air, dressing air fryer',
+      heading: 'Farce à la friteuse à air',
+      subDesc:
+        'Farce à base de pain cuite dans un plat qui rentre dans le panier. Le réglage, pourquoi le cœur doit atteindre 165°F et comment obtenir une croûte croustillante avant que le cœur ne passe.',
+      cardDesc: 'Cuite dans un plat, pas en vrac : cœur à 165°F.',
+      sizeLabels: { small: 'Petit plat, 13×13 cm', medium: 'Plat standard, 18×13 cm', large: 'Grand plat, 23×18 cm' },
+      failureHeading: 'Pourquoi la croûte brûle avant que le cœur ne soit chaud',
+      failureBody:
+        'La farce est une couche épaisse et humide de pain, bouillon, légumes et gras. Dans une friteuse à air, la chaleur tape la partie exposée du dessus, donc la croûte dore puis brûle pendant que le cœur est encore du pain froid et humide. Le piège est de regarder la croûte et de croire que le plat est cuit. La seule preuve fiable est le cœur : une farce avec œuf ou légumes crus (oignon, céleri) doit atteindre {INT_F}°F pour être sûre, et cela prend son temps. Les solutions sont dans le plat et la température. Utilisez un plat peu profond pour que la chaleur ait moins de chemin, et le réglage plus bas ici pour que la croûte dore au même rythme que le cœur chauffe. Si la croûte est foncée avant que le cœur ne soit cuit, couvrez le plat de papier aluminium pour le reste de la cuisson.',
+      workedExampleHeading: 'Exemple concret : un plat standard de farce à la saucisse',
+      workedExampleTemplate:
+        'Un plat de 18×13 cm de farce de pain avec saucisse, oignon, céleri et bouillon, mélangé juste assez pour être humide. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes. Un petit plat de 13×13 cm demande environ {SMALL_MIN} minutes et un grand de 23×18 cm environ {LARGE_MIN}. Vérifiez le cœur au thermomètre ; il doit marquer {INT_F}°F. Au four traditionnel le même plat demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elle est cuite',
+      donenessBody:
+        'Plantez un thermomètre au cœur même du plat : {INT_F}°F ({INT_C}°C) est la température sûre pour toute farce avec œuf, légumes crus ou viande. La croûte doit être dorée et croustillante, les bords se décollant légèrement du plat. Si la croûte est foncée et le cœur en dessous de 165°F, couvrez de papier aluminium et donnez trois minutes de plus.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Utilisez un plat en métal ou céramique qui rentre dans le panier avec de l’espace autour ; ne cuisez pas la farce en vrac dans le panier — les miettes volent au ventilateur et la couche du bas brûle. Mélangez la farce juste assez pour qu’elle soit humide ; un mélange plus humide cuit plus vite et reste plus moelleux, un plus sec a besoin de la durée longue. Mettez des noisettes de beurre sur le dessus pour une meilleure croûte.',
+      faqs: [
+        {
+          q: 'Combien de temps la farce met-elle à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour un plat standard de 18×13 cm. Un petit plat demande environ {SMALL_MIN} minutes et un grand environ {LARGE_MIN}. Vérifiez toujours le cœur au thermomètre.',
+        },
+        {
+          q: 'À quelle température la farce doit-elle arriver ?',
+          a: '{INT_F}°F ({INT_C}°C) au cœur. C’est la température sûre USDA pour farce avec œuf ou ingrédients crus.',
+        },
+        {
+          q: 'Peut-on cuire la farce en vrac dans le panier ?',
+          a: 'Non. Les miettes volent à l’élément et la couche du bas brûle. Utilisez un plat peu profond qui rentre.',
+        },
+        {
+          q: 'Que faire si la croûte brûle et le cœur n’est pas chaud ?',
+          a: 'Couvrez le plat en vrac de papier aluminium et continuez la cuisson. Le réglage plus bas ici est pensé pour freiner la croûte, mais chaque friteuse tourne un peu différemment.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes dans un four à chaleur tournante.',
+        },
+      ],
+    },
+    'dinner-rolls': {
+      label: 'Petits pains à dîner',
+      metaTitle: 'Réchauffer des petits pains à la friteuse à air : chauds, pas brûlés',
+      metaDescription:
+        'Réchauffez des petits pains à la friteuse à air : {AF_F}°F pendant {MIN} minutes. Pains précuits et pains de boulangerie, couverts de papier aluminium pour que la croûte ne brûle pas avant que le cœur ne chauffe.',
+      metaKeywords: 'réchauffer petits pains friteuse à air, petits pains air fryer réchauffer, pains précuits friteuse sans huile, réchauffer pains boulangerie friteuse à air',
+      heading: 'Réchauffer des petits pains à la friteuse à air',
+      subDesc:
+        'Pains précuits, pains de boulangerie ou pains précuits du frigo, réchauffés à cœur tendre et croûte légèrement colorée. Le réglage bas, la tente de papier aluminium et pourquoi plus de chaleur brûle la croûte.',
+      cardDesc: 'Couvrez de papier aluminium : la croûte brûle avant que le cœur ne chauffe.',
+      sizeLabels: { small: '2–3 petits pains', medium: '4–6 pains standard', large: '8–10 pains ou une demi-douzaine de gros' },
+      failureHeading: 'Pourquoi la croûte brûle avant que le cœur ne soit tiède',
+      failureBody:
+        'Un petit pain est un dôme de pâte molle avec une croûte fine dessus. Dans une friteuse à air, la chaleur arrive d’en haut, donc la croûte — le point le plus haut — prend le coup plein et s’assombrit en minutes pendant que le cœur du pain est encore froid du frigo. Un réglage plus haut ne fait qu’élargir cet écart. La solution : température basse et tente de papier aluminium. Le papier refléchit la chaleur directe pour que la croûte chauffe au même rythme que l’intérieur, et la durée courte évite que les pains ne sèchent. Les pains précuits ne demandent qu’un coup de chaud rapide ; les pains de boulangerie du frigo ont besoin de la durée complète pour perdre leur froid.',
+      workedExampleHeading: 'Exemple concret : un panier de pains précuits',
+      workedExampleTemplate:
+        'Six pains précuits, couverts d’une feuille volante de papier aluminium. Préchauffez {PREHEAT} minutes et chauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes. Deux ou trois pains demandent environ {SMALL_MIN} minutes ; une demi-douzaine de gros pains de boulangerie environ {LARGE_MIN}. Au four traditionnel les mêmes pains chauffent à {OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une plaque.',
+      donenessHeading: 'Comment savoir qu’ils sont prêts',
+      donenessBody:
+        'Soulevez le papier et pressez le côté d’un pain : il doit être tiède et élastique, pas chaud et dur. La croûte doit être légèrement colorée, pas brune ni croustillante. Cassez-en un : la mie doit être moelleuse et fumante, sans centre froid et dense. Un pain qui paraît ferme et sec a trop cuit.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Rangez les pains en une seule couche avec un petit espace entre eux. Découpez un morceau de papier aluminium assez grand pour faire tente sur tout le groupe sans toucher les croûtes, et glissez les bords sous le fond du panier. Pas besoin d’huile ni de beurre ; un pinceau de beurre fondu va après si vous voulez une croûte brillante.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer des petits pains à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour 4–6 pains standard. Quelques pains demandent environ {SMALL_MIN} minutes et une fournée plus grosse environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Pourquoi mes pains brûlent-ils sur le dessus ?',
+          a: 'La chaleur vient d’en haut et la croûte est le point le plus proche. Couvrez-les de papier aluminium pour que la croûte chauffe avec le reste du pain.',
+        },
+        {
+          q: 'Peut-on réchauffer des pains surgelés à la friteuse à air ?',
+          a: 'Oui, directement du congélateur. Ajoutez une ou deux minutes et gardez le papier la première moitié.',
+        },
+        {
+          q: 'Et les pains à l’ail ou au fromage ?',
+          a: 'Le même réglage bas convient. Le fromage dessus va à la dernière minute, sinon il brûle.',
+        },
+        {
+          q: 'Comment réchauffer les pains au four ?',
+          a: 'Sur une plaque à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, couverts de papier aluminium.',
+        },
+      ],
+    },
+    'roast-potatoes': {
+      label: 'Pommes de terre rôties',
+      metaTitle: 'Pommes de terre rôties à la friteuse à air : croûte croustillante, cœur fondant',
+      metaDescription:
+        'Pommes de terre rôties style UK à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournées à {FLIP}. Blanchies, bords rugueux et la secousse qui les garde égales. Durées par taille et équivalent au four.',
+      metaKeywords: 'pommes de terre rôties friteuse à air, roasties air fryer durée, comment faire roast potatoes friteuse à air, pommes de terre blanchies air fryer',
+      heading: 'Pommes de terre rôties à la friteuse à air',
+      subDesc:
+        'Roasties UK : morceaux de pommes de terre blanchis aux bords rugueux, rôtis jusqu’à ce que la croûte soit dorée et le cœur fondant. Le réglage, l’unique retournement et pourquoi la surface rugueuse compte.',
+      cardDesc: 'Blanchissez et rugosifiez les bords d’abord : la croûte se forme sur les bords.',
+      sizeLabels: { small: 'Morceaux petits, de petites pommes de terre', medium: 'Moyens, de pommes de terre de 5–7 cm', large: 'Gros morceaux, de grosses pommes de terre en quarts' },
+      failureHeading: 'Pourquoi la croûte est dure et le cœur cireux',
+      failureBody:
+        'Une pomme de terre rôtie n’est pas une frite. C’est un gros morceau de pomme de terre avec une croûte délibérée dehors et un cœur fondant, à la vapeur. Dans une friteuse à air, les bords sèchent et durcissent vite, et si la chaleur est trop forte la croûte devient une coquille rigide avant que l’amidon du cœur ne gélifie en fondant. Résultat : un extérieur croquant avec un noyau dense et cireux. La préparation fait le travail lourd ici. Blanchir les morceaux cinq minutes commence à gonfler l’amidon, et rugosifier les bords à la fourchette ou en secouant la poêle crée la surface irrégulière qui devient la croûte. Sans les deux étapes, la friteuse ne fait que frire l’extérieur. Le retournement à mi-cuisson égalise la couleur pour que les deux faces aient la même croûte.',
+      workedExampleHeading: 'Exemple concret : un plateau de roasties pour quatre',
+      workedExampleTemplate:
+        'Quatre pommes de terre moyennes, chacune en quarts, blanchies cinq minutes, égouttées et secouées dans la poêle pour rugosifier les bords. Mélangez avec une cuillère à soupe d’huile et du sel. Préchauffez {PREHEAT} minutes, étalez face coupée en bas et cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en retournant à {FLIP} minutes. Les petits morceaux demandent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}. Au four traditionnel les mêmes roasties demandent {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elles sont cuites',
+      donenessBody:
+        'Les bords rugueux doivent être bien dorés et croustillants, et les faces planes doivent avoir une croûte solide. Plantez un couteau au milieu d’un morceau : il doit entrer sans résistance, et l’intérieur doit paraître blanc et fondant, pas translucide ni cireux. Si l’extérieur est prêt et le cœur pas, baissez un peu la chaleur les dernières minutes au lieu de renoncer à la croûte.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Utilisez des pommes de terre farineuses : Maris Piper, King Edward ou russets. Coupez en morceaux égaux pour qu’ils finissent ensemble. Blanchissez dans l’eau salée cinq minutes exactement, égouttez bien et secouez la poêle pour rugosifier les bords. Mélangez avec assez d’huile pour enrober chaque morceau rugueux et salez. Ne remplissez pas le panier ; les morceaux ont besoin d’air sur toutes les faces pour croustiller.',
+      faqs: [
+        {
+          q: 'Combien de temps les pommes de terre rôties mettent-elles à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des morceaux moyens, retournés à {FLIP} minutes. Les petits demandent environ {SMALL_MIN} minutes et les gros environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Pourquoi blanchir et rugosifier les bords ?',
+          a: 'Le blanchiment commence à gonfler l’amidon, et rugosifier les bords crée la surface qui devient la croûte. Sans les deux, la friteuse ne fait que frire l’extérieur et le cœur reste cireux.',
+        },
+        {
+          q: 'Est-ce la même chose que pomme de terre au four ou frites ?',
+          a: 'Non. La pomme de terre au four est entière et se vérifie à 205°F dedans. Les frites sont fines et cuisent vite. Les roasties sont des gros morceaux blanchis qui ont besoin de la croûte et du cœur fondant ensemble.',
+        },
+        {
+          q: 'Peut-on utiliser des pommes de terre à chair ferme ?',
+          a: 'Elles ne deviendront pas fondantes. Les pommes de terre fermes donnent une texture plus ferme et crémeuse ; la croûte se forme mais le cœur reste dense.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes dans un four à chaleur tournante.',
+        },
+      ],
+    },
+    'pigs-in-blankets': {
+      label: 'Chipolatas au bacon',
+      metaTitle: 'Chipolatas au bacon à la friteuse à air : chipolatas enveloppées de bacon streaky',
+      metaDescription:
+        'Chipolatas au bacon (UK : chipolatas enveloppées de bacon streaky) à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retournées à {FLIP}, bacon croustillant et chipolata à {INT_F}°F. Le réglage modéré qui évite que le gras du bacon ne fume.',
+      metaKeywords: 'chipolatas bacon friteuse à air, pigs in blankets air fryer durée, chipolatas bacon air fryer, combien de temps pigs in blankets friteuse à air',
+      heading: 'Chipolatas au bacon à la friteuse à air',
+      subDesc:
+        'Pigs in blankets version UK : chipolatas enveloppées de bacon streaky, cuites jusqu’à ce que le bacon soit croustillant et la chipolata sûre à 160°F. Le réglage modéré, le retournement et la différence avec les pigs in a blanket américains.',
+      cardDesc: 'Version UK : chipolatas en bacon. Chaleur modérée évite le bacon fumant.',
+      sizeLabels: { small: 'Chipolatas mini, bacon fin', medium: 'Chipolatas standard, bacon normal', large: 'Saucisses épaisses ou bacon fumé' },
+      failureHeading: 'Pourquoi le bacon fume et la chipolata reste froide',
+      failureBody:
+        'Un pig in blanket est une course entre le bacon et la chipolata. Le bacon est fin, gras et plein de sucres de la cure, donc il fond, dore et fume en minutes. La chipolata dedans est épaisse et dense, et elle a besoin de temps pour que la chaleur atteigne son centre. Mettez la friteuse fort et le bacon est brûlé et fumant avant que la chipolata n’atteigne une température sûre. Mettez-la trop douce et le bacon ne croustille jamais. Le réglage modéré ici (375°F) est l’équilibre : le gras du bacon fond doucement au lieu de brûler, et la chipolata a le temps de monter à 160°F. Un retournement à mi-cuisson amène la face pâle du bacon dans le flux d’air pour que les deux faces croustillent pareil. La version US (saucisses type hot dog en pâte) n’est pas couverte ici : la pâte a besoin d’un autre réglage et la saucisse est déjà cuite, donc elle n’a besoin que de se réchauffer.',
+      workedExampleHeading: 'Exemple concret : un plateau pour le matin de Noël',
+      workedExampleTemplate:
+        'Douze chipolatas standard, chacune enveloppée d’une demi-tranche de bacon streaky, pointes rentrées dessous. Préchauffez {PREHEAT} minutes, posez-les en une couche avec un petit espace entre chacune et cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en les retournant à {FLIP} minutes. Les chipolatas mini demandent environ {SMALL_MIN} minutes et les saucisses épaisses environ {LARGE_MIN}. Au four traditionnel le même plateau demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
+      donenessHeading: 'Comment savoir qu’elles sont cuites',
+      donenessBody:
+        'Le bacon doit être croustillant et bien doré des deux faces, sans taches pâles et molles. La chipolata dedans doit atteindre {INT_F}°F ({INT_C}°C) au centre, mesuré avec une sonde fine à travers le bacon. Si le bacon est croustillant mais la chipolata en dessous de 160°F, baissez à 350°F et donnez deux minutes de plus.',
+      prepHeading: 'Avant de les enfourner',
+      prepBody:
+        'Utilisez des chipolatas (petites saucisses de porc), pas de frankfurters ni de hot dogs. Enveloppez chacune dans une demi-tranche de bacon streaky, en rentrant les pointes dessous pour qu’elles ne se défont pas. Pas besoin d’huile ; le bacon rend assez de gras. Si votre panier chauffe fort, tapissez-le de papier perforé pour attraper les gouttes et réduire la fumée. Laissez un espace d’un doigt entre les roulés pour que le bacon des côtés croustille aussi.',
+      faqs: [
+        {
+          q: 'Combien de temps les pigs in blankets mettent-ils à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour des chipolatas standard, retournées à {FLIP} minutes. Les chipolatas mini demandent environ {SMALL_MIN} minutes et les saucisses épaisses environ {LARGE_MIN}.',
+        },
+        {
+          q: 'Pourquoi le bacon fume-t-il à la friteuse à air ?',
+          a: 'Le gras du bacon goutte dans le tiroir et brûle aux hautes températures. Cuisez à {AF_F}°F, pas plus haut, et un filet d’eau dans le tiroir sous le panier attrape le gras.',
+        },
+        {
+          q: 'À quelle température la chipolata doit-elle arriver ?',
+          a: '{INT_F}°F ({INT_C}°C) au centre. C’est la température sûre pour une saucisse fraîche de porc.',
+        },
+        {
+          q: 'Est-ce la même chose que les pigs in a blanket américains ?',
+          a: 'Non. Les pigs in a blanket US sont des hot dogs ou saucisses enveloppés dans de la pâte (pâte feuilletée ou pâte à croissants). La pâte a besoin d’un autre réglage et le hot dog est déjà cuit, donc il n’a besoin que de se réchauffer.',
+        },
+        {
+          q: 'Quel est l’équivalent au four ?',
+          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes dans un four à chaleur tournante.',
+        },
+      ],
+    },
+    'reheat-ham': {
+      label: 'Jambon restant',
+      metaTitle: 'Réchauffer le jambon à la friteuse à air : glacé ou nature, sans brûler',
+      metaDescription:
+        'Réchauffez le jambon restant à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}. Jambon cuit à 140°F, restes à 165°F. Couvrez d’abord, glacez à la fin.',
+      metaKeywords: 'réchauffer jambon friteuse à air, comment réchauffer jambon friteuse sans huile, jambon restant air fryer, réchauffer jambon glacé friteuse à air',
+      heading: 'Réchauffer le jambon à la friteuse à air',
+      subDesc:
+        'Jambon totalement cuit (en spirale, avec ou sans os) et jambon restant du frigo, réchauffés sans brûler le glaçage. Le réglage bas, la couverture et les deux cibles distinctes pour jambon entier vs restes.',
+      cardDesc: 'Couvrez, glacez à la fin : le sucre brûle d’abord.',
+      sizeLabels: { small: 'Quelques tranches', medium: 'Demi-jambon ou 1,4–1,8 kg', large: 'Un jambon en spirale entier, 3–4 kg' },
+      internalLine: 'Jambon totalement cuit (de l’emballage) : {INT_F}°F ({INT_C}°C) pour réchauffer, puis repos',
+      internalAltLine: 'Restes ou jambon réemballé : {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guide USDA pour restes réchauffés',
+      failureHeading: 'Pourquoi le glaçage brûle avant que le jambon ne soit tiède',
+      failureBody:
+        'La plupart des jambons viennent avec un glaçage à base de sucre (sucre brun, miel, érable, cola) qui caramélise à une température bien plus basse qu’il n’en faut pour chauffer un jambon froid. Dans une friteuse à air, le glaçage est dehors, dans l’air chaud, donc il devient foncé, puis amer et noir, pendant que la viande dedans est encore froide du frigo. La solution : séparer les deux tâches. Réchauffez le jambon couvert, pour que la chaleur douce pénètre sans que le glaçage voie le ventilateur. Puis découvrez, badigeonnez de glaçage frais ou tiède, et donnez une ou deux minutes à la même température pour qu’il prenne. Les cibles diffèrent aussi. Un jambon totalement cuit de l’emballage n’a besoin que d’atteindre {INT_F}°F pour être prêt à servir (USDA dit 140°F pour jambon cuit sous vide). Le jambon restant qui a été tranché et gardé, ou un jambon de charcuterie, doit atteindre {INT_ALT_TO_F}°F, le guide USDA pour les restes.',
+      workedExampleHeading: 'Exemple concret : un demi-jambon en spirale',
+      workedExampleTemplate:
+        'Un demi-jambon en spirale de 1,8 kg, quadrillé, couvert en vrac de papier aluminium. Préchauffez {PREHEAT} minutes et chauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Ôtez le papier, badigeonnez de glaçage, et remettez deux minutes pour qu’il prenne. Quelques tranches demandent environ {SMALL_MIN} minutes ; un entier de 3,6 kg environ {LARGE_MIN}. Au four traditionnel le même jambon se chauffe à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, couvert, puis glaçé.',
+      donenessHeading: 'Comment savoir qu’il est prêt',
+      donenessBody:
+        'Pour un jambon cuit de l’emballage, {INT_F}°F ({INT_C}°C) dans la partie la plus épaisse, loin de l’os, est la cible. Pour des restes ou un jambon de charcuterie, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) est le guide USDA. La viande doit paraître humide et brillante, pas sèche ni grise sur les bords. Le glaçage, s’il est mis, doit bouillonner et être collant, pas noir.',
+      prepHeading: 'Avant de l’enfourner',
+      prepBody:
+        'Sortez le jambon du frigo 20 minutes avant pour que le centre soit moins froid. S’il est en spirale, gardez-le dans son filet d’origine ou enveloppez-le de papier aluminium pour que les tranches ne s’écartent pas et ne sèchent pas. Gardez le sachet de glaçage pour le chauffer à part, ou faites le vôtre. Un filet d’eau ou de bouillon dans le paquet de papier garde l’air humide. Pas besoin d’huile ; le jambon porte son propre gras.',
+      faqs: [
+        {
+          q: 'Combien de temps pour réchauffer le jambon à la friteuse à air ?',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour une portion de 1,4–1,8 kg, retourné à {FLIP} minutes. Quelques tranches demandent environ {SMALL_MIN} minutes et un entier de 3–4 kg environ {LARGE_MIN}.',
+        },
+        {
+          q: 'À quelle température le jambon réchauffé doit-il arriver ?',
+          a: 'Jambon cuit de l’emballage : {INT_F}°F ({INT_C}°C) pour réchauffer. Restes ou jambon de charcuterie : {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), qui est le guide USDA pour les restes réchauffés.',
+        },
+        {
+          q: 'Pourquoi mon glaçage de jambon brûle-t-il ?',
+          a: 'Le sucre du glaçage caramélise bien avant que le jambon froid ne chauffe. Couvrez le jambon pour le réchauffage, puis découvrez, glacez et donnez une minute pour qu’il prenne.',
+        },
+        {
+          q: 'Peut-on réchauffer un jambon en spirale sans le sécher ?',
+          a: 'Oui. Gardez-le dans son filet ou enveloppez-le de papier aluminium, ajoutez un filet d’eau dedans et réchauffez couvert. Les tranches cuisent à la vapeur les unes des autres au lieu de sécher.',
+        },
+        {
+          q: 'Comment réchauffer le jambon au four ?',
+          a: 'Couvert à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, puis découvrez, glacez et finissez quelques minutes.',
+        },
+      ],
+    },
   },
 };
 

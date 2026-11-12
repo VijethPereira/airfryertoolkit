@@ -223,6 +223,12 @@ const fr: Dictionary = {
       cta: 'Ouvrir mode surgelés',
     },
     flagshipBadge: 'Principal',
+    // Seasonal: Holiday card (shown when any holiday preset is live)
+    holidayCard: {
+      heading: 'Préréglages pour cuisine de fêtes',
+      desc: 'Filet de dinde, farce, chipolatas au bacon, pommes de terre rôties, jambon — les plats de fêtes qui ratent à la friteuse à air, chacun avec son mode d’échec et son remède.',
+      cta: 'Voir les préréglages de fêtes',
+    },
     guide: [
       {
         heading: 'Qu’est-ce qu’un convertisseur four vers friteuse à air ?',

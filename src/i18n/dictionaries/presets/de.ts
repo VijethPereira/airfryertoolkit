@@ -1939,6 +1939,334 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+
+    // Holiday batch - 2026-11-17 target
+    'turkey-breast': {
+      label: 'Putenbrust',
+      metaTitle: 'Putenbrust in der Heißluftfritteuse: Zeit, Temperatur, Kerntemperatur',
+      metaDescription:
+        'Putenbrust mit oder ohne Knochen in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, gar bei {INT_F}°F. Zeiten nach Größe, das Ruhen, das die Garung vollendet, und die Ofen-Entsprechung.',
+      metaKeywords: 'putenbrust heißluftfritteuse, putenbrust airfryer zeit, putenbrustfilet air fryer, wie lange putenbrust heißluftfritteuse',
+      heading: 'Putenbrust in der Heißluftfritteuse',
+      subDesc:
+        'Putenbrust mit oder ohne Knochen, gegart, bis die Haut goldbraun und die Mitte 165°F erreicht. Die Einstellung, das Wenden und warum das Ruhen nach dem Garen Teil der Temperatur ist.',
+      cardDesc: 'Bei 160°F herausnehmen und drei Minuten ruhen bis 165°F.',
+      sizeLabels: { small: 'Putenbrust ohne Knochen, 0,9–1,4 kg', medium: 'Putenbrust mit Knochen, 1,8–2,3 kg', large: 'Putenbrust mit Knochen, 2,7–3,2 kg' },
+      failureHeading: 'Warum die Putenbrust trocken wird, bevor die Mitte sicher ist',
+      failureBody:
+        'Eine Putenbrust ist ein magerer, konischer Muskel: das dünne Ende ist gar, lange bevor das dicke, und die Haut draußen bekommt die volle Wucht des Ventilators. Wenn der dickste Teil eine sichere Temperatur erreicht, können das dünne Ende und die Haut trocken und faserig sein. Zwei Dinge ändern das. Erstens, die Dicke angleichen. Eine Putenbrust ohne Knochen sollte butterflysiert oder plattiert werden, bis sie überall ungefähr gleich dick ist; eine mit Knochen gart gleichmäßiger, wenn die Flügelspitzen eingesteckt und die Brust verschnürt wird, damit sie eine rundere Form behält. Zweitens ist das Ruhen nicht optional. Nimm die Brust heraus, wenn der dickste Teil 160°F zeigt, decke sie locker mit Alufolie ab und warte drei Minuten. Die in den äußeren Schichten gespeicherte Hitze gart die Mitte auf 165°F fertig, während die Säfte sich im Fleisch setzen statt auf dem Brett zu landen.',
+      workedExampleHeading: 'Rechenbeispiel: eine Putenbrust mit Knochen',
+      workedExampleTemplate:
+        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Bei 160°F herausnehmen, drei Minuten ruhen, dann aufschneiden. Ein normaler Backofen bräuchte {OVEN_F}°F für etwa {OVEN_MIN} Minuten für dieselbe Brust.',
+      donenessHeading: 'Woran du erkennst, dass sie gar ist',
+      donenessBody:
+        'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: 160°F ist das Herausnahme-Ziel, 165°F nach den drei Minuten Ruhe. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
+      prepHeading: 'Bevor sie hineinkommt',
+      prepBody:
+        'Für eine Brust ohne Knochen butterflysieren oder auf 3,5 cm gleichmäßige Dicke plattieren. Für eine mit Knochen die Flügelspitzen einstecken und die Brust mit Küchengarn verschnüren, damit sie kompakt bleibt. Mit Öl bestreichen und eine trockene Salzlake aus Salz und Kräutern funktioniert gut bei Pute; 30 Minuten unabgedeckt im Kühlschrank trocknet die Haut und hilft beim Knuspern. Wenn die Brust für deinen Korb sehr groß ist, kann sie in zwei Phasen gegart werden: erst Hautseite unten für die erste Hälfte, dann Hautseite oben zum Finish.',
+      faqs: [
+        {
+          q: 'Wie lange braucht eine Putenbrust in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine 1,8–2,3 kg Brust mit Knochen, gewendet nach {FLIP} Minuten. Eine 0,9–1,4 kg Brust ohne Knochen braucht etwa {SMALL_MIN} Minuten und eine 2,7–3,2 kg Brust mit Knochen etwa {LARGE_MIN}. Entscheide immer nach Temperatur, nicht nach Zeit.',
+        },
+        {
+          q: 'Welche Kerntemperatur braucht Putenbrust?',
+          a: '{INT_F}°F ({INT_C}°C) an der dicksten Stelle ist die sichere USDA-Temperatur. Nimm sie bei 160°F heraus und ruhe drei Minuten; sie steigt auf 165°F.',
+        },
+        {
+          q: 'Muss ich Putenbrust in der Heißluftfritteuse wenden?',
+          a: 'Ja, einmal, etwa zur Hälfte. Die Unterseite bekommt weniger direkte Luft und bleibt blasser; durch das Wenden wird die Farbe auf beiden Seiten gleichmäßig.',
+        },
+        {
+          q: 'Kann ich eine gefrorene Putenbrust in der Heißluftfritteuse garen?',
+          a: 'Nicht mit dieser Einstellung. Eine gefrorene Brust braucht eine niedrigere Temperatur und viel mehr Zeit, damit die Mitte sicher gar ist, bevor der Außenbereich austrocknet. Nutze einen dedizierten Tiefkühlmodus oder taut sie vorher auf.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung dieser Einstellung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+        },
+      ],
+    },
+    'reheat-turkey': {
+      label: 'Pute aufwärmen',
+      metaTitle: 'Pute in der Heißluftfritteuse aufwärmen: saftige Scheiben, nicht trocken',
+      metaDescription:
+        'Putenreste in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, heiß auf {INT_F}°F. Filet in Scheiben und dunkles Fleisch, der Schuss Brühe und die Ofen-Methode.',
+      metaKeywords: 'pute aufwärmen heißluftfritteuse, wie putenreste airfryer aufwärmen, putenreste heißluftfritteuse, putenbrustscheiben aufwärmen airfryer',
+      heading: 'Pute in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Filetscheiben und dunkles Putenfleisch aus dem Kühlschrank, zurück zu heiß und saftig. Die sanfte Einstellung, der Schuss Brühe und warum Alufolie dein Verbündeter ist.',
+      cardDesc: 'Ein Schuss Brühe und Alufolie halten das Filet saftig.',
+      sizeLabels: { small: 'Ein paar Filetscheiben', medium: 'Gemischte Scheiben, Filet und Keule', large: 'Eine große Tellerportion' },
+      internalLine: 'Durchgeheizt bei {INT_F}°F ({INT_C}°C) in der dicksten Scheibe: USDA-Leitlinie für Reste',
+      internalAltLine: 'Dunkles Fleisch (Keulen, Schenkel) ist heiß bei {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) und bleibt länger saftig',
+      failureHeading: 'Warum aufgewärmtes Putenfilet zu Leder wird',
+      failureBody:
+        'Putenfilet ist mager, und im Kühlschrank verfestigt sich das wenig Fett, das es hat, und die Muskelfasern spannen sich an. Kalte Scheiben direkt in eine heiße Heißluftfritteuse und die Oberfläche trocknet zu einer festen Kruste, bevor die Mitte durchgewärmt ist, und du hast graue, zähe Stücke, die keine Soße mehr rettet. Die Lösung ist sanfte Hitze und Feuchtigkeit. Ein Schuss Hühner- oder Putenbrühe auf dem Boden der Form, oder ein leichter Pinselstrich zerlassener Butter auf den Scheiben, gibt der Luft etwas Dampf, damit das Fleisch warm wird, bevor die Oberfläche versiegelt. Decke die Form locker mit Alufolie für die erste Hälfte des Aufwärmens ab, dann nimm sie ab, damit die Ränder bräunen können. Dunkles Fleisch (Keulen, Schenkel) ist verzeihender: sein Fett hält es saftig, und es braucht nur das untere Ende des Temperaturbereichs.',
+      workedExampleHeading: 'Rechenbeispiel: ein gemischter Teller Reste',
+      workedExampleTemplate:
+        'Zwei Tassen Pute in Scheiben, gemischt Filet und Keule, in einer Auflaufform mit zwei Esslöffeln warmer Brühe verteilt. Locker mit Alufolie abdecken und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen, die Stücke nach {FLIP} Minuten wenden. Ein kleiner Teller Filetscheiben braucht etwa {SMALL_MIN} Minuten; eine große gemischte Portion etwa {LARGE_MIN}. Im normalen Backofen wärmt derselbe Teller bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf, abgedeckt für die erste Hälfte.',
+      donenessHeading: 'Woran du erkennst, dass es fertig ist',
+      donenessBody:
+        'Prüfe eine Filetscheibe mit Thermometer: USDA-Leitlinie sagt {INT_F}°F ({INT_C}°C) für aufgewärmte Reste. Dunkles Fleisch ist durchgeheizt bei {INT_ALT_F}–{INT_ALT_TO_F}°F und bleibt saftiger. Die Scheiben sollten dampfen, wenn du die Folie hebst, und die Oberfläche sollte glänzend wirken, nicht trocken und matt. Eine Filetscheibe, die sich fest und gummiartig anfühlt, ist zu weit gegangen.',
+      prepHeading: 'Bevor es hineinkommt',
+      prepBody:
+        'Hol die Pute ein paar Minuten früher aus dem Kühlschrank, damit der Schärfste Kälte rausgeht. Trenne Filet von dunklem Fleisch, falls du kannst, weil sie zu unterschiedlichen Zeiten fertig sind. Eine warme Soßenschale daneben heißt, du kannst die Scheiben servieren, sobald sie heiß sind.',
+      faqs: [
+        {
+          q: 'Wie lange brauchst du, um Pute in der Heißluftfritteuse aufzuwärmen?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für gemischte Scheiben, gewendet nach {FLIP} Minuten. Ein paar Filetscheiben brauchen etwa {SMALL_MIN} Minuten und eine große gemischte Portion etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Welche Temperatur muss aufgewärmte Pute erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) für Filetscheiben, das ist die USDA-Leitlinie für Reste. Dunkles Fleisch ist heiß bei {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+        },
+        {
+          q: 'Warum wird mein aufgewärmtes Putenfilet trocken?',
+          a: 'Die Hitze war zu hoch oder die Scheiben hatten keine Feuchtigkeit dabei. Ein Schuss Brühe und Folie für die erste Hälfte verhindern, dass die Oberfläche versiegelt, bevor die Mitte warm ist.',
+        },
+        {
+          q: 'Kann ich eine ganze Putenbrust so aufwärmen?',
+          a: 'Ja, aber es dauert länger. Nutze stattdessen die Putenbrust-Voreinstellung, die fürs Garen ab Rohzustand gemacht ist und das Ruhen einschließt. Diese Seite ist für bereits gegarte Reste.',
+        },
+        {
+          q: 'Wie wärme ich Pute im Backofen auf?',
+          a: 'In einer abgedeckten Form mit Brühe bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, die letzten Minuten aufdecken, wenn du Farbe an den Rändern willst.',
+        },
+      ],
+    },
+    'stuffing': {
+      label: 'Füllung (Stuffing)',
+      metaTitle: 'Füllung in der Heißluftfritteuse: knusprige Kruste, heißes Zentrum',
+      metaDescription:
+        'Füllung in der Heißluftfritteuse backen: {AF_F}°F für {MIN} Minuten, bei {INT_F}°F in der Mitte. Gebacken in einer Form, nicht lose im Korb, Zeiten nach Formgröße und Ofen-Entsprechung.',
+      metaKeywords: 'füllung heißluftfritteuse, stuffing airfryer zeit, wie füllung heißluftfritteuse backen, dressing airfryer',
+      heading: 'Füllung in der Heißluftfritteuse',
+      subDesc:
+        'Brotbasierte Füllung in einer Form, die in den Korb passt. Die Einstellung, warum die Mitte 165°F erreichen muss, und wie man eine knusprige Kruste bekommt, bevor die Mitte übergart.',
+      cardDesc: 'In einer Form gebacken, nicht lose: Mitte zu 165°F.',
+      sizeLabels: { small: 'Kleine Form, 13×13 cm', medium: 'Standardform, 18×13 cm', large: 'Große Form, 23×18 cm' },
+      failureHeading: 'Warum die Kruste verbrennt, bevor die Mitte heiß ist',
+      failureBody:
+        'Füllung ist eine dicke, nasse Schicht aus Brot, Brühe, Gemüse und Fett. In der Heißluftfritteuse prallt die Hitze auf die offene Oberseite, also bräunt die Kruste und verbrennt dann, während die Mitte noch kaltes, nasses Brot ist. Die Falle ist, die Kruste anzusehen und anzunehmen, die Form sei fertig. Der einzige verlässliche Test ist die Mitte: Füllung mit Ei oder rohem Gemüse (Zwiebeln, Sellerie) muss {INT_F}°F erreichen, um sicher zu sein, und das dauert. Die Lösungen stecken in der Form und der Temperatur. Nimm eine flache Form, damit die Hitze weniger Weg hat, und die niedrigere Einstellung hier, damit die Kruste im gleichen Tempo bräunt, wie die Mitte warm wird. Wenn die Kruste dunkel ist, bevor die Mitte durch ist, decke die Form für den Rest der Backzeit mit Alufolie ab.',
+      workedExampleHeading: 'Rechenbeispiel: eine Standardform Wurstfüllung',
+      workedExampleTemplate:
+        'Eine 18×13 cm Form Brotfüllung mit Wurst, Zwiebeln, Sellerie und Brühe, nur so lange gemischt, bis sie feucht ist. {PREHEAT} Minuten vorheizen, bei {AF_F}°F für {MEDIUM_MIN} Minuten backen. Eine kleine 13×13 cm Form braucht etwa {SMALL_MIN} Minuten und eine große 23×18 cm Form etwa {LARGE_MIN}. Prüfe die Mitte mit Thermometer; sie muss {INT_F}°F zeigen. Im normalen Backofen braucht dieselbe Form {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass sie gar ist',
+      donenessBody:
+        'Steck ein Thermometer in das absolute Zentrum der Form: {INT_F}°F ({INT_C}°C) ist die sichere Temperatur für jede Füllung mit Ei, rohem Gemüse oder Fleisch. Die Kruste sollte goldbraun und knusprig sein, die Ränder lösen sich leicht von der Form. Wenn die Kruste dunkel und die Mitte unter 165°F ist, decke mit Alufolie ab und gib drei Minuten mehr.',
+      prepHeading: 'Bevor sie hineinkommt',
+      prepBody:
+        'Nimm eine Metall- oder Keramikform, die in den Korb passt mit Platz drumherum; backe die Füllung nicht lose im Korb — die Krümel fliegen in den Ventilator und die unterste Schicht verbrennt. Misch die Füllung nur bis sie feucht ist; eine feuchtere Mischung gart schneller und bleibt weicher, eine trockenere braucht die lange Zeit. Setz ein paar Butterflöckchen oben drauf für eine schönere Kruste.',
+      faqs: [
+        {
+          q: 'Wie lange braucht Füllung in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine Standardform von 18×13 cm. Eine kleine Form braucht etwa {SMALL_MIN} Minuten und eine große etwa {LARGE_MIN}. Prüfe immer die Mitte mit Thermometer.',
+        },
+        {
+          q: 'Welche Temperatur muss Füllung erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) in der Mitte. Das ist die sichere USDA-Temperatur für Füllung mit Ei oder rohen Zutaten.',
+        },
+        {
+          q: 'Kann ich Füllung lose im Korb backen?',
+          a: 'Nein. Die Krümel fliegen in das Heizelement und die untere Schicht verbrennt. Nimm eine flache Form, die passt.',
+        },
+        {
+          q: 'Was tun, wenn die Kruste verbrennt aber die Mitte nicht heiß ist?',
+          a: 'Decke die Form locker mit Alufolie ab und backe weiter. Die niedrigere Einstellung hier soll die Kruste bremsen, aber jede Heißluftfritteuse läuft ein bisschen anders.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+        },
+      ],
+    },
+    'dinner-rolls': {
+      label: 'Brötchen',
+      metaTitle: 'Brötchen in der Heißluftfritteuse aufwärmen: warm, nicht verbrannt',
+      metaDescription:
+        'Brötchen in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten. Aufbackbrötchen und Bäckerbrötchen, unter Alufolie gezeltet, damit die Kruste nicht verbrennt, bevor die Mitte warm ist.',
+      metaKeywords: 'brötchen aufwärmen heißluftfritteuse, brötchen airfryer aufwärmen, aufbackbrötchen heißluftfritteuse, bäckerbrötchen aufwärmen airfryer',
+      heading: 'Brötchen in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Aufbackbrötchen, Bäckerbrötchen oder vorgebackene Brötchen aus dem Kühlschrank, durchgewärmt mit weicher Mitte und leicht gefärbter Kruste. Die niedrige Einstellung, das Alufolienzelt und warum mehr Hitze die Krone verbrennt.',
+      cardDesc: 'Mit Alufolie zelten: die Krone verbrennt, bevor die Mitte warm wird.',
+      sizeLabels: { small: '2–3 kleine Brötchen', medium: '4–6 Standardbrötchen', large: '8–10 Brötchen oder ein halbes Dutzend große' },
+      failureHeading: 'Warum die Krone verbrennt, bevor die Mitte warm ist',
+      failureBody:
+        'Ein Brötchen ist eine Kuppel aus weichem Teig mit einer dünnen Kruste oben. In der Heißluftfritteuse kommt die Hitze von oben, also kriegt die Krone — der höchste Punkt — den vollen Schlag und dunkelt in Minuten nach, während die Mitte des Brötchens noch kühlschrank-kalt ist. Eine höhere Einstellung vergrößert nur die Lücke. Die Lösung ist tiefe Temperatur und ein Alufolienzelt. Die Folie reflektiert die direkte Hitze, damit die Kruste im gleichen Tempo warm wird wie das Innere, und die kurze Zeit verhindert, dass die Brötchen austrocknen. Aufbackbrötchen sind vorgebacken und brauchen nur einen schnellen Warm-Durchgang; Bäckerbrötchen aus dem Kühlschrank brauchen die volle Zeit, um ihre Kälte loszuwerden.',
+      workedExampleHeading: 'Rechenbeispiel: ein Korb Aufbackbrötchen',
+      workedExampleTemplate:
+        'Sechs Aufbackbrötchen, gezeltet mit einer lockeren Alufolienbahn. {PREHEAT} Minuten vorheizen und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen. Zwei bis drei Brötchen brauchen etwa {SMALL_MIN} Minuten; ein halbes Dutzend große Bäckerbrötchen etwa {LARGE_MIN}. Im normalen Backofen wärmen dieselben Brötchen bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf einem Blech auf.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Heb die Folie an und drück die Seite eines Brötchens: es sollte warm und elastisch sein, nicht heiß und hart. Die Kruste sollte leicht gefärbt sein, nicht braun oder knusprig. Brich eins auf: der Krume sollte weich und dampfig sein, ohne kaltes, dichtes Zentrum. Ein Brötchen, das sich fest und trocken anfühlt, war zu lange drin.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Leg die Brötchen in einer Lage mit einem kleinen Abstand dazwischen. Schneid ein Stück Alufolie groß genug, um über die ganze Gruppe zu zelten, ohne die Kronen zu berühren, und schieb die Ränder unter den Korb-Boden. Kein Öl oder Butter nötig; ein Pinselstrich zerlassener Butter geht nach dem Aufwärmen, wenn du eine glänzende Kruste willst.',
+      faqs: [
+        {
+          q: 'Wie lange brauchst du, um Brötchen in der Heißluftfritteuse aufzuwärmen?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für 4–6 Standardbrötchen. Ein paar Brötchen brauchen etwa {SMALL_MIN} Minuten und eine größere Charge etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Warum verbrennen meine Brötchen oben?',
+          a: 'Die Hitze kommt von oben und die Krone ist der nächste Punkt. Zelte sie mit Alufolie, damit die Kruste mit dem Rest des Brötchens warm wird.',
+        },
+        {
+          q: 'Kann ich gefrorene Brötchen in der Heißluftfritteuse aufwärmen?',
+          a: 'Ja, direkt aus dem Gefrierfach. Gib eine oder zwei Minuten dazu und lass die Folie für die erste Hälfte drauf.',
+        },
+        {
+          q: 'Was ist mit Knoblauchbrötchen oder Käsebrötchen?',
+          a: 'Die gleiche niedrige Einstellung funktioniert. Käse oben kommt in die letzte Minute, sonst verbrennt er.',
+        },
+        {
+          q: 'Wie wärme ich Brötchen im Backofen auf?',
+          a: 'Auf einem Blech bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, gezeltet mit Alufolie.',
+        },
+      ],
+    },
+    'roast-potatoes': {
+      label: 'Bratkartoffeln (Roasties)',
+      metaTitle: 'Bratkartoffeln in der Heißluftfritteuse: knusprige Kruste, weicher Kern',
+      metaDescription:
+        'UK-Style Roasties in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden. Vorgekocht, raue Kanten und das Schütteln, das sie gleichmäßig hält. Zeiten nach Größe und Ofen-Entsprechung.',
+      metaKeywords: 'bratkartoffeln heißluftfritteuse, roasties airfryer zeit, wie bratkartoffeln heißluftfritteuse machen, vorgekochte kartoffeln airfryer',
+      heading: 'Bratkartoffeln in der Heißluftfritteuse',
+      subDesc:
+        'UK Roasties: vorgekochte Kartoffelstücke mit rauen Kanten, geröstet, bis die Kruste goldbraun und der Kern mehlig-weich ist. Die Einstellung, das einmalige Wenden und warum die raue Oberfläche zählt.',
+      cardDesc: 'Vorkochen und Kanten aufrauen zuerst: die Kruste bildet sich an den Kanten.',
+      sizeLabels: { small: 'Kleine Stücke, von kleinen Kartoffeln', medium: 'Mittel, von 5–7 cm Kartoffeln', large: 'Große Stücke, von großen Kartoffeln geviertelt' },
+      failureHeading: 'Warum die Kruste hart und der Kern wachsig ist',
+      failureBody:
+        'Eine Bratkartoffel ist keine Pommes. Sie ist ein dickes Kartoffelstück mit absichtlicher Kruste außen und mehlig-weichem, gedämpftem Kern. In der Heißluftfritteuse trocknen die Kanten schnell aus und werden hart, und wenn die Hitze zu hoch ist, wird die Kruste zur starren Schale, bevor die Stärke im Kern zu mehlig-weich verkocht. Ergebnis: knuspriger Außenrand mit dichtem, wachsigen Kern. Die Vorbereitung macht die Schwerarbeit hier. Das Vorkochen der Stücke für fünf Minuten fängt an, die Stärke aufquellen zu lassen, und das Aufrauen der Kanten mit einer Gabel oder einem Schütteln in der Pfanne schafft die raue Oberfläche, die zur Kruste wird. Ohne beide Schritte brät die Heißluftfritteuse nur die Außenseite. Das Wenden zur Mitte gleicht die Farbe aus, damit beide Seiten die gleiche Kruste bekommen.',
+      workedExampleHeading: 'Rechenbeispiel: ein Blech Roasties für vier',
+      workedExampleTemplate:
+        'Vier mittlere Kartoffeln, jede geviertelt, fünf Minuten vorgekocht, abgetropft und in der Pfanne geschüttelt, um die Kanten aufzurauen. Mit einem Esslöffel Öl und Salz vermischen. {PREHEAT} Minuten vorheizen, mit der Schnittfläche nach unten auslegen und bei {AF_F}°F für {MEDIUM_MIN} Minuten garen, nach {FLIP} Minuten wenden. Kleine Stücke brauchen etwa {SMALL_MIN} Minuten und große Stücke etwa {LARGE_MIN}. Im normalen Backofen brauchen dieselben Roasties {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass sie fertig sind',
+      donenessBody:
+        'Die rauen Kanten sollten tief goldbraun und knusprig sein, und die flachen Seiten sollten eine feste Kruste haben. Stich ein Messer in die Mitte eines Stücks: es sollte ohne Widerstand hineingehen, und das Innere sollte weiß und mehlig aussehen, nicht durchscheinend oder wachsig. Wenn die Außenseite fertig und die Mitte nicht ist, nimm die Hitze für die letzten Minuten etwas raus, statt die Kruste aufzugeben.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Nimm mehlige Kartoffeln: Maris Piper, King Edward oder Russets. Schneid in gleichmäßige Stücke, damit sie zusammen fertig werden. Vorkochen in Salzwasser genau fünf Minuten, gut abtropfen lassen und die Pfanne schütteln, um die Kanten aufzurauen. Mit genug Öl vermischen, damit jedes raue Stück überzogen ist, und salzen. Füll den Korb nicht voll; die Stücke brauchen Luft an allen Seiten zum Knuspern.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Bratkartoffeln in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für mittlere Stücke, gewendet nach {FLIP} Minuten. Kleine Stücke brauchen etwa {SMALL_MIN} Minuten und große etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Warum muss ich vorkochen und die Kanten aufrauen?',
+          a: 'Vorkochen fängt an, die Stärke aufquellen zu lassen, und Aufrauen schafft die Oberfläche, die zur Kruste wird. Ohne beides brät die Heißluftfritteuse nur die Außenseite und der Kern bleibt wachsig.',
+        },
+        {
+          q: 'Ist das dasselbe wie Ofenkartoffel oder Pommes?',
+          a: 'Nein. Die Ofenkartoffel ist ganz und man prüft bei 205°F innen. Pommes sind dünn und schnell. Roasties sind dicke, vorgekochte Stücke, die Kruste und mehligen Kern zusammen brauchen.',
+        },
+        {
+          q: 'Kann ich festkochende Kartoffeln nehmen?',
+          a: 'Sie werden nicht mehlig. Festkochende geben eine festere, cremigere Textur; die Kruste bildet sich aber der Kern bleibt dicht.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+        },
+      ],
+    },
+    'pigs-in-blankets': {
+      label: 'Würstchen im Speckmantel',
+      metaTitle: 'Würstchen im Speckmantel in der Heißluftfritteuse: Chipolatas mit Streaky Bacon',
+      metaDescription:
+        'Würstchen im Speckmantel (UK: Chipolatas in Streaky Bacon) in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, Speck knusprig und Wurst bei {INT_F}°F. Die moderate Einstellung, die verhindert, dass das Speckfett raucht.',
+      metaKeywords: 'würstchen speckmantel heißluftfritteuse, pigs in blankets airfryer zeit, chipolatas bacon airfryer, wie lange pigs in blankets heißluftfritteuse',
+      heading: 'Würstchen im Speckmantel in der Heißluftfritteuse',
+      subDesc:
+        'Pigs in blankets UK-Version: Chipolatas in Streaky Bacon gewickelt, gegart, bis der Speck knusprig und die Wurst sicher bei 160°F ist. Die moderate Einstellung, das Wenden und der Unterschied zu US pigs in a blanket.',
+      cardDesc: 'UK-Version: Chipolatas in Bacon. Moderate Hitze verhindert Speck-Rauch.',
+      sizeLabels: { small: 'Mini-Chipolatas, dünner Speck', medium: 'Standard-Chipolatas, normaler Speck', large: 'Dicke Würste oder geräucherter Speck' },
+      failureHeading: 'Warum der Speck raucht und die Wurst noch kalt ist',
+      failureBody:
+        'Ein Pig in blanket ist ein Rennen zwischen Speck und Wurst. Der Speck ist dünn, fettig und voll Zucker vom Pökeln, also rendert er, bräunt und raucht dann in Minuten. Die Wurst drin ist dick und dicht, und sie braucht Zeit, bis die Hitze ihr Zentrum erreicht. Dreh die Heißluftfritteuse hoch und der Speck ist verbrannt und rauchend, bevor die Wurst eine sichere Temperatur hat. Dreh sie zu niedrig und der Speck wird nie knusprig. Die moderate Einstellung hier (375°F) ist der Ausgleich: das Speckfett rendert stetig statt zu verbrennen, und die Wurst hat Zeit, auf 160°F zu kommen. Ein Wenden zur Hälfte bringt die blasse Speckunterseite in den Luftstrom, damit beide Seiten gleichmäßig knuspern. Die US-Version (Hot Dogs in Teig) ist hier nicht abgedeckt: der Teig braucht eine andere Einstellung und der Hot Dog ist schon gegart, er muss nur warm werden.',
+      workedExampleHeading: 'Rechenbeispiel: ein Blech für den Weihnachtsmorgen',
+      workedExampleTemplate:
+        'Zwölf Standard-Chipolatas, jede in eine halbe Scheibe Streaky Bacon gewickelt, Enden darunter gesteckt. {PREHEAT} Minuten vorheizen, in einer Lage mit kleinem Abstand dazwischen legen und bei {AF_F}°F für {MEDIUM_MIN} Minuten garen, nach {FLIP} Minuten wenden. Mini-Chipolatas brauchen etwa {SMALL_MIN} Minuten und dicke Würste etwa {LARGE_MIN}. Im normalen Backofen braucht dasselbe Blech {OVEN_F}°F für etwa {OVEN_MIN} Minuten.',
+      donenessHeading: 'Woran du erkennst, dass sie gar sind',
+      donenessBody:
+        'Der Speck sollte knusprig und tief goldbraun auf beiden Seiten sein, ohne blasse, weiche Stellen. Die Wurst drin muss {INT_F}°F ({INT_C}°C) in der Mitte erreichen, gemessen mit einer feinen Sonde durch den Speck. Wenn der Speck knusprig ist aber die Wurst unter 160°F, runter auf 350°F und zwei Minuten mehr geben.',
+      prepHeading: 'Bevor sie hineinkommen',
+      prepBody:
+        'Nimm Chipolatas (kleine Schweinewürste), keine Frankfurters oder Hot Dogs. Wickel jede in eine halbe Scheibe Streaky Bacon, steck die Enden darunter, damit sie sich nicht aufwickeln. Kein Öl nötig; der Speck gibt genug Fett ab. Wenn dein Korb heiß läuft, leg ihn mit perforiertem Pergament aus, um die Tropfen aufzufangen und Rauch zu reduzieren. Lass einen Fingerbreit Abstand zwischen den Röllchen, damit der Speck an den Seiten auch knuspert.',
+      faqs: [
+        {
+          q: 'Wie lange brauchen Pigs in blankets in der Heißluftfritteuse?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für Standard-Chipolatas, gewendet nach {FLIP} Minuten. Mini-Chipolatas brauchen etwa {SMALL_MIN} Minuten und dicke Würste etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Warum raucht der Speck in der Heißluftfritteuse?',
+          a: 'Speckfett tropft in die Schublade und verbrennt bei hohen Temperaturen. Gare bei {AF_F}°F, nicht höher, und ein Schluck Wasser in der Schublade unter dem Korb fängt das Fett.',
+        },
+        {
+          q: 'Welche Temperatur muss die Wurst erreichen?',
+          a: '{INT_F}°F ({INT_C}°C) in der Mitte. Das ist die sichere Temperatur für frische Schweinewurst.',
+        },
+        {
+          q: 'Ist das dasselbe wie US Pigs in a blanket?',
+          a: 'Nein. US Pigs in a blanket sind Hot Dogs oder Würste in Teig (Blätterteig oder Croissant-Teig). Der Teig braucht eine andere Einstellung und der Hot Dog ist schon gegart, er muss nur warm werden.',
+        },
+        {
+          q: 'Was ist die Backofen-Entsprechung?',
+          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+        },
+      ],
+    },
+    'reheat-ham': {
+      label: 'Schinken aufwärmen',
+      metaTitle: 'Schinken in der Heißluftfritteuse aufwärmen: glasiert oder natur, nicht verbrannt',
+      metaDescription:
+        'Schinkenreste in der Heißluftfritteuse aufwärmen: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden. Durchgegarter Schinken auf 140°F, Reste auf 165°F. Erst abdecken, dann am Ende glasieren.',
+      metaKeywords: 'schinken aufwärmen heißluftfritteuse, wie schinken airfryer aufwärmen, schinkenreste heißluftfritteuse, glasierten schinken aufwärmen airfryer',
+      heading: 'Schinken in der Heißluftfritteuse aufwärmen',
+      subDesc:
+        'Voll gegarter Schinken (Spiralschnitt, mit oder ohne Knochen) und Schinkenreste aus dem Kühlschrank, durchgewärmt ohne die Glasur zu verbrennen. Die niedrige Einstellung, das Abdecken und die zwei unterschiedlichen Ziele für ganzen Schinken vs. Reste.',
+      cardDesc: 'Abdecken, am Ende glasieren: der Zucker verbrennt zuerst.',
+      sizeLabels: { small: 'Ein paar Scheiben', medium: 'Halber Schinken oder 1,4–1,8 kg', large: 'Ein ganzer Spiralschnitt-Schinken, 3–4 kg' },
+      internalLine: 'Voll gegarter Schinken (aus der Packung): {INT_F}°F ({INT_C}°C) zum Durchwärmen, dann Ruhen',
+      internalAltLine: 'Reste oder umgepackter Schinken: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — USDA-Leitlinie für aufgewärmte Reste',
+      failureHeading: 'Warum die Glasur verbrennt, bevor der Schinken warm ist',
+      failureBody:
+        'Die meisten Schinken kommen mit einer Zucker-Glasur (brauner Zucker, Honig, Ahorn, Cola), die bei viel niedrigerer Temperatur karamellisiert, als es braucht, um einen kalten Schinken durchzuwärmen. In der Heißluftfritteuse sitzt die Glasur außen, direkt im heißen Luftstrom, also wird sie dunkel, dann bitter und schwarz, während das Fleisch drin noch kühlschrank-kalt ist. Die Lösung: die zwei Jobs trennen. Wärm den Schinken abgedeckt, damit die sanfte Hitze eindringt, ohne dass die Glasur den Ventilator sieht. Dann aufdecken, mit frischer oder warmer Glasur bestreichen, und ein, zwei Minuten bei gleicher Temperatur, damit sie anzieht. Die Ziele unterscheiden sich auch. Ein voll gegarter Schinken aus der Packung muss nur {INT_F}°F erreichen, um servierfertig zu sein (USDA sagt 140°F für vakuumverpackten gegarten Schinken). Schinkenreste, die aufgeschnitten und gelagert wurden, oder ein Schinken vom Metzger, müssen {INT_ALT_TO_F}°F erreichen, die USDA-Leitlinie für Reste.',
+      workedExampleHeading: 'Rechenbeispiel: ein halber Spiralschnitt-Schinken',
+      workedExampleTemplate:
+        'Ein 1,8 kg halber Spiralschnitt-Schinken, gerautet, locker mit Alufolie abgedeckt. {PREHEAT} Minuten vorheizen und bei {AF_F}°F für {MEDIUM_MIN} Minuten wärmen, nach {FLIP} Minuten wenden. Folie abnehmen, mit Glasur bestreichen, und zwei Minuten zurück, damit sie anzieht. Ein paar Scheiben brauchen etwa {SMALL_MIN} Minuten; ein ganzer 3,6 kg Schinken etwa {LARGE_MIN}. Im normalen Backofen wärmt derselbe Schinken bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf, abgedeckt, dann glasiert.',
+      donenessHeading: 'Woran du erkennst, dass er fertig ist',
+      donenessBody:
+        'Für einen gegarten Schinken aus der Packung ist {INT_F}°F ({INT_C}°C) im dicksten Teil, weg vom Knochen, das Ziel. Für Reste oder Metzgerschinken ist {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) die USDA-Leitlinie. Das Fleisch sollte feucht und glänzend wirken, nicht trocken oder grau an den Rändern. Die Glasur, falls aufgetragen, sollte blubbern und klebrig sein, nicht schwarz.',
+      prepHeading: 'Bevor er hineinkommt',
+      prepBody:
+        'Hol den Schinken 20 Minuten früher aus dem Kühlschrank, damit die Mitte weniger kalt ist. Wenn er Spiralschnitt ist, lass ihn in seinem Originalnetz oder wickel ihn in Alufolie, damit die Scheiben sich nicht auffächern und austrocknen. Heb den Glasurbeutel zum separat Warmmachen auf, oder mach deine eigene. Ein Schluck Wasser oder Brühe im Folienpaket hält die Luft feucht. Kein Öl nötig; der Schinken bringt sein eigenes Fett mit.',
+      faqs: [
+        {
+          q: 'Wie lange brauchst du, um Schinken in der Heißluftfritteuse aufzuwärmen?',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine 1,4–1,8 kg Portion, gewendet nach {FLIP} Minuten. Ein paar Scheiben brauchen etwa {SMALL_MIN} Minuten und ein ganzer 3–4 kg Schinken etwa {LARGE_MIN}.',
+        },
+        {
+          q: 'Welche Temperatur muss aufgewärmter Schinken erreichen?',
+          a: 'Voll gegarter Schinken aus der Packung: {INT_F}°F ({INT_C}°C) zum Durchwärmen. Reste oder Metzgerschinken: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), das ist die USDA-Leitlinie für aufgewärmte Reste.',
+        },
+        {
+          q: 'Warum verbrennt meine Schinkenglasur?',
+          a: 'Der Zucker in der Glasur karamellisiert lange bevor der kalte Schinken durchgewärmt ist. Decke den Schinken fürs Aufwärmen ab, dann deck auf, glasiere und gib eine Minute, damit sie anzieht.',
+        },
+        {
+          q: 'Kann ich einen Spiralschnitt-Schinken aufwärmen, ohne dass er austrocknet?',
+          a: 'Ja. Behalt ihn in seinem Netz oder wickel ihn in Alufolie, gib einen Schluck Wasser hinein und wärm abgedeckt. Die Scheiben dämpfen sich gegenseitig statt auszutrocknen.',
+        },
+        {
+          q: 'Wie wärme ich Schinken im Backofen auf?',
+          a: 'Abgedeckt bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten, dann aufdecken, glasieren und noch ein paar Minuten fertig machen.',
+        },
+      ],
+    },
   },
 };
 

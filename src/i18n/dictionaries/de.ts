@@ -223,6 +223,12 @@ const de: Dictionary = {
       cta: 'Tiefkühlmodus öffnen',
     },
     flagshipBadge: 'Flaggschiff',
+    // Seasonal: Holiday card (shown when any holiday preset is live)
+    holidayCard: {
+      heading: 'Feiertags-Voreinstellungen',
+      desc: 'Putenbrust, Füllung, Würstchen im Speckmantel, Bratkartoffeln, Schinken — die Feiertagsgerichte, die in der Heißluftfritteuse schiefgehen, jedes mit seinem eigenen Fehler und der Lösung.',
+      cta: 'Feiertags-Voreinstellungen ansehen',
+    },
     guide: [
       {
         heading: 'Was ist ein Ofen-zu-Heißluftfritteuse-Umrechner?',

@@ -1939,6 +1939,334 @@ export const presets: Dictionary['presets'] = {
         },
       ],
     },
+
+    // Holiday batch - 2026-11-17 target
+    'turkey-breast': {
+      label: 'Peito de peru',
+      metaTitle: 'Peito de peru na air fryer: tempo, temperatura e repouso',
+      metaDescription:
+        'Peito de peru com ou sem osso na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, a {INT_F}°F. Tempos por tamanho, o repouso que finaliza a cocção e o equivalente no forno.',
+      metaKeywords: 'peito de peru air fryer, peru air fryer tempo, peito peru air fryer temperatura, como cozinhar peito de peru na air fryer',
+      heading: 'Peito de peru na air fryer',
+      subDesc:
+        'Peito de peru com ou sem osso, assado até a pele ficar dourada e o centro chegar a 165°F. O ajuste, a virada e por que o repouso depois de cozinhar faz parte da temperatura.',
+      cardDesc: 'Tire a 160°F e repouse três minutos até 165°F.',
+      sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,8–2,3 kg', large: 'Peito com osso, 2,7–3,2 kg' },
+      failureHeading: 'Por que o peito seca antes de o centro estar seguro',
+      failureBody:
+        'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Tire o peito quando a parte mais grossa marcar 160°F, cubra com papel alumínio e espere três minutos. O calor guardado nas camadas exteriores finaliza o centro a 165°F enquanto os sucos se assentam na carne em vez de sair na tábua.',
+      workedExampleHeading: 'Exemplo prático: um peito de peru com osso',
+      workedExampleTemplate:
+        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Tire a 160°F, repouse três minutos e depois corte. Um forno convencional precisa {OVEN_F}°F por uns {OVEN_MIN} minutos para o mesmo peito.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Espete a parte mais grossa do peito, de lado, evitando o osso: 160°F é o alvo de retirada, 165°F após os três minutos de repouso. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Para um peito sem osso, abra em borboleta ou achate a 3,5 cm de espessura constante. Para um com osso, enfie as pontas das asas e amarre o peito com barbante de cozinha para que fique compacto. Unte com óleo e um tempero seco de sal e ervas funciona bem com peru; 30 minutos descoberto na geladeira seca a pele e ajuda a crocância. Se o peito for muito grande para seu cesto, pode ser feito em duas fases: comece com a pele para baixo na primeira metade, depois vire com a pele para cima para finalizar.',
+      faqs: [
+        {
+          q: 'Quanto tempo o peito de peru leva na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para um peito com osso de 1,8–2,3 kg, virando aos {FLIP} minutos. Um peito sem osso de 0,9–1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 2,7–3,2 kg uns {LARGE_MIN}. Decida sempre por temperatura, não por tempo.',
+        },
+        {
+          q: 'A que temperatura o peito de peru deve chegar?',
+          a: '{INT_F}°F ({INT_C}°C) na parte mais grossa é a temperatura segura do USDA. Tire a 160°F e repouse três minutos; subirá a 165°F.',
+        },
+        {
+          q: 'Preciso virar o peito de peru na air fryer?',
+          a: 'Sim, uma vez, pela metade. A parte de baixo recebe menos ar direto e fica mais pálida; virar dá cor parecida nas duas faces.',
+        },
+        {
+          q: 'Posso cozinhar um peito de peru congelado na air fryer?',
+          a: 'Não com este ajuste. Um peito congelado precisa de temperatura mais baixa e muito mais tempo para o centro ser seguro antes de o exterior secar. Use um modo congelado específico ou descongele antes.',
+        },
+        {
+          q: 'Qual é o equivalente no forno deste ajuste?',
+          a: '{OVEN_F}°F por uns {OVEN_MIN} minutos num forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos num forno com ventilação.',
+        },
+      ],
+    },
+    'reheat-turkey': {
+      label: 'Peru sobrado',
+      metaTitle: 'Reaquecer peru na air fryer: fatias úmidas, não secas',
+      metaDescription:
+        'Reaqueça peru sobrado na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, quente a {INT_F}°F. Pechuga em fatias e carne escura, o respingo de caldo e o método no forno.',
+      metaKeywords: 'reaquecer peru air fryer, como reaquecer peru na air fryer, peru sobrado air fryer, reaquecer peito de peru air fryer',
+      heading: 'Reaquecer peru na air fryer',
+      subDesc:
+        'Fatias de peito de peru e carne escura da geladeira, devolvidas a quentes e úmidas. O ajuste suave, o respingo de caldo e por que o papel alumínio é seu aliado.',
+      cardDesc: 'Um respingo de caldo e papel alumínio mantêm o peito úmido.',
+      sizeLabels: { small: 'Umas fatias de peito', medium: 'Fatias mistas, peito e coxa', large: 'Uma porção generosa de prato' },
+      internalLine: 'Quente no centro a {INT_F}°F ({INT_C}°C) na fatia mais grossa: guia USDA para sobras',
+      internalAltLine: 'Carne escura (coxas, pernas) está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) e fica úmida por mais tempo',
+      failureHeading: 'Por que o peru reaquecido vira couro',
+      failureBody:
+        'O peito de peru é magro, e na geladeira a pouca gordura que tem solidifica e as fibras musculares se tensionam. Coloque fatias frias direto numa air fryer quente e a superfície seca numa crosta apertada antes de o meio esquentar, deixando pedaços cinzentos e mastigáveis que nenhum molho arruma. A solução é calor suave e umidade. Um respingo de caldo de galinha ou peru no fundo do recipiente, ou um pincel leve de manteiga derretida nas fatias, dá ao ar algo de vapor para a carne esquentar antes de a superfície selar. Cubra o recipiente solto com papel alumínio na primeira metade do reaquecimento e depois tire para as bordas colorirem. Carne escura (coxas, pernas) perdoa mais: sua gordura a mantém úmida, e ela só precisa chegar ao extremo inferior da faixa de temperatura.',
+      workedExampleHeading: 'Exemplo prático: um prato misto de sobras',
+      workedExampleTemplate:
+        'Duas xícaras de peru em fatias, misto de peito e coxa, espalhadas numa assadeira com duas colheres de caldo morno. Cubra solto com papel alumínio e reaqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando as peças aos {FLIP} minutos. Um prato pequeno de fatias de peito leva uns {SMALL_MIN} minutos; uma porção grande mista uns {LARGE_MIN}. No forno convencional o mesmo prato reaquece a {OVEN_F}°F por uns {OVEN_MIN} minutos, coberto na primeira metade.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Confira uma fatia de peito com termômetro: a guia USDA diz {INT_F}°F ({INT_C}°C) para sobras reaquecidas. Carne escura está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F e fica mais úmida. As fatias devem soltar vapor ao levantar o papel, e a superfície deve parecer brilhante, não seca e fosca. Uma fatia de peito que parece firme e elástica passou do ponto.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Tire o peru da geladeira uns minutos antes para tirar o pior do frio. Separe peito de carne escura se puder, pois terminam em tempos diferentes. Um molheira quente ao lado significa que você pode servir as fatias no momento em que estiverem quentes.',
+      faqs: [
+        {
+          q: 'Quanto tempo para reaquecer peru na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para fatias mistas, virando aos {FLIP} minutos. Umas fatias de peito levam uns {SMALL_MIN} minutos e uma porção grande mista uns {LARGE_MIN}.',
+        },
+        {
+          q: 'A que temperatura o peru reaquecido deve chegar?',
+          a: '{INT_F}°F ({INT_C}°C) para fatias de peito, que é a guia USDA para sobras. Carne escura está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+        },
+        {
+          q: 'Por que meu peito de peru reaquecido fica seco?',
+          a: 'O calor estava alto demais ou as fatias não tinham umidade. Um respingo de caldo e papel alumínio na primeira metade evitam que a superfície sele antes de o centro esquentar.',
+        },
+        {
+          q: 'Posso reaquecer um peito de peru inteiro assim?',
+          a: 'Sim, mas demora mais. Use a predefinição de peito de peru em vez disso, que é desenhada para cozinhar do cru e inclui o repouso. Esta página é para sobras já cozinhadas.',
+        },
+        {
+          q: 'Como reaqueço peru no forno?',
+          a: 'Numa assadeira coberta com caldo a {OVEN_F}°F por uns {OVEN_MIN} minutos, descobrindo os últimos minutos se quiser cor nas bordas.',
+        },
+      ],
+    },
+    'stuffing': {
+      label: 'Recheio (stuffing)',
+      metaTitle: 'Recheio na air fryer: crosta crocante, centro quente',
+      metaDescription:
+        'Asse recheio na air fryer: {AF_F}°F por {MIN} minutos, a {INT_F}°F no centro. Assado numa assadeira, não solto no cesto, tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'recheio air fryer, stuffing air fryer tempo, como cozinhar recheio na air fryer, dressing air fryer',
+      heading: 'Recheio na air fryer',
+      subDesc:
+        'Recheio a base de pão assado numa assadeira que caiba no cesto. O ajuste, por que o centro deve chegar a 165°F e como conseguir crosta crocante antes de o centro passar.',
+      cardDesc: 'Assado numa assadeira, não solto: centro a 165°F.',
+      sizeLabels: { small: 'Assadeira pequena, 13×13 cm', medium: 'Assadeira padrão, 18×13 cm', large: 'Assadeira grande, 23×18 cm' },
+      failureHeading: 'Por que a crosta queima antes de o centro estar quente',
+      failureBody:
+        'O recheio é uma camada grossa e úmida de pão, caldo, legumes e gordura. Na air fryer o calor bate na parte exposta de cima, então a crosta doura e depois queima enquanto o centro ainda é pão frio e úmido. A armadilha é olhar a crosta e achar que a assadeira está pronta. A única prova confiável é o centro: recheio com ovo ou legumes crus (cebola, aipo) deve chegar a {INT_F}°F para ser seguro, e isso leva tempo. As soluções estão na assadeira e na temperatura. Use uma assadeira baixa para o calor ter menos caminho, e o ajuste mais baixo aqui para a crosta dourar no mesmo ritmo que o centro esquenta. Se a crosta está escura antes de o centro estar pronto, cubra a assadeira com papel alumínio o resto do assado.',
+      workedExampleHeading: 'Exemplo prático: uma assadeira padrão de recheio de linguiça',
+      workedExampleTemplate:
+        'Uma assadeira de 18×13 cm de recheio de pão com linguiça, cebola, aipo e caldo, misturado só até ficar úmido. Preaqueça {PREHEAT} minutos, asse a {AF_F}°F por {MEDIUM_MIN} minutos. Uma assadeira pequena de 13×13 cm leva uns {SMALL_MIN} minutos e uma grande de 23×18 cm uns {LARGE_MIN}. Confira o centro com termômetro; deve marcar {INT_F}°F. No forno convencional a mesma assadeira leva {OVEN_F}°F por uns {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Espete um termômetro no centro mesmo da assadeira: {INT_F}°F ({INT_C}°C) é a temperatura segura para qualquer recheio com ovo, legumes crus ou carne. A crosta deve estar dourada e crocante, as bordas se soltando levemente da assadeira. Se a crosta está escura e o centro abaixo de 165°F, cubra com papel alumínio e dê três minutos a mais.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Use uma assadeira de metal ou cerâmica que caiba no cesto com espaço ao redor; não cozinhe o recheio solto no cesto — as migalhas voam no ventilador e a camada de baixo queima. Misture o recheio só até ficar úmido; uma mistura mais úmida cozinha antes e fica mais macia, uma mais seca precisa do tempo longo. Ponha uns pedacinhos de manteiga em cima para crosta melhor.',
+      faqs: [
+        {
+          q: 'Quanto tempo o recheio leva na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para uma assadeira padrão de 18×13 cm. Uma assadeira pequena leva uns {SMALL_MIN} minutos e uma grande uns {LARGE_MIN}. Confira sempre o centro com termômetro.',
+        },
+        {
+          q: 'A que temperatura o recheio deve chegar?',
+          a: '{INT_F}°F ({INT_C}°C) no centro. É a temperatura segura do USDA para recheio com ovo ou ingredientes crus.',
+        },
+        {
+          q: 'Posso cozinhar o recheio solto no cesto?',
+          a: 'Não. As migalhas voam no elemento e a camada de baixo queima. Use uma assadeira baixa que caiba.',
+        },
+        {
+          q: 'O que faço se a crosta queima e o centro não está quente?',
+          a: 'Cubra a assadeira solto com papel alumínio e continue assando. O ajuste mais baixo aqui é pensado para frear a crosta, mas cada air fryer funciona um pouco diferente.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por uns {OVEN_MIN} minutos num forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos num forno com ventilação.',
+        },
+      ],
+    },
+    'dinner-rolls': {
+      label: 'Pãezinhos de jantar',
+      metaTitle: 'Reaquecer pãezinhos na air fryer: quentes, não queimados',
+      metaDescription:
+        'Reaqueça pãezinhos na air fryer: {AF_F}°F por {MIN} minutos. Pãezinhos de assar e servir e de padaria, cobertos com papel alumínio para a crosta não queimar antes de o centro esquentar.',
+      metaKeywords: 'reaquecer pãezinhos air fryer, pãezinhos air fryer reaquecer, pães assar servir air fryer, reaquecer pães padaria air fryer',
+      heading: 'Reaquecer pãezinhos na air fryer',
+      subDesc:
+        'Pãezinhos de assar e servir, de padaria ou pré-assados da geladeira, aquecidos por dentro com centro macio e crosta levemente colorida. O ajuste baixo, a tenda de papel alumínio e por que mais calor queima a coroa.',
+      cardDesc: 'Cubra com papel alumínio: a coroa queima antes de o centro esquentar.',
+      sizeLabels: { small: '2–3 pãezinhos pequenos', medium: '4–6 pãezinhos padrão', large: '8–10 pãezinhos ou meia dúzia de grandes' },
+      failureHeading: 'Por que a coroa queima antes de o centro estar morno',
+      failureBody:
+        'Um pãozinho é uma cúpula de massa macia com crosta fina em cima. Na air fryer o calor chega de cima, então a coroa — o ponto mais alto — leva o golpe cheio e escurece em minutos enquanto o centro do pãozinho ainda está frio da geladeira. Um ajuste mais alto só alarga essa brecha. A solução é temperatura baixa e tenda de papel alumínio. O papel reflete o calor direto para a crosta esquentar no mesmo ritmo que o interior, e o tempo curto evita que os pães sequem. Os de assar e servir são pré-assados e só precisam de um aquecimento rápido; os de padaria da geladeira precisam do tempo completo para perder o frio.',
+      workedExampleHeading: 'Exemplo prático: uma cesta de pãezinhos de assar e servir',
+      workedExampleTemplate:
+        'Seis pãezinhos de assar e servir, cobertos com uma folha solta de papel alumínio. Preaqueça {PREHEAT} minutos e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos. Dois ou três pães levam uns {SMALL_MIN} minutos; meia dúzia de pãezinhos grandes de padaria levam uns {LARGE_MIN}. No forno convencional os mesmos pães aquecem a {OVEN_F}°F por uns {OVEN_MIN} minutos numa assadeira.',
+      donenessHeading: 'Como saber que estão prontos',
+      donenessBody:
+        'Levante o papel e aperte o lado de um pão: deve sentir morno e elástico, não quente e duro. A crosta deve estar levemente colorida, não marrom nem crocante. Parta um: o miolo deve ser macio e úmido, sem centro frio e denso. Um pão que parece firme e seco esteve tempo demais.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Arrume os pães numa camada só com um pequeno espaço entre eles. Corte um pedaço de papel alumínio grande o bastante para fazer tenda sobre todo o grupo sem tocar as copas, e enfie as bordas sob o fundo do cesto. Não precisa óleo nem manteiga; um pincel de manteiga derretida vai depois se quiser crosta brilhante.',
+      faqs: [
+        {
+          q: 'Quanto tempo para reaquecer pãezinhos na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para 4–6 pãezinhos padrão. Uns poucos levam uns {SMALL_MIN} minutos e uma leva maior uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Por que meus pães queimam por cima?',
+          a: 'O calor vem de cima e a coroa é o ponto mais próximo. Cubra com papel alumínio para a crosta esquentar com o resto do pão.',
+        },
+        {
+          q: 'Posso reaquecer pãezinhos congelados na air fryer?',
+          a: 'Sim, direto do congelado. Adicione um ou dois minutos e mantenha o papel na primeira metade.',
+        },
+        {
+          q: 'E pãezinhos de alho ou com queijo?',
+          a: 'O mesmo ajuste baixo serve. Queijo em cima vai no último minuto, ou queima.',
+        },
+        {
+          q: 'Como reaqueço pãezinhos no forno?',
+          a: 'Numa assadeira a {OVEN_F}°F por uns {OVEN_MIN} minutos, cobertos com papel alumínio.',
+        },
+      ],
+    },
+    'roast-potatoes': {
+      label: 'Batatas assadas (roasties)',
+      metaTitle: 'Batatas assadas na air fryer: crosta crocante, centro fofo',
+      metaDescription:
+        'Batatas assadas estilo UK na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}. Escaldadas, borda rugosa e a chacoalhada que as mantém pares. Tempos por tamanho e equivalente no forno.',
+      metaKeywords: 'batatas assadas air fryer, roasties air fryer tempo, como fazer batatas assadas na air fryer, batatas escaldadas air fryer',
+      heading: 'Batatas assadas na air fryer',
+      subDesc:
+        'Roasties UK: pedaços de batata escaldados com bordas rugosas, assados até a crosta ser dourada e o centro fofo. O ajuste, a única virada e por que a superfície rugosa importa.',
+      cardDesc: 'Escalde e rugue as bordas primeiro: a crosta forma nas bordas.',
+      sizeLabels: { small: 'Pedaços pequenos, de batatas pequenas', medium: 'Médios, de batatas de 5–7 cm', large: 'Pedacinhos grandes, de batatas grandes em quartos' },
+      failureHeading: 'Por que a crosta está dura e o centro ceroso',
+      failureBody:
+        'Uma batata assada não é uma frita. É um pedaço grosso de batata com crosta deliberada fora e centro fofo, no vapor. Na air fryer as bordas secam e endurecem rápido, e se o calor for alto demais a crosta vira casca rígida antes do amido do centro gelificar em fofo. O resultado é um exterior crocante com núcleo denso e ceroso. A preparação faz o trabalho pesado aqui. Escaldar os pedaços cinco minutos começa a inchar o amido, e rugosizar as bordas com garfo ou chacoalhar na panela cria a superfície irregular que vira a crosta. Sem os dois passos, a air fryer só frita o exterior. A virada na metade iguala a cor para as duas caras terem a mesma crosta.',
+      workedExampleHeading: 'Exemplo prático: uma bandeja de roasties para quatro',
+      workedExampleTemplate:
+        'Quatro batatas médias, cada uma em quartos, escaldadas cinco minutos, escorridas e chacoalhadas na panela para rugosizar as bordas. Misture com uma colher de sopa de óleo e sal. Preaqueça {PREHEAT} minutos, espalhe com o corte para baixo e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Pedaços pequenos levam uns {SMALL_MIN} minutos e pedaços grandes uns {LARGE_MIN}. No forno convencional as mesmas roasties precisam {OVEN_F}°F por uns {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que estão prontas',
+      donenessBody:
+        'As bordas rugosas devem estar bem douradas e crocantes, e as faces planas devem ter crosta sólida. Espete uma faca no meio de um pedaço: deve entrar sem resistência, e o interior deve parecer branco e fofo, não translúcido nem ceroso. Se o exterior está pronto e o centro não, baixe o calor um pouco nos últimos minutos em vez de desistir da crosta.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Use batatas farinhentas: Maris Piper, King Edward ou russets. Corte em pedaços iguais para terminarem juntos. Escalde em água com sal cinco minutos exatos, escorra bem e chacoalhe a panela para rugosizar as bordas. Misture com óleo suficiente para cobrir cada pedaço rugoso e tempere com sal. Não encha o cesto; os pedaços precisam ar em todas as faces para crocantar.',
+      faqs: [
+        {
+          q: 'Quanto tempo as batatas assadas levam na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para pedaços médios, virando aos {FLIP} minutos. Pedaços pequenos levam uns {SMALL_MIN} minutos e grandes uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Por que preciso escaldar e rugosizar as bordas?',
+          a: 'O escaldado começa a inchar o amido, e rugosizar as bordas cria a superfície que vira a crosta. Sem ambos, a air fryer só frita o exterior e o centro fica ceroso.',
+        },
+        {
+          q: 'É o mesmo que batata ao forno ou batatas fritas?',
+          a: 'Não. A batata ao forno é inteira e se confere a 205°F dentro. As fritas são finas e cozinham rápido. As roasties são pedaços grossos escaldados que precisam da crosta e do centro fofo juntos.',
+        },
+        {
+          q: 'Posso usar batatas cerosas?',
+          a: 'Não vão ficar fofas. Batatas cerosas dão textura mais firme e cremosa; a crosta forma mas o centro fica denso.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por uns {OVEN_MIN} minutos num forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos num forno com ventilação.',
+        },
+      ],
+    },
+    'pigs-in-blankets': {
+      label: 'Salsichas no bacon',
+      metaTitle: 'Salsichas no bacon na air fryer: chipolatas com bacon streaky',
+      metaDescription:
+        'Salsichas no bacon (UK: chipolatas enroladas em bacon streaky) na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, bacon crocante e salsicha a {INT_F}°F. O ajuste moderado que evita a gordura do bacon fumar.',
+      metaKeywords: 'salsichas bacon air fryer, pigs in blankets air fryer tempo, chipolatas bacon air fryer, quanto tempo pigs in blankets na air fryer',
+      heading: 'Salsichas no bacon na air fryer',
+      subDesc:
+        'Pigs in blankets versão UK: chipolatas enroladas em bacon streaky, cozidas até o bacon ficar crocante e a salsicha segura a 160°F. O ajuste moderado, a virada e a diferença dos pigs in a blanket americanos.',
+      cardDesc: 'Versão UK: chipolatas no bacon. Calor moderado evita o bacon fumar.',
+      sizeLabels: { small: 'Chipolatas mini, bacon fino', medium: 'Chipolatas padrão, bacon normal', large: 'Salsichas grossas ou bacon defumado' },
+      failureHeading: 'Por que o bacon fuma e a salsicha segue fria',
+      failureBody:
+        'Um pig in blanket é uma corrida entre o bacon e a salsicha. O bacon é fino, gordo e cheio de açúcares da cura, então solta gordura, doura e depois fuma em minutos. A salsicha de dentro é grossa e densa, e precisa de tempo para o calor chegar no centro. Ponha a air fryer forte e o bacon está queimado e fumando antes da salsicha chegar a temperatura segura. Ponha muito suave e o bacon nunca crocanta. O ajuste moderado aqui (375°F) é o equilíbrio: a gordura do bacon derrete devagar em vez de queimar, e a salsicha tem tempo para subir a 160°F. Uma virada na metade leva a face pálida do bacon ao fluxo de ar para as duas faces crocarem parelho. A versão US (salsichas tipo hot dog em massa folhada) não está coberta aqui: a massa precisa de outro ajuste e a salsicha já está cozida, então só precisa esquentar.',
+      workedExampleHeading: 'Exemplo prático: uma bandeja para a manhã de Natal',
+      workedExampleTemplate:
+        'Doze chipolatas padrão, cada uma enrolada em meia tira de bacon streaky, com as pontas enfiadas por baixo. Preaqueça {PREHEAT} minutos, coloque numa camada com um pequeno espaço entre cada e cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Chipolatas mini levam uns {SMALL_MIN} minutos e salsichas grossas uns {LARGE_MIN}. No forno convencional a mesma bandeja leva {OVEN_F}°F por uns {OVEN_MIN} minutos.',
+      donenessHeading: 'Como saber que estão prontas',
+      donenessBody:
+        'O bacon deve estar crocante e bem dourado nas duas faces, sem manchas pálidas e moles. A salsicha de dentro deve chegar a {INT_F}°F ({INT_C}°C) no centro, medido com sonda fina através do bacon. Se o bacon está crocante mas a salsicha está abaixo de 160°F, baixe a 350°F e dê dois minutos mais.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Use chipolatas (salsichas pequenas de porco), não frankfurters nem hot dogs. Enrole cada uma em meia tira de bacon streaky, enfiando as pontas por baixo para não desenrolar. Não precisa óleo; o bacon solta bastante gordura. Se seu cesto roda quente, forre com papel perfurado para pegar os gotejos e reduzir fumaça. Deixe um espaço de um dedo entre rolinhos para o bacon dos lados crocantar também.',
+      faqs: [
+        {
+          q: 'Quanto tempo os pigs in blankets levam na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para chipolatas padrão, virando aos {FLIP} minutos. Chipolatas mini levam uns {SMALL_MIN} minutos e salsichas grossas uns {LARGE_MIN}.',
+        },
+        {
+          q: 'Por que o bacon fuma na air fryer?',
+          a: 'A gordura do bacon goteja no gavetão e queima a temperaturas altas. Cozinhe a {AF_F}°F, não mais alto, e um respingo de água no gavetão sob o cesto pega a gordura.',
+        },
+        {
+          q: 'A que temperatura a salsicha deve chegar?',
+          a: '{INT_F}°F ({INT_C}°C) no centro. É a temperatura segura para salsicha fresca de porco.',
+        },
+        {
+          q: 'É o mesmo que pigs in a blanket americanos?',
+          a: 'Não. Pigs in a blanket US são hot dogs ou salsichas enrolados em massa (massa folhada ou de rolinho). A massa precisa outro ajuste e o hot dog já está cozido, então só precisa esquentar.',
+        },
+        {
+          q: 'Qual é o equivalente no forno?',
+          a: '{OVEN_F}°F por uns {OVEN_MIN} minutos num forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos num forno com ventilação.',
+        },
+      ],
+    },
+    'reheat-ham': {
+      label: 'Presunto sobrado',
+      metaTitle: 'Reaquecer presunto na air fryer: glaceado ou natural, sem queimar',
+      metaDescription:
+        'Reaqueça presunto sobrado na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}. Presunto cozido a 140°F, sobras a 165°F. Cubra primeiro, glaceie no fim.',
+      metaKeywords: 'reaquecer presunto air fryer, como reaquecer presunto na air fryer, presunto sobrado air fryer, reaquecer presunto glaceado air fryer',
+      heading: 'Reaquecer presunto na air fryer',
+      subDesc:
+        'Presunto totalmente cozido (em espiral, com ou sem osso) e presunto sobrado da geladeira, aquecidos sem queimar o glaceado. O ajuste baixo, a tampa e os dois alvos distintos para presunto inteiro vs sobras.',
+      cardDesc: 'Cubra, glaceie no fim: o açúcar queima primeiro.',
+      sizeLabels: { small: 'Umas fatias', medium: 'Meio presunto ou 1,4–1,8 kg', large: 'Um presunto em espiral inteiro, 3–4 kg' },
+      internalLine: 'Presunto totalmente cozido (da embalagem): {INT_F}°F ({INT_C}°C) para esquentar, depois repouso',
+      internalAltLine: 'Sobras ou presunto reembalado: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guia USDA para sobras reaquecidas',
+      failureHeading: 'Por que o glaceado queima antes de o presunto estar morno',
+      failureBody:
+        'A maioria dos presuntos vem com glaceado à base de açúcar (açúcar mascavo, mel, bordo, cola) que carameliza a temperatura muito mais baixa que a necessária para esquentar um presunto frio. Na air fryer o glaceado está fora, no ar quente, então fica escuro, depois amargo e preto, enquanto a carne de dentro segue fria da geladeira. A solução é separar os dois trabalhos. Reaqueça o presunto coberto, para o calor suave penetrar sem o glaceado ver o ventilador. Depois destape, pinte com glaceado fresco ou morno e dê um ou dois minutos na mesma temperatura para firmar. Os alvos também diferem. Um presunto totalmente cozido da embalagem só precisa chegar a {INT_F}°F para servir (USDA diz 140°F para presunto cozido embalado a vácuo). O presunto sobrado que foi fatiado e guardado, ou um presunto de charcutaria, deve chegar a {INT_ALT_TO_F}°F, a guia USDA para sobras.',
+      workedExampleHeading: 'Exemplo prático: meio presunto em espiral',
+      workedExampleTemplate:
+        'Meio presunto em espiral de 1,8 kg, riscado, coberto solto com papel alumínio. Preaqueça {PREHEAT} minutos e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Tire o papel, pinte com glaceado e volte dois minutos para firmar. Umas fatias levam uns {SMALL_MIN} minutos; um inteiro de 3,6 kg uns {LARGE_MIN}. No forno convencional o mesmo presunto esquenta a {OVEN_F}°F por uns {OVEN_MIN} minutos, coberto, depois glaceado.',
+      donenessHeading: 'Como saber que está pronto',
+      donenessBody:
+        'Para presunto cozido da embalagem, {INT_F}°F ({INT_C}°C) na parte mais grossa, longe do osso, é o alvo. Para sobras ou presunto de charcutaria, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) é a guia USDA. A carne deve parecer úmida e brilhante, não seca nem cinzenta nas bordas. O glaceado, se posto, deve borbulhar e ser pegajoso, não preto.',
+      prepHeading: 'Antes de colocar',
+      prepBody:
+        'Tire o presunto da geladeira 20 minutos antes para o centro estar menos frio. Se é presunto em espiral, mantenha na rede original ou envolva em papel alumínio para as fatias não abrirem e secarem. Guarde o sachê de glaceado para esquentar à parte, ou faça o seu. Um respingo de água ou caldo no pacote de papel mantém o ar úmido. Não precisa óleo; o presunto carrega sua gordura.',
+      faqs: [
+        {
+          q: 'Quanto tempo para reaquecer presunto na air fryer?',
+          a: 'Uns {MIN} minutos a {AF_F}°F para uma porção de 1,4–1,8 kg, virando aos {FLIP} minutos. Umas fatias levam uns {SMALL_MIN} minutos e um inteiro de 3–4 kg uns {LARGE_MIN}.',
+        },
+        {
+          q: 'A que temperatura o presunto reaquecido deve chegar?',
+          a: 'Presunto cozido da embalagem: {INT_F}°F ({INT_C}°C) para esquentar. Sobras ou presunto de charcutaria: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), que é a guia USDA para sobras reaquecidas.',
+        },
+        {
+          q: 'Por que meu glaceado de presunto queima?',
+          a: 'O açúcar do glaceado carameliza muito antes do presunto frio esquentar. Cubra o presunto no reaquecimento, depois destape, glaceie e dê um minuto para firmar.',
+        },
+        {
+          q: 'Posso reaquecer um presunto em espiral sem secar?',
+          a: 'Sim. Mantenha na rede ou envolva em papel alumínio, adicione um respingo de água dentro e reaqueça coberto. As fatias se cozinham no vapor umas das outras em vez de secar.',
+        },
+        {
+          q: 'Como reaqueço presunto no forno?',
+          a: 'Cobertto a {OVEN_F}°F por uns {OVEN_MIN} minutos, depois destape, glaceie e finalize uns minutos.',
+        },
+      ],
+    },
   },
 };
 

@@ -7,6 +7,7 @@ import { localizedPath } from '../i18n/utils';
 import { PRESETS } from '../data/presets';
 import { PRESET_CATEGORY_ORDER, presetCard } from '../lib/presets';
 import { LIVE_PAGES } from '../site.config';
+import type { FoodPreset } from '../data/presets';
 
 interface Props {
   locale?: LocaleCode;
@@ -17,13 +18,23 @@ const all = getDictionary(locale);
 const dict = all.presetsIndex;
 
 // Generated from PRESETS: one group per category that has at least one preset, in PRESET_CATEGORY_ORDER.
-const groups = PRESET_CATEGORY_ORDER.map((category) => ({
+const categoryGroups = PRESET_CATEGORY_ORDER.map((category) => ({
   category,
   heading: dict.categories[category],
   cards: PRESETS.filter((p) => p.category === category)
     .map((p) => presetCard(p, locale))
     .filter((c) => LIVE_PAGES.has(c.path)),
 })).filter((g) => g.cards.length > 0);
+
+// Holiday group: shows first while any holiday preset is live.
+const holidayCards = PRESETS.filter((p: FoodPreset) => p.seasonal === 'holiday')
+  .map((p) => presetCard(p, locale))
+  .filter((c) => LIVE_PAGES.has(c.path));
+const holidayGroup = holidayCards.length > 0
+  ? { category: 'holiday', heading: all.presets.pages['turkey-breast']?.heading ?? 'Holiday', cards: holidayCards }
+  : null;
+
+const groups = holidayGroup ? [holidayGroup, ...categoryGroups] : categoryGroups;
 
 const links = [
   { slug: '/oven-to-air-fryer', label: dict.relatedFlagshipLink },
