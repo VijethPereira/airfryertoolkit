@@ -174,7 +174,7 @@ test.describe('food presets: data and copy', () => {
 
   test('internalAlt is display only: every locale has its line, and the engine, answer and JSON-LD description never use it', () => {
     const withAlt = ALL.filter((p) => p.internalAlt !== undefined);
-    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'reheat-ham', 'reheat-steak', 'reheat-turkey', 'sausages']);
+    expect(withAlt.map((p) => p.slug).sort()).toEqual(['chicken-drumsticks', 'reheat-ham', 'reheat-steak', 'sausages']);
     for (const l of LOCALES) {
       const d = getDictionary(l.code).presets;
       expect(d.answerTemplate + d.answerFlipSuffix + d.answerShakeSuffix).not.toMatch(/INT_ALT_/);
@@ -586,11 +586,14 @@ test.describe('food preset pages', () => {
         await expect(raw).toHaveCount(0);
       }
       const oven = ovenOf(p);
-      await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outF}°F (${oven.outC}°C`);
-      await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outMinutes} min`);
-      if (oven.gasMark) await expect(page.locator('#pr-oven-conventional')).toContainText(`gas mark ${oven.gasMark}`);
-      const fan = fanOf(p);
-      await expect(page.locator('#pr-oven-fan')).toContainText(`${fan.outF}°F (${fan.outC}°C) for ${fan.outMinutes} min`);
+      // turkey-breast hides the oven section (converter ratio is wrong for large roasts)
+      if (p.slug !== 'turkey-breast') {
+        await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outF}°F (${oven.outC}°C`);
+        await expect(page.locator('#pr-oven-conventional')).toContainText(`${oven.outMinutes} min`);
+        if (oven.gasMark) await expect(page.locator('#pr-oven-conventional')).toContainText(`gas mark ${oven.gasMark}`);
+        const fan = fanOf(p);
+        await expect(page.locator('#pr-oven-fan')).toContainText(`${fan.outF}°F (${fan.outC}°C) for ${fan.outMinutes} min`);
+      }
     });
 
     if (p.slug === 'frozen-tater-tots' || p.slug === 'frozen-chicken-nuggets') {
@@ -694,10 +697,22 @@ test.describe('food presets: index, homepage and locales', () => {
       expect(response?.status()).toBe(200);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', localizedUrl(code, PRESETS_INDEX_PATH));
       const expectedGroups = PRESET_CATEGORY_ORDER.filter((c) => ALL.some((p) => p.category === c));
+      const hasHoliday = ALL.some((p) => p.seasonal === 'holiday');
       const groups = page.locator('section.group');
-      await expect(groups).toHaveCount(expectedGroups.length);
+      const expectedGroupCount = expectedGroups.length + (hasHoliday ? 1 : 0);
+      await expect(groups).toHaveCount(expectedGroupCount);
+      // If holiday group exists, it comes first with data-category="holiday"
+      let groupIndex = 0;
+      if (hasHoliday) {
+        const holidayGroup = groups.nth(0);
+        await expect(holidayGroup).toHaveAttribute('data-category', 'holiday');
+        await expect(holidayGroup.locator('h2')).toHaveText(dict.holidayGroupHeading);
+        const holidayPresets = ALL.filter((p) => p.seasonal === 'holiday');
+        await expect(holidayGroup.locator('.card')).toHaveCount(holidayPresets.length);
+        groupIndex = 1;
+      }
       for (const [i, category] of expectedGroups.entries()) {
-        const group = groups.nth(i);
+        const group = groups.nth(groupIndex + i);
         await expect(group).toHaveAttribute('data-category', category);
         await expect(group.locator('h2')).toHaveText(dict.categories[category]);
         const inCategory = ALL.filter((p) => p.category === category);
@@ -709,7 +724,8 @@ test.describe('food presets: index, homepage and locales', () => {
           await expect(card.locator('.card-spec')).toHaveText(expectedSpec(code, p));
         }
       }
-      await expect(page.locator('main .card')).toHaveCount(ALL.length);
+      const totalExpectedCards = ALL.length + (hasHoliday ? ALL.filter((p) => p.seasonal === 'holiday').length : 0);
+      await expect(page.locator('main .card')).toHaveCount(totalExpectedCards);
       // Reheat and baked are live since batch 3: their headings show with at least one card each.
       for (const c of ['reheat', 'baked'] as const) {
         const g = page.locator(`section.group[data-category="${c}"]`);
@@ -731,7 +747,8 @@ test.describe('food presets: index, homepage and locales', () => {
   for (const code of [DEFAULT_LOCALE, 'es'] as const) {
     test(`homepage preset cards (${code}) come from PRESETS and obey the card fallback rule`, async ({ page }) => {
       const home = getDictionary(code).home;
-      await page.goto(localizedPath(code, '/'));
+      // Locale root has no trailing slash (trailingSlash: 'never')
+      await page.goto(localizedPath(code, '/').replace(/\/$/, ''));
       const cards = page.locator('#presets .card-grid > .card:not(.outline)');
       await expect(cards).toHaveCount(4);
       for (const [i, p] of ALL.slice(0, 4).entries()) {

@@ -1963,7 +1963,7 @@ export const presets: Dictionary['presets'] = {
         'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: 160°F ist das Herausnahme-Ziel, 165°F nach den drei Minuten Ruhe. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
       prepHeading: 'Bevor sie hineinkommt',
       prepBody:
-        'Für eine Brust ohne Knochen butterflysieren oder auf 3,5 cm gleichmäßige Dicke plattieren. Für eine mit Knochen die Flügelspitzen einstecken und die Brust mit Küchengarn verschnüren, damit sie kompakt bleibt. Mit Öl bestreichen und eine trockene Salzlake aus Salz und Kräutern funktioniert gut bei Pute; 30 Minuten unabgedeckt im Kühlschrank trocknet die Haut und hilft beim Knuspern. Wenn die Brust für deinen Korb sehr groß ist, kann sie in zwei Phasen gegart werden: erst Hautseite unten für die erste Hälfte, dann Hautseite oben zum Finish.',
+        'Für eine Brust ohne Knochen butterflysieren oder auf 3,5 cm gleichmäßige Dicke plattieren. Für eine mit Knochen die Flügelspitzen einstecken und die Brust mit Küchengarn verschnüren, damit sie kompakt bleibt. Mit Öl bestreichen und eine trockene Salzlake aus Salz und Kräutern funktioniert gut bei Pute; 30 Minuten unabgedeckt im Kühlschrank trocknet die Haut und hilft beim Knuspern. Wenn die Brust für deinen Korb sehr groß ist, kann sie in zwei Phasen gegart werden: erst Hautseite unten für die erste Hälfte, dann Hautseite oben zum Finish. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange braucht eine Putenbrust in der Heißluftfritteuse?',
@@ -1999,19 +1999,18 @@ export const presets: Dictionary['presets'] = {
       cardDesc: 'Ein Schuss Brühe und Alufolie halten das Filet saftig.',
       sizeLabels: { small: 'Ein paar Filetscheiben', medium: 'Gemischte Scheiben, Filet und Keule', large: 'Eine große Tellerportion' },
       internalLine: 'Durchgeheizt bei {INT_F}°F ({INT_C}°C) in der dicksten Scheibe: USDA-Leitlinie für Reste',
-      internalAltLine: 'Dunkles Fleisch (Keulen, Schenkel) ist heiß bei {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) und bleibt länger saftig',
       failureHeading: 'Warum aufgewärmtes Putenfilet zu Leder wird',
       failureBody:
-        'Putenfilet ist mager, und im Kühlschrank verfestigt sich das wenig Fett, das es hat, und die Muskelfasern spannen sich an. Kalte Scheiben direkt in eine heiße Heißluftfritteuse und die Oberfläche trocknet zu einer festen Kruste, bevor die Mitte durchgewärmt ist, und du hast graue, zähe Stücke, die keine Soße mehr rettet. Die Lösung ist sanfte Hitze und Feuchtigkeit. Ein Schuss Hühner- oder Putenbrühe auf dem Boden der Form, oder ein leichter Pinselstrich zerlassener Butter auf den Scheiben, gibt der Luft etwas Dampf, damit das Fleisch warm wird, bevor die Oberfläche versiegelt. Decke die Form locker mit Alufolie für die erste Hälfte des Aufwärmens ab, dann nimm sie ab, damit die Ränder bräunen können. Dunkles Fleisch (Keulen, Schenkel) ist verzeihender: sein Fett hält es saftig, und es braucht nur das untere Ende des Temperaturbereichs.',
+        'Putenfilet ist mager, und im Kühlschrank verfestigt sich das wenig Fett, das es hat, und die Muskelfasern spannen sich an. Kalte Scheiben direkt in eine heiße Heißluftfritteuse und die Oberfläche trocknet zu einer festen Kruste, bevor die Mitte durchgewärmt ist, und du hast graue, zähe Stücke, die keine Soße mehr rettet. Die Lösung ist sanfte Hitze und Feuchtigkeit. Ein Schuss Hühner- oder Putenbrühe auf dem Boden der Form, oder ein leichter Pinselstrich zerlassener Butter auf den Scheiben, gibt der Luft etwas Dampf, damit das Fleisch warm wird, bevor die Oberfläche versiegelt. Decke die Form locker mit Alufolie für die erste Hälfte des Aufwärmens ab, dann nimm sie ab, damit die Ränder bräunen können. Dunkles Fleisch (Keulen, Schenkel) ist verzeihender: sein Fett hält es saftig.',
       workedExampleHeading: 'Rechenbeispiel: ein gemischter Teller Reste',
       workedExampleTemplate:
         'Zwei Tassen Pute in Scheiben, gemischt Filet und Keule, in einer Auflaufform mit zwei Esslöffeln warmer Brühe verteilt. Locker mit Alufolie abdecken und bei {AF_F}°F für {MEDIUM_MIN} Minuten aufwärmen, die Stücke nach {FLIP} Minuten wenden. Ein kleiner Teller Filetscheiben braucht etwa {SMALL_MIN} Minuten; eine große gemischte Portion etwa {LARGE_MIN}. Im normalen Backofen wärmt derselbe Teller bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf, abgedeckt für die erste Hälfte.',
       donenessHeading: 'Woran du erkennst, dass es fertig ist',
       donenessBody:
-        'Prüfe eine Filetscheibe mit Thermometer: USDA-Leitlinie sagt {INT_F}°F ({INT_C}°C) für aufgewärmte Reste. Dunkles Fleisch ist durchgeheizt bei {INT_ALT_F}–{INT_ALT_TO_F}°F und bleibt saftiger. Die Scheiben sollten dampfen, wenn du die Folie hebst, und die Oberfläche sollte glänzend wirken, nicht trocken und matt. Eine Filetscheibe, die sich fest und gummiartig anfühlt, ist zu weit gegangen.',
+        'Prüfe eine Filetscheibe mit Thermometer: USDA-Leitlinie sagt {INT_F}°F ({INT_C}°C) für aufgewärmte Reste. Die Scheiben sollten dampfen, wenn du die Folie hebst, und die Oberfläche sollte glänzend wirken, nicht trocken und matt. Eine Filetscheibe, die sich fest und gummiartig anfühlt, ist zu weit gegangen.',
       prepHeading: 'Bevor es hineinkommt',
       prepBody:
-        'Hol die Pute ein paar Minuten früher aus dem Kühlschrank, damit der Schärfste Kälte rausgeht. Trenne Filet von dunklem Fleisch, falls du kannst, weil sie zu unterschiedlichen Zeiten fertig sind. Eine warme Soßenschale daneben heißt, du kannst die Scheiben servieren, sobald sie heiß sind.',
+        'Hol die Pute ein paar Minuten früher aus dem Kühlschrank, damit der Schärfste Kälte rausgeht. Trenne Filet von dunklem Fleisch, falls du kannst, weil sie zu unterschiedlichen Zeiten fertig sind. Eine warme Soßenschale daneben heißt, du kannst die Scheiben servieren, sobald sie heiß sind. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange brauchst du, um Pute in der Heißluftfritteuse aufzuwärmen?',
@@ -2019,7 +2018,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Welche Temperatur muss aufgewärmte Pute erreichen?',
-          a: '{INT_F}°F ({INT_C}°C) für Filetscheiben, das ist die USDA-Leitlinie für Reste. Dunkles Fleisch ist heiß bei {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+          a: '{INT_F}°F ({INT_C}°C) für Filetscheiben, das ist die USDA-Leitlinie für Reste.',
         },
         {
           q: 'Warum wird mein aufgewärmtes Putenfilet trocken?',
@@ -2229,21 +2228,21 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Voll gegarter Schinken (Spiralschnitt, mit oder ohne Knochen) und Schinkenreste aus dem Kühlschrank, durchgewärmt ohne die Glasur zu verbrennen. Die niedrige Einstellung, das Abdecken und die zwei unterschiedlichen Ziele für ganzen Schinken vs. Reste.',
       cardDesc: 'Abdecken, am Ende glasieren: der Zucker verbrennt zuerst.',
-      sizeLabels: { small: 'Ein paar Scheiben', medium: 'Halber Schinken oder 1,4–1,8 kg', large: 'Ein ganzer Spiralschnitt-Schinken, 3–4 kg' },
+      sizeLabels: { small: '2–3 Scheiben', medium: '4–6 Scheiben', large: 'Dicke Schinkensteaks' },
       internalLine: 'Voll gegarter Schinken (aus der Packung): {INT_F}°F ({INT_C}°C) zum Durchwärmen, dann Ruhen',
-      internalAltLine: 'Reste oder umgepackter Schinken: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — USDA-Leitlinie für aufgewärmte Reste',
+      internalAltLine: 'Reste oder umgepackter Schinken: {INT_ALT_F}°F ({INT_ALT_C}°C) — USDA-Leitlinie für aufgewärmte Reste',
       failureHeading: 'Warum die Glasur verbrennt, bevor der Schinken warm ist',
       failureBody:
-        'Die meisten Schinken kommen mit einer Zucker-Glasur (brauner Zucker, Honig, Ahorn, Cola), die bei viel niedrigerer Temperatur karamellisiert, als es braucht, um einen kalten Schinken durchzuwärmen. In der Heißluftfritteuse sitzt die Glasur außen, direkt im heißen Luftstrom, also wird sie dunkel, dann bitter und schwarz, während das Fleisch drin noch kühlschrank-kalt ist. Die Lösung: die zwei Jobs trennen. Wärm den Schinken abgedeckt, damit die sanfte Hitze eindringt, ohne dass die Glasur den Ventilator sieht. Dann aufdecken, mit frischer oder warmer Glasur bestreichen, und ein, zwei Minuten bei gleicher Temperatur, damit sie anzieht. Die Ziele unterscheiden sich auch. Ein voll gegarter Schinken aus der Packung muss nur {INT_F}°F erreichen, um servierfertig zu sein (USDA sagt 140°F für vakuumverpackten gegarten Schinken). Schinkenreste, die aufgeschnitten und gelagert wurden, oder ein Schinken vom Metzger, müssen {INT_ALT_TO_F}°F erreichen, die USDA-Leitlinie für Reste.',
+        'Die meisten Schinken kommen mit einer Zucker-Glasur (brauner Zucker, Honig, Ahorn, Cola), die bei viel niedrigerer Temperatur karamellisiert, als es braucht, um einen kalten Schinken durchzuwärmen. In der Heißluftfritteuse sitzt die Glasur außen, direkt im heißen Luftstrom, also wird sie dunkel, dann bitter und schwarz, während das Fleisch drin noch kühlschrank-kalt ist. Die Lösung: die zwei Jobs trennen. Wärm den Schinken abgedeckt, damit die sanfte Hitze eindringt, ohne dass die Glasur den Ventilator sieht. Dann aufdecken, mit frischer oder warmer Glasur bestreichen, und ein, zwei Minuten bei gleicher Temperatur, damit sie anzieht. Die Ziele unterscheiden sich auch. Ein voll gegarter Schinken aus der Packung muss nur {INT_F}°F erreichen, um servierfertig zu sein (USDA sagt 140°F für vakuumverpackten gegarten Schinken). Schinkenreste, die aufgeschnitten und gelagert wurden, oder ein Schinken vom Metzger, müssen {INT_ALT_F}°F erreichen, die USDA-Leitlinie für Reste.',
       workedExampleHeading: 'Rechenbeispiel: ein halber Spiralschnitt-Schinken',
       workedExampleTemplate:
         'Ein 1,8 kg halber Spiralschnitt-Schinken, gerautet, locker mit Alufolie abgedeckt. {PREHEAT} Minuten vorheizen und bei {AF_F}°F für {MEDIUM_MIN} Minuten wärmen, nach {FLIP} Minuten wenden. Folie abnehmen, mit Glasur bestreichen, und zwei Minuten zurück, damit sie anzieht. Ein paar Scheiben brauchen etwa {SMALL_MIN} Minuten; ein ganzer 3,6 kg Schinken etwa {LARGE_MIN}. Im normalen Backofen wärmt derselbe Schinken bei {OVEN_F}°F für etwa {OVEN_MIN} Minuten auf, abgedeckt, dann glasiert.',
       donenessHeading: 'Woran du erkennst, dass er fertig ist',
       donenessBody:
-        'Für einen gegarten Schinken aus der Packung ist {INT_F}°F ({INT_C}°C) im dicksten Teil, weg vom Knochen, das Ziel. Für Reste oder Metzgerschinken ist {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) die USDA-Leitlinie. Das Fleisch sollte feucht und glänzend wirken, nicht trocken oder grau an den Rändern. Die Glasur, falls aufgetragen, sollte blubbern und klebrig sein, nicht schwarz.',
+        'Für einen gegarten Schinken aus der Packung ist {INT_F}°F ({INT_C}°C) im dicksten Teil, weg vom Knochen, das Ziel. Für Reste oder Metzgerschinken ist {INT_ALT_F}°F ({INT_ALT_C}°C) die USDA-Leitlinie. Das Fleisch sollte feucht und glänzend wirken, nicht trocken oder grau an den Rändern. Die Glasur, falls aufgetragen, sollte blubbern und klebrig sein, nicht schwarz.',
       prepHeading: 'Bevor er hineinkommt',
       prepBody:
-        'Hol den Schinken 20 Minuten früher aus dem Kühlschrank, damit die Mitte weniger kalt ist. Wenn er Spiralschnitt ist, lass ihn in seinem Originalnetz oder wickel ihn in Alufolie, damit die Scheiben sich nicht auffächern und austrocknen. Heb den Glasurbeutel zum separat Warmmachen auf, oder mach deine eigene. Ein Schluck Wasser oder Brühe im Folienpaket hält die Luft feucht. Kein Öl nötig; der Schinken bringt sein eigenes Fett mit.',
+        'Hol den Schinken 20 Minuten früher aus dem Kühlschrank, damit die Mitte weniger kalt ist. Wenn er Spiralschnitt ist, lass ihn in seinem Originalnetz oder wickel ihn in Alufolie, damit die Scheiben sich nicht auffächern und austrocknen. Heb den Glasurbeutel zum separat Warmmachen auf, oder mach deine eigene. Ein Schluck Wasser oder Brühe im Folienpaket hält die Luft feucht. Kein Öl nötig; der Schinken bringt sein eigenes Fett mit. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange brauchst du, um Schinken in der Heißluftfritteuse aufzuwärmen?',
@@ -2251,7 +2250,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Welche Temperatur muss aufgewärmter Schinken erreichen?',
-          a: 'Voll gegarter Schinken aus der Packung: {INT_F}°F ({INT_C}°C) zum Durchwärmen. Reste oder Metzgerschinken: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), das ist die USDA-Leitlinie für aufgewärmte Reste.',
+          a: 'Voll gegarter Schinken aus der Packung: {INT_F}°F ({INT_C}°C) zum Durchwärmen. Reste oder Metzgerschinken: {INT_ALT_F}°F ({INT_ALT_C}°C), das ist die USDA-Leitlinie für aufgewärmte Reste.',
         },
         {
           q: 'Warum verbrennt meine Schinkenglasur?',
@@ -2293,4 +2292,5 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
     'Jede Voreinstellung geht von einer vorgeheizten Korb-Heißluftfritteuse mit 4–6 Litern aus, das Lebensmittel in einer Lage. Bei den Garvoreinstellungen berechnet derselbe Algorithmus wie der Umrechner die Entsprechungen für Ober-/Unterhitze und Umluft, sie stimmen also miteinander überein, und der Umrechner auf der Seite ist schon auf dieses Lebensmittel eingestellt. Tiefkühl-Voreinstellungen zeigen stattdessen, was auf der Packung steht. Beim Aufwärmen ist es anders: Der Algorithmus rechnet Garrezepte um, kein Aufwärmen, deshalb sind die Aufwärmzeiten und ihre Ofen-Entsprechungen von Hand eingetragen, und der Umrechner auf diesen Seiten rechnet Backofenrezepte um. Jede Seite beginnt mit der typischen Art, wie dieses Lebensmittel in der Heißluftfritteuse misslingt, denn das entscheidet über das Ergebnis mehr als die Zahl am Regler. Keine E-Mail, keine Anmeldung, nichts zu installieren.',
   relatedFlagshipLink: 'Umrechner Backofen zu Heißluftfritteuse',
   relatedChartLink: 'Umrechnungstabelle zum Ausdrucken',
+  holidayGroupHeading: 'Feiertags-Kochen',
 };

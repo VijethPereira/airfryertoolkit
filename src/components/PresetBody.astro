@@ -108,12 +108,14 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
       {rawWarning && <p id="pr-raw" class="answer-raw">{rawWarning}</p>}
     </div>
 
+    {preset.slug !== 'turkey-breast' && (
     <section id="pr-oven" class="oven-box" aria-labelledby="pr-oven-heading">
       <h2 id="pr-oven-heading">{labels.ovenHeading}</h2>
       <p id="pr-oven-conventional">{fill(labels.ovenTemplate)}</p>
       <p id="pr-oven-fan">{fill(labels.fanTemplate)}</p>
       <p class="oven-note">{labels.ovenNote}</p>
     </section>
+  )}
 
     <section class="tool-area" aria-label="Converter">
       {labels.widgetHeading && (

@@ -1136,7 +1136,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: '¿Los nuggets de pollo congelados ya vienen cocidos?',
-          a: 'La mayoría sí. El paquete dirá “totalmente cocido”. Si dice “sin cocinar” o “crudo”, cocínalos hasta {INT_F}°F con termómetro, como el pollo crudo.',
+          a: 'La mayoría sí. El paquete dirá "totalmente cocido". Si dice "sin cocinar" o "crudo", cocínalos hasta {INT_F}°F con termómetro, como el pollo crudo.',
         },
         {
           q: '¿Hay que voltear los nuggets?',
@@ -1320,7 +1320,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: '¿Cómo sé si las tiras congeladas están crudas?',
-          a: 'Lo dice el paquete. Busca “sin cocinar”, “crudo” o “cocinar completamente” cerca de las instrucciones. Si no está claro, trátalas como crudas y usa un termómetro.',
+          a: 'Lo dice el paquete. Busca "sin cocinar", "crudo" o "cocinar completamente" cerca de las instrucciones. Si no está claro, trátalas como crudas y usa un termómetro.',
         },
         {
           q: '¿A qué temperatura deben llegar las tiras crudas?',
@@ -1503,7 +1503,7 @@ export const presets: Dictionary['presets'] = {
           a: 'Unos {MIN} minutos a {AF_F}°F para una ración, agitando una vez. Un puñado pequeño tarda unos {SMALL_MIN} minutos y una ración grande unos {LARGE_MIN}.',
         },
         {
-          q: '¿Se pueden recalentar las patatas de McDonald’s en la freidora de aire?',
+          q: '¿Se pueden recalentar las patatas de McDonald\'s en la freidora de aire?',
           a: 'Sí. Las patatas finas de comida rápida se recuperan mejor que las gruesas; míralas un minuto antes, porque pasan de crujientes a secas muy rápido.',
         },
         {
@@ -1950,8 +1950,8 @@ export const presets: Dictionary['presets'] = {
       heading: 'Pechuga de pavo en la freidora de aire',
       subDesc:
         'Pechuga de pavo con o sin hueso, asada hasta que la piel esté dorada y el centro llegue a 165°F. El ajuste, la vuelta y por qué el reposo después de cocinar forma parte de la temperatura.',
-      cardDesc: 'Saca a 160°F y reposo tres minutos hasta 165°F.',
-      sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,8–2,3 kg', large: 'Pechuga con hueso, 2,7–3,2 kg' },
+      cardDesc: 'Cocina a {INT_F}°F y luego reposa.',
+      sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,8–2,7 kg', large: 'Pechuga con hueso, 2,7–3,6 kg' },
       failureHeading: 'Por qué la pechuga se seca antes de que el centro sea seguro',
       failureBody:
         'Una pechuga de pavo es un músculo magro y cónico: el extremo fino se hace mucho antes que el grueso, y la piel de fuera recibe todo el empuje del ventilador. Cuando la parte más gruesa llega a una temperatura segura, el extremo fino y la piel pueden estar secos y fibrosos. Dos cosas lo cambian. Primero, igualar el grosor. Una pechuga sin hueso debe abrirse en mariposa o aplastarse a una altura constante; una con hueso se cocina de forma más uniforme si se meten las puntas de las alas y se ata para que mantenga una forma redondeada. Segundo, el reposo no es opcional. Saca la pechuga cuando la parte más gruesa marque 160°F, tápala con papel de aluminio y espera tres minutos. El calor guardado en las capas exteriores remata el centro a 165°F mientras los jugos se asientan en la carne en lugar de salir en la tabla.',
@@ -1963,15 +1963,15 @@ export const presets: Dictionary['presets'] = {
         'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: 160°F es el objetivo de retirada, 165°F tras los tres minutos de reposo. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. Una pechuga con hueso puede mostrar un anillo rosa cerca del hueso a la temperatura correcta; es pigmento curado del hueso, no crudo. Corta contra la fibra tras el reposo.',
       prepHeading: 'Antes de meterla',
       prepBody:
-        'Para una pechuga sin hueso, ábrela en mariposa o aplástala a 3,5 cm de grosor constante. Para una con hueso, mete las puntas de las alas y átala con hilo de cocina para que se mantenga compacta. Unta con aceite y un adobo seco de sal y hierbas va bien con el pavo; 30 minutos sin tapar en la nevera seca la piel y ayuda a que cruja. Si la pechuga es muy grande para tu cesta, puede hacerse en dos fases: empieza con la piel abajo la primera mitad y luego vuélvela piel arriba para rematar.',
+        'Para una pechuga sin hueso, ábrela en mariposa o aplástala a 3,5 cm de grosor constante. Para una con hueso, mete las puntas de las alas y átala con hilo de cocina para que se mantenga compacta. Unta con aceite y un adobo seco de sal y hierbas va bien con el pavo; 30 minutos sin tapar en la nevera seca la piel y ayuda a que cruja. Si la pechuga es muy grande para tu cesta, puede hacerse en dos fases: empieza con la piel abajo la primera mitad y luego vuélvela piel arriba para rematar. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tarda una pechuga de pavo en la freidora de aire?',
-          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga con hueso de 1,8–2,3 kg, vuelta a los {FLIP} minutos. Una pechuga sin hueso de 0,9–1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 2,7–3,2 kg unos {LARGE_MIN}. Decide siempre por temperatura, no por tiempo.',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga con hueso de 1,8–2,7 kg, vuelta a los {FLIP} minutos. Una pechuga sin hueso de 0,9–1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 2,7–3,6 kg unos {LARGE_MIN}. Decide siempre por temperatura, no por tiempo.',
         },
         {
           q: '¿A qué temperatura debe llegar la pechuga de pavo?',
-          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa es la temperatura segura del USDA. Sácala a 160°F y reposa tres minutos; subirá a 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa es la temperatura segura del USDA. Cocina a 160°F y reposa tres minutos; subirá a 165°F.',
         },
         {
           q: '¿Hay que voltear la pechuga de pavo en la freidora de aire?',
@@ -1999,19 +1999,18 @@ export const presets: Dictionary['presets'] = {
       cardDesc: 'Un chorrito de caldo y papel de aluminio mantienen la pechuga jugosa.',
       sizeLabels: { small: 'Unas lonchas de pechuga', medium: 'Lonchas mixtas, pechuga y muslo', large: 'Una ración generosa de plato' },
       internalLine: 'Caliente al centro a {INT_F}°F ({INT_C}°C) en la loncha más gruesa: guía USDA para sobras',
-      internalAltLine: 'Carne oscura (muslos, piernas) está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) y se mantiene jugosa más tiempo',
       failureHeading: 'Por qué el pavo recalentado se vuelve cuero',
       failureBody:
-        'La pechuga de pavo es magra, y en la nevera la poca grasa que tiene se solidifica y las fibras musculares se tensan. Mete lonchas frías directamente en una freidora caliente y la superficie se seca en una costra apretada antes de que el centro se haya calentado, dejándote trozos grises y masticables que ningún gravy arregla. La solución es calor suave y humedad. Un chorrito de caldo de pollo o pavo en el fondo del recipiente, o un ligero pincel de mantequilla derretida sobre las lonchas, da al aire algo de vapor para que la carne se caliente antes de que la superficie selle. Tapa el recipiente suelto con papel de aluminio la primera mitad del recalentado y luego quítalo para que los bordes coloreen. La carne oscura (muslos, piernas) perdona más: su grasa la mantiene jugosa y solo necesita llegar al extremo inferior del rango de temperatura.',
+        'La pechuga de pavo es magra, y en la nevera la poca grasa que tiene se solidifica y las fibras musculares se tensan. Mete lonchas frías directamente en una freidora caliente y la superficie se seca en una costra apretada antes de que el centro se haya calentado, dejándote trozos grises y masticables que ningún gravy arregla. La solución es calor suave y humedad. Un chorrito de caldo de pollo o pavo en el fondo del recipiente, o un ligero pincel de mantequilla derretida sobre las lonchas, da al aire algo de vapor para que la carne se caliente antes de que la superficie selle. Tapa el recipiente suelto con papel de aluminio la primera mitad del recalentado y luego quítalo para que los bordes coloreen. La carne oscura (muslos, piernas) perdona más: su grasa la mantiene jugosa.',
       workedExampleHeading: 'Ejemplo práctico: un plato mixto de sobras',
       workedExampleTemplate:
         'Dos tazas de pavo en lonchas, mezcla de pechuga y muslo, extendidas en una fuente con dos cucharadas de caldo tibio. Tápalas suelto con papel de aluminio y recalienta a {AF_F}°F durante {MEDIUM_MIN} minutos, volteando las piezas a los {FLIP} minutos. Un plato pequeño de lonchas de pechuga tarda unos {SMALL_MIN} minutos; una ración grande mixta unos {LARGE_MIN}. En horno convencional el mismo plato se recalienta a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapado la primera mitad.',
       donenessHeading: 'Cómo saber que está listo',
       donenessBody:
-        'Comprueba una loncha de pechuga con termómetro: la guía USDA dice {INT_F}°F ({INT_C}°C) para sobras recalentadas. La carne oscura está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F y se queda más jugosa. Las lonchas deben soltar vapor al levantar el papel, y la superficie debe verse brillante, no seca y mate. Una loncha de pechuga que se siente firme y elástica se ha pasado.',
+        'Comprueba una loncha de pechuga con termómetro: la guía USDA dice {INT_F}°F ({INT_C}°C) para sobras recalentadas. Las lonchas deben soltar vapor al levantar el papel, y la superficie debe verse brillante, no seca y mate. Una loncha de pechuga que se siente firme y elástica se ha pasado.',
       prepHeading: 'Antes de meterlo',
       prepBody:
-        'Saca el pavo de la nevera unos minutos antes para que se quite lo peor del frío. Separa pechuga de carne oscura si puedes, porque terminan en momentos distintos. Un gravy caliente al lado significa que puedes servir las lonchas en cuanto estén calientes.',
+        'Saca el pavo de la nevera unos minutos antes para que se quite lo peor del frío. Separa pechuga de carne oscura si puedes, porque terminan en momentos distintos. Un gravy caliente al lado significa que puedes servir las lonchas en cuanto estén calientes. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tardas en recalentar pavo en la freidora de aire?',
@@ -2019,7 +2018,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: '¿A qué temperatura debe llegar el pavo recalentado?',
-          a: '{INT_F}°F ({INT_C}°C) para lonchas de pechuga, que es la guía USDA para sobras. La carne oscura está caliente a {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+          a: '{INT_F}°F ({INT_C}°C) para lonchas de pechuga, que es la guía USDA para sobras.',
         },
         {
           q: '¿Por qué mi pechuga de pavo recalentada queda seca?',
@@ -2103,7 +2102,7 @@ export const presets: Dictionary['presets'] = {
         'Levanta el papel y presiona el lado de un panecillo: debe sentirse tibio y elástico, no caliente y duro. La corteza debe estar ligeramente coloreada, no marrón ni crujiente. Parte uno: la miga debe ser blanda y humeante, sin centro frío y denso. Un panecillo que se siente firme y seco ha estado demasiado tiempo.',
       prepHeading: 'Antes de meterlos',
       prepBody:
-        'Coloca los panecillos en una sola capa con un hueco pequeño entre ellos. Corta un trozo de papel de aluminio bastante grande para hacer tienda sobre todo el grupo sin tocar las copas, y mete los bordes bajo el fondo de la cesta. No hace falta aceite ni mantequilla; un pincel de mantequilla derretida va después si quieres una corteza brillante.',
+        'Coloca los panecillos en una sola capa con un hueco pequeño entre ellos. Corta un trozo de papel de aluminio bastante grande para hacer tienda sobre todo el grupo sin tocar las copas, y mete los bordes bajo el fondo de la cesta. No hace falta aceite ni mantequilla; un pincel de mantequilla derretida va después si quieres una corteza brillante. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tardas en recalentar panecillos en la freidora de aire?',
@@ -2229,29 +2228,29 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Jamón totalmente cocido (en espiral, con o sin hueso) y jamón sobrante de la nevera, calentados sin quemar el glaseado. El ajuste bajo, la tapa y los dos objetivos distintos para jamón entero vs sobras.',
       cardDesc: 'Tapa, glasea al final: el azúcar se quema primero.',
-      sizeLabels: { small: 'Unas lonchas', medium: 'Medio jamón o 1,4–1,8 kg', large: 'Un jamón en espiral entero, 3–4 kg' },
+      sizeLabels: { small: '2–3 lonchas', medium: '4–6 lonchas', large: 'Filetes gruesos de jamón' },
       internalLine: 'Jamón totalmente cocido (del paquete): {INT_F}°F ({INT_C}°C) para calentar, luego reposo',
-      internalAltLine: 'Sobras o jamón reenvasado: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guía USDA para sobras recalentadas',
+      internalAltLine: 'Sobras o jamón reenvasado: {INT_ALT_F}°F ({INT_ALT_C}°C) — guía USDA para sobras recalentadas',
       failureHeading: 'Por qué el glaseado se quema antes de que el jamón esté tibio',
       failureBody:
-        'La mayoría de los jamones vienen con un glaseado a base de azúcar (azúcar moreno, miel, arce, cola) que se carameliza a una temperatura mucho más baja que la que hace falta para calentar un jamón frío. En una freidora de aire el glaseado está fuera, en el aire caliente, así que se pone oscuro, luego amargo y negro, mientras la carne de dentro sigue fría de la nevera. La solución es separar los dos trabajos. Recalienta el jamón tapado, para que el calor suave penetre sin que el glaseado vea el ventilador. Luego destapa, pinta con glaseado fresco o tibio y dale uno o dos minutos a la misma temperatura para que cuaje. Los objetivos también difieren. Un jamón totalmente cocido del paquete solo necesita llegar a {INT_F}°F para servir (USDA dice 140°F para jamón cocido envasado al vacío). El jamón sobrante que se ha loncheado y guardado, o un jamón de charcutería, debe llegar a {INT_ALT_TO_F}°F, la guía USDA para sobras.',
+        'La mayoría de los jamones vienen con un glaseado a base de azúcar (azúcar moreno, miel, arce, cola) que se carameliza a una temperatura mucho más baja que la que hace falta para calentar un jamón frío. En una freidora de aire el glaseado está fuera, en el aire caliente, así que se pone oscuro, luego amargo y negro, mientras la carne de dentro sigue fría de la nevera. La solución es separar los dos trabajos. Recalienta el jamón tapado, para que el calor suave penetre sin que el glaseado vea el ventilador. Luego destapa, pinta con glaseado fresco o tibio y dale uno o dos minutos a la misma temperatura para que cuaje. Los objetivos también difieren. Un jamón totalmente cocido del paquete solo necesita llegar a {INT_F}°F para servir (USDA dice 140°F para jamón cocido envasado al vacío). El jamón sobrante que se ha loncheado y guardado, o un jamón de charcutería, debe llegar a {INT_ALT_F}°F, la guía USDA para sobras.',
       workedExampleHeading: 'Ejemplo práctico: medio jamón en espiral',
       workedExampleTemplate:
-        'Medio jamón en espiral de 1,8 kg, con cortes, tapado suelto con papel de aluminio. Precalienta {PREHEAT} minutos y calienta a {AF_F}°F durante {MEDIUM_MIN} minutos, girando a los {FLIP} minutos. Quita el papel, pinta con glaseado y vuelve dos minutos para que cuaje. Unas lonchas tardan unos {SMALL_MIN} minutos; un jamón entero de 3,6 kg unos {LARGE_MIN}. En horno convencional el mismo jamón se calienta a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapado, luego glaseado.',
+        'Medio jamón en espiral de 1,8 kg, con cortes, tapado suelto con papel de aluminio. Precalienta {PREHEAT} minutos y calienta a {AF_F}°F durante {MEDIUM_MIN} minutos, girando a los {FLIP} minutos. Quita el papel, pinta con glaseado y vuelve dos minutos para que cuaje. Unas lonchas tardan unos {SMALL_MIN} minutos; un plato lleno de lonchas gruesas tarda unos {LARGE_MIN}. En horno convencional el mismo jamón se calienta a {OVEN_F}°F durante unos {OVEN_MIN} minutos, tapado, luego glaseado.',
       donenessHeading: 'Cómo saber que está listo',
       donenessBody:
-        'Para un jamón cocido del paquete, {INT_F}°F ({INT_C}°C) en la parte más gruesa, lejos del hueso, es el objetivo. Para sobras o jamón de charcutería, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) es la guía USDA. La carne debe verse jugosa y brillante, no seca ni gris por los bordes. El glaseado, si se pone, debe burbujear y ser pegajoso, no negro.',
+        'Para un jamón cocido del paquete, {INT_F}°F ({INT_C}°C) en la parte más gruesa, lejos del hueso, es el objetivo. Para sobras o jamón de charcutería, {INT_ALT_F}°F ({INT_ALT_C}°C) es la guía USDA. La carne debe verse jugosa y brillante, no seca ni gris por los bordes. El glaseado, si se pone, debe burbujear y ser pegajoso, no negro.',
       prepHeading: 'Antes de meterlo',
       prepBody:
         'Saca el jamón de la nevera 20 minutos antes para que el centro esté menos frío. Si es un jamón en espiral, mantenlo en su red original o envuélvelo en papel de aluminio para que las lonchas no se abran y sequen. Reserva el sobre de glaseado para calentarlo aparte, o haz el tuyo. Un chorrito de agua o caldo en el paquete de papel mantiene el aire húmedo. No hace falta aceite; el jamón lleva su propia grasa.',
       faqs: [
         {
           q: '¿Cuánto tardas en recalentar jamón en la freidora de aire?',
-          a: 'Unos {MIN} minutos a {AF_F}°F para una porción de 1,4–1,8 kg, vuelta a los {FLIP} minutos. Unas lonchas tardan unos {SMALL_MIN} minutos y un jamón entero de 3–4 kg unos {LARGE_MIN}.',
+          a: 'Unos {MIN} minutos a {AF_F}°F para 4–6 lonchas, vuelta a los {FLIP} minutos. Unas lonchas tardan unos {SMALL_MIN} minutos y un plato lleno de lonchas gruesas unos {LARGE_MIN}.',
         },
         {
           q: '¿A qué temperatura debe llegar el jamón recalentado?',
-          a: 'Jamón cocido del paquete: {INT_F}°F ({INT_C}°C) para calentar. Sobras o jamón de charcutería: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), que es la guía USDA para sobras recalentadas.',
+          a: 'Jamón cocido del paquete: {INT_F}°F ({INT_C}°C) para calentar. Sobras o jamón de charcutería: {INT_ALT_F}°F ({INT_ALT_C}°C), que es la guía USDA para sobras recalentadas.',
         },
         {
           q: '¿Por qué se me quema el glaseado del jamón?',
@@ -2293,4 +2292,5 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
     'Cada preconfiguración parte de una freidora de cesta de 4–6 litros, precalentada, con el alimento en una sola capa. En las de cocinar, los equivalentes en horno y en horno con ventilador los calcula el mismo motor que el conversor, así que coinciden entre sí, y el conversor de la página ya tiene ese alimento elegido. Las de congelados muestran en su lugar lo que dice el paquete. Las de recalentar son distintas: el motor convierte recetas de cocción, no recalentados, así que los tiempos de recalentado y sus equivalentes en horno están escritos a mano, y el conversor de esas páginas convierte recetas de horno. Cada página empieza por la forma concreta en que ese alimento sale mal en la freidora, porque eso decide el resultado más que el número del dial. Sin correo, sin registro, nada que instalar.',
   relatedFlagshipLink: 'Conversor de horno a freidora de aire',
   relatedChartLink: 'Tabla de conversión imprimible',
+  holidayGroupHeading: 'Cocina navideña',
 };

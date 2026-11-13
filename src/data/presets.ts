@@ -612,15 +612,15 @@ export const PRESETS = [
     slug: 'turkey-breast',
     category: 'poultry',
     engine: { kind: 'oven', food: 'breast' },
-    tempF: 375,
-    minutes: 15,
-    flipAt: 8,
+    tempF: 350,
+    minutes: 45,
+    flipAt: 22,
     internalF: 165,
     seasonal: 'holiday',
     sizes: [
-      { id: 'small', minutes: 11 },
-      { id: 'medium', minutes: 15 },
-      { id: 'large', minutes: 20 },
+      { id: 'small', minutes: 65 },
+      { id: 'medium', minutes: 45 },
+      { id: 'large', minutes: 55 },
     ],
   },
   {
@@ -631,8 +631,6 @@ export const PRESETS = [
     minutes: 6,
     flipAt: 3,
     internalF: 165,
-    internalAlt: { f: 145, toF: 155 },
-    fresh: 'turkey-breast',
     seasonal: 'holiday',
     sizes: [
       { id: 'small', minutes: 4 },
@@ -662,7 +660,6 @@ export const PRESETS = [
     tempF: 300,
     minutes: 4,
     doneBy: 'toothpick',
-    fresh: 'cookies',
     seasonal: 'holiday',
     sizes: [
       { id: 'small', minutes: 3 },
@@ -710,9 +707,7 @@ export const PRESETS = [
     minutes: 6,
     flipAt: 3,
     internalF: 140,
-    // Fully cooked ham: 140°F rest, leftovers to 165°F
-    internalAlt: { f: 165, toF: 175 },
-    fresh: 'turkey-breast',
+    internalAlt: { f: 165 },
     seasonal: 'holiday',
     sizes: [
       { id: 'small', minutes: 4 },

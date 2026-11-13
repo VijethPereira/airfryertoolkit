@@ -8,7 +8,11 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
 const PAGES = ['index.html', 'oven-to-air-fryer.html', 'air-fryer-to-oven.html', 'convection-to-air-fryer.html', 'frozen.html',
   'air-fryer/frozen-fries.html', 'air-fryer/salmon.html', 'air-fryer/reheat-pizza.html', '400-to-air-fryer.html', '180c-to-air-fryer.html',
   'chart.html', 'presets.html', 'air-fryer-vs-oven-cost.html', 'cosori.html', 'instant-vortex.html', 'about.html', 'terms.html', '404.html',
-  'de.html', 'fr/air-fryer/salmon.html', 'es/chart.html', 'pt/220c-to-air-fryer.html'];
+  'de.html', 'fr/air-fryer/salmon.html', 'es/chart.html', 'pt/220c-to-air-fryer.html',
+  // Holiday batch (Row 7 Batch 4)
+  'air-fryer/turkey-breast.html', 'air-fryer/reheat-turkey.html', 'air-fryer/stuffing.html',
+  'air-fryer/dinner-rolls.html', 'air-fryer/roast-potatoes.html', 'air-fryer/pigs-in-blankets.html',
+  'air-fryer/reheat-ham.html'];
 (async () => {
   const browser = await chromium.launch();
   const issues = [];

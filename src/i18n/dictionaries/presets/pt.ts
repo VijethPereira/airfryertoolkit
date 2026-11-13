@@ -1136,7 +1136,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Nuggets de frango congelados já vêm cozidos?',
-          a: 'A maioria sim. A embalagem vai dizer “totalmente cozido”. Se disser “cru” ou “não cozido”, cozinhe até {INT_F}°F com termômetro, como frango cru.',
+          a: 'A maioria sim. A embalagem vai dizer "totalmente cozido". Se disser "cru" ou "não cozido", cozinhe até {INT_F}°F com termômetro, como frango cru.',
         },
         {
           q: 'Preciso virar os nuggets?',
@@ -1320,7 +1320,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Como sei se as tiras congeladas são cruas?',
-          a: 'A embalagem diz. Procure “não cozido”, “cru” ou “cozinhar completamente” perto das instruções. Se não estiver claro, trate como cru e use um termômetro.',
+          a: 'A embalagem diz. Procure "não cozido", "cru" ou "cozinhar completamente" perto das instruções. Se não estiver claro, trate como cru e use um termômetro.',
         },
         {
           q: 'A que temperatura as tiras cruas devem chegar?',
@@ -1503,7 +1503,7 @@ export const presets: Dictionary['presets'] = {
           a: 'Cerca de {MIN} minutos a {AF_F}°F para uma porção, chacoalhando uma vez. Um punhado pequeno leva cerca de {SMALL_MIN} minutos e uma porção grande cerca de {LARGE_MIN}.',
         },
         {
-          q: 'Dá para reaquecer batata do McDonald’s na air fryer?',
+          q: 'Dá para reaquecer batata do McDonald\'s na air fryer?',
           a: 'Sim. As batatas finas de fast-food se recuperam melhor que as grossas; confira um minuto antes, porque elas passam de crocantes a secas muito rápido.',
         },
         {
@@ -1951,7 +1951,7 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Peito de peru com ou sem osso, assado até a pele ficar dourada e o centro chegar a 165°F. O ajuste, a virada e por que o repouso depois de cozinhar faz parte da temperatura.',
       cardDesc: 'Tire a 160°F e repouse três minutos até 165°F.',
-      sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,8–2,3 kg', large: 'Peito com osso, 2,7–3,2 kg' },
+      sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,8–2,7 kg', large: 'Peito com osso, 2,7–3,6 kg' },
       failureHeading: 'Por que o peito seca antes de o centro estar seguro',
       failureBody:
         'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Tire o peito quando a parte mais grossa marcar 160°F, cubra com papel alumínio e espere três minutos. O calor guardado nas camadas exteriores finaliza o centro a 165°F enquanto os sucos se assentam na carne em vez de sair na tábua.',
@@ -1963,11 +1963,11 @@ export const presets: Dictionary['presets'] = {
         'Espete a parte mais grossa do peito, de lado, evitando o osso: 160°F é o alvo de retirada, 165°F após os três minutos de repouso. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Para um peito sem osso, abra em borboleta ou achate a 3,5 cm de espessura constante. Para um com osso, enfie as pontas das asas e amarre o peito com barbante de cozinha para que fique compacto. Unte com óleo e um tempero seco de sal e ervas funciona bem com peru; 30 minutos descoberto na geladeira seca a pele e ajuda a crocância. Se o peito for muito grande para seu cesto, pode ser feito em duas fases: comece com a pele para baixo na primeira metade, depois vire com a pele para cima para finalizar.',
+        'Para um peito sem osso, abra em borboleta ou achate a 3,5 cm de espessura constante. Para um com osso, enfie as pontas das asas e amarre o peito com barbante de cozinha para que fique compacto. Unte com óleo e um tempero seco de sal e ervas funciona bem com peru; 30 minutos descoberto na geladeira seca a pele e ajuda a crocância. Se o peito for muito grande para seu cesto, pode ser feito em duas fases: comece com a pele para baixo na primeira metade, depois vire com a pele para cima para finalizar. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo o peito de peru leva na air fryer?',
-          a: 'Uns {MIN} minutos a {AF_F}°F para um peito com osso de 1,8–2,3 kg, virando aos {FLIP} minutos. Um peito sem osso de 0,9–1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 2,7–3,2 kg uns {LARGE_MIN}. Decida sempre por temperatura, não por tempo.',
+          a: 'Uns {MIN} minutos a {AF_F}°F para um peito com osso de 1,8–2,7 kg, virando aos {FLIP} minutos. Um peito sem osso de 0,9–1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 2,7–3,6 kg uns {LARGE_MIN}. Decida sempre por temperatura, não por tempo.',
         },
         {
           q: 'A que temperatura o peito de peru deve chegar?',
@@ -1999,19 +1999,18 @@ export const presets: Dictionary['presets'] = {
       cardDesc: 'Um respingo de caldo e papel alumínio mantêm o peito úmido.',
       sizeLabels: { small: 'Umas fatias de peito', medium: 'Fatias mistas, peito e coxa', large: 'Uma porção generosa de prato' },
       internalLine: 'Quente no centro a {INT_F}°F ({INT_C}°C) na fatia mais grossa: guia USDA para sobras',
-      internalAltLine: 'Carne escura (coxas, pernas) está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) e fica úmida por mais tempo',
       failureHeading: 'Por que o peru reaquecido vira couro',
       failureBody:
-        'O peito de peru é magro, e na geladeira a pouca gordura que tem solidifica e as fibras musculares se tensionam. Coloque fatias frias direto numa air fryer quente e a superfície seca numa crosta apertada antes de o meio esquentar, deixando pedaços cinzentos e mastigáveis que nenhum molho arruma. A solução é calor suave e umidade. Um respingo de caldo de galinha ou peru no fundo do recipiente, ou um pincel leve de manteiga derretida nas fatias, dá ao ar algo de vapor para a carne esquentar antes de a superfície selar. Cubra o recipiente solto com papel alumínio na primeira metade do reaquecimento e depois tire para as bordas colorirem. Carne escura (coxas, pernas) perdoa mais: sua gordura a mantém úmida, e ela só precisa chegar ao extremo inferior da faixa de temperatura.',
+        'O peito de peru é magro, e na geladeira a pouca gordura que tem solidifica e as fibras musculares se tensionam. Coloque fatias frias direto numa air fryer quente e a superfície seca numa crosta apertada antes de o meio esquentar, deixando pedaços cinzentos e mastigáveis que nenhum molho arruma. A solução é calor suave e umidade. Um respingo de caldo de galinha ou peru no fundo do recipiente, ou um pincel leve de manteiga derretida nas fatias, dá ao ar algo de vapor para a carne esquentar antes de a superfície selar. Cubra o recipiente solto com papel alumínio na primeira metade do reaquecimento e depois tire para as bordas colorirem. Carne escura (coxas, pernas) perdoa mais: sua gordura a mantém úmida.',
       workedExampleHeading: 'Exemplo prático: um prato misto de sobras',
       workedExampleTemplate:
         'Duas xícaras de peru em fatias, misto de peito e coxa, espalhadas numa assadeira com duas colheres de caldo morno. Cubra solto com papel alumínio e reaqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando as peças aos {FLIP} minutos. Um prato pequeno de fatias de peito leva uns {SMALL_MIN} minutos; uma porção grande mista uns {LARGE_MIN}. No forno convencional o mesmo prato reaquece a {OVEN_F}°F por uns {OVEN_MIN} minutos, coberto na primeira metade.',
       donenessHeading: 'Como saber que está pronto',
       donenessBody:
-        'Confira uma fatia de peito com termômetro: a guia USDA diz {INT_F}°F ({INT_C}°C) para sobras reaquecidas. Carne escura está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F e fica mais úmida. As fatias devem soltar vapor ao levantar o papel, e a superfície deve parecer brilhante, não seca e fosca. Uma fatia de peito que parece firme e elástica passou do ponto.',
+        'Confira uma fatia de peito com termômetro: a guia USDA diz {INT_F}°F ({INT_C}°C) para sobras reaquecidas. As fatias devem soltar vapor ao levantar o papel, e a superfície deve parecer brilhante, não seca e fosca. Uma fatia de peito que parece firme e elástica passou do ponto.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Tire o peru da geladeira uns minutos antes para tirar o pior do frio. Separe peito de carne escura se puder, pois terminam em tempos diferentes. Um molheira quente ao lado significa que você pode servir as fatias no momento em que estiverem quentes.',
+        'Tire o peru da geladeira uns minutos antes para tirar o pior do frio. Separe peito de carne escura se puder, pois terminam em tempos diferentes. Um molheira quente ao lado significa que você pode servir as fatias no momento em que estiverem quentes. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo para reaquecer peru na air fryer?',
@@ -2019,7 +2018,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'A que temperatura o peru reaquecido deve chegar?',
-          a: '{INT_F}°F ({INT_C}°C) para fatias de peito, que é a guia USDA para sobras. Carne escura está quente a {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+          a: '{INT_F}°F ({INT_C}°C) para fatias de peito, que é a guia USDA para sobras.',
         },
         {
           q: 'Por que meu peito de peru reaquecido fica seco?',
@@ -2229,29 +2228,29 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Presunto totalmente cozido (em espiral, com ou sem osso) e presunto sobrado da geladeira, aquecidos sem queimar o glaceado. O ajuste baixo, a tampa e os dois alvos distintos para presunto inteiro vs sobras.',
       cardDesc: 'Cubra, glaceie no fim: o açúcar queima primeiro.',
-      sizeLabels: { small: 'Umas fatias', medium: 'Meio presunto ou 1,4–1,8 kg', large: 'Um presunto em espiral inteiro, 3–4 kg' },
+      sizeLabels: { small: '2–3 fatias', medium: '4–6 fatias', large: 'Fatias grossas estilo bife' },
       internalLine: 'Presunto totalmente cozido (da embalagem): {INT_F}°F ({INT_C}°C) para esquentar, depois repouso',
-      internalAltLine: 'Sobras ou presunto reembalado: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guia USDA para sobras reaquecidas',
+      internalAltLine: 'Sobras ou presunto reembalado: {INT_ALT_F}°F ({INT_ALT_C}°C) — guia USDA para sobras reaquecidas',
       failureHeading: 'Por que o glaceado queima antes de o presunto estar morno',
       failureBody:
-        'A maioria dos presuntos vem com glaceado à base de açúcar (açúcar mascavo, mel, bordo, cola) que carameliza a temperatura muito mais baixa que a necessária para esquentar um presunto frio. Na air fryer o glaceado está fora, no ar quente, então fica escuro, depois amargo e preto, enquanto a carne de dentro segue fria da geladeira. A solução é separar os dois trabalhos. Reaqueça o presunto coberto, para o calor suave penetrar sem o glaceado ver o ventilador. Depois destape, pinte com glaceado fresco ou morno e dê um ou dois minutos na mesma temperatura para firmar. Os alvos também diferem. Um presunto totalmente cozido da embalagem só precisa chegar a {INT_F}°F para servir (USDA diz 140°F para presunto cozido embalado a vácuo). O presunto sobrado que foi fatiado e guardado, ou um presunto de charcutaria, deve chegar a {INT_ALT_TO_F}°F, a guia USDA para sobras.',
+        'A maioria dos presuntos vem com glaceado à base de açúcar (açúcar mascavo, mel, bordo, cola) que carameliza a temperatura muito mais baixa que a necessária para esquentar um presunto frio. Na air fryer o glaceado está fora, no ar quente, então fica escuro, depois amargo e preto, enquanto a carne de dentro segue fria da geladeira. A solução é separar os dois trabalhos. Reaqueça o presunto coberto, para o calor suave penetrar sem o glaceado ver o ventilador. Depois destape, pinte com glaceado fresco ou morno e dê um ou dois minutos na mesma temperatura para firmar. Os alvos também diferem. Um presunto totalmente cozido da embalagem só precisa chegar a {INT_F}°F para servir (USDA diz 140°F para presunto cozido embalado a vácuo). O presunto sobrado que foi fatiado e guardado, ou um presunto de charcutaria, deve chegar a {INT_ALT_F}°F, a guia USDA para sobras.',
       workedExampleHeading: 'Exemplo prático: meio presunto em espiral',
       workedExampleTemplate:
-        'Meio presunto em espiral de 1,8 kg, riscado, coberto solto com papel alumínio. Preaqueça {PREHEAT} minutos e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Tire o papel, pinte com glaceado e volte dois minutos para firmar. Umas fatias levam uns {SMALL_MIN} minutos; um inteiro de 3,6 kg uns {LARGE_MIN}. No forno convencional o mesmo presunto esquenta a {OVEN_F}°F por uns {OVEN_MIN} minutos, coberto, depois glaceado.',
+        'Meio presunto em espiral de 1,8 kg, riscado, coberto solto com papel alumínio. Preaqueça {PREHEAT} minutos e aqueça a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Tire o papel, pinte com glaceado e volte dois minutos para firmar. Umas fatias levam uns {SMALL_MIN} minutos; um prato cheio de fatias grossas leva uns {LARGE_MIN}. No forno convencional o mesmo presunto esquenta a {OVEN_F}°F por uns {OVEN_MIN} minutos, coberto, depois glaceado.',
       donenessHeading: 'Como saber que está pronto',
       donenessBody:
-        'Para presunto cozido da embalagem, {INT_F}°F ({INT_C}°C) na parte mais grossa, longe do osso, é o alvo. Para sobras ou presunto de charcutaria, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) é a guia USDA. A carne deve parecer úmida e brilhante, não seca nem cinzenta nas bordas. O glaceado, se posto, deve borbulhar e ser pegajoso, não preto.',
+        'Para presunto cozido da embalagem, {INT_F}°F ({INT_C}°C) na parte mais grossa, longe do osso, é o alvo. Para sobras ou presunto de charcutaria, {INT_ALT_F}°F ({INT_ALT_C}°C) é a guia USDA. A carne deve parecer úmida e brilhante, não seca nem cinzenta nas bordas. O glaceado, se posto, deve borbulhar e ser pegajoso, não preto.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Tire o presunto da geladeira 20 minutos antes para o centro estar menos frio. Se é presunto em espiral, mantenha na rede original ou envolva em papel alumínio para as fatias não abrirem e secarem. Guarde o sachê de glaceado para esquentar à parte, ou faça o seu. Um respingo de água ou caldo no pacote de papel mantém o ar úmido. Não precisa óleo; o presunto carrega sua gordura.',
+        'Tire o presunto da geladeira 20 minutos antes para o centro estar menos frio. Se é presunto em espiral, mantenha na rede original ou envolva em papel alumínio para as fatias não abrirem e secarem. Guarde o sachê de glaceado para esquentar à parte, ou faça o seu. Um respingo de água ou caldo no pacote de papel mantém o ar úmido. Não precisa óleo; o presunto carrega sua gordura. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo para reaquecer presunto na air fryer?',
-          a: 'Uns {MIN} minutos a {AF_F}°F para uma porção de 1,4–1,8 kg, virando aos {FLIP} minutos. Umas fatias levam uns {SMALL_MIN} minutos e um inteiro de 3–4 kg uns {LARGE_MIN}.',
+          a: 'Uns {MIN} minutos a {AF_F}°F para 4–6 fatias, virando aos {FLIP} minutos. Umas fatias levam uns {SMALL_MIN} minutos e um prato cheio de fatias grossas uns {LARGE_MIN}.',
         },
         {
           q: 'A que temperatura o presunto reaquecido deve chegar?',
-          a: 'Presunto cozido da embalagem: {INT_F}°F ({INT_C}°C) para esquentar. Sobras ou presunto de charcutaria: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), que é a guia USDA para sobras reaquecidas.',
+          a: 'Presunto cozido da embalagem: {INT_F}°F ({INT_C}°C) para esquentar. Sobras ou presunto de charcutaria: {INT_ALT_F}°F ({INT_ALT_C}°C), que é a guia USDA para sobras reaquecidas.',
         },
         {
           q: 'Por que meu glaceado de presunto queima?',
@@ -2293,4 +2292,5 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
     'Cada predefinição parte de uma air fryer de cesto de 4–6 litros, preaquecida, com o alimento numa camada só. Nas de cozinhar, os equivalentes em forno convencional e com ventilação são calculados pelo mesmo motor do conversor, então batem entre si, e o conversor da página já vem com esse alimento escolhido. As de congelados mostram o que diz a embalagem. As de reaquecer são diferentes: o motor converte receitas de cozimento, não reaquecimentos, então os tempos de reaquecer e seus equivalentes no forno são escritos à mão, e o conversor dessas páginas converte receitas de forno. Cada página começa pelo jeito específico como aquele alimento dá errado na air fryer, porque isso decide o resultado mais do que o número no seletor. Sem e-mail, sem cadastro, nada para instalar.',
   relatedFlagshipLink: 'Conversor de forno para air fryer',
   relatedChartLink: 'Tabela de conversão para imprimir',
+  holidayGroupHeading: 'Cozinha de festa',
 };

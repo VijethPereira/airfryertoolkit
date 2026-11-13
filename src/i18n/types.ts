@@ -542,6 +542,7 @@ export interface Dictionary {
     howBody: string;
     relatedFlagshipLink: string;
     relatedChartLink: string;
+    holidayGroupHeading: string;
   };
   tempLanding: {
     backLink: string;

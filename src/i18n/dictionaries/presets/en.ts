@@ -12,7 +12,7 @@ export const presets: Dictionary['presets'] = {
   ovenHeading: 'Oven equivalent',
   ovenTemplate: 'Conventional oven: {OVEN_F}°F ({OVEN_C}°C, gas mark {OVEN_MARK}) for {OVEN_MIN} min',
   fanTemplate: 'Fan / convection oven: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
-  ovenNote: 'Starting from an oven recipe instead? The converter below is set to this food — enter the recipe’s temperature and time.',
+  ovenNote: 'Starting from an oven recipe instead? The converter below is set to this food — enter the recipe\'s temperature and time.',
   sizingHeading: 'Time by size',
   sizingIntro: 'Same temperature, different time: thickness decides how long the heat takes to reach the middle.',
   sizingHeaders: { size: 'Size', airFryer: 'Air fryer', oven: 'Oven' },
@@ -30,7 +30,7 @@ export const presets: Dictionary['presets'] = {
     ovenHeading: 'What the pack says',
     ovenTemplate: 'Conventional oven pack: {OVEN_F}°F ({OVEN_C}°C, gas mark {OVEN_MARK}) for {OVEN_MIN} min',
     fanTemplate: 'Fan oven pack: {FAN_F}°F ({FAN_C}°C) for {FAN_MIN} min',
-    ovenNote: 'Your bag prints different numbers? The converter below is set to this food — enter the pack’s temperature and time.',
+    ovenNote: 'Your bag prints different numbers? The converter below is set to this food — enter the pack\'s temperature and time.',
     sizingHeaders: { size: 'Size', airFryer: 'Air fryer', oven: 'Pack says' },
     relatedFlagshipLink: 'Frozen pack converter',
   },
@@ -1009,7 +1009,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'My bag says {OVEN_F}°F for {OVEN_MIN} minutes. What do I set?',
-          a: '{AF_F}°F for about {MIN} minutes in a basket air fryer. The converter on this page takes any bag’s numbers, including fan-oven ones.',
+          a: '{AF_F}°F for about {MIN} minutes in a basket air fryer. The converter on this page takes any bag\'s numbers, including fan-oven ones.',
         },
       ],
     },
@@ -1136,7 +1136,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Are frozen chicken nuggets already cooked?',
-          a: 'Most are. The pack will say “fully cooked”. If it says “uncooked” or “raw”, cook them to {INT_F}°F with a thermometer like raw chicken.',
+          a: 'Most are. The pack will say "fully cooked". If it says "uncooked" or "raw", cook them to {INT_F}°F with a thermometer like raw chicken.',
         },
         {
           q: 'Do I need to flip nuggets?',
@@ -1303,7 +1303,7 @@ export const presets: Dictionary['presets'] = {
       sizeLabels: { small: 'Thin strips or chicken fingers', medium: 'Standard breaded tenders', large: 'Thick or homestyle tenders' },
       failureHeading: 'The pack says raw, the coating says done',
       failureBody:
-        'Breaded tenders come in two kinds that look identical in the bag. Some are fully cooked and only need reheating. Many others, especially store brands and “homestyle” strips, are raw chicken in a pre-browned coating, and the pack says so in small print: uncooked, cook thoroughly, or raw. The coating on these was fried just long enough to set it, so it looks golden before the air fryer even starts, and it is easy to pull them when they look ready while the chicken inside is still raw. A tender is also thicker than a nugget, so the centre needs longer to come up to temperature. Treat every bag as raw unless it clearly says fully cooked, and use a thermometer on the fattest strip.',
+        'Breaded tenders come in two kinds that look identical in the bag. Some are fully cooked and only need reheating. Many others, especially store brands and "homestyle" strips, are raw chicken in a pre-browned coating, and the pack says so in small print: uncooked, cook thoroughly, or raw. The coating on these was fried just long enough to set it, so it looks golden before the air fryer even starts, and it is easy to pull them when they look ready while the chicken inside is still raw. A tender is also thicker than a nugget, so the centre needs longer to come up to temperature. Treat every bag as raw unless it clearly says fully cooked, and use a thermometer on the fattest strip.',
       workedExampleHeading: 'Worked example: a bag of raw breaded tenders',
       workedExampleTemplate:
         'A bag of uncooked breaded tenders says {OVEN_F}°F for {OVEN_MIN} minutes, turning once. In a basket air fryer that becomes {AF_F}°F for {MIN} minutes. Preheat {PREHEAT} minutes, lay six to eight tenders flat without touching, and flip at {FLIP} minutes. Thin chicken fingers take about {SMALL_MIN} minutes; thick homestyle tenders need about {LARGE_MIN}. Probe the thickest one before serving; fully cooked tenders can come out a few minutes sooner.',
@@ -1320,7 +1320,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'How do I know if frozen tenders are raw?',
-          a: 'The pack tells you. Look for “uncooked”, “raw” or “cook thoroughly” near the instructions. If it is unclear, treat them as raw and check with a thermometer.',
+          a: 'The pack tells you. Look for "uncooked", "raw" or "cook thoroughly" near the instructions. If it is unclear, treat them as raw and check with a thermometer.',
         },
         {
           q: 'What temperature should raw tenders reach?',
@@ -1503,7 +1503,7 @@ export const presets: Dictionary['presets'] = {
           a: 'About {MIN} minutes at {AF_F}°F for one portion, shaken once. A small handful takes around {SMALL_MIN} minutes and a large portion around {LARGE_MIN}.',
         },
         {
-          q: 'Can you reheat McDonald’s fries in the air fryer?',
+          q: 'Can you reheat McDonald\'s fries in the air fryer?',
           a: 'Yes. Thin fast-food fries recover better than thick ones; check them a minute early, because they go from crisp to dry quickly.',
         },
         {
@@ -1950,8 +1950,8 @@ export const presets: Dictionary['presets'] = {
       heading: 'Turkey breast in the air fryer',
       subDesc:
         'Bone-in or boneless breast, roasted until the skin is golden and the centre hits 165°F. The setting, the flip, and why the rest after cooking is part of the temperature.',
-      cardDesc: 'Pull at 160°F and rest three minutes to reach 165°F.',
-      sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 4–5 lb (1.8–2.3 kg)', large: 'Bone-in breast, 6–7 lb (2.7–3.2 kg)' },
+      cardDesc: 'Cook to {INT_F}°F, then rest.',
+      sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 4–6 lb (1.8–2.7 kg)', large: 'Bone-in breast, 6–8 lb (2.7–3.6 kg)' },
       failureHeading: 'Why the breast dries out before the centre is safe',
       failureBody:
         'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Take the breast out when the thickest part reads 160°F, tent it with foil, and wait three minutes. The heat stored in the outer layers finishes the centre to 165°F while the juices settle back into the meat instead of running out on the board.',
@@ -1963,15 +1963,15 @@ export const presets: Dictionary['presets'] = {
         'Probe the thickest part of the breast, from the side, avoiding the bone: 160°F is the take-out target, 165°F after the three-minute rest. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
       prepHeading: 'Before it goes in',
       prepBody:
-        'For a boneless breast, butterfly or pound it to an even 1½-inch thickness. For bone-in, tuck the wing tips under and truss the breast with kitchen twine so it stays compact. Rub with oil and a dry brine of salt and herbs works well for turkey; 30 minutes uncovered in the fridge dries the skin and helps it crisp. If the breast is very large for your basket, it can be cooked in two stages: start breast side down for the first half, then turn it skin side up to finish.',
+        'For a boneless breast, butterfly or pound it to an even 1½-inch thickness. For bone-in, tuck the wing tips under and truss the breast with kitchen twine so it stays compact. Rub with oil and a dry brine of salt and herbs works well for turkey; 30 minutes uncovered in the fridge dries the skin and helps it crisp. If the breast is very large for your basket, it can be cooked in two stages: start breast side down for the first half, then turn it skin side up to finish. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long does a turkey breast take in the air fryer?',
-          a: 'About {MIN} minutes at {AF_F}°F for a 4–5 lb bone-in breast, flipped at {FLIP} minutes. A 2–3 lb boneless breast takes around {SMALL_MIN} minutes and a 6–7 lb bone-in around {LARGE_MIN}. Always finish by temperature, not time.',
+          a: 'About {MIN} minutes at {AF_F}°F for a 4–6 lb bone-in breast, flipped at {FLIP} minutes. A 2–3 lb boneless breast takes around {SMALL_MIN} minutes and a 6–8 lb bone-in around {LARGE_MIN}. Always finish by temperature, not time.',
         },
         {
           q: 'What temperature should turkey breast reach?',
-          a: '{INT_F}°F ({INT_C}°C) in the thickest part is the USDA safe temperature. Take it out at 160°F and rest three minutes; it will rise to 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest part is the USDA safe temperature. Cook to 160°F and rest three minutes; it will rise to 165°F.',
         },
         {
           q: 'Do I need to flip a turkey breast in the air fryer?',
@@ -1999,19 +1999,18 @@ export const presets: Dictionary['presets'] = {
       cardDesc: 'A splash of stock and foil keeps the breast moist.',
       sizeLabels: { small: 'A few slices of breast', medium: 'Mixed slices, breast and thigh', large: 'A large platter portion' },
       internalLine: 'Hot through at {INT_F}°F ({INT_C}°C) in the thickest slice: USDA guidance for leftovers',
-      internalAltLine: 'Dark meat (thighs, legs) is hot at {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) and stays moist longer',
       failureHeading: 'Why reheated turkey breast turns into leather',
       failureBody:
-        'Turkey breast is lean, and in the fridge the little fat it has solidifies and the muscle fibres tighten. Put cold slices straight into a hot air fryer and the surface dries into a tight crust before the middle has warmed through, leaving you with grey, chewy pieces that no gravy can fix. The fix is gentle heat and moisture. A splash of chicken or turkey stock in the bottom of the dish, or a light brush of melted butter on the slices, gives the air something to steam so the meat warms before the surface seals. Cover the dish loosely with foil for the first half of the reheat, then remove it so the edges can colour. Dark meat (thighs, legs) is more forgiving: its fat keeps it moist, and it only needs to reach the lower end of the temperature range.',
+        'Turkey breast is lean, and in the fridge the little fat it has solidifies and the muscle fibres tighten. Put cold slices straight into a hot air fryer and the surface dries into a tight crust before the middle has warmed through, leaving you with grey, chewy pieces that no gravy can fix. The fix is gentle heat and moisture. A splash of chicken or turkey stock in the bottom of the dish, or a light brush of melted butter on the slices, gives the air something to steam so the meat warms before the surface seals. Cover the dish loosely with foil for the first half of the reheat, then remove it so the edges can colour. Dark meat (thighs, legs) is more forgiving: its fat keeps it moist.',
       workedExampleHeading: 'Worked example: a mixed plate of leftovers',
       workedExampleTemplate:
         'Two cups of sliced turkey, mixed breast and thigh, spread in a baking dish with two tablespoons of warm stock. Cover loosely with foil and reheat at {AF_F}°F for {MEDIUM_MIN} minutes, flipping the pieces at {FLIP} minutes. A small plate of breast slices takes about {SMALL_MIN} minutes; a large mixed portion takes about {LARGE_MIN}. In a conventional oven the same plate reheats at {OVEN_F}°F for around {OVEN_MIN} minutes, covered for the first half.',
       donenessHeading: 'How to tell it is ready',
       donenessBody:
-        'Check a breast slice with a thermometer: USDA guidance is {INT_F}°F ({INT_C}°C) for reheated leftovers. Dark meat is hot through at {INT_ALT_F}–{INT_ALT_TO_F}°F and will stay juicier. The slices should steam when you lift the foil, and the surface should look glossy, not dry and matt. A breast slice that feels firm and springy has gone too far.',
+        'Check a breast slice with a thermometer: USDA guidance is {INT_F}°F ({INT_C}°C) for reheated leftovers. The slices should steam when you lift the foil, and the surface should look glossy, not dry and matt. A breast slice that feels firm and springy has gone too far.',
       prepHeading: 'Before it goes in',
       prepBody:
-        'Take the turkey out of the fridge a few minutes early so the chill eases. Separate breast from dark meat if you can, since they finish at different times. A gravy boat warmed on the side means you can serve the slices the moment they are hot.',
+        'Take the turkey out of the fridge a few minutes early so the chill eases. Separate breast from dark meat if you can, since they finish at different times. A gravy boat warmed on the side means you can serve the slices the moment they are hot. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long do you reheat turkey in the air fryer?',
@@ -2019,7 +2018,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'What temperature should reheated turkey reach?',
-          a: '{INT_F}°F ({INT_C}°C) for breast slices, which is USDA guidance for leftovers. Dark meat is hot at {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+          a: '{INT_F}°F ({INT_C}°C) for breast slices, which is USDA guidance for leftovers.',
         },
         {
           q: 'Why does my reheated turkey breast get dry?',
@@ -2103,7 +2102,7 @@ export const presets: Dictionary['presets'] = {
         'Lift the foil and press the side of a roll: it should feel warm and springy, not hot and hard. The top should be lightly coloured, not brown or crisp. Break one open: the crumb should be soft and steamy, with no cold, dense centre. A roll that feels firm and dry has been in too long.',
       prepHeading: 'Before they go in',
       prepBody:
-        'Arrange the rolls in a single layer with a small gap between them. Cut a piece of foil large enough to tent over the whole group without touching the tops, and tuck the edges under the basket floor. No oil or butter is needed; a brush of melted butter goes on after reheating if you want a shiny top.',
+        'Arrange the rolls in a single layer with a small gap between them. Cut a piece of foil large enough to tent over the whole group without touching the tops, and tuck the edges under the basket floor. No oil or butter is needed; a brush of melted butter goes on after reheating if you want a shiny top. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long do you reheat dinner rolls in the air fryer?',
@@ -2195,7 +2194,7 @@ export const presets: Dictionary['presets'] = {
         'The bacon should be crisp and deep golden on both sides, with no pale, soft patches. The sausage inside should reach {INT_F}°F ({INT_C}°C) in the middle, measured with a thin probe through the bacon. If the bacon is crisp but the sausage is under 160°F, lower the heat to 350°F and give them two more minutes.',
       prepHeading: 'Before they go in',
       prepBody:
-        'Use chipolatas (small pork sausages), not frankfurters or hot dogs. Wrap each one in a half-rasher of streaky bacon, tucking the ends underneath so they do not unwrap. No oil is needed; the bacon releases plenty of fat. If your basket runs hot, line it with perforated parchment to catch the drips and reduce smoke. Leave a finger-width gap between rolls so the bacon on the sides crisps too.',
+        'Use chipolatas (small pork sausages), not frankfurters or hot dogs. Wrap each one in a half-rasher of streaky bacon, tucking the ends underneath so they do not unwrap. No oil is needed; the bacon releases plenty of fat. If your basket runs hot, line it with perforated parchment to catch the drips and reduce smoke. Leave a finger-width gap between rolls so the bacon on the sides crisps too. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long do pigs in blankets take in the air fryer?',
@@ -2229,29 +2228,29 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Fully cooked ham (spiral-cut, bone-in or boneless) and leftover ham from the fridge, warmed through without burning the glaze. The low setting, the cover, and the two different targets for whole ham vs leftovers.',
       cardDesc: 'Cover, then glaze at the end: the sugar burns first.',
-      sizeLabels: { small: 'A few slices', medium: 'A half-ham or 3–4 lb portion', large: 'A whole spiral-cut ham, 7–9 lb' },
+      sizeLabels: { small: '2–3 slices', medium: '4–6 slices', large: 'Thick ham steaks' },
       internalLine: 'Fully cooked ham (from the pack): {INT_F}°F ({INT_C}°C) to warm through, then rest',
-      internalAltLine: 'Leftovers or repackaged ham: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — USDA guidance for reheated leftovers',
+      internalAltLine: 'Leftovers or repackaged ham: {INT_ALT_F}°F ({INT_ALT_C}°C) — USDA guidance for reheated leftovers',
       failureHeading: 'Why the glaze burns before the ham is warm',
       failureBody:
-        'Most hams come with a sugar-based glaze (brown sugar, honey, maple, cola) that caramelises at a much lower temperature than it takes to heat a cold ham through. In an air fryer the glaze sits on the outside, right in the hot airflow, so it goes dark, then bitter and black, while the meat inside is still fridge-cold. The fix is to separate the two jobs. Reheat the ham covered, so the gentle heat penetrates without the glaze seeing the fan. Then uncover, brush with fresh or warmed glaze, and give it a minute or two at the same temperature to set. The targets differ too. A fully cooked ham straight from the pack only needs to reach {INT_F}°F to be ready to serve (USDA says 140°F for vacuum-packed cooked ham). Leftover ham that has been sliced and stored, or a ham from the deli, must reach {INT_ALT_TO_F}°F, the USDA leftover guidance.',
+        'Most hams come with a sugar-based glaze (brown sugar, honey, maple, cola) that caramelises at a much lower temperature than it takes to heat a cold ham through. In an air fryer the glaze sits on the outside, right in the hot airflow, so it goes dark, then bitter and black, while the meat inside is still fridge-cold. The fix is to separate the two jobs. Reheat the ham covered, so the gentle heat penetrates without the glaze seeing the fan. Then uncover, brush with fresh or warmed glaze, and give it a minute or two at the same temperature to set. The targets differ too. A fully cooked ham straight from the pack only needs to reach {INT_F}°F to be ready to serve (USDA says 140°F for vacuum-packed cooked ham). Leftover ham that has been sliced and stored, or a ham from the deli, must reach {INT_ALT_F}°F, the USDA leftover guidance.',
       workedExampleHeading: 'Worked example: a half spiral-cut ham',
       workedExampleTemplate:
-        'A 4 lb half spiral-cut ham, scored, covered loosely with foil. Preheat {PREHEAT} minutes and heat at {AF_F}°F for {MEDIUM_MIN} minutes, flipping at {FLIP} minutes. Remove the foil, brush with glaze, and return for two minutes to set it. A few slices take about {SMALL_MIN} minutes; a whole 8 lb ham takes about {LARGE_MIN}. In a conventional oven the same ham warms at {OVEN_F}°F for around {OVEN_MIN} minutes, covered, then glazed.',
+        'A 4 lb half spiral-cut ham, scored, covered loosely with foil. Preheat {PREHEAT} minutes and heat at {AF_F}°F for {MEDIUM_MIN} minutes, flipping at {FLIP} minutes. Remove the foil, brush with glaze, and return for two minutes to set it. A few slices take about {SMALL_MIN} minutes; a full plate of thick slices takes about {LARGE_MIN}. In a conventional oven the same ham warms at {OVEN_F}°F for around {OVEN_MIN} minutes, covered, then glazed.',
       donenessHeading: 'How to tell it is ready',
       donenessBody:
-        'For a fully cooked ham from the pack, {INT_F}°F ({INT_C}°C) in the thickest part, away from the bone, is the target. For leftovers or deli ham, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) is USDA guidance. The meat should look moist and glossy, not dry or grey at the edges. The glaze, if applied, should be bubbling and sticky, not black.',
+        'For a fully cooked ham from the pack, {INT_F}°F ({INT_C}°C) in the thickest part, away from the bone, is the target. For leftovers or deli ham, {INT_ALT_F}°F ({INT_ALT_C}°C) is USDA guidance. The meat should look moist and glossy, not dry or grey at the edges. The glaze, if applied, should be bubbling and sticky, not black.',
       prepHeading: 'Before it goes in',
       prepBody:
-        'Take the ham out of the fridge 20 minutes early so the centre is less cold. If it is a spiral-cut ham, keep it in its original netting or wrap it in foil so the slices do not fan out and dry. Reserve the glaze packet to warm separately, or make your own. A splash of water or stock in the foil packet keeps the air moist. No oil is needed; the ham carries its own fat.',
+        'Take the ham out of the fridge 20 minutes early so the centre is less cold. If it is a spiral-cut ham, keep it in its original netting or wrap it in foil so the slices do not fan out and dry. Reserve the glaze packet to warm separately, or make your own. A splash of water or stock in the foil packet keeps the air moist. No oil is needed; the ham carries its own fat. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long do you reheat ham in the air fryer?',
-          a: 'About {MIN} minutes at {AF_F}°F for a 3–4 lb portion, flipped at {FLIP} minutes. A few slices take around {SMALL_MIN} minutes and a whole 7–9 lb ham around {LARGE_MIN}.',
+          a: 'About {MIN} minutes at {AF_F}°F for 4–6 slices, flipped at {FLIP} minutes. A few slices take around {SMALL_MIN} minutes and a full plate of thick slices around {LARGE_MIN}.',
         },
         {
           q: 'What temperature should reheated ham reach?',
-          a: 'Fully cooked ham from the pack: {INT_F}°F ({INT_C}°C) to warm through. Leftovers or deli ham: {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), which is USDA guidance for reheated leftovers.',
+          a: 'Fully cooked ham from the pack: {INT_F}°F ({INT_C}°C) to warm through. Leftovers or deli ham: {INT_ALT_F}°F ({INT_ALT_C}°C), which is USDA guidance for reheated leftovers.',
         },
         {
           q: 'Why does my ham glaze burn?',
@@ -2293,4 +2292,5 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
     'Every preset starts from a basket air fryer of 4–6 quarts, preheated, with the food in a single layer. For cooking presets, the oven and fan-oven equivalents are calculated by the same engine as the converter, so they agree with each other, and the converter on the page is already set to that food. Frozen presets show what the pack says instead. Reheating settings are different: the engine converts cooking recipes, not reheats, so the reheat times and their oven equivalents are written in by hand, and the converter on those pages converts oven recipes. Each page leads with the specific way that food goes wrong in an air fryer, because that decides the result more than the number on the dial. No email, no sign-up, nothing to install.',
   relatedFlagshipLink: 'Oven to air fryer converter',
   relatedChartLink: 'Printable conversion chart',
+  holidayGroupHeading: 'Holiday cooking',
 };

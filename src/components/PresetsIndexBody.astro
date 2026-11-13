@@ -31,7 +31,7 @@ const holidayCards = PRESETS.filter((p: FoodPreset) => p.seasonal === 'holiday')
   .map((p) => presetCard(p, locale))
   .filter((c) => LIVE_PAGES.has(c.path));
 const holidayGroup = holidayCards.length > 0
-  ? { category: 'holiday', heading: all.presets.pages['turkey-breast']?.heading ?? 'Holiday', cards: holidayCards }
+  ? { category: 'holiday', heading: all.presetsIndex.holidayGroupHeading, cards: holidayCards }
   : null;
 
 const groups = holidayGroup ? [holidayGroup, ...categoryGroups] : categoryGroups;

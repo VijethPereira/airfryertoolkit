@@ -514,18 +514,18 @@ export const presets: Dictionary['presets'] = {
       heading: 'Pilons de poulet à la friteuse à air',
       subDesc:
         'Pilons frais, avec os et peau. Le réglage, le retournement et pourquoi un pilon simplement sûr n’est pas encore terminé.',
-      cardDesc: 'Sûr à {INT_F}°F, fondant vers {INT_ALT_TO_F}°F.',
+      cardDesc: 'Sûr à {INT_F}°F, fondant vers {INT_ALT_F}°F.',
       sizeLabels: { small: 'Petits, environ 90 g', medium: 'Moyens, environ 130 g', large: 'Gros, à partir de 170 g' },
-      internalAltLine: 'Plus tendres à {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), mesuré contre l’os',
+      internalAltLine: 'Plus tendres à {INT_ALT_F}–{INT_ALT_F}°F ({INT_ALT_C}–{INT_ALT_C}°C), mesuré contre l’os',
       failureHeading: 'Sûr mais caoutchouteux : le piège du pilon',
       failureBody:
-        'Le pilon est le muscle qui travaille le plus chez la volaille, entouré de tendons et de tissu conjonctif. À {INT_F}°F il est sans danger, mais ce tissu reste tendu : la chair colle à l’os, paraît élastique et peut rester un peu rosée près de l’articulation alors qu’elle est entièrement cuite. Ceux qui sortent les pilons à la température du blanc croient qu’ils sont crus ; ceux qui continuent jusqu’à ce que la peau soit très foncée les trouvent souvent secs à l’extérieur. La solution est de dépasser volontairement le seuil de sécurité. Le collagène commence à se transformer en gélatine vers {INT_ALT_F}°F, et entre ce point et {INT_ALT_TO_F}°F la chair se détend, devient soyeuse et se détache de l’os.',
+        'Le pilon est le muscle qui travaille le plus chez la volaille, entouré de tendons et de tissu conjonctif. À {INT_F}°F il est sans danger, mais ce tissu reste tendu : la chair colle à l’os, paraît élastique et peut rester un peu rosée près de l’articulation alors qu’elle est entièrement cuite. Ceux qui sortent les pilons à la température du blanc croient qu’ils sont crus ; ceux qui continuent jusqu’à ce que la peau soit très foncée les trouvent souvent secs à l’extérieur. La solution est de dépasser volontairement le seuil de sécurité. Le collagène commence à se transformer en gélatine vers {INT_ALT_F}°F, et entre ce point et {INT_ALT_F}°F la chair se détend, devient soyeuse et se détache de l’os.',
       workedExampleHeading: 'Exemple concret',
       workedExampleTemplate:
         'Six pilons moyens, environ 700 g au total, séchés et frottés d’huile, d’ail en poudre et de paprika fumé. Préchauffez {PREHEAT} minutes, disposez-les en une couche avec de l’espace et faites cuire à {AF_F}°F pendant {MEDIUM_MIN} minutes en les retournant à {FLIP}. Mesurez le plus épais contre l’os. Les petits sont prêts en environ {SMALL_MIN} minutes, les gros demandent environ {LARGE_MIN}. Au four traditionnel, la même plaque demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes.',
       donenessHeading: 'Comment savoir s’ils sont cuits',
       donenessBody:
-        'Enfoncez le thermomètre par le haut charnu jusqu’à toucher l’os, puis reculez légèrement. {INT_F}°F ({INT_C}°C) est la limite de sécurité ; {INT_ALT_F}–{INT_ALT_TO_F}°F est la zone où les pilons sont les meilleurs. À l’œil, la peau est tendue et bien dorée, la chair s’est rétractée et dégage un peu d’os au bout étroit, et le pilon tourne facilement à l’articulation. Le rose près de l’os à la bonne température est un pigment, pas de la chair crue.',
+        'Enfoncez le thermomètre par le haut charnu jusqu’à toucher l’os, puis reculez légèrement. {INT_F}°F ({INT_C}°C) est la limite de sécurité ; {INT_ALT_F}–{INT_ALT_F}°F est la zone où les pilons sont les meilleurs. À l’œil, la peau est tendue et bien dorée, la chair s’est rétractée et dégage un peu d’os au bout étroit, et le pilon tourne facilement à l’articulation. Le rose près de l’os à la bonne température est un pigment, pas de la chair crue.',
       prepHeading: 'Avant la cuisson',
       prepBody:
         'Séchez bien la peau et assaisonnez généreusement ; les pilons sont assez épais pour être salés une heure à l’avance. Entaillez une ou deux fois jusqu’à l’os du côté le plus épais pour que la chaleur atteigne le cœur plus vite. Alternez gros bout et petit bout pour qu’ils s’emboîtent sans se toucher. Une sauce barbecue ou un glaçage ne s’ajoute qu’à deux ou trois minutes de la fin.',
@@ -536,7 +536,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Quelle température à cœur pour des pilons ?',
-          a: 'Ils sont sûrs à {INT_F}°F ({INT_C}°C), mais la plupart des cuisiniers les montent à {INT_ALT_F}–{INT_ALT_TO_F}°F, quand le tissu conjonctif fond et que la chair se détache de l’os.',
+          a: 'Ils sont sûrs à {INT_F}°F ({INT_C}°C), mais la plupart des cuisiniers les montent à {INT_ALT_F}–{INT_ALT_F}°F, quand le tissu conjonctif fond et que la chair se détache de l’os.',
         },
         {
           q: 'Pourquoi mon pilon est-il rose près de l’os ?',
@@ -1627,16 +1627,16 @@ export const presets: Dictionary['presets'] = {
       sizeLabels: { thin: 'Steak tranché', medium: 'Steak entier, environ 2,5 cm', thick: 'Steak entier, environ 4 cm' },
       internalLine: 'Recommandation de l’USDA pour les restes : {INT_F}°F ({INT_C}°C) à cœur',
       internalAltLine:
-        'Pour le garder saignant : {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C), atteint en général vers {FLIP} min. S’arrêter là, c’est votre choix.',
+        'Pour le garder saignant : {INT_ALT_F}–{INT_ALT_F}°F ({INT_ALT_C}–{INT_ALT_C}°C), atteint en général vers {FLIP} min. S’arrêter là, c’est votre choix.',
       failureHeading: 'Sûr ou rosé : deux objectifs qui ne se rejoignent pas',
       failureBody:
-        'Un steak cuit saignant a terminé à environ {INT_ALT_TO_F}°F à cœur. La recommandation de l’USDA pour réchauffer tout reste est de {INT_F}°F, et porter le centre d’un steak à cette température le cuit bien cuit. Aucun réglage ne fait les deux, alors cette page vous donne les deux chiffres et vous laisse choisir. C’est la température basse qui rend chaque option réussie : à chaleur douce, l’extérieur ne durcit pas et ne grisaille pas pendant que le centre chauffe, si bien que le steak chauffe de façon homogène. La durée indiquée est une estimation pour qu’un steak entier atteigne {INT_F}°F, pas un chiffre testé, car l’épaisseur et la température du frigo varient. Commencez à mesurer au thermomètre au retournement et décidez d’après la lecture.',
+        'Un steak cuit saignant a terminé à environ {INT_ALT_F}°F à cœur. La recommandation de l’USDA pour réchauffer tout reste est de {INT_F}°F, et porter le centre d’un steak à cette température le cuit bien cuit. Aucun réglage ne fait les deux, alors cette page vous donne les deux chiffres et vous laisse choisir. C’est la température basse qui rend chaque option réussie : à chaleur douce, l’extérieur ne durcit pas et ne grisaille pas pendant que le centre chauffe, si bien que le steak chauffe de façon homogène. La durée indiquée est une estimation pour qu’un steak entier atteigne {INT_F}°F, pas un chiffre testé, car l’épaisseur et la température du frigo varient. Commencez à mesurer au thermomètre au retournement et décidez d’après la lecture.',
       workedExampleHeading: 'Exemple concret : un reste de faux-filet',
       workedExampleTemplate:
         'Un faux-filet d’environ 2,5 cm de la veille, sorti du frigo. Préchauffez {PREHEAT} minutes et réchauffez à {AF_F}°F, en le retournant à {FLIP} minutes et en mesurant le centre à ce moment-là. Pour les {INT_F}°F de l’USDA, comptez environ {MEDIUM_MIN} minutes au total ; un steak de 4 cm demande environ {THICK_MIN}. Un steak tranché est chaud à cœur en {THIN_MIN} minutes environ. Dans un four traditionnel, la méthode lente est {OVEN_F}°F pendant environ {OVEN_MIN} minutes sur une grille.',
       donenessHeading: 'Comment le vérifier',
       donenessBody:
-        'Utilisez un thermomètre à lecture instantanée au centre même de la partie la plus épaisse. Au retournement, une lecture de {INT_ALT_F}–{INT_ALT_TO_F}°F signifie que le steak est chaud et encore rosé ; continuez jusqu’à {INT_F}°F ({INT_C}°C) si vous suivez la recommandation de l’USDA pour les restes. La surface doit grésiller, sans sécher ni se recroqueviller sur les bords.',
+        'Utilisez un thermomètre à lecture instantanée au centre même de la partie la plus épaisse. Au retournement, une lecture de {INT_ALT_F}–{INT_ALT_F}°F signifie que le steak est chaud et encore rosé ; continuez jusqu’à {INT_F}°F ({INT_C}°C) si vous suivez la recommandation de l’USDA pour les restes. La surface doit grésiller, sans sécher ni se recroqueviller sur les bords.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
         'Laissez le steak dehors pendant que la friteuse chauffe, pour que le centre soit moins froid. Badigeonnez-le d’un peu d’huile ou de beurre pour que la surface ne sèche pas. Gardez le jus de l’assiette et versez-le dessus avant de servir.',
@@ -1647,7 +1647,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Quelle température doit atteindre un steak réchauffé ?',
-          a: 'La recommandation de l’USDA pour les restes est de {INT_F}°F ({INT_C}°C). Beaucoup s’arrêtent à {INT_ALT_F}–{INT_ALT_TO_F}°F pour le garder rosé ; c’est votre choix.',
+          a: 'La recommandation de l’USDA pour les restes est de {INT_F}°F ({INT_C}°C). Beaucoup s’arrêtent à {INT_ALT_F}–{INT_ALT_F}°F pour le garder rosé ; c’est votre choix.',
         },
         {
           q: 'La durée de cette page est-elle exacte ?',
@@ -1963,7 +1963,7 @@ export const presets: Dictionary['presets'] = {
         'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : 160°F est la cible de sortie, 165°F après les trois minutes de repos. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
-        'Pour un filet sans os, ouvrez-le en papillon ou aplatissez-le à 3,5 cm d’épaisseur constante. Pour un filet avec os, rentrez les pointes d’ailes et ficelez-le avec de la ficelle de cuisine pour qu’il reste compact. Badigeonnez d’huile et un mélange sec sel-herbes va bien avec la dinde ; 30 minutes à découvert au frigo sèche la peau et l’aide à croustiller. Si le filet est trop grand pour votre panier, on peut le cuire en deux phases : commencez peau en bas pour la première moitié, puis retournez peau en haut pour finir.',
+        'Pour un filet sans os, ouvrez-le en papillon ou aplatissez-le à 3,5 cm d’épaisseur constante. Pour un filet avec os, rentrez les pointes d’ailes et ficelez-le avec de la ficelle de cuisine pour qu’il reste compact. Badigeonnez d’huile et un mélange sec sel-herbes va bien avec la dinde ; 30 minutes à découvert au frigo sèche la peau et l’aide à croustiller. Si le filet est trop grand pour votre panier, on peut le cuire en deux phases : commencez peau en bas pour la première moitié, puis retournez peau en haut pour finir. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps cuit un filet de dinde à la friteuse à air ?',
@@ -1999,7 +1999,6 @@ export const presets: Dictionary['presets'] = {
       cardDesc: 'Un filet de bouillon et du papier aluminium gardent le filet moelleux.',
       sizeLabels: { small: 'Quelques tranches de filet', medium: 'Tranches mixtes, filet et cuisse', large: 'Une portion généreuse d’assiette' },
       internalLine: 'Chaude au cœur à {INT_F}°F ({INT_C}°C) dans la tranche la plus épaisse : guide USDA pour les restes',
-      internalAltLine: 'Viande foncée (cuisses, pilons) est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F ({INT_ALT_C}–{INT_ALT_TO_C}°C) et reste moelleuse plus longtemps',
       failureHeading: 'Pourquoi la dinde réchauffée devient du cuir',
       failureBody:
         'Le filet de dinde est maigre, et au frigo le peu de gras qu’il a se fige et les fibres musculaires se tendent. Mettez des tranches froides direct dans une friteuse chaude et la surface sèche en croûte serrée avant que le milieu ne s’est réchauffé, vous laissant des morceaux gris et caoutchouteux qu’aucune sauce ne rattrape. La solution : chaleur douce et humidité. Un filet de bouillon de poulet ou de dinde au fond du plat, ou un léger pinceau de beurre fondu sur les tranches, donne à l’air de quoi faire de la vapeur pour que la viande chauffe avant que la surface ne scelle. Couvrez le plat en vrac de papier aluminium la première moitié du réchauffage, puis ôtez-le pour que les bords colorent. La viande foncée (cuisses, pilons) pardonne plus : son gras la garde moelleuse, et elle n’a besoin que d’atteindre le bas de la plage de température.',
@@ -2008,10 +2007,10 @@ export const presets: Dictionary['presets'] = {
         'Deux tasses de dinde en tranches, mélange filet et cuisse, étalées dans un plat avec deux cuillères de bouillon tiède. Couvrez en vrac de papier aluminium et réchauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en retournant les morceaux à {FLIP} minutes. Une petite assiette de tranches de filet demande environ {SMALL_MIN} minutes ; une grande portion mixte environ {LARGE_MIN}. Au four traditionnel la même assiette se réchauffe à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, couverte la première moitié.',
       donenessHeading: 'Comment savoir qu’elle est prête',
       donenessBody:
-        'Vérifiez une tranche de filet au thermomètre : le guide USDA dit {INT_F}°F ({INT_C}°C) pour les restes réchauffés. La viande foncée est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F et restera plus moelleuse. Les tranches doivent fumer quand on lève le papier, et la surface doit paraître brillante, pas sèche et mate. Une tranche de filet qui semble ferme et élastique a trop cuit.',
+        'Vérifiez une tranche de filet au thermomètre : le guide USDA dit {INT_F}°F ({INT_C}°C) pour les restes réchauffés. Les tranches doivent fumer quand on lève le papier, et la surface doit paraître brillante, pas sèche et mate. Une tranche de filet qui semble ferme et élastique a trop cuit.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
-        'Sortez la dinde du frigo quelques minutes avant pour ôter le pire du froid. Séparez filet et viande foncée si vous pouvez, car elles finissent à des moments différents. Une saucière chaude à côté veut dire que vous servez les tranches dès qu’elles sont chaudes.',
+        'Sortez la dinde du frigo quelques minutes avant pour ôter le pire du froid. Séparez filet et viande foncée si vous pouvez, car elles finissent à des moments différents. Une saucière chaude à côté veut dire que vous servez les tranches dès qu’elles sont chaudes. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps pour réchauffer la dinde à la friteuse à air ?',
@@ -2019,7 +2018,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'À quelle température la dinde réchauffée doit-elle arriver ?',
-          a: '{INT_F}°F ({INT_C}°C) pour les tranches de filet, qui est le guide USDA pour les restes. La viande foncée est chaude à {INT_ALT_F}–{INT_ALT_TO_F}°F.',
+          a: '{INT_F}°F ({INT_C}°C) pour les tranches de filet, qui est le guide USDA pour les restes.',
         },
         {
           q: 'Pourquoi mon filet de dinde réchauffé sèche ?',
@@ -2229,21 +2228,21 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Jambon totalement cuit (en spirale, avec ou sans os) et jambon restant du frigo, réchauffés sans brûler le glaçage. Le réglage bas, la couverture et les deux cibles distinctes pour jambon entier vs restes.',
       cardDesc: 'Couvrez, glacez à la fin : le sucre brûle d’abord.',
-      sizeLabels: { small: 'Quelques tranches', medium: 'Demi-jambon ou 1,4–1,8 kg', large: 'Un jambon en spirale entier, 3–4 kg' },
+      sizeLabels: { small: '2–3 tranches', medium: '4–6 tranches', large: 'Tranches épaisses style filet' },
       internalLine: 'Jambon totalement cuit (de l’emballage) : {INT_F}°F ({INT_C}°C) pour réchauffer, puis repos',
-      internalAltLine: 'Restes ou jambon réemballé : {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) — guide USDA pour restes réchauffés',
+      internalAltLine: 'Restes ou jambon réemballé : {INT_ALT_F}°F ({INT_ALT_C}°C) — guide USDA pour restes réchauffés',
       failureHeading: 'Pourquoi le glaçage brûle avant que le jambon ne soit tiède',
       failureBody:
-        'La plupart des jambons viennent avec un glaçage à base de sucre (sucre brun, miel, érable, cola) qui caramélise à une température bien plus basse qu’il n’en faut pour chauffer un jambon froid. Dans une friteuse à air, le glaçage est dehors, dans l’air chaud, donc il devient foncé, puis amer et noir, pendant que la viande dedans est encore froide du frigo. La solution : séparer les deux tâches. Réchauffez le jambon couvert, pour que la chaleur douce pénètre sans que le glaçage voie le ventilateur. Puis découvrez, badigeonnez de glaçage frais ou tiède, et donnez une ou deux minutes à la même température pour qu’il prenne. Les cibles diffèrent aussi. Un jambon totalement cuit de l’emballage n’a besoin que d’atteindre {INT_F}°F pour être prêt à servir (USDA dit 140°F pour jambon cuit sous vide). Le jambon restant qui a été tranché et gardé, ou un jambon de charcuterie, doit atteindre {INT_ALT_TO_F}°F, le guide USDA pour les restes.',
+        'La plupart des jambons viennent avec un glaçage à base de sucre (sucre brun, miel, érable, cola) qui caramélise à une température bien plus basse qu’il n’en faut pour chauffer un jambon froid. Dans une friteuse à air, le glaçage est dehors, dans l’air chaud, donc il devient foncé, puis amer et noir, pendant que la viande dedans est encore froide du frigo. La solution : séparer les deux tâches. Réchauffez le jambon couvert, pour que la chaleur douce pénètre sans que le glaçage voie le ventilateur. Puis découvrez, badigeonnez de glaçage frais ou tiède, et donnez une ou deux minutes à la même température pour qu’il prenne. Les cibles diffèrent aussi. Un jambon totalement cuit de l’emballage n’a besoin que d’atteindre {INT_F}°F pour être prêt à servir (USDA dit 140°F pour jambon cuit sous vide). Le jambon restant qui a été tranché et gardé, ou un jambon de charcuterie, doit atteindre {INT_ALT_F}°F, le guide USDA pour les restes.',
       workedExampleHeading: 'Exemple concret : un demi-jambon en spirale',
       workedExampleTemplate:
         'Un demi-jambon en spirale de 1,8 kg, quadrillé, couvert en vrac de papier aluminium. Préchauffez {PREHEAT} minutes et chauffez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Ôtez le papier, badigeonnez de glaçage, et remettez deux minutes pour qu’il prenne. Quelques tranches demandent environ {SMALL_MIN} minutes ; un entier de 3,6 kg environ {LARGE_MIN}. Au four traditionnel le même jambon se chauffe à {OVEN_F}°F pendant environ {OVEN_MIN} minutes, couvert, puis glaçé.',
       donenessHeading: 'Comment savoir qu’il est prêt',
       donenessBody:
-        'Pour un jambon cuit de l’emballage, {INT_F}°F ({INT_C}°C) dans la partie la plus épaisse, loin de l’os, est la cible. Pour des restes ou un jambon de charcuterie, {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C) est le guide USDA. La viande doit paraître humide et brillante, pas sèche ni grise sur les bords. Le glaçage, s’il est mis, doit bouillonner et être collant, pas noir.',
+        'Pour un jambon cuit de l’emballage, {INT_F}°F ({INT_C}°C) dans la partie la plus épaisse, loin de l’os, est la cible. Pour des restes ou un jambon de charcuterie, {INT_ALT_F}°F ({INT_ALT_C}°C) est le guide USDA. La viande doit paraître humide et brillante, pas sèche ni grise sur les bords. Le glaçage, s’il est mis, doit bouillonner et être collant, pas noir.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
-        'Sortez le jambon du frigo 20 minutes avant pour que le centre soit moins froid. S’il est en spirale, gardez-le dans son filet d’origine ou enveloppez-le de papier aluminium pour que les tranches ne s’écartent pas et ne sèchent pas. Gardez le sachet de glaçage pour le chauffer à part, ou faites le vôtre. Un filet d’eau ou de bouillon dans le paquet de papier garde l’air humide. Pas besoin d’huile ; le jambon porte son propre gras.',
+        'Sortez le jambon du frigo 20 minutes avant pour que le centre soit moins froid. S’il est en spirale, gardez-le dans son filet d’origine ou enveloppez-le de papier aluminium pour que les tranches ne s’écartent pas et ne sèchent pas. Gardez le sachet de glaçage pour le chauffer à part, ou faites le vôtre. Un filet d’eau ou de bouillon dans le paquet de papier garde l’air humide. Pas besoin d’huile ; le jambon porte son propre gras. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps pour réchauffer le jambon à la friteuse à air ?',
@@ -2251,7 +2250,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'À quelle température le jambon réchauffé doit-il arriver ?',
-          a: 'Jambon cuit de l’emballage : {INT_F}°F ({INT_C}°C) pour réchauffer. Restes ou jambon de charcuterie : {INT_ALT_TO_F}°F ({INT_ALT_TO_C}°C), qui est le guide USDA pour les restes réchauffés.',
+          a: 'Jambon cuit de l’emballage : {INT_F}°F ({INT_C}°C) pour réchauffer. Restes ou jambon de charcuterie : {INT_ALT_F}°F ({INT_ALT_C}°C), qui est le guide USDA pour les restes réchauffés.',
         },
         {
           q: 'Pourquoi mon glaçage de jambon brûle-t-il ?',
@@ -2293,4 +2292,5 @@ export const presetsIndex: Dictionary['presetsIndex'] = {
     'Chaque préréglage part d’une friteuse à air à panier de 4 à 6 litres, préchauffée, avec l’aliment en une seule couche. Pour les préréglages de cuisson, les équivalents au four traditionnel et à chaleur tournante sont calculés par le même moteur que le convertisseur, ils concordent donc entre eux, et le convertisseur de la page est déjà réglé sur cet aliment. Les préréglages surgelés affichent à la place ce que dit l’emballage. Le réchauffage est différent : le moteur convertit des recettes de cuisson, pas des réchauffages, donc les durées de réchauffage et leurs équivalents au four sont saisis à la main, et le convertisseur de ces pages convertit des recettes au four. Chaque page commence par la façon précise dont cet aliment rate à la friteuse à air, car c’est cela qui décide du résultat plus que le chiffre sur le cadran. Pas d’e-mail, pas d’inscription, rien à installer.',
   relatedFlagshipLink: 'Convertisseur four vers friteuse à air',
   relatedChartLink: 'Tableau de conversion à imprimer',
+  holidayGroupHeading: 'Cuisine de fête',
 };
