@@ -215,7 +215,10 @@ test.describe('/preheat page', () => {
     await expect(answer).toContainText('Add Food');
     await page.selectOption('#aph-model', 'ninja-af101');
     await expect(answer).toContainText('400°F for 3 minutes');
-    await expect(page.locator('#aph-source')).toHaveText('owner’s guide, page 7, read 2026-10-28');
+    // The read date comes from the data (the Ninja guides were re-read 2026-11-10), never typed here.
+    const af101Read = MODEL_PREHEAT.find((m) => m.modelId === 'ninja-af101')!.read;
+    expect(af101Read).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    await expect(page.locator('#aph-source')).toHaveText(`owner’s guide, page 7, read ${af101Read}`);
     await page.selectOption('#aph-model', 'ninja-doublestack-sl401');
     await expect(answer).toContainText('does not mention preheating');
     await page.selectOption('#aph-model', 'cosori-oven-13');

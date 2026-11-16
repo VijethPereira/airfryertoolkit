@@ -87,7 +87,7 @@ const instant = (modelId: string, pages: number[], programs: PreheatProgram[]): 
   ({ modelId, kind: 'auto', docType: 'manual', pages, read: READ, programs });
 
 export const MODEL_PREHEAT: ModelPreheat[] = [
-  // Ninja: owner's guides read 2026-10-28 (manuals/ninja/). AF101 p7: "recommended to let the unit preheat for 3 minutes". AF141 p3: "3 MIN Preheat ... always preheat ... for 3 minutes". AF161 p8 (Air Fry): "For best results, let the unit preheat for 3 minutes". SL401 (Manuals+ copy of the user manual): preheating is not mentioned. SP101: Air Fry, Roast, Grill, Bake, Dehydrate preheat automatically (PRE flashes, timer starts after preheat).
+  // Ninja: owner's guides read 2026-11-10 (NINJA_READ; manuals/ninja/). AF101 p7: "recommended to let the unit preheat for 3 minutes". AF141 p3: "3 MIN Preheat ... always preheat ... for 3 minutes". AF161 p8 (Air Fry): "For best results, let the unit preheat for 3 minutes". SL401 (Manuals+ copy of the user manual): preheating is not mentioned. SP101: Air Fry, Roast, Grill, Bake, Dehydrate preheat automatically (PRE flashes, timer starts after preheat).
   { modelId: 'ninja-af101', kind: 'fixed', docType: 'ownersGuide', pages: [7], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },
   { modelId: 'ninja-pro-af141', kind: 'fixed', docType: 'ownersGuide', pages: [3], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },
   { modelId: 'ninja-max-xl-af161', kind: 'fixed', docType: 'ownersGuide', pages: [8], read: NINJA_READ, fixed: { tempF: 400, minutes: 3 } },

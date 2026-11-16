@@ -1,5 +1,8 @@
 import { test, expect, type Page } from '@playwright/test';
-import { computeAirFryerSetting, FOODS, type FoodKey, type FryerStyle } from '../../src/lib/converter';
+import {
+  computeAirFryerSetting, computeAirFryerSettingFromConvection, ovenMarkInput, gasMarkFor, thermostatFor,
+  FOODS, type FoodKey, type FryerStyle,
+} from '../../src/lib/converter';
 import { TEMP_STEPS } from '../../src/lib/chart-data';
 import {
   C_TEMP_LANDINGS,
@@ -11,6 +14,7 @@ import {
   type TempLandingF,
   cTempLandingSlug,
   cTempLandingValues,
+  cTempLandingRows,
   FAN_OFFSET_C,
 } from '../../src/lib/temp-landings';
 import { LIVE_PAGES, TRANSLATED_PAGES } from '../../src/site.config';
@@ -147,12 +151,12 @@ test.describe('temperature landing pages', () => {
       const neighbours = [TEMP_LANDINGS[i - 1], TEMP_LANDINGS[i + 1]].filter(Boolean);
       await expect(page.locator('.neighbour-link')).toHaveCount(neighbours.length);
       for (const n of neighbours) {
-        await expect(page.locator(`.neighbour-link a[href="${tempLandingSlug(n.tempF)}"]`)).toHaveText(
+        await expect(page.locator(`a.neighbour-link[href="${tempLandingSlug(n.tempF)}"] .related-link-title`)).toHaveText(
           en.tempLanding.neighbourLinkTemplate.replace('{OVEN_F}', String(n.tempF)),
         );
       }
       for (const target of ['/oven-to-air-fryer', '/chart', '/frozen']) {
-        await expect(page.locator(`.related-link a[href="${target}"]`)).toHaveCount(1);
+        await expect(page.locator(`a.related-link[href="${target}"]`)).toHaveCount(1);
       }
     });
 
@@ -264,7 +268,7 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
         await page.goto(tempLandingSlug(tempF));
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow, `${tempF} at ${width}px`).toBeLessThanOrEqual(0);
-        for (const box of await page.locator('.widget-card .seg-btn, .widget-card input, .widget-card select, .related-link a, .faq-q').all()) {
+        for (const box of await page.locator('.widget-card .seg-btn, .widget-card input, .widget-card select, a.related-link, .faq-q').all()) {
           expect((await box.boundingBox())!.height).toBeGreaterThanOrEqual(44);
         }
       }
@@ -284,7 +288,7 @@ test.describe('temperature landing pages: registration, /chart, homepage and loc
         await expect(page.locator('#afk-temp')).toHaveValue(String(landing.tempF));
         await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', localizedUrl(l.code, slug));
         await expect(page.locator(`link[rel="alternate"][hreflang="${DEFAULT_LOCALE}"]`)).toHaveAttribute('href', localizedUrl(DEFAULT_LOCALE, slug));
-        await expect(page.locator(`.related-link a[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
+        await expect(page.locator(`a.related-link[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
         expect(await page.locator('body').innerText()).not.toMatch(/\{[A-Z][A-Z0-9_]*\}/);
       }
       expect(pageErrors).toEqual([]);
@@ -302,11 +306,11 @@ test.describe('°C landing pages: typed numbers and registration', () => {
     for (const l of LOCALES) {
       const dict = getDictionary(l.code).cTempLanding;
       for (const landing of ALL_C) {
-        // Check the FILLED dictionary strings AFTER fillPlaceholders, like the presets test does.
-        // Strip placeholders and verify the page's own temperature and gas mark don't appear as raw numbers.
+        // Like the presets test: strip the {KEY} placeholders from the RAW dictionary strings, so what is
+        // left is only typed text, and verify the page's own temperatures and gas mark never appear in it.
+        // (Filling first would put every engine number back in and make this test fail by construction.)
         const values = cTempLandingValues(landing, l.code);
         const prose = cTempStrings(dict, landing)
-          .map((s) => fillPlaceholders(s, values))
           .join(' ')
           .replace(/\{[A-Z][A-Z0-9_]*\}/g, '');
         // The typed numbers that must NOT appear after stripping placeholders:
@@ -329,6 +333,7 @@ test.describe('°C landing pages: typed numbers and registration', () => {
   });
 
   test('every °C page in every locale returns 200 and renders translated', async ({ page }) => {
+    test.setTimeout(120_000); // 20 pages (4 °C pages × 5 locales), run while the rest of the suite loads astro dev
     for (const l of LOCALES) {
       for (const landing of ALL_C) {
         const slug = cTempLandingSlug(landing.tempC);
@@ -348,35 +353,77 @@ test.describe('°C landing pages: typed numbers and registration', () => {
       const slug = cTempLandingSlug(landing.tempC);
       await page.goto(slug);
       const values = cTempLandingValues(landing, 'en');
+      const dict = getDictionary('en').cTempLanding;
+      // The page picks the capped template when the engine clamps (220°C = 428°F is above a 400°F basket).
+      const general = cTempLandingRows(landing.tempC).find((r) => r.food === 'general')!;
+      // Live widget output for the default 25-minute general recipe in a basket.
+      const out = page.locator('#afk-out-main');
+      const base = { ovenMinutes: 25, food: 'general' as FoodKey, style: 'basket' as FryerStyle };
+
       // Conventional °C -> flagship engine answer
       await expect(page.locator('#ctl-answer')).toHaveText(
-        fillPlaceholders(getDictionary('en').cTempLanding.answerTemplate, values),
+        fillPlaceholders(general.conv.basket.capped ? dict.answerCappedTemplate : dict.answerTemplate, values),
       );
-      // Fan °C -> convection engine answer
+      await expect(out).toHaveText(`${computeAirFryerSetting({ ...base, ovenTemp: landing.tempC, unit: 'C' }).outC}°C`);
+
+      // Fan °C -> convection engine answer, and the widget switches to the convection engine at the fan figure
       await page.click('#tl-mode-fan');
+      await expect(page.locator('#tl-mode-fan')).toHaveAttribute('aria-pressed', 'true');
       await expect(page.locator('#ctl-answer-fan')).toHaveText(
-        fillPlaceholders(getDictionary('en').cTempLanding.answerFanTemplate, values),
+        fillPlaceholders(general.fan.basket.capped ? dict.answerFanCappedTemplate : dict.answerFanTemplate, values),
       );
-      // Gas mark -> mark-mapped conventional °C
+      await expect(page.locator('#afk-temp')).toHaveValue(values.FAN_C);
+      await expect(out).toHaveText(`${computeAirFryerSettingFromConvection({ ...base, ovenTemp: Number(values.FAN_C), unit: 'C' }).outC}°C`);
+
+      // Gas mark -> mark-mapped conventional oven temperature, preselected on this page's own mark
       await page.click('#tl-mode-gas');
       await expect(page.locator('#tl-mode-gas')).toHaveClass(/active/);
+      await expect(page.locator('#tl-gas-mark')).toHaveValue(values.OVEN_MARK);
+      const mark = ovenMarkInput(Number(values.OVEN_MARK), OVEN_MARK_SCALE.en)!;
+      await expect(page.locator('#afk-temp')).toHaveValue(String(mark.temp));
+      const markOut = computeAirFryerSetting({ ...base, ovenTemp: mark.temp, unit: mark.unit });
+      await expect(out).toHaveText(`${mark.unit === 'C' ? markOut.outC : markOut.outF}°${mark.unit}`);
       await expect(page.locator('#ctl-answer')).toContainText(String(landing.tempC));
+
+      // Back to conventional restores the page's own °C input
       await page.click('#tl-mode-c');
+      await expect(page.locator('#afk-temp')).toHaveValue(String(landing.tempC));
+      await expect(page.locator('#tl-gas-field')).toBeHidden();
+    }
+  });
+
+  test('ovenMarkInput inverts the dial scales: gas mark → its GAS_MARKS °F, thermostat → °C × 30', () => {
+    expect(ovenMarkInput(3, 'gasMark')).toEqual({ temp: 325, unit: 'F' });
+    expect(ovenMarkInput(6, 'gasMark')).toEqual({ temp: 400, unit: 'F' });
+    expect(ovenMarkInput(6, 'thermostat')).toEqual({ temp: 180, unit: 'C' });
+    expect(ovenMarkInput(10, 'gasMark')).toBeNull();
+    expect(ovenMarkInput(0, 'thermostat')).toBeNull();
+    // Round trip through the display helper: the mark shown for the input is the mark chosen.
+    for (const scale of ['gasMark', 'thermostat'] as const) {
+      for (let m = 1; m <= 10; m++) {
+        const input = ovenMarkInput(m, scale);
+        if (!input) continue;
+        const f = input.unit === 'F' ? input.temp : (input.temp * 9) / 5 + 32;
+        expect(scale === 'thermostat' ? thermostatFor(f) : gasMarkFor(f), `${scale} ${m}`).toBe(m);
+      }
     }
   });
 
   test('each °C page has a frozen-pack FAQ that mentions /frozen', async ({ page }) => {
     for (const landing of ALL_C) {
       await page.goto(cTempLandingSlug(landing.tempC));
+      // The question is a template ({OVEN_C}); the page shows it filled.
+      const values = cTempLandingValues(landing, 'en');
       const frozenFaqs = getDictionary('en').cTempLanding.pages[landing.tempC].faqs
         .filter((f) => /frozen|congelados|surgelés|congelados|tiefkühl/i.test(f.q))
-        .map((f) => f.q);
+        .map((f) => fillPlaceholders(f.q, values));
+      expect(frozenFaqs.length, `${landing.tempC}°C frozen-pack FAQ`).toBeGreaterThan(0);
       for (const q of frozenFaqs) {
         const card = page.locator('.faq-item', { hasText: q });
         await expect(card, q).toBeVisible();
       }
       // Also verify the related link to /frozen is present
-      await expect(page.locator(`.related-link a[href$="/frozen"]`)).toHaveCount(1);
+      await expect(page.locator(`a.related-link[href$="/frozen"]`)).toHaveCount(1);
     }
   });
 
@@ -387,6 +434,7 @@ test.describe('°C landing pages: typed numbers and registration', () => {
   const ENGLISH_TITLE = '{OVEN_C}°C Oven to Air Fryer — Temperature & Time';
 
   test('every °C page title is translated per locale, not the English template', async ({ page }) => {
+    test.setTimeout(120_000); // 20 pages (4 °C pages × 5 locales), run while the rest of the suite loads astro dev
     for (const l of LOCALES) {
       const dict = getDictionary(l.code).cTempLanding;
       for (const landing of ALL_C) {
@@ -401,6 +449,7 @@ test.describe('°C landing pages: typed numbers and registration', () => {
   });
 
   test('no <title>, meta description, meta keywords or visible text on any °C page has an unfilled {KEY}', async ({ page }) => {
+    test.setTimeout(120_000); // 20 pages (4 °C pages × 5 locales), run while the rest of the suite loads astro dev
     const keyRe = /\{[A-Z][A-Z0-9_]*\}/;
     for (const l of LOCALES) {
       const dict = getDictionary(l.code).cTempLanding;

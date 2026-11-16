@@ -3,6 +3,9 @@
 // Committed once before the optional maxF input landed; engine-baseline.spec.ts requires it to stay identical.
 // Regenerated 2026-11-09 (row 15) when preheat left the engine for src/lib/preheat.ts: the only differences were
 // the removed preheatMinutes / OS_PREHEAT fields and PREHEAT 3 -> 4 at basket settings of 345°F and up.
+// Regenerated 2026-11-16 after the holiday batch (row 7 batch 4): the only differences were 7 added presets
+// (turkey-breast, reheat-turkey, stuffing, dinner-rolls, roast-potatoes, pigs-in-blankets, reheat-ham);
+// no existing preset, temperature page or grid number changed.
 import { writeFileSync } from 'node:fs';
 import { PRESETS } from '../../src/data/presets';
 import { presetValues, presetRoundTrip, presetSizeRows, presetOven, presetFan } from '../../src/lib/presets';

@@ -208,13 +208,13 @@ test.describe('/convection-to-air-fryer', () => {
   test('reciprocal cross-links to the flagship, both reverse converters, and /chart', async ({ page }) => {
     await page.goto('/convection-to-air-fryer');
     for (const slug of ['/oven-to-air-fryer', '/air-fryer-to-convection', '/air-fryer-to-oven', '/chart']) {
-      await expect(page.locator(`.related-link a[href="${slug}"]`)).toHaveCount(1);
+      await expect(page.locator(`a.related-link[href="${slug}"]`)).toHaveCount(1);
     }
   });
 
   test('flagship and chart link to the now-live /convection-to-air-fryer', async ({ page }) => {
     await page.goto('/oven-to-air-fryer');
-    await expect(page.locator('.related-link a[href="/convection-to-air-fryer"]')).toHaveCount(1);
+    await expect(page.locator('a.related-link[href="/convection-to-air-fryer"]')).toHaveCount(1);
 
     await page.goto('/chart');
     await expect(page.locator('.related-links a[href="/convection-to-air-fryer"]')).toHaveCount(1);
@@ -311,13 +311,13 @@ test.describe('/air-fryer-to-convection', () => {
   test('reciprocal cross-links to its sibling, the oven pair, and /chart', async ({ page }) => {
     await page.goto('/air-fryer-to-convection');
     for (const slug of ['/convection-to-air-fryer', '/air-fryer-to-oven', '/oven-to-air-fryer', '/chart']) {
-      await expect(page.locator(`.related-link a[href="${slug}"]`)).toHaveCount(1);
+      await expect(page.locator(`a.related-link[href="${slug}"]`)).toHaveCount(1);
     }
   });
 
   test('reverse and chart pages link to the now-live /air-fryer-to-convection', async ({ page }) => {
     await page.goto('/air-fryer-to-oven');
-    await expect(page.locator('.related-link a[href="/air-fryer-to-convection"]')).toHaveCount(1);
+    await expect(page.locator('a.related-link[href="/air-fryer-to-convection"]')).toHaveCount(1);
 
     await page.goto('/chart');
     await expect(page.locator('.related-links a[href="/air-fryer-to-convection"]')).toHaveCount(1);
@@ -357,7 +357,7 @@ test.describe('convection pages: registration and locales', () => {
     test(`${l.code} homepage renders both convection cards live, with locale-correct hrefs`, async ({ page }) => {
       await page.goto(localizedPath(l.code, '/'));
       for (const { slug } of SLUGS) {
-        const card = page.locator(`a.card[href="${localizedPath(l.code, slug)}"]`);
+        const card = page.locator(`a:is(.card, .list-row)[href="${localizedPath(l.code, slug)}"]`);
         await expect(card).toHaveCount(1);
         await expect(card).not.toContainText(getDictionary(l.code).home.comingSoon);
       }
@@ -392,7 +392,7 @@ test.describe('convection pages: registration and locales', () => {
           await expect(page.locator(`link[rel="alternate"][hreflang="${alt.code}"]`)).toHaveAttribute('href', localizedUrl(alt.code, slug));
         }
         // Cross-links stay inside the locale.
-        await expect(page.locator(`.related-link a[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
+        await expect(page.locator(`a.related-link[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
 
         expect(pageErrors).toEqual([]);
       });

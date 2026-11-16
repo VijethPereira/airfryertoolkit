@@ -136,15 +136,29 @@ const links = [
       {neighbourLinks.length > 0 && (
         <>
           <h3>{dict.neighboursHeading}</h3>
-          {neighbourLinks.map(({ href, label }) => (
-            <p class="related-link neighbour-link"><a href={href}>{label}</a> &rarr;</p>
-          ))}
+          <div class="related-links">
+            {neighbourLinks.map(({ href, label }) => (
+              <a href={href} class="related-link neighbour-link">
+                <div class="related-link-content">
+                  <span class="related-link-title">{label}</span>
+                </div>
+                <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            ))}
+          </div>
         </>
       )}
 
-      {links.map(({ href, label }) => (
-        <p class="related-link"><a href={href}>{label}</a> &rarr;</p>
-      ))}
+      <div class="related-links">
+        {links.map(({ href, label }) => (
+          <a href={href} class="related-link">
+            <div class="related-link-content">
+              <span class="related-link-title">{label}</span>
+            </div>
+            <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        ))}
+      </div>
     </section>
 
     <AdSlot slot="0099887766" />
@@ -433,13 +447,11 @@ const links = [
     font-size: 18px;
   }
 
-  .neighbour-link a {
-    font-weight: 600;
+  .neighbour-link .related-link-title {
     color: var(--site-accent-text);
-    text-decoration: none;
   }
 
-  .neighbour-link a:hover {
+  .neighbour-link:hover .related-link-title {
     text-decoration: underline;
     text-underline-offset: 2px;
   }

@@ -6,7 +6,7 @@ import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, OVEN_MARK_SCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import { ovenMarkFor } from '../lib/converter';
+import { ovenMarkFor, ovenMarkRange } from '../lib/converter';
 import {
   fillPlaceholders,
   C_TEMP_LANDINGS,
@@ -41,6 +41,9 @@ const anyConvCapped = rows.some((r) => r.conv.basket.capped || r.conv.oven.cappe
 const anyFanCapped = rows.some((r) => r.fan.basket.capped || r.fan.oven.capped);
 
 const markScale = OVEN_MARK_SCALE[locale];
+// Gas mark / thermostat input: every mark the locale's dial prints, preselected on this page's own mark.
+const markOptions = ovenMarkRange(markScale);
+const defaultMark = markOptions.includes(Number(values.OVEN_MARK)) ? Number(values.OVEN_MARK) : markOptions[0];
 
 const convCell = (r: CTempLandingRow['conv']['basket']) => {
   const mark = ovenMarkFor(r.outF, markScale);
@@ -120,6 +123,24 @@ const nearestFHref = localizedPath(locale, nearestFSlug);
         <h2>{copy.widgetHeading ? fill(copy.widgetHeading) : dict.widgetHeading}</h2>
         <p>{copy.widgetNote ? fill(copy.widgetNote) : fill(dict.widgetNote)}</p>
       </div>
+      <div
+        class="input-modes"
+        role="group"
+        aria-label={dict.widgetHeading}
+        data-conv-c={landing.tempC}
+        data-fan-c={values.FAN_C}
+        data-scale={markScale}
+      >
+        <button type="button" id="tl-mode-c" class="mode-btn active" aria-pressed="true">{dict.tableHeaders.conventional}</button>
+        <button type="button" id="tl-mode-fan" class="mode-btn" aria-pressed="false">{dict.tableHeaders.fan}</button>
+        <button type="button" id="tl-mode-gas" class="mode-btn" aria-pressed="false">{all.chart.tempHeaders.gasMark}</button>
+      </div>
+      <div class="gas-mark-field" id="tl-gas-field" hidden>
+        <label for="tl-gas-mark">{all.chart.tempHeaders.gasMark}</label>
+        <select id="tl-gas-mark">
+          {markOptions.map((m) => <option value={m} selected={m === defaultMark}>{m}</option>)}
+        </select>
+      </div>
       <ConverterWidget locale={locale} initialTemp={landing.tempC} initialUnit="C" />
     </section>
 
@@ -191,19 +212,37 @@ const nearestFHref = localizedPath(locale, nearestFSlug);
       {neighbourLinks.length > 0 && (
         <>
           <h3>{dict.neighboursHeading}</h3>
-          {neighbourLinks.map(({ href, label }) => (
-            <p class="related-link neighbour-link"><a href={href}>{label}</a> &rarr;</p>
-          ))}
+          <div class="related-links">
+            {neighbourLinks.map(({ href, label }) => (
+              <a href={href} class="related-link neighbour-link">
+                <div class="related-link-content">
+                  <span class="related-link-title">{label}</span>
+                </div>
+                <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            ))}
+          </div>
         </>
       )}
 
-      {nearestFLive && (
-        <p class="related-link"><a href={nearestFHref}>{dict.relatedNearestFLink.replace('{F}', String(nearestF))}</a> &rarr;</p>
-      )}
-
-      {links.map(({ href, label }) => (
-        <p class="related-link"><a href={href}>{label}</a> &rarr;</p>
-      ))}
+      <div class="related-links">
+        {nearestFLive && (
+          <a href={nearestFHref} class="related-link">
+            <div class="related-link-content">
+              <span class="related-link-title">{dict.relatedNearestFLink.replace('{F}', String(nearestF))}</span>
+            </div>
+            <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        )}
+        {links.map(({ href, label }) => (
+          <a href={href} class="related-link">
+            <div class="related-link-content">
+              <span class="related-link-title">{label}</span>
+            </div>
+            <span class="related-link-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        ))}
+      </div>
     </section>
 
     <AdSlot slot="0099887766" />
@@ -216,9 +255,101 @@ const nearestFHref = localizedPath(locale, nearestFSlug);
   </div>
 </main>
 
+<script>
+  import { ovenMarkInput, type OvenMarkScale } from '../lib/converter';
+
+  // Conventional / fan / gas mark input: one ConverterWidget, told which recipe figure it is reading.
+  // Conventional °C → flagship engine; fan °C → convection engine; gas mark → its conventional oven temperature.
+  const group = document.querySelector<HTMLElement>('.input-modes');
+  if (group) {
+    const convC = Number(group.dataset.convC);
+    const fanC = Number(group.dataset.fanC);
+    const scale = group.dataset.scale as OvenMarkScale;
+    const buttons = { c: 'tl-mode-c', fan: 'tl-mode-fan', gas: 'tl-mode-gas' } as const;
+    const gasField = document.getElementById('tl-gas-field') as HTMLElement;
+    const gasSelect = document.getElementById('tl-gas-mark') as unknown as HTMLSelectElement;
+    const send = (detail: { engine: 'oven' | 'convection'; temp: number; unit: 'F' | 'C' }) =>
+      document.dispatchEvent(new CustomEvent('afk:input', { detail }));
+    const sendMark = () => {
+      const input = ovenMarkInput(Number(gasSelect.value), scale);
+      if (input) send({ engine: 'oven', ...input });
+    };
+    const select = (mode: keyof typeof buttons) => {
+      for (const [key, id] of Object.entries(buttons)) {
+        const btn = document.getElementById(id)!;
+        btn.classList.toggle('active', key === mode);
+        btn.setAttribute('aria-pressed', String(key === mode));
+      }
+      gasField.hidden = mode !== 'gas';
+      if (mode === 'c') send({ engine: 'oven', temp: convC, unit: 'C' });
+      else if (mode === 'fan') send({ engine: 'convection', temp: fanC, unit: 'C' });
+      else sendMark();
+    };
+    for (const [key, id] of Object.entries(buttons)) {
+      document.getElementById(id)!.addEventListener('click', () => select(key as keyof typeof buttons));
+    }
+    gasSelect.addEventListener('change', sendMark);
+  }
+</script>
 
 <style>
   @reference '../styles/global.css';
+
+  .input-modes {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    margin: 0 0 12px;
+    border-radius: var(--radius-sm);
+    background: var(--site-bg-segment);
+  }
+
+  .mode-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    background: transparent;
+    font-family: var(--font-archivo);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--site-text-muted);
+    cursor: pointer;
+  }
+
+  .mode-btn.active {
+    background: var(--site-bg-card);
+    border-color: var(--site-hairline);
+    color: var(--site-text);
+  }
+
+  .gas-mark-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 12px;
+    font-family: var(--font-archivo);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--site-text);
+  }
+
+  .gas-mark-field[hidden] {
+    display: none;
+  }
+
+  .gas-mark-field select {
+    min-height: 48px;
+    min-width: 88px;
+    padding: 0 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--site-hairline);
+    background: var(--site-bg-card);
+    color: var(--site-text);
+    font: inherit;
+  }
 
   .wrap {
     max-width: var(--site-content-width);
@@ -512,13 +643,11 @@ const nearestFHref = localizedPath(locale, nearestFSlug);
     font-size: 18px;
   }
 
-  .neighbour-link a {
-    font-weight: 600;
+  .neighbour-link .related-link-title {
     color: var(--site-accent-text);
-    text-decoration: none;
   }
 
-  .neighbour-link a:hover {
+  .neighbour-link:hover .related-link-title {
     text-decoration: underline;
     text-underline-offset: 2px;
   }

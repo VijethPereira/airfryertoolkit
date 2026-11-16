@@ -180,6 +180,22 @@ export function ovenMarkFor(tempF: number | null, scale: OvenMarkScale): number 
   return scale === 'thermostat' ? thermostatFor(tempF) : gasMarkFor(tempF);
 }
 
+/** The dial numbers a scale prints: UK gas mark 1–9 (GAS_MARKS), French thermostat 1–10. */
+export function ovenMarkRange(scale: OvenMarkScale): number[] {
+  return scale === 'thermostat' ? Array.from({ length: 10 }, (_, i) => i + 1) : GAS_MARKS.map(([, mark]) => mark);
+}
+
+/**
+ * The conventional oven input an oven-dial mark stands for, in the unit the mark is defined in:
+ * a UK gas mark is its GAS_MARKS °F row; a French thermostat is °C × 30 (the inverse of thermostatFor).
+ * Null for a mark the scale does not print.
+ */
+export function ovenMarkInput(mark: number, scale: OvenMarkScale): { temp: number; unit: TempUnit } | null {
+  if (!ovenMarkRange(scale).includes(mark)) return null;
+  if (scale === 'thermostat') return { temp: mark * 30, unit: 'C' };
+  return { temp: GAS_MARKS.find(([, m]) => m === mark)![0], unit: 'F' };
+}
+
 export interface ConversionInput {
   /** Oven temperature, in `unit`. */
   ovenTemp: number;

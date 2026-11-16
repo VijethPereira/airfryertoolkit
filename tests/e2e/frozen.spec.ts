@@ -269,7 +269,7 @@ test.describe('/frozen', () => {
   test('cross-links to the flagship, both convection pages and /chart', async ({ page }) => {
     await page.goto('/frozen');
     for (const slug of ['/oven-to-air-fryer', '/convection-to-air-fryer', '/air-fryer-to-convection', '/chart']) {
-      await expect(page.locator(`.related-link a[href="${slug}"]`)).toHaveCount(1);
+      await expect(page.locator(`a.related-link[href="${slug}"]`)).toHaveCount(1);
     }
   });
 
@@ -278,7 +278,7 @@ test.describe('/frozen', () => {
       await page.goto(localizedPath(code, '/frozen'));
       const live = PRESETS.filter((p) => p.category === 'frozen').map((p) => presetPath(p.slug)).filter((path) => LIVE_PAGES.has(path));
       expect(live.length).toBeGreaterThan(0);
-      const links = page.locator('.preset-link a');
+      const links = page.locator('a.preset-link');
       await expect(links).toHaveCount(live.length);
       for (const [i, path] of live.entries()) await expect(links.nth(i)).toHaveAttribute('href', localizedPath(code, path));
     });
@@ -287,7 +287,7 @@ test.describe('/frozen', () => {
   test('flagship, convection pages and /chart link back to /frozen', async ({ page }) => {
     for (const slug of ['/oven-to-air-fryer', '/convection-to-air-fryer', '/air-fryer-to-convection']) {
       await page.goto(slug);
-      await expect(page.locator('.related-link a[href="/frozen"]')).toHaveCount(1);
+      await expect(page.locator('a.related-link[href="/frozen"]')).toHaveCount(1);
     }
     await page.goto('/chart');
     await expect(page.locator('.related-links a[href="/frozen"]')).toHaveCount(1);
@@ -353,7 +353,7 @@ test.describe('/frozen: registration, homepage and locales', () => {
       for (const alt of LOCALES) {
         await expect(page.locator(`link[rel="alternate"][hreflang="${alt.code}"]`)).toHaveAttribute('href', localizedUrl(alt.code, '/frozen'));
       }
-      await expect(page.locator(`.related-link a[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
+      await expect(page.locator(`a.related-link[href="${localizedPath(l.code, '/chart')}"]`)).toHaveCount(1);
 
       expect(pageErrors).toEqual([]);
     });

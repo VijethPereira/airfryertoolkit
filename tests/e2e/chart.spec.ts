@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { computeAirFryerSetting, formatTempAdjustment, FOODS } from '../../src/lib/converter';
 import { TEMP_STEPS, TIME_STEPS } from '../../src/lib/chart-data';
 import { LIVE_PAGES } from '../../src/site.config';
+import { LOCALES } from '../../src/i18n/locales';
+import { localizedPath } from '../../src/i18n/utils';
+import { getDictionary } from '../../src/i18n/dictionaries';
 
 test.describe('/chart', () => {
   test('renders with zero page errors', async ({ page }) => {
@@ -120,27 +123,38 @@ test.describe('/chart', () => {
   });
 
   test('homepage gates every tool card on LIVE_PAGES, not a hardcoded slug', async ({ page }) => {
-    await page.goto('/');
+    test.setTimeout(90_000); // 5 homepages, run while the rest of the suite loads astro dev
+    // Since the gas mark card moved to the live °C pages (eb327ae) the English homepage has no unbuilt card;
+    // the translated homepages still show the English-only brand cards as Coming soon. So check every locale:
+    // the rule (live → <a> to a LIVE_PAGES page, not live → inert div) applies to each, and across all five
+    // there must still be disabled cards, so the disabled-card check is never vacuous.
+    let disabledTotal = 0;
+    for (const l of LOCALES) {
+      await page.goto(localizedPath(l.code, '/'));
 
-    // Every card link — its own page or a fallback such as /frozen?food=fries — points at a page in LIVE_PAGES.
-    const liveHrefs = await page.locator('a.card').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
-    expect(liveHrefs.length).toBeGreaterThan(0);
-    for (const href of liveHrefs) {
-      expect(href).not.toBeNull();
-      expect(LIVE_PAGES.has(href!.split('?')[0])).toBe(true);
-    }
+      // Every card link (grid cards and the Stage 4 list rows) — its own page or a fallback such as
+      // /frozen?food=fries — points at a page in LIVE_PAGES.
+      const liveHrefs = await page.locator('a.card, a.list-row').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
+      expect(liveHrefs.length, l.code).toBeGreaterThan(0);
+      for (const href of liveHrefs) {
+        expect(href, l.code).not.toBeNull();
+        const path = href!.split('?')[0].replace(new RegExp(`^/${l.code}(?=/|$)`), '') || '/';
+        expect(LIVE_PAGES.has(path), `${l.code} ${href}`).toBe(true);
+      }
 
-    // Every not-yet-live card renders as an inert div with the Coming soon stub — never an <a>.
-    const disabledCards = page.locator('.card.disabled');
-    const disabledCount = await disabledCards.count();
-    expect(disabledCount).toBeGreaterThan(0); // the roadmap still has unbuilt pages; this shouldn't ever be vacuous
-    for (let i = 0; i < disabledCount; i++) {
-      const card = disabledCards.nth(i);
-      expect(await card.evaluate((el) => el.tagName)).toBe('DIV');
-      await expect(card).toHaveAttribute('aria-disabled', 'true');
-      await expect(card).toContainText('Coming soon');
-      await expect(card.locator('a')).toHaveCount(0);
+      // Every not-yet-live card renders as an inert div with the Coming soon stub — never an <a>.
+      const disabledCards = page.locator('.card.disabled, .list-row.disabled');
+      const disabledCount = await disabledCards.count();
+      disabledTotal += disabledCount;
+      for (let i = 0; i < disabledCount; i++) {
+        const card = disabledCards.nth(i);
+        expect(await card.evaluate((el) => el.tagName)).toBe('DIV');
+        await expect(card).toHaveAttribute('aria-disabled', 'true');
+        await expect(card).toContainText(getDictionary(l.code).home.comingSoon);
+        await expect(card.locator('a')).toHaveCount(0);
+      }
     }
+    expect(disabledTotal).toBeGreaterThan(0); // the roadmap still has untranslated or unbuilt cards; never vacuous
   });
 
   test('print stays white-on-black even when the site is in dark mode', async ({ page }) => {

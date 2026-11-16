@@ -29,7 +29,7 @@ interface Props {
   modelLabels?: { picker: string; any: string };
 }
 
-const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialTime, initialFood, initialTurn, models = [], modelLabels } = Astro.props;
+const { locale = DEFAULT_LOCALE, source = 'oven', initialTemp, initialUnit = 'F', initialTime, initialFood, initialTurn, models = [], modelLabels } = Astro.props;
 const turnOverride = initialTurn && initialFood ? { food: initialFood, ...initialTurn } : null;
 const markScale = OVEN_MARK_SCALE[locale];
 const all = getDictionary(locale);
@@ -62,8 +62,8 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
       <label for="afk-temp">{dict.ovenTemperature}</label>
       <div class="input-with-toggle">
         <input id="afk-temp" type="number" inputmode="numeric" value={defaults.temp} />
-        <button type="button" id="afk-unit-f" class="seg-btn" aria-pressed="true">°F</button>
-        <button type="button" id="afk-unit-c" class="seg-btn" aria-pressed="false">°C</button>
+        <button type="button" id="afk-unit-f" class="seg-btn" aria-pressed={initialUnit === 'F' ? 'true' : 'false'}>°F</button>
+        <button type="button" id="afk-unit-c" class="seg-btn" aria-pressed={initialUnit === 'C' ? 'true' : 'false'}>°C</button>
       </div>
     </div>
     <div class="field narrow">
@@ -152,8 +152,9 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   <slot />
 </div>
 
-<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale, turnOverride, models }}>
+<script is:inline define:vars={{ dict, source, frozenDict, tips, markScale, turnOverride, models, initialUnit }}>
   window.__afkDict = dict;
+  window.__afkInitialUnit = initialUnit;
   window.__afkModels = models;
   window.__afkTurnOverride = turnOverride;
   window.__afkSource = source;
@@ -189,7 +190,9 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     __afkMarkScale: markScale,
     __afkTurnOverride: turnOverride,
     __afkModels: models,
+    __afkInitialUnit: initialUnit,
   } = window as unknown as {
+    __afkInitialUnit: TempUnit;
     __afkDict: Dictionary['converter'];
     __afkSource: 'oven' | 'convection' | 'frozen';
     __afkFrozenDict: Dictionary['frozenConverter'] | null;
@@ -224,7 +227,10 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
   const modelSelect = document.getElementById('afk-model') as HTMLSelectElement | null;
   const selectedModel = () => models.find((m) => m.id === modelSelect?.value);
 
-  const state: { unit: TempUnit; style: FryerStyle; pack: PackType } = { unit: 'F', style: 'basket', pack: 'conventional' };
+  const state: { unit: TempUnit; style: FryerStyle; pack: PackType } = { unit: initialUnit, style: 'basket', pack: 'conventional' };
+  // Oven-recipe engine for a non-frozen widget. A page can switch it at runtime (the °C landings' fan input)
+  // with an `afk:input` event; the widget is never cloned for that.
+  let engine: 'oven' | 'convection' = source === 'convection' ? 'convection' : 'oven';
 
   // /frozen?food=wings (the homepage teaser's Go button) opens with that food selected.
   const requestedFood = new URLSearchParams(window.location.search).get('food');
@@ -279,7 +285,7 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
       renderFrozen(frozen, frozenDict);
       result = frozen;
     } else {
-      const compute = source === 'convection' ? computeAirFryerSettingFromConvection : computeAirFryerSetting;
+      const compute = engine === 'convection' ? computeAirFryerSettingFromConvection : computeAirFryerSetting;
       result = compute({ ...base, food: food as FoodKey });
     }
 
@@ -364,6 +370,20 @@ const defaults = frozenDict ? { temp: initialTemp ?? 425, time: initialTime ?? 2
     state.pack = 'fan';
     packConventionalBtn?.setAttribute('aria-pressed', 'false');
     packFanBtn?.setAttribute('aria-pressed', 'true');
+    render();
+  });
+
+  // A page sets the recipe input from outside: { engine?, temp?, unit? }. The temperature is written as given,
+  // in the given unit (no rounding), so the engine sees exactly the recipe's figure.
+  document.addEventListener('afk:input', (e) => {
+    const detail = (e as CustomEvent<{ engine?: 'oven' | 'convection'; temp?: number; unit?: TempUnit }>).detail ?? {};
+    if (source !== 'frozen' && detail.engine) engine = detail.engine;
+    if (detail.unit) {
+      state.unit = detail.unit;
+      unitFBtn.setAttribute('aria-pressed', String(detail.unit === 'F'));
+      unitCBtn.setAttribute('aria-pressed', String(detail.unit === 'C'));
+    }
+    if (detail.temp !== undefined && Number.isFinite(detail.temp)) tempInput.value = String(detail.temp);
     render();
   });
 

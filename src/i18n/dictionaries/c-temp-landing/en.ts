@@ -130,7 +130,7 @@ const cTempLanding: {
       fanWorkedExampleHeading: 'Worked example (fan)',
       fanWorkedExampleTemplate: 'If the recipe gives {FAN_C}°C fan, the same vegetables convert to {EX_FAN_C}°C ({EX_FAN_F}°F) in a basket air fryer for {EX_FAN_MIN} minutes, shake at {EX_FAN_CHECK} minutes. An oven-style unit runs {EX_FAN_OS_C}°C ({EX_FAN_OS_F}°F) for {EX_FAN_OS_MIN} minutes.',
       styleHeading: '{OVEN_C}°C in °F and gas mark',
-      styleBody: '{OVEN_C}°C is {OVEN_F}°F (often rounded to 200°C on European dials) and gas mark {OVEN_MARK}. The air fryer setting is {AF_C}°C in a basket unit, {OS_C}°C in an oven-style one. If your air fryer only moves in 10°C steps, pick the lower step for vegetables and the higher one for chicken skin. Entering the recipe in °C in the converter gives you both numbers at once. For frozen packs, use the frozen mode.',
+      styleBody: '{OVEN_C}°C is {OVEN_F}°F (US recipes round it to {NEAREST_F}°F) and gas mark {OVEN_MARK}. The air fryer setting is {AF_C}°C in a basket unit, {OS_C}°C in an oven-style one. If your air fryer only moves in 10°C steps, pick the lower step for vegetables and the higher one for chicken skin. Entering the recipe in °C in the converter gives you both numbers at once. For frozen packs, use the frozen mode.',
       faqs: [
         { q: 'What is {OVEN_C}°C in an air fryer?', a: 'About {AF_C}°C ({AF_F}°F) in a basket air fryer, with about {PCT}% less time. In an oven-style unit, {OS_C}°C. Fries and bacon save the most time; baked goods take the smallest cut.' },
         { q: 'My recipe says {FAN_C}°C fan — is that the same as {OVEN_C}°C conventional?', a: 'Yes, fan = conventional − {FAN_OFFSET_C}°C. Use the fan input on this page for a fan-oven recipe; it takes a gentler cut.' },

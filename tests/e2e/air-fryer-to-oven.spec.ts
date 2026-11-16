@@ -169,13 +169,13 @@ test.describe('/air-fryer-to-oven', () => {
 
   test('reciprocal cross-links to /oven-to-air-fryer and /chart', async ({ page }) => {
     await page.goto('/air-fryer-to-oven');
-    await expect(page.locator('.related-link a[href="/oven-to-air-fryer"]')).toHaveCount(1);
-    await expect(page.locator('.related-link a[href="/chart"]')).toHaveCount(1);
+    await expect(page.locator('a.related-link[href="/oven-to-air-fryer"]')).toHaveCount(1);
+    await expect(page.locator('a.related-link[href="/chart"]')).toHaveCount(1);
   });
 
   test('flagship and chart pages link back to the now-live /air-fryer-to-oven', async ({ page }) => {
     await page.goto('/oven-to-air-fryer');
-    await expect(page.locator('.related-link a[href="/air-fryer-to-oven"]')).toHaveCount(1);
+    await expect(page.locator('a.related-link[href="/air-fryer-to-oven"]')).toHaveCount(1);
 
     await page.goto('/chart');
     await expect(page.locator('.related-links a[href="/air-fryer-to-oven"]')).toHaveCount(1);
@@ -183,7 +183,7 @@ test.describe('/air-fryer-to-oven', () => {
 
   test('homepage renders a live card linking to /air-fryer-to-oven, no Coming soon badge', async ({ page }) => {
     await page.goto('/');
-    const card = page.locator('a.card[href="/air-fryer-to-oven"]');
+    const card = page.locator('#reverse a.list-row[href="/air-fryer-to-oven"]');
     await expect(card).toHaveCount(1);
     await expect(card).not.toContainText('Coming soon');
   });
