@@ -1957,7 +1957,7 @@ export const presets: Dictionary['presets'] = {
         'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Cozinhe a {INT_F}°F na parte mais grossa e depois deixe o peito repousar coberto com papel alumínio por três minutos. O repouso distribui o calor das camadas exteriores para o centro enquanto os sucos se assentam na carne em vez de sair na tábua.',
       workedExampleHeading: 'Exemplo prático: um peito de peru com osso',
       workedExampleTemplate:
-        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Cozinhe a {INT_F}°F, depois repouse três minutos e corte. Um forno convencional precisa {OVEN_F}°F por uns {OVEN_MIN} minutos para o mesmo peito.',
+        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Cozinhe a {INT_F}°F, depois repouse três minutos e corte.',
       donenessHeading: 'Como saber que está pronto',
       donenessBody:
         'Espete a parte mais grossa do peito, de lado, evitando o osso: cozinhe a {INT_F}°F e depois deixe repousar três minutos. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
@@ -1982,8 +1982,8 @@ export const presets: Dictionary['presets'] = {
           a: 'Não com este ajuste. Um peito congelado precisa de temperatura mais baixa e muito mais tempo para o centro ser seguro antes de o exterior secar. Use um modo congelado específico ou descongele antes.',
         },
         {
-          q: 'Qual é o equivalente no forno deste ajuste?',
-          a: '{OVEN_F}°F por uns {OVEN_MIN} minutos num forno convencional, ou {FAN_F}°F por {FAN_MIN} minutos num forno com ventilação.',
+          q: 'Um peito de peru com osso cabe no cesto da minha air fryer?',
+          a: 'Confira antes de temperar. O peito deve ficar deitado, com um dedo de espaço de cada lado e sem encostar na resistência de cima. Se encostar na resistência ou nas paredes, a pele queima e o ar não chega à parte de baixo; escolha um peito sem osso ou menor.',
         },
       ],
     },

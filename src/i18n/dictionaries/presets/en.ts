@@ -1957,7 +1957,7 @@ export const presets: Dictionary['presets'] = {
         'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Cook to {INT_F}°F in the thickest part, then rest it under loose foil for three minutes. The rest lets the heat even out from the outer layers to the centre while the juices settle back into the meat instead of running out on the board.',
       workedExampleHeading: 'Worked example: a bone-in turkey breast',
       workedExampleTemplate:
-        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Cook to {INT_F}°F, then rest three minutes and slice. A conventional oven needs {OVEN_F}°F for around {OVEN_MIN} minutes for the same breast.',
+        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Cook to {INT_F}°F, then rest three minutes and slice.',
       donenessHeading: 'How to tell it is done',
       donenessBody:
         'Probe the thickest part of the breast, from the side, avoiding the bone: cook to {INT_F}°F, then rest three minutes. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
@@ -1982,8 +1982,8 @@ export const presets: Dictionary['presets'] = {
           a: 'Not with this setting. A frozen breast needs a lower temperature and much more time so the centre is safe before the outside dries. Use a dedicated frozen mode or thaw it first.',
         },
         {
-          q: 'What is the oven equivalent of this air fryer setting?',
-          a: '{OVEN_F}°F for about {OVEN_MIN} minutes in a conventional oven, or {FAN_F}°F for {FAN_MIN} minutes in a fan oven.',
+          q: 'Will a bone-in turkey breast fit in my air fryer basket?',
+          a: 'Check before you season it. The breast should sit flat with a finger’s width of space on every side and stay clear of the heating element above. If it touches the element or the walls, the skin scorches and the air cannot reach the underside; pick a boneless or smaller breast instead.',
         },
       ],
     },

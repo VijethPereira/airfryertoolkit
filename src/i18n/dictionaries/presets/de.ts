@@ -1957,7 +1957,7 @@ export const presets: Dictionary['presets'] = {
         'Eine Putenbrust ist ein magerer, konischer Muskel: das dünne Ende ist gar, lange bevor das dicke, und die Haut draußen bekommt die volle Wucht des Ventilators. Wenn der dickste Teil eine sichere Temperatur erreicht, können das dünne Ende und die Haut trocken und faserig sein. Zwei Dinge ändern das. Erstens, die Dicke angleichen. Eine Putenbrust ohne Knochen sollte butterflysiert oder plattiert werden, bis sie überall ungefähr gleich dick ist; eine mit Knochen gart gleichmäßiger, wenn die Flügelspitzen eingesteckt und die Brust verschnürt wird, damit sie eine rundere Form behält. Zweitens ist das Ruhen nicht optional. Gare die Brust an der dicksten Stelle auf {INT_F}°F, dann lass sie locker mit Alufolie abgedeckt drei Minuten ruhen. Beim Ruhen verteilt sich die Hitze aus den äußeren Schichten zur Mitte, während die Säfte sich im Fleisch setzen statt auf dem Brett zu landen.',
       workedExampleHeading: 'Rechenbeispiel: eine Putenbrust mit Knochen',
       workedExampleTemplate:
-        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Auf {INT_F}°F garen, dann drei Minuten ruhen lassen und aufschneiden. Ein normaler Backofen bräuchte {OVEN_F}°F für etwa {OVEN_MIN} Minuten für dieselbe Brust.',
+        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Auf {INT_F}°F garen, dann drei Minuten ruhen lassen und aufschneiden.',
       donenessHeading: 'Woran du erkennst, dass sie gar ist',
       donenessBody:
         'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: auf {INT_F}°F garen, dann drei Minuten ruhen lassen. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
@@ -1982,8 +1982,8 @@ export const presets: Dictionary['presets'] = {
           a: 'Nicht mit dieser Einstellung. Eine gefrorene Brust braucht eine niedrigere Temperatur und viel mehr Zeit, damit die Mitte sicher gar ist, bevor der Außenbereich austrocknet. Nutze einen dedizierten Tiefkühlmodus oder taut sie vorher auf.',
         },
         {
-          q: 'Was ist die Backofen-Entsprechung dieser Einstellung?',
-          a: '{OVEN_F}°F für etwa {OVEN_MIN} Minuten mit Ober-/Unterhitze oder {FAN_F}°F für {FAN_MIN} Minuten mit Umluft.',
+          q: 'Passt eine Putenbrust mit Knochen in den Korb meiner Heißluftfritteuse?',
+          a: 'Prüfe das, bevor du sie würzt. Die Brust sollte flach liegen, mit einer Fingerbreite Platz an jeder Seite, und das Heizelement oben nicht berühren. Berührt sie das Heizelement oder die Wände, verbrennt die Haut und die Luft erreicht die Unterseite nicht; nimm dann eine Brust ohne Knochen oder eine kleinere.',
         },
       ],
     },

@@ -538,6 +538,8 @@ test.describe('food presets: frozen engine branch', () => {
       const t = getDictionary(code).presets.pages['turkey-breast'];
       expect(JSON.stringify(t), code).not.toContain('160');
       expect(t.metaDescription, code).not.toMatch(/oven|horno|forno|four|Ofen/i);
+      // No oven equivalent anywhere on the page: the converter ratio is wrong for large roasts.
+      expect(JSON.stringify(t), code).not.toMatch(/\{(OVEN|FAN)_/);
       for (const field of [t.failureBody, t.workedExampleTemplate, t.donenessBody, t.faqs[1].a]) {
         expect(field, code).toContain('{INT_F}°F');
       }

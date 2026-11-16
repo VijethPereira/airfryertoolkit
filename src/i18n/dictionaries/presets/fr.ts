@@ -1957,7 +1957,7 @@ export const presets: Dictionary['presets'] = {
         'Un filet de dinde est un muscle maigre et conique : la pointe fine cuit bien avant la pointe épaisse, et la peau de dehors reçoit tout le souffle du ventilateur. Quand la partie la plus épaisse atteint une température sûre, la pointe fine et la peau peuvent être sèches et filandreuses. Deux choses changent cela. D’abord, égaliser l’épaisseur. Un filet sans os doit être ouvert en papillon ou aplati à une hauteur constante ; un filet avec os cuit plus uniformément si on rentre les pointes d’ailes et on le ficelle pour qu’il garde une forme arrondie. Ensuite, le repos n’est pas optionnel. Cuisez à {INT_F}°F au cœur de la partie la plus épaisse, puis laissez reposer le filet sous du papier aluminium pendant trois minutes. Le repos répartit la chaleur des couches extérieures vers le centre pendant que les jus se réinstallent dans la viande au lieu de couler sur la planche.',
       workedExampleHeading: 'Exemple concret : un filet de dinde avec os',
       workedExampleTemplate:
-        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Cuisez à {INT_F}°F, puis laissez reposer trois minutes et tranchez. Un four traditionnel demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes pour le même filet.',
+        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Cuisez à {INT_F}°F, puis laissez reposer trois minutes et tranchez.',
       donenessHeading: 'Comment savoir qu’il est cuit',
       donenessBody:
         'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : cuisez à {INT_F}°F, puis laissez reposer trois minutes. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
@@ -1982,8 +1982,8 @@ export const presets: Dictionary['presets'] = {
           a: 'Pas avec ce réglage. Un filet surgelé a besoin d’une température plus basse et de beaucoup plus de temps pour que le centre soit sûr avant que l’extérieur ne sèche. Utilisez un mode surgelé dédié ou décongelez d’abord.',
         },
         {
-          q: 'Quel est l’équivalent au four de ce réglage ?',
-          a: '{OVEN_F}°F pendant environ {OVEN_MIN} minutes dans un four traditionnel, ou {FAN_F}°F pendant {FAN_MIN} minutes dans un four à chaleur tournante.',
+          q: 'Un filet de dinde avec os rentre-t-il dans le panier de ma friteuse à air ?',
+          a: 'Vérifiez avant de l’assaisonner. Le filet doit tenir à plat, avec un doigt d’espace de chaque côté, sans toucher la résistance au-dessus. S’il touche la résistance ou les parois, la peau brûle et l’air n’atteint pas le dessous ; choisissez un filet sans os ou plus petit.',
         },
       ],
     },
