@@ -1945,22 +1945,22 @@ export const presets: Dictionary['presets'] = {
       label: 'Putenbrust',
       metaTitle: 'Putenbrust in der Heißluftfritteuse: Zeit, Temperatur, Kerntemperatur',
       metaDescription:
-        'Putenbrust mit oder ohne Knochen in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, gar bei {INT_F}°F. Zeiten nach Größe, das Ruhen, das die Garung vollendet, und die Ofen-Entsprechung.',
+        'Putenbrust mit oder ohne Knochen in der Heißluftfritteuse: {AF_F}°F für {MIN} Minuten, nach {FLIP} wenden, gar bei {INT_F}°F. Zeiten nach Größe und das Ruhen, das die Garung vollendet.',
       metaKeywords: 'putenbrust heißluftfritteuse, putenbrust airfryer zeit, putenbrustfilet air fryer, wie lange putenbrust heißluftfritteuse',
       heading: 'Putenbrust in der Heißluftfritteuse',
       subDesc:
         'Putenbrust mit oder ohne Knochen, gegart, bis die Haut goldbraun und die Mitte 165°F erreicht. Die Einstellung, das Wenden und warum das Ruhen nach dem Garen Teil der Temperatur ist.',
-      cardDesc: 'Bei 160°F herausnehmen und drei Minuten ruhen bis 165°F.',
+      cardDesc: 'Auf {INT_F}°F garen, dann ruhen lassen.',
       sizeLabels: { small: 'Putenbrust ohne Knochen, 0,9–1,4 kg', medium: 'Putenbrust mit Knochen, 1,8–2,3 kg', large: 'Putenbrust mit Knochen, 2,7–3,2 kg' },
       failureHeading: 'Warum die Putenbrust trocken wird, bevor die Mitte sicher ist',
       failureBody:
-        'Eine Putenbrust ist ein magerer, konischer Muskel: das dünne Ende ist gar, lange bevor das dicke, und die Haut draußen bekommt die volle Wucht des Ventilators. Wenn der dickste Teil eine sichere Temperatur erreicht, können das dünne Ende und die Haut trocken und faserig sein. Zwei Dinge ändern das. Erstens, die Dicke angleichen. Eine Putenbrust ohne Knochen sollte butterflysiert oder plattiert werden, bis sie überall ungefähr gleich dick ist; eine mit Knochen gart gleichmäßiger, wenn die Flügelspitzen eingesteckt und die Brust verschnürt wird, damit sie eine rundere Form behält. Zweitens ist das Ruhen nicht optional. Nimm die Brust heraus, wenn der dickste Teil 160°F zeigt, decke sie locker mit Alufolie ab und warte drei Minuten. Die in den äußeren Schichten gespeicherte Hitze gart die Mitte auf 165°F fertig, während die Säfte sich im Fleisch setzen statt auf dem Brett zu landen.',
+        'Eine Putenbrust ist ein magerer, konischer Muskel: das dünne Ende ist gar, lange bevor das dicke, und die Haut draußen bekommt die volle Wucht des Ventilators. Wenn der dickste Teil eine sichere Temperatur erreicht, können das dünne Ende und die Haut trocken und faserig sein. Zwei Dinge ändern das. Erstens, die Dicke angleichen. Eine Putenbrust ohne Knochen sollte butterflysiert oder plattiert werden, bis sie überall ungefähr gleich dick ist; eine mit Knochen gart gleichmäßiger, wenn die Flügelspitzen eingesteckt und die Brust verschnürt wird, damit sie eine rundere Form behält. Zweitens ist das Ruhen nicht optional. Gare die Brust an der dicksten Stelle auf {INT_F}°F, dann lass sie locker mit Alufolie abgedeckt drei Minuten ruhen. Beim Ruhen verteilt sich die Hitze aus den äußeren Schichten zur Mitte, während die Säfte sich im Fleisch setzen statt auf dem Brett zu landen.',
       workedExampleHeading: 'Rechenbeispiel: eine Putenbrust mit Knochen',
       workedExampleTemplate:
-        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Bei 160°F herausnehmen, drei Minuten ruhen, dann aufschneiden. Ein normaler Backofen bräuchte {OVEN_F}°F für etwa {OVEN_MIN} Minuten für dieselbe Brust.',
+        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Auf {INT_F}°F garen, dann drei Minuten ruhen lassen und aufschneiden. Ein normaler Backofen bräuchte {OVEN_F}°F für etwa {OVEN_MIN} Minuten für dieselbe Brust.',
       donenessHeading: 'Woran du erkennst, dass sie gar ist',
       donenessBody:
-        'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: 160°F ist das Herausnahme-Ziel, 165°F nach den drei Minuten Ruhe. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
+        'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: auf {INT_F}°F garen, dann drei Minuten ruhen lassen. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
       prepHeading: 'Bevor sie hineinkommt',
       prepBody:
         'Für eine Brust ohne Knochen butterflysieren oder auf 3,5 cm gleichmäßige Dicke plattieren. Für eine mit Knochen die Flügelspitzen einstecken und die Brust mit Küchengarn verschnüren, damit sie kompakt bleibt. Mit Öl bestreichen und eine trockene Salzlake aus Salz und Kräutern funktioniert gut bei Pute; 30 Minuten unabgedeckt im Kühlschrank trocknet die Haut und hilft beim Knuspern. Wenn die Brust für deinen Korb sehr groß ist, kann sie in zwei Phasen gegart werden: erst Hautseite unten für die erste Hälfte, dann Hautseite oben zum Finish. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
@@ -1971,7 +1971,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'Welche Kerntemperatur braucht Putenbrust?',
-          a: '{INT_F}°F ({INT_C}°C) an der dicksten Stelle ist die sichere USDA-Temperatur. Nimm sie bei 160°F heraus und ruhe drei Minuten; sie steigt auf 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) an der dicksten Stelle ist die sichere USDA-Temperatur. Gare sie auf {INT_F}°F, dann lass sie drei Minuten ruhen, bevor du sie aufschneidest.',
         },
         {
           q: 'Muss ich Putenbrust in der Heißluftfritteuse wenden?',

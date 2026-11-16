@@ -532,6 +532,17 @@ test.describe('food presets: frozen engine branch', () => {
       expect(d.frozen.sizingHeaders.oven, code).not.toBe(d.sizingHeaders.oven);
     }
   });
+
+  test('turkey-breast copy says cook to {INT_F}°F then rest, never a 160°F pull, and the meta drops the oven', () => {
+    for (const { code } of LOCALES) {
+      const t = getDictionary(code).presets.pages['turkey-breast'];
+      expect(JSON.stringify(t), code).not.toContain('160');
+      expect(t.metaDescription, code).not.toMatch(/oven|horno|forno|four|Ofen/i);
+      for (const field of [t.failureBody, t.workedExampleTemplate, t.donenessBody, t.faqs[1].a]) {
+        expect(field, code).toContain('{INT_F}°F');
+      }
+    }
+  });
 });
 
 test.describe('food preset pages', () => {
@@ -648,9 +659,14 @@ test.describe('food preset pages', () => {
         const row = page.locator(`#pr-sizes tr[data-size="${s.id}"]`);
         await expect(row.locator('.food-cell')).toHaveText(copy.sizeLabels[s.id]!);
         await expect(row.locator('td[data-style="air-fryer"]')).toHaveText(`${tempF}°F / ${convertTempUnit(tempF, 'F')}°C · ${s.minutes} min`);
+        if (p.slug === 'turkey-breast') {
+          await expect(row.locator('td[data-style="oven"]')).toHaveCount(0);
+          continue;
+        }
         const o = ovenOf(p, tempF, s.minutes);
         await expect(row.locator('td[data-style="oven"]')).toHaveText(`${o.outF}°F / ${o.outC}°C · ${o.outMinutes} min`);
       }
+      await expect(page.locator('#pr-sizes thead th')).toHaveCount(p.slug === 'turkey-breast' ? 2 : 3);
     });
 
     test(`${slug} cross-links the flagship, /presets, /chart, its nearest temperature page and 3 related presets`, async ({ page }) => {

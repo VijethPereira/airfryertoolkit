@@ -1945,22 +1945,22 @@ export const presets: Dictionary['presets'] = {
       label: 'Peito de peru',
       metaTitle: 'Peito de peru na air fryer: tempo, temperatura e repouso',
       metaDescription:
-        'Peito de peru com ou sem osso na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, a {INT_F}°F. Tempos por tamanho, o repouso que finaliza a cocção e o equivalente no forno.',
+        'Peito de peru com ou sem osso na air fryer: {AF_F}°F por {MIN} minutos, virando aos {FLIP}, a {INT_F}°F. Tempos por tamanho e o repouso que finaliza a cocção.',
       metaKeywords: 'peito de peru air fryer, peru air fryer tempo, peito peru air fryer temperatura, como cozinhar peito de peru na air fryer',
       heading: 'Peito de peru na air fryer',
       subDesc:
         'Peito de peru com ou sem osso, assado até a pele ficar dourada e o centro chegar a 165°F. O ajuste, a virada e por que o repouso depois de cozinhar faz parte da temperatura.',
-      cardDesc: 'Tire a 160°F e repouse três minutos até 165°F.',
+      cardDesc: 'Cozinhe a {INT_F}°F e depois repouse.',
       sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,8–2,7 kg', large: 'Peito com osso, 2,7–3,6 kg' },
       failureHeading: 'Por que o peito seca antes de o centro estar seguro',
       failureBody:
-        'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Tire o peito quando a parte mais grossa marcar 160°F, cubra com papel alumínio e espere três minutos. O calor guardado nas camadas exteriores finaliza o centro a 165°F enquanto os sucos se assentam na carne em vez de sair na tábua.',
+        'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Cozinhe a {INT_F}°F na parte mais grossa e depois deixe o peito repousar coberto com papel alumínio por três minutos. O repouso distribui o calor das camadas exteriores para o centro enquanto os sucos se assentam na carne em vez de sair na tábua.',
       workedExampleHeading: 'Exemplo prático: um peito de peru com osso',
       workedExampleTemplate:
-        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Tire a 160°F, repouse três minutos e depois corte. Um forno convencional precisa {OVEN_F}°F por uns {OVEN_MIN} minutos para o mesmo peito.',
+        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Cozinhe a {INT_F}°F, depois repouse três minutos e corte. Um forno convencional precisa {OVEN_F}°F por uns {OVEN_MIN} minutos para o mesmo peito.',
       donenessHeading: 'Como saber que está pronto',
       donenessBody:
-        'Espete a parte mais grossa do peito, de lado, evitando o osso: 160°F é o alvo de retirada, 165°F após os três minutos de repouso. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
+        'Espete a parte mais grossa do peito, de lado, evitando o osso: cozinhe a {INT_F}°F e depois deixe repousar três minutos. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
       prepHeading: 'Antes de colocar',
       prepBody:
         'Para um peito sem osso, abra em borboleta ou achate a 3,5 cm de espessura constante. Para um com osso, enfie as pontas das asas e amarre o peito com barbante de cozinha para que fique compacto. Unte com óleo e um tempero seco de sal e ervas funciona bem com peru; 30 minutos descoberto na geladeira seca a pele e ajuda a crocância. Se o peito for muito grande para seu cesto, pode ser feito em duas fases: comece com a pele para baixo na primeira metade, depois vire com a pele para cima para finalizar. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
@@ -1971,7 +1971,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'A que temperatura o peito de peru deve chegar?',
-          a: '{INT_F}°F ({INT_C}°C) na parte mais grossa é a temperatura segura do USDA. Tire a 160°F e repouse três minutos; subirá a 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) na parte mais grossa é a temperatura segura do USDA. Cozinhe a {INT_F}°F e depois repouse três minutos antes de cortar.',
         },
         {
           q: 'Preciso virar o peito de peru na air fryer?',

@@ -1945,7 +1945,7 @@ export const presets: Dictionary['presets'] = {
       label: 'Pechuga de pavo',
       metaTitle: 'Pechuga de pavo en la freidora de aire: tiempo, temperatura y reposo',
       metaDescription:
-        'Pechuga de pavo con o sin hueso en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}, a {INT_F}°F. Tiempos por tamaño, el reposo que remata la cocción y el equivalente en horno.',
+        'Pechuga de pavo con o sin hueso en la freidora de aire: {AF_F}°F durante {MIN} minutos, vuelta a los {FLIP}, a {INT_F}°F. Tiempos por tamaño y el reposo que remata la cocción.',
       metaKeywords: 'pechuga de pavo freidora de aire, pavo air fryer tiempo, pechuga pavo air fryer temperatura, cómo cocinar pechuga de pavo en freidora de aire',
       heading: 'Pechuga de pavo en la freidora de aire',
       subDesc:
@@ -1954,13 +1954,13 @@ export const presets: Dictionary['presets'] = {
       sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,8–2,7 kg', large: 'Pechuga con hueso, 2,7–3,6 kg' },
       failureHeading: 'Por qué la pechuga se seca antes de que el centro sea seguro',
       failureBody:
-        'Una pechuga de pavo es un músculo magro y cónico: el extremo fino se hace mucho antes que el grueso, y la piel de fuera recibe todo el empuje del ventilador. Cuando la parte más gruesa llega a una temperatura segura, el extremo fino y la piel pueden estar secos y fibrosos. Dos cosas lo cambian. Primero, igualar el grosor. Una pechuga sin hueso debe abrirse en mariposa o aplastarse a una altura constante; una con hueso se cocina de forma más uniforme si se meten las puntas de las alas y se ata para que mantenga una forma redondeada. Segundo, el reposo no es opcional. Saca la pechuga cuando la parte más gruesa marque 160°F, tápala con papel de aluminio y espera tres minutos. El calor guardado en las capas exteriores remata el centro a 165°F mientras los jugos se asientan en la carne en lugar de salir en la tabla.',
+        'Una pechuga de pavo es un músculo magro y cónico: el extremo fino se hace mucho antes que el grueso, y la piel de fuera recibe todo el empuje del ventilador. Cuando la parte más gruesa llega a una temperatura segura, el extremo fino y la piel pueden estar secos y fibrosos. Dos cosas lo cambian. Primero, igualar el grosor. Una pechuga sin hueso debe abrirse en mariposa o aplastarse a una altura constante; una con hueso se cocina de forma más uniforme si se meten las puntas de las alas y se ata para que mantenga una forma redondeada. Segundo, el reposo no es opcional. Cocina a {INT_F}°F en la parte más gruesa y luego deja reposar la pechuga tapada con papel de aluminio durante tres minutos. El reposo reparte el calor de las capas exteriores hacia el centro mientras los jugos se asientan en la carne en lugar de salir en la tabla.',
       workedExampleHeading: 'Ejemplo práctico: una pechuga de pavo con hueso',
       workedExampleTemplate:
-        'Una pechuga de 2,3 kg con hueso, atada, untada con aceite, sal y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, dándole la vuelta a los {FLIP} minutos. Una pechuga sin hueso de 1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 3,2 kg unos {LARGE_MIN}. Sácala a 160°F, reposo tres minutos y luego corta. Un horno convencional necesita {OVEN_F}°F durante unos {OVEN_MIN} minutos para la misma pechuga.',
+        'Una pechuga de 2,3 kg con hueso, atada, untada con aceite, sal y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, dándole la vuelta a los {FLIP} minutos. Una pechuga sin hueso de 1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 3,2 kg unos {LARGE_MIN}. Cocina a {INT_F}°F, luego reposa tres minutos y corta. Un horno convencional necesita {OVEN_F}°F durante unos {OVEN_MIN} minutos para la misma pechuga.',
       donenessHeading: 'Cómo saber que está hecha',
       donenessBody:
-        'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: 160°F es el objetivo de retirada, 165°F tras los tres minutos de reposo. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. Una pechuga con hueso puede mostrar un anillo rosa cerca del hueso a la temperatura correcta; es pigmento curado del hueso, no crudo. Corta contra la fibra tras el reposo.',
+        'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: cocina a {INT_F}°F y luego deja reposar tres minutos. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. Una pechuga con hueso puede mostrar un anillo rosa cerca del hueso a la temperatura correcta; es pigmento curado del hueso, no crudo. Corta contra la fibra tras el reposo.',
       prepHeading: 'Antes de meterla',
       prepBody:
         'Para una pechuga sin hueso, ábrela en mariposa o aplástala a 3,5 cm de grosor constante. Para una con hueso, mete las puntas de las alas y átala con hilo de cocina para que se mantenga compacta. Unta con aceite y un adobo seco de sal y hierbas va bien con el pavo; 30 minutos sin tapar en la nevera seca la piel y ayuda a que cruja. Si la pechuga es muy grande para tu cesta, puede hacerse en dos fases: empieza con la piel abajo la primera mitad y luego vuélvela piel arriba para rematar. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
@@ -1971,7 +1971,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: '¿A qué temperatura debe llegar la pechuga de pavo?',
-          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa es la temperatura segura del USDA. Cocina a 160°F y reposa tres minutos; subirá a 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) en la parte más gruesa es la temperatura segura del USDA. Cocina a {INT_F}°F y luego reposa tres minutos antes de cortar.',
         },
         {
           q: '¿Hay que voltear la pechuga de pavo en la freidora de aire?',

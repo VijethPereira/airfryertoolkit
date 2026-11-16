@@ -86,6 +86,8 @@ const links = [
     .filter(({ slug }) => LIVE_PAGES.has(slug))
     .map(({ slug, query, label }) => ({ href: `${localizedPath(locale, slug)}${query}`, label, cls: '' })),
 ];
+// turkey-breast: the converter ratio is wrong for large roasts, so no oven equivalent on the page.
+const showOven = preset.slug !== 'turkey-breast';
 const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRESETS_INDEX_PATH : '/');
 ---
 
@@ -108,7 +110,7 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
       {rawWarning && <p id="pr-raw" class="answer-raw">{rawWarning}</p>}
     </div>
 
-    {preset.slug !== 'turkey-breast' && (
+    {showOven && (
     <section id="pr-oven" class="oven-box" aria-labelledby="pr-oven-heading">
       <h2 id="pr-oven-heading">{labels.ovenHeading}</h2>
       <p id="pr-oven-conventional">{fill(labels.ovenTemplate)}</p>
@@ -135,14 +137,14 @@ const backHref = localizedPath(locale, LIVE_PAGES.has(PRESETS_INDEX_PATH) ? PRES
       <div class="table-card">
         <table id="pr-sizes">
           <thead>
-            <tr><th>{labels.sizingHeaders.size}</th><th>{labels.sizingHeaders.airFryer}</th><th>{labels.sizingHeaders.oven}</th></tr>
+            <tr><th>{labels.sizingHeaders.size}</th><th>{labels.sizingHeaders.airFryer}</th>{showOven && <th>{labels.sizingHeaders.oven}</th>}</tr>
           </thead>
           <tbody>
             {sizeRows.map((r) => (
               <tr data-size={r.id}>
                 <td class="food-cell">{r.label}</td>
                 <td data-style="air-fryer">{r.airFryer}</td>
-                <td data-style="oven">{r.oven}</td>
+                {showOven && <td data-style="oven">{r.oven}</td>}
               </tr>
             ))}
           </tbody>

@@ -1945,7 +1945,7 @@ export const presets: Dictionary['presets'] = {
       label: 'Turkey breast',
       metaTitle: 'Turkey Breast in the Air Fryer: Time, Temp & Resting',
       metaDescription:
-        'Bone-in or boneless turkey breast in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Times by size, the rest that finishes the job, and the oven equivalent.',
+        'Bone-in or boneless turkey breast in the air fryer: {AF_F}°F for {MIN} minutes, flipped at {FLIP}, done at {INT_F}°F. Times by size and the rest that finishes the job.',
       metaKeywords: 'turkey breast air fryer time, air fryer turkey breast temp, how long to cook turkey breast in air fryer, bone in turkey breast air fryer',
       heading: 'Turkey breast in the air fryer',
       subDesc:
@@ -1954,13 +1954,13 @@ export const presets: Dictionary['presets'] = {
       sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 4–6 lb (1.8–2.7 kg)', large: 'Bone-in breast, 6–8 lb (2.7–3.6 kg)' },
       failureHeading: 'Why the breast dries out before the centre is safe',
       failureBody:
-        'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Take the breast out when the thickest part reads 160°F, tent it with foil, and wait three minutes. The heat stored in the outer layers finishes the centre to 165°F while the juices settle back into the meat instead of running out on the board.',
+        'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Cook to {INT_F}°F in the thickest part, then rest it under loose foil for three minutes. The rest lets the heat even out from the outer layers to the centre while the juices settle back into the meat instead of running out on the board.',
       workedExampleHeading: 'Worked example: a bone-in turkey breast',
       workedExampleTemplate:
-        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Pull it at 160°F, rest three minutes, then slice. A conventional oven needs {OVEN_F}°F for around {OVEN_MIN} minutes for the same breast.',
+        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Cook to {INT_F}°F, then rest three minutes and slice. A conventional oven needs {OVEN_F}°F for around {OVEN_MIN} minutes for the same breast.',
       donenessHeading: 'How to tell it is done',
       donenessBody:
-        'Probe the thickest part of the breast, from the side, avoiding the bone: 160°F is the take-out target, 165°F after the three-minute rest. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
+        'Probe the thickest part of the breast, from the side, avoiding the bone: cook to {INT_F}°F, then rest three minutes. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
       prepHeading: 'Before it goes in',
       prepBody:
         'For a boneless breast, butterfly or pound it to an even 1½-inch thickness. For bone-in, tuck the wing tips under and truss the breast with kitchen twine so it stays compact. Rub with oil and a dry brine of salt and herbs works well for turkey; 30 minutes uncovered in the fridge dries the skin and helps it crisp. If the breast is very large for your basket, it can be cooked in two stages: start breast side down for the first half, then turn it skin side up to finish. Times are estimates from published recipes, not our own tests; finish by thermometer.',
@@ -1971,7 +1971,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'What temperature should turkey breast reach?',
-          a: '{INT_F}°F ({INT_C}°C) in the thickest part is the USDA safe temperature. Cook to 160°F and rest three minutes; it will rise to 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) in the thickest part is the USDA safe temperature. Cook to {INT_F}°F, then rest three minutes before slicing.',
         },
         {
           q: 'Do I need to flip a turkey breast in the air fryer?',

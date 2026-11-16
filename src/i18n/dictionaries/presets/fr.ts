@@ -1945,22 +1945,22 @@ export const presets: Dictionary['presets'] = {
       label: 'Filet de dinde',
       metaTitle: 'Filet de dinde à la friteuse à air : durée, température et repos',
       metaDescription:
-        'Filet de dinde avec ou sans os à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}, à {INT_F}°F. Durées par taille, le repos qui finalise la cuisson et l’équivalent au four.',
+        'Filet de dinde avec ou sans os à la friteuse à air : {AF_F}°F pendant {MIN} minutes, retourné à {FLIP}, à {INT_F}°F. Durées par taille et le repos qui finalise la cuisson.',
       metaKeywords: 'filet de dinde friteuse à air, dinde air fryer durée, filet dinde air fryer température, comment cuire filet de dinde friteuse à air',
       heading: 'Filet de dinde à la friteuse à air',
       subDesc:
         'Filet de dinde avec ou sans os, rôti jusqu’à ce que la peau soit dorée et le centre atteigne 165°F. Le réglage, le retournement et pourquoi le repos après cuisson fait partie de la température.',
-      cardDesc: 'Sortez à 160°F et laissez reposer trois minutes jusqu’à 165°F.',
+      cardDesc: 'Cuisez à {INT_F}°F, puis laissez reposer.',
       sizeLabels: { small: 'Filet sans os, 0,9–1,4 kg', medium: 'Filet avec os, 1,8–2,3 kg', large: 'Filet avec os, 2,7–3,2 kg' },
       failureHeading: 'Pourquoi le filet sèche avant que le centre ne soit sûr',
       failureBody:
-        'Un filet de dinde est un muscle maigre et conique : la pointe fine cuit bien avant la pointe épaisse, et la peau de dehors reçoit tout le souffle du ventilateur. Quand la partie la plus épaisse atteint une température sûre, la pointe fine et la peau peuvent être sèches et filandreuses. Deux choses changent cela. D’abord, égaliser l’épaisseur. Un filet sans os doit être ouvert en papillon ou aplati à une hauteur constante ; un filet avec os cuit plus uniformément si on rentre les pointes d’ailes et on le ficelle pour qu’il garde une forme arrondie. Ensuite, le repos n’est pas optionnel. Sortez le filet quand la partie la plus épaisse marque 160°F, couvrez-le de papier aluminium et attendez trois minutes. La chaleur stockée dans les couches extérieures finit le centre à 165°F pendant que les jus se réinstallent dans la viande au lieu de couler sur la planche.',
+        'Un filet de dinde est un muscle maigre et conique : la pointe fine cuit bien avant la pointe épaisse, et la peau de dehors reçoit tout le souffle du ventilateur. Quand la partie la plus épaisse atteint une température sûre, la pointe fine et la peau peuvent être sèches et filandreuses. Deux choses changent cela. D’abord, égaliser l’épaisseur. Un filet sans os doit être ouvert en papillon ou aplati à une hauteur constante ; un filet avec os cuit plus uniformément si on rentre les pointes d’ailes et on le ficelle pour qu’il garde une forme arrondie. Ensuite, le repos n’est pas optionnel. Cuisez à {INT_F}°F au cœur de la partie la plus épaisse, puis laissez reposer le filet sous du papier aluminium pendant trois minutes. Le repos répartit la chaleur des couches extérieures vers le centre pendant que les jus se réinstallent dans la viande au lieu de couler sur la planche.',
       workedExampleHeading: 'Exemple concret : un filet de dinde avec os',
       workedExampleTemplate:
-        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Sortez-le à 160°F, reposez trois minutes, puis tranchez. Un four traditionnel demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes pour le même filet.',
+        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Cuisez à {INT_F}°F, puis laissez reposer trois minutes et tranchez. Un four traditionnel demande {OVEN_F}°F pendant environ {OVEN_MIN} minutes pour le même filet.',
       donenessHeading: 'Comment savoir qu’il est cuit',
       donenessBody:
-        'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : 160°F est la cible de sortie, 165°F après les trois minutes de repos. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
+        'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : cuisez à {INT_F}°F, puis laissez reposer trois minutes. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
         'Pour un filet sans os, ouvrez-le en papillon ou aplatissez-le à 3,5 cm d’épaisseur constante. Pour un filet avec os, rentrez les pointes d’ailes et ficelez-le avec de la ficelle de cuisine pour qu’il reste compact. Badigeonnez d’huile et un mélange sec sel-herbes va bien avec la dinde ; 30 minutes à découvert au frigo sèche la peau et l’aide à croustiller. Si le filet est trop grand pour votre panier, on peut le cuire en deux phases : commencez peau en bas pour la première moitié, puis retournez peau en haut pour finir. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
@@ -1971,7 +1971,7 @@ export const presets: Dictionary['presets'] = {
         },
         {
           q: 'À quelle température le filet de dinde doit-il arriver ?',
-          a: '{INT_F}°F ({INT_C}°C) dans la partie la plus épaisse est la température sûre USDA. Sortez-le à 160°F et reposez trois minutes ; il montera à 165°F.',
+          a: '{INT_F}°F ({INT_C}°C) dans la partie la plus épaisse est la température sûre USDA. Cuisez à {INT_F}°F, puis laissez reposer trois minutes avant de trancher.',
         },
         {
           q: 'Faut-il retourner le filet de dinde à la friteuse à air ?',
