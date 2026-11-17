@@ -543,6 +543,31 @@ test.describe('food presets: frozen engine branch', () => {
       for (const field of [t.failureBody, t.workedExampleTemplate, t.donenessBody, t.faqs[1].a]) {
         expect(field, code).toContain('{INT_F}°F');
       }
+      // FSIS attributes pink turkey to oven gases reacting with haemoglobin, not to "cured pigment from the bone".
+      expect(t.donenessBody, code).not.toMatch(/cured pigment|pigmento curado|pigment curatif|gepökeltes Pigment/);
+      expect(t.donenessBody, code).toContain('FSIS');
+    }
+  });
+
+  test('every holiday preset says its times are estimates from published recipes, in every locale', () => {
+    const estimate: Record<LocaleCode, string> = {
+      en: 'estimates from published recipes', es: 'estimaciones de recetas publicadas', pt: 'estimativas de receitas publicadas',
+      fr: 'estimations de recettes publiées', de: 'Schätzungen aus veröffentlichten Rezepten',
+    };
+    const holiday = ALL.filter((p) => p.seasonal === 'holiday');
+    expect(holiday.length).toBe(7);
+    for (const { code } of LOCALES) {
+      for (const p of holiday) {
+        const page = getDictionary(code).presets.pages[p.slug as PresetSlug];
+        expect(JSON.stringify(page), `${code} ${p.slug}`).toContain(estimate[code]);
+      }
+    }
+  });
+
+  test('turkey-breast sizes fit a basket: no bone-in breast over 6 lb (2.7 kg), in every locale', () => {
+    for (const { code } of LOCALES) {
+      const labels = Object.values(getDictionary(code).presets.pages['turkey-breast'].sizeLabels).join(' ');
+      expect(labels, code).not.toMatch(/6–8 lb|7 lb|2,7–3,[26] kg|3,6 kg/);
     }
   });
 });

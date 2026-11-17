@@ -609,18 +609,22 @@ export const PRESETS = [
   },
   {
     // Holiday batch - 2026 holiday peak (2026-11-17 target)
+    // Times read 2026-11-17 (10.13): wellplated.com/air-fryer-turkey-breast (350°F, 4–6 lb bone-in or 3 lb boneless:
+    // 20 min, flip, 30–50 min more); myforkinglife.com/air-fryer-turkey-breast (360°F, bone-in up to 4 lb 25 + 25 min,
+    // 3 lb boneless about 1 hour); butterball.com/how-to/cook-a-turkey/air-fry (400°F, 7–10 min per lb).
+    // small = boneless 2–3 lb, medium = bone-in 3–4 lb, large = bone-in 4–6 lb; flipAt = half of medium.
     slug: 'turkey-breast',
     category: 'poultry',
     engine: { kind: 'oven', food: 'breast' },
     tempF: 350,
-    minutes: 45,
-    flipAt: 22,
+    minutes: 50,
+    flipAt: 25,
     internalF: 165,
     seasonal: 'holiday',
     sizes: [
-      { id: 'small', minutes: 65 },
-      { id: 'medium', minutes: 45 },
-      { id: 'large', minutes: 55 },
+      { id: 'small', minutes: 55 },
+      { id: 'medium', minutes: 50 },
+      { id: 'large', minutes: 60 },
     ],
   },
   {
@@ -668,6 +672,8 @@ export const PRESETS = [
     ],
   },
   {
+    // Checked 2026-11-17 (10.13): bbcgoodfood.com/recipes/air-fried-roast-potatoes (5 min par-boil, 190°C / 375°F,
+    // 30 min, +5–10 if needed); feastgloriousfeast.com/air-fried-roast-potatoes (par-boiled, 200°C / 390°F stages).
     slug: 'roast-potatoes',
     category: 'veg',
     engine: { kind: 'oven', food: 'fries' },

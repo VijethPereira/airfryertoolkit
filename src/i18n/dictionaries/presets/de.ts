@@ -1951,23 +1951,23 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Putenbrust mit oder ohne Knochen, gegart, bis die Haut goldbraun und die Mitte 165°F erreicht. Die Einstellung, das Wenden und warum das Ruhen nach dem Garen Teil der Temperatur ist.',
       cardDesc: 'Auf {INT_F}°F garen, dann ruhen lassen.',
-      sizeLabels: { small: 'Putenbrust ohne Knochen, 0,9–1,4 kg', medium: 'Putenbrust mit Knochen, 1,8–2,3 kg', large: 'Putenbrust mit Knochen, 2,7–3,2 kg' },
+      sizeLabels: { small: 'Putenbrust ohne Knochen, 0,9–1,4 kg', medium: 'Putenbrust mit Knochen, 1,4–1,8 kg', large: 'Putenbrust mit Knochen, 1,8–2,7 kg' },
       failureHeading: 'Warum die Putenbrust trocken wird, bevor die Mitte sicher ist',
       failureBody:
         'Eine Putenbrust ist ein magerer, konischer Muskel: das dünne Ende ist gar, lange bevor das dicke, und die Haut draußen bekommt die volle Wucht des Ventilators. Wenn der dickste Teil eine sichere Temperatur erreicht, können das dünne Ende und die Haut trocken und faserig sein. Zwei Dinge ändern das. Erstens, die Dicke angleichen. Eine Putenbrust ohne Knochen sollte butterflysiert oder plattiert werden, bis sie überall ungefähr gleich dick ist; eine mit Knochen gart gleichmäßiger, wenn die Flügelspitzen eingesteckt und die Brust verschnürt wird, damit sie eine rundere Form behält. Zweitens ist das Ruhen nicht optional. Gare die Brust an der dicksten Stelle auf {INT_F}°F, dann lass sie locker mit Alufolie abgedeckt drei Minuten ruhen. Beim Ruhen verteilt sich die Hitze aus den äußeren Schichten zur Mitte, während die Säfte sich im Fleisch setzen statt auf dem Brett zu landen.',
       workedExampleHeading: 'Rechenbeispiel: eine Putenbrust mit Knochen',
       workedExampleTemplate:
-        'Eine 2,3 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN} Minuten und eine mit Knochen von 3,2 kg etwa {LARGE_MIN}. Auf {INT_F}°F garen, dann drei Minuten ruhen lassen und aufschneiden.',
+        'Eine 1,6 kg schwere Putenbrust mit Knochen, verschnürt, mit Öl, Salz und Kräutern bestrichen. {PREHEAT} Minuten vorheizen, dann bei {AF_F}°F für {MEDIUM_MIN} Minuten garen und nach {FLIP} Minuten wenden. Eine Brust mit Knochen von 2,3 kg braucht etwa {LARGE_MIN} Minuten. Ein Rollbraten ohne Knochen von 1,4 kg braucht etwa {SMALL_MIN}, länger als die leichtere Brust mit Knochen, weil ein verschnürter Rollbraten ein massiver Zylinder ist und die Hitze einen weiteren Weg bis zur Mitte hat. Auf {INT_F}°F garen, dann drei Minuten ruhen lassen und aufschneiden.',
       donenessHeading: 'Woran du erkennst, dass sie gar ist',
       donenessBody:
-        'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: auf {INT_F}°F garen, dann drei Minuten ruhen lassen. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Eine Brust mit Knochen kann bei der richtigen Temperatur einen rosa Ring am Knochen zeigen; das ist gepökeltes Pigment vom Knochen, nicht roh. Nach dem Ruhen gegen die Faser aufschneiden.',
+        'Miss an der dicksten Stelle der Brust, seitlich eingestochen, den Knochen vermeidend: auf {INT_F}°F garen, dann drei Minuten ruhen lassen. Die Säfte sollten klar sein, wenn du die Mitte anstichst, und die Haut sollte tief goldbraun und knusprig sein. Pute kann selbst bei sicheren {INT_F}°F rosa bleiben: Das USDA FSIS erklärt, dass Gase in einem heißen Ofen mit dem Hämoglobin im Fleisch reagieren, dieselbe Reaktion, die gepökeltem Schinken seine Farbe gibt. Verlass dich auf das Thermometer, nicht auf die Farbe. Nach dem Ruhen gegen die Faser aufschneiden.',
       prepHeading: 'Bevor sie hineinkommt',
       prepBody:
         'Für eine Brust ohne Knochen butterflysieren oder auf 3,5 cm gleichmäßige Dicke plattieren. Für eine mit Knochen die Flügelspitzen einstecken und die Brust mit Küchengarn verschnüren, damit sie kompakt bleibt. Mit Öl bestreichen und eine trockene Salzlake aus Salz und Kräutern funktioniert gut bei Pute; 30 Minuten unabgedeckt im Kühlschrank trocknet die Haut und hilft beim Knuspern. Wenn die Brust für deinen Korb sehr groß ist, kann sie in zwei Phasen gegart werden: erst Hautseite unten für die erste Hälfte, dann Hautseite oben zum Finish. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange braucht eine Putenbrust in der Heißluftfritteuse?',
-          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine 1,8–2,3 kg Brust mit Knochen, gewendet nach {FLIP} Minuten. Eine 0,9–1,4 kg Brust ohne Knochen braucht etwa {SMALL_MIN} Minuten und eine 2,7–3,2 kg Brust mit Knochen etwa {LARGE_MIN}. Entscheide immer nach Temperatur, nicht nach Zeit.',
+          a: 'Etwa {MIN} Minuten bei {AF_F}°F für eine 1,4–1,8 kg Brust mit Knochen, gewendet nach {FLIP} Minuten. Eine 1,8–2,7 kg Brust mit Knochen braucht etwa {LARGE_MIN} Minuten und ein 0,9–1,4 kg Rollbraten ohne Knochen etwa {SMALL_MIN}. Entscheide immer nach Temperatur, nicht nach Zeit.',
         },
         {
           q: 'Welche Kerntemperatur braucht Putenbrust?',
@@ -2056,7 +2056,7 @@ export const presets: Dictionary['presets'] = {
         'Steck ein Thermometer in das absolute Zentrum der Form: {INT_F}°F ({INT_C}°C) ist die sichere Temperatur für jede Füllung mit Ei, rohem Gemüse oder Fleisch. Die Kruste sollte goldbraun und knusprig sein, die Ränder lösen sich leicht von der Form. Wenn die Kruste dunkel und die Mitte unter 165°F ist, decke mit Alufolie ab und gib drei Minuten mehr.',
       prepHeading: 'Bevor sie hineinkommt',
       prepBody:
-        'Nimm eine Metall- oder Keramikform, die in den Korb passt mit Platz drumherum; backe die Füllung nicht lose im Korb — die Krümel fliegen in den Ventilator und die unterste Schicht verbrennt. Misch die Füllung nur bis sie feucht ist; eine feuchtere Mischung gart schneller und bleibt weicher, eine trockenere braucht die lange Zeit. Setz ein paar Butterflöckchen oben drauf für eine schönere Kruste.',
+        'Nimm eine Metall- oder Keramikform, die in den Korb passt mit Platz drumherum; backe die Füllung nicht lose im Korb — die Krümel fliegen in den Ventilator und die unterste Schicht verbrennt. Misch die Füllung nur bis sie feucht ist; eine feuchtere Mischung gart schneller und bleibt weicher, eine trockenere braucht die lange Zeit. Setz ein paar Butterflöckchen oben drauf für eine schönere Kruste. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange braucht Füllung in der Heißluftfritteuse?',
@@ -2102,7 +2102,7 @@ export const presets: Dictionary['presets'] = {
         'Heb die Folie an und drück die Seite eines Brötchens: es sollte warm und elastisch sein, nicht heiß und hart. Die Kruste sollte leicht gefärbt sein, nicht braun oder knusprig. Brich eins auf: der Krume sollte weich und dampfig sein, ohne kaltes, dichtes Zentrum. Ein Brötchen, das sich fest und trocken anfühlt, war zu lange drin.',
       prepHeading: 'Bevor sie hineinkommen',
       prepBody:
-        'Leg die Brötchen in einer Lage mit einem kleinen Abstand dazwischen. Schneid ein Stück Alufolie groß genug, um über die ganze Gruppe zu zelten, ohne die Kronen zu berühren, und schieb die Ränder unter den Korb-Boden. Kein Öl oder Butter nötig; ein Pinselstrich zerlassener Butter geht nach dem Aufwärmen, wenn du eine glänzende Kruste willst.',
+        'Leg die Brötchen in einer Lage mit einem kleinen Abstand dazwischen. Schneid ein Stück Alufolie groß genug, um über die ganze Gruppe zu zelten, ohne die Kronen zu berühren, und schieb die Ränder unter den Korb-Boden. Kein Öl oder Butter nötig; ein Pinselstrich zerlassener Butter geht nach dem Aufwärmen, wenn du eine glänzende Kruste willst. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange brauchst du, um Brötchen in der Heißluftfritteuse aufzuwärmen?',
@@ -2148,7 +2148,7 @@ export const presets: Dictionary['presets'] = {
         'Die rauen Kanten sollten tief goldbraun und knusprig sein, und die flachen Seiten sollten eine feste Kruste haben. Stich ein Messer in die Mitte eines Stücks: es sollte ohne Widerstand hineingehen, und das Innere sollte weiß und mehlig aussehen, nicht durchscheinend oder wachsig. Wenn die Außenseite fertig und die Mitte nicht ist, nimm die Hitze für die letzten Minuten etwas raus, statt die Kruste aufzugeben.',
       prepHeading: 'Bevor sie hineinkommen',
       prepBody:
-        'Nimm mehlige Kartoffeln: Maris Piper, King Edward oder Russets. Schneid in gleichmäßige Stücke, damit sie zusammen fertig werden. Vorkochen in Salzwasser genau fünf Minuten, gut abtropfen lassen und die Pfanne schütteln, um die Kanten aufzurauen. Mit genug Öl vermischen, damit jedes raue Stück überzogen ist, und salzen. Füll den Korb nicht voll; die Stücke brauchen Luft an allen Seiten zum Knuspern.',
+        'Nimm mehlige Kartoffeln: Maris Piper, King Edward oder Russets. Schneid in gleichmäßige Stücke, damit sie zusammen fertig werden. Vorkochen in Salzwasser genau fünf Minuten, gut abtropfen lassen und die Pfanne schütteln, um die Kanten aufzurauen. Mit genug Öl vermischen, damit jedes raue Stück überzogen ist, und salzen. Füll den Korb nicht voll; die Stücke brauchen Luft an allen Seiten zum Knuspern. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange brauchen Bratkartoffeln in der Heißluftfritteuse?',
@@ -2194,7 +2194,7 @@ export const presets: Dictionary['presets'] = {
         'Der Speck sollte knusprig und tief goldbraun auf beiden Seiten sein, ohne blasse, weiche Stellen. Die Wurst drin muss {INT_F}°F ({INT_C}°C) in der Mitte erreichen, gemessen mit einer feinen Sonde durch den Speck. Wenn der Speck knusprig ist aber die Wurst unter 160°F, runter auf 350°F und zwei Minuten mehr geben.',
       prepHeading: 'Bevor sie hineinkommen',
       prepBody:
-        'Nimm Chipolatas (kleine Schweinewürste), keine Frankfurters oder Hot Dogs. Wickel jede in eine halbe Scheibe Streaky Bacon, steck die Enden darunter, damit sie sich nicht aufwickeln. Kein Öl nötig; der Speck gibt genug Fett ab. Wenn dein Korb heiß läuft, leg ihn mit perforiertem Pergament aus, um die Tropfen aufzufangen und Rauch zu reduzieren. Lass einen Fingerbreit Abstand zwischen den Röllchen, damit der Speck an den Seiten auch knuspert.',
+        'Nimm Chipolatas (kleine Schweinewürste), keine Frankfurters oder Hot Dogs. Wickel jede in eine halbe Scheibe Streaky Bacon, steck die Enden darunter, damit sie sich nicht aufwickeln. Kein Öl nötig; der Speck gibt genug Fett ab. Wenn dein Korb heiß läuft, leg ihn mit perforiertem Pergament aus, um die Tropfen aufzufangen und Rauch zu reduzieren. Lass einen Fingerbreit Abstand zwischen den Röllchen, damit der Speck an den Seiten auch knuspert. Die Zeiten sind Schätzungen aus veröffentlichten Rezepten, keine eigenen Tests; ende am Thermometer.',
       faqs: [
         {
           q: 'Wie lange brauchen Pigs in blankets in der Heißluftfritteuse?',

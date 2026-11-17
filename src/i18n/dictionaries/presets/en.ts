@@ -1951,23 +1951,23 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Bone-in or boneless breast, roasted until the skin is golden and the centre hits 165°F. The setting, the flip, and why the rest after cooking is part of the temperature.',
       cardDesc: 'Cook to {INT_F}°F, then rest.',
-      sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 4–6 lb (1.8–2.7 kg)', large: 'Bone-in breast, 6–8 lb (2.7–3.6 kg)' },
+      sizeLabels: { small: 'Boneless breast, 2–3 lb (0.9–1.4 kg)', medium: 'Bone-in breast, 3–4 lb (1.4–1.8 kg)', large: 'Bone-in breast, 4–6 lb (1.8–2.7 kg)' },
       failureHeading: 'Why the breast dries out before the centre is safe',
       failureBody:
         'A turkey breast is a lean, tapered muscle: the thin end is done long before the thick end, and the skin on the outside sees the full force of the fan. By the time the thickest part reaches a safe reading, the thin end and the skin can be dry and stringy. Two things change that. First, even the thickness. A boneless breast should be butterflied or pounded to a consistent depth; a bone-in breast cooks more evenly when the wing tips are tucked and the breast is trussed so it holds a rounder shape. Second, the rest is not optional. Cook to {INT_F}°F in the thickest part, then rest it under loose foil for three minutes. The rest lets the heat even out from the outer layers to the centre while the juices settle back into the meat instead of running out on the board.',
       workedExampleHeading: 'Worked example: a bone-in turkey breast',
       workedExampleTemplate:
-        'A 5 lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 3 lb boneless breast takes about {SMALL_MIN} minutes and a 7 lb bone-in about {LARGE_MIN}. Cook to {INT_F}°F, then rest three minutes and slice.',
+        'A 3½ lb bone-in breast, trussed, brushed with oil, salt and herbs. Preheat {PREHEAT} minutes, cook at {AF_F}°F for {MEDIUM_MIN} minutes, turning at {FLIP} minutes. A 5 lb bone-in breast takes about {LARGE_MIN} minutes. A 3 lb boneless roast takes about {SMALL_MIN}, longer than the lighter bone-in breast, because a tied boneless roast is a solid cylinder and the heat has further to travel to its centre. Cook to {INT_F}°F, then rest three minutes and slice.',
       donenessHeading: 'How to tell it is done',
       donenessBody:
-        'Probe the thickest part of the breast, from the side, avoiding the bone: cook to {INT_F}°F, then rest three minutes. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. A bone-in breast can show a pink ring near the bone at the right temperature; that is cured pigment from the bone, not rawness. Slice across the grain after the rest.',
+        'Probe the thickest part of the breast, from the side, avoiding the bone: cook to {INT_F}°F, then rest three minutes. The juices should run clear when you pierce the middle, and the skin should be deep golden and crisp. Turkey can stay pink even at a safe {INT_F}°F: USDA FSIS explains that gases in a heated oven react with the haemoglobin in the meat, the same reaction that gives cured ham its colour. Trust the thermometer, not the colour. Slice across the grain after the rest.',
       prepHeading: 'Before it goes in',
       prepBody:
         'For a boneless breast, butterfly or pound it to an even 1½-inch thickness. For bone-in, tuck the wing tips under and truss the breast with kitchen twine so it stays compact. Rub with oil and a dry brine of salt and herbs works well for turkey; 30 minutes uncovered in the fridge dries the skin and helps it crisp. If the breast is very large for your basket, it can be cooked in two stages: start breast side down for the first half, then turn it skin side up to finish. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long does a turkey breast take in the air fryer?',
-          a: 'About {MIN} minutes at {AF_F}°F for a 4–6 lb bone-in breast, flipped at {FLIP} minutes. A 2–3 lb boneless breast takes around {SMALL_MIN} minutes and a 6–8 lb bone-in around {LARGE_MIN}. Always finish by temperature, not time.',
+          a: 'About {MIN} minutes at {AF_F}°F for a 3–4 lb bone-in breast, flipped at {FLIP} minutes. A 4–6 lb bone-in breast takes around {LARGE_MIN} minutes and a 2–3 lb boneless roast around {SMALL_MIN}. Always finish by temperature, not time.',
         },
         {
           q: 'What temperature should turkey breast reach?',
@@ -2056,7 +2056,7 @@ export const presets: Dictionary['presets'] = {
         'Push a thermometer into the very centre of the dish: {INT_F}°F ({INT_C}°C) is the safe temperature for any stuffing with egg, raw vegetables or meat. The top should be golden and crisp, the edges pulling away from the dish slightly. If the top is dark and the centre is below 165°F, cover with foil and give it three more minutes.',
       prepHeading: 'Before it goes in',
       prepBody:
-        'Use a metal or ceramic dish that fits the basket with room around it; do not cook stuffing loose in the basket — the crumbs blow around the fan and the bottom layer burns. Mix the stuffing just until moist; a wetter mix cooks faster and stays softer, a drier mix needs the longer end of the time. Dot the top with a little butter for a better crust.',
+        'Use a metal or ceramic dish that fits the basket with room around it; do not cook stuffing loose in the basket — the crumbs blow around the fan and the bottom layer burns. Mix the stuffing just until moist; a wetter mix cooks faster and stays softer, a drier mix needs the longer end of the time. Dot the top with a little butter for a better crust. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long does stuffing take in the air fryer?',
@@ -2148,7 +2148,7 @@ export const presets: Dictionary['presets'] = {
         'The rough edges should be deep golden and crisp, and the flat faces should have a solid crust. Push a knife into the middle of a chunk: it should slide in with no resistance, and the inside should look white and fluffy, not translucent or waxy. If the outside is ready and the centre is not, lower the heat a little for the last few minutes rather than giving up the crust.',
       prepHeading: 'Before they go in',
       prepBody:
-        'Use floury potatoes: Maris Piper, King Edward, or russets. Cut into even chunks so they finish together. Par-boil in salted water for five minutes exactly, then drain well and shake the pan to rough the edges. Toss with enough oil to coat every rough bit, and season with salt. Do not crowd the basket; the pieces need air on all faces to crisp.',
+        'Use floury potatoes: Maris Piper, King Edward, or russets. Cut into even chunks so they finish together. Par-boil in salted water for five minutes exactly, then drain well and shake the pan to rough the edges. Toss with enough oil to coat every rough bit, and season with salt. Do not crowd the basket; the pieces need air on all faces to crisp. Times are estimates from published recipes, not our own tests; finish by thermometer.',
       faqs: [
         {
           q: 'How long do roast potatoes take in the air fryer?',

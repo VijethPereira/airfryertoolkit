@@ -1951,23 +1951,23 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Filet de dinde avec ou sans os, rôti jusqu’à ce que la peau soit dorée et le centre atteigne 165°F. Le réglage, le retournement et pourquoi le repos après cuisson fait partie de la température.',
       cardDesc: 'Cuisez à {INT_F}°F, puis laissez reposer.',
-      sizeLabels: { small: 'Filet sans os, 0,9–1,4 kg', medium: 'Filet avec os, 1,8–2,3 kg', large: 'Filet avec os, 2,7–3,2 kg' },
+      sizeLabels: { small: 'Filet sans os, 0,9–1,4 kg', medium: 'Filet avec os, 1,4–1,8 kg', large: 'Filet avec os, 1,8–2,7 kg' },
       failureHeading: 'Pourquoi le filet sèche avant que le centre ne soit sûr',
       failureBody:
         'Un filet de dinde est un muscle maigre et conique : la pointe fine cuit bien avant la pointe épaisse, et la peau de dehors reçoit tout le souffle du ventilateur. Quand la partie la plus épaisse atteint une température sûre, la pointe fine et la peau peuvent être sèches et filandreuses. Deux choses changent cela. D’abord, égaliser l’épaisseur. Un filet sans os doit être ouvert en papillon ou aplati à une hauteur constante ; un filet avec os cuit plus uniformément si on rentre les pointes d’ailes et on le ficelle pour qu’il garde une forme arrondie. Ensuite, le repos n’est pas optionnel. Cuisez à {INT_F}°F au cœur de la partie la plus épaisse, puis laissez reposer le filet sous du papier aluminium pendant trois minutes. Le repos répartit la chaleur des couches extérieures vers le centre pendant que les jus se réinstallent dans la viande au lieu de couler sur la planche.',
       workedExampleHeading: 'Exemple concret : un filet de dinde avec os',
       workedExampleTemplate:
-        'Un filet de 2,3 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet sans os de 1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 3,2 kg environ {LARGE_MIN}. Cuisez à {INT_F}°F, puis laissez reposer trois minutes et tranchez.',
+        'Un filet de 1,6 kg avec os, ficelé, badigeonné d’huile, de sel et d’herbes. Préchauffez {PREHEAT} minutes, cuisez à {AF_F}°F pendant {MEDIUM_MIN} minutes, en le retournant à {FLIP} minutes. Un filet avec os de 2,3 kg demande environ {LARGE_MIN} minutes. Un rôti sans os de 1,4 kg demande environ {SMALL_MIN}, plus que le filet avec os plus léger, car un rôti ficelé est un cylindre plein et la chaleur a plus de chemin jusqu’au centre. Cuisez à {INT_F}°F, puis laissez reposer trois minutes et tranchez.',
       donenessHeading: 'Comment savoir qu’il est cuit',
       donenessBody:
-        'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : cuisez à {INT_F}°F, puis laissez reposer trois minutes. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. Un filet avec os peut montrer un anneau rose près de l’os à la bonne température ; c’est du pigment curatif de l’os, pas du cru. Tranchiez contre le grain après le repos.',
+        'Piquez la partie la plus épaisse du filet, de côté, en évitant l’os : cuisez à {INT_F}°F, puis laissez reposer trois minutes. Les jus doivent couler clairs en piquant le milieu, et la peau doit être bien dorée et croustillante. La dinde peut rester rose même à {INT_F}°F, une température sûre : l’USDA FSIS explique que les gaz d’un four chaud réagissent avec l’hémoglobine de la viande, la même réaction qui colore le jambon salé. Fiez-vous au thermomètre, pas à la couleur. Tranchiez contre le grain après le repos.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
         'Pour un filet sans os, ouvrez-le en papillon ou aplatissez-le à 3,5 cm d’épaisseur constante. Pour un filet avec os, rentrez les pointes d’ailes et ficelez-le avec de la ficelle de cuisine pour qu’il reste compact. Badigeonnez d’huile et un mélange sec sel-herbes va bien avec la dinde ; 30 minutes à découvert au frigo sèche la peau et l’aide à croustiller. Si le filet est trop grand pour votre panier, on peut le cuire en deux phases : commencez peau en bas pour la première moitié, puis retournez peau en haut pour finir. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps cuit un filet de dinde à la friteuse à air ?',
-          a: 'Environ {MIN} minutes à {AF_F}°F pour un filet avec os de 1,8–2,3 kg, retourné à {FLIP} minutes. Un filet sans os de 0,9–1,4 kg demande environ {SMALL_MIN} minutes et un avec os de 2,7–3,2 kg environ {LARGE_MIN}. Décidez toujours par la température, pas par le temps.',
+          a: 'Environ {MIN} minutes à {AF_F}°F pour un filet avec os de 1,4–1,8 kg, retourné à {FLIP} minutes. Un filet avec os de 1,8–2,7 kg demande environ {LARGE_MIN} minutes et un rôti sans os de 0,9–1,4 kg environ {SMALL_MIN}. Décidez toujours par la température, pas par le temps.',
         },
         {
           q: 'À quelle température le filet de dinde doit-il arriver ?',
@@ -2056,7 +2056,7 @@ export const presets: Dictionary['presets'] = {
         'Plantez un thermomètre au cœur même du plat : {INT_F}°F ({INT_C}°C) est la température sûre pour toute farce avec œuf, légumes crus ou viande. La croûte doit être dorée et croustillante, les bords se décollant légèrement du plat. Si la croûte est foncée et le cœur en dessous de 165°F, couvrez de papier aluminium et donnez trois minutes de plus.',
       prepHeading: 'Avant de l’enfourner',
       prepBody:
-        'Utilisez un plat en métal ou céramique qui rentre dans le panier avec de l’espace autour ; ne cuisez pas la farce en vrac dans le panier — les miettes volent au ventilateur et la couche du bas brûle. Mélangez la farce juste assez pour qu’elle soit humide ; un mélange plus humide cuit plus vite et reste plus moelleux, un plus sec a besoin de la durée longue. Mettez des noisettes de beurre sur le dessus pour une meilleure croûte.',
+        'Utilisez un plat en métal ou céramique qui rentre dans le panier avec de l’espace autour ; ne cuisez pas la farce en vrac dans le panier — les miettes volent au ventilateur et la couche du bas brûle. Mélangez la farce juste assez pour qu’elle soit humide ; un mélange plus humide cuit plus vite et reste plus moelleux, un plus sec a besoin de la durée longue. Mettez des noisettes de beurre sur le dessus pour une meilleure croûte. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps la farce met-elle à la friteuse à air ?',
@@ -2102,7 +2102,7 @@ export const presets: Dictionary['presets'] = {
         'Soulevez le papier et pressez le côté d’un pain : il doit être tiède et élastique, pas chaud et dur. La croûte doit être légèrement colorée, pas brune ni croustillante. Cassez-en un : la mie doit être moelleuse et fumante, sans centre froid et dense. Un pain qui paraît ferme et sec a trop cuit.',
       prepHeading: 'Avant de les enfourner',
       prepBody:
-        'Rangez les pains en une seule couche avec un petit espace entre eux. Découpez un morceau de papier aluminium assez grand pour faire tente sur tout le groupe sans toucher les croûtes, et glissez les bords sous le fond du panier. Pas besoin d’huile ni de beurre ; un pinceau de beurre fondu va après si vous voulez une croûte brillante.',
+        'Rangez les pains en une seule couche avec un petit espace entre eux. Découpez un morceau de papier aluminium assez grand pour faire tente sur tout le groupe sans toucher les croûtes, et glissez les bords sous le fond du panier. Pas besoin d’huile ni de beurre ; un pinceau de beurre fondu va après si vous voulez une croûte brillante. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps pour réchauffer des petits pains à la friteuse à air ?',
@@ -2148,7 +2148,7 @@ export const presets: Dictionary['presets'] = {
         'Les bords rugueux doivent être bien dorés et croustillants, et les faces planes doivent avoir une croûte solide. Plantez un couteau au milieu d’un morceau : il doit entrer sans résistance, et l’intérieur doit paraître blanc et fondant, pas translucide ni cireux. Si l’extérieur est prêt et le cœur pas, baissez un peu la chaleur les dernières minutes au lieu de renoncer à la croûte.',
       prepHeading: 'Avant de les enfourner',
       prepBody:
-        'Utilisez des pommes de terre farineuses : Maris Piper, King Edward ou russets. Coupez en morceaux égaux pour qu’ils finissent ensemble. Blanchissez dans l’eau salée cinq minutes exactement, égouttez bien et secouez la poêle pour rugosifier les bords. Mélangez avec assez d’huile pour enrober chaque morceau rugueux et salez. Ne remplissez pas le panier ; les morceaux ont besoin d’air sur toutes les faces pour croustiller.',
+        'Utilisez des pommes de terre farineuses : Maris Piper, King Edward ou russets. Coupez en morceaux égaux pour qu’ils finissent ensemble. Blanchissez dans l’eau salée cinq minutes exactement, égouttez bien et secouez la poêle pour rugosifier les bords. Mélangez avec assez d’huile pour enrober chaque morceau rugueux et salez. Ne remplissez pas le panier ; les morceaux ont besoin d’air sur toutes les faces pour croustiller. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps les pommes de terre rôties mettent-elles à la friteuse à air ?',
@@ -2194,7 +2194,7 @@ export const presets: Dictionary['presets'] = {
         'Le bacon doit être croustillant et bien doré des deux faces, sans taches pâles et molles. La chipolata dedans doit atteindre {INT_F}°F ({INT_C}°C) au centre, mesuré avec une sonde fine à travers le bacon. Si le bacon est croustillant mais la chipolata en dessous de 160°F, baissez à 350°F et donnez deux minutes de plus.',
       prepHeading: 'Avant de les enfourner',
       prepBody:
-        'Utilisez des chipolatas (petites saucisses de porc), pas de frankfurters ni de hot dogs. Enveloppez chacune dans une demi-tranche de bacon streaky, en rentrant les pointes dessous pour qu’elles ne se défont pas. Pas besoin d’huile ; le bacon rend assez de gras. Si votre panier chauffe fort, tapissez-le de papier perforé pour attraper les gouttes et réduire la fumée. Laissez un espace d’un doigt entre les roulés pour que le bacon des côtés croustille aussi.',
+        'Utilisez des chipolatas (petites saucisses de porc), pas de frankfurters ni de hot dogs. Enveloppez chacune dans une demi-tranche de bacon streaky, en rentrant les pointes dessous pour qu’elles ne se défont pas. Pas besoin d’huile ; le bacon rend assez de gras. Si votre panier chauffe fort, tapissez-le de papier perforé pour attraper les gouttes et réduire la fumée. Laissez un espace d’un doigt entre les roulés pour que le bacon des côtés croustille aussi. Les durées sont des estimations de recettes publiées, pas nos propres tests ; finissez au thermomètre.',
       faqs: [
         {
           q: 'Combien de temps les pigs in blankets mettent-ils à la friteuse à air ?',

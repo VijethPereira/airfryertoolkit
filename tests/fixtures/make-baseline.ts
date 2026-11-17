@@ -6,6 +6,8 @@
 // Regenerated 2026-11-16 after the holiday batch (row 7 batch 4): the only differences were 7 added presets
 // (turkey-breast, reheat-turkey, stuffing, dinner-rolls, roast-potatoes, pigs-in-blankets, reheat-ham);
 // no existing preset, temperature page or grid number changed.
+// Regenerated 2026-11-17 (10.13): turkey-breast re-timed from sourced recipes (50 min, flip 25, sizes 55/50/60);
+// the 23 changed values are all under presets/turkey-breast.
 import { writeFileSync } from 'node:fs';
 import { PRESETS } from '../../src/data/presets';
 import { presetValues, presetRoundTrip, presetSizeRows, presetOven, presetFan } from '../../src/lib/presets';

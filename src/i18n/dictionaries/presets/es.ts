@@ -1951,23 +1951,23 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Pechuga de pavo con o sin hueso, asada hasta que la piel esté dorada y el centro llegue a 165°F. El ajuste, la vuelta y por qué el reposo después de cocinar forma parte de la temperatura.',
       cardDesc: 'Cocina a {INT_F}°F y luego reposa.',
-      sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,8–2,7 kg', large: 'Pechuga con hueso, 2,7–3,6 kg' },
+      sizeLabels: { small: 'Pechuga sin hueso, 0,9–1,4 kg', medium: 'Pechuga con hueso, 1,4–1,8 kg', large: 'Pechuga con hueso, 1,8–2,7 kg' },
       failureHeading: 'Por qué la pechuga se seca antes de que el centro sea seguro',
       failureBody:
         'Una pechuga de pavo es un músculo magro y cónico: el extremo fino se hace mucho antes que el grueso, y la piel de fuera recibe todo el empuje del ventilador. Cuando la parte más gruesa llega a una temperatura segura, el extremo fino y la piel pueden estar secos y fibrosos. Dos cosas lo cambian. Primero, igualar el grosor. Una pechuga sin hueso debe abrirse en mariposa o aplastarse a una altura constante; una con hueso se cocina de forma más uniforme si se meten las puntas de las alas y se ata para que mantenga una forma redondeada. Segundo, el reposo no es opcional. Cocina a {INT_F}°F en la parte más gruesa y luego deja reposar la pechuga tapada con papel de aluminio durante tres minutos. El reposo reparte el calor de las capas exteriores hacia el centro mientras los jugos se asientan en la carne en lugar de salir en la tabla.',
       workedExampleHeading: 'Ejemplo práctico: una pechuga de pavo con hueso',
       workedExampleTemplate:
-        'Una pechuga de 2,3 kg con hueso, atada, untada con aceite, sal y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, dándole la vuelta a los {FLIP} minutos. Una pechuga sin hueso de 1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 3,2 kg unos {LARGE_MIN}. Cocina a {INT_F}°F, luego reposa tres minutos y corta.',
+        'Una pechuga de 1,6 kg con hueso, atada, untada con aceite, sal y hierbas. Precalienta {PREHEAT} minutos, cocina a {AF_F}°F durante {MEDIUM_MIN} minutos, dándole la vuelta a los {FLIP} minutos. Una pechuga con hueso de 2,3 kg tarda unos {LARGE_MIN} minutos. Un rollo sin hueso de 1,4 kg tarda unos {SMALL_MIN}, más que la pechuga con hueso más ligera, porque un rollo atado es un cilindro macizo y el calor tiene más recorrido hasta el centro. Cocina a {INT_F}°F, luego reposa tres minutos y corta.',
       donenessHeading: 'Cómo saber que está hecha',
       donenessBody:
-        'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: cocina a {INT_F}°F y luego deja reposar tres minutos. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. Una pechuga con hueso puede mostrar un anillo rosa cerca del hueso a la temperatura correcta; es pigmento curado del hueso, no crudo. Corta contra la fibra tras el reposo.',
+        'Pincha la parte más gruesa de la pechuga, de lado, evitando el hueso: cocina a {INT_F}°F y luego deja reposar tres minutos. Los jugos deben salir claros al pinchar el centro, y la piel debe estar bien dorada y crujiente. El pavo puede seguir rosado incluso a unos seguros {INT_F}°F: el USDA FSIS explica que los gases de un horno caliente reaccionan con la hemoglobina de la carne, la misma reacción que da color al jamón curado. Fíate del termómetro, no del color. Corta contra la fibra tras el reposo.',
       prepHeading: 'Antes de meterla',
       prepBody:
         'Para una pechuga sin hueso, ábrela en mariposa o aplástala a 3,5 cm de grosor constante. Para una con hueso, mete las puntas de las alas y átala con hilo de cocina para que se mantenga compacta. Unta con aceite y un adobo seco de sal y hierbas va bien con el pavo; 30 minutos sin tapar en la nevera seca la piel y ayuda a que cruja. Si la pechuga es muy grande para tu cesta, puede hacerse en dos fases: empieza con la piel abajo la primera mitad y luego vuélvela piel arriba para rematar. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tarda una pechuga de pavo en la freidora de aire?',
-          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga con hueso de 1,8–2,7 kg, vuelta a los {FLIP} minutos. Una pechuga sin hueso de 0,9–1,4 kg tarda unos {SMALL_MIN} minutos y una con hueso de 2,7–3,6 kg unos {LARGE_MIN}. Decide siempre por temperatura, no por tiempo.',
+          a: 'Unos {MIN} minutos a {AF_F}°F para una pechuga con hueso de 1,4–1,8 kg, vuelta a los {FLIP} minutos. Una pechuga con hueso de 1,8–2,7 kg tarda unos {LARGE_MIN} minutos y un rollo sin hueso de 0,9–1,4 kg unos {SMALL_MIN}. Decide siempre por temperatura, no por tiempo.',
         },
         {
           q: '¿A qué temperatura debe llegar la pechuga de pavo?',
@@ -2056,7 +2056,7 @@ export const presets: Dictionary['presets'] = {
         'Clava un termómetro en el centro mismo de la fuente: {INT_F}°F ({INT_C}°C) es la temperatura segura para cualquier relleno con huevo, verduras crudas o carne. La costra debe estar dorada y crujiente, los bordes separándose ligeramente de la fuente. Si la costra está oscura y el centro por debajo de 165°F, tapa con papel de aluminio y dale tres minutos más.',
       prepHeading: 'Antes de meterlo',
       prepBody:
-        'Usa una fuente de metal o cerámica que quepa en la cesta con espacio alrededor; no cocines el relleno suelto en la cesta — las migas vuelan al ventilador y la capa de abajo se quema. Mezcla el relleno solo hasta que esté húmedo; una mezcla más húmeda se hace antes y queda más blanda, una más seca necesita el tiempo largo. Pon unas motas de mantequilla encima para una costra mejor.',
+        'Usa una fuente de metal o cerámica que quepa en la cesta con espacio alrededor; no cocines el relleno suelto en la cesta — las migas vuelan al ventilador y la capa de abajo se quema. Mezcla el relleno solo hasta que esté húmedo; una mezcla más húmeda se hace antes y queda más blanda, una más seca necesita el tiempo largo. Pon unas motas de mantequilla encima para una costra mejor. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tarda el relleno en la freidora de aire?',
@@ -2148,7 +2148,7 @@ export const presets: Dictionary['presets'] = {
         'Los bordes rugosos deben estar bien dorados y crujientes, y las caras planas deben tener una costra sólida. Clava un cuchillo en el centro de un trozo: debe entrar sin resistencia, y el interior debe verse blanco y esponjoso, no translúcido ni ceroso. Si el exterior está listo y el centro no, baja el calor un poco los últimos minutos en lugar de renunciar a la costra.',
       prepHeading: 'Antes de meterlas',
       prepBody:
-        'Usa patatas harinosas: Maris Piper, King Edward o russets. Córtalas en trozos parejos para que terminen juntas. Escalda en agua con sal cinco minutos exactos, escúrrelas bien y menea la sartén para rugosizar los bordes. Mézclalas con bastante aceite para cubrir cada trozo rugoso y sazona con sal. No llenes la cesta; los trozos necesitan aire en todas las caras para crujir.',
+        'Usa patatas harinosas: Maris Piper, King Edward o russets. Córtalas en trozos parejos para que terminen juntas. Escalda en agua con sal cinco minutos exactos, escúrrelas bien y menea la sartén para rugosizar los bordes. Mézclalas con bastante aceite para cubrir cada trozo rugoso y sazona con sal. No llenes la cesta; los trozos necesitan aire en todas las caras para crujir. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tardan las patatas asadas en la freidora de aire?',
@@ -2194,7 +2194,7 @@ export const presets: Dictionary['presets'] = {
         'El bacon debe estar crujiente y bien dorado en las dos caras, sin manchas pálidas y blandas. La salchicha de dentro debe llegar a {INT_F}°F ({INT_C}°C) en el centro, medido con una sonda fina a través del bacon. Si el bacon está crujiente pero la salchicha está por debajo de 160°F, baja a 350°F y dale dos minutos más.',
       prepHeading: 'Antes de meterlas',
       prepBody:
-        'Usa chipolatas (salchichas pequeñas de cerdo), no frankfurters ni hot dogs. Envuelve cada una en media tira de bacon streaky, metiendo los extremos debajo para que no se abran. No hace falta aceite; el bacon suelta bastante grasa. Si tu cesta corre caliente, fórrala con papel perforado para recoger los goteos y reducir humo. Deja un hueco de un dedo entre rollos para que el bacon de los lados cruja también.',
+        'Usa chipolatas (salchichas pequeñas de cerdo), no frankfurters ni hot dogs. Envuelve cada una en media tira de bacon streaky, metiendo los extremos debajo para que no se abran. No hace falta aceite; el bacon suelta bastante grasa. Si tu cesta corre caliente, fórrala con papel perforado para recoger los goteos y reducir humo. Deja un hueco de un dedo entre rollos para que el bacon de los lados cruja también. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tardan los pigs in blankets en la freidora de aire?',
@@ -2242,7 +2242,7 @@ export const presets: Dictionary['presets'] = {
         'Para un jamón cocido del paquete, {INT_F}°F ({INT_C}°C) en la parte más gruesa, lejos del hueso, es el objetivo. Para sobras o jamón de charcutería, {INT_ALT_F}°F ({INT_ALT_C}°C) es la guía USDA. La carne debe verse jugosa y brillante, no seca ni gris por los bordes. El glaseado, si se pone, debe burbujear y ser pegajoso, no negro.',
       prepHeading: 'Antes de meterlo',
       prepBody:
-        'Saca el jamón de la nevera 20 minutos antes para que el centro esté menos frío. Si es un jamón en espiral, mantenlo en su red original o envuélvelo en papel de aluminio para que las lonchas no se abran y sequen. Reserva el sobre de glaseado para calentarlo aparte, o haz el tuyo. Un chorrito de agua o caldo en el paquete de papel mantiene el aire húmedo. No hace falta aceite; el jamón lleva su propia grasa.',
+        'Saca el jamón de la nevera 20 minutos antes para que el centro esté menos frío. Si es un jamón en espiral, mantenlo en su red original o envuélvelo en papel de aluminio para que las lonchas no se abran y sequen. Reserva el sobre de glaseado para calentarlo aparte, o haz el tuyo. Un chorrito de agua o caldo en el paquete de papel mantiene el aire húmedo. No hace falta aceite; el jamón lleva su propia grasa. Los tiempos son estimaciones de recetas publicadas, no pruebas propias; termina por termómetro.',
       faqs: [
         {
           q: '¿Cuánto tardas en recalentar jamón en la freidora de aire?',

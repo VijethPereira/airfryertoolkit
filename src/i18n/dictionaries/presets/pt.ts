@@ -1951,23 +1951,23 @@ export const presets: Dictionary['presets'] = {
       subDesc:
         'Peito de peru com ou sem osso, assado até a pele ficar dourada e o centro chegar a 165°F. O ajuste, a virada e por que o repouso depois de cozinhar faz parte da temperatura.',
       cardDesc: 'Cozinhe a {INT_F}°F e depois repouse.',
-      sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,8–2,7 kg', large: 'Peito com osso, 2,7–3,6 kg' },
+      sizeLabels: { small: 'Peito sem osso, 0,9–1,4 kg', medium: 'Peito com osso, 1,4–1,8 kg', large: 'Peito com osso, 1,8–2,7 kg' },
       failureHeading: 'Por que o peito seca antes de o centro estar seguro',
       failureBody:
         'Um peito de peru é um músculo magro e cônico: a ponta fina cozinha muito antes da grossa, e a pele de fora recebe todo o empurrão do ventilador. Quando a parte mais grossa chega a uma temperatura segura, a ponta fina e a pele podem estar secas e fibrosas. Duas coisas mudam isso. Primeiro, igualar a espessura. Um peito sem osso deve ser aberto em borboleta ou achatado a uma altura constante; um com osso cozinha de forma mais uniforme se as pontas das asas são enfiadas e o peito é amarrado para manter uma forma arredondada. Segundo, o repouso não é opcional. Cozinhe a {INT_F}°F na parte mais grossa e depois deixe o peito repousar coberto com papel alumínio por três minutos. O repouso distribui o calor das camadas exteriores para o centro enquanto os sucos se assentam na carne em vez de sair na tábua.',
       workedExampleHeading: 'Exemplo prático: um peito de peru com osso',
       workedExampleTemplate:
-        'Um peito de 2,3 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito sem osso de 1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 3,2 kg uns {LARGE_MIN}. Cozinhe a {INT_F}°F, depois repouse três minutos e corte.',
+        'Um peito de 1,6 kg com osso, amarrado, untado com óleo, sal e ervas. Preaqueça {PREHEAT} minutos, cozinhe a {AF_F}°F por {MEDIUM_MIN} minutos, virando aos {FLIP} minutos. Um peito com osso de 2,3 kg leva uns {LARGE_MIN} minutos. Um rolo sem osso de 1,4 kg leva uns {SMALL_MIN}, mais que o peito com osso mais leve, porque um rolo amarrado é um cilindro maciço e o calor tem mais caminho até o centro. Cozinhe a {INT_F}°F, depois repouse três minutos e corte.',
       donenessHeading: 'Como saber que está pronto',
       donenessBody:
-        'Espete a parte mais grossa do peito, de lado, evitando o osso: cozinhe a {INT_F}°F e depois deixe repousar três minutos. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. Um peito com osso pode mostrar um anel rosa perto do osso na temperatura certa; é pigmento curado do osso, não cru. Corte contra a fibra após o repouso.',
+        'Espete a parte mais grossa do peito, de lado, evitando o osso: cozinhe a {INT_F}°F e depois deixe repousar três minutos. Os sucos devem sair claros ao espetar o meio, e a pele deve estar bem dourada e crocante. O peru pode continuar rosado mesmo a seguros {INT_F}°F: o USDA FSIS explica que os gases de um forno quente reagem com a hemoglobina da carne, a mesma reação que dá cor ao presunto curado. Confie no termômetro, não na cor. Corte contra a fibra após o repouso.',
       prepHeading: 'Antes de colocar',
       prepBody:
         'Para um peito sem osso, abra em borboleta ou achate a 3,5 cm de espessura constante. Para um com osso, enfie as pontas das asas e amarre o peito com barbante de cozinha para que fique compacto. Unte com óleo e um tempero seco de sal e ervas funciona bem com peru; 30 minutos descoberto na geladeira seca a pele e ajuda a crocância. Se o peito for muito grande para seu cesto, pode ser feito em duas fases: comece com a pele para baixo na primeira metade, depois vire com a pele para cima para finalizar. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo o peito de peru leva na air fryer?',
-          a: 'Uns {MIN} minutos a {AF_F}°F para um peito com osso de 1,8–2,7 kg, virando aos {FLIP} minutos. Um peito sem osso de 0,9–1,4 kg leva uns {SMALL_MIN} minutos e um com osso de 2,7–3,6 kg uns {LARGE_MIN}. Decida sempre por temperatura, não por tempo.',
+          a: 'Uns {MIN} minutos a {AF_F}°F para um peito com osso de 1,4–1,8 kg, virando aos {FLIP} minutos. Um peito com osso de 1,8–2,7 kg leva uns {LARGE_MIN} minutos e um rolo sem osso de 0,9–1,4 kg uns {SMALL_MIN}. Decida sempre por temperatura, não por tempo.',
         },
         {
           q: 'A que temperatura o peito de peru deve chegar?',
@@ -2056,7 +2056,7 @@ export const presets: Dictionary['presets'] = {
         'Espete um termômetro no centro mesmo da assadeira: {INT_F}°F ({INT_C}°C) é a temperatura segura para qualquer recheio com ovo, legumes crus ou carne. A crosta deve estar dourada e crocante, as bordas se soltando levemente da assadeira. Se a crosta está escura e o centro abaixo de 165°F, cubra com papel alumínio e dê três minutos a mais.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Use uma assadeira de metal ou cerâmica que caiba no cesto com espaço ao redor; não cozinhe o recheio solto no cesto — as migalhas voam no ventilador e a camada de baixo queima. Misture o recheio só até ficar úmido; uma mistura mais úmida cozinha antes e fica mais macia, uma mais seca precisa do tempo longo. Ponha uns pedacinhos de manteiga em cima para crosta melhor.',
+        'Use uma assadeira de metal ou cerâmica que caiba no cesto com espaço ao redor; não cozinhe o recheio solto no cesto — as migalhas voam no ventilador e a camada de baixo queima. Misture o recheio só até ficar úmido; uma mistura mais úmida cozinha antes e fica mais macia, uma mais seca precisa do tempo longo. Ponha uns pedacinhos de manteiga em cima para crosta melhor. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo o recheio leva na air fryer?',
@@ -2102,7 +2102,7 @@ export const presets: Dictionary['presets'] = {
         'Levante o papel e aperte o lado de um pão: deve sentir morno e elástico, não quente e duro. A crosta deve estar levemente colorida, não marrom nem crocante. Parta um: o miolo deve ser macio e úmido, sem centro frio e denso. Um pão que parece firme e seco esteve tempo demais.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Arrume os pães numa camada só com um pequeno espaço entre eles. Corte um pedaço de papel alumínio grande o bastante para fazer tenda sobre todo o grupo sem tocar as copas, e enfie as bordas sob o fundo do cesto. Não precisa óleo nem manteiga; um pincel de manteiga derretida vai depois se quiser crosta brilhante.',
+        'Arrume os pães numa camada só com um pequeno espaço entre eles. Corte um pedaço de papel alumínio grande o bastante para fazer tenda sobre todo o grupo sem tocar as copas, e enfie as bordas sob o fundo do cesto. Não precisa óleo nem manteiga; um pincel de manteiga derretida vai depois se quiser crosta brilhante. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo para reaquecer pãezinhos na air fryer?',
@@ -2148,7 +2148,7 @@ export const presets: Dictionary['presets'] = {
         'As bordas rugosas devem estar bem douradas e crocantes, e as faces planas devem ter crosta sólida. Espete uma faca no meio de um pedaço: deve entrar sem resistência, e o interior deve parecer branco e fofo, não translúcido nem ceroso. Se o exterior está pronto e o centro não, baixe o calor um pouco nos últimos minutos em vez de desistir da crosta.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Use batatas farinhentas: Maris Piper, King Edward ou russets. Corte em pedaços iguais para terminarem juntos. Escalde em água com sal cinco minutos exatos, escorra bem e chacoalhe a panela para rugosizar as bordas. Misture com óleo suficiente para cobrir cada pedaço rugoso e tempere com sal. Não encha o cesto; os pedaços precisam ar em todas as faces para crocantar.',
+        'Use batatas farinhentas: Maris Piper, King Edward ou russets. Corte em pedaços iguais para terminarem juntos. Escalde em água com sal cinco minutos exatos, escorra bem e chacoalhe a panela para rugosizar as bordas. Misture com óleo suficiente para cobrir cada pedaço rugoso e tempere com sal. Não encha o cesto; os pedaços precisam ar em todas as faces para crocantar. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo as batatas assadas levam na air fryer?',
@@ -2194,7 +2194,7 @@ export const presets: Dictionary['presets'] = {
         'O bacon deve estar crocante e bem dourado nas duas faces, sem manchas pálidas e moles. A salsicha de dentro deve chegar a {INT_F}°F ({INT_C}°C) no centro, medido com sonda fina através do bacon. Se o bacon está crocante mas a salsicha está abaixo de 160°F, baixe a 350°F e dê dois minutos mais.',
       prepHeading: 'Antes de colocar',
       prepBody:
-        'Use chipolatas (salsichas pequenas de porco), não frankfurters nem hot dogs. Enrole cada uma em meia tira de bacon streaky, enfiando as pontas por baixo para não desenrolar. Não precisa óleo; o bacon solta bastante gordura. Se seu cesto roda quente, forre com papel perfurado para pegar os gotejos e reduzir fumaça. Deixe um espaço de um dedo entre rolinhos para o bacon dos lados crocantar também.',
+        'Use chipolatas (salsichas pequenas de porco), não frankfurters nem hot dogs. Enrole cada uma em meia tira de bacon streaky, enfiando as pontas por baixo para não desenrolar. Não precisa óleo; o bacon solta bastante gordura. Se seu cesto roda quente, forre com papel perfurado para pegar os gotejos e reduzir fumaça. Deixe um espaço de um dedo entre rolinhos para o bacon dos lados crocantar também. Os tempos são estimativas de receitas publicadas, não testes próprios; termine por termômetro.',
       faqs: [
         {
           q: 'Quanto tempo os pigs in blankets levam na air fryer?',
