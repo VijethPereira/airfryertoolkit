@@ -150,7 +150,7 @@ const es: Dictionary = {
       'Conversor gratuito de horno a freidora de aire. Convierte temperatura y tiempo de horno a los ajustes de la freidora de aire según el tipo de alimento y si es de cesta o tipo horno — sin la regla plana de 25° ni registro.',
     metaKeywords:
       'conversor de horno a freidora de aire, conversión de horno a freidora de aire, convertir horno a freidora de aire, tiempo de cocción horno a freidora de aire, conversión de freidora de aire a horno, calculadora de freidora de aire a horno, tabla de conversión freidora de aire, tabla de temperatura freidora de aire, tiempos de cocción freidora de aire, calculadora freidora de aire',
-    eyebrow: 'Gratis / Sin registro / Funciona sin conexión',
+    eyebrow: 'Gratis / Sin registro / °F · °C · nivel de gas',
     heroTitle: 'Conversor de horno a freidora de aire',
     heroSub:
       'Ingresa la temperatura y el tiempo de la receta. Obtén el ajuste de la freidora de aire para tu alimento, adaptado a cesta o tipo horno — no una regla fija de 25°.',

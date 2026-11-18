@@ -150,7 +150,7 @@ const pt: Dictionary = {
       'Conversor gratuito de forno para air fryer. Converta temperatura e tempo de forno para os ajustes da air fryer por tipo de alimento e cesto vs. tipo forno — sem a regra fixa de 25° e sem cadastro.',
     metaKeywords:
       'conversor de forno para air fryer, conversão de forno para air fryer, converter forno para air fryer, tempo de cozimento forno para air fryer, conversão de air fryer para forno, calculadora de air fryer para forno, tabela de conversão air fryer, tabela de temperatura air fryer, tempos de cozimento air fryer, calculadora air fryer',
-    eyebrow: 'Grátis / Sem cadastro / Funciona offline',
+    eyebrow: 'Grátis / Sem cadastro / °F · °C · nível de gás',
     heroTitle: 'Conversor de forno para air fryer',
     heroSub:
       'Digite a temperatura e o tempo da receita. Receba o ajuste da air fryer para o seu alimento, adaptado para cesto ou tipo forno — não uma regra fixa de 25°.',

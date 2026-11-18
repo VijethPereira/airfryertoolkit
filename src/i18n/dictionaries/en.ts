@@ -150,7 +150,7 @@ const en: Dictionary = {
       'Free oven to air fryer converter. Convert oven temperature and time to air fryer settings by food type and basket vs. oven-style — no flat 25° guesswork, no sign-up.',
     metaKeywords:
       'oven to air fryer converter, oven to air fryer conversion, conventional oven to air fryer conversion, convert oven to air fryer, oven to air fryer cooking time conversion, air fryer to oven conversion, convert air fryer to oven, air fryer to oven calculator, air fryer conversion chart, air fryer temperature chart, air fryer cooking times, air fryer calculator',
-    eyebrow: 'Free / No sign-up / Works offline',
+    eyebrow: 'Free / No sign-up / °F · °C · gas mark',
     heroTitle: 'Oven to Air Fryer Converter',
     heroSub:
       'Enter the temperature and time on the recipe. Get the air fryer setting for your food, adjusted for basket or oven-style — not a flat 25° rule.',

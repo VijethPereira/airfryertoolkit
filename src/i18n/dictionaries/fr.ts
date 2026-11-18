@@ -150,7 +150,7 @@ const fr: Dictionary = {
       'Convertisseur gratuit four vers friteuse à air. Convertissez la température et le temps de cuisson du four en réglages de friteuse à air selon le type d’aliment et panier vs. type four — sans règle fixe de 25°, sans inscription.',
     metaKeywords:
       'convertisseur four vers friteuse à air, conversion four vers friteuse à air, convertir four en friteuse à air, temps de cuisson four vers friteuse à air, conversion friteuse à air vers four, calculateur friteuse à air vers four, tableau de conversion friteuse à air, tableau de température friteuse à air, temps de cuisson friteuse à air, calculateur friteuse à air',
-    eyebrow: 'Gratuit / Sans inscription / Fonctionne hors ligne',
+    eyebrow: 'Gratuit / Sans inscription / °F · °C · thermostat',
     heroTitle: 'Convertisseur four vers friteuse à air',
     heroSub:
       'Entrez la température et le temps indiqués sur la recette. Obtenez le réglage de friteuse à air pour votre aliment, adapté au panier ou au type four — pas une règle fixe de 25°.',

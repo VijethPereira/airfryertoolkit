@@ -150,7 +150,7 @@ const de: Dictionary = {
       'Kostenloser Ofen-zu-Heißluftfritteuse-Umrechner. Rechne Ofentemperatur und -zeit in Heißluftfritteusen-Einstellungen um — nach Lebensmittelart und Korb- oder Ofentyp, ohne pauschale 25°-Regel, ohne Anmeldung.',
     metaKeywords:
       'Ofen zu Heißluftfritteuse Umrechner, Ofen zu Heißluftfritteuse umrechnen, Backofen in Heißluftfritteuse umrechnen, Ofen zu Heißluftfritteuse Garzeit umrechnen, Heißluftfritteuse zu Ofen umrechnen, Heißluftfritteuse zu Ofen Rechner, Heißluftfritteuse Umrechnungstabelle, Heißluftfritteuse Temperaturtabelle, Heißluftfritteuse Garzeiten, Heißluftfritteuse Rechner',
-    eyebrow: 'Kostenlos / Ohne Anmeldung / Funktioniert offline',
+    eyebrow: 'Kostenlos / Ohne Anmeldung / °F · °C · Gasstufe',
     heroTitle: 'Ofen-zu-Heißluftfritteuse-Umrechner',
     heroSub:
       'Gib Temperatur und Zeit aus dem Rezept ein. Erhalte die Heißluftfritteusen-Einstellung für dein Gericht, angepasst an Korb- oder Ofentyp — keine pauschale 25°-Regel.',
