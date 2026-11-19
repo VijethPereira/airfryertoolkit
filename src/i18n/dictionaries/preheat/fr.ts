@@ -1,4 +1,5 @@
 import type { PreheatCopy } from '../../types';
+import { preheatModels as en, type PreheatModelCopy } from './en';
 
 const preheat: PreheatCopy = {
   metaTitle: 'Combien de temps préchauffer une friteuse à air (selon la température)',
@@ -68,3 +69,45 @@ const preheat: PreheatCopy = {
 };
 
 export default preheat;
+
+/** The model picker and the per-model table (EU models first on this locale). */
+export const preheatModels: PreheatModelCopy = {
+  pickerIntro: 'Ou choisissez votre modèle pour voir ce que dit son propre manuel.',
+  model: 'Votre modèle',
+  modelNone: 'Aucun modèle : valeur par défaut',
+  and: 'et',
+  answers: {
+    chart: 'Préchauffez {MIN} minutes à {TEMP} : le bouton de préchauffage le règle d’après le tableau du manuel.',
+    fixed: 'Le préchauffage du manuel est Air Fry à {TEMP} pendant {MIN} minutes ; ajoutez les aliments quand End s’affiche.',
+    auto: 'Il préchauffe tout seul : ajoutez les aliments quand l’écran affiche Add Food.',
+    autoPrograms: 'Le manuel cite {PROGRAMS}.',
+    autoSkips: '{PROGRAMS} n’a pas de préchauffage.',
+    autoSkippable: 'Le préchauffage peut être sauté.',
+    none: 'Pas besoin de préchauffer : la fiche technique indique « Instant on/no pre-heat ».',
+    notMentioned: 'La {DOC} ne parle pas du préchauffage, utilisez donc la valeur par défaut. {DEFAULT}',
+    notReread: 'Ce guide n’a pas été relu pour cette page, utilisez donc la valeur par défaut. {DEFAULT}',
+  },
+  docTypes: { manual: 'notice', specSheet: 'fiche technique (pas une notice)', productPage: 'page produit', ownersGuide: 'notice d’utilisation' },
+  programs: { airFry: 'Air Fry', roast: 'Rôtir', bake: 'Cuire au four', broil: 'Gratiner', pizza: 'Pizza', reheat: 'Réchauffer', dehydrate: 'Déshydrater' },
+  sourcePages: '{DOC}, page {PAGES}, lue le {DATE}',
+  sourceNoPage: '{DOC}, lue le {DATE}',
+  sourceNotReread: 'Non relu',
+  tableHeading: 'Ce que dit chaque notice',
+  tableIntro: 'Tous les modèles du tableau des températures maximales, avec ce que leur propre document dit du préchauffage et la page où il le dit. Les modèles européens d’abord.',
+  headers: { model: 'Modèle', says: 'Le document dit', minutes: 'Minutes', source: 'Source' },
+  kinds: {
+    chart: 'Bouton de préchauffage avec tableau',
+    fixed: 'Un seul réglage de préchauffage',
+    auto: 'Préchauffe tout seul',
+    none: 'Pas de préchauffage',
+    notMentioned: 'Non mentionné',
+    notReread: 'Non relu',
+  },
+  minutesCell: { chart: '{MIN_MIN}–{MIN_MAX} selon la température', fixed: '{MIN} à {TEMP}', auto: 'Jusqu’à Add Food', none: 'Aucun', default: 'Par défaut' },
+  filterBrand: 'Marque',
+  filterKind: 'Dit',
+  all: 'Tous',
+  showing: '{N} modèles sur {TOTAL} affichés',
+  none: 'Aucun modèle ne correspond à ces filtres.',
+  brandNames: en.brandNames,
+};

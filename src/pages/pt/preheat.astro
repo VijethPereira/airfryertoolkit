@@ -1,9 +1,11 @@
 ---
-export const prerender = true;
+// /pt/preheat: same body, picker and per-model table as the English route, with this locale's copy (EU models first, °C first).
+export const prerender = false;
 import Layout from '../../layouts/Layout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import Footer from '../../components/Footer.astro';
 import PreheatBody from '../../components/PreheatBody.astro';
+import PreheatModelsTable from '../../components/PreheatModelsTable.astro';
 import { getDictionary } from '../../i18n/dictionaries';
 import { localizedUrl } from '../../i18n/utils';
 import { PREHEAT_PATH } from '../../lib/preheat';
@@ -23,6 +25,8 @@ const dict = getDictionary(locale).preheat;
   translatedSlug={PREHEAT_PATH}
 >
   <SiteNav currentPath={PREHEAT_PATH} locale={locale} translatedSlug={PREHEAT_PATH} />
-  <PreheatBody locale={locale} />
+  <PreheatBody locale={locale}>
+    <PreheatModelsTable locale={locale} />
+  </PreheatBody>
   <Footer locale={locale} />
 </Layout>

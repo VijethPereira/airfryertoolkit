@@ -73,6 +73,8 @@ export interface BrandsDictionary {
     cardDesc: string;
     cardSpecTemplate: string;
     datasetName: string;
+    /** Dataset variableMeasured labels: max temperature, capacity, preheat. */
+    datasetVariables: string[];
   };
 }
 
@@ -121,7 +123,7 @@ export const brands: BrandsDictionary = {
     "philips-2000-na220": "Philips 2000 Series NA220",
     "philips-2000-na230": "Philips 2000 Series NA230",
     "philips-3000-dual-na351": "Philips 3000 Series Dual Basket NA351",
-    "philips-3000-dual-na350": "Philips 3000 Series Dual Basket NA350 (EU)",
+    "philips-3000-dual-na350": "Philips 3000 Series Dual Basket NA350/03",
     "philips-5000-dual-na555": "Philips 5000 Series Dual Basket with Steam NA555",
     "philips-premium-xxl-hd9650": "Philips Premium Airfryer XXL HD9650",
     "philips-5000-xxl-hd9285": "Philips 5000 Series XXL Connected HD9285",
@@ -360,10 +362,12 @@ export const brands: BrandsDictionary = {
       { q: "What is the highest temperature an air fryer goes to?", a: "Among the models we have sourced, Air Fry tops out at {MAX_HI}°F. Most basket models stop at {BASKET_CEIL}°F, and several Philips models stop lower, at {PH_MAX_C}°C." },
       { q: "Where do these numbers come from?", a: "From each manufacturer's manual or product specification page, linked on every row with the date we read it. Models we could not source from the manufacturer are left out." },
       { q: "Why is my model missing?", a: "Either we could not find its manual or spec page from the manufacturer, or the source does not state a temperature range. We add models only when the source states the limit." },
+      { q: "Why does the same series appear more than once?", a: "Models sold in Europe or the UK carry their own model number and their own product page, and the table labels each row with its market. Each version gets a row with its own source, because the same series can state a different limit in another market." },
       { q: "Does a higher maximum make an air fryer better?", a: "Not by itself. It means hot recipes convert without added time, which helps with fries and wings. A lower limit still cooks well with the extra minutes." },
     ],
     cardDesc: "The ceiling table that feeds the converter, with the source for every row.",
     cardSpecTemplate: "{N_MODELS} sourced models",
     datasetName: "Air fryer maximum air fry temperature by model",
+    datasetVariables: ["Maximum air fry temperature (°F)", "Capacity", "Preheat"],
   },
 };

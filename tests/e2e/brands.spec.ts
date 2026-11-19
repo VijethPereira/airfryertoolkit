@@ -4,7 +4,7 @@ import { buildBaseline } from '../fixtures/make-baseline';
 import { MODELS, type BrandKey } from '../../src/data/models';
 import {
   BRANDS, LIVE_BRANDS, BRAND_PATHS, MODEL_MAX_TEMP_PATH, brandModels, brandModelsFor, brandValues, modelStyle, modelCapacity,
-  formatMax, fillBrand, marketOf, modelRow, modelMaxC, modelMaxTempValues, widgetModels,
+  formatMax, fillBrand, marketOf, marketOrder, modelRow, modelMaxC, modelMaxTempValues, widgetModels,
 } from '../../src/lib/brands';
 import { getBrandsDictionary } from '../../src/i18n/dictionaries/brands';
 import { computeAirFryerSetting, computeAirFryerSettingFromFrozen, modelCeiling, FOODS, type FoodKey } from '../../src/lib/converter';
@@ -102,7 +102,8 @@ test.describe('model data (src/data/models.ts)', () => {
     }
     // No Instant Vortex EU row (no model number on the EU pages); every row without a market is a US source.
     expect(eu.some((m) => m.brand === 'instant')).toBe(false);
-    expect(MODELS.filter((m) => m.market === 'uk')).toEqual([]);
+    // One UK row: the NA350/03 spec sheet, a leaflet "Released United Kingdom (English)" (220-240 V, 50 Hz).
+    expect(MODELS.filter((m) => m.market === 'uk').map((m) => m.modelNumber)).toEqual(['NA350/03']);
   });
 
   test('market order: English lists US rows first, es/pt/fr/de list EU rows first, stable within a market', () => {
@@ -181,20 +182,18 @@ test.describe('engine: optional maxF', () => {
   });
 });
 
-test.describe('translated brand pages and the English-only model table', () => {
-  test('brand pages are in TRANSLATED_PAGES; /model-max-temp is live but English only', () => {
-    for (const p of BRAND_PATHS) {
+test.describe('translated brand pages and the model table', () => {
+  test('brand pages and /model-max-temp are live and in TRANSLATED_PAGES', () => {
+    for (const p of [...BRAND_PATHS, MODEL_MAX_TEMP_PATH]) {
       expect(LIVE_PAGES.has(p), p).toBe(true);
       expect(TRANSLATED_PAGES.some((t) => t.slug === p), p).toBe(true);
     }
-    expect(LIVE_PAGES.has(MODEL_MAX_TEMP_PATH)).toBe(true);
-    expect(TRANSLATED_PAGES.some((t) => t.slug === MODEL_MAX_TEMP_PATH)).toBe(false);
     expect(BRAND_PATHS).toContain('/ninja');
   });
 
-  test('sitemap: each brand page in all five locales with reciprocal hreflang; the model table once, without', async ({ request }) => {
+  test('sitemap: each brand page and the model table in all five locales with reciprocal hreflang', async ({ request }) => {
     const xml = await (await request.get('/sitemap.xml')).text();
-    for (const p of BRAND_PATHS) {
+    for (const p of [...BRAND_PATHS, MODEL_MAX_TEMP_PATH]) {
       for (const l of LOCALES) {
         const loc = `https://airfryertoolkit.com${localizedPath(l.code, p)}`;
         const block = xml.match(new RegExp(`<url>\\s*<loc>${loc.replace(/[.]/g, '\\.')}</loc>[\\s\\S]*?</url>`))?.[0];
@@ -203,24 +202,49 @@ test.describe('translated brand pages and the English-only model table', () => {
         expect(block, loc).toContain('hreflang="x-default"');
       }
     }
-    const table = xml.match(new RegExp(`<url>\\s*<loc>https://airfryertoolkit\\.com${MODEL_MAX_TEMP_PATH}</loc>[\\s\\S]*?</url>`))?.[0];
-    expect(table).toBeTruthy();
-    expect(table).not.toContain('xhtml:link');
-    for (const l of TRANSLATED) expect(xml).not.toContain(`/${l}${MODEL_MAX_TEMP_PATH}<`);
   });
 
-  test(`${MODEL_MAX_TEMP_PATH}: self canonical, no hreflang, breadcrumbs, zero page errors`, async ({ page }) => {
-    const errors: Error[] = [];
-    page.on('pageerror', (e) => errors.push(e));
-    const res = await page.goto(MODEL_MAX_TEMP_PATH);
-    expect(res?.status()).toBe(200);
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://airfryertoolkit.com${MODEL_MAX_TEMP_PATH}`);
-    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
-    const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
-    expect(ld.some((t) => t.includes('BreadcrumbList'))).toBe(true);
-    expect(await page.content()).not.toMatch(/\{[A-Z_]+\}/);
-    expect(errors).toEqual([]);
-  });
+  for (const l of LOCALES) {
+    const path = localizedPath(l.code, MODEL_MAX_TEMP_PATH);
+    test(`${path}: 200, self canonical (also for filtered variants), hreflang, translated copy, JSON-LD, market order, zero page errors`, async ({ page }) => {
+      const errors: Error[] = [];
+      page.on('pageerror', (e) => errors.push(e));
+      const res = await page.goto(path);
+      expect(res?.status()).toBe(200);
+      await expect(page.locator('html')).toHaveAttribute('lang', new RegExp(`^${l.code}`));
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://airfryertoolkit.com${path}`);
+      for (const alt of LOCALES) {
+        await expect(page.locator(`link[rel="alternate"][hreflang="${alt.code}"]`)).toHaveAttribute('href', `https://airfryertoolkit.com${localizedPath(alt.code, MODEL_MAX_TEMP_PATH)}`);
+      }
+      const mt = getBrandsDictionary(l.code).maxTemp;
+      await expect(page.locator('main h1')).toHaveText(mt.heading);
+      await expect(page).toHaveTitle(`${mt.metaTitle} | ${siteConfig.siteName}`);
+      const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap((t) => { const j = JSON.parse(t); return j['@graph'] ?? [j]; });
+      for (const type of ['WebApplication', 'Dataset', 'FAQPage', 'BreadcrumbList']) expect(ld.map((n: { '@type': string }) => n['@type']), type).toContain(type);
+      const faq = ld.find((n: { '@type': string }) => n['@type'] === 'FAQPage');
+      expect(faq.mainEntity.length).toBeGreaterThanOrEqual(5);
+      expect(faq.mainEntity.length).toBeLessThanOrEqual(6);
+      expect(ld.find((n: { '@type': string }) => n['@type'] === 'Dataset').variableMeasured).toEqual(mt.datasetVariables);
+      // Every model; /es … /de in market order (EU first), °C first and a decimal comma.
+      const markets = await page.locator('#mt-table tbody tr').evaluateAll((rows) => rows.map((r) => r.getAttribute('data-market')));
+      expect(markets).toHaveLength(MODELS.length);
+      if (l.code !== DEFAULT_LOCALE) {
+        expect(markets).toEqual([...markets].sort((a, b) => marketOrder(l.code).indexOf(a as never) - marketOrder(l.code).indexOf(b as never)));
+        expect(markets[0]).toBe('eu');
+        for (const cell of await page.locator('#mt-table tbody tr td:nth-child(2)').allTextContents()) expect(cell.trim(), l.code).toMatch(/^\d+°C \/ \d+°F/);
+        const caps = (await page.locator('#mt-table tbody tr td:nth-child(3)').allTextContents()).join(' ');
+        expect(caps).toMatch(/\d,\d L/);
+        expect(caps).not.toMatch(/\d\.\d/);
+      }
+      expect(await page.content()).not.toMatch(/\{[A-Z_]+\}/);
+      // A filtered, sorted variant still canonicals to the bare locale URL, and its links stay in the locale.
+      await page.goto(`${path}?brand=philips&sort=capacity&dir=asc`);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://airfryertoolkit.com${path}`);
+      await expect(page.locator('#mt-table tbody tr')).toHaveCount(brandModels('philips').length);
+      for (const h of await page.locator('.filters a').evaluateAll((as) => as.map((a) => a.getAttribute('href')!))) expect(h.startsWith(path), h).toBe(true);
+      expect(errors).toEqual([]);
+    });
+  }
 
   for (const l of LOCALES) {
     for (const b of LIVE_BRANDS) {
@@ -297,6 +321,18 @@ test.describe('translated brand pages and the English-only model table', () => {
     await expect(page.locator('#br-eu-note')).toHaveCount(0);
   });
 
+  test('every brand page links the model table in its own locale, with no "in English" label', async ({ page }) => {
+    test.setTimeout(120_000); // visits 20 pages in one test
+    for (const l of LOCALES) {
+      const link = getBrandsDictionary(l.code).maxTempLink;
+      expect(link, l.code).not.toMatch(/ingl[eé]s|anglais|Englisch|English\)/i);
+      for (const b of LIVE_BRANDS) {
+        await page.goto(localizedPath(l.code, b.path));
+        await expect(page.locator(`a[href="${localizedPath(l.code, MODEL_MAX_TEMP_PATH)}"]`), `${l.code} ${b.key}`).toHaveText(link);
+      }
+    }
+  });
+
   test('es/pt/fr/de widget starts at the worked example in °C', async ({ page }) => {
     for (const l of TRANSLATED) {
       const b = LIVE_BRANDS[0];
@@ -306,12 +342,13 @@ test.describe('translated brand pages and the English-only model table', () => {
     }
   });
 
-  test('translated homepages: brand cards link the locale brand page with a °C spec from the data; the model table card is Coming soon', async ({ page }) => {
+  test('translated homepages: brand cards and the model table card link the locale pages with specs from the data', async ({ page }) => {
     for (const l of TRANSLATED) {
       await page.goto(localizedPath(l, '/'));
       const home = getDictionary(l).home;
-      await expect(page.locator(`a[href="${MODEL_MAX_TEMP_PATH}"], a[href="/${l}${MODEL_MAX_TEMP_PATH}"]`), l).toHaveCount(0);
-      await expect(page.locator('.card.disabled', { hasText: home.brandCards.modelMaxTemp.title }).first(), l).toContainText(home.comingSoon);
+      await expect(page.locator(`a[href="${MODEL_MAX_TEMP_PATH}"]`), l).toHaveCount(0);
+      await expect(page.locator(`a.card[href="/${l}${MODEL_MAX_TEMP_PATH}"]`), l).toContainText(fillPlaceholders(home.modelTableSpec, { N: String(MODELS.length) }));
+      await expect(page.locator('.card.disabled', { hasText: home.brandCards.modelMaxTemp.title }), l).toHaveCount(0);
       for (const b of LIVE_BRANDS) {
         const models = brandModels(b.key);
         const top = models.reduce((a, m) => (m.maxF > a.maxF ? m : a));
@@ -427,6 +464,31 @@ test.describe('brand pages', () => {
       }
     });
   }
+});
+
+test.describe('/model-max-temp copy (5 locales)', () => {
+  const prose = (l: LocaleCode) => {
+    const mt = getBrandsDictionary(l).maxTemp;
+    return [mt.intro, ...mt.sections.flatMap((x) => [x.heading, ...x.paragraphs]), ...mt.faqs.flatMap((f) => [f.q, f.a])].map((t) => fillPlaceholders(t, modelMaxTempValues())).join(' ');
+  };
+  test('fills, no typed numbers, °F only straight after its °C value, 5–6 FAQs', () => {
+    for (const l of LOCALES.map((x) => x.code)) {
+      const mt = getBrandsDictionary(l).maxTemp;
+      expect(() => prose(l), l).not.toThrow();
+      const raw = [mt.metaTitle, mt.metaDescription, mt.heading, mt.intro, ...mt.sections.flatMap((x) => [x.heading, ...x.paragraphs]), ...mt.faqs.flatMap((f) => [f.q, f.a]), mt.cardDesc, mt.cardSpecTemplate, mt.showing];
+      for (const t of raw) expect(t.replace(/\{[A-Z0-9_]+\}/g, ''), l).not.toMatch(/\d/);
+      expect(mt.faqs.length, l).toBeGreaterThanOrEqual(5);
+      expect(mt.faqs.length, l).toBeLessThanOrEqual(6);
+      if (l !== DEFAULT_LOCALE) {
+        const all = raw.join(' ');
+        expect((all.match(/°C (\(|\/ )\{[A-Z_]+\}°F/g) ?? []).length, l).toBe((all.match(/\}°F/g) ?? []).length);
+      }
+    }
+  });
+  test('not a template: 4-gram Jaccard ≤ 0.15 against English and between locales', () => {
+    const codes = LOCALES.map((x) => x.code);
+    for (const a of codes) for (const b of codes) if (a < b) expect(jaccard(shingles(prose(a)), shingles(prose(b))), `${a} vs ${b}`).toBeLessThanOrEqual(0.15);
+  });
 });
 
 test.describe('/model-max-temp', () => {

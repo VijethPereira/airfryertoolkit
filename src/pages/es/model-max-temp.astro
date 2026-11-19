@@ -1,0 +1,32 @@
+---
+// /es/model-max-temp: same body and data as the English route, with this locale's copy (src/i18n/dictionaries/brands/es.ts).
+export const prerender = false;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ModelMaxTempBody from '../../components/ModelMaxTempBody.astro';
+import { getBrandsDictionary } from '../../i18n/dictionaries/brands';
+import { localizedUrl } from '../../i18n/utils';
+import { MODEL_MAX_TEMP_PATH, modelMaxTempValues } from '../../lib/brands';
+import { modelMaxTempJsonLd } from '../../lib/model-max-temp-jsonld';
+import { fillPlaceholders } from '../../lib/temp-landings';
+
+const locale = 'es' as const;
+const mt = getBrandsDictionary(locale).maxTemp;
+---
+
+<Layout
+  title={mt.metaTitle}
+  description={fillPlaceholders(mt.metaDescription, modelMaxTempValues())}
+  canonical={localizedUrl(locale, MODEL_MAX_TEMP_PATH)}
+  keywords={mt.metaKeywords}
+  jsonLd={modelMaxTempJsonLd(locale)}
+  locale={locale}
+  translatedSlug={MODEL_MAX_TEMP_PATH}
+>
+  <SiteNav currentPath={MODEL_MAX_TEMP_PATH} locale={locale} translatedSlug={MODEL_MAX_TEMP_PATH} />
+  <Breadcrumb locale={locale} translatedSlug={MODEL_MAX_TEMP_PATH} />
+  <ModelMaxTempBody locale={locale} />
+  <Footer locale={locale} />
+</Layout>

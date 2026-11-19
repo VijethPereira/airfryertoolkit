@@ -13,8 +13,9 @@ import { computeCost } from '../../src/lib/cost';
 import { costValues, defaultCostInput, fillCost } from '../../src/lib/cost-page';
 import { flagshipProse, flagshipValues } from '../../src/lib/flagship-copy';
 import { modelMaxTempValues } from '../../src/lib/brands';
-import { brands as brandsDict } from '../../src/i18n/dictionaries/brands/en';
-import { preheatModels as modelCopy } from '../../src/i18n/dictionaries/preheat/en';
+import { getPreheatModelCopy } from '../../src/i18n/dictionaries/preheat/models';
+import { getBrandsDictionary } from '../../src/i18n/dictionaries/brands';
+import { brandModelsFor, marketOf } from '../../src/lib/brands';
 import { getDictionary } from '../../src/i18n/dictionaries';
 import { LOCALES, type LocaleCode } from '../../src/i18n/locales';
 import { localizedPath } from '../../src/i18n/utils';
@@ -44,8 +45,8 @@ function costProse(locale: LocaleCode): string {
   const v = costValues(locale, c);
   return [c.subDesc, c.leadBody, c.modelBody, c.exampleBody, c.ovenWinsBody, ...c.faqs.flatMap((f) => [f.q, f.a])].map((s) => fillCost(s, v)).join(' ');
 }
-function maxTempProse(): string {
-  const mt = brandsDict.maxTemp;
+function maxTempProse(locale: LocaleCode): string {
+  const mt = getBrandsDictionary(locale).maxTemp;
   const v = modelMaxTempValues();
   return [mt.intro, ...mt.sections.flatMap((s) => [s.heading, ...s.paragraphs]), ...mt.faqs.flatMap((f) => [f.q, f.a])].map((s) => fillPlaceholders(s, v)).join(' ');
 }
@@ -146,15 +147,17 @@ test.describe('every preheat number on the site comes from the preheat data', ()
 });
 
 test.describe('/preheat copy', () => {
-  test('fills, and every number is a placeholder (5 locales; the English model copy too)', () => {
+  test('fills, and every number is a placeholder (5 locales, the model picker and table copy too)', () => {
     for (const { code } of LOCALES) {
       expect(() => preheatCopy(code)).not.toThrow();
       const c = getDictionary(code).preheat;
       const raw = Object.values(c).flatMap((x) => (typeof x === 'string' ? [x] : Array.isArray(x) ? x.flatMap((f) => [f.q, f.a]) : []));
       for (const s of raw) expect(s.replace(/\{[A-Z0-9_]+\}/g, ''), code).not.toMatch(/\d/);
     }
-    const m = JSON.stringify(modelCopy).replace(/\{[A-Z0-9_]+\}/g, '');
-    expect(m).not.toMatch(/\d/);
+    for (const { code } of LOCALES) {
+      const m = JSON.stringify(getPreheatModelCopy(code)).replace(/\{[A-Z0-9_]+\}/g, '');
+      expect(m, code).not.toMatch(/\d/);
+    }
   });
 
   test('copy length: 500–600 words of prose per locale', () => {
@@ -171,7 +174,7 @@ test.describe('/preheat copy', () => {
     for (const { code } of LOCALES) {
       const own = shingles(preheatCopy(code));
       const pairs: [string, string][] = [['flagship', flagshipProse(code)], ['cost', costProse(code)]];
-      if (code === 'en') pairs.push(['model-max-temp', maxTempProse()]);
+      pairs.push(['model-max-temp', maxTempProse(code)]);
       for (const [name, text] of pairs) {
         const j = jaccard(own, shingles(text));
         report.push(`${code} vs ${name}: ${j.toFixed(3)}`);
@@ -249,15 +252,15 @@ test.describe('/preheat page', () => {
   });
 
   for (const { code } of LOCALES) {
-    test(`${code}: JSON-LD, homepage card, and no model table outside English`, async ({ page }) => {
+    test(`${code}: JSON-LD, homepage card, model picker and per-model table`, async ({ page }) => {
       await page.goto(localizedPath(code, PREHEAT_PATH));
       const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap((j) => [JSON.parse(j)].flat().flatMap((b) => b['@graph'] ?? [b]));
       const types = ld.map((b) => b['@type']);
       for (const t of ['WebApplication', 'FAQPage', 'BreadcrumbList']) expect(types, `${code} ${t}`).toContain(t);
       expect(ld.find((b) => b['@type'] === 'FAQPage').mainEntity).toHaveLength(5);
       await expect(page.locator('main'), code).not.toContainText(/\{[A-Z_0-9]+\}/);
-      await expect(page.locator('#aph-model')).toHaveCount(code === 'en' ? 1 : 0);
-      await expect(page.locator('#aph-models')).toHaveCount(code === 'en' ? 1 : 0);
+      await expect(page.locator('#aph-model')).toHaveCount(1);
+      await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODELS.length);
       if (code !== 'en') await expect(page.locator('#aph-answer')).toContainText('200°C');
       await page.goto(localizedPath(code, '/'));
       await expect(page.locator(`#convert a.card[href="${localizedPath(code, PREHEAT_PATH)}"]`), code).toHaveCount(1);
@@ -303,3 +306,40 @@ for (const width of [375, 412]) {
     }
   });
 }
+
+test.describe('/preheat model picker and per-model table on /es … /de', () => {
+  for (const code of LOCALES.map((l) => l.code).filter((c) => c !== 'en')) {
+    test(`${code}: EU models first in the picker and the table, °C first, the documented default where no minutes are stated`, async ({ page }) => {
+      const m = getPreheatModelCopy(code);
+      const markets = getBrandsDictionary(code).markets;
+      await page.goto(localizedPath(code, PREHEAT_PATH));
+      // Picker: each brand group in the locale's market order, so a brand with EU models opens with them.
+      for (const g of await page.locator('#aph-model optgroup').evaluateAll((gs) => gs.map((x) => [...x.querySelectorAll('option')].map((o) => o.value)))) {
+        const brand = MODELS.find((x) => x.id === g[0])!.brand;
+        expect(g, `${code} ${brand}`).toEqual(brandModelsFor(brand, code).map((x) => x.id));
+      }
+      const euOption = page.locator('#aph-model option[value="philips-5000-dual-na555-eu"]');
+      await expect(euOption).toContainText(markets.eu);
+      // Table: EU rows first, then UK, then US.
+      const rows = await page.locator('#aph-models tbody tr').evaluateAll((trs) => trs.map((t) => t.getAttribute('data-market')));
+      expect(rows[0]).toBe('eu');
+      expect(rows).toEqual([...rows].sort((a, b) => ['eu', 'uk', 'us'].indexOf(a!) - ['eu', 'uk', 'us'].indexOf(b!)));
+      expect(rows.filter((r) => r === 'eu')).toHaveLength(MODELS.filter((x) => marketOf(x) === 'eu').length);
+      // A stated preheat temperature is °C first.
+      await expect(page.locator('#aph-models tr[data-model="ninja-af101"] td:nth-child(3)')).toHaveText(fillPlaceholders(m.minutesCell.fixed, { MIN: '3', TEMP: '205°C / 400°F' }));
+      // An EU model whose page states no minutes: the "not mentioned" line plus the default from the Cosori charts, in °C.
+      await page.selectOption('#aph-model', 'philips-5000-dual-na555-eu');
+      const answer = page.locator('#aph-answer');
+      await expect(answer).toContainText(fillPlaceholders(m.answers.notMentioned, { DOC: m.docTypes.productPage, DEFAULT: '' }).trim());
+      await expect(answer).toContainText(`${defaultPreheatMinutes(392)}`);
+      await expect(answer).toContainText('200°C');
+      await expect(page.locator('#aph-source')).toContainText(m.docTypes.productPage);
+      // Filters are plain links that stay on the locale page.
+      for (const h of await page.locator('#models .filters a').evaluateAll((as) => as.map((a) => a.getAttribute('href')!))) expect(h.startsWith(localizedPath(code, PREHEAT_PATH)), h).toBe(true);
+      await page.goto(`${localizedPath(code, PREHEAT_PATH)}?brand=philips#models`);
+      await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODELS.filter((x) => x.brand === 'philips').length);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://airfryertoolkit.com${localizedPath(code, PREHEAT_PATH)}`);
+      await expect(page.locator('main')).not.toContainText(/\{[A-Z_0-9]+\}/);
+    });
+  }
+});

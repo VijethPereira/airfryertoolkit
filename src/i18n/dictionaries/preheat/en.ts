@@ -71,7 +71,7 @@ const preheat: PreheatCopy = {
 
 export default preheat;
 
-/** English only (US model numbers): the model picker and the per-model table. */
+/** The model picker and the per-model table (each locale has its own copy; see ./models.ts). */
 export interface PreheatModelCopy {
   pickerIntro: string;
   model: string;

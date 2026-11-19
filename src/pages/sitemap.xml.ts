@@ -2,7 +2,6 @@ import type { APIRoute } from 'astro';
 import siteConfig, { TRANSLATED_PAGES } from '../site.config.ts';
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedUrl } from '../i18n/utils';
-import { MODEL_MAX_TEMP_PATH } from '../lib/brands';
 // Last commit that changed each page's data or dictionary entry; written by scripts/content-dates.mjs before the build.
 import CONTENT_DATES from '../data/content-dates.json';
 
@@ -10,7 +9,7 @@ export const prerender = true;
 
 // No <priority> or <changefreq>: Google ignores both. <lastmod> is a real content date, not build time.
 // English-only pages: one <url> each, no hreflang alternates.
-const STATIC_PAGES = [MODEL_MAX_TEMP_PATH, '/about', '/contact', '/privacy-policy', '/terms'];
+const STATIC_PAGES = ['/about', '/contact', '/privacy-policy', '/terms'];
 
 function lastmod(locale: LocaleCode, slug: string): string {
   const date = (CONTENT_DATES as Record<string, string>)[`${locale}:${slug}`];

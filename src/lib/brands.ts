@@ -186,6 +186,11 @@ export function modelMaxTempValues(): Record<string, string> {
     BASKET_CEIL: String(styleCeiling('basket')),
     PH_MAX_C: String(Math.min(...philips)),
     DIAL_STEP: String(DIAL_STEP),
+    // °C-first copy on /es … /de: the same limits, from each model's own °C figure.
+    MAX_HI_C: String(Math.max(...MODELS.map(modelMaxC))),
+    MAX_LO_C: String(Math.min(...MODELS.map(modelMaxC))),
+    BASKET_CEIL_C: String(toC(styleCeiling('basket'))),
+    N_EU: String(MODELS.filter((m) => marketOf(m) === 'eu').length),
   };
 }
 

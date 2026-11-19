@@ -30,7 +30,7 @@ export const brands: BrandsDictionary = {
   maxDefaultNote: 'Valor por defecto; el máximo no se indica',
   relatedHeading: 'Relacionado',
   flagshipLink: 'Conversor de horno a freidora de aire',
-  maxTempLink: 'Temperatura máxima de cada modelo (en inglés)',
+  maxTempLink: 'Temperatura máxima de cada modelo',
   faqHeading: 'Preguntas frecuentes',
   cardSpecTemplate: 'Hasta {MAX_HI_C}°C · {N_MODELS} modelos',
   brandNames: en.brandNames,
@@ -263,5 +263,47 @@ export const brands: BrandsDictionary = {
       cardDesc: 'Cuándo sale el aviso Turn Food y cómo mirar por la ventana.',
     },
   },
-  maxTemp: en.maxTemp,
+  maxTemp: {
+    metaTitle: 'Temperatura máxima de la freidora de aire por modelo: Ninja, Cosori, Philips, Instant',
+    metaDescription:
+      'La temperatura máxima de Air Fry de {N_MODELS} modelos de freidora de aire, copiada del manual o de la ficha del fabricante con su enlace. Primero los modelos europeos; filtra por marca y tipo, ordena por límite o tamaño.',
+    metaKeywords: 'temperatura máxima freidora de aire, temperatura máxima freidora por modelo, cosori temperatura máxima, philips airfryer temperatura máxima, ninja temperatura máxima',
+    heading: 'Temperatura máxima de la freidora de aire por modelo',
+    intro:
+      'El ajuste más alto del modo Air Fry, modelo a modelo, tomado del manual o de la ficha técnica del propio fabricante. Va de {MAX_LO_C}°C ({MAX_LO}°F) a {MAX_HI_C}°C ({MAX_HI}°F) en los {N_MODELS} modelos que tenemos documentados. Ese límite decide cómo se convierte una receta de horno muy caliente: si tu modelo no llega a la temperatura convertida, hay que devolverle tiempo.',
+    filterBrand: 'Marca',
+    filterType: 'Tipo',
+    all: 'Todos',
+    sortBy: 'Ordenar por',
+    sortLabels: { maxF: 'Temperatura máxima', capacity: 'Capacidad', brand: 'Marca' },
+    showing: '{N} de {TOTAL} modelos',
+    none: 'Ningún modelo documentado coincide con este filtro.',
+    brandPageLink: 'Conversor',
+    sections: [
+      {
+        heading: 'Qué significa el máximo',
+        paragraphs: [
+          'Cada cifra es el máximo de Air Fry, porque es el modo con el que se cocina una receta convertida. Algunos modelos de dos zonas gratinan más caliente; se indica junto al modelo y el conversor nunca lo usa.',
+          'Los {N_EU} modelos europeos van primero, cada uno con la ficha de producto europea de la que sale su límite; después vienen los de Reino Unido y Estados Unidos. Todas las filas muestran °C primero. Cuando la fuente da el límite en °F, el valor en °C está convertido, y un dial de {DIAL_STEP}° se queda en el paso inferior al límite, nunca por encima.',
+        ],
+      },
+      {
+        heading: 'Cómo cambia el límite una conversión',
+        paragraphs: [
+          'Si una receta se convierte a una temperatura por encima del límite de tu modelo, se queda en el límite y el tiempo se alarga para compensar. Un modelo con un límite más alto que la cesta estándar de {BASKET_CEIL_C}°C ({BASKET_CEIL}°F) puede usar el ajuste más caliente y más corto. Las páginas de cada marca ejecutan el conversor con el límite de tu modelo.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: '¿Cuál es la temperatura más alta de una freidora de aire?', a: 'Entre los modelos que tenemos documentados, Air Fry llega como máximo a {MAX_HI_C}°C ({MAX_HI}°F). La mayoría de las cestas se quedan en {BASKET_CEIL_C}°C ({BASKET_CEIL}°F), y varios Philips paran antes, en {PH_MAX_C}°C.' },
+      { q: '¿De dónde salen estas cifras?', a: 'Del manual o de la ficha de producto de cada fabricante, enlazados en cada fila con la fecha en que los leímos. Los modelos que no pudimos documentar con el fabricante no aparecen.' },
+      { q: '¿Por qué no está mi modelo?', a: 'O no encontramos su manual o su ficha en la web del fabricante, o la fuente no indica un rango de temperatura. Solo añadimos un modelo cuando la fuente da el límite.' },
+      { q: '¿Por qué la misma serie aparece más de una vez?', a: 'Los modelos que se venden en Europa o en Reino Unido llevan su propio número de modelo y su propia ficha, y la tabla marca el mercado de cada fila. Cada versión tiene su fila y su fuente, porque la misma serie puede indicar otro límite en otro mercado.' },
+      { q: '¿Un máximo más alto hace mejor a una freidora de aire?', a: 'No por sí solo. Significa que las recetas muy calientes se convierten sin tiempo añadido, lo que ayuda con las patatas y las alitas. Con un límite más bajo también se cocina bien, con unos minutos más.' },
+    ],
+    cardDesc: 'La tabla de límites que usa el conversor, con la fuente de cada fila.',
+    cardSpecTemplate: '{N_MODELS} modelos documentados',
+    datasetName: 'Temperatura máxima de Air Fry de la freidora de aire por modelo',
+    datasetVariables: ['Temperatura máxima de Air Fry (°C)', 'Capacidad', 'Precalentamiento'],
+  },
 };

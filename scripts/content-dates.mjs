@@ -163,9 +163,8 @@ function build() {
     }
   }
   // Brand pages (all five locales): that brand's model rows plus the locale's page copy (no sourced
-  // model, no page). The model table (English only): every row plus its own copy.
+  // model, no page). The model table (all five locales): every row plus the locale's own copy.
   const models = 'src/data/models.ts';
-  const brandsDict = 'src/i18n/dictionaries/brands/en.ts';
   const brandPaths = [...readFileSync('src/lib/brands.ts', 'utf8').matchAll(/^ {2}\{ key: '([a-z]+)', path: '(\/[a-z-]+)'/gm)];
   const modelRows = [...readFileSync(models, 'utf8').matchAll(/id: '([a-z0-9-]+)', brand: '([a-z]+)'/g)];
   for (const [, brand, path] of brandPaths) {
@@ -179,10 +178,13 @@ function build() {
       ]);
     }
   }
-  dates['en:/model-max-temp'] = latest([
-    [models, [0, fileLines(models).length - 1]],
-    [brandsDict, entryRange(brandsDict, 'maxTemp', 2)],
-  ]);
+  for (const l of LOCALES) {
+    const dict = `src/i18n/dictionaries/brands/${l}.ts`;
+    dates[`${l}:/model-max-temp`] = latest([
+      [models, [0, fileLines(models).length - 1]],
+      [dict, entryRange(dict, 'maxTemp', 2)],
+    ]);
+  }
   for (const page of ['about', 'contact', 'privacy-policy', 'terms']) {
     dates[`en:/${page}`] = lastCommitOf(`src/pages/${page}.astro`);
   }

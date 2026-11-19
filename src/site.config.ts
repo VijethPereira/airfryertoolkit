@@ -76,7 +76,7 @@ export const LIVE_PAGES = new Set<string>([
   '/chart',
   COST_PATH,
   PREHEAT_PATH,
-  // Brand pages are translated (TRANSLATED_PAGES); the model table is English only.
+  // Brand pages and the model table are translated (TRANSLATED_PAGES).
   ...BRAND_PATHS,
   MODEL_MAX_TEMP_PATH,
   '/about',
@@ -103,8 +103,9 @@ export const TRANSLATED_PAGES: { slug: string }[] = [
   ...PRESET_PATHS.map((slug) => ({ slug })),
   { slug: '/chart' },
   { slug: COST_PATH },
-  // The per-model table and model picker are English only; /es … /de carry the rest of the page.
+  // /es … /de carry the model picker and per-model table too, EU models first.
   { slug: PREHEAT_PATH },
-  // Brand pages: /es … /de list the EU models first, in °C. The model table (/model-max-temp) stays English only.
+  // Brand pages and the model table: /es … /de list the EU models first, in °C.
   ...BRAND_PATHS.map((slug) => ({ slug })),
+  { slug: MODEL_MAX_TEMP_PATH },
 ];

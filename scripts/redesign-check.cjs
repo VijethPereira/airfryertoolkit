@@ -1,7 +1,7 @@
 // Redesign check: overflow, headline font, text contrast (light + dark) and card radius on every page type.
-// Usage: npm run build, then serve dist/client on port 4321 (e.g. `npx http-server dist/client -p 4321 -s`
-// or `python -m http.server 4321 -d dist/client`), then: node scripts/redesign-check.cjs
-// Exits 1 if anything fails. Server-rendered routes (/preheat, /model-max-temp) are not covered here.
+// Usage: npm run build, then serve the build on port 4321 with `npx wrangler dev --port 4321 --ip 127.0.0.1`
+// (it serves the prerendered pages and the server-rendered /preheat and /model-max-temp routes), then:
+// node scripts/redesign-check.cjs. Exits 1 if anything fails.
 const { chromium } = require('playwright');
 const lum = (rgb) => { const m = rgb.match(/[\d.]+/g).map(Number).slice(0, 3).map((x) => x / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)); return 0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]; };
 const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
@@ -14,7 +14,9 @@ const PAGES = ['index.html', 'oven-to-air-fryer.html', 'air-fryer-to-oven.html',
   'air-fryer/dinner-rolls.html', 'air-fryer/roast-potatoes.html', 'air-fryer/pigs-in-blankets.html',
   'air-fryer/reheat-ham.html',
   // Translated brand pages (10.14): EU rows first, °C first.
-  ...['es', 'pt', 'fr', 'de'].flatMap((l) => ['ninja', 'cosori', 'philips', 'instant-vortex'].map((b) => `${l}/${b}.html`))];
+  ...['es', 'pt', 'fr', 'de'].flatMap((l) => ['ninja', 'cosori', 'philips', 'instant-vortex'].map((b) => `${l}/${b}.html`)),
+  // Server-rendered model tables (10.15): /model-max-temp and /preheat in es/pt/fr/de.
+  ...['es', 'pt', 'fr', 'de'].flatMap((l) => [`${l}/model-max-temp`, `${l}/preheat`])];
 (async () => {
   const browser = await chromium.launch();
   const issues = [];

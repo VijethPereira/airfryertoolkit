@@ -124,11 +124,11 @@ test.describe('/chart', () => {
 
   test('homepage gates every tool card on LIVE_PAGES, not a hardcoded slug', async ({ page }) => {
     test.setTimeout(90_000); // 5 homepages, run while the rest of the suite loads astro dev
-    // Since the gas mark card moved to the live °C pages (eb327ae) the English homepage has no unbuilt card;
-    // the translated homepages still show the English-only model-table card (/model-max-temp) as Coming soon. So check every locale:
-    // the rule (live → <a> to a LIVE_PAGES page, not live → inert div) applies to each, and across all five
-    // there must still be disabled cards, so the disabled-card check is never vacuous.
+    // Since /model-max-temp was translated (10.15) every card is live on all five homepages. The rule (live → <a> to a
+    // LIVE_PAGES page, not live → inert div) is still checked on each; and every homepage must show the same number of
+    // live cards with none disabled, so a card that falls back to Coming soon, or drops out in one locale, fails here.
     let disabledTotal = 0;
+    const liveCounts: number[] = [];
     for (const l of LOCALES) {
       await page.goto(localizedPath(l.code, '/'));
 
@@ -136,6 +136,7 @@ test.describe('/chart', () => {
       // /frozen?food=fries — points at a page in LIVE_PAGES.
       const liveHrefs = await page.locator('a.card, a.list-row').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
       expect(liveHrefs.length, l.code).toBeGreaterThan(0);
+      liveCounts.push(liveHrefs.length);
       for (const href of liveHrefs) {
         expect(href, l.code).not.toBeNull();
         const path = href!.split('?')[0].replace(new RegExp(`^/${l.code}(?=/|$)`), '') || '/';
@@ -154,7 +155,8 @@ test.describe('/chart', () => {
         await expect(card.locator('a')).toHaveCount(0);
       }
     }
-    expect(disabledTotal).toBeGreaterThan(0); // the roadmap still has untranslated or unbuilt cards; never vacuous
+    expect(new Set(liveCounts).size, `live cards per locale: ${liveCounts.join(', ')}`).toBe(1);
+    expect(disabledTotal).toBe(0);
   });
 
   test('print stays white-on-black even when the site is in dark mode', async ({ page }) => {

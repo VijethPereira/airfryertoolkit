@@ -30,7 +30,7 @@ export const brands: BrandsDictionary = {
   maxDefaultNote: 'Réglage par défaut ; maximum non précisé',
   relatedHeading: 'À voir aussi',
   flagshipLink: 'Convertisseur four vers friteuse à air',
-  maxTempLink: 'Température maximale de chaque modèle (en anglais)',
+  maxTempLink: 'Température maximale de chaque modèle',
   faqHeading: 'Questions fréquentes',
   cardSpecTemplate: 'Jusqu’à {MAX_HI_C}°C · {N_MODELS} modèles',
   brandNames: en.brandNames,
@@ -260,5 +260,47 @@ export const brands: BrandsDictionary = {
       cardDesc: 'Quand arrive l’alerte Turn Food et comment surveiller par la fenêtre.',
     },
   },
-  maxTemp: en.maxTemp,
+  maxTemp: {
+    metaTitle: 'Température maximale du air fryer par modèle : Ninja, Cosori, Philips, Instant',
+    metaDescription:
+      'La température maximale en mode Air Fry de {N_MODELS} modèles de friteuse à air, recopiée du manuel ou de la fiche du fabricant avec son lien. Modèles européens d’abord ; filtrez par marque et type, triez par limite ou taille.',
+    metaKeywords: 'température maximale air fryer, température max friteuse sans huile par modèle, cosori température maximale, philips airfryer température maximale, ninja température maximale',
+    heading: 'Température maximale du air fryer par modèle',
+    intro:
+      'Le réglage le plus haut du mode Air Fry, modèle par modèle, tiré du manuel ou de la fiche technique du fabricant lui-même. Il va de {MAX_LO_C}°C ({MAX_LO}°F) à {MAX_HI_C}°C ({MAX_HI}°F) sur les {N_MODELS} modèles que nous avons sourcés. C’est cette limite qui décide de la conversion d’une recette au four très chaude : si votre modèle n’atteint pas la température convertie, il faut lui rendre du temps.',
+    filterBrand: 'Marque',
+    filterType: 'Type',
+    all: 'Tous',
+    sortBy: 'Trier par',
+    sortLabels: { maxF: 'Température maximale', capacity: 'Capacité', brand: 'Marque' },
+    showing: '{N} modèles sur {TOTAL}',
+    none: 'Aucun modèle sourcé ne correspond à ce filtre.',
+    brandPageLink: 'Convertisseur',
+    sections: [
+      {
+        heading: 'Ce que veut dire le maximum',
+        paragraphs: [
+          'Chaque valeur est le maximum du mode Air Fry, parce que c’est le mode qui sert à cuire une recette convertie. Certains modèles à deux zones gratinent plus chaud ; c’est indiqué à côté du modèle et le convertisseur ne s’en sert jamais.',
+          'Les {N_EU} modèles européens passent en premier, chacun avec la fiche produit européenne d’où vient sa limite ; viennent ensuite ceux du Royaume-Uni et des États-Unis. Toutes les lignes affichent les °C en premier. Quand la source donne la limite en °F, la valeur en °C est convertie, et un bouton à pas de {DIAL_STEP}° s’arrête au cran sous la limite, jamais au-dessus.',
+        ],
+      },
+      {
+        heading: 'Comment la limite change une conversion',
+        paragraphs: [
+          'Si une recette se convertit à une température au-dessus de la limite de votre modèle, elle reste à la limite et le temps s’allonge pour compenser. Un modèle dont la limite dépasse celle du panier standard à {BASKET_CEIL_C}°C ({BASKET_CEIL}°F) peut prendre le réglage plus chaud et plus court. Les pages de chaque marque font tourner le convertisseur avec la limite de votre modèle.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'Quelle est la température la plus haute d’un air fryer ?', a: 'Parmi les modèles que nous avons sourcés, le mode Air Fry monte au plus à {MAX_HI_C}°C ({MAX_HI}°F). La plupart des paniers s’arrêtent à {BASKET_CEIL_C}°C ({BASKET_CEIL}°F), et plusieurs Philips plus bas, à {PH_MAX_C}°C.' },
+      { q: 'D’où viennent ces valeurs ?', a: 'Du manuel ou de la fiche produit de chaque fabricant, en lien sur chaque ligne avec la date à laquelle nous l’avons lu. Les modèles que nous n’avons pas pu sourcer chez le fabricant sont exclus.' },
+      { q: 'Pourquoi mon modèle n’y est-il pas ?', a: 'Soit nous n’avons trouvé ni son manuel ni sa fiche chez le fabricant, soit la source n’indique pas de plage de température. Nous n’ajoutons un modèle que si la source donne la limite.' },
+      { q: 'Pourquoi la même série apparaît-elle plusieurs fois ?', a: 'Les modèles vendus en Europe ou au Royaume-Uni ont leur propre numéro de modèle et leur propre fiche, et le tableau indique le marché de chaque ligne. Chaque version a sa ligne et sa source, car la même série peut annoncer une autre limite sur un autre marché.' },
+      { q: 'Un maximum plus élevé rend-il un air fryer meilleur ?', a: 'Pas à lui seul. Cela veut dire que les recettes très chaudes se convertissent sans temps ajouté, ce qui aide pour les frites et les ailes de poulet. Une limite plus basse cuit tout aussi bien, avec quelques minutes de plus.' },
+    ],
+    cardDesc: 'Le tableau des limites qui alimente le convertisseur, avec la source de chaque ligne.',
+    cardSpecTemplate: '{N_MODELS} modèles sourcés',
+    datasetName: 'Température maximale en mode Air Fry du air fryer par modèle',
+    datasetVariables: ['Température maximale Air Fry (°C)', 'Capacité', 'Préchauffage'],
+  },
 };

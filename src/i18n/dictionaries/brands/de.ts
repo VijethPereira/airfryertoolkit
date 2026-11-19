@@ -30,7 +30,7 @@ export const brands: BrandsDictionary = {
   maxDefaultNote: 'Voreinstellung, Höchstwert nicht angegeben',
   relatedHeading: 'Passend dazu',
   flagshipLink: 'Ofen-zu-Heißluftfritteuse-Umrechner',
-  maxTempLink: 'Höchsttemperatur jedes Modells (auf Englisch)',
+  maxTempLink: 'Höchsttemperatur jedes Modells',
   faqHeading: 'Häufige Fragen',
   cardSpecTemplate: 'Bis {MAX_HI_C}°C · {N_MODELS} Modelle',
   brandNames: en.brandNames,
@@ -260,5 +260,47 @@ export const brands: BrandsDictionary = {
       cardDesc: 'Wann der Hinweis Turn Food kommt und wie du durchs Fenster nachsiehst.',
     },
   },
-  maxTemp: en.maxTemp,
+  maxTemp: {
+    metaTitle: 'Höchsttemperatur der Heißluftfritteuse nach Modell: Ninja, Cosori, Philips, Instant',
+    metaDescription:
+      'Die höchste Air-Fry-Temperatur von {N_MODELS} Heißluftfritteusen, übernommen aus Anleitung oder Datenblatt des Herstellers, mit Link. Europäische Modelle zuerst; nach Marke und Bauart filtern, nach Grenze oder Größe sortieren.',
+    metaKeywords: 'heißluftfritteuse höchsttemperatur, heißluftfritteuse maximale temperatur modell, cosori maximale temperatur, philips airfryer maximale temperatur, ninja maximale temperatur',
+    heading: 'Höchsttemperatur der Heißluftfritteuse nach Modell',
+    intro:
+      'Die höchste Einstellung im Air-Fry-Modus, Modell für Modell, aus der Anleitung oder dem Datenblatt des Herstellers selbst. Sie reicht bei den {N_MODELS} Modellen mit Quelle von {MAX_LO_C}°C ({MAX_LO}°F) bis {MAX_HI_C}°C ({MAX_HI}°F). Diese Grenze entscheidet, wie sich ein heißes Ofenrezept umrechnen lässt: Erreicht dein Modell die umgerechnete Temperatur nicht, musst du Zeit zugeben.',
+    filterBrand: 'Marke',
+    filterType: 'Bauart',
+    all: 'Alle',
+    sortBy: 'Sortieren nach',
+    sortLabels: { maxF: 'Höchsttemperatur', capacity: 'Fassungsvermögen', brand: 'Marke' },
+    showing: '{N} von {TOTAL} Modellen',
+    none: 'Kein Modell mit Quelle passt zu diesem Filter.',
+    brandPageLink: 'Umrechner',
+    sections: [
+      {
+        heading: 'Was der Höchstwert bedeutet',
+        paragraphs: [
+          'Jeder Wert ist das Maximum im Air-Fry-Modus, denn damit garst du ein umgerechnetes Rezept. Manche Zwei-Zonen-Modelle grillen heißer; das steht beim Modell, und der Umrechner nutzt es nie.',
+          'Die {N_EU} europäischen Modelle stehen oben, jedes mit der europäischen Produktseite, aus der seine Grenze stammt; danach folgen die Modelle aus Großbritannien und den USA. Jede Zeile zeigt °C zuerst. Gibt die Quelle die Grenze in °F an, ist der °C-Wert umgerechnet, und ein Regler mit {DIAL_STEP}°-Schritten bleibt auf der Stufe unter der Grenze, nie darüber.',
+        ],
+      },
+      {
+        heading: 'Wie die Grenze eine Umrechnung verändert',
+        paragraphs: [
+          'Ergibt ein Rezept eine Temperatur über der Grenze deines Modells, bleibt es bei der Grenze, und die Zeit wird zum Ausgleich verlängert. Ein Modell, dessen Grenze über dem Standardkorb mit {BASKET_CEIL_C}°C ({BASKET_CEIL}°F) liegt, kann die heißere, kürzere Einstellung nehmen. Die Markenseiten rechnen mit der Grenze deines Modells.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'Wie heiß wird eine Heißluftfritteuse höchstens?', a: 'Bei den Modellen mit Quelle geht Air Fry höchstens bis {MAX_HI_C}°C ({MAX_HI}°F). Die meisten Körbe enden bei {BASKET_CEIL_C}°C ({BASKET_CEIL}°F), und mehrere Philips-Modelle früher, bei {PH_MAX_C}°C.' },
+      { q: 'Woher stammen diese Werte?', a: 'Aus der Anleitung oder der Produktseite des jeweiligen Herstellers, in jeder Zeile verlinkt, mit dem Datum, an dem wir sie gelesen haben. Modelle ohne Herstellerquelle fehlen.' },
+      { q: 'Warum fehlt mein Modell?', a: 'Entweder haben wir beim Hersteller weder Anleitung noch Datenblatt gefunden, oder die Quelle nennt keinen Temperaturbereich. Wir nehmen ein Modell nur auf, wenn die Quelle die Grenze nennt.' },
+      { q: 'Warum taucht dieselbe Serie mehrmals auf?', a: 'In Europa oder Großbritannien verkaufte Modelle haben eine eigene Modellnummer und eine eigene Produktseite, und die Tabelle nennt den Markt jeder Zeile. Jede Version bekommt eine eigene Zeile mit eigener Quelle, denn dieselbe Serie kann in einem anderen Markt eine andere Grenze nennen.' },
+      { q: 'Ist eine Heißluftfritteuse mit höherem Maximum besser?', a: 'Nicht von allein. Heiße Rezepte lassen sich dann ohne Zusatzzeit umrechnen, was bei Pommes und Hähnchenflügeln hilft. Mit einer niedrigeren Grenze gart sie genauso gut, nur ein paar Minuten länger.' },
+    ],
+    cardDesc: 'Die Grenzwert-Tabelle hinter dem Umrechner, mit der Quelle jeder Zeile.',
+    cardSpecTemplate: '{N_MODELS} Modelle mit Quelle',
+    datasetName: 'Höchste Air-Fry-Temperatur der Heißluftfritteuse nach Modell',
+    datasetVariables: ['Höchste Air-Fry-Temperatur (°C)', 'Fassungsvermögen', 'Vorheizen'],
+  },
 };

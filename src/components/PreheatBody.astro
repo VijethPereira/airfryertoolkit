@@ -1,8 +1,8 @@
 ---
 /**
- * /preheat body (row 15), all 5 locales. English adds the model picker (and the page puts the
- * per-model table in the default slot); translated pages carry the temperature default, both
- * Cosori charts, basket vs oven-style guidance and the FAQs.
+ * /preheat body (row 15), all 5 locales: the temperature default with the model picker, both Cosori
+ * charts, basket vs oven-style guidance and the FAQs; the page puts the per-model table
+ * (PreheatModelsTable) in the default slot. /es … /de list the EU models first in the picker.
  */
 import Faq from './Faq.astro';
 import AdSlot from './AdSlot.astro';
@@ -10,11 +10,12 @@ import Breadcrumb from './Breadcrumb.astro';
 import { getDictionary } from '../i18n/dictionaries';
 import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
 import { localizedPath } from '../i18n/utils';
-import { preheatModels as modelCopy } from '../i18n/dictionaries/preheat/en';
+import { getPreheatModelCopy } from '../i18n/dictionaries/preheat/models';
+import { getBrandsDictionary } from '../i18n/dictionaries/brands';
 import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
 import { PREHEAT_CHARTS } from '../data/preheat';
 import { MODELS } from '../data/models';
-import { BRANDS, modelStyle } from '../lib/brands';
+import { BRANDS, brandHasMarkets, brandModelsFor, marketOf, modelStyle } from '../lib/brands';
 import { COST_PATH } from '../lib/cost';
 import { PRESETS_INDEX_PATH } from '../lib/preset-paths';
 import { chartSource } from '../lib/preheat';
@@ -31,17 +32,20 @@ const all = getDictionary(locale);
 const c = all.preheat;
 const v = preheatValues();
 const fill = (s: string) => fillPlaceholders(s, v);
-const withModels = locale === 'en';
+const modelCopy = getPreheatModelCopy(locale);
+const markets = getBrandsDictionary(locale).markets;
 
 const unit = locale === 'en' ? 'F' : 'C';
 const startTemp = unit === 'F' ? 400 : 200;
 const initial = defaultAnswer(c, inputToF(startTemp, unit), 'basket', unit);
 
 const chartName = (modelId: string) => brandsDict.modelNames[modelId]?.replace(/^Cosori\s+/, '') ?? modelId;
-const modelGroups = withModels
-  ? BRANDS.map((b) => ({ key: b.key, label: modelCopy.brandNames[b.key], models: MODELS.filter((m) => m.brand === b.key) })).filter((g) => g.models.length)
-  : [];
-const clientModels = withModels ? Object.fromEntries(MODELS.map((m) => [m.id, { style: modelStyle(m) }])) : {};
+// One group per brand, in the locale's market order (EU first on /es … /de); a brand sold in more
+// than one market labels each option with its market.
+const modelGroups = BRANDS.map((b) => ({ key: b.key, label: modelCopy.brandNames[b.key], models: brandModelsFor(b.key, locale) })).filter((g) => g.models.length);
+const optionLabel = (m: (typeof MODELS)[number]) =>
+  `${brandsDict.modelNames[m.id] ?? m.modelNumber}${brandHasMarkets(m.brand) ? ` · ${markets[marketOf(m)]}` : ''}`;
+const clientModels = Object.fromEntries(MODELS.map((m) => [m.id, { style: modelStyle(m) }]));
 
 const links = [
   { slug: '/oven-to-air-fryer', label: c.relatedFlagshipLink },
@@ -58,7 +62,7 @@ const links = [
     <header class="tool-header">
       <a href={localizedPath(locale, '/')} class="back-link" aria-label={all.cost.backLink}>&larr; {all.cost.backLink}</a>
       <h1>{c.heading}</h1>
-      <p class="tool-desc">{c.intro}{withModels && <> {modelCopy.pickerIntro}</>}</p>
+      <p class="tool-desc">{c.intro} {modelCopy.pickerIntro}</p>
     </header>
 
     <section class="tool-area" aria-label={c.widgetLabel}>
@@ -86,21 +90,19 @@ const links = [
           </div>
         </div>
 
-        {withModels && (
-          <div class="field-row">
-            <div class="field">
-              <label for="aph-model">{modelCopy.model}</label>
-              <select id="aph-model">
-                <option value="">{modelCopy.modelNone}</option>
-                {modelGroups.map((g) => (
-                  <optgroup label={g.label}>
-                    {g.models.map((m) => <option value={m.id}>{brandsDict.modelNames[m.id] ?? m.modelNumber}</option>)}
-                  </optgroup>
-                ))}
-              </select>
-            </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="aph-model">{modelCopy.model}</label>
+            <select id="aph-model">
+              <option value="">{modelCopy.modelNone}</option>
+              {modelGroups.map((g) => (
+                <optgroup label={g.label}>
+                  {g.models.map((m) => <option value={m.id}>{optionLabel(m)}</option>)}
+                </optgroup>
+              ))}
+            </select>
           </div>
-        )}
+        </div>
 
         <div class="result-block" aria-live="polite">
           <p class="eyebrow">{c.answerLabel}</p>
@@ -169,7 +171,7 @@ const links = [
   </div>
 </main>
 
-<script is:inline define:vars={{ preheatDict: c, modelDict: withModels ? modelCopy : null, clientModels }}>
+<script is:inline define:vars={{ preheatDict: c, modelDict: modelCopy, clientModels }}>
   window.__aphDict = preheatDict;
   window.__aphModels = modelDict;
   window.__aphModelStyles = clientModels;
@@ -264,14 +266,18 @@ const links = [
     text-transform: uppercase; color: var(--site-text-muted); transition: color 0.15s ease;
   }
   .back-link:hover { color: var(--site-text); }
-  h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.03em; color: var(--site-text); line-height: 1.1; margin: 0 0 12px; }
+  h1 {
+    font-family: var(--font-display); font-size: var(--text-heading); font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; color: var(--site-text); margin: 0 0 12px;
+  }
+  @media (max-width: 767px) { h1 { font-size: 32px; } }
   .tool-desc {
     font-size: var(--text-subheading); line-height: var(--text-subheading--line-height);
     letter-spacing: var(--text-subheading--letter-spacing); color: var(--site-text-muted); margin: 0; max-width: 64ch;
   }
   .tool-area { margin-bottom: 32px; }
 
-  .widget-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 24px; }
+  .widget-card { background: var(--site-bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-site); padding: 24px; }
   .widget-head {
     display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
     font-size: var(--text-caption); letter-spacing: var(--text-caption--letter-spacing); font-weight: 600;
@@ -326,7 +332,7 @@ const links = [
 
   .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 12px; }
   figure { margin: 0; }
-  .table-card { background: var(--site-bg-card); border-radius: var(--radius-site-card); box-shadow: var(--shadow-site); padding: 12px 16px; }
+  .table-card { background: var(--site-bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-site); padding: 12px 16px; }
   table { width: 100%; table-layout: fixed; border-collapse: collapse; }
   th, td {
     text-align: left; vertical-align: top; padding: 10px 6px; border-bottom: 1px solid var(--site-border);

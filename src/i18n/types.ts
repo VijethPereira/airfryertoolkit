@@ -173,7 +173,7 @@ export interface CostCopy {
 /**
  * /preheat copy (Dictionary['preheat'], all 5 locales). Every number is a {KEY} placeholder filled by
  * preheatValues() in src/lib/preheat-page.ts from src/data/preheat.ts. The model picker and per-model
- * table are English only (PreheatModelCopy in src/i18n/dictionaries/preheat/en.ts).
+ * table copy is PreheatModelCopy (src/i18n/dictionaries/preheat/{locale}.ts, read via ./preheat/models.ts).
  */
 export interface PreheatCopy {
   metaTitle: string;

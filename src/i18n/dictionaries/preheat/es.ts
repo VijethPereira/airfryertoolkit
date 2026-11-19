@@ -1,4 +1,5 @@
 import type { PreheatCopy } from '../../types';
+import { preheatModels as en, type PreheatModelCopy } from './en';
 
 const preheat: PreheatCopy = {
   metaTitle: 'Cuánto precalentar una freidora de aire (según la temperatura)',
@@ -68,3 +69,45 @@ const preheat: PreheatCopy = {
 };
 
 export default preheat;
+
+/** The model picker and the per-model table (EU models first on this locale). */
+export const preheatModels: PreheatModelCopy = {
+  pickerIntro: 'O elige tu modelo para ver lo que dice su propio manual.',
+  model: 'Tu modelo',
+  modelNone: 'Sin modelo: usar el valor por defecto',
+  and: 'y',
+  answers: {
+    chart: 'Precalienta {MIN} minutos a {TEMP}: el botón de precalentar lo fija según la tabla del manual.',
+    fixed: 'El precalentamiento del manual es Air Fry a {TEMP} durante {MIN} minutos; añade la comida cuando aparezca End.',
+    auto: 'Precalienta solo: añade la comida cuando la pantalla diga Add Food.',
+    autoPrograms: 'El manual cita {PROGRAMS}.',
+    autoSkips: '{PROGRAMS} no tiene precalentamiento.',
+    autoSkippable: 'El precalentamiento se puede saltar.',
+    none: 'No hace falta precalentar: la ficha técnica indica «Instant on/no pre-heat».',
+    notMentioned: 'Este documento ({DOC}) no habla del precalentamiento, así que usa el valor por defecto. {DEFAULT}',
+    notReread: 'Esta guía no se ha vuelto a leer para esta página, así que usa el valor por defecto. {DEFAULT}',
+  },
+  docTypes: { manual: 'manual', specSheet: 'ficha técnica (no es un manual)', productPage: 'ficha de producto', ownersGuide: 'guía del usuario' },
+  programs: { airFry: 'Air Fry', roast: 'Asar', bake: 'Hornear', broil: 'Gratinar', pizza: 'Pizza', reheat: 'Recalentar', dehydrate: 'Deshidratar' },
+  sourcePages: '{DOC}, página {PAGES}, fecha de lectura {DATE}',
+  sourceNoPage: '{DOC}, fecha de lectura {DATE}',
+  sourceNotReread: 'No releída',
+  tableHeading: 'Lo que dice cada manual',
+  tableIntro: 'Todos los modelos de la tabla de temperaturas máximas, con lo que su propio documento dice sobre el precalentamiento y la página donde lo dice. Primero los modelos europeos.',
+  headers: { model: 'Modelo', says: 'El documento dice', minutes: 'Minutos', source: 'Fuente' },
+  kinds: {
+    chart: 'Botón de precalentar con tabla',
+    fixed: 'Un único ajuste de precalentamiento',
+    auto: 'Precalienta solo',
+    none: 'Sin precalentamiento',
+    notMentioned: 'No lo menciona',
+    notReread: 'No releído',
+  },
+  minutesCell: { chart: '{MIN_MIN}–{MIN_MAX} según la temperatura', fixed: '{MIN} a {TEMP}', auto: 'Hasta Add Food', none: 'Ninguno', default: 'Por defecto' },
+  filterBrand: 'Marca',
+  filterKind: 'Dice',
+  all: 'Todos',
+  showing: 'Se muestran {N} de {TOTAL} modelos',
+  none: 'Ningún modelo coincide con estos filtros.',
+  brandNames: en.brandNames,
+};

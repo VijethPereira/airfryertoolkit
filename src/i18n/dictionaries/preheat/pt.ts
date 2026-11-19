@@ -1,4 +1,5 @@
 import type { PreheatCopy } from '../../types';
+import { preheatModels as en, type PreheatModelCopy } from './en';
 
 const preheat: PreheatCopy = {
   metaTitle: 'Quanto tempo pré-aquecer a air fryer (por temperatura)',
@@ -68,3 +69,45 @@ const preheat: PreheatCopy = {
 };
 
 export default preheat;
+
+/** The model picker and the per-model table (EU models first on this locale). */
+export const preheatModels: PreheatModelCopy = {
+  pickerIntro: 'Ou escolha o seu modelo para ver o que diz o próprio manual.',
+  model: 'O seu modelo',
+  modelNone: 'Sem modelo: usar o valor por defeito',
+  and: 'e',
+  answers: {
+    chart: 'Pré-aqueça {MIN} minutos a {TEMP}: o botão de pré-aquecimento define isto a partir da tabela do manual.',
+    fixed: 'O pré-aquecimento do manual é Air Fry a {TEMP} durante {MIN} minutos; junte a comida quando aparecer End.',
+    auto: 'Pré-aquece sozinha: junte a comida quando o ecrã disser Add Food.',
+    autoPrograms: 'O manual refere {PROGRAMS}.',
+    autoSkips: '{PROGRAMS} não tem pré-aquecimento.',
+    autoSkippable: 'O pré-aquecimento pode ser saltado.',
+    none: 'Não é preciso pré-aquecer: a ficha técnica indica «Instant on/no pre-heat».',
+    notMentioned: 'Este documento ({DOC}) não fala de pré-aquecimento, por isso use o valor por defeito. {DEFAULT}',
+    notReread: 'Este guia não foi relido para esta página, por isso use o valor por defeito. {DEFAULT}',
+  },
+  docTypes: { manual: 'manual', specSheet: 'ficha técnica (não é um manual)', productPage: 'página de produto', ownersGuide: 'guia do utilizador' },
+  programs: { airFry: 'Air Fry', roast: 'Assar', bake: 'Cozer no forno', broil: 'Gratinar', pizza: 'Pizza', reheat: 'Reaquecer', dehydrate: 'Desidratar' },
+  sourcePages: '{DOC}, página {PAGES}, data de leitura {DATE}',
+  sourceNoPage: '{DOC}, data de leitura {DATE}',
+  sourceNotReread: 'Não relido',
+  tableHeading: 'O que diz cada manual',
+  tableIntro: 'Todos os modelos da tabela de temperaturas máximas, com o que o próprio documento diz sobre o pré-aquecimento e a página onde o diz. Primeiro os modelos europeus.',
+  headers: { model: 'Modelo', says: 'O documento diz', minutes: 'Minutos', source: 'Fonte' },
+  kinds: {
+    chart: 'Botão de pré-aquecimento com tabela',
+    fixed: 'Uma única regulação de pré-aquecimento',
+    auto: 'Pré-aquece sozinha',
+    none: 'Sem pré-aquecimento',
+    notMentioned: 'Não menciona',
+    notReread: 'Não relido',
+  },
+  minutesCell: { chart: '{MIN_MIN}–{MIN_MAX} conforme a temperatura', fixed: '{MIN} a {TEMP}', auto: 'Até Add Food', none: 'Nenhum', default: 'Por defeito' },
+  filterBrand: 'Marca',
+  filterKind: 'Diz',
+  all: 'Todos',
+  showing: 'A mostrar {N} de {TOTAL} modelos',
+  none: 'Nenhum modelo corresponde a estes filtros.',
+  brandNames: en.brandNames,
+};

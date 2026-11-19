@@ -1,4 +1,5 @@
 import type { PreheatCopy } from '../../types';
+import { preheatModels as en, type PreheatModelCopy } from './en';
 
 const preheat: PreheatCopy = {
   metaTitle: 'Wie lange Heißluftfritteuse vorheizen (nach Temperatur)',
@@ -68,3 +69,45 @@ const preheat: PreheatCopy = {
 };
 
 export default preheat;
+
+/** The model picker and the per-model table (EU models first on this locale). */
+export const preheatModels: PreheatModelCopy = {
+  pickerIntro: 'Oder wähle dein Modell, um zu sehen, was seine eigene Anleitung sagt.',
+  model: 'Dein Modell',
+  modelNone: 'Kein Modell: Standardwert verwenden',
+  and: 'und',
+  answers: {
+    chart: '{MIN} Minuten bei {TEMP} vorheizen: Die Vorheiztaste stellt das nach der Tabelle in der Anleitung ein.',
+    fixed: 'Die Anleitung heizt mit Air Fry bei {TEMP} für {MIN} Minuten vor; gib das Essen hinein, wenn End erscheint.',
+    auto: 'Das Gerät heizt selbst vor: gib das Essen hinein, wenn die Anzeige Add Food zeigt.',
+    autoPrograms: 'Die Anleitung nennt {PROGRAMS}.',
+    autoSkips: '{PROGRAMS} hat kein Vorheizen.',
+    autoSkippable: 'Das Vorheizen lässt sich überspringen.',
+    none: 'Kein Vorheizen nötig: Das Datenblatt nennt „Instant on/no pre-heat“.',
+    notMentioned: 'Dieses Dokument ({DOC}) erwähnt das Vorheizen nicht, nimm also den Standardwert. {DEFAULT}',
+    notReread: 'Diese Anleitung wurde für diese Seite nicht erneut gelesen, nimm also den Standardwert. {DEFAULT}',
+  },
+  docTypes: { manual: 'Handbuch', specSheet: 'Datenblatt (kein Handbuch)', productPage: 'Produktseite', ownersGuide: 'Benutzerhandbuch' },
+  programs: { airFry: 'Air Fry', roast: 'Braten', bake: 'Backen', broil: 'Grillen', pizza: 'Pizza', reheat: 'Aufwärmen', dehydrate: 'Dörren' },
+  sourcePages: '{DOC}, Seite {PAGES}, gelesen am {DATE}',
+  sourceNoPage: '{DOC}, gelesen am {DATE}',
+  sourceNotReread: 'Nicht erneut gelesen',
+  tableHeading: 'Was jede Anleitung sagt',
+  tableIntro: 'Jedes Modell aus der Höchsttemperatur-Tabelle, mit dem, was sein eigenes Dokument zum Vorheizen sagt, und der Seite, auf der es steht. Europäische Modelle zuerst.',
+  headers: { model: 'Modell', says: 'Das Dokument sagt', minutes: 'Minuten', source: 'Quelle' },
+  kinds: {
+    chart: 'Vorheiztaste mit Tabelle',
+    fixed: 'Eine Vorheiz-Einstellung',
+    auto: 'Heizt selbst vor',
+    none: 'Kein Vorheizen',
+    notMentioned: 'Nicht erwähnt',
+    notReread: 'Nicht erneut gelesen',
+  },
+  minutesCell: { chart: '{MIN_MIN}–{MIN_MAX} je nach Temperatur', fixed: '{MIN} bei {TEMP}', auto: 'Bis Add Food', none: 'Keins', default: 'Standard' },
+  filterBrand: 'Marke',
+  filterKind: 'Sagt',
+  all: 'Alle',
+  showing: '{N} von {TOTAL} Modellen',
+  none: 'Kein Modell passt zu diesen Filtern.',
+  brandNames: en.brandNames,
+};
