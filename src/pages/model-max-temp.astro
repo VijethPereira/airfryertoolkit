@@ -25,7 +25,7 @@ const sort: SortKey = SORTS.find((s) => s === params.get('sort')) ?? 'maxF';
 const dir = params.get('dir') === 'asc' ? 'asc' : params.get('dir') === 'desc' ? 'desc' : sort === 'brand' ? 'asc' : 'desc';
 
 
-const all = MODELS.map(modelRow);
+const all = MODELS.map((m) => modelRow(m));
 const sortValue = (r: ModelRow) => (sort === 'maxF' ? r.maxF : sort === 'capacity' ? r.capacityQt : 0);
 const rows = all
   .filter((r) => (!brand || r.brand === brand) && (!type || MODELS.find((m) => m.id === r.id)!.type === type))

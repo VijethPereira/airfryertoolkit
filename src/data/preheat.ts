@@ -12,6 +12,7 @@
 
 const READ = '2026-11-09';
 const NINJA_READ = '2026-11-10';
+const EU_READ = '2026-11-18';
 
 export interface PreheatChartRow {
   /** Inclusive °F range, as printed. */
@@ -127,4 +128,12 @@ export const MODEL_PREHEAT: ModelPreheat[] = [
   instant('instant-vortex-mini-4', [11, 18, 19], ['airFry', 'roast', 'bake', 'broil']),
   instant('instant-vortex-plus-dual-8', [15, 16], ['airFry', 'roast', 'bake', 'broil']),
   instant('instant-vortex-xl-versazone-9', [16, 17, 19], ['airFry', 'roast', 'bake', 'broil']),
+
+  // EU models: manufacturer product pages read 2026-11-18 (EU_READ). None of them says how long to preheat,
+  // except that the CAF-DC601-KEU page lists a "Preheat" program with no time or temperature. Its EU manual
+  // was not read, so nothing is claimed for it.
+  ...['ninja-pro-af140eu', 'philips-2000-na230-eu', 'philips-3000-dual-na351-eu', 'philips-3000-dual-na350-eu', 'philips-5000-dual-na555-eu', 'philips-premium-xxl-hd9650-eu', 'philips-5000-xxl-hd9285-eu', 'cosori-pro-le-4-7l-keu'].map(
+    (modelId): ModelPreheat => ({ modelId, kind: 'notMentioned', docType: 'productPage', pages: [], read: EU_READ }),
+  ),
+  { modelId: 'cosori-turboblaze-6l-keu', kind: 'notReread', docType: 'productPage', pages: [], read: null },
 ];

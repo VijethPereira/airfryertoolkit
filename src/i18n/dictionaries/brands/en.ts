@@ -1,8 +1,8 @@
 /**
- * Brand pages and /model-max-temp copy. English only for now (see src/lib/brands.ts).
+ * Brand pages and /model-max-temp copy (English). The /es … /de brand pages use brands/{locale}.ts; /model-max-temp is English only.
  * Every number is a {KEY} placeholder filled from src/data/models.ts and the engine (brandValues / modelMaxTempValues).
  */
-import type { BrandKey, ModelType, OtherMaxLabel, PreheatMode, ProgramKey } from "../../../data/models";
+import type { BrandKey, Market, ModelType, OtherMaxLabel, PreheatMode, ProgramKey } from "../../../data/models";
 
 export interface BrandPageCopy {
   name: string;
@@ -38,6 +38,12 @@ export interface BrandsDictionary {
   programs: Record<ProgramKey, string>;
   sourceManual: string;
   sourceSpec: string;
+  /** Label for a row sourced from a manufacturer's product page (the EU rows). */
+  sourceProduct: string;
+  /** Row and picker label for each market, shown when a brand has rows from more than one. */
+  markets: Record<Market, string>;
+  /** Shown on /es … /de when a brand has no EU rows: its table is the US models only. */
+  euNote: string;
   foodLoadNote: string;
   maxDefaultNote: string;
   relatedHeading: string;
@@ -87,6 +93,9 @@ export const brands: BrandsDictionary = {
   programs: { airFry: "Air Fry", roast: "Roast", bake: "Bake", broil: "Broil", reheat: "Reheat", dehydrate: "Dehydrate", frozen: "Frozen", proof: "Proof", preheat: "Preheat" },
   sourceManual: "Manual",
   sourceSpec: "Spec page",
+  sourceProduct: "Product page",
+  markets: { us: "US model", uk: "UK model", eu: "EU model" },
+  euNote: "These are the US models. EU model numbers differ, so check the dial on your unit.",
   foodLoadNote: "The source gives a food load in kilograms, not a volume.",
   maxDefaultNote: "Default setting, max not stated",
   relatedHeading: "Related",
@@ -127,19 +136,28 @@ export const brands: BrandsDictionary = {
     "instant-vortex-mini-4": "Instant Vortex Mini and Mini Plus 4-Quart",
     "instant-vortex-plus-dual-8": "Instant Vortex Plus Dual 8-Quart",
     "instant-vortex-xl-versazone-9": "Instant Vortex XL VersaZone 9-Quart",
+    "ninja-pro-af140eu": "Ninja Air Fryer Pro 4.7 L AF140EU",
+    "philips-2000-na230-eu": "Philips 2000 Series NA230/00",
+    "philips-3000-dual-na351-eu": "Philips 3000 Series Dual Basket NA351/00",
+    "philips-3000-dual-na350-eu": "Philips 3000 Series Dual Basket NA350/00",
+    "philips-5000-dual-na555-eu": "Philips 5000 Series Dual Basket with Steam NA555/00",
+    "philips-premium-xxl-hd9650-eu": "Philips Premium Airfryer XXL HD9650/90",
+    "philips-5000-xxl-hd9285-eu": "Philips 5000 Series XXL Connected HD9285/90",
+    "cosori-turboblaze-6l-keu": "Cosori TurboBlaze 6 L CAF-DC601-KEU",
+    "cosori-pro-le-4-7l-keu": "Cosori Premium 4.7 L CAF-L501-KEU",
   },
   pages: {
     ninja: {
       name: "Ninja",
       metaTitle: "Ninja Air Fryer Conversion: Oven to Ninja Time & Temp, Max Crisp Explained",
       metaDescription:
-        "Convert oven recipes for your Ninja: Air Fry stops at {MAX_LO}°F on the basket models, Max Crisp is a fixed {OTHER_MAX}°F preset, and the DoubleStack XL and Foodi oven reach {MAX_HI}°F.",
+        "Convert oven recipes for your Ninja: Air Fry stops at {MAX_LO}°F on the US basket models, Max Crisp is a fixed {OTHER_MAX}°F preset, and the DoubleStack XL and Foodi oven reach {MAX_HI}°F.",
       metaKeywords: "ninja air fryer conversion, ninja air fryer temperature, ninja max crisp temperature, ninja air fryer max temperature",
       heading: "Ninja air fryer conversion",
       intro:
         "On a Ninja, {OTHER_MAX}°F almost always means Max Crisp. On the Max XL it is a fixed preset, not a setting you dial in: Max Crisp runs at {OTHER_MAX}°F and cannot be changed, while Air Fry and every other function stop at {F_MAX}°F. A recipe that says {OTHER_MAX}°F on your Ninja is a Max Crisp recipe, usually frozen fries or nuggets. An oven recipe converted for the basket belongs on Air Fry.",
       answerTemplate:
-        "The Ninja basket models we have sourced air fry up to {MAX_LO}°F; Max Crisp on the Max XL runs at {OTHER_MAX}°F. The DoubleStack XL and the Foodi oven air fry up to {MAX_HI}°F. Pick your model below.",
+        "The US Ninja basket models we have sourced air fry up to {MAX_LO}°F, and the European AF140EU to {EU_MAX_HI_C}°C; Max Crisp on the Max XL runs at {OTHER_MAX}°F. The DoubleStack XL and the Foodi oven air fry up to {MAX_HI}°F. Pick your model below.",
       widgetHeading: "Convert an oven recipe for your Ninja",
       widgetNote: "Choose your model to use its own Air Fry limit. Max Crisp is never used for a converted recipe, because you cannot set its temperature.",
       sections: [
@@ -153,7 +171,7 @@ export const brands: BrandsDictionary = {
         {
           heading: "The button name is not the number",
           paragraphs: [
-            "The Air Fryer Pro has a Max Crisp button too, but its guide puts every function, Max Crisp included, at {MAX_LO}°F. The name tells you what the button is for, not how hot it gets, so our table lists what each owner's guide states.",
+            "The Air Fryer Pro has a Max Crisp button too, but its guide puts every function, Max Crisp included, at {MAX_LO}°F. The name tells you what the button is for, not how hot it gets.",
             "The DoubleStack XL and the Foodi Digital Air Fry Oven are different again: Air Fry itself goes to {MAX_HI}°F, so a hot oven recipe converts without being held back. The oven counts as oven-style, with racks and a larger cavity, and gets the gentler oven-style conversion.",
           ],
         },
@@ -165,7 +183,7 @@ export const brands: BrandsDictionary = {
         },
       ],
       faqs: [
-        { q: "What is the maximum temperature on a Ninja air fryer?", a: "Air Fry stops at {MAX_LO}°F on the Ninja basket models we have sourced. Max Crisp on the Max XL runs at {OTHER_MAX}°F, and the DoubleStack XL and Foodi oven air fry up to {MAX_HI}°F. The table links each model's guide." },
+        { q: "What is the maximum temperature on a Ninja air fryer?", a: "Air Fry stops at {MAX_LO}°F on the US Ninja basket models we have sourced, and at {EU_MAX_HI_C}°C on the European AF140EU. Max Crisp on the Max XL runs at {OTHER_MAX}°F, and the DoubleStack XL and Foodi oven air fry up to {MAX_HI}°F." },
         { q: "Can I set Max Crisp to a lower temperature?", a: "No. The Max XL guide says the temperature cannot be adjusted in Max Crisp. If you need less heat, use Air Fry and set it yourself." },
         { q: "Should I use Max Crisp for oven recipes?", a: "Usually not. Convert the recipe for Air Fry instead. Max Crisp is meant for frozen, pre-cooked food that only needs crisping." },
         { q: "Do I need to preheat my Ninja?", a: "On the basket models, yes: the guides recommend 3 minutes. The DoubleStack XL manual does not mention it, and the Foodi oven preheats on its own." },

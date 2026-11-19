@@ -14,6 +14,8 @@ export type BrandKey = 'ninja' | 'cosori' | 'philips' | 'instant';
 export type ModelType = 'basket' | 'oven-style' | 'dual-zone' | 'toaster-oven';
 export type PreheatMode = 'auto' | 'manual' | 'none' | 'unknown';
 export type OtherMaxLabel = 'broil' | 'maxCrisp';
+/** Where a model is sold: its model number and limits are read from that market's manufacturer site. */
+export type Market = 'us' | 'uk' | 'eu';
 export type ProgramKey = 'airFry' | 'roast' | 'bake' | 'broil' | 'reheat' | 'dehydrate' | 'frozen' | 'proof' | 'preheat';
 
 export interface ModelProgram {
@@ -28,6 +30,8 @@ export interface FryerModel {
   brand: BrandKey;
   /** The model number as printed on the source (the display name is in the dictionary). */
   modelNumber: string;
+  /** The market the source is for; absent means 'us'. Each locale's brand table lists its own market first. */
+  market?: Market;
   type: ModelType;
   /** Capacity in the unit the source states; the other unit is derived. null: the source gives no volume. */
   capacity: { qt: number } | { L: number } | null;
@@ -59,6 +63,8 @@ const COSORI = 'https://cosori.com/cdn/shop/files/';
 const INSTANT = 'https://p.widencdn.net/';
 const NINJA = 'https://support.sharkninja.com/article/';
 const READ = '2026-10-28';
+/** EU product pages (sharkninja.de, home-appliances.philips, cosori.de / cosori.es) read for the translated brand pages. */
+const EU_READ = '2026-11-18';
 
 export const MODELS: FryerModel[] = [
   // Ninja — owner's guides and quick start guides on support.sharkninja.com (the article page, not the PDF host).
@@ -129,4 +135,26 @@ export const MODELS: FryerModel[] = [
   { id: 'instant-vortex-mini-4', brand: 'instant', modelNumber: '140-3221-01', type: 'basket', capacity: { qt: 4 }, maxF: 400, minF: 105, tempUnit: 'F', preheat: 'auto', source: `${INSTANT}yf36cj/140-3221-01_140-3230-01_140-3231-01_140-3232-01_140-3233-01_VortexMini_4QT_Manual_399-1475-03US_R16_FINAL-09-12-2025_LoRes.pdf`, sourced: READ },
   { id: 'instant-vortex-plus-dual-8', brand: 'instant', modelNumber: '140-3090-01', type: 'dual-zone', capacity: { qt: 8 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 450, label: 'broil' }, preheat: 'auto', source: `${INSTANT}m5r6us/140-3090-01_140-3118-01_IB_VortexPlus_8QT_DualAirFry_US_Manual_FINAL_04-29-2024_LoRes.pdf`, sourced: READ },
   { id: 'instant-vortex-xl-versazone-9', brand: 'instant', modelNumber: '140-3092-01', type: 'dual-zone', capacity: { qt: 9 }, maxF: 400, minF: 95, tempUnit: 'F', otherMax: { f: 450, label: 'broil' }, preheat: 'auto', source: `${INSTANT}iutvk3/140-3092-01_IB_Vortex%20XL_VersaZone_9QT_MANUAL_US_R15-FINAL-03-20-2024_LoRes.pdf`, sourced: READ },
+
+  // EU rows: the manufacturer's own product page in Germany, France or Spain, read 2026-11-18. Each source is the
+  // exact page read; the °C limits are stored unrounded (minF only where the page states a range). Not added: Cosori
+  // CAF-R901 and CAF-LI211 (the EU pages print the US model number), Instant Vortex EU (no model number on the page),
+  // Ninja SL400EU / SP101EU (no temperature on the EU page), and any UK-only source.
+  // "40-210 °C", "PRO 4,7 L".
+  { id: 'ninja-pro-af140eu', brand: 'ninja', modelNumber: 'AF140EU', market: 'eu', type: 'basket', capacity: { L: 4.7 }, maxF: C(210), minF: C(40), tempUnit: 'C', preheat: 'unknown', source: 'https://www.sharkninja.de/ninja-heissluftfritteuse-pro-47-l/AF140EU.html', sourced: EU_READ },
+  // Höchsttemperatur 200 °C, 6,2 l.
+  { id: 'philips-2000-na230-eu', brand: 'philips', modelNumber: 'NA230/00', market: 'eu', type: 'basket', capacity: { L: 6.2 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/de/de/p/NA230_00', sourced: EU_READ },
+  // Höchsttemperatur 200 °C, Fassungsvermögen 9 l.
+  { id: 'philips-3000-dual-na351-eu', brand: 'philips', modelNumber: 'NA351/00', market: 'eu', type: 'dual-zone', capacity: { L: 9 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/de/de/p/NA351_00', sourced: EU_READ },
+  { id: 'philips-3000-dual-na350-eu', brand: 'philips', modelNumber: 'NA350/00', market: 'eu', type: 'dual-zone', capacity: { L: 9 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/de/de/p/NA350_00', sourced: EU_READ },
+  // "40-200 °C", 9L (6 L + 3 L).
+  { id: 'philips-5000-dual-na555-eu', brand: 'philips', modelNumber: 'NA555/00', market: 'eu', type: 'dual-zone', capacity: { L: 9 }, maxF: C(200), minF: C(40), tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/fr/fr/p/NA555_00', sourced: EU_READ },
+  // 200 °C; the French page gives a volume (7,3L), unlike the food load on the HD9650 spec sheet.
+  { id: 'philips-premium-xxl-hd9650-eu', brand: 'philips', modelNumber: 'HD9650/90', market: 'eu', type: 'basket', capacity: { L: 7.3 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/fr/fr/p/HD9650_90', sourced: EU_READ },
+  // 200 °C, 7.2L.
+  { id: 'philips-5000-xxl-hd9285-eu', brand: 'philips', modelNumber: 'HD9285/90', market: 'eu', type: 'basket', capacity: { L: 7.2 }, maxF: C(200), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://www.home-appliances.philips/fr/fr/p/HD9285_90', sourced: EU_READ },
+  // "30-230℃", 6 litros; the page names it CAF-DC601-KEU.
+  { id: 'cosori-turboblaze-6l-keu', brand: 'cosori', modelNumber: 'CAF-DC601-KEU', market: 'eu', type: 'basket', capacity: { L: 6 }, maxF: C(230), minF: C(30), tempUnit: 'C', preheat: 'unknown', source: 'https://cosori.es/products/freidora-de-aire-turbo-blaze-6l', sourced: EU_READ },
+  // "Max 230 ℃", 4,7 Liter.
+  { id: 'cosori-pro-le-4-7l-keu', brand: 'cosori', modelNumber: 'CAF-L501-KEU', market: 'eu', type: 'basket', capacity: { L: 4.7 }, maxF: C(230), minF: null, tempUnit: 'C', preheat: 'unknown', source: 'https://cosori.de/products/cosori-premium-4-7-liter-heissluftfritteuse-dunkelgrau', sourced: EU_READ },
 ];

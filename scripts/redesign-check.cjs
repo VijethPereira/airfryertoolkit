@@ -12,7 +12,9 @@ const PAGES = ['index.html', 'oven-to-air-fryer.html', 'air-fryer-to-oven.html',
   // Holiday batch (Row 7 Batch 4)
   'air-fryer/turkey-breast.html', 'air-fryer/reheat-turkey.html', 'air-fryer/stuffing.html',
   'air-fryer/dinner-rolls.html', 'air-fryer/roast-potatoes.html', 'air-fryer/pigs-in-blankets.html',
-  'air-fryer/reheat-ham.html'];
+  'air-fryer/reheat-ham.html',
+  // Translated brand pages (10.14): EU rows first, °C first.
+  ...['es', 'pt', 'fr', 'de'].flatMap((l) => ['ninja', 'cosori', 'philips', 'instant-vortex'].map((b) => `${l}/${b}.html`))];
 (async () => {
   const browser = await chromium.launch();
   const issues = [];

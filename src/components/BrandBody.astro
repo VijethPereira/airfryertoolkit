@@ -5,33 +5,53 @@ import AdSlot from './AdSlot.astro';
 import Breadcrumb from './Breadcrumb.astro';
 import type { BrandKey } from '../data/models';
 import { PRESETS } from '../data/presets';
-import { brands as dict } from '../i18n/dictionaries/brands/en';
-import { LIVE_BRANDS, MODEL_MAX_TEMP_PATH, brandConfig, brandModels, fillBrand, modelById, modelRow, widgetModels } from '../lib/brands';
+import { getBrandsDictionary } from '../i18n/dictionaries/brands';
+import { DEFAULT_LOCALE, type LocaleCode } from '../i18n/locales';
+import { localizedPath } from '../i18n/utils';
+import {
+  LIVE_BRANDS, MODEL_MAX_TEMP_PATH, brandConfig, brandModelsFor, brandValues, celsiusFirst, fillBrand, marketOf, modelById, modelRow, toC, widgetModels,
+} from '../lib/brands';
 import { presetCard } from '../lib/presets';
 import { LIVE_PAGES } from '../site.config';
 
 interface Props {
   brand: BrandKey;
+  locale?: LocaleCode;
 }
 
-const { brand } = Astro.props;
+const { brand, locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getBrandsDictionary(locale);
 const copy = dict.pages[brand]!;
 const cfg = brandConfig(brand);
+const cFirst = celsiusFirst(locale);
 const fill = (text: string) => fillBrand(brand, text);
-const rows = brandModels(brand).map(modelRow);
+const models = brandModelsFor(brand, locale);
+const rows = models.map((m) => modelRow(m, locale));
+// /es … /de: a brand with no EU rows says so in one line (its table is the US models only).
+const euNote = cFirst && !models.some((m) => marketOf(m) === 'eu') ? dict.euNote : null;
 const featured = modelById(cfg.featured)!;
-const programs = (featured.programs ?? []).map((p) => ({ label: dict.programs[p.key], defaultF: p.defaultF, range: `${p.minF}–${p.maxF}°F` }));
-const related = cfg.related.map((slug) => presetCard(PRESETS.find((p) => p.slug === slug)!));
+const temp = (f: number) => (cFirst ? `${toC(f)}°C / ${f}°F` : `${f}°F`);
+const programs = (featured.programs ?? []).map((p) => ({
+  label: dict.programs[p.key],
+  defaultTemp: temp(p.defaultF),
+  range: cFirst ? `${toC(p.minF)}–${toC(p.maxF)}°C / ${p.minF}–${p.maxF}°F` : `${p.minF}–${p.maxF}°F`,
+}));
+const related = cfg.related.map((slug) => presetCard(PRESETS.find((p) => p.slug === slug)!, locale));
 const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(b.path));
+// The widget starts at the worked example: in °C on /es … /de.
+const v = brandValues(brand);
+const widgetStart = cFirst
+  ? { initialTemp: Number(v.EX_OVEN_C), initialUnit: 'C' as const, initialTime: cfg.example.ovenMinutes }
+  : {};
 ---
 
 <main class="page-main">
   <div class="wrap">
 
-    <Breadcrumb locale="en" translatedSlug={cfg.path} />
+    <Breadcrumb locale={locale} translatedSlug={cfg.path} />
 
     <header class="tool-header">
-      <a href="/" class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
+      <a href={localizedPath(locale, '/')} class="back-link" aria-label={dict.backLink}>&larr; {dict.backLink}</a>
       <h1>{copy.heading}</h1>
       <p class="tool-desc">{fill(copy.intro)}</p>
     </header>
@@ -45,7 +65,7 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
         <h2>{copy.widgetHeading}</h2>
         <p>{fill(copy.widgetNote)}</p>
       </div>
-      <ConverterWidget models={widgetModels(brand)} modelLabels={{ picker: dict.modelPicker, any: dict.anyModel }} />
+      <ConverterWidget locale={locale} {...widgetStart} models={widgetModels(brand, locale)} modelLabels={{ picker: dict.modelPicker, any: dict.anyModel }} />
     </section>
 
     <AdSlot slot="5566778899" />
@@ -53,6 +73,7 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
     <section class="table-section" aria-labelledby="br-models-heading">
       <h2 id="br-models-heading">{dict.modelsHeading}</h2>
       <p class="table-intro">{dict.modelsIntro}</p>
+      {euNote && <p class="table-intro eu-note" id="br-eu-note">{euNote}</p>}
       <div class="table-card">
         <table id="br-models">
           <thead>
@@ -60,10 +81,11 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr data-model={r.id} data-max-f={r.maxF}>
+              <tr data-model={r.id} data-max-f={r.maxF} data-market={r.market}>
                 <td class="model-cell">
                   <span class="model-name">{r.name}</span>
                   <span class="model-meta">{r.type} · {r.capacity}</span>
+                  {r.marketLabel && <span class="model-meta model-market">{r.marketLabel}</span>}
                   {r.capacityNote && <span class="model-meta">{r.capacityNote}</span>}
                 </td>
                 <td>
@@ -95,7 +117,7 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
             </thead>
             <tbody>
               {programs.map((p) => (
-                <tr><td>{p.label}</td><td>{p.defaultF}°F</td><td>{p.range}</td></tr>
+                <tr><td>{p.label}</td><td>{p.defaultTemp}</td><td>{p.range}</td></tr>
               ))}
             </tbody>
           </table>
@@ -115,16 +137,16 @@ const otherBrands = LIVE_BRANDS.filter((b) => b.key !== brand && LIVE_PAGES.has(
       <ul class="related-presets">
         {related.map((c) => (
           <li>
-            <a href={c.path} class="related-preset" data-slug={c.slug}>
+            <a href={c.href} class="related-preset" data-slug={c.slug}>
               <span class="rp-label">{c.label}</span>
               <span class="rp-spec">{c.spec}</span>
             </a>
           </li>
         ))}
       </ul>
-      <p class="related-link"><a href="/oven-to-air-fryer">{dict.flagshipLink}</a> &rarr;</p>
+      <p class="related-link"><a href={localizedPath(locale, '/oven-to-air-fryer')}>{dict.flagshipLink}</a> &rarr;</p>
       {otherBrands.map((b) => (
-        <p class="related-link"><a href={b.path}>{dict.pages[b.key]!.heading}</a> &rarr;</p>
+        <p class="related-link"><a href={localizedPath(locale, b.path)}>{dict.pages[b.key]!.heading}</a> &rarr;</p>
       ))}
     </section>
 

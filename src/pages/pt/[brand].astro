@@ -1,0 +1,35 @@
+---
+// /pt brand pages: same body and data as the English route, with this locale's copy (src/i18n/dictionaries/brands/pt.ts).
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Footer from '../../components/Footer.astro';
+import BrandBody from '../../components/BrandBody.astro';
+import { getBrandsDictionary } from '../../i18n/dictionaries/brands';
+import { localizedUrl } from '../../i18n/utils';
+import { LIVE_BRANDS, fillBrand } from '../../lib/brands';
+import { brandJsonLd } from '../../lib/brand-jsonld';
+
+export function getStaticPaths() {
+  return LIVE_BRANDS.map((b) => ({ params: { brand: b.path.slice(1) }, props: { brand: b.key, path: b.path } }));
+}
+
+const locale = 'pt' as const;
+const { brand, path } = Astro.props;
+const copy = getBrandsDictionary(locale).pages[brand]!;
+const fill = (text: string) => fillBrand(brand, text);
+---
+
+<Layout
+  title={fill(copy.metaTitle)}
+  description={fill(copy.metaDescription)}
+  canonical={localizedUrl(locale, path)}
+  keywords={copy.metaKeywords}
+  jsonLd={brandJsonLd(brand, locale)}
+  locale={locale}
+  translatedSlug={path}
+>
+  <SiteNav currentPath={path} locale={locale} translatedSlug={path} />
+  <BrandBody brand={brand} locale={locale} />
+  <Footer locale={locale} />
+</Layout>

@@ -214,7 +214,7 @@ const fr: Dictionary = {
       instant: { title: 'Instant Vortex', desc: 'Quand apparaît Turn Food, et surveiller par la fenêtre.' },
       modelMaxTemp: { title: 'Référence de température max par modèle', desc: 'Le tableau de plafonds qui alimente le convertisseur, avec la source de chaque ligne.' },
     },
-    brandCardSpec: 'Jusqu\u2019à {MAX_F}°F · {N} modèles',
+    brandCardSpec: 'Jusqu\u2019à {MAX_C}°C · {N} modèles',
     modelTableSpec: '{N} modèles sourcés',
     chartStrip: ['Multiplicateurs par aliment', 'Panier et type four', '°F · °C · thermostat', 'Gratuit — sans compte'],
     frozenCallout: {

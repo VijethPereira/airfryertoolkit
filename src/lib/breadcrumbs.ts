@@ -12,6 +12,7 @@ import { PRESETS_INDEX_PATH, presetCard, presetPath } from './presets';
 import { TEMP_LANDINGS, tempLandingSlug, C_TEMP_LANDINGS, cTempLandingSlug } from './temp-landings';
 import { BRANDS, MODEL_MAX_TEMP_PATH } from './brands';
 import { brands as brandsDict } from '../i18n/dictionaries/brands/en';
+import { getBrandsDictionary } from '../i18n/dictionaries/brands';
 import { COST_PATH } from './cost';
 import { PREHEAT_PATH } from './preheat';
 
@@ -42,10 +43,10 @@ export function breadcrumbTrail(locale: LocaleCode, slug: string): Crumb[] | nul
   if (landing) return [home, chart, { name: `${landing.tempF}°F`, path: slug }];
   const cLanding = C_TEMP_LANDINGS.find((l) => cTempLandingSlug(l.tempC) === slug);
   if (cLanding) return [home, chart, { name: `${cLanding.tempC}°C`, path: slug }];
-  // English-only pages (brand pages and the model table).
+  // The model table is English-only; brand pages are translated.
   if (slug === MODEL_MAX_TEMP_PATH) return [home, { name: brandsDict.maxTemp.heading, path: slug }];
   const brand = BRANDS.find((b) => b.path === slug);
-  if (brand) return [home, { name: brandsDict.pages[brand.key]!.heading, path: slug }];
+  if (brand) return [home, { name: getBrandsDictionary(locale).pages[brand.key]!.heading, path: slug }];
   throw new Error(`breadcrumbs: no trail for ${slug}`);
 }
 

@@ -141,7 +141,13 @@ test.describe('cost model data (src/data/energy.ts)', () => {
         expect(m.watts, m.id).toBeLessThanOrEqual(2000);
       }
     }
-    expect(MODELS.filter((m) => m.brand === 'cosori').every((m) => m.watts !== undefined)).toBe(true);
+    // Every Cosori row sourced from a manual (PDF) carries its rated power. The EU rows come from product
+    // pages, not manuals, so they carry none: the cost page's "rated power from N manuals" stays manual-only.
+    const cosori = MODELS.filter((m) => m.brand === 'cosori');
+    const fromManual = cosori.filter((m) => m.source.endsWith('.pdf'));
+    expect(fromManual.length).toBeGreaterThanOrEqual(7);
+    expect(fromManual.filter((m) => m.watts === undefined).map((m) => m.id)).toEqual([]);
+    expect(cosori.filter((m) => !m.source.endsWith('.pdf') && m.watts !== undefined).map((m) => m.id)).toEqual([]);
   });
 });
 

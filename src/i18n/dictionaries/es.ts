@@ -214,7 +214,7 @@ const es: Dictionary = {
       instant: { title: 'Instant Vortex', desc: 'Cuándo aparece Turn Food y cómo mirar por la ventana.' },
       modelMaxTemp: { title: 'Referencia de temperatura máxima por modelo', desc: 'La tabla de límites que alimenta el conversor, con la fuente de cada fila.' },
     },
-    brandCardSpec: 'Hasta {MAX_F}°F · {N} modelos',
+    brandCardSpec: 'Hasta {MAX_C}°C · {N} modelos',
     modelTableSpec: '{N} modelos con fuente',
     frozenCallout: {
       heading: 'Modo alimentos congelados',

@@ -125,7 +125,7 @@ test.describe('/chart', () => {
   test('homepage gates every tool card on LIVE_PAGES, not a hardcoded slug', async ({ page }) => {
     test.setTimeout(90_000); // 5 homepages, run while the rest of the suite loads astro dev
     // Since the gas mark card moved to the live °C pages (eb327ae) the English homepage has no unbuilt card;
-    // the translated homepages still show the English-only brand cards as Coming soon. So check every locale:
+    // the translated homepages still show the English-only model-table card (/model-max-temp) as Coming soon. So check every locale:
     // the rule (live → <a> to a LIVE_PAGES page, not live → inert div) applies to each, and across all five
     // there must still be disabled cards, so the disabled-card check is never vacuous.
     let disabledTotal = 0;

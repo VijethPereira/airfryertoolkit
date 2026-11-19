@@ -162,8 +162,8 @@ function build() {
       ]);
     }
   }
-  // English-only pages. A brand page: that brand's model rows plus its page copy (no sourced model,
-  // no page). The model table: every row plus its own copy.
+  // Brand pages (all five locales): that brand's model rows plus the locale's page copy (no sourced
+  // model, no page). The model table (English only): every row plus its own copy.
   const models = 'src/data/models.ts';
   const brandsDict = 'src/i18n/dictionaries/brands/en.ts';
   const brandPaths = [...readFileSync('src/lib/brands.ts', 'utf8').matchAll(/^ {2}\{ key: '([a-z]+)', path: '(\/[a-z-]+)'/gm)];
@@ -171,10 +171,13 @@ function build() {
   for (const [, brand, path] of brandPaths) {
     const rows = modelRows.filter((m) => m[2] === brand);
     if (!rows.length) continue;
-    dates[`en:${path}`] = latest([
-      ...rows.map((m) => [models, arrayElementRange(models, `id: '${m[1]}'`)]),
-      [brandsDict, entryRange(brandsDict, brand, 4)],
-    ]);
+    for (const l of LOCALES) {
+      const dict = `src/i18n/dictionaries/brands/${l}.ts`;
+      dates[`${l}:${path}`] = latest([
+        ...rows.map((m) => [models, arrayElementRange(models, `id: '${m[1]}'`)]),
+        [dict, entryRange(dict, brand, 4)],
+      ]);
+    }
   }
   dates['en:/model-max-temp'] = latest([
     [models, [0, fileLines(models).length - 1]],

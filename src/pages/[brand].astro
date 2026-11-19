@@ -1,58 +1,36 @@
 ---
 // Brand pages (/cosori, /philips, /instant-vortex, /ninja): one per brand with a sourced model in
-// src/data/models.ts. English only for now: no /es … /de copy, so no translatedSlug and no hreflang.
+// src/data/models.ts, in all five locales (thin wrappers in src/pages/{es,pt,fr,de}/[brand].astro).
 export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
 import BrandBody from '../components/BrandBody.astro';
-import siteConfig from '../site.config.ts';
-import { brands as dict } from '../i18n/dictionaries/brands/en';
+import { getBrandsDictionary } from '../i18n/dictionaries/brands';
+import { localizedUrl } from '../i18n/utils';
 import { LIVE_BRANDS, fillBrand } from '../lib/brands';
+import { brandJsonLd } from '../lib/brand-jsonld';
 
 export function getStaticPaths() {
   return LIVE_BRANDS.map((b) => ({ params: { brand: b.path.slice(1) }, props: { brand: b.key, path: b.path } }));
 }
 
+const locale = 'en' as const;
 const { brand, path } = Astro.props;
-const copy = dict.pages[brand]!;
+const copy = getBrandsDictionary(locale).pages[brand]!;
 const fill = (text: string) => fillBrand(brand, text);
-const url = `${siteConfig.domain}${path}`;
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebApplication',
-      '@id': `${url}#app`,
-      name: `${copy.heading} — ${siteConfig.siteName}`,
-      description: fill(copy.metaDescription),
-      url,
-      applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Any',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: copy.faqs.map(({ q, a }) => ({
-        '@type': 'Question',
-        name: fill(q),
-        acceptedAnswer: { '@type': 'Answer', text: fill(a) },
-      })),
-    },
-  ],
-};
 ---
 
 <Layout
   title={fill(copy.metaTitle)}
   description={fill(copy.metaDescription)}
-  canonical={url}
+  canonical={localizedUrl(locale, path)}
   keywords={copy.metaKeywords}
-  jsonLd={jsonLd}
-  breadcrumbSlug={path}
+  jsonLd={brandJsonLd(brand, locale)}
+  locale={locale}
+  translatedSlug={path}
 >
-  <SiteNav currentPath={path} />
-  <BrandBody brand={brand} />
-  <Footer />
+  <SiteNav currentPath={path} locale={locale} translatedSlug={path} />
+  <BrandBody brand={brand} locale={locale} />
+  <Footer locale={locale} />
 </Layout>

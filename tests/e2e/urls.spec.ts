@@ -22,6 +22,9 @@ async function sitemapPaths(request: import('@playwright/test').APIRequestContex
 
 test('every sitemap URL answers 200 without a redirect and canonicals to itself', async ({ request }) => {
   const paths = await sitemapPaths(request);
+  // One sequential fetch per sitemap URL (360+ now): the default 30 s budget is too tight on a loaded
+  // machine. Every URL is still checked; only the time allowed grows with the URL count.
+  test.setTimeout(Math.max(30_000, paths.length * 500));
   const failures: string[] = [];
   for (const path of paths) {
     const res = await request.get(path, { maxRedirects: 0 });

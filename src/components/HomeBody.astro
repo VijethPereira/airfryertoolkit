@@ -12,7 +12,7 @@ import { PREHEAT_PATH } from '../lib/preheat';
 import { TEMP_LANDINGS, TEMP_LANDING_MINUTES, fillPlaceholders, tempLandingSlug, tempLandingValues, timeCutPercent, cTempLandingSlug } from '../lib/temp-landings';
 import { PRESETS } from '../data/presets';
 import { PRESETS_INDEX_PATH, presetCard, presetFood } from '../lib/presets';
-import { BRANDS, MODEL_MAX_TEMP_PATH, brandModels } from '../lib/brands';
+import { BRANDS, MODEL_MAX_TEMP_PATH, brandModels, modelMaxC } from '../lib/brands';
 import { MODELS } from '../data/models';
 import { COST_PATH } from '../lib/cost';
 import type { FoodPreset } from '../data/presets';
@@ -76,14 +76,15 @@ const presetCards = PRESETS.slice(0, 4).map((preset) => {
 // Every preset in the teaser dropdown; Go opens the chosen one (falls back to /presets without JS).
 const presetOptions = PRESETS.filter((p) => isLive(presetCard(p).path)).map((p) => presetCard(p, locale));
 const presetsIndexHref = isLive(PRESETS_INDEX_PATH) ? hrefFor(PRESETS_INDEX_PATH) : null;
-// Brand cards: one per brand plus the model table. The spec line comes from the model data; a brand with
-// no sourced model has no spec and no page yet, so its card shows "Coming soon". Brand pages are English
-// only, so on translated homepages isLive() is false for them and every brand card is "Coming soon".
+// Brand cards: one per brand plus the model table. The spec line comes from the model data (°F first in
+// English, °C first on /es … /de); a brand with no sourced model has no spec and no page yet, so its card
+// shows "Coming soon". The model table is English only, so its card is "Coming soon" on translated homepages.
 const brandCards = [
   ...BRANDS.map((b) => {
     const models = brandModels(b.key);
-    const spec = models.length
-      ? fillPlaceholders(dict.brandCardSpec, { MAX_F: String(Math.round(Math.max(...models.map((m) => m.maxF)))), N: String(models.length) })
+    const top = models.length ? models.reduce((a, m) => (m.maxF > a.maxF ? m : a)) : null;
+    const spec = top
+      ? fillPlaceholders(dict.brandCardSpec, { MAX_F: String(Math.round(top.maxF)), MAX_C: String(modelMaxC(top)), N: String(models.length) })
       : null;
     return { ...dict.brandCards[b.key], spec, href: cardHref({ href: b.path }) };
   }),
