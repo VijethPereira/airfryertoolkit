@@ -59,9 +59,9 @@ export const PREHEAT_CHARTS: PreheatChart[] = [
  * - `auto`: preheating is built into the cooking programs and the unit signals when to add food; no minutes given;
  * - `none`: the document says the unit needs no preheat;
  * - `notMentioned`: the document was read and does not mention preheating;
- * - `notReread`: the document was not re-read for this page (no copy on file), so nothing is claimed.
+ * - `programNoTime`: the document lists a preheat program but gives no time or temperature, so the default applies.
  */
-export type PreheatKind = 'chart' | 'fixed' | 'auto' | 'none' | 'notMentioned' | 'notReread';
+export type PreheatKind = 'chart' | 'fixed' | 'auto' | 'none' | 'notMentioned' | 'programNoTime';
 export type PreheatDocType = 'manual' | 'specSheet' | 'productPage' | 'ownersGuide';
 /** Programs a document names as preheating, or as skipping the preheat. */
 export type PreheatProgram = 'airFry' | 'roast' | 'bake' | 'broil' | 'pizza' | 'reheat' | 'dehydrate';
@@ -72,9 +72,9 @@ export interface ModelPreheat {
   docType: PreheatDocType;
   /** The document read, when it is not the model's `source` in models.ts. */
   source?: string;
-  /** PDF pages that say it; empty for a product page or a document not re-read. */
+  /** PDF pages that say it; empty for a product page. */
   pages: number[];
-  read: string | null;
+  read: string;
   fixed?: { tempF: number; minutes: number };
   /** `auto`: the programs the document says preheat and then signal Add Food (omitted: it says every program but `skips`). */
   programs?: PreheatProgram[];
@@ -130,10 +130,10 @@ export const MODEL_PREHEAT: ModelPreheat[] = [
   instant('instant-vortex-xl-versazone-9', [16, 17, 19], ['airFry', 'roast', 'bake', 'broil']),
 
   // EU models: manufacturer product pages read 2026-11-18 (EU_READ). None of them says how long to preheat,
-  // except that the CAF-DC601-KEU page lists a "Preheat" program with no time or temperature. Its EU manual
-  // was not read, so nothing is claimed for it.
+  // except that the CAF-DC601-KEU page lists a "Preheat" program with no time or temperature, so the default
+  // minutes apply. Its EU manual was not read.
   ...['ninja-pro-af140eu', 'philips-2000-na230-eu', 'philips-3000-dual-na351-eu', 'philips-3000-dual-na350-eu', 'philips-5000-dual-na555-eu', 'philips-premium-xxl-hd9650-eu', 'philips-5000-xxl-hd9285-eu', 'cosori-pro-le-4-7l-keu'].map(
     (modelId): ModelPreheat => ({ modelId, kind: 'notMentioned', docType: 'productPage', pages: [], read: EU_READ }),
   ),
-  { modelId: 'cosori-turboblaze-6l-keu', kind: 'notReread', docType: 'productPage', pages: [], read: null },
+  { modelId: 'cosori-turboblaze-6l-keu', kind: 'programNoTime', docType: 'productPage', source: 'https://cosori.es/products/freidora-de-aire-turbo-blaze-6l', pages: [], read: EU_READ },
 ];

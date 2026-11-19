@@ -90,8 +90,8 @@ export interface PreheatModelCopy {
     none: string;
     /** {DOC}: document type; {DEFAULT}: the default answer. */
     notMentioned: string;
-    /** {DEFAULT}. */
-    notReread: string;
+    /** {DOC}, {DEFAULT}: the document lists a preheat program but gives no minutes. */
+    programNoTime: string;
   };
   docTypes: Record<PreheatDocType, string>;
   programs: Record<PreheatProgram, string>;
@@ -99,7 +99,6 @@ export interface PreheatModelCopy {
   sourcePages: string;
   /** {DOC}, {DATE}. */
   sourceNoPage: string;
-  sourceNotReread: string;
   tableHeading: string;
   tableIntro: string;
   headers: { model: string; says: string; minutes: string; source: string };
@@ -129,13 +128,12 @@ export const preheatModels: PreheatModelCopy = {
     autoSkippable: 'The preheat can be skipped.',
     none: 'No preheat needed: the spec sheet lists “Instant on/no pre-heat”.',
     notMentioned: 'The {DOC} does not mention preheating, so use the default. {DEFAULT}',
-    notReread: 'This guide was not re-read for this page, so use the default. {DEFAULT}',
+    programNoTime: 'The {DOC} lists a Preheat program but gives no time or temperature, so use the default. {DEFAULT}',
   },
   docTypes: { manual: 'manual', specSheet: 'spec sheet (not a manual)', productPage: 'product page', ownersGuide: 'owner’s guide' },
   programs: { airFry: 'Air Fry', roast: 'Roast', bake: 'Bake', broil: 'Broil', pizza: 'Pizza', reheat: 'Reheat', dehydrate: 'Dehydrate' },
   sourcePages: '{DOC}, page {PAGES}, read {DATE}',
   sourceNoPage: '{DOC}, read {DATE}',
-  sourceNotReread: 'Not re-read',
   tableHeading: 'What each manual says',
   tableIntro: 'Every model in the max-temperature table, with what its own document says about preheating and the page it says it on.',
   headers: { model: 'Model', says: 'The document says', minutes: 'Minutes', source: 'Source' },
@@ -145,7 +143,7 @@ export const preheatModels: PreheatModelCopy = {
     auto: 'Preheats automatically',
     none: 'No preheat',
     notMentioned: 'Not mentioned',
-    notReread: 'Not re-read',
+    programNoTime: 'Preheat program, no time given',
   },
   minutesCell: { chart: '{MIN_MIN}–{MIN_MAX} by temperature', fixed: '{MIN} at {TEMP}', auto: 'Until Add Food', none: 'None', default: 'Default' },
   filterBrand: 'Brand',

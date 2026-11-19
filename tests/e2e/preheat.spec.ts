@@ -52,29 +52,30 @@ function maxTempProse(locale: LocaleCode): string {
 }
 
 test.describe('preheat data (src/data/preheat.ts)', () => {
-  test('every model has exactly one entry, and every re-read entry names its read date and pages', () => {
+  test('every model has exactly one entry, and every entry names its read date and pages', () => {
     expect(MODEL_PREHEAT.map((p) => p.modelId).sort()).toEqual(MODELS.map((m) => m.id).sort());
     for (const p of MODEL_PREHEAT) {
-      if (p.kind === 'notReread') {
-        expect(p.read, p.modelId).toBeNull();
-        expect(p.pages, p.modelId).toEqual([]);
-        continue;
-      }
       expect(p.read, p.modelId).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      // A document that says something cites the page; "not mentioned" has no page to cite.
+      // A document that says something cites the page; "not mentioned" has no page to cite, and a
+      // product page that only lists a preheat program has no pages at all.
       if (p.kind === 'notMentioned') expect(p.pages, p.modelId).toEqual([]);
-      else expect(p.pages.length, p.modelId).toBeGreaterThan(0);
+      else if (p.kind === 'programNoTime') {
+        expect(p.docType, p.modelId).toBe('productPage');
+        expect(p.pages, p.modelId).toEqual([]);
+      } else expect(p.pages.length, p.modelId).toBeGreaterThan(0);
       if (p.kind === 'chart') expect(PREHEAT_CHARTS.some((c) => c.modelId === p.modelId), p.modelId).toBe(true);
       if (p.kind === 'fixed') expect(p.fixed, p.modelId).toBeTruthy();
       if (p.kind === 'none') expect(p.docType, p.modelId).toBe('specSheet');
     }
-    // Ninja: the guides in manuals/ninja/ were re-read, so no Ninja entry is left as notReread.
-    expect(MODEL_PREHEAT.filter((p) => p.modelId.startsWith('ninja-')).every((p) => p.kind !== 'notReread')).toBe(true);
+    // The TurboBlaze EU product page (read 2026-11-18) lists a Preheat program with no time: it links that page.
+    const tb = MODEL_PREHEAT.find((p) => p.modelId === 'cosori-turboblaze-6l-keu')!;
+    expect(tb.kind).toBe('programNoTime');
+    expect(tb.source).toBe('https://cosori.es/products/freidora-de-aire-turbo-blaze-6l');
+    expect(tb.read).toBe('2026-11-18');
   });
 
   test('the brand tables agree with what each document says', () => {
     for (const p of MODEL_PREHEAT) {
-      if (p.kind === 'notReread') continue;
       expect(MODELS.find((m) => m.id === p.modelId)!.preheat, p.modelId).toBe(KIND_TO_MODE[p.kind]);
     }
   });
@@ -247,6 +248,11 @@ test.describe('/preheat page', () => {
     await expect(page.locator('#aph-models tbody tr[data-kind="auto"]')).toHaveCount(MODELS.filter((m) => m.brand === 'instant').length);
     await page.goto(`${PREHEAT_PATH}?kind=notMentioned`);
     await expect(page.locator('#aph-models tbody tr')).toHaveCount(MODEL_PREHEAT.filter((p) => p.kind === 'notMentioned').length);
+    await page.goto(`${PREHEAT_PATH}?kind=programNoTime`);
+    await expect(page.locator('#aph-models tbody tr')).toHaveCount(1);
+    await expect(page.locator('#aph-models tr[data-model="cosori-turboblaze-6l-keu"] td:nth-child(2)')).toHaveText('Preheat program, no time given');
+    await expect(page.locator('#aph-models tr[data-model="cosori-turboblaze-6l-keu"] td:nth-child(3)')).toHaveText(`Default (${DEFAULT_MINUTES.min}–${DEFAULT_MINUTES.max})`);
+    await expect(page.locator('#aph-models tr[data-model="cosori-turboblaze-6l-keu"] td:nth-child(4) a')).toHaveAttribute('href', 'https://cosori.es/products/freidora-de-aire-turbo-blaze-6l');
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://airfryertoolkit.com/preheat');
     await ctx.close();
   });
@@ -334,6 +340,16 @@ test.describe('/preheat model picker and per-model table on /es … /de', () => 
       await expect(answer).toContainText(`${defaultPreheatMinutes(392)}`);
       await expect(answer).toContainText('200°C');
       await expect(page.locator('#aph-source')).toContainText(m.docTypes.productPage);
+      // TurboBlaze EU: its page lists a Preheat program with no time, so the row links the page and shows the default range.
+      const tbRow = page.locator('#aph-models tr[data-model="cosori-turboblaze-6l-keu"]');
+      await expect(tbRow).toHaveAttribute('data-kind', 'programNoTime');
+      await expect(tbRow.locator('td:nth-child(2)')).toHaveText(m.kinds.programNoTime);
+      await expect(tbRow.locator('td:nth-child(3)')).toHaveText(`${m.minutesCell.default} (${DEFAULT_MINUTES.min}–${DEFAULT_MINUTES.max})`);
+      await expect(tbRow.locator('td:nth-child(4) a')).toHaveAttribute('href', 'https://cosori.es/products/freidora-de-aire-turbo-blaze-6l');
+      await expect(tbRow.locator('td:nth-child(4)')).toContainText('2026-11-18');
+      await page.selectOption('#aph-model', 'cosori-turboblaze-6l-keu');
+      await expect(answer).toContainText(fillPlaceholders(m.answers.programNoTime, { DOC: m.docTypes.productPage, DEFAULT: '' }).trim());
+      await expect(answer).toContainText(`${defaultPreheatMinutes(392)}`);
       // Filters are plain links that stay on the locale page.
       for (const h of await page.locator('#models .filters a').evaluateAll((as) => as.map((a) => a.getAttribute('href')!))) expect(h.startsWith(localizedPath(code, PREHEAT_PATH)), h).toBe(true);
       await page.goto(`${localizedPath(code, PREHEAT_PATH)}?brand=philips#models`);

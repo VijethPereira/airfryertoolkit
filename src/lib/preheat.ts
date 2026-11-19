@@ -82,7 +82,7 @@ export type ModelAnswer =
   | { kind: 'auto' }
   | { kind: 'none' }
   | { kind: 'notMentioned'; defaultMinutes: number | null }
-  | { kind: 'notReread'; defaultMinutes: number | null };
+  | { kind: 'programNoTime'; defaultMinutes: number | null };
 
 /** What to do for this model at this temperature, from its document only. */
 export function modelAnswer(model: FryerModel, tempF: number): ModelAnswer {
@@ -102,10 +102,10 @@ export function modelAnswer(model: FryerModel, tempF: number): ModelAnswer {
       return { kind: 'none' };
     case 'notMentioned':
       return { kind: 'notMentioned', defaultMinutes: defaultPreheatMinutes(tempF) };
-    case 'notReread':
-      return { kind: 'notReread', defaultMinutes: defaultPreheatMinutes(tempF) };
+    case 'programNoTime':
+      return { kind: 'programNoTime', defaultMinutes: defaultPreheatMinutes(tempF) };
   }
 }
 
 /** The models.ts `preheat` enum each preheat kind corresponds to (tested, so the brand tables agree with /preheat). */
-export const KIND_TO_MODE = { chart: 'auto', fixed: 'manual', auto: 'auto', none: 'none', notMentioned: 'unknown' } as const;
+export const KIND_TO_MODE = { chart: 'auto', fixed: 'manual', auto: 'auto', none: 'none', notMentioned: 'unknown', programNoTime: 'unknown' } as const;

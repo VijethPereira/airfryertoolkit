@@ -25,7 +25,7 @@ const brandsDict = getBrandsDictionary(locale);
 const cFirst = celsiusFirst(locale);
 const base = localizedPath(locale, PREHEAT_PATH);
 
-const KINDS: PreheatKind[] = ['chart', 'fixed', 'auto', 'none', 'notMentioned', 'notReread'];
+const KINDS: PreheatKind[] = ['chart', 'fixed', 'auto', 'none', 'notMentioned', 'programNoTime'];
 type SortKey = 'brand' | 'kind';
 const params = Astro.url.searchParams;
 const all = preheatModels();
@@ -115,9 +115,7 @@ const brandPage = (k: BrandKey) => (LIVE_PAGES.has(brandConfig(k).path) ? locali
                 <td>{m.kinds[r.preheat.kind]}</td>
                 <td>{minutesCell(r)}</td>
                 <td>
-                  {r.preheat.kind === 'notReread'
-                    ? <span>{sourceLine(m, r.preheat)}</span>
-                    : <a href={r.url} rel="nofollow noopener" target="_blank" class="cell-link">{sourceLine(m, r.preheat)}</a>}
+                  <a href={r.url} rel="nofollow noopener" target="_blank" class="cell-link">{sourceLine(m, r.preheat)}</a>
                 </td>
               </tr>
             );

@@ -52,7 +52,6 @@ export function preheatValues(): Record<string, string> {
     EX2_PRO: String(lo.pro),
     EX2_TB: String(lo.tb),
     N_MODELS: String(MODEL_PREHEAT.length),
-    N_READ: String(MODEL_PREHEAT.filter((p) => p.kind !== 'notReread').length),
   };
 }
 
@@ -89,11 +88,10 @@ const join = (items: string[], and: string) => (items.length < 2 ? items.join(''
 
 /** Where a model's entry comes from: document type, pages and read date. */
 export function sourceLine(m: PreheatModelCopy, p: ModelPreheat): string {
-  if (p.kind === 'notReread') return m.sourceNotReread;
   const doc = m.docTypes[p.docType];
   return p.pages.length
-    ? fillPlaceholders(m.sourcePages, { DOC: doc, PAGES: formatPages(p.pages), DATE: p.read! })
-    : fillPlaceholders(m.sourceNoPage, { DOC: doc, DATE: p.read! });
+    ? fillPlaceholders(m.sourcePages, { DOC: doc, PAGES: formatPages(p.pages), DATE: p.read })
+    : fillPlaceholders(m.sourceNoPage, { DOC: doc, DATE: p.read });
 }
 
 /** The answer for a chosen model (English only): from its own document, falling back to the default where it says nothing. */
@@ -123,8 +121,8 @@ export function modelAnswerText(c: PreheatCopy, m: PreheatModelCopy, model: Frye
       return { answer: m.answers.none, source, minutes: 0 };
     case 'notMentioned':
       return fallback(fillPlaceholders(m.answers.notMentioned, { DOC: m.docTypes[p.docType], DEFAULT: '{DEFAULT}' }), a.defaultMinutes);
-    case 'notReread':
-      return fallback(m.answers.notReread, a.defaultMinutes);
+    case 'programNoTime':
+      return fallback(fillPlaceholders(m.answers.programNoTime, { DOC: m.docTypes[p.docType], DEFAULT: '{DEFAULT}' }), a.defaultMinutes);
   }
 }
 
